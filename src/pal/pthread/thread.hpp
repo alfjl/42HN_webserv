@@ -1,9 +1,9 @@
-#ifndef WEBSERV_PAL_THREAD_HPP
-#define WEBSERV_PAL_THREAD_HPP
+#ifndef WEBSERV_PAL_PTHREAD_THREAD_HPP
+#define WEBSERV_PAL_PTHREAD_THREAD_HPP
 
-#include "../defs.hpp"
+#include "../../defs.hpp"
 
-namespace webserv::pal {
+namespace webserv::pal::pthread {
 
     class thread {
         pthread_t  the_thread;

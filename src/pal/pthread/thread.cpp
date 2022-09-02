@@ -1,6 +1,6 @@
 #include "thread.hpp"
 
-namespace webserv::pal {
+namespace webserv::pal::pthread {
 
     thread::thread() {
         created = false;
