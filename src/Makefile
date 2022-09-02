@@ -41,6 +41,6 @@ fclean: clean
 
 .phony: re
 re: clean
-	- $(MAKE) -C all
+	- $(MAKE) all
 
 -include $(DEPENDS)

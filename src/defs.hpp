@@ -4,17 +4,17 @@
 extern "C" {
 
 #include <pthread.h>
+#include <unistd.h>
+#include <sys/socket.h>
 
 }
 
 #include <iostream>
 #include <stdexcept>
 
-#define nullptr NULL
+#include "pal/cpp/nullptr.hpp"
 
 namespace webserv {
-
-
 
 }
 
