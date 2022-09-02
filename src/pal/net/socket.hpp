@@ -3,7 +3,7 @@
 
 #include "../../defs.hpp"
 
-namespace webserv::pal::socket {
+namespace webserv::pal::net {
 
     class socket {
         int fd;

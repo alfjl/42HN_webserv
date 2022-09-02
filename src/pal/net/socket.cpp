@@ -1,6 +1,6 @@
 #include "socket.hpp"
 
-namespace webserv::pal::socket {
+namespace webserv::pal::net {
 
     socket::socket() {
         fd = -1;
