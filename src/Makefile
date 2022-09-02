@@ -1,0 +1,46 @@
+EXECUTABLE = ./webserv
+
+# TODO: Add an actual list of sources and headers here
+
+SOURCES = $(shell find . -name "*.cpp")
+HEADERS = $(shell find . -name "*.hpp")
+
+OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
+DEPENDS = $(patsubst %.cpp, %.d, $(SOURCES))
+
+CCFLAGS = --std=c++98 -g -Wall
+LDFLAGS =
+
+%.o: %.cpp
+	$(CXX) $(CCFLAGS) -MMD -MP -c $< -o $@
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(EXECUTABLE)
+
+all: $(EXECUTABLE)
+
+.phony: run
+run: all
+	$(EXECUTABLE) ${RAVEN_MUDLIB}
+
+.phony: debug
+debug: all
+		gdb $(EXECUTABLE)
+
+.phony: leaks
+leaks: all
+		valgrind --leak-check=full $(EXECUTABLE)
+
+.phony: clean
+clean:
+	- $(RM) $(OBJECTS) $(DEPENDS)
+
+.phony: fclean
+fclean: clean
+	- $(RM) $(EXECUTABLE)
+
+.phony: re
+re: clean
+	- $(MAKE) -C all
+
+-include $(DEPENDS)
