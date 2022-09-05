@@ -40,7 +40,7 @@ fclean: clean
 	- $(RM) $(EXECUTABLE)
 
 .phony: re
-re: clean
+re: fclean
 	- $(MAKE) all
 
 -include $(DEPENDS)
