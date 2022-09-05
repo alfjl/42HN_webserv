@@ -1,6 +1,8 @@
 #include "mutex.hpp"
 
-namespace webserv::pal::pthread {
+namespace webserv {
+    namespace pal {
+        namespace pthread {
 
     mutex::mutex() {
         /* TODO: Ensure that the mutex was created successfully */
@@ -29,4 +31,6 @@ namespace webserv::pal::pthread {
         return (false);
     }
 
+        }
+    }
 }

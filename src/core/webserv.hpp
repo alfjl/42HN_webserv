@@ -3,14 +3,16 @@
 
 #include "../defs.hpp"
 
-namespace webserv::core {
+namespace webserv {
+    namespace core {
 
-    class webserv {
-    public:
-        webserv();
-        ~webserv();
-    };
+        class webserv {
+        public:
+            webserv();
+            ~webserv();
+        };
 
+    }
 }
 
 #endif

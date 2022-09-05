@@ -3,7 +3,9 @@
 
 #include "../../defs.hpp"
 
-namespace webserv::pal::pthread {
+namespace webserv {
+    namespace pal {
+        namespace pthread {
 
     class mutex {
         pthread_mutex_t  the_mutex;
@@ -17,6 +19,8 @@ namespace webserv::pal::pthread {
         bool trylock();
     };
 
+        }
+    }
 }
 
 #endif

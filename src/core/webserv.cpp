@@ -1,6 +1,7 @@
 #include "webserv.hpp"
 
-namespace webserv::core {
+namespace webserv {
+    namespace core {
 
     webserv::webserv() {
 
@@ -10,4 +11,5 @@ namespace webserv::core {
         
     }
 
+    }
 }
