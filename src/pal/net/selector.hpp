@@ -3,7 +3,9 @@
 
 #include "../../defs.hpp"
 
-namespace webserv::pal::net {
+namespace webserv {
+    namespace pal {
+        namespace net {
 
     class selector {
     public:
@@ -13,6 +15,8 @@ namespace webserv::pal::net {
         /* TODO: Adding, removing, selecting, yada yada yada ... */
     };
 
+        }
+    }
 }
 
 #endif

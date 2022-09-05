@@ -3,7 +3,9 @@
 
 #include "../../defs.hpp"
 
-namespace webserv::pal::net {
+namespace webserv {
+    namespace pal {
+        namespace net {
 
     class socket {
         int fd;
@@ -14,6 +16,8 @@ namespace webserv::pal::net {
         /* TODO: Reading, writing, yada yada yada ... */
     };
 
+        }
+    }
 }
 
 #endif
