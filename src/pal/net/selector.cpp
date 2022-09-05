@@ -1,6 +1,8 @@
 #include "selector.hpp"
 
-namespace webserv::pal::net {
+namespace webserv {
+    namespace pal {
+        namespace net {
 
     selector::selector() {
 
@@ -10,4 +12,6 @@ namespace webserv::pal::net {
         
     }
 
+        }
+    }
 }

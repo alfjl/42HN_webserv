@@ -3,7 +3,9 @@
 
 #include "../../defs.hpp"
 
-namespace webserv::pal::pthread {
+namespace webserv {
+    namespace pal {
+        namespace pthread {
 
     class thread {
         pthread_t  the_thread;
@@ -17,6 +19,8 @@ namespace webserv::pal::pthread {
         void* join();
     };
 
+        }
+    }
 }
 
 #endif

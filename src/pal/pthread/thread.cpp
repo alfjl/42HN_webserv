@@ -1,6 +1,8 @@
 #include "thread.hpp"
 
-namespace webserv::pal::pthread {
+namespace webserv {
+    namespace pal {
+        namespace pthread {
 
     thread::thread() {
         created = false;
@@ -34,5 +36,8 @@ namespace webserv::pal::pthread {
         }
 
         return retval;
+    }
+
+        }
     }
 }
