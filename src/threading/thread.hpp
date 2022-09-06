@@ -2,37 +2,34 @@
 #define WEBSERV_THREADING_THREAD_HPP
 
 #include "../pal/pthread/thread.hpp"
+#include "task.hpp"
 
 namespace webserv {
     namespace threading {
 
-    template<typename R, typename T>
+    static void* start_task(void* param) {
+        ((runnable*) param)->run();
+        return NULL;
+    }
+
+    template<typename T>
     class thread {
         webserv::pal::pthread::thread  the_thread;
-        R  retval;
+        T                              task;
 
     public:
-        thread() {
+        thread(T _task) : task(_task) {}
 
+        ~thread() {}
+
+        void start() {
+            the_thread.start(start_task, &task);
         }
 
-        ~thread() {
-
+        void interrupt() {
+            /* TODO */
         }
-
-        void start(T arg) {
-            the_thread.start(arg);
-        }
-
-        R join() {
-            retval = the_thread.join();
-            return retval;
-        }
-
-        virtual R run(T arg) = 0;
     };
-
-    typedef thread<void*, void*> basic_thread;
 
     }
 }
