@@ -10,7 +10,7 @@ namespace webserv {
 	/* TODO: Propper interuption of the threads in run() */
 
 		void run() {
-			while (!was_interrupted()) {
+			while (!get().is_terminating()) {
 				basic_task* t = get().next_task();
 				if (t != NULL) {
 					t->run();
@@ -59,14 +59,23 @@ namespace webserv {
 	}
 
 	void thread_pool::interrupt() {
+		cond.lock();
+		_is_terminating = true;
+		cond.unlock();
 		for (std::vector<thread<worker_thread_task>*>::iterator i = _threads.begin(); i != _threads.end(); i++) {
 			(*i)->interrupt();
+			cond.lock();
+			cond.signal();
+			cond.unlock();
 		}
 	}
 
-	// void thread_pool::interrupt_hard() {
-
-	// }
+	bool thread_pool::is_terminating() {
+		cond.lock();
+		bool value = _is_terminating;
+		cond.unlock();
+		return value;
+	}
 
 	}
 }

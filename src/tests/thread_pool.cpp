@@ -13,6 +13,5 @@ void test_thread_pool() {
 	for (int i = 0; i < 100; i++) {
 		pool.add_task(new test_task(i));
 	}
-	pool.interrupt();
 }
 

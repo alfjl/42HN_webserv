@@ -19,13 +19,15 @@ namespace webserv {
 		void  add_task(basic_task* t);
 
 		void interrupt();
-		// void interrupt_hard();
+
+		bool is_terminating();
 
 		
 	private:
 		std::queue<basic_task*>                  _waiting_tasks;
 		std::vector<thread<worker_thread_task>*> _threads;
 		webserv::threading::condvar              cond;
+		bool                                     _is_terminating;
 
 	};
 	
