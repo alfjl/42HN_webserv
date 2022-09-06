@@ -11,8 +11,18 @@ namespace webserv {
         virtual void run() = 0;
     };
 
+    class basic_task : public runnable {
+    protected:
+        bool was_interrupted() { /* TODO */ return false; }
+    
+    public:
+        basic_task() {}
+        virtual ~basic_task() {}
+        void interrupt() { /* TODO */ }
+    };
+
     template<typename T>
-    class task : public runnable {
+    class task : public basic_task {
     public:
         typedef T  arg_type;
 
@@ -22,14 +32,10 @@ namespace webserv {
     protected:
         T& get() { return value; }
         T& get() const { return value; }
-        bool was_interrupted() { return false; }
 
     public:
         task(T _value) : value(_value) {}
         virtual ~task() {}
-        virtual void run() = 0;
-
-        void interrupt() { /* TODO */ }
     };
 
     }
