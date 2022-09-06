@@ -12,13 +12,22 @@ namespace webserv {
     };
 
     class basic_task : public runnable {
+    private:
+        bool _was_interrupted;
+
     protected:
-        bool was_interrupted() { /* TODO */ return false; }
+        bool was_interrupted() { return _was_interrupted; }
     
     public:
-        basic_task() {}
-        virtual ~basic_task() {}
-        void interrupt() { /* TODO */ }
+        basic_task() : _was_interrupted(false) {
+        }
+
+        virtual ~basic_task() {
+        }
+
+        void interrupt() {
+            _was_interrupted = true;
+        }
     };
 
     template<typename T>

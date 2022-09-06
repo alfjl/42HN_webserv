@@ -24,7 +24,7 @@ namespace webserv {
         }
 
         void interrupt() {
-            /* TODO */
+            task.interrupt();
         }
     };
 
