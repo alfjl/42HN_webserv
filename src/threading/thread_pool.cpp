@@ -7,12 +7,15 @@ namespace webserv {
 	struct worker_thread_task : public task<thread_pool&> {
 		worker_thread_task(arg_type arg) : task(arg) {}
 
+	/* TODO: Propper interuption of the threads in run() */
+
 		void run() {
-			basic_task* t = get().next_task();
-			while (t != NULL) {
-				t->run();
-				delete t;
-				t = get().next_task();
+			while (!was_interrupted()) {
+				basic_task* t = get().next_task();
+				if (t != NULL) {
+					t->run();
+					delete t;
+				}
 			}
 			std::cout << "Ending Worker_thread_task" << std::endl;
 		}
@@ -57,7 +60,7 @@ namespace webserv {
 
 	void thread_pool::interrupt() {
 		for (std::vector<thread<worker_thread_task>*>::iterator i = _threads.begin(); i != _threads.end(); i++) {
-			delete (*i);
+			(*i)->interrupt();
 		}
 	}
 
