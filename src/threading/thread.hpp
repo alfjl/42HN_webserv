@@ -7,7 +7,7 @@
 namespace webserv {
     namespace threading {
 
-    static void* start_task(void* param) {
+    void* start_task(void* param) {
         ((runnable*) param)->run();
         return NULL;
     }
