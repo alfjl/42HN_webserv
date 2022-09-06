@@ -12,8 +12,10 @@ extern "C" {
 
 #include <iostream>
 #include <stdexcept>
+#include <string>
 #include <vector>
 #include <queue>
+#include <stack>
 
 #include "pal/cpp/nullptr.hpp"
 
