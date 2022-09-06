@@ -8,6 +8,7 @@ namespace webserv {
         namespace pthread {
 
     class mutex {
+    protected:
         pthread_mutex_t  the_mutex;
     
     public:
