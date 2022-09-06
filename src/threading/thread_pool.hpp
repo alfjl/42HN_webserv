@@ -3,6 +3,8 @@
 
 #include "../defs.hpp"
 #include "mutex.hpp"
+#include "task.hpp"
+#include "thread.hpp"
 
 namespace webserv {
 	namespace threading {
@@ -15,6 +17,9 @@ namespace webserv {
 		~thread_pool();
 		basic_task* next_task();
 		void  add_task(basic_task* t);
+
+		void interrupt();
+		// void interrupt_hard();
 
 		
 	private:
