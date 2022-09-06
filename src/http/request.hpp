@@ -1,6 +1,8 @@
 #ifndef WEBSERV_HTTP_REQUEST_HPP
 #define WEBSERV_HTTP_REQUEST_HPP
 
+#include "uri.hpp"
+
 namespace webserv {
     namespace http {
 
@@ -8,6 +10,10 @@ namespace webserv {
          * This section implements an HTTP request line, as described in:
          *
          *     https://www.rfc-editor.org/rfc/rfc2616#section-5.1
+         * 
+         * Some `request_method`s have been left out since there is no
+         * immediate requirement to implement them.
+         *                                       - nijakow
          */
 
         enum request_method {
@@ -21,10 +27,6 @@ namespace webserv {
             // request_method_connect
         };
 
-        class uri {
-            /* TODO */
-        };
-
         typedef uri request_uri;
 
         class http_version {
@@ -34,11 +36,10 @@ namespace webserv {
         class request_line {
         private:
             enum request_method _method;
-            request_uri         _uri;
-            http_version        _http_version;
+                 request_uri    _uri;
+                 http_version   _http_version;
         
         public:
-
         };
 
 
