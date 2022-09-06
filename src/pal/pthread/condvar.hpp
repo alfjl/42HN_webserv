@@ -17,6 +17,7 @@ namespace webserv {
 
         void wait();
         void signal();
+        void signal_all();
     };
 
         }
