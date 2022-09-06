@@ -39,8 +39,8 @@ namespace webserv {
         T  value;
     
     protected:
-        T& get() { return value; }
-        T& get() const { return value; }
+        T get()       { return value; }
+        T get() const { return value; }
 
     public:
         task(T _value) : value(_value) {}
