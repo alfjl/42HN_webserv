@@ -9,7 +9,8 @@ namespace webserv {
 
         class parser : public iflow {
         private:
-            iflow&  flow;
+            iflow&            flow;
+            std::stack<char>  pushbacks;
 
             bool this_char(char& loc);
 
