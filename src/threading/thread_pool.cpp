@@ -64,10 +64,10 @@ namespace webserv {
 		cond.unlock();
 		for (std::vector<thread<worker_thread_task>*>::iterator i = _threads.begin(); i != _threads.end(); i++) {
 			(*i)->interrupt();
-			cond.lock();
-			cond.signal();
-			cond.unlock();
 		}
+		cond.lock();
+		cond.signal_all();
+		cond.unlock();
 	}
 
 	bool thread_pool::is_terminating() {
