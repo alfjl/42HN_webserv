@@ -7,10 +7,7 @@
 namespace webserv {
     namespace threading {
 
-    static void* start_task(void* param) {
-        ((runnable*) param)->run();
-        return NULL;
-    }
+    void* start_task(void* param);
 
     template<typename T>
     class thread {
