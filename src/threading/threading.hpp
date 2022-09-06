@@ -4,5 +4,6 @@
 #include "task.hpp"
 #include "mutex.hpp"
 #include "thread.hpp"
+#include "thread_pool.hpp"
 
 #endif

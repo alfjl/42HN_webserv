@@ -8,7 +8,7 @@ namespace webserv {
     namespace pal {
         namespace pthread {
 
-    class condvar : mutex {
+    class condvar : public mutex {
         pthread_cond_t   the_cond_var;
     
     public:
