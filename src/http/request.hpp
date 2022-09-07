@@ -2,6 +2,7 @@
 #define WEBSERV_HTTP_REQUEST_HPP
 
 #include "uri.hpp"
+#include "fields.hpp"
 
 namespace webserv {
     namespace http {
@@ -54,6 +55,9 @@ namespace webserv {
          */
         class request_core {
         private:
+            request_line  _line;
+            fields        _fields;
+        
         public:
         };
 
