@@ -1,5 +1,7 @@
 #include "parser.hpp"
 
+#include "../defs.hpp"
+
 namespace webserv {
     namespace util {
 
@@ -9,6 +11,10 @@ namespace webserv {
 
         parser::~parser() {
 
+        }
+
+        void parser::parse_error(std::string message) {
+            throw std::runtime_error(message);
         }
 
         bool parser::has_next() {
@@ -59,6 +65,16 @@ namespace webserv {
                 }
             }
             return true;
+        }
+
+        void parser::expect(char c) {
+            if (!check(c))
+                parse_error("Expected a different character!");
+        }
+
+        void parser::expects(std::string text) {
+            if (!checks(text))
+                parse_error("Expected a different string!");
         }
 
     }

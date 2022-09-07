@@ -28,8 +28,6 @@ namespace webserv {
             // http_method_connect
         };
 
-        typedef uri request_uri;
-
         class http_version {
             /* TODO */
         };
@@ -37,11 +35,13 @@ namespace webserv {
         class request_line {
         private:
             enum http_method   _method;
-                 request_uri   _uri;
+                 uri           _uri;
                  http_version  _http_version;
         
         public:
             void set_method(enum http_method m) { _method = m; }
+            uri& get_uri() { return _uri; }
+            http_version& get_version() { return _http_version; }
         };
 
 

@@ -18,11 +18,16 @@ namespace webserv {
             parser(iflow& flow);
             ~parser();
 
+            void parse_error(std::string message);
+
             bool has_next();
             bool next_char(char& loc);
 
             bool check(char c);
             bool checks(std::string text);
+
+            void expect(char c);
+            void expects(std::string text);
         };
 
 

@@ -11,6 +11,10 @@ namespace webserv {
 
         }
 
+        void request_parser::expect_space() {
+            expect(' ');
+        }
+
         /*
          * This function checks for HTTP newlines, that is "\r\n".
          * If one of these gets detected, `true` gets returned and
@@ -23,14 +27,37 @@ namespace webserv {
             return checks("\r\n");
         }
 
+        void request_parser::expect_http_newline() {
+            if (!check_http_newline())
+                parse_error("Expected a newline!");
+        }
 
 
+
+        void parse_uri(request_parser& parser, uri& into) {
+            parser.parse_error("Oof. URI can not be parsed right now");
+        }
+
+        void parse_http_version(request_parser& parser, http_version& into) {
+            parser.parse_error("Oof. Version can not be parsed right now");
+            parser.expects("HTTP/1.1");
+        }
 
         void parse_http_request_line(request_parser& parser, request_line& line) {
                  if (parser.checks("GET"))    line.set_method(http_method_get);
             else if (parser.checks("POST"))   line.set_method(http_method_post);
             else if (parser.checks("DELETE")) line.set_method(http_method_delete);
             else /* TODO: Error */;
+
+            parser.expect_space();
+
+            parse_uri(parser, line.get_uri());
+
+            parser.expect_space();
+
+            parse_http_version(parser, line.get_version());
+
+            parser.expect_http_newline();
         }
 
         void parse_http_request_core(request_parser& parser, request_core& into) {
