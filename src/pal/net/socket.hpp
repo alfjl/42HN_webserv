@@ -13,6 +13,11 @@ namespace webserv {
         socket();
         ~socket();
 
+        int get_fd() const { return fd; }
+        
+        virtual bool is_server_socket() const { return false; }
+        virtual bool is_data_socket()   const { return false; }
+
         /* TODO: Reading, writing, yada yada yada ... */
     };
 

@@ -5,12 +5,21 @@ namespace webserv {
         namespace net {
 
     socket::socket() {
-        fd = -1;
+        fd = ::socket(PF_INET, SOCK_STREAM, );
+    }
+
+    socket::socket(int _fd) {
+        fd = _fd;
     }
 
     socket::~socket() {
+        close();
+    }
+
+    void socket::close() {
         if (fd >= 0)
             close(fd);
+        fd = -1;
     }
 
         }
