@@ -17,18 +17,16 @@ namespace webserv {
          *                                       - nijakow
          */
 
-        enum request_method {
-            // request_method_options,
-            request_method_get,
-            // request_method_head,
-            request_method_post,
-            // request_method_put,
-            request_method_delete,
-            // request_method_trace,
-            // request_method_connect
+        enum http_method {
+            // http_method_options,
+            http_method_get,
+            // http_method_head,
+            http_method_post,
+            // http_method_put,
+            http_method_delete,
+            // http_method_trace,
+            // http_method_connect
         };
-
-        typedef uri request_uri;
 
         class http_version {
             /* TODO */
@@ -36,11 +34,14 @@ namespace webserv {
 
         class request_line {
         private:
-            enum request_method _method;
-                 request_uri    _uri;
-                 http_version   _http_version;
+            enum http_method   _method;
+                 uri           _uri;
+                 http_version  _http_version;
         
         public:
+            void set_method(enum http_method m) { _method = m; }
+            uri& get_uri() { return _uri; }
+            http_version& get_version() { return _http_version; }
         };
 
 
@@ -59,6 +60,7 @@ namespace webserv {
             fields        _fields;
         
         public:
+            request_line& get_line() { return _line; }
         };
 
     }
