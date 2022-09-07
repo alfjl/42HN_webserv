@@ -23,6 +23,20 @@ namespace webserv {
             return checks("\r\n");
         }
 
+
+
+
+        void parse_http_request_line(request_parser& parser, request_line& line) {
+                 if (parser.checks("GET"))    line.set_method(http_method_get);
+            else if (parser.checks("POST"))   line.set_method(http_method_post);
+            else if (parser.checks("DELETE")) line.set_method(http_method_delete);
+            else /* TODO: Error */;
+        }
+
+        void parse_http_request_core(request_parser& parser, request_core& into) {
+            parse_http_request_line(parser, into.get_line());
+        }
+
     }
 }
 

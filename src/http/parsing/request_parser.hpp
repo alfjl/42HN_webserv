@@ -1,7 +1,8 @@
-#ifndef WEBSERV_HTTP_REQUEST_PARSER_HPP
-#define WEBSERV_HTTP_REQUEST_PARSER_HPP
+#ifndef WEBSERV_HTTP_PARSING_REQUEST_PARSER_HPP
+#define WEBSERV_HTTP_PARSING_REQUEST_PARSER_HPP
 
-#include "../util/parser.hpp"
+#include "../../util/parser.hpp"
+#include "../request.hpp"
 
 namespace webserv {
     namespace http {
@@ -14,6 +15,8 @@ namespace webserv {
 
             bool check_http_newline();
         };
+
+        void parse_http_request_core(request_parser& parser, request_core& into);
 
     }
 }
