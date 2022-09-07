@@ -8,21 +8,67 @@ namespace webserv {
         namespace net {
 
     class socket {
+
         int fd;
+
     public:
         socket();
-        ~socket();
+        socket(int _fd);
+        virtual ~socket();
+
+        void set_non_blocking();
 
         int get_fd() const { return fd; }
-        
+
         virtual bool is_server_socket() const { return false; }
         virtual bool is_data_socket()   const { return false; }
 
-        /* TODO: Reading, writing, yada yada yada ... */
-    };
+        void close();
 
-        }
-    }
-}
+        friend class selector;
+        /* TODO: Reading, writing, yada yada yada ... */
+
+    }; // class socket
+
+
+    class server_socket : public socket {
+
+    public:
+        server_socket();
+        ~server_socket();
+
+        bool is_server_socket() const { return true; }
+        bool is_data_socket()   const { return false; }
+
+        void close();
+
+        data_socket*    accept();
+        void            listen(int number_elements_queue); // TODO
+        void            bind(int port); // TODO
+
+        /* TODO: Reading, writing, yada yada yada ... */
+
+    }; // class server_socket
+
+
+    class data_socket : public socket {
+
+    public:
+        data_socket();
+        data_socket(int _fd);
+        ~data_socket();
+
+        bool is_server_socket() const { return false; }
+        bool is_data_socket()   const { return true; }
+
+        void close();
+
+        /* TODO: Reading, writing, yada yada yada ... */
+
+    }; // class data_socket
+
+        } // namespace net
+    } // namespace pal
+} // namespace webserv
 
 #endif

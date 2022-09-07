@@ -8,6 +8,7 @@ extern "C" {
 #include <sys/socket.h>
 #include <sys/select.h>
 #include <sys/types.h>
+#include <fcntl.h>
 }
 
 #include <iostream>
