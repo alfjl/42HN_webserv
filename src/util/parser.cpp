@@ -77,5 +77,8 @@ namespace webserv {
                 parse_error("Expected a different string!");
         }
 
+        void parser::skip_spaces() {
+            while (check(' '));
+        }
     }
 }

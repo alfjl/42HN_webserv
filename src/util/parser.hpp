@@ -28,6 +28,8 @@ namespace webserv {
 
             void expect(char c);
             void expects(std::string text);
+
+            void skip_spaces();
         };
 
 

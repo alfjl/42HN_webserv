@@ -8,6 +8,8 @@ namespace webserv {
         public:
             virtual bool has_next() = 0;
             virtual bool next_char(char& loc) = 0;
+
+            char force_next_char();
         };
 
     }

@@ -60,6 +60,23 @@ namespace webserv {
             parser.expect_http_newline();
         }
 
+        void parse_request_fields(request_parser& parser, fields& into) {
+            while (!parser.check_http_newline()) {
+                std::string key;
+                std::string value;
+
+                while (!parser.check(':')) {
+                    key += parser.force_next_char();
+                }
+
+                parser.skip_spaces();
+
+                while (!parser.check_http_newline()) {
+                    key += parser.force_next_char();
+                }
+            }
+        }
+
         void parse_http_request_core(request_parser& parser, request_core& into) {
             parse_http_request_line(parser, into.get_line());
         }
