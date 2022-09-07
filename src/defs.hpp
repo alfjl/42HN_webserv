@@ -16,6 +16,7 @@ extern "C" {
 #include <vector>
 #include <queue>
 #include <stack>
+#include <map>
 
 #include "pal/cpp/nullptr.hpp"
 
