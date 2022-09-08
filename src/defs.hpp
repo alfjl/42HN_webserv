@@ -7,6 +7,8 @@ extern "C" {
 #include <unistd.h>
 #include <sys/socket.h>
 #include <sys/select.h>
+#include <sys/time.h>
+#include <sys/types.h>
 
 }
 
@@ -19,6 +21,7 @@ extern "C" {
 #include <map>
 
 #include "pal/cpp/nullptr.hpp"
+#include "pal/net/sockets.hpp"
 
 namespace webserv {
 
