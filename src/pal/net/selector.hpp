@@ -43,7 +43,7 @@ namespace webserv {
 
         void select() {}
 
-            int     highest_fd;
+            int     highest_fd = -1;
             fd_set  readable;
             fd_set  writeable;
             fd_set  except;
@@ -53,7 +53,14 @@ namespace webserv {
             std::map<socket *, payload_type>::iterator it = elements.begin();
             std::map<socket *, payload_type>::iterator ite = elements.end();
             for ( ; it != ite; ++it) {
-                if (socket.)
+                if (socket.is_server_socket()) {
+
+                }
+                else if (socket.is_data_socket()) {
+
+                }
+                if (it.get_fd() > highest_fd)
+                    highest_fd = it.get_fd();
             }
             the_mutex.unlock();
 
