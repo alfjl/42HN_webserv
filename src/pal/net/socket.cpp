@@ -1,23 +1,36 @@
 #include "socket.hpp"
 
+    // TODO: Test!
+
 namespace webserv {
     namespace pal {
         namespace net {
 
+    /*
+     * Constructs a new stream socket
+     */
     socket::socket() {
         fd = ::socket(PF_INET, SOCK_STREAM, 0);
     }
 
+    /*
+     * Constructs a socket around an existing file descriptor
+     */
     socket::socket(int _fd) {
         fd = _fd;
     }
 
+    /*
+     * Destructs a socket and calls socket::close()
+     * in order to prevent a double close of an already closed socket
+     */
     socket::~socket() {
         close();
     }
 
     /*
-     * Sets socket to non-blocking state, throws error if fcntl() fails
+     * Sets socket to non-blocking state
+     * Throws an exception if fcntl() encounters an error
      */
     void socket::set_non_blocking() {
         int flags = fcntl(fd, F_GETFL, 0); // read out the current flags of fd, for later use when setting non-blocking
@@ -26,20 +39,31 @@ namespace webserv {
         int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK); // set fd to non-blocking
         if (status == -1) // if fcntl went wrong, throw error
             throw std::runtime_error("fcntl(fd, F_SETFL, flags | O_NONBLOCK) returned an error code!");
+
     // TODO add setsockopt() for portability
+
     }
 
+    /*
+     * Closes the socket, if it is still active
+     * Prevents potential problems, if program tries to close
+     * a previously closed socket
+     */
     void socket::close() {
         if (fd >= 0)
             ::close(fd);
         fd = -1;
     }
 
-
+    /*
+     * Destructs a server_socket
+     * Not much to be done, since 'fd' will be closed in parent instance 'socket'
+     */
     server_socket::~server_socket() {}
 
     /*
      * Accepts an incoming request
+     * Throws an exception if ::accept() encounters an error
      */
     data_socket* server_socket::accept() {
         int status = ::accept(this->get_fd(), NULL, NULL);
@@ -49,7 +73,9 @@ namespace webserv {
     }
 
     /*
-     * 
+     * Sets the server_socket into listening mode
+     * for the maximum number of elements in our queue
+     * Throws an exception if ::listen() encounters an error
      */
     void server_socket::listen(int number_elements_queue) {
         int status = ::listen(this->get_fd(), number_elements_queue);
@@ -58,18 +84,27 @@ namespace webserv {
     }
 
     /*
-     * 
+     * Tells server_socket which port it belongs to 
+     * Throws an exception if ::bind() encounters an error
      */
     void server_socket::bind(int port) {
-        struct sockaddr_in server_address;
-        memset(&server_address, 0, sizeof(server_address)); // TODO: Check if we are allowed to use memset()
-        server_address.sin_family = AF_INET;
-        server_address.sin_port = htons(port);
-        int status = ::bind(this->get_fd(), (struct sockaddr *)server_address, sizeof(server_address));
+
+        // TODO: Check if we are allowed to use memset(). Other 42-teams do!
+
+        struct sockaddr_in server_address; // generate new sockaddr struct
+        memset(&server_address, 0, sizeof(server_address)); // initialize with default '0'
+        server_address.sin_family = AF_INET; // set address family to IPv4 addresses
+        server_address.sin_port = htons(port); // set 'port' in address struct
+        int status = ::bind(this->get_fd(), 
+                            (struct sockaddr *)server_address, 
+                            sizeof(server_address)); // bind the server_socket to 'port'
         if (status == -1)
-            throw std::runtime_error("accept(...) returned an error code!");
+            throw std::runtime_error("bind(...) returned an error code!");
     }
 
+    /*
+     * Constructs a data_socket around an existing file descriptor
+     */
     data_socket::data_socket(int _fd) : socket(_fd) {}
 
         } // namespace net
