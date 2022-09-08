@@ -9,7 +9,11 @@ namespace webserv {
 
     class socket {
 
+    private:
         int fd;
+
+    private:
+        socket( const socket& other);
 
     public:
         socket();
@@ -32,7 +36,10 @@ namespace webserv {
 
 
     class server_socket : public socket {
-
+    
+    private:
+        server_socket( const server_socket& other);
+    
     public:
         server_socket();
         ~server_socket();
@@ -52,6 +59,9 @@ namespace webserv {
 
 
     class data_socket : public socket {
+
+    private:
+        data_socket( const data_socket& other);
 
     public:
         data_socket();
