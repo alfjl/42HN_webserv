@@ -14,11 +14,15 @@ namespace webserv {
         typedef T*  payload_type;
 
     private:
-        
+        std::map<socket *, payload_type>    elements; // socket = registered/active socket
 
     public:
         selector();
         ~selector();
+
+        void register_socket(socket *socket, payload_type data_set);
+        void unregister_socket(socket *socket);
+        void select();
 
         /* TODO: Adding, removing, selecting, yada yada yada ... */
 
