@@ -53,13 +53,13 @@ namespace webserv {
             std::map<socket *, payload_type>::iterator it = elements.begin();
             std::map<socket *, payload_type>::iterator ite = elements.end();
             for ( ; it != ite; ++it) {
-                
+                if (socket.)
             }
             the_mutex.unlock();
 
             int status = ::select(highest_fd + 1, readable, writabel, except, NULL);
-            if (status < 0)
-                throw std::runtime_error();
+            if (status < 0) // if select() throws error
+                throw std::runtime_error("select(...) returned an error code!");
             // TODO: Question:
             // "::select() returns 0 if the time limit expires"
             // catch in same exception as '-1' error, or ignore?
