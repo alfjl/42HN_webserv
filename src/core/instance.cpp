@@ -13,7 +13,7 @@ namespace webserv {
 
         void instance::run() {
             while (is_running()) {
-                driver.tick();
+                _driver.tick();
             }
         }
 

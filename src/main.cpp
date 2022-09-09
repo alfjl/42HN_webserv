@@ -1,5 +1,7 @@
 #include "defs.hpp"
 
+#include "core/instance.hpp"
+
 void test_thread_pool();
 void test_shared_ptr ();
 void test_guarded_borrow ();
@@ -15,5 +17,13 @@ int main(int argc, char *argv[]) {
     test_sockets ();
     // std::cout << "\n --------- THREAD POOL --------- \n" << std::endl;
     // test_thread_pool();
+
+    {
+        webserv::core::instance inst;
+
+        inst.get_driver().open_port(4242);
+        inst.run();
+    }
+
     return 0;
 }

@@ -18,7 +18,7 @@ namespace webserv {
             sock->bind(port);
             sock->listen();
 
-            selector.register(sock, NULL);
+            selector.register_socket(sock, NULL);
         }
 
         void driver::tick() {
