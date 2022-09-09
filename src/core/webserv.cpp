@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-    webserv::webserv() {
+    webserv::webserv() : _driver(*this) {
 
     }
 
