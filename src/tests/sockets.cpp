@@ -11,45 +11,87 @@ struct screamer {
 
 void test_sockets () {
 
- //TODO: test with different threads
+    //TODO: test with different threads
 
-int fd10(10);
-int fd50(50);
-int fd60(60);
+    // int fd1 = open("./tests/testfiles/testfile1.txt", O_RDWR);
+    // std::cout << "fd1 = " << fd1 << std::endl;
+    int fd2 = open("./tests/testfiles/testfile2.txt", O_RDWR);
+    std::cout << "fd2 = " << fd2 << std::endl;
+    // int fd3 = open("./tests/testfiles/testfile3.txt", O_RDWR);
+    // std::cout << "fd3 = " << fd3 << std::endl;
+    // int fd4 = open("./tests/testfiles/testfile4.txt", O_RDWR);
+    // std::cout << "fd4 = " << fd4 << std::endl;
+    int fd5 = open("./tests/testfiles/testfile5.txt", O_RDWR);
+    std::cout << "fd5 = " << fd2 << std::endl;
+    int fd6 = open("./tests/testfiles/testfile6.txt", O_RDWR);
+    std::cout << "fd6 = " << fd2 << std::endl;
 
-webserv::pal::net::socket s1;
-webserv::pal::net::socket s2(fd10);
-webserv::pal::net::server_socket server_s3;
-webserv::pal::net::data_socket data_s4;
-webserv::pal::net::server_socket server_s5(fd50);
-webserv::pal::net::data_socket data_s6(fd60);
+    try {
+    webserv::pal::net::socket s1;
+    std::cout << "s1.fd = " << s1.get_fd() << std::endl;
+    s1.set_non_blocking();
+    std::cout << "s1.fd = " << s1.get_fd() << std::endl;
+    s1.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
 
-std::cout << "s1.fd = " << s1.get_fd() << std::endl;
-std::cout << "s2.fd = " << s2.get_fd() << std::endl;
-std::cout << "server_s3.fd = " << server_s3.get_fd() << std::endl;
-std::cout << "data_s4.fd = " << data_s4.get_fd() << std::endl;
-std::cout << "server_s5.fd = " << server_s5.get_fd() << std::endl;
-std::cout << "data_s6.fd = " << data_s6.get_fd() << std::endl;
-std::cout << std::endl;
+    try {
+    webserv::pal::net::socket s2(fd2);
+    std::cout << "s2.fd = " << s2.get_fd() << std::endl;
+    s2.set_non_blocking();
+    std::cout << "s2.fd = " << s2.get_fd() << std::endl;
+    s2.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
 
-s1.set_non_blocking();
-s2.set_non_blocking();
-server_s3.set_non_blocking();
-data_s4.set_non_blocking();
+    try {
+    webserv::pal::net::server_socket server_s3;
+    std::cout << "server_s3.fd = " << server_s3.get_fd() << std::endl;
+    server_s3.set_non_blocking();
+    std::cout << "server_s3.fd = " << server_s3.get_fd() << std::endl;
+    server_s3.bind(4242);
+    server_s3.listen();
+    server_s3.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
 
-std::cout << "s1.fd = " << s1.get_fd() << std::endl;
-std::cout << "s2.fd = " << s2.get_fd() << std::endl;
-std::cout << "server_s3.fd = " << server_s3.get_fd() << std::endl;
-std::cout << "data_s4.fd = " << data_s4.get_fd() << std::endl;
-std::cout << "server_s5.fd = " << server_s5.get_fd() << std::endl;
-std::cout << "data_s6.fd = " << data_s6.get_fd() << std::endl;
-std::cout << std::endl;
+    try {
+    webserv::pal::net::data_socket data_s4;
+    std::cout << "data_s4.fd = " << data_s4.get_fd() << std::endl;
+    data_s4.set_non_blocking();
+    std::cout << "data_s4.fd = " << data_s4.get_fd() << std::endl;
+    data_s4.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
 
-s1.close();
-s2.close();
-server_s3.close();
-data_s4.close();
-server_s5.close();
-data_s6.close();
+    try {
+    webserv::pal::net::server_socket server_s5(fd5);
+    std::cout << "server_s5.fd = " << server_s5.get_fd() << std::endl;
+    server_s5.set_non_blocking();
+    std::cout << "server_s5.fd = " << server_s5.get_fd() << std::endl;
+    server_s5.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
+
+    try {
+    webserv::pal::net::data_socket data_s6(fd6);
+    std::cout << "data_s6.fd = " << data_s6.get_fd() << std::endl;
+    data_s6.set_non_blocking();
+    std::cout << "data_s6.fd = " << data_s6.get_fd() << std::endl;
+    data_s6.close();
+    }
+    catch (int e) {
+    std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+    }
 
 }

@@ -1,11 +1,12 @@
 #include "socket.hpp"
 
-    // TODO: Test!
+// TODO: Test!
 
 namespace webserv {
     namespace pal {
         namespace net {
 
+    /* ------------------------------- SOCKET --------------------------------*/
     /*
      * Constructs a new stream socket
      */
@@ -45,6 +46,15 @@ namespace webserv {
     }
 
     /*
+     * Enables REUSEADDR mode for the socket
+     */
+    void socket::set_reuseaddr() {
+
+        // TODO add setsockopt()
+
+    }
+
+    /*
      * Closes the socket, if it is still active
      * Prevents potential problems, if program tries to close
      * a previously closed socket
@@ -55,6 +65,31 @@ namespace webserv {
         fd = -1;
     }
 
+
+    /* ----------------------------- DATA_SOCKET -----------------------------*/
+    /*
+     * Constructs a new data_socket
+     */
+    data_socket::data_socket() {}
+
+    /*
+     * Constructs a data_socket around an existing file descriptor
+     */
+    data_socket::data_socket(int _fd) : socket(_fd) {}
+
+    /*
+     * Destructs a data_socket
+     * Not much to be done, since 'fd' will be closed in parent instance 'socket'
+     */
+    data_socket::~data_socket() {}
+
+
+    /* ---------------------------- SERVER_SOCKET ----------------------------*/
+    /*
+     * Constructs a new server_socket
+     */
+    server_socket::server_socket() {}
+    
     /*
      * Constructs a server_socket around an existing file descriptor
      */
@@ -79,11 +114,19 @@ namespace webserv {
 
     /*
      * Sets the server_socket into listening mode
+     * for 16 elements in our queue
+     */
+    void server_socket::listen() {
+        listen(16);
+    }
+
+    /*
+     * Sets the server_socket into listening mode
      * for the maximum number of elements in our queue
      * Throws an exception if ::listen() encounters an error
      */
-    void server_socket::listen(int number_elements_queue) {
-        int status = ::listen(this->get_fd(), number_elements_queue);
+    void server_socket::listen(int backlog) {
+        int status = ::listen(this->get_fd(), backlog);
         if (status == -1)
             throw std::runtime_error("listen(...) returned an error code!");
     }
@@ -97,20 +140,18 @@ namespace webserv {
         // TODO: Check if we are allowed to use memset(). Other 42-teams do!
 
         struct sockaddr_in server_address; // generate new sockaddr struct
+
         memset(&server_address, 0, sizeof(server_address)); // initialize with default '0'
         server_address.sin_family = AF_INET; // set address family to IPv4 addresses
         server_address.sin_port = htons(port); // set 'port' in address struct
+
         int status = ::bind(this->get_fd(), 
                             (struct sockaddr *)&server_address, 
                             sizeof(server_address)); // bind the server_socket to 'port'
+
         if (status == -1)
             throw std::runtime_error("bind(...) returned an error code!");
     }
-
-    /*
-     * Constructs a data_socket around an existing file descriptor
-     */
-    data_socket::data_socket(int _fd) : socket(_fd) {}
 
         } // namespace net
     } // namespace pal

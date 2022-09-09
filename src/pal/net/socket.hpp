@@ -21,6 +21,7 @@ namespace webserv {
         virtual ~socket();
 
         void set_non_blocking();
+        void set_reuseaddr();
 
         int get_fd() const { return fd; }
 
@@ -34,6 +35,21 @@ namespace webserv {
 
     }; // class socket
 
+    class data_socket : public socket {
+
+    private:
+        data_socket( const data_socket& other);
+
+    public:
+        data_socket();
+        data_socket(int _fd);
+        ~data_socket();
+
+        bool is_data_socket()   const { return true; }
+
+        /* TODO: Reading, writing, yada yada yada ... */
+
+    }; // class data_socket
 
     class server_socket : public socket {
     
@@ -46,37 +62,15 @@ namespace webserv {
         ~server_socket();
 
         bool is_server_socket() const { return true; }
-        bool is_data_socket()   const { return false; }
-
-        void close();
 
         data_socket*    accept();
-        void            listen(int number_elements_queue); // TODO
-        void            bind(int port); // TODO
+        void            listen();
+        void            listen(int backlog);
+        void            bind(int port);
 
         /* TODO: Reading, writing, yada yada yada ... */
 
     }; // class server_socket
-
-
-    class data_socket : public socket {
-
-    private:
-        data_socket( const data_socket& other);
-
-    public:
-        data_socket();
-        data_socket(int _fd);
-        ~data_socket();
-
-        bool is_server_socket() const { return false; }
-        bool is_data_socket()   const { return true; }
-
-        void close();
-
-        /* TODO: Reading, writing, yada yada yada ... */
-
-    }; // class data_socket
 
         } // namespace net
     } // namespace pal
