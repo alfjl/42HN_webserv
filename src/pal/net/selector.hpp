@@ -23,13 +23,9 @@ namespace webserv {
 
         void register_socket(socket *socket, payload_type data_set) {
             
-            // TODO: Question:
-            // What if the 'socket *' already exists in the map?
-            // Throw exception?
-            // Is that problematic? Will that even happen in our program?
-
             the_mutex.lock();
-            elements.insert(std::pair<socket *, payload_type>(socket, data_set)); // TODO: Question: 'pair()' or 'new pair()'?
+            // elements.insert(std::pair<socket *, payload_type>(socket, data_set)); // or:
+            elements.insert(socket, data_set);
             the_mutex.unlock();
 
         }
@@ -37,12 +33,12 @@ namespace webserv {
         void unregister_socket(socket *socket) {
 
             the_mutex.lock();
-            elements.erase(socket);
+            elements.erase(socket); // call function on payload?
             the_mutex.unlock();
 
         }
 
-        void select() {}
+        void select() {
 
             int     highest_fd = -1;
             fd_set  read_fds;
@@ -53,7 +49,6 @@ namespace webserv {
             FD_ZERO(&write_fds);
             FD_ZERO(&exception_fds);
 
-            // ------------------------ 1. loop --------------------------------
             // iterate over all sockets and save into read_fds, writable or expect exception
             std::map<socket *, payload_type>::iterator it = elements.begin();
             std::map<socket *, payload_type>::iterator ite = elements.end();
@@ -69,22 +64,13 @@ namespace webserv {
                 }
             }
             the_mutex.unlock();
-            // ------------------------ 1. loop --------------------------------
 
-
-            // ------------------------ SELECT CALL ----------------------------
-            // use ::select() to check all 3 
+            // use ::select() to check all 3 sets
             int status = ::select(highest_fd + 1, read_fds, write_fds, exception_fds, NULL);
             if (status < 0) {// if select() throws error
                 throw std::runtime_error("select(...) returned an error code!");
             }
-            // TODO: Question:
-            // "::select() returns 0 if the time limit expires"
-            // catch in same exception as '-1' error, or ignore?
-            // ------------------------ SELECT CALL ----------------------------
 
-
-            // ------------------------ 2. loop --------------------------------
             // iterate over all sockets check, which fd_set they belong to
             // and call corresponding function
             it = elements.begin();
@@ -101,13 +87,7 @@ namespace webserv {
                     // do_exception_operation(); TODO: What to do with that information?
                 }
             }
-            // ------------------------ 2. loop --------------------------------
-            // TODO: check
-            // TODO: think about, if we have to lock or unlock second for loop
         }
-
-        /* TODO: Adding, removing, selecting, yada yada yada ... */
-
     };
 
         }
