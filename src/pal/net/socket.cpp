@@ -1,7 +1,5 @@
 #include "socket.hpp"
 
-// TODO: Test!
-
 namespace webserv {
     namespace pal {
         namespace net {
@@ -41,7 +39,7 @@ namespace webserv {
         if (status == -1) // if fcntl went wrong, throw error
             throw std::runtime_error("fcntl(fd, F_SETFL, flags | O_NONBLOCK) returned an error code!");
 
-    // TODO add setsockopt() for portability
+    // TODO: add setsockopt() for portability
 
     }
 
@@ -50,7 +48,7 @@ namespace webserv {
      */
     void socket::set_reuseaddr() {
 
-        // TODO add setsockopt()
+        // TODO: add setsockopt()
 
     }
 
@@ -114,7 +112,7 @@ namespace webserv {
 
     /*
      * Sets the server_socket into listening mode
-     * for 16 elements in our queue
+     * for 16 elements in our queue (default)
      */
     void server_socket::listen() {
         listen(16);
@@ -136,8 +134,6 @@ namespace webserv {
      * Throws an exception if ::bind() encounters an error
      */
     void server_socket::bind(int port) {
-
-        // TODO: Check if we are allowed to use memset(). Other 42-teams do!
 
         struct sockaddr_in server_address; // generate new sockaddr struct
 

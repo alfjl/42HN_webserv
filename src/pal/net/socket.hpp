@@ -31,7 +31,6 @@ namespace webserv {
         void close();
 
         friend class selector;
-        /* TODO: Reading, writing, yada yada yada ... */
 
     }; // class socket
 
@@ -46,8 +45,6 @@ namespace webserv {
         ~data_socket();
 
         bool is_data_socket()   const { return true; }
-
-        /* TODO: Reading, writing, yada yada yada ... */
 
     }; // class data_socket
 
@@ -67,8 +64,6 @@ namespace webserv {
         void            listen();
         void            listen(int backlog);
         void            bind(int port);
-
-        /* TODO: Reading, writing, yada yada yada ... */
 
     }; // class server_socket
 
