@@ -11,8 +11,6 @@ struct screamer {
 
 void test_sockets () {
 
-    //TODO: test with different threads
-
     // int fd1 = open("./tests/testfiles/testfile1.txt", O_RDWR);
     // std::cout << "fd1 = " << fd1 << std::endl;
     int fd2 = open("./tests/testfiles/testfile2.txt", O_RDWR);
