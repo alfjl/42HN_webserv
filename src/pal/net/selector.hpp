@@ -15,6 +15,7 @@ namespace webserv {
 
     private:
         std::map<socket *, payload_type>    elements; // socket = registered/active socket
+        mutex                               the_mutex; // do we need a mutex objekt here? '
 
     public:
         selector();
@@ -58,60 +59,48 @@ namespace webserv {
             std::map<socket *, payload_type>::iterator ite = elements.end();
             the_mutex.lock();
             for ( ; it != ite; ++it) {
-                if (it.is_server_socket()) {
-                    FD_SET(it.get_fd(), /* fill in correct fd_set here */);
+                if (it->first.is_data_socket()) {
+                    FD_SET(it->first.get_fd(), write_fds);
                 }
-                else if (it.is_data_socket()) {
-                    FD_SET(it.get_fd(), /* fill in correct fd_set here */);
+                FD_SET(it->first.get_fd(), read_fds);
+                FD_SET(it->first.get_fd(), exception_fds);
+                if (it->first.get_fd() > highest_fd) {
+                    highest_fd = it->first.get_fd();
                 }
-                FD_SET(it.get_fd(), exception_fds);
-                if (it.get_fd() > highest_fd)
-                    highest_fd = it.get_fd();
             }
             the_mutex.unlock();
-
-            // // or:
-            // the_mutex.lock();
-            // for ( ; it != ite; ++it) {
-            //     FD_SET(it.get_fd(), read_fds);
-            //     FD_SET(it.get_fd(), write_fds);
-            //     FD_SET(it.get_fd(), exception_fds);
-            //     if (it.get_fd() > highest_fd)
-            //         highest_fd = it.get_fd();
-            // }
-            // the_mutex.unlock();
             // ------------------------ 1. loop --------------------------------
 
 
+            // ------------------------ SELECT CALL ----------------------------
             // use ::select() to check all 3 
             int status = ::select(highest_fd + 1, read_fds, write_fds, exception_fds, NULL);
-            if (status < 0) // if select() throws error
+            if (status < 0) {// if select() throws error
                 throw std::runtime_error("select(...) returned an error code!");
+            }
             // TODO: Question:
             // "::select() returns 0 if the time limit expires"
             // catch in same exception as '-1' error, or ignore?
+            // ------------------------ SELECT CALL ----------------------------
 
 
             // ------------------------ 2. loop --------------------------------
-            // iterate over all sockets and check, which fd_set they belong to
+            // iterate over all sockets check, which fd_set they belong to
+            // and call corresponding function
             it = elements.begin();
             for ( ; it != ite; ++it) {
-                if (!FD_ISSET(it.get_fd(), exception_fds))
-                    // do_socket_operation(); TODO: What to do with that information?
+                if (FD_ISSET(it->first.get_fd(), read_fds)) {
+                    // do_read_operation(); TODO: What to do with that information?
+                    // e.g.: read(it->first.get_fd(), it->second, [which size???]);
+                    // or: it->second.read(it->first)
+                }
+                else if (FD_ISSET(it->first.get_fd(), write_fds)) {
+                    // do_write_operation(); TODO: What to do with that information?
+                }
+                else if (FD_ISSET(it->first.get_fd(), exception_fds)) {
+                    // do_exception_operation(); TODO: What to do with that information?
+                }
             }
-            for (int i = 0; i < exception_fds.fd_ount; ++i)
-                // throw exception? TODO: What to do in that case?
-
-            // // or:
-            // it = elements.begin();
-            // for ( ; it != ite; ++it) {
-            //     if (FD_ISSET(it.get_fd(), read_fds))
-            //         // do_read_operation(); TODO: What to do with that information?
-            //     else if (FD_ISSET(it.get_fd(), write_fds))
-            //         // do_write_operation(); TODO: What to do with that information?
-            //     else if (FD_ISSET(it.get_fd(), exception_fds))
-            //         // do_exception_operation(); TODO: What to do with that information?
-            // }
             // ------------------------ 2. loop --------------------------------
             // TODO: check
             // TODO: think about, if we have to lock or unlock second for loop
