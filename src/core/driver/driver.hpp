@@ -14,6 +14,9 @@ namespace webserv {
         public:
             driver(instance& the_inst);
             ~driver();
+
+            void open_port(int port);
+            void tick();
         };
     }
 }

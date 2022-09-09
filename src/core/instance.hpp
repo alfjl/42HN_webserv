@@ -15,6 +15,10 @@ namespace webserv {
             ~instance();
 
             driver& get_driver() { return _driver; }
+
+            bool is_running() { return true; }
+
+            void run();
         };
 
     }

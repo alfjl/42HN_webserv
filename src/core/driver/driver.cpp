@@ -11,5 +11,19 @@ namespace webserv {
 
         }
 
+        void driver::open_port(int port) {
+            webserv::pal::net::server_socket* sock = new webserv::pal::net::server_socket();
+
+            sock->set_reuseaddr();
+            sock->bind(port);
+            sock->listen();
+
+            selector.register(sock, NULL);
+        }
+
+        void driver::tick() {
+            selector.select();
+        }
+
     }
 }

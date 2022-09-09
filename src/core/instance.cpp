@@ -3,13 +3,19 @@
 namespace webserv {
     namespace core {
 
-    instance::instance() : _driver(*this) {
+        instance::instance() : _driver(*this) {
 
-    }
+        }
 
-    instance::~instance() {
-        
-    }
+        instance::~instance() {
+            
+        }
+
+        void instance::run() {
+            while (is_running()) {
+                driver.tick();
+            }
+        }
 
     }
 }
