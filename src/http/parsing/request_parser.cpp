@@ -72,13 +72,16 @@ namespace webserv {
                 parser.skip_spaces();
 
                 while (!parser.check_http_newline()) {
-                    key += parser.force_next_char();
+                    value += parser.force_next_char();
                 }
+
+                into.put(key, value);
             }
         }
 
         void parse_http_request_core(request_parser& parser, request_core& into) {
             parse_http_request_line(parser, into.get_line());
+            parse_request_fields(parser, into.get_fields());
         }
 
     }
