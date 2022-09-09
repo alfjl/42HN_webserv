@@ -22,7 +22,7 @@ namespace webserv {
      * Maintains the mutex, count of shared owners
      * (number of pointers pointing to member 'ptr')
      * and the object pointed to.
-	 */
+     */
     template<typename T>
     class shared_ptr_payload {
 
@@ -32,7 +32,7 @@ namespace webserv {
     private:
         element_type*   			ptr; // shared pointer
         unsigned long				count; // number of owners of 'ptr'
-		webserv::threading::mutex	the_mutex;
+        webserv::threading::mutex	the_mutex;
 
     public:
 
@@ -62,7 +62,7 @@ namespace webserv {
 	 */
     template<typename T>
 	shared_ptr_payload<T>::shared_ptr_payload(T* ptrValue) : ptr(ptrValue), count(0) {
-		if (ptrValue != NULL)
+        if (ptrValue != NULL)
             this->increment();
 	}
 
@@ -72,11 +72,11 @@ namespace webserv {
     template<typename T>
 	shared_ptr_payload<T>::~shared_ptr_payload() {
 
-		// Use Safe delete to avoid crash and dangling pointer
-		if (this->ptr) {
-			delete this->ptr;
-			this->ptr = NULL;
-		}
+        // Use Safe delete to avoid crash and dangling pointer
+        if (this->ptr) {
+            delete this->ptr;
+            this->ptr = NULL;
+        }
 	}
 
 	/*
@@ -84,9 +84,9 @@ namespace webserv {
 	 */
     template<typename T>
 	void shared_ptr_payload<T>::increment() {
-		the_mutex.lock();
-		++(this->count);
-		the_mutex.unlock();
+        the_mutex.lock();
+        ++(this->count);
+        the_mutex.unlock();
 	}
 
 	/*
@@ -94,12 +94,12 @@ namespace webserv {
 	 */
     template<typename T>
 	void shared_ptr_payload<T>::decrement() {
-		the_mutex.lock();
-		--(this->count);
-		the_mutex.unlock();
-		if (count == 0) {
-			delete this;
-		}
+        the_mutex.lock();
+        --(this->count);
+        the_mutex.unlock();
+        if (count == 0) {
+            delete this;
+        }
 	}
 
 	/*
@@ -107,7 +107,7 @@ namespace webserv {
 	 */
     template<typename T>
 	long shared_ptr_payload<T>::getCount() {
-		return (this->count);
+        return (this->count);
 	}
 
 
@@ -148,7 +148,7 @@ namespace webserv {
 	 */
     template<typename T>
 	shared_ptr<T>::shared_ptr(T* ptrValue) {
-		this->payload = new shared_ptr_payload<T>(ptrValue);
+        this->payload = new shared_ptr_payload<T>(ptrValue);
     }
 
 	/*
@@ -158,8 +158,8 @@ namespace webserv {
 	 */
 	template<typename T>
 	shared_ptr<T>::shared_ptr(const shared_ptr<T>& other) {
-		this->payload = other.payload;
-		this->payload->increment();
+        this->payload = other.payload;
+        this->payload->increment();
 	}
 
 	/*
@@ -174,12 +174,12 @@ namespace webserv {
 	 */
 	template<typename T>
 	shared_ptr<T>::~shared_ptr() {
-		this->payload->decrement();
+        this->payload->decrement();
 		
-		// // Use Safe delete to avoid crash and dangling pointer
-		// if (this->getCount() == 0) {
-		// 	delete this->payload;
-		// }
+        // // Use Safe delete to avoid crash and dangling pointer
+        // if (this->getCount() == 0) {
+        // 	delete this->payload;
+        // }
 	}
 
 	/*
@@ -187,7 +187,7 @@ namespace webserv {
 	 */
 	template<typename T>
 	T& shared_ptr<T>::operator*() {
-		return *(this->payload->base());
+        return *(this->payload->base());
 	}
 
 	/*
@@ -195,7 +195,7 @@ namespace webserv {
 	 */
 	template<typename T>
 	T* shared_ptr<T>::operator->() {
-		return this->payload->base();
+        return this->payload->base();
 	}
 
 	/*
@@ -208,16 +208,16 @@ namespace webserv {
 	template<typename T>
 	shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr<T>& other) {
 
-		// Avoid self assignment
-		if (this != &other) {
-			this->payload->decrement();
+        // Avoid self assignment
+        if (this != &other) {
+            this->payload->decrement();
 
-			// Copy the payload link
-			// and increment the count payload count
-			this->payload = other.payload;
-			this->payload->increment();
-		}
-		return *this;
+            // Copy the payload link
+            // and increment the count payload count
+            this->payload = other.payload;
+            this->payload->increment();
+        }
+        return *this;
 	}
 
 	/*
@@ -227,8 +227,8 @@ namespace webserv {
      */
 	template<typename T>
     shared_ptr<T> wrap_shared(T* value) {
-		shared_ptr<T>	ptr(value);
-		return ptr;
+        shared_ptr<T>	ptr(value);
+        return ptr;
     }
 
         } // namespace cpp
