@@ -3,8 +3,8 @@
 namespace webserv {
     namespace core {
 
-        driver::driver(webserv& the_serv) : component(the_serv) {
-            
+        driver::driver(instance& the_inst) : component(the_inst) {
+
         }
 
         driver::~driver() {

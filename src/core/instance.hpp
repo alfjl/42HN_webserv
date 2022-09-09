@@ -1,5 +1,5 @@
-#ifndef WEBSERV_CORE_WEBSERV_HPP
-#define WEBSERV_CORE_WEBSERV_HPP
+#ifndef WEBSERV_CORE_INSTANCE_HPP
+#define WEBSERV_CORE_INSTANCE_HPP
 
 #include "../defs.hpp"
 #include "driver/driver.hpp"
@@ -7,12 +7,12 @@
 namespace webserv {
     namespace core {
 
-        class webserv {
+        class instance {
             driver _driver;
 
         public:
-            webserv();
-            ~webserv();
+            instance();
+            ~instance();
 
             driver& get_driver() { return _driver; }
         };
