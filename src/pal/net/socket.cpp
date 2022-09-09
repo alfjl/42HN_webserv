@@ -56,6 +56,11 @@ namespace webserv {
     }
 
     /*
+     * Constructs a server_socket around an existing file descriptor
+     */
+    server_socket::server_socket(int _fd) : socket(_fd) {}
+
+    /*
      * Destructs a server_socket
      * Not much to be done, since 'fd' will be closed in parent instance 'socket'
      */
@@ -96,7 +101,7 @@ namespace webserv {
         server_address.sin_family = AF_INET; // set address family to IPv4 addresses
         server_address.sin_port = htons(port); // set 'port' in address struct
         int status = ::bind(this->get_fd(), 
-                            (struct sockaddr *)server_address, 
+                            (struct sockaddr *)&server_address, 
                             sizeof(server_address)); // bind the server_socket to 'port'
         if (status == -1)
             throw std::runtime_error("bind(...) returned an error code!");

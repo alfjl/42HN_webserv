@@ -42,6 +42,7 @@ namespace webserv {
     
     public:
         server_socket();
+        server_socket(int _fd);
         ~server_socket();
 
         bool is_server_socket() const { return true; }
