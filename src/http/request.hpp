@@ -60,7 +60,8 @@ namespace webserv {
             fields        _fields;
         
         public:
-            request_line& get_line() { return _line; }
+            request_line& get_line()   { return _line;   }
+            fields&       get_fields() { return _fields; }
         };
 
     }
