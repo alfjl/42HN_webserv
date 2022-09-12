@@ -56,6 +56,9 @@ namespace webserv {
             if (split_on("/", text, addr, text)) {
                 // We lost the "/", so we just add it again
                 text = "/" + text;
+            } else {
+                addr = text;
+                text = "/";
             }
 
             {
