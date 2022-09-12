@@ -18,10 +18,10 @@ namespace webserv {
             uri();
             ~uri();
 
-            std::string get_proto() { return _proto; }
-            std::string get_server() { return _server; }
-            unsigned int get_port() { return _port; }
-            path& get_path() { return _path; }
+            std::string& proto() { return _proto; }
+            std::string& server() { return _server; }
+            unsigned int& port() { return _port; }
+            path& path() { return _path; }
         };
 
     }
