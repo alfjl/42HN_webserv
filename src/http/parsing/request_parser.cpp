@@ -11,6 +11,10 @@ namespace webserv {
 
         }
 
+        bool request_parser::check_space() {
+            return check(' ');
+        }
+
         void request_parser::expect_space() {
             expect(' ');
         }
@@ -75,6 +79,15 @@ namespace webserv {
 
             parser.expect_space();
 
+            {
+                std::string uri_text;
+
+                while (!parser.check_space()) {
+                    uri_text += parser.force_next_char();
+                }
+
+                parse_uri(uri_text, line.get_uri());
+            }
             // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
 
             parser.expect_space();

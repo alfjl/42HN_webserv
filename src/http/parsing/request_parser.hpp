@@ -15,6 +15,7 @@ namespace webserv {
             request_parser(iflow& flow);
             ~request_parser();
 
+            bool check_space();
             void expect_space();
 
             bool check_http_newline();
