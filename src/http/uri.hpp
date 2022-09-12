@@ -22,11 +22,18 @@ namespace webserv {
             uri();
             ~uri();
 
-            std::string& proto() { return _proto; }
-            std::string& server() { return _server; }
-            unsigned int& port() { return _port; }
-            path& path() { return _path; }
+            std::string& get_proto() { return _proto; }
+            std::string& get_server() { return _server; }
+            unsigned int& get_port() { return _port; }
+            path& get_path() { return _path; }
+
+            const std::string& get_proto() const { return _proto; }
+            const std::string& get_server() const { return _server; }
+            unsigned int get_port() const { return _port; }
+            const path& get_path() const { return _path; }
         };
+
+        std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
     }
 }

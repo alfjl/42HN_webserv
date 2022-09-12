@@ -23,5 +23,10 @@ namespace webserv {
         uri::~uri() {
 
         }
+
+        std::ostream& operator<<(std::ostream& stream, const uri& the_uri) {
+            stream << the_uri.get_proto() << " | " << the_uri.get_server() << " | " << the_uri.get_port() << " | (TODO: Path)";
+            return stream;
+        }
     }
 }

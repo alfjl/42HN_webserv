@@ -2,7 +2,7 @@
 #define WEBSERV_DEFS_HPP
 
 extern "C" {
-#include <pthread.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <sys/socket.h>
 #include <sys/select.h>
@@ -13,6 +13,7 @@ extern "C" {
 }
 
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 #include <string>
 #include <vector>

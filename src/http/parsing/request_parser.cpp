@@ -1,5 +1,7 @@
 #include "request_parser.hpp"
 
+#include "../../pal/cpp/conv.hpp"
+
 namespace webserv {
     namespace http {
 
@@ -47,8 +49,8 @@ namespace webserv {
             return false;
         }
 
-        void parse_uri(std::string text, uri& into) {
-            split_on("://", text, into.proto(), text);
+        bool parse_uri(std::string text, uri& into) {
+            split_on("://", text, into.get_proto(), text);
             std::string addr;
 
             if (split_on("/", text, addr, text)) {
@@ -58,13 +60,21 @@ namespace webserv {
 
             {
                 std::string num;
-                if (!split_on(":", addr, into.server(), num)) {
-                    // Split failed, so we don't have a ":"
-                    into.server() = addr;
+                int         loc;
+
+                if (split_on(":", addr, into.get_server(), num)) {
+                    if (!webserv::pal::cpp::string_to_int(num.c_str(), loc)) {
+                        return false;
+                    }
+                    into.get_port() = loc;
+                } else {
+                    into.get_server() = addr;
                 }
             }
 
-            into.path() = path(text);
+            into.get_path() = path(text);
+
+            return true;
         }
 
         void parse_http_version(request_parser& parser, http_version& into) {
