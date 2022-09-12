@@ -7,6 +7,10 @@ namespace webserv {
     namespace http {
 
         class path {
+        public:
+            path();
+            path(std::string addr);
+            ~path();
         };
 
         class uri {

@@ -33,13 +33,37 @@ namespace webserv {
         }
 
 
+        static bool split_on(std::string text, std::string& in, std::string& left, std::string& right) {
+            size_t it = in.find(text);
+            if (it != std::string::npos) {
+                left  = in.substr(0, it);
+                right = in.substr(it + text.size(), in.size());
+                return true;
+            }
+            return false;
+        }
 
-        void parse_uri(request_parser& parser, uri& into) {
-            parser.parse_error("Oof. URI can not be parsed right now");
+        void parse_uri(std::string text, uri& into) {
+            split_on("://", text, into.proto(), text);
+            std::string addr;
+
+            if (split_on("/", text, addr, text)) {
+                // We lost the "/", so we just add it again
+                text = "/" + text;
+            }
+
+            {
+                std::string num;
+                if (!split_on(":", addr, into.server(), num)) {
+                    // Split failed, so we don't have a ":"
+                    into.server() = addr;
+                }
+            }
+
+            into.path() = path(text);
         }
 
         void parse_http_version(request_parser& parser, http_version& into) {
-            parser.parse_error("Oof. Version can not be parsed right now");
             parser.expects("HTTP/1.1");
         }
 
@@ -51,7 +75,7 @@ namespace webserv {
 
             parser.expect_space();
 
-            parse_uri(parser, line.get_uri());
+            // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
 
             parser.expect_space();
 
