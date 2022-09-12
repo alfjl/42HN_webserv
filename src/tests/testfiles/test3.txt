@@ -1,0 +1,1554 @@
+> GET /knowledge-base/http-status-codes/ HTTP/1.1
+> Host: umbraco.com
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Mon, 12 Sep 2022 11:16:02 GMT
+< Content-Type: text/html; charset=utf-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< CF-Ray: 74983a8d084091d1-FRA
+< Cache-Control: private
+< Set-Cookie: uMarketingSuiteAnalyticsVisitorId=MjNuL76B4IqmCUg2jcjx8uCV6ZEC7iza8qgvK/6UBWtPh7c3h8bsuumSc5MQp2ds3PFSWtb8clb7hzGdCIXJz/19XLI8LQJOM4+xloj7rvXY2Ed9Fe1Iu9PQ5tRrrFNZ; expires=Tue, 12-Sep-2023 11:16:02 GMT; path=/; secure; HttpOnly; SameSite=Lax
+< Strict-Transport-Security: max-age=300; preload
+< Vary: Accept-Encoding
+< CF-Cache-Status: DYNAMIC
+< Set-Cookie: __RequestVerificationToken=JoAQMyC0_UrV-DLYOIklQWqXRB8RWTYiZyQZsIVbXpcNT6vkPxrqaOw9JyZu2Nl-q4koypxPEOjf2QvwSY5iJjl9kpsgLE8aGx8gltWWPs41; path=/; HttpOnly
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: SAMEORIGIN
+< X-Frame-Options: SAMEORIGIN
+< X-Powered-By: An amazing team effort
+< X-XSS-Protection: 1; mode=block
+< Server: cloudflare
+
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="icon" type="image/png" href="/dist/icons/fav_32x32.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preconnect" href="https://www.google-analytics.com" crossorigin /><link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" crossorigin="anonymous" as="style"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" crossorigin="anonymous">
+<meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@umbraco">
+<meta property="og:url" content="https://umbraco.com/knowledge-base/http-status-codes/"><title>HTTP Status Codes: All 63 explained - including FAQ &amp; Video</title><meta property="og:title" content="HTTP Status Codes: All 63 explained - including FAQ &amp; Video"><meta name="twitter:title" content="HTTP Status Codes: All 63 explained - including FAQ &amp; Video"><meta name="description" content="Do you have a question about what a certain HTTP Status Code means? Find an explanation of all 63 status codes and answers to commonly asked questions"><meta property="og:description" content="Do you have a question about what a certain HTTP Status Code means? Find an explanation of all 63 status codes and answers to commonly asked questions"><meta name="twitter:description" content="Do you have a question about what a certain HTTP Status Code means? Find an explanation of all 63 status codes and answers to commonly asked questions"><meta property="og:image" content="https://umbraco.com/media/g10jqe2o/what-are-status-codes-01.png?anchor=center&amp;mode=crop&amp;width=1200&amp;height=628&amp;rnd=133039172650430000"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="628"><meta name="twitter:image" content="https://umbraco.com/media/g10jqe2o/what-are-status-codes-01.png?anchor=center&amp;mode=crop&amp;width=1200&amp;height=628&amp;rnd=133039172650430000"><meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" /><link rel="canonical" href="https://umbraco.com/knowledge-base/http-status-codes/" />
+<script>
+var dataLayer = dataLayer || [];
+(function(w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({
+'gtm.start':
+new Date().getTime(),
+event: 'gtm.js'
+});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src =
+'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-T6TKMT2');</script><link href="/bundles/css/?v=Smh3HYlsM3YKENKNRObDyDALAHOIM54kWG_r3FbDSN81" rel="stylesheet"/><script src="https://kit.fontawesome.com/124f9865ce.js" crossorigin="anonymous"></script><script>!function(){var u='/umbraco/umarketingsuite/pagedata/ping';if(typeof navigator.sendBeacon=='function')navigator.sendBeacon(u);else{var x=new XMLHttpRequest;x.open('POST',u,!0);x.send()}}()</script></head><body class="page-contentPage"><div id="umbracoComApp"><div class="uaas">
+<div>
+</div>
+<div><uaas-trial-flow 
+:enabled="true" 
+plan="Single" 
+sku="version8" 
+starterkit="starterkit" 
+ref="uaas-trial-flow" /></div></div>
+<nav class="navbar navbar-primary"><div class="umb-container">
+<div class="navbar-brand">
+<a href="/" class="navbar-item navbar-logo">
+<img src="/dist/identity/logos/umbraco.png?height=17&amp;quality=80" class="is-normal-logo" alt="Umbraco" />
+</a>
+<div class="navbar-trigger navbar-item">Menu</div></div>
+<div class="navbar-menu">
+<div class="navbar-start">
+<div class="navbar-item has-dropdown">
+<a href="/explore-umbraco-benefits/" class="navbar-link">Explore Umbraco</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Explore Umbraco</h4>
+<a href="/explore-umbraco-benefits/"
+class="navbar-item">
+Umbraco Benefits<div class="link-meta">
+<span>What makes Umbraco stand out from the crowd? Explore the main benefits that come with using Umbraco. </span>
+<span class="navbar-link-text">Explore Umbraco benefits</span>
+</div>
+</a>
+<a href="/marketplace/"
+class="navbar-item">
+Marketplace<div class="link-meta">
+<span>Connect to existing systems, extend your Umbraco project, and create exactly what you need with the right integrations.</span>
+<span class="navbar-link-text">Explore the list of Umbraco integrations</span>
+</div>
+</a>
+<a href="/case-studies-testimonials/"
+class="navbar-item">
+Case Studies &amp; Testimonials<div class="link-meta">
+<span>Want to know what&#39;s possible with Umbraco? Explore the many ways our users create impressive web solutions.</span>
+<span class="navbar-link-text">Sift through our case studies</span>
+</div>
+</a>
+<a href="/umbraco-agencies/"
+class="navbar-item">
+Umbraco Agencies<div class="link-meta">
+<span>Find a certified Umbraco partner agency to help you build your Umbraco website with all the latest features and benefits.</span>
+<span class="navbar-link-text">Find the right partner for you</span>
+</div>
+</a>
+<a href="/why-choose-umbraco/industry/"
+class="navbar-item">
+Umbraco by Industry<div class="link-meta">
+<span>Learn how different industries, from eCommerce to healthcare to public sector, benefit from using Umbraco every day.</span>
+<span class="navbar-link-text">View popular industries</span>
+</div>
+</a>
+<a href="/explore-umbraco-benefits/composable-dxp-for-umbraco/"
+class="navbar-item">
+Composable DXP<div class="link-meta">
+<span>The flexibility of Umbraco makes it the perfect fit for a composable digital experience platform, more suited to agile projects and tech stacks.</span>
+<span class="navbar-link-text">Discover Composable DXP with Umbraco</span>
+</div>
+</a>
+</div>
+</div>
+<div class="navbar-item has-dropdown">
+<a href="/products/" class="navbar-link">Products</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Products</h4>
+<a href="/products/umbraco-cms/"
+class="navbar-item is-blue">
+Umbraco CMS<div class="link-meta">
+<span>The open-source .NET based CMS with an intuitive editing experience, maximum flexibility for developers, and seamless integrations.</span>
+<span class="navbar-link-text">Explore Umbraco CMS</span>
+</div>
+</a>
+<a href="/products/umbraco-cloud/"
+class="navbar-item">
+Umbraco Cloud<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload navbar-icon"
+alt="Umbraco Cloud blue icon"
+data-src="/media/32qdh5ks/u_cloud-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314017630000"
+loading="lazy"
+data-srcset="/media/32qdh5ks/u_cloud-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314017630000&amp;format=webp"
+width=40
+height=40 />
+<div class="link-meta">
+<span>The best place to work with Umbraco CMS. Spin up a site in just 2 minutes and let us take care of a ton of tedious tasks for you.</span>
+<span class="navbar-link-text">Try Umbraco Cloud</span>
+</div>
+</a>
+<a href="/products/umbraco-heartcore/"
+class="navbar-item">
+Umbraco Heartcore<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload navbar-icon"
+alt="Umbraco Heartcore blue heart"
+data-src="/media/gsgpbrub/u_heartcore_heart_blue-01-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314149170000"
+loading="lazy"
+data-srcset="/media/gsgpbrub/u_heartcore_heart_blue-01-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314149170000&amp;format=webp"
+width=40
+height=40 />
+<div class="link-meta">
+<span>Umbraco Heartcore is the headless CMS solution, running on Umbraco Cloud with a global CDN in front of it. </span>
+<span class="navbar-link-text">Learn more about Heartcore</span>
+</div>
+</a>
+<a href="/features/"
+class="navbar-item">
+Umbraco Features<div class="link-meta">
+<span>Discover all the amazing features of Umbraco CMS, Umbraco Cloud, and Umbraco Heartcore in our Feature List.</span>
+<span class="navbar-link-text">See the full Feature List</span>
+</div>
+</a>
+<a href="/products/umbraco-support/"
+class="navbar-item">
+Umbraco Support<div class="link-meta">
+<span>Umbraco Support is included in all higher-tier Umbraco Cloud and Umbraco CMS products. Read more about what you gain with Umbraco Support.</span>
+<span class="navbar-link-text">Learn more about Support</span>
+</div>
+</a>
+<a href="/products/umbraco-forms/"
+class="navbar-item">
+Umbraco Forms<div class="link-meta">
+<span>Build beautiful sign-up forms, questionnaires, and contact forms with this beloved add-on.</span>
+<span class="navbar-link-text">Get Forms</span>
+</div>
+</a>
+</div>
+</div>
+<div class="navbar-item has-dropdown">
+<a href="/pricing/" class="navbar-link">Pricing</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Pricing of all Umbraco products</h4>
+<a href="/umbraco-cloud-pricing/"
+class="navbar-item">
+Umbraco Cloud Pricing<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload navbar-icon"
+alt="Umbraco Cloud blue icon"
+data-src="/media/32qdh5ks/u_cloud-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314017630000"
+loading="lazy"
+data-srcset="/media/32qdh5ks/u_cloud-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314017630000&amp;format=webp"
+width=40
+height=40 />
+<div class="link-meta">
+<span>With Umbraco Cloud, you get a ton of extra features that include easy project setup, site administration, and automatic updates.</span>
+<span class="navbar-link-text">Umbraco Cloud Plans</span>
+</div>
+</a>
+<a href="/umbraco-heartcore-pricing/"
+class="navbar-item">
+Umbraco Heartcore Pricing<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload navbar-icon"
+alt="Umbraco Heartcore blue heart"
+data-src="/media/gsgpbrub/u_heartcore_heart_blue-01-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314149170000"
+loading="lazy"
+data-srcset="/media/gsgpbrub/u_heartcore_heart_blue-01-50x50-compressed.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=40&amp;height=40&amp;rnd=132548314149170000&amp;format=webp"
+width=40
+height=40 />
+<div class="link-meta">
+<span>The headless version of Umbraco CMS lets you connect the editor-friendly backoffice to any frontend: apps, screens, smartwatches, and more.</span>
+<span class="navbar-link-text">Heartcore pricing</span>
+</div>
+</a>
+<a href="/umbraco-cms-pricing/"
+class="navbar-item">
+Umbraco CMS Pricing<div class="link-meta">
+<span>Choose between the free, stand-alone CMS or paid tiers that include full support and a variety of other extra products and services.</span>
+<span class="navbar-link-text">Umbraco CMS Pricing</span>
+</div>
+</a>
+</div>
+</div>
+<div class="navbar-item has-dropdown">
+<a href="/partners/" class="navbar-link">Partners</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Partners</h4>
+<a href="/partners/become-an-umbraco-solution-partner/"
+class="navbar-item">
+Become an Umbraco Solution Partner<div class="link-meta">
+<span>Take the first step towards making the most out of Umbraco as an agency. The road towards more profitable web projects starts here!</span>
+<span class="navbar-link-text">Become an Umbraco Solution Partner</span>
+</div>
+</a>
+<a href="/partners/become-an-umbraco-tech-partner/"
+class="navbar-item">
+Become an Umbraco Tech Partner<div class="link-meta">
+<span>Have you built an Umbraco integration or are you considering building one? Then becoming an Umbraco Tech Partner might be the natural next step for you.</span>
+<span class="navbar-link-text">Become an Umbraco Tech Partner</span>
+</div>
+</a>
+<a href="/partners/find-a-solution-partner/"
+class="navbar-item">
+Find a Solution Partner<div class="link-meta">
+<span>Umbraco Partner agencies are guaranteed to deliver the very best Umbraco websites. Search by country and industry to find the right partner for you! </span>
+<span class="navbar-link-text">Browse the Umbraco Partner index</span>
+</div>
+</a>
+</div>
+</div>
+<div class="navbar-item has-dropdown">
+<a href="/training/" class="navbar-link">Learn Umbraco</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Umbraco Educational Resources</h4>
+<a href="/training/"
+class="navbar-item">
+Training<div class="link-meta">
+<span>The very best way to learn Umbraco best practices. Book a training and improve your skills while earning official certification points.</span>
+</div>
+</a>
+<a href="/blog/"
+class="navbar-item">
+Blog<div class="link-meta">
+<span>Find the latest Umbraco news, stories, tips and tricks on the Umbraco blog. There&#39;s something here for everyone!</span>
+</div>
+</a>
+<a href="https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA"
+class="navbar-item">
+Free Umbraco Video Tutorials<div class="link-meta">
+<span>Watch step-by-step video tutorials on our YouTube channel, Umbraco Learning Base, and improve your Umbraco skill-set in no time! </span>
+</div>
+</a>
+<a href="/free-umbraco-demos/"
+class="navbar-item">
+Free Umbraco Demos<div class="link-meta">
+<span>Sign up for a free live demo of the Umbraco CMS or Umbraco Cloud hosted by Umbraco HQ specialists and perfect for newbies!</span>
+</div>
+</a>
+<a href="https://our.umbraco.com/documentation/"
+class="navbar-item">
+Documentation<div class="link-meta">
+<span>On community site Our Umbraco, find the best technical guides for every iteration of Umbraco CMS in one place.</span>
+</div>
+</a>
+<a href="https://community.umbraco.com/"
+class="navbar-item">
+Community<div class="link-meta">
+<span>The beauty of Umbraco is that it goes beyond the digital. Meet our friendly, talented, and welcoming Community.</span>
+</div>
+</a>
+</div>
+</div>
+<a href="/contact-us/" class="navbar-item">Contact Us</a>
+</div>
+<div class="navbar-end">
+<div class="navbar-item has-dropdown">
+<a href="#" class="navbar-link">Sign in</a>
+<span class="navbar-dropdown-trigger">
+<svg>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#arrow-down"></use>
+</svg>
+</span>
+<div class="navbar-dropdown">
+<h4 class="navbar-title">Sign in</h4>
+<a href="https://shop.umbraco.com/profile/sign-in"
+class="navbar-item">
+Profile &amp; Order history<div class="link-meta">
+<span>Download invoices, find your certificates and purchased products and licences</span>
+<span class="navbar-link-text">Sign in</span>
+</div>
+</a>
+<a href="https://www.s1.umbraco.io"
+class="navbar-item">
+Go to Umbraco Cloud<div class="link-meta">
+<span>Get access to your Umbraco Cloud Trial or your Umbraco Cloud Projects</span>
+<span class="navbar-link-text">Sign in</span>
+</div>
+</a>
+<a href="/account/login/"
+class="navbar-item">
+Gold Partners and App Partners<div class="link-meta">
+<span>Sign in to manage your Gold Partner profile and Umbraco App profile</span>
+<span class="navbar-link-text">Sign in</span>
+</div>
+</a>
+</div>
+</div>
+<a href="/search/" class="navbar-item is-borderless">
+<svg class="navbar-search"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/dist/spritemap.svg#search-icon"></use></svg>
+</a>
+<div class="navbar-item-wrapper">
+<a href="https://try.umbraco.com/" class="btn is-blue">Try for free</a>
+</div>
+</div>
+</div></div></nav>
+<nav class="subnav"><div class="subnav-brand">
+<h2 class="subnav-title">HTTP Status Codes: All 63 explained - including FAQ &amp; Video</h2></div><div class="subnav-menu">
+<ul class="subnav-list">
+<li class="subnav-item">
+<a class="subnav-link" href="/knowledge-base/composable-dxp/">Composable DXP</a>
+</li>
+</ul></div></nav>
+<header class="hero
+is-empty"><div class="hero-content">
+<div class="hero-header">
+</div></div></header>
+<main>
+<div class="umb-grid"><section class="section" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h1 id="what-are-http-status-codes">What are HTTP status codes?</h1>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="no-theme" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<p>HTTP status codes are three-digit responses from the server to the browser-side request. Everyone has probably gotten the classic 404 page-not-found error. That is an HTTP client error status code and there are a lot more of them.</p>
+<p>These status codes (also called response status codes) serve as a means of communication between the server and the internet browser and there are multiple code classes based on the type of information they are communicating. The differences in classes are indicated through the first digit of the error code, for example: just like a 404, any other 4xx will mean that in some way the page or website could not be reached, while a 2xx means that your request was successfully completed.</p>
+<p> </p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<video-picker :model="{
+&quot;source&quot;: &quot;youtube&quot;,
+&quot;format&quot;: &quot;16:9&quot;,
+&quot;thumbnail&quot;: &quot;/media/g10jqe2o/what-are-status-codes-01.png&quot;,
+&quot;url&quot;: &quot;https://www.youtube.com/watch?v=mQVtJgyo_D4&quot;,
+&quot;title&quot;: &quot;What are HTTTP status codes?&quot;,
+&quot;id&quot;: &quot;mQVtJgyo_D4&quot;,
+&quot;thumbnailPicker&quot;: &quot;16442&quot;,
+&quot;length&quot;: &quot;04:53&quot;,
+&quot;options&quot;: &quot;autoplay=undefined,mute=undefined,loop=undefined,allowfullscreen=true,controls=true&quot;
+}"></video-picker>
+</div>
+</div>
+</div></div></section><section class="section" data-container-size="is-narrow" data-row-theme="is-grey" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" data-vertical-position="Middle" data-horizontal-position="Center" data-cell-theme="no-theme">
+<div class="content grid-section__cell-content">
+<h2>Table of content</h2>
+<ul>
+<li><a href="#what-are-http-status-codes">What are HTTP status codes?</a></li>
+<li><a href="#http-status-code-categories">How are HTTP status codes categorized?</a></li>
+<li><a href="#http-status-codes-list">Complete list of HTTP Status Codes</a></li>
+<li><a href="#http-status-codes-explained">What does this HTTP status code mean?</a></li>
+<li><a href="#http-status-codes-seo">HTTP Status codes to know for SEO</a></li>
+<li><a href="#check-http-status-code">How to check the HTTP status code</a></li>
+<li><a href="#fix-404-errors">How to fix 404 errors</a></li>
+<li><a href="#fix-503-errors">How to fix 503 errors</a></li>
+</ul>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-padding-default"><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="http-status-code-categories">How are HTTP status codes categorized?</h2>
+<p>HTTP status codes are split into 5 different categories. Each category will give you hints as to what the response was, even if you don't know the specific response code.</p>
+<p>For an explanation of each category - and each individual status code - click on the corresponding link below or go to our <a href="#http-status-codes-list">complete list of HTTP status codes</a>.</p>
+<ul>
+<li><a href="#1xx">1xx - Informational: The server has received the request and is continuing the process</a> </li>
+<li><a href="#2xx">2xx - Successful: The request was successful and the browser has received the expected information</a> </li>
+<li><a href="#3xx">3xx (Redirection): You have been redirected and the completion of the request requires further action</a></li>
+<li><a href="#4xx">4xx (Client Error): The website or the page could not be reached, either the page is unavailable or the request contains bad syntax</a> </li>
+<li><a href="#5xx">5xx (Server Error): While the request appears to be valid, the server could not complete the request</a></li>
+</ul>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<picture>
+<source data-srcset="/media/i1hfkqrz/what-cms-is-used.jpg?quality=80&amp;format=webp" type="image/webp" />
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload "
+alt="Woman with a thought bubble"
+data-src="/media/i1hfkqrz/what-cms-is-used.jpg?quality=80"
+loading="lazy"
+width=1
+height=1 />
+</picture>
+</div>
+</div>
+</div></div></section><section class="section" data-container-size="is-narrow" data-row-theme="is-grey" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="http-status-codes-list">Complete list of HTTP Status Codes</h2>
+<table border="1" style="width: 100%; border-collapse: collapse; float: left; height: 1080px;">
+<tbody>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; text-align: center; height: 18px;"><strong>Status code</strong></td>
+<td style="width: 29.5086%; text-align: center; height: 18px;"><strong>Meaning</strong></td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"><span style="text-decoration: underline;"><a href="#1xx">1xx Informational</a></span></td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">100</td>
+<td style="width: 29.5086%; height: 18px;">Continue</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">101</td>
+<td style="width: 29.5086%; height: 18px;">Switching protocols</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">102</td>
+<td style="width: 29.5086%; height: 18px;">Processing</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">103</td>
+<td style="width: 29.5086%; height: 18px;">Early Hints</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"> </td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"><span style="text-decoration: underline;"><a href="#2xx">2xx Succesful</a></span></td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">200</td>
+<td style="width: 29.5086%; height: 18px;">OK</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">201</td>
+<td style="width: 29.5086%; height: 18px;">Created</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">202</td>
+<td style="width: 29.5086%; height: 18px;">Accepted</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">203 </td>
+<td style="width: 29.5086%; height: 18px;">Non-Authoritative Information</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">204</td>
+<td style="width: 29.5086%; height: 18px;">No Content</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">205</td>
+<td style="width: 29.5086%; height: 18px;">Reset Content</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">206</td>
+<td style="width: 29.5086%; height: 18px;">Partial Content</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">207</td>
+<td style="width: 29.5086%; height: 18px;">Multi-Status</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">208</td>
+<td style="width: 29.5086%; height: 18px;">Already Reported</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">226</td>
+<td style="width: 29.5086%; height: 18px;">IM Used</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"> </td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"><span style="text-decoration: underline;"><a href="#3xx">3xx Redirection</a></span></td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">300</td>
+<td style="width: 29.5086%; height: 18px;">Multiple Choices</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">301</td>
+<td style="width: 29.5086%; height: 18px;">Moved Permanently</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">302</td>
+<td style="width: 29.5086%; height: 18px;">Found (Previously "Moved Temporarily")</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">303</td>
+<td style="width: 29.5086%; height: 18px;">See Other</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">304</td>
+<td style="width: 29.5086%; height: 18px;">Not Modified</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">305</td>
+<td style="width: 29.5086%; height: 18px;">Use Proxy</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">306</td>
+<td style="width: 29.5086%; height: 18px;">Switch Proxy</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">307</td>
+<td style="width: 29.5086%; height: 18px;">Temporary Redirect</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">308</td>
+<td style="width: 29.5086%; height: 18px;">Permanent Redirect</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"> </td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;"><span style="text-decoration: underline;"><a href="#4xx">4xx Client Error</a></span></td>
+<td style="width: 29.5086%; height: 18px;"> </td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">400</td>
+<td style="width: 29.5086%; height: 18px;">Bad Request</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">401</td>
+<td style="width: 29.5086%; height: 18px;">Unauthorized</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">402</td>
+<td style="width: 29.5086%; height: 18px;">Payment Required</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">403</td>
+<td style="width: 29.5086%; height: 18px;">Forbidden</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">404</td>
+<td style="width: 29.5086%; height: 18px;">Not Found</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">405</td>
+<td style="width: 29.5086%; height: 18px;">Method Not Allowed</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">406</td>
+<td style="width: 29.5086%; height: 18px;">Not Acceptable</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">407</td>
+<td style="width: 29.5086%; height: 18px;">Proxy Authentication Required</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">408</td>
+<td style="width: 29.5086%; height: 18px;">Request Timeout</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">409</td>
+<td style="width: 29.5086%; height: 18px;">Conflict</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">410</td>
+<td style="width: 29.5086%; height: 18px;">Gone</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">411</td>
+<td style="width: 29.5086%; height: 18px;">Length Required</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">412</td>
+<td style="width: 29.5086%; height: 18px;">Precondition Failed</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">413</td>
+<td style="width: 29.5086%; height: 18px;">Payload Too Large</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">414</td>
+<td style="width: 29.5086%; height: 18px;">URI Too Long</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">415</td>
+<td style="width: 29.5086%; height: 18px;">Unsupported Media Type</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">416</td>
+<td style="width: 29.5086%; height: 18px;">Range Not Satisfiable</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">417</td>
+<td style="width: 29.5086%; height: 18px;">Expectation Failed</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">418</td>
+<td style="width: 29.5086%; height: 18px;">I'm a Teapot</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">421</td>
+<td style="width: 29.5086%; height: 18px;">Misdirected Request</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">422</td>
+<td style="width: 29.5086%; height: 18px;">Unprocessable Entity</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">423</td>
+<td style="width: 29.5086%; height: 18px;">Locked</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">424</td>
+<td style="width: 29.5086%; height: 18px;">Failed Dependency</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">425</td>
+<td style="width: 29.5086%; height: 18px;">Too Early</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">426</td>
+<td style="width: 29.5086%; height: 18px;">Upgrade Required</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">428</td>
+<td style="width: 29.5086%; height: 18px;">Precondition Required</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">429</td>
+<td style="width: 29.5086%; height: 18px;">Too Many Requests</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">431</td>
+<td style="width: 29.5086%; height: 18px;">Request Header Fields Too Large</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 30.1064%; height: 18px;">451</td>
+<td style="width: 29.5086%; height: 18px;">Unavailable For Legal Reasons</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;"> </td>
+<td style="width: 29.5086%;"> </td>
+</tr>
+<tr>
+<td style="width: 30.1064%;"><span style="text-decoration: underline;"><a href="#5xx">5xx Server Error</a></span></td>
+<td style="width: 29.5086%;"> </td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">500</td>
+<td style="width: 29.5086%;">Internal Server Error</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">501</td>
+<td style="width: 29.5086%;">Not Implemented</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">502</td>
+<td style="width: 29.5086%;">Bad Gateway</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">503</td>
+<td style="width: 29.5086%;">Service Unavailable</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">504</td>
+<td style="width: 29.5086%;">Gateway Timeout</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">505</td>
+<td style="width: 29.5086%;">HTTP Version Not Supported</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">506</td>
+<td style="width: 29.5086%;">Variant Also Negotiates</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">507</td>
+<td style="width: 29.5086%;">Insufficient Storage</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">508</td>
+<td style="width: 29.5086%;">Loop Detected</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">510</td>
+<td style="width: 29.5086%;">Not Extended</td>
+</tr>
+<tr>
+<td style="width: 30.1064%;">511</td>
+<td style="width: 29.5086%;">Network Authentication Required</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></section><section class="section" data-container-size="is-narrow" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="http-status-codes-explained">HTTP Status Codes explained individually</h2>
+<p>In some cases a HTTP response code might be descriptive enough to understand its meaning. 200 OK probably means that everything went okay. But what about a 103 Early Hints, 205 Reset Content and 305 Use Proxy?</p>
+<p><strong>Below is an explanation for all 63 status codes, sorted in the 5 overall categories</strong>.</p>
+<p> </p>
+</div>
+</div>
+</div></div></section><section class="section" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="1xx">What does a 1xx Informational status code mean?</h2>
+<p>A 1xx Informational status code means that the server has received the request and is continuing the process. A 1xx status code is purely temporary and is given while the request processing continues. For most tasks you won't encounter these much, as it's not the final response to the request.</p>
+<ul>
+<li><a href="#100-continue">100 Continue</a></li>
+<li><a href="#101-switching-protocols">101 Switching protocols</a></li>
+<li><a href="#102-processing">102 Processing</a></li>
+<li><a href="#103-early-hints">103 Early Hints</a></li>
+</ul>
+<p> </p>
+<h3 id="100-continue"><strong>What does 100 Continue mean?</strong></h3>
+<p>The <strong>100 Continue</strong> status code means that the initial part of the request has been received by the server and that the client should proceed with the request or ignore the response if the request has already finished.</p>
+<p> </p>
+<h3 id="101-switching-protocols"><strong>What does 101 Switching protocols mean?</strong></h3>
+<p>The <strong>101 Switching protocols</strong> status code means that the server understands the Upgrade header field request and indicates which protocol it is switching to.</p>
+<p> </p>
+<h3 id="102-processing"><strong>What does 102 Processing mean?</strong></h3>
+<p>The <strong>102 Processing</strong> status code means that the server has accepted the full request but has not yet completed it and no response is available as of yet.</p>
+<p> </p>
+<h3 id="103-early-hints"><strong>What does 103 Early Hints mean?</strong></h3>
+<p>The <strong>103 Early hints</strong> status code is intended to be used to allow the user agent to preload resources, while the server prepares a response. It is intended to be primarily used with the Link Header.</p>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="2xx">What does a 2xx Succesful status code mean?</h2>
+<p>A 2xx Succesful status code means that the request was successful and the browser has received the expected information. This is generally the one you want to see, as it means that the request was a success and has been received, understood and accepted it. As a website owner you should make sure that all pages and resources (images, videos, etc.) all return a 2xx status code. This means that browsers can reach it successfully and that your website visitors can see and use your website.</p>
+<ul>
+<li><a href="#200-ok">200 OK</a></li>
+<li><a href="#201-created">201 Created</a></li>
+<li><a href="#202-accepted">202 Accepted</a></li>
+<li><a href="#203-non-authoritative-information">203 Non-Authoritative Information</a></li>
+<li><a href="#204-no-content">204 No Content</a></li>
+<li><a href="#205-reset-content">205 Reset Content</a></li>
+<li><a href="#206-partial-content">206 Partial Content</a></li>
+<li><a href="#207-multi-status">207 Multi-Status</a></li>
+<li><a href="#208-already-reported">208 Already Reported</a></li>
+<li><a href="#226-im-used">226 IM Used</a></li>
+</ul>
+<p> </p>
+<h3 id="200-ok"><strong>What does 200 OK mean?</strong></h3>
+<p>The <strong>200 OK</strong> status code means that the request was successful, but the meaning of success depends on the request method used:</p>
+<ul>
+<li>GET: The requested resource has been fetched and transmitted to the message body.</li>
+<li>HEAD: The header fields from the requested resource are sent in without the message body. </li>
+<li>POST or PUT: A description of the result of the action is transmitted to the message body.</li>
+<li>TRACE: The request messages, as received by the server, will be included in the message body</li>
+</ul>
+<p>When looking at things SEO-wise the 200 OK response code is the perfect status code for a functioning page, all the linked pages are working as they should. A 200 will mean that search engine crawlers can successfully crawl the page and it will be put into their search index.</p>
+<p> </p>
+<h3 id="201-created"><strong>What does 201 Created mean?</strong></h3>
+<p>The <strong>201 Created</strong> status code means that the request was successfully fulfilled and resulted in one or possibly multiple new resources being created.</p>
+<p> </p>
+<h3 id="202-accepted"><strong>What does 202 Accepted mean?</strong></h3>
+<p>The <strong>202 Accepted</strong> status code means that the request has been accepted for processing, but the processing has not been finished yet. The request may or may not be completed when the processing eventually takes place.</p>
+<p> </p>
+<h3 id="203-non-authoritative-information"><strong>What does 203 Non-Authoritative Information mean?</strong></h3>
+<p>The <strong>203 Non-Authoritative Information</strong> status code means that the request was successful. However, the meta-information that has been received is different from the one on the origin server and has instead been collected from a 3rd party or local copy. When not used for backups or mirrors of another resource a 200 OK response is preferable.</p>
+<p> </p>
+<h3 id="204-no-content"><strong>What does 204 No Content mean?</strong></h3>
+<p>The <strong>204 No Content</strong> status code means that while the server has successfully fulfilled the request, there is no available content for this request. But the user agent might want to update its currently cached headers for this resource, for the new one. </p>
+<p> </p>
+<h3 id="205-reset-content"><strong>What does 205 Reset Content mean?</strong></h3>
+<p>The <strong>205 Reset Content</strong> status code means that the user should reset the document that sent this request.</p>
+<p> </p>
+<h3 id="206-partial-content"><strong>What does 206 Partial Content mean?</strong></h3>
+<p>The <strong>206 Partial Content</strong> response code is a response to a Range header sent from the client when requesting only a part of the resource.</p>
+<p> </p>
+<h3 id="207-multi-status"><strong>What does 207 Multi-Status mean?</strong></h3>
+<p>The <strong>207 Multi-Status</strong> status code conveys information about multiple resources, in situation when multiple status codes are appropriate.</p>
+<p> </p>
+<h3 id="208-already-reported"><strong>What does 208 Already Reported mean?</strong></h3>
+<p>The <strong>208 Already Reported</strong> status code is used inside the response element <em>DAV: propstat</em>, in order to avoid enumerating the internal members of multiple bindings to the same collection repeatedly.</p>
+<p> </p>
+<h3 id="226-im-used"><strong>What does 226 IM Used mean?</strong></h3>
+<p>The <strong>226 IM response</strong> code means that the server has successfully fulfilled a <em>GET request</em> for the resource, and the response is a representation of the result of one or multiple instance-manipulations applied to the current instance.</p>
+</div>
+</div>
+</div></div></section><section class="section" ><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2><strong>What does a 3xx Redirection code mean?</strong></h2>
+<p>A 3xx Redirection status code means that you have been redirected and the completion of the request requires further action. Redirects are a natural part of the internet and you shouldn't be scared to have 3xx redirect status codes on your website. A redirect means that the request was received successfully, but that the resource was found elsewhere. If a webpage has changed path and you try to access it through the old path, your CMS will often redirect the user to the new path. Ultimately the request will end in a 2xx success, but first it must go through the 3xx redirection.</p>
+<ul>
+<li><a href="#300-multiple-choices">300 Multiple Choices</a></li>
+<li><a href="#301-moved-permanently">301 Moved Permanently</a></li>
+<li><a href="#302-found">302 Found (Previously "Moved temporarily")</a></li>
+<li><a href="#303-see-other">303 See Other</a></li>
+<li><a href="#304-not-modified">304 Not Modified</a></li>
+<li><a href="#305-use-proxy">305 Use Proxy</a></li>
+<li><a href="#306-switch-proxy">306 Switch Proxy</a></li>
+<li><a href="#307-temporary-redirect">307 Temporary Redirect</a></li>
+<li><a href="#308-permanent-redirect">308 Permanent Redirect</a></li>
+</ul>
+<p> </p>
+<h3 id="300-multiple-choices"><strong>What does 300 Multiple Choices mean?</strong></h3>
+<p>The <strong>300 Multiple Choices</strong> status code means that the request has multiple possible responses and the user/user agent should choose one.</p>
+<p> </p>
+<h3 id="301-moved-permanently"><strong>What does 301 Moved Permanently mean?</strong></h3>
+<p>The <strong>301 Moved Permanently</strong> response code means that the target resource has been assigned a new permanent URL and any references to this resources in the future should use one of the URLs included in the response.</p>
+<p>When looking at things SEO-wise the 301 Permanent Redirect should be used every time a URL is moved permanently. This redirect passes your current link equity from your content to the new URL. Links that result in a status code 301 does give slightly less link equity than 200. So if you have a lot of links going through a 301 Permanent Redirect it is advised to fix these, if possible.</p>
+<p> </p>
+<h3 id="302-found"><strong>What does 302 Found (Previously “Moved temporarily”) mean?</strong></h3>
+<p>The <strong>302 Found</strong> status code, previously known as “Moved temporarily”, means that the URI of the request has been changed temporarily, and since changes can be made to the URI in the future, the effective request URI should be used for future requests.</p>
+<p>When looking at things SEO-wise the 302 Found should only be used when making temporary changes as it does not pass the link equity the same way as a 301. If the page is not going to come back you should always use 301.</p>
+<p> </p>
+<h3 id="303-see-other"><strong>What does 303 See Other mean?</strong></h3>
+<p><strong>The 303 See Other</strong> response code is sent by the server in order to direct the client to get the requested resource at another URI with a GET request.</p>
+<p> </p>
+<h3 id="304-not-modified"><strong>What does 304 Not Modified mean?</strong></h3>
+<p>The <strong>304 Not Modified</strong> response code informs the client that the response has not been modified. This means that the client can continue to use the already present, cached version of the response.</p>
+<p> </p>
+<h3 id="305-use-proxy"><strong>What does 305 Use Proxy mean?</strong></h3>
+<p>The <strong>305 Use Proxy</strong> status code instructs a client that it should connect to a proxy and then repeat the same request there. This response code is deprecated due to security concerns.</p>
+<p> </p>
+<h3 id="306-switch-proxy"><strong>What does 306 Switch Proxy mean?</strong></h3>
+<p>The <strong>306 Switch proxy</strong> status code is no longer in use. It was used to inform the client that the subsequent requests should use the specified proxy.</p>
+<p> </p>
+<h3 id="307-temporary-redirect"><strong>What does 307 Temporary Redirect mean?</strong></h3>
+<p>The <strong>307 Temporary Redirect</strong> status code gets sent by the server in order to direct the client to the requested resource at another URI. The request method, however, must not be changed.</p>
+<p> </p>
+<h3 id="308-permanent-redirect"><strong>What does 308 Permanent Redirect mean?</strong></h3>
+<p>The <strong>308 Permanent Redirect</strong> status code means that the requested resource has been permanently assigned a new URI and future references to the resource should be made by using one of the enclosed URIs.</p>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="4xx"><strong>What does a 4xx Client Error mean?</strong></h2>
+<p>A 4xx Client Error status code means that the website or the page could not be reached and either the page is unavailable or the request contains bad syntax. As a website owner you should do your best to avoid these, as it means your users will not find what they're looking for. This can be either pages that are no longer found and are either temporarily or permanently gone. Besides giving a bad user experience, it can also hurt your <a href="#http-status-codes-seo">SEO efforts</a>.</p>
+<ul>
+<li><a href="#400-bad-request">400 Bad Request</a></li>
+<li><a href="#401-unauthorized">401 Unauthorized</a></li>
+<li><a href="#402-payment-required">402 Payment Required</a></li>
+<li><a href="#403-forbidden">403 Forbidden</a></li>
+<li><a href="#404-not-found">404 Not Found</a></li>
+<li><a href="#405-method-not-allowed">405 Method Not Allowed</a></li>
+<li><a href="#406-not-acceptable">406 Not Acceptable</a></li>
+<li><a href="#407-proxy-authentication-required">407 Proxy Authentication Required</a></li>
+<li><a href="#408-request-timeout">408 Request Timeout</a></li>
+<li><a href="#409-conflict">409 Conflict</a></li>
+<li><a href="#410-gone">410 Gone</a></li>
+<li><a href="#411-length-required">411 Length Required</a></li>
+<li><a href="#412-precondition-failed">412 Precondition Failed</a></li>
+<li><a href="#413-payload-too-large">413 Payload Too Large</a></li>
+<li><a href="#414-uri-too-long">414 URI Too Long</a></li>
+<li><a href="#415-unsupported-media-type">415 Unsupported Media Type</a></li>
+<li><a href="#416-range-not-satisfiable">416 Range Not Satisfiable</a></li>
+<li><a href="#417-expectation-failed">417 Expectation Failed</a></li>
+<li><a href="#418-im-a-teapot">418 I'm a Teapot</a></li>
+<li><a href="#421-misdirected-request">421 Misdirected Request</a></li>
+<li><a href="#422-unprocessable-entity">422 Unprocessable Entity</a></li>
+<li><a href="#423-locked">423 Locked</a></li>
+<li><a href="#424-failed-dependency">424 Failed Dependency</a></li>
+<li><a href="#425-too-early">425 Too Early</a></li>
+<li><a href="#426-upgrade-required">426 Upgrade Required</a></li>
+<li><a href="#428-precondition-required">428 Precondition Required</a></li>
+<li><a href="#429-too-many-requests">429 Too Many Requests</a></li>
+<li><a href="#431-request-header-fields-too-large">431 Request Header Fields Too Large</a></li>
+<li><a href="#451-unavailable-for-legal-reasons">451 Unavailable For Legal Reasons</a></li>
+</ul>
+<p> </p>
+<h3 id="400-bad-request"><strong>What does 400 Bad Request mean?</strong></h3>
+<p>The <strong>400 Bad Request</strong> status code means that the server could not understand the request because of invalid syntax.</p>
+<p> </p>
+<h3 id="401-unauthorized"><strong>What does 401 Unauthorized mean?</strong></h3>
+<p>The <strong>401 Unauthorized</strong> status code means that the request has not been applied because the server requires user authentication.</p>
+<p> </p>
+<h3 id="402-payment-required"><strong>What does 402 Payment Required mean?</strong></h3>
+<p>The <strong>402 Payment Required</strong> status code is a response reserved for future use. It was originally created to be implemented in digital payment systems, however, it is rarely used and a standard convention of using it does not exist.</p>
+<p> </p>
+<h3 id="403-forbidden"><strong>What does 403 Forbidden mean?</strong></h3>
+<p>The <strong>403 Forbidden</strong> status code means that the client request has been rejected because the client does not have rights to access the content. Unlike a 401 error, the client's identity is known to the server, but since they are not authorized to view the content, giving the proper response is rejected by the server.</p>
+<p> </p>
+<h3 id="404-not-found"><strong>What does error 404 mean?</strong></h3>
+<p>The <strong>404 Not Found</strong> status code means that the server either did not find a current representation for the requested resource or is trying to hide its existence from an unauthorized client.</p>
+<p>When looking at things SEO-wise the 404 Not Found status code pages with a high volume of traffic should be redirected using a 301 to the most relevant page possible. For some pages, however, a 404 might be necessary, for example, if the product is out of stock for an extended period of time. If you have external links pointing to a page that returns 404, you will lose the link equity those links would otherwise give.</p>
+<p><a href="#fix-404-errors">If you need to fix 404 errors, jump to this section</a>.</p>
+<p> </p>
+<h3 id="405-method-not-allowed"><strong>What does 405 Method Not Allowed mean?</strong></h3>
+<p>The <strong>405 Method Not Allowed</strong> status code means that while the server knows the request method, the method has been disabled and can not be used.</p>
+<p> </p>
+<h3 id="406-not-acceptable"><strong>What does 406 Not Acceptable mean?</strong></h3>
+<p>The <strong>406 Not Acceptable</strong> status code is sent by the server when it does not find any content following the criteria given by the user agent.</p>
+<p> </p>
+<h3 id="407-proxy-authentication-required"><strong>What does 407 Proxy Authentication Required mean?</strong></h3>
+<p>The <strong>407 Proxy Authentication Required</strong> status code means that the client must first be authenticated by a proxy (similar to a 401).</p>
+<p> </p>
+<h3 id="408-request-timeout"><strong>What does 408 Request Timeout mean?</strong></h3>
+<p>The <strong>408 Request Timeout</strong> status code means that the server did not receive a complete request in the time that it prepared to wait.</p>
+<p> </p>
+<h3 id="409-conflict"><strong>What does 409 Conflict mean?</strong></h3>
+<p>The <strong>409 Conflict</strong> status code means that the request could not be fulfilled due to a conflict with the current state of the target resource and is used in situations where the user might be able to resubmit the request after resolving the conflict.</p>
+<p> </p>
+<h3 id="410-gone"><strong>What does 410 Gone mean?</strong></h3>
+<p>The <strong>410 Gone</strong> status code means that the target resource has been deleted and the condition seems to be permanent. </p>
+<p>When looking at things SEO-wise the 410 Gone status code is a more permanent version a 404. The page will no longer be available from the server and has no forwarding address available. If you want to completely remove a page from Googles search index, then using 410 on a page is the proper way of doing it (instead of simply 404). </p>
+<p> </p>
+<h3 id="411-length-required"><strong>What does 411 Length Required mean?</strong></h3>
+<p>The <strong>411 Length Required</strong> status code means that the server has rejected the request because it requires the Content-Length header field to be defined.</p>
+<p> </p>
+<h3 id="412-precondition-failed"><strong>What does 412 Precondition Failed mean?</strong></h3>
+<p>The <strong>412 Precondition Failed</strong> status code means the server does not meet one or multiple preconditions that were indicated in the request header fields.</p>
+<p> </p>
+<h3 id="413-payload-too-large"><strong>What does 413 Payload Too Large mean?</strong></h3>
+<p>The <strong>413 Payload Too Large</strong> status code means the server refuses to process the request because the request payload is larger than the server is able or willing to process. While the server may close the connection to prevent the client from continuing the request, it should generate a Retry-After header field and after how long can the client retry.</p>
+<p> </p>
+<h3 id="414-uri-too-long"><strong>What does 414 URI Too Long mean?</strong></h3>
+<p>The <strong>414 URI Too Long</strong> status code means that the server is refusing to service the request because the request-target was longer than the server was willing to interpret.</p>
+<p> </p>
+<h3 id="415-unsupported-media-type"><strong>What does 415 Unsupported Media Type mean?</strong></h3>
+<p>The <strong>415 Unsupported Media Type</strong> status code means that the server is rejecting the request because it does not support the media format of the requested data.</p>
+<p> </p>
+<h3 id="416-range-not-satisfiable"><strong>What does 416 Range Not Satisfiable mean?</strong></h3>
+<p>The <strong>416 Range Not Satisfiable</strong> status code means that the range specified in the Range header field of the request can't be fulfilled. The reason might be that the given range is outside the size of the target URI's data.</p>
+<p> </p>
+<h3 id="417-expectation-failed"><strong>What does 417 Expectation Failed mean?</strong></h3>
+<p>The <strong>417 Expectation Failed</strong> status code means that the Expectation indicated by the Expect request-header field could not be met by the server.</p>
+<p> </p>
+<h3 id="418-im-a-teapot"><strong>What does 418 I’m a Teapot mean?</strong></h3>
+<p>The <strong>418 I'm a Teapot</strong> status code means that the server refuses to brew coffee because it is, in fact, a teapot. (It is a reference to a 1998 April Fools' joke called ''Hyper Text Coffee Pot Control Protocol'').</p>
+<p> </p>
+<h3 id="421-misdirected-request"><strong>What does 421 Misdirected Request mean?</strong></h3>
+<p>The <strong>421 Misdirected Request</strong> status code means that the client request was directed at a server that is not configured to produce a response.</p>
+<p> </p>
+<h3 id="422-unprocessable-entity"><strong>What does 422 Unprocessable Entity mean?</strong></h3>
+<p>The <strong>422 Unprocessable Entity</strong> status code means that while the request was well-formed, the server was unable to follow it, due to semantic errors.</p>
+<p> </p>
+<h3 id="423-locked"><strong>What does 423 Locked mean?</strong></h3>
+<p>The <strong>423 Locked</strong> status code means that the resource that is being accessed is locked.</p>
+<p> </p>
+<h3 id="424-failed-dependency"><strong>What does 424 Failed Dependency mean?</strong></h3>
+<p>The <strong>424 Failed Dependency</strong> status code means that the request failed due to the failure of a previous request.</p>
+<p> </p>
+<h3 id="425-too-early"><strong>What does 425 Too Early mean?</strong></h3>
+<p>The <strong>425 Too Early</strong> status code means that the server is not willing to risk processing a request that might be replayed.</p>
+<p> </p>
+<h3 id="426-upgrade-required"><strong>What does 426 Upgrade Required mean?</strong></h3>
+<p>The <strong>426 Upgrade Required</strong> status code means that while the server refuses to perform the given request using the current protocol, it might be willing to do so after the client has been upgraded to a different protocol.</p>
+<p> </p>
+<h3 id="428-precondition-required"><strong>What does 428 Precondition Required mean?</strong></h3>
+<p>The <strong>428 Precondition Required</strong> status code means that the origin server requires the request to be conditional.</p>
+<p> </p>
+<h3 id="429-too-many-requests"><strong>What does 429 Too Many Requests mean?</strong></h3>
+<p>The <strong>429 Too Many Requests</strong> response code means that in the given time, the user has sent too many requests.</p>
+<p> </p>
+<h3 id="431-request-header-fields-too-large"><strong>What does 431 Request Header Fields Too Large mean?</strong></h3>
+<p>The <strong>431 Request Header Fields Too Large</strong> means that the server is not willing to process the request because its header fields are indeed too large, however, the request may be submitted again once the size of the request header fields is reduced.</p>
+<p> </p>
+<h3 id="451-unavailable-for-legal-reasons"><strong>What does 451 Unavailable For Legal Reasons mean?</strong></h3>
+<p>The <strong>451 Unavailable For Legal Reasons</strong> response code means that the user has requested an illegal resource (such as pages and sites blocked by the government).</p>
+</div>
+</div>
+</div></div></section><section class="section" ><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="5xx"><strong>What does a 5xx Server error mean?</strong></h2>
+<p>A 5xx Server error status code means that while the request appears to be valid, the server could not complete the request. If you're experiencing 5xx server errors for your website, you should immediately look at your server. If you're hosting your own server you'll need to start debugging to figure out why it is not responding properly. If you're using an external hosting provider you'll need to reach out to them, so they can look at it.</p>
+<ul>
+<li><a href="#500-internal-server-error">500 Internal Server Error</a></li>
+<li><a href="#501-not-implemented">501 Not Implemented</a></li>
+<li><a href="#502-bad-gateway">502 Bad Gateway</a></li>
+<li><a href="#503-service-unavailable">503 Service Unavailable</a></li>
+<li><a href="#504-gateway-timeout">504 Gateway Timeout</a></li>
+<li><a href="#505-http-version-not-supported">505 HTTP Version Not Supported</a></li>
+<li><a href="#506-variant-also-negotiates">506 Variant Also Negotiates</a></li>
+<li><a href="#507-insufficient-storage">507 Insufficient Storage</a></li>
+<li><a href="#508-loop-detected">508 Loop Detected</a></li>
+<li><a href="#510-not-extended">510 Not Extended</a></li>
+<li><a href="#511-network-authentication-required">511 Network Authentication Required</a></li>
+</ul>
+<p> </p>
+<h3 id="500-internal-server-error"><strong>What does 500 Internal Server Error mean?</strong></h3>
+<p>The <strong>500 Internal Server Error</strong> status code means that the server has encountered a situation that it does not know how to handle.</p>
+<p>When looking at things SEO-wise the 500 Internal Server Error indicates a problem with the server, not the actual availability of the content. Since bots and users will both be lost, the link equity will go down fast.</p>
+<p> </p>
+<h3 id="501-not-implemented"><strong>What does 501 Not Implemented mean?</strong></h3>
+<p>The <strong>501 Not Implemented</strong> response code means that the request can not be handled because it is not supported by the server.</p>
+<p> </p>
+<h3 id="502-bad-gateway"><strong>What does 502 Bad Gateway mean?</strong></h3>
+<p>The <strong>502 Bad Gateway</strong> response code means that the server received an invalid response while working as a gateway to handle the response.</p>
+<p> </p>
+<h3 id="503-service-unavailable"><strong>What does 503 Service Unavailable mean?</strong></h3>
+<p>The <strong>503 Service Unavailable</strong> response code means that the server is currently not ready to handle the request. This is a common occurrence when the server is down for maintenance or is overloaded.</p>
+<p>When looking at things SEO-wise the 503 Service Unavailable status code means that the server is unavailable and the visitor, bot or human, is asked to return again at a later time. This could be because of either server maintenance or server overload and search engines know to come back and check the availability later.</p>
+<p><a href="#fix-503-errors">If you want to fix 503 errors, jump to this section</a>.</p>
+<p> </p>
+<h3 id="504-gateway-timeout"><strong>What does 504 Gateway Timeout mean?</strong></h3>
+<p>The <strong>504 Gateway Timeout</strong> response code means that the server acting as a gateway could not get a response time.</p>
+<p> </p>
+<h3 id="505-http-version-not-supported"><strong>What does 505 HTTP Version Not Supported mean?</strong></h3>
+<p>The <strong>505 HTTP Version Not Supported</strong> response code means that the version of HTTP used in the request is not supported by the server.</p>
+<p> </p>
+<h3 id="506-variant-also-negotiates"><strong>What does 506 Variant Also Negotiates mean?</strong></h3>
+<p>The <strong>506 Variant Also Negotiates</strong> response code means that the server has the following internal configuration error: The chosen variant resource is configured to engage in transparent negotiation itself, therefore it cannot be a proper endpoint in the negotiation process.</p>
+<p> </p>
+<h3 id="507-insufficient-storage"><strong>What does 507 Insufficient Storage mean?</strong></h3>
+<p>The <strong>507 Insufficient Storage</strong> status code means that the method could not be performed on the resource because the server is not able to store the representation that would be needed to complete the request successfully.</p>
+<p> </p>
+<h3 id="508-loop-detected"><strong>What does 508 Loop Detected mean?</strong></h3>
+<p>The <strong>508 Loop Detected</strong> response code means that the server has detected an infinite loop while processing the request.</p>
+<p> </p>
+<h3 id="510-not-extended"><strong>What does 510 Not Extended mean?</strong></h3>
+<p>The <strong>510 Not Extended</strong> response code means that further extensions are required for the server to be able to fulfil the request.</p>
+<p> </p>
+<h3 id="511-network-authentication-required"><strong>What does 511 Network Authentication Required mean?</strong></h3>
+<p>The <strong>511 Network Authentication Required</strong> response code indicates that the client needs to authenticate to gain network access. </p>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="http-status-codes-seo">HTTP Status Codes &amp; SEO: Here are the ones you need to know</h2>
+<p>If you want great results with your SEO it's important to work with <a href="/umbraco-for-marketers/umbraco-the-seo-friendly-cms/#technical-seo-features" data-anchor="#technical-seo-features">technical SEO</a>. A big part of that is handling response codes on your website to ensure that the website is properly crawled by Googlebot and that your content returns the proper response code when it is requested.</p>
+<p>Below are the 5 status codes that you need to know as an SEO.</p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<picture>
+<source data-srcset="/media/znbjlelm/browser-500x500.png?quality=80&amp;format=webp" type="image/webp" />
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload "
+alt="Browser with Umbraco logo icon"
+data-src="/media/znbjlelm/browser-500x500.png?quality=80"
+loading="lazy"
+width=1
+height=1 />
+</picture>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h3>200 OK &amp; SEO</h3>
+<p>This is the goal for 99 % of your content (pages, media, etc.): a successful status code that means everything works like it should. This is critical to a well-functioning website and for a great user experience.</p>
+<p>It also gives you the reassurance that all external pointing to your website will give you link value. If all of your content returns a 200 OK status code you can rest assured that your website is working and is properly accessible for crawlers and visitors alike.</p>
+<p> </p>
+<h3>301 Moved Permanently &amp; SEO</h3>
+<p>In a perfect world all of your content will stay on the same URL and always respond with a 200 OK. But that's rarely how it works in the real world when managing a website.</p>
+<p>If a page has changed its URL you will need to set up a redirect to send users and bots from the old URL to the new URL. Otherwise they will be met by a 404 page (see explanation below). In some <a href="/knowledge-base/cms/">content management systems</a>, automatic redirect is a <a href="/umbraco-for-marketers/umbraco-the-seo-friendly-cms/">built-in SEO feature</a>, while in others you'll have to manually set it up.</p>
+<p>You should use 301 redirects if the page is permanently gone and will not come back. This is the case for pages that have changed their URL or content that has been deleted.</p>
+<p>If something is gone, instead of simply moved, you can either let it become a 404 or choose to redirect it to something similar on your website. This could be a product that you're no longer going to sell, where it can make sense to redirect that page to the category page instead.</p>
+<p> </p>
+<h3>302 Found &amp; SEO</h3>
+<p>What if the page is only gone temporarily, but will come back again later? To give a good user experience you don't want it to become a 404 page and you also don't want to make a permanent 301 redirect.</p>
+<p>The solution is to use 302 Found instead of a 301. To the user it will be the same, but to search engine crawlers and bots, it will tell them to check back later on, as this redirect is only temporary. That means the old URL will keep its value while it's gone.</p>
+<p>This is perfect for pages that will only be unavailable temporarily. An example could be a sold-out product which is removed from the website until it is back in stock. In that case you want to make use of a 302 Found temporary redirect. Once the product is back online, you remove the redirect and the page will have kept its value (and good rankings in search engines).</p>
+<p>Note that if the 302 redirect is there for too long, Google will consider it a 301 permanent redirect instead.</p>
+<p> </p>
+<h3>404 Not Found &amp; SEO</h3>
+<p>If a page is no longer found it will result in a 404 page (<em>psst, <a href="/blog/how-do-you-make-a-great-404-page/">here's some tips on how to make a great 404 page</a></em>). This means, that the server tells users, crawlers and bots that the page they were looking for is not found. </p>
+<p>These are important to keep an eye on, as they can hurt your SEO a lot if not monitored and fixed.</p>
+<p>Firstly, if a page returns a 404 it won't be shown in Google's search results. While it won't get removed instantly, it will be after a short period of time, if not fixed. So if any of the pages that give you organic traffic end up returning a 404 error, you need to fix it quickly. See some <a href="#fix-404-errors" data-anchor="#fix-404-errors">tips on how to fix 404 errors here</a>.</p>
+<p>Secondly, if the page had any external links pointing to it, they will no longer give any value to your website. So even if the page does not receive any organic traffic, it can hurt your SEO performance.</p>
+<p>The easiest way to fix this problem is to set up a 301 redirect. This will give a better user experience and will pass most of the link value from external links to the new page you're redirecting to.</p>
+<p> </p>
+<h3>410 Gone &amp; SEO</h3>
+<p>What if you actually want a page to completely disappear from Google's search engine index? It might be intuitive to simply let it return a 404 error, but there's one caveat with that:</p>
+<p><em>404 does not tell crawlers and bots why the page was not found</em>. For that reason, Google still might keep thinking that the page is there, even if it encounters a 404 error. In most cases this is fine, but there's one case where you want to make it crystal clear that the content is gone. And that's if you have been hacked and malicious content has been added to your website.</p>
+<p>After doing cleanup it's not enough to let the URLs return 404. Instead you should make sure that they return the 410 Gone status code. This clearly tells crawlers and bots that the page is gone for good and that they should remove it from their index.</p>
+<p> </p>
+<h3>5xx Server errors &amp; SEO</h3>
+<p>The last one is not directly SEO-related, but more of a good tip for troubleshooting your website.</p>
+<p>If you see any response code that start with 5xx, you should instantly know that it is a server error. This will help you greatly when it comes to troubleshooting and fixing it. </p>
+<p>Instead of wasting time trying to fix the problem through your CMS backend or elsewhere, you can go straight to fixing the server. No matter if you do your own hosting or if you use a hosting provider, it is helpful to know that it's related to the server, not your website.</p>
+<p> </p>
+</div>
+</div>
+</div></div></section><section class="section" ><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="check-http-status-code">How to check the HTTP status code of a page</h2>
+<p>Finding the server response code for a page can be done manually in your browser or by using various tools and website crawlers.</p>
+<p>Depending on the browser you're using it is slightly different. Below is how to do it in Chrome (most steps will be similar in other browsers).</p>
+<p> </p>
+<p><strong>Checking HTTP status code in Chrome</strong></p>
+<ol>
+<li>Open the URL your want to check with your browser</li>
+<li>Open the Developer tab (F12) and go to the "Network" tab</li>
+<li>Refresh the page</li>
+<li>Scroll to the top of the list of requests and find the first of type "document"</li>
+<li>In "Status" you can now find the HTTP response code</li>
+</ol>
+<p> </p>
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload "
+alt="Find HTTP status code in Chrome"
+data-src="/media/ialbgcrb/find-http-status-code-in-chrome.png?quality=80"
+loading="lazy"
+data-srcset="/media/ialbgcrb/find-http-status-code-in-chrome.png?quality=80&amp;format=webp"
+width=1
+height=1  style="display: block; margin-left: auto; margin-right: auto;" src="" /></p>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="fix-404-errors">How to fix 404 errors</h2>
+<p>If you have seen the status code 404 Page Not found you might have been thinking <em>"What does error 404 mean?"</em></p>
+<p>HTTP status code 404 means "Page Not Found". This means that the request you sent was received by the server, but it could not find the page you were looking for.</p>
+<p>So to fix the 404 error you first need to find the cause for it, which can be due to many things. But since you know that the server is reachable (otherwise it would have returned a 5xx error), you know that the error is client-side. Basically that means it's your fault (not as harsh as it sounds).</p>
+<p>Luckily it means that you can also fix the error on your end without having to debugging your server or reaching out to your hosting provider.</p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" data-vertical-position="Middle" data-horizontal-position="Center">
+<div class="content grid-section__cell-content">
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload "
+alt="Fix 404 errors"
+data-src="/media/oueb2xeo/code.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=400&amp;height=400&amp;rnd=132548312680400000"
+loading="lazy"
+data-srcset="/media/oueb2xeo/code.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=400&amp;height=400&amp;rnd=132548312680400000&amp;format=webp"
+width=400
+height=400  style="display: block; margin-left: auto; margin-right: auto;" src="?width=400&amp;height=400&amp;mode=max" /></p>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<p><strong>Run through this checklist to fix the 404 error:</strong></p>
+<ol>
+<li>Refresh the page. It might seem simple, but a 404 error could have just been a temporary issue that is fixed simply by trying again.<br /><br /></li>
+<li>Check the URL you typed in. Did you make a mistake somewhere? If the URL you typed is not exactly right a 404 is to be expected (unless a 3xx redirect is set up)<br /><br /></li>
+<li>If no mistake was made, try again from a different device like your mobile phone or tablet. If it works from a different device it's most likely due to browser cache and cookies. Clear the browser cache and delete cookies, then try to access the page again.</li>
+</ol>
+<p> </p>
+<p>If none of the above tricks worked, it's likely that the piece of content was deleted or some other way moved. If the content was moved, which caused it to change URL, then you should make sure to set up a redirect that points from the old URL to the new one. That way you're sure that anyone looking for the page can still find it.</p>
+<p>If it was deleted, then a 404 error is the right response as the page truly was not found on your website and everything is working as it should.</p>
+<p> </p>
+<p><strong>If you see a lot of your visitors ending up on this page, then it's most likely due to one of 3 things:</strong></p>
+<ol>
+<li>You have an internal link on your website pointing to the page. If that's the case, you should remove (or change) this link so it no longer points to a page that is not found.<br /><br /></li>
+<li>External websites link to the page. This is trickier as you can't simply change it (although you can reach out to the websites and ask them to change it). A more simple thing for you to do would be to add a 301 redirect and point from the page to a different page on your website. That way you lead people to a page that is working, while also being a <a href="#http-status-codes-seo">SEO-friendly option</a>.<br /><br /></li>
+<li>The page is still showing up in Google's search results and sending traffic to your website. While this is usually short-lived, it is possible that a 404 page can stay in the search results for a while, as a 404 does not tell Googlebot whether the page is temporarily or permanently missing. If this is happening, you'll need to get the page back quickly or redirect it to a different page, so you won't lose your rankings in Google.</li>
+</ol>
+</div>
+</div>
+</div></div></section><section class="section" data-row-theme="is-grey" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2>Find 404 pages in Google Analytics</h2>
+<p>Have you ever wondered if there’s a way to find 404 pages in Google Analytics?</p>
+<p>Well, the good news is, there are ways to find them within your analytics setup. Now this can sometimes come down to how your website is configured. One way to find them is to check by page title - Your 404 page will very likely have “404” or “Page not found” in the title. It’s very easy to find the 404 page this way:<br /><br /></p>
+<ul>
+<li>Within your analytics tool, go to behavior → Site Content → All Pages.</li>
+<li>Now you can set your primary dimension to Page title and search for  “404” or “Page not Found”.</li>
+<li>And now - you should hopefully have your 404 report.</li>
+</ul>
+<p><br />Now this is not the only way to set it up, but there is a very good chance that you can find the pages this way. <br /><br /></p>
+</div>
+</div>
+</div></div></section><section class="section" data-padding="is-paddingless-bottom"><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" data-container-size="is-fluid" data-vertical-position="Middle" data-horizontal-position="Center">
+<div class="content grid-section__cell-content">
+<p><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAEALAAAAAABAAEAAAICTAEAOw=="
+class="lazyload "
+alt="Fix 503 errors"
+data-src="/media/r5nfrprt/code_too.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=400&amp;height=400&amp;rnd=132548312620000000"
+loading="lazy"
+data-srcset="/media/r5nfrprt/code_too.png?anchor=center&amp;mode=crop&amp;quality=80&amp;width=400&amp;height=400&amp;rnd=132548312620000000&amp;format=webp"
+width=400
+height=400  style="display: block; margin-left: auto; margin-right: auto;" src="?width=400&amp;height=400&amp;mode=max" /></p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2 id="fix-503-errors">How to fix 503 errors</h2>
+<p>The 503 response code means "Service Unavailable" and happens when a server is currently not ready to handle the request. This can be either due to the server being down for maintenance or if it is overloaded.</p>
+<p>If this error occurs on your own website, you need to have a look at your server, as something is making it unable to process the requests made.</p>
+<p>Unfortunately it's not always easy and simple to fix. A 503 response code can be due to many things, but at least you know it's server-related and not client-side like with a 404 error.</p>
+</div>
+</div>
+</div></div></section><section class="section" data-padding="is-paddingless-top"><div class="umb-container">
+<div class="columns">
+<div class="column is-12 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<p><strong>Here's a list of steps you can go through to identify and fix a 503 error:</strong></p>
+<ol>
+<li>Is your website still running and receiving traffic? Check your Analytics tools or server logs to see if other visitors are getting through to your website.<br /><br /></li>
+<li>If it's no longer receiving traffic your server might be under maintenance or have crashed. If it's under maintenance then a 503 is to be expected and everything will work fine once it's done. If it crashed you should try restarting it.<br /><br /></li>
+<li>If you're receiving huge amounts of website traffic, the server is most likely overloaded and returning 503 errors because it doesn't have the resources to keep up. Before fixing such an issue you need to identify it the traffic is from real visitors or if you're the victim of a <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">DoS or DDoS attack</a>.<br /><br /></li>
+<li>Identifying a DoS or DDoS attack can be hard, but the most effective ways are:
+<ol>
+<li>Checking if one or more IP addresses make a lot of requests</li>
+<li>The TTL (time to live) on a ping request times out</li>
+<li>Analyzing the server logs and seeing huge spikes in traffic<br /><br /></li>
+</ol>
+</li>
+<li>If it looks to be a DoS or DDoS attack, you'll need to apply one or more <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack#Defense_techniques" data-anchor="#Defense_techniques">defense techniques</a> to stop the attack. <br /><br /></li>
+<li>If it is not a DoS or DDoS attack, then your website has most likely become more popular than your server can handle. The best way to fix such an issue is to look at connection limits, bandwidth throttling, system resources, fail-safes that might have triggered or anything that might be limiting server performance. Essentially you'll need to upgrade your server so it has the proper resources to handle the traffic.</li>
+</ol>
+<p> </p>
+<p>The above list is great for troubleshooting one-off 503 errors. But if it happens on a regular basis, then it might be a more permanent problem with your server that you should dive deeper into fixing. This can be inefficient processes using up all of your resources or your server simply not having enough allocated resources to handle the traffic your website is receiving.</p>
+</div>
+</div>
+</div></div></section><section class="section" ><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h2>What status code is returned by a website when the browser request is successful?</h2>
+<p>With all these HTTP status codes - It can be a bit daunting to figure if any of them are good. But some of them are. <br />A browser will return a 2xx status code if the browser request was successful. So a 2xx code is the one you want to see. The 200 status code means that the browser’s request was successful and received, understood, and accepted.</p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+</div>
+</div>
+</div></div></section><section class="section" ><div class="umb-container">
+<div class="columns">
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h3>Related words:</h3>
+<p><a href="/knowledge-base/deployment/">Deployment</a></p>
+<p><a href="/knowledge-base/load-balancing/">Load Balancing</a></p>
+<p><a href="/knowledge-base/open-source/">Open Source</a></p>
+</div>
+</div>
+<div class="column is-6 grid-section__cell" >
+<div class="content grid-section__cell-content">
+<h3>Info about Umbraco:</h3>
+<p><a href="/products/umbraco-cms/">Umbraco CMS</a></p>
+<p><a href="/products/umbraco-cloud/">Umbraco Cloud</a></p>
+<p><a href="/products/umbraco-heartcore/">Umbraco Heartcore</a></p>
+</div>
+</div>
+</div></div></section></div>
+</main>
+<section class="section stats-section is-blue lazyload" data-background="/dist/illustrations/globe.png?quality=80&format=webp"><div class="umb-container"><div class="stats columns">
+<div class="column is-6-tablet">
+<h3 class="stats-headline">Loved by developers, used by thousands around the world!</h3>
+<p>One of the biggest benefits of using Umbraco is that we have the friendliest Open Source community on this planet. A community that's incredibly pro-active, extremely talented and helpful.</p>
+<p>If you get an idea for something you would like to build in Umbraco, chances are that someone has already built it. And if you have a question, are looking for documentation or need friendly advice, go ahead and ask the Umbraco community on Our.</p>
+</div>
+<stat-items :items="[{&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;key&quot;:&quot;bfe7403d-bbb8-4976-b5e4-a40a1014d988&quot;,&quot;number&quot;:&quot;731438&quot;,&quot;properties&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1},{&quot;alias&quot;:&quot;number&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1}],&quot;title&quot;:&quot;Number of active installs&quot;},{&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;key&quot;:&quot;23cd8329-1253-4be4-be82-a3f27f793af4&quot;,&quot;number&quot;:&quot;221745&quot;,&quot;properties&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1},{&quot;alias&quot;:&quot;number&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1}],&quot;title&quot;:&quot;Number of active members in the community&quot;},{&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;key&quot;:&quot;97709de2-b2e7-4700-aac2-55dad1d1f313&quot;,&quot;number&quot;:&quot;1211&quot;,&quot;properties&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1},{&quot;alias&quot;:&quot;number&quot;,&quot;propertyType&quot;:{&quot;alias&quot;:&quot;number&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;contentType&quot;:{&quot;alias&quot;:&quot;statItem&quot;,&quot;compositionAliases&quot;:[],&quot;id&quot;:4222,&quot;isElement&quot;:true,&quot;itemType&quot;:1,&quot;key&quot;:&quot;598df18b-54a5-45a6-95d9-8bd38cad16a9&quot;,&quot;propertyTypes&quot;:[{&quot;alias&quot;:&quot;title&quot;,&quot;cacheLevel&quot;:3,&quot;clrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0}],&quot;variations&quot;:0},&quot;dataType&quot;:{&quot;configuration&quot;:{&quot;maxChars&quot;:null},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;id&quot;:-88},&quot;editorAlias&quot;:&quot;Umbraco.TextBox&quot;,&quot;isUserProperty&quot;:true,&quot;modelClrType&quot;:&quot;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089&quot;,&quot;variations&quot;:0},&quot;referenceCacheLevel&quot;:1}],&quot;title&quot;:&quot;Known free Umbraco packages available&quot;}]"></stat-items></div></div></section> <section class="section is-white newsletter"><div class="umb-container"><div class="has-centered-text">
+<h2 class="title is-large">Want to be updated on everything Umbraco?</h2>
+<p>Sign up for the Umbraco newsletter and get the latest news and special offers sent directly to your inbox</p></div>
+<div class="columns">
+<div class="column is-6 is-offset-3"><form action="/knowledge-base/http-status-codes/" class="newsletter-form" enctype="multipart/form-data" method="post"><input name="__RequestVerificationToken" type="hidden" value="1oaIPFwJIa0Zi1Lpnrqm0K6X-MQpU9uqTtm8wMJ3fcQty5FT-T8yehJwH02e0x9Hg95CAJbnacK5iKgTNbe7uDtRqod6y14jjcINi1mjXcA1" /> <div class="control">
+<input type="text"
+name="name"
+class="input is-large"
+placeholder="What is your first name?"
+required />
+</div>
+<div class="control">
+<input type="email"
+name="email"
+class="input is-large"
+placeholder="What is your email?"
+required />
+</div>
+<div class="control">
+<div class="g-recaptcha" data-sitekey="6Ldd1zgcAAAAAE_j9MpXEggJyFuS4PtLCfgRwsIT"></div>
+</div>
+<div class="control">
+<input type="submit"
+class="btn is-full is-blue is-large"
+name="submit"
+value="Sign me up for the Umbraco newsletter " />
+</div><input name="ufprt" type="hidden" value="E5202F993FF06F835357C3FD30249BB3C78952C19B55FD17BBCCDFA8E380488886AB8B31E3DCCDA08CF2F7719905C528EECB90445F077BD38B57E0414576D3D6E6F7A019C7DDEA4E30E45EC27A4572D619C92DC5A01710FDE3999700C8D282CDAAF4AE7869E99735468612C4A6284AC6EF428339E2DCB8A3E9A1C47E075042E0" /></form> </div></div></div></section>
+<footer class="footer"><div class="container">
+<div class="columns">
+<div class="column is-mobile-12 is-tablet-3">
+<div>
+<h4>Why Umbraco?</h4>
+<ul class="list">
+<li>
+<a href="/case-studies-testimonials/">
+<span>Case studies &amp; testimonials</span>
+</a>
+</li>
+<li>
+<a href="/explore-umbraco-benefits/">
+<span>Why choose Umbraco?</span>
+</a>
+</li>
+<li>
+<a href="/products/">
+<span>Products</span>
+</a>
+</li>
+<li>
+<a href="/training/">
+<span>Training</span>
+</a>
+</li>
+<li>
+<a href="/about-us/trust-center/">
+<span>Trust Center</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="column is-mobile-12 is-tablet-3">
+<div>
+<h4>About Umbraco</h4>
+<ul class="list">
+<li>
+<a href="/about-us/">
+<span>About us</span>
+</a>
+</li>
+<li>
+<a href="/work-at-umbraco/">
+<span>Work at Umbraco</span>
+</a>
+</li>
+<li>
+<a href="/products/umbraco-cms/how-to-download-umbraco/">
+<span>How to download Umbraco</span>
+</a>
+</li>
+<li>
+<a href="/partners/become-an-umbraco-tech-partner/">
+<span>Become an Umbraco Tech Partner</span>
+</a>
+</li>
+<li>
+<a href="/terms-and-conditions/">
+<span>Terms and conditions</span>
+</a>
+</li>
+<li>
+<a href="/about-us/trust-center/privacy-and-umbraco/privacy-statement/">
+<span>Privacy policy</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="column is-mobile-12 is-tablet-3">
+<div>
+<h4>Other Resources</h4>
+<ul class="list">
+<li>
+<a href="https://our.umbraco.com/" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/hq0itcbj/u_icon__our-umbraco.svg" title="svg_circle_heart"></object>
+<span>Developers &amp; Community</span>
+</a>
+</li>
+<li>
+<a href="https://www.youtube.com/channel/UCbGfwSAPflebnadyhEPw-wA" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/ca2dyqpg/u_icon__umbraco-tv.svg" title="svg_tv"></object>
+<span>Learning Base (YouTube)</span>
+</a>
+</li>
+<li>
+<a href="https://github.com/umbraco" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/3npniwek/u_icon__github.svg" title="svg_github"></object>
+<span>Umbraco on Github</span>
+</a>
+</li>
+<li>
+<a href="/blog/">
+<object type="image/svg+xml" data="/media/nqpb1zvk/u_icon__umbraco.svg" title="svg_umbraco"></object>
+<span>Blog</span>
+</a>
+</li>
+<li>
+<a href="/knowledge-base/">
+<object type="image/svg+xml" data="/media/wfshxfbr/u-graduate-hat-no-margin-svg.svg" title="svg_u-graduate-hat-no-margin"></object>
+<span>Knowledge Base</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="column is-mobile-12 is-tablet-3">
+<div>
+<h4>Follow Us</h4>
+<ul class="list">
+<li>
+<a href="https://twitter.com/umbraco" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/3yrhhjxd/u_icon__twitter.svg" title="svg_twitter"></object>
+<span>Twitter</span>
+</a>
+</li>
+<li>
+<a href="https://www.facebook.com/Umbraco/" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/4u0psjyc/u_icon__facebook.svg" title="svg_facebook"></object>
+<span>Facebook</span>
+</a>
+</li>
+<li>
+<a href="https://www.linkedin.com/company/umbraco/" target="_blank" rel="noopener noreferrer">
+<object type="image/svg+xml" data="/media/ffelsmc0/u_icon__linkedin.svg" title="svg_linkedin"></object>
+<span>LinkedIn</span>
+</a>
+</li>
+</ul>
+</div>
+</div></div></div></footer><zendesk-facade></zendesk-facade></div>
+<script defer>
+var priceDictionary = [{"code":"de","currency":"eur"},{"code":"dk","currency":"dkk"},{"code":"us","currency":"usd"},{"code":"gb","currency":"gbp"}];</script><script src="/bundles/js/main/?v=Oqo8ZTz1dY6CTlOBmxfF7kl9j9a9uGWHfhnlhg7b5pI1"></script><script src="/bundles/js/instant-page/?v=mqE_A6hSdNDq_vY9Vuqd0gfgcF92rN4F-HBSkP1YMqw1" type="module" defer></script>
+<script type="text/javascript">
+var hash = window.location.hash;
+if (typeof hash !== 'undefined') {
+// Prevents default anchor scroll on page load.
+window.addEventListener('scroll', scrollToTop);
+// Scrolls to anchor smoothly - with an offset.
+setTimeout(function () {
+window.removeEventListener('scroll', scrollToTop);
+var id = hash.replace(/\//g, '').replace(/#/g, '')
+scrollToIdWithOffset(id, 220);
+}, 1000);
+}
+function scrollToTop() {
+window.scrollTo(0, 0);          
+}
+function scrollToIdWithOffset(id, offset) {
+var element = document.getElementById(id);
+const bodyRect = document.body.getBoundingClientRect().top;
+const elementRect = element.getBoundingClientRect().top;
+const elementPosition = elementRect - bodyRect;
+const offsetPosition = elementPosition - offset;
+window.scrollTo({
+top: offsetPosition,
+behavior: "smooth"
+});
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org/",
+"@type": "WebPage",
+"name": "Umbraco"
+}
+</script><script type="application/ld+json">{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "What are HTTP status codes?","acceptedAnswer": {"@type": "Answer","text": "<p>HTTP status codes are three-digit responses from the server to the browser-side request. Everyone has probably gotten the classic 404 page-not-found error. That is an HTTP client error status code and there are a lot more of them.</p><p>These status codes (also called response status codes) serve as a means of communication between the server and the internet browser and there are multiple code classes based on the type of information they are communicating. The differences in classes are indicated through the first digit of the error code, for example: just like a 404, any other 4xx will mean that in some way the page or website could not be reached, while a 2xx means that your request was successfully completed.</p>"}}, {"@type": "Question","name": "How are HTTP status codes categorized?","acceptedAnswer": {"@type": "Answer","text": "<ol><li>1xx - Informational: The server has received the request and is continuing the process</li><li>2xx - Successful: The request was successful and the browser has received the expected information </li><li>3xx (Redirection): You have been redirected and the completion of the request requires further action</li><li>4xx (Client Error): The website or the page could not be reached, either the page is unavailable or the request contains bad syntax </li><li>5xx (Server Error): While the request appears to be valid, the server could not complete the request</li></ol>"}}, {"@type": "Question","name": "What does a 1xx Informational status code mean?","acceptedAnswer": {"@type": "Answer","text": "<p>A 1xx Informational status code means that the server has received the request and is continuing the process. A 1xx status code is purely temporary and is given while the request processing continues. For most tasks you won't encounter these much, as it's not the final response to the request.</p><ul><li>100 Continue</li><li>101 Switching protocols</li><li>102 Processing</li><li>103 Early Hints</li></ul>"}}, {"@type": "Question","name": "What does a 2xx Succesful status code mean?","acceptedAnswer": {"@type": "Answer","text": "<p>A 2xx Succesful status code means that the request was successful and the browser has received the expected information. This is generally the one you want to see, as it means that the request was a success and has been received, understood and accepted it. As a website owner you should make sure that all pages and resources (images, videos, etc.) all return a 2xx status code. This means that browsers can reach it successfully and that your website visitors can see and use your website.</p><ul><li>200 OK</li><li>201 Created</li><li>202 Accepted</li><li>203 Non-Authoritative Information</li><li>204 No Content</li><li>205 Reset Content</li><li>206 Partial Content</li><li>207 Multi-Status</li><li>208 Already Reported</li><li>226 IM Used</li></ul>"}}, {"@type": "Question","name": "What does a 3xx Redirection code mean?","acceptedAnswer": {"@type": "Answer","text": "<p>A 3xx Redirection status code means that you have been redirected and the completion of the request requires further action. Redirects are a natural part of the internet and you shouldn't be scared to have 3xx redirect status codes on your website. A redirect means that the request was received successfully, but that the resource was found elsewhere. If a webpage has changed path and you try to access it through the old path, your CMS will often redirect the user to the new path. Ultimately the request will end in a 2xx success, but first it must go through the 3xx redirection.</p><ul><li>300 Multiple Choices</li><li>301 Moved Permanently</li><li>302 Found (Previously \"Moved temporarily\")</li><li>303 See Other</li><li>304 Not Modified</li><li>305 Use Proxy</li><li>306 Switch Proxy</li><li>307 Temporary Redirect</li><li>308 Permanent Redirect</li></ul>"}}, {"@type": "Question","name": "What does a 4xx Client Error mean?","acceptedAnswer": {"@type": "Answer","text": "<p>A 4xx Client Error status code means that the website or the page could not be reached and either the page is unavailable or the request contains bad syntax. As a website owner you should do your best to avoid these, as it means your users will not find what they're looking for. This can be either pages that are no longer found and are either temporarily or permanently gone. Besides giving a bad user experience, it can also hurt your SEO efforts.</p><ul><li>400 Bad Request</li><li>401 Unauthorized</li><li>402 Payment Required</li><li>403 Forbidden</li><li>404 Not Found</li><li>405 Method Not Allowed</li><li>406 Not Acceptable</li><li>407 Proxy Authentication Required</li><li>408 Request Timeout</li><li>409 Conflict</li><li>410 Gone</li><li>411 Length Required</li><li>412 Precondition Failed</li><li>413 Payload Too Large</li><li>414 URI Too Long</li><li>415 Unsupported Media Type</li><li>416 Range Not Satisfiable</li><li>417 Expectation Failed</li><li>418 I'm a Teapot</li><li>421 Misdirected Request</li><li>422 Unprocessable Entity</li><li>423 Locked</li><li>424 Failed Dependency</li><li>425 Too Early</li><li>426 Upgrade Required</li><li>428 Precondition Required</li><li>429 Too Many Requests</li><li>431 Request Header Fields Too Large</li><li>451 Unavailable For Legal Reasons</li></ul>"}}, {"@type": "Question","name": "What does a 5xx Server error mean?","acceptedAnswer": {"@type": "Answer","text": "<p>A 5xx Server error status code means that while the request appears to be valid, the server could not complete the request. If you're experiencing 5xx server errors for your website, you should immediately look at your server. If you're hosting your own server you'll need to start debugging to figure out why it is not responding properly. If you're using an external hosting provider you'll need to reach out to them, so they can look at it.</p><ul><li>500 Internal Server Error</li><li>501 Not Implemented</li><li>502 Bad Gateway</li><li>503 Service Unavailable</li><li>504 Gateway Timeout</li><li>505 HTTP Version Not Supported</li><li>506 Variant Also Negotiates</li><li>507 Insufficient Storage</li><li>508 Loop Detected</li><li>510 Not Extended</li><li>511 Network Authentication Required</li></ul>"}}, {"@type": "Question","name": "What status code is returned by a website when the browser request is successful?","acceptedAnswer": {"@type": "Answer","text": "<p>A browser will return a 2xx  status code if the browser request was succesful. This is generally the one you want to see, as it means that the request was a success and has been received, understood and accepted it. As a website owner you should make sure that all pages and resources (images, videos, etc.) all return a 2xx status code. This means that browsers can reach it successfully and that your website visitors can see and use your website.</p><ul><li>200 OK</li><li>201 Created</li><li>202 Accepted</li><li>203 Non-Authoritative Information</li><li>204 No Content</li><li>205 Reset Content</li><li>206 Partial Content</li><li>207 Multi-Status</li><li>208 Already Reported</li><li>226 IM Used</li></ul>"}}, {"@type": "Question","name": "What does error 404 mean","acceptedAnswer": {"@type": "Answer","text": "<p>The 404 Not Found status code means that the server either did not find a current representation for the requested resource or is trying to hide its existence from an unauthorized client. When looking at things SEO-wise the 404 Not Found status code pages with a high volume of traffic should be redirected using a 301 to the most relevant page possible. For some pages, however, a 404 might be necessary, for example, if the product is out of stock for an extended period of time. If you have external links pointing to a page that returns 404, you will lose the link equity those links would otherwise give."}}]}</script><script type="application/ld+json">
+{"@context": "https://schema.org","@type": "Article","mainEntityOfPage": {"@type": "WebPage","@id": "https://umbraco.com/knowledge-base/http-status-codes/"},"headline": "What are HTTP status codes?","description": "<p>HTTP status codes are three-digit responses from the server to the browser-side request. Everyone has probably gotten the classic 404 page-not-found error. That is an HTTP client error status code and there are a lot more of them.</p><p>These status codes (also called response status codes) serve as a means of communication between the server and the internet browser and there are multiple code classes based on the type of information they are communicating. The differences in classes are indicated through the first digit of the error code, for example: just like a 404, any other 4xx will mean that in some way the page or website could not be reached, while a 2xx means that your request was successfully completed.</p>","image": "https://umbraco.com/media/g10jqe2o/what-are-status-codes-01.png",  "author": {"@type": "Organization","name": "Umbraco"},  "publisher": {"@type": "Organization","name": "Umbraco","logo": {"@type": "ImageObject","url": "https://umbraco.com/media/ziikdjap/umbraco_social_og.png"}},"datePublished": "2019-05-03","dateModified": "2022-08-02"
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org","@type": "VideoObject","name": "What are HTTP status codes?","description": "HTTP status codes are three-digit responses from the server to the browser-side request. HTTP status codes (also called response status codes or HTTP response codes) serve as a means of communication between the server and the internet browser. Whenever you visit a website, your browser sends a bunch of requests to the web server hosting the website, asking it to find all the resources needed to show you the page. 
+That means all the text you see, the nice images and videos on the page, and all the scripts and code hidden behind the scene of a website. 
+These are all delivered to you through a series of requests from your browser (the client) to the website server. 
+And instead of you blindly guessing what happened and if everything got delivered as requested, the server is nice enough to tell you how it handled all of your requests by giving you an HTTP status code for each request your browser made to the server.To give you an overview of what type of response you got back from the server, the HTTP status codes are split into 5 different categories. Each category will give you hints as to what the response was, even if you don't know the specific response code.Status codes starting with 1xx are Informational
+Status codes starting with 2xx are Successful
+Status codes starting with 3xx are Redirection
+Status codes starting with 4xx are Client Errors
+Status codes starting with 5xx are Server ErrorsIn this video, we'll go through how HTTP status codes work, what they do, and what each of the 5 categories means.If you want to know more about HTTP Status codes, then you can read our in-depth article over on our website: https://umbraco.com/knowledge-base/ht...Timestamps
+00:00 Intro
+01:03 1xx Informational
+01:31 2xx Successful
+01:58 3xx Redirection
+02:33 4xx Client Errors
+03:11 5xx Server Errors
+04:10 How to check the server response code of a page","thumbnailUrl": "https://umbraco.com/media/g10jqe2o/what-are-status-codes-01.png","uploadDate": "2022-08-02","duration": "PT4M52S",  "publisher": {"@type": "Organization","name": "Umbraco HQ","logo": {"@type": "ImageObject","url": "https://umbraco.com/media/4mzda5do/umbraco_logo_blue05.png"}},"contentUrl": "https://www.youtube.com/watch?v=mQVtJgyo_D4","embedUrl": "https://www.youtube-nocookie.com/embed/mQVtJgyo_D4"
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"item": {
+"@id": "https://umbraco.com/",
+"name": "Home"
+}
+} ,
+{
+"@type": "ListItem",
+"position": 2,
+"item": {
+"@id": "https://umbraco.com/knowledge-base/",
+"name": "Umbraco Knowledge Base"
+}
+} ,
+{
+"@type": "ListItem",
+"position": 3,
+"item": {
+"@id": "https://umbraco.com/knowledge-base/http-status-codes/",
+"name": "HTTP status codes"
+}
+} 
+]
+}
+</script><script src="https://www.google.com/recaptcha/api.js" async defer></script><!-- uMarketingSuite client side analytics script --><script src="/Assets/uMarketingSuite/Scripts/uMarketingSuite.analytics.js"></script><!-- uMarketingSuite bridge for Google Analytics --><script src="/Assets/uMarketingSuite/Scripts/uMarketingSuite.analytics.ga-bridge.js"></script><!-- If logged in in Umbraco it will display the uMarketingSuite cockpit --><script>typeof uMarketingSuite!=="undefined"&&uMarketingSuite.analytics&&uMarketingSuite.analytics.init("031365c0-9499-4d88-9944-fb21f789cac1")</script>
+</body></html>

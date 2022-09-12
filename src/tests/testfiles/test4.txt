@@ -1,0 +1,81 @@
+> GET / HTTP/1.1
+> Host: www.kleinplanetenseite.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Server: nginx
+< Date: Mon, 12 Sep 2022 11:18:24 GMT
+< Content-Type: text/html
+< Content-Length: 1697
+< Last-Modified: Thu, 25 Feb 2016 19:04:47 GMT
+< Connection: keep-alive
+< Vary: Accept-Encoding
+< ETag: "56cf504f-6a1"
+< Accept-Ranges: bytes
+
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="Deutschsprachige Kleinplanetenseite ueber Himmelskoerper,
+  die auch Planetoiden, Asteroiden oder Kleine Planeten genannt werden.">
+<meta name="keywords" lang="de" content="Astronomie, Astrometrie, Photometrie, Planetoiden, 
+  Asteroiden, Kleinplaneten, Kleine Planeten, Kleinplanetensuche, Amateurastronom, Amateurentdeckungen,
+  Amateursternwarten, Sternwarten, Beobachtungen, Beobachtungsvorschläge">
+<meta name="keywords" lang="en" content="minor planets, asteroids, astronomy, astrometry, photomtry,
+  discovery, discoveries, CCD">
+<meta name="robots" content="follow">
+
+<title>
+  Kleinplanetenseite
+</title>
+
+<frameset cols="25%,*">
+   <frame src="menue.htm" name="Menue" marginwidth=10 marginheight=0>
+   <frame src="start.htm" name="Daten" marginwidth=40 marginheight=20>
+</frameset>
+
+</head>
+
+<noframes>
+
+<body bgcolor=#FFFFFF>
+
+<h1 align=center>
+ Planetoiden - Asteroiden - Kleinplaneten <br>
+ Kleine Planeten
+</h1>
+
+<p align=center>
+  <img src="ida.jpg" width=320 height=200 alt="(243)Ida  Quelle:NASA">
+</p>
+
+<p>
+  Ihr WWW-Browser kann keine Frames anzeigen, oder es ist ein Browser, 
+  der es erlaubt, das Anzeigen von Frames auszuschalten, und Sie haben 
+  die Anzeige von Frames dabei ausgeschaltet.
+</p>
+
+<p align=center>
+  <img src="/cgi-bin/counter.pl?3"> <br>
+  Besucher auf der Kleinplanetenseite.
+</p>
+
+<p>
+  <a href="menue.htm">Menue der Kleinplanetenseite</a> <br>
+</p>
+
+<hr>
+
+<p align=center>
+ &copy; 2015 August 19, Hinweise an Gerhard Lehmann
+ <br>
+ <img src="Versch/Mailadresse.gif" width=200 height=35 border=0>
+</p>
+
+</body>
+</noframes>
+
+</html

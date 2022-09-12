@@ -11,7 +11,7 @@ Transfer-Protocol -> 'http://'
 Servername (optional) -> 'www'
 Domain-Name -> 'elektronik-kompendium' 
 Top-Level-Domain (TLD) -> 'de'
-TCP-Port (optional) (& only needed if different from standard Port 80) -> '80'
+TCP-Port (optional) (& only needed if different from standard Port 80) -> '80' can be from 0 to 65 535
 Paths & Files are distinguised through the '/' 
 (if no Path or File -> default-file is send)
 (if Path &/ File exist -> send it back to client)
@@ -23,8 +23,8 @@ Paths & Files are distinguised through the '/'
 /* 
 CODE
 
-vool check_TP() {
-	if (TP == 'https://')
+bool check_TP() {
+	if (TP == 'http')
 		return true;
 	else
 		return false;
