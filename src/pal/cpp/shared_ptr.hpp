@@ -2,7 +2,6 @@
 #define WEBSERV_PAL_CPP_SHARED_PTR_HPP
 
 #include "../../defs.hpp"
-#include "../../threading/threading.hpp"
 
 /*
  * Based on implementation of std::shared_ptr and inspired by
@@ -19,7 +18,7 @@ namespace webserv {
         namespace cpp {
 
     /*
-     * Maintains the mutex, count of shared owners
+     * Maintains the count of shared owners
      * (number of pointers pointing to member 'ptr')
      * and the object pointed to.
      */
@@ -32,7 +31,6 @@ namespace webserv {
     private:
         element_type*               ptr; // shared pointer
         unsigned long               count; // number of owners of 'ptr'
-        webserv::threading::mutex   the_mutex;
 
     public:
 
@@ -84,9 +82,7 @@ namespace webserv {
      */
     template<typename T>
     void shared_ptr_payload<T>::increment() {
-        the_mutex.lock();
         ++(this->count);
-        the_mutex.unlock();
     }
 
     /*
@@ -94,9 +90,7 @@ namespace webserv {
      */
     template<typename T>
     void shared_ptr_payload<T>::decrement() {
-        the_mutex.lock();
         --(this->count);
-        the_mutex.unlock();
         if (count == 0) {
             delete this;
         }
