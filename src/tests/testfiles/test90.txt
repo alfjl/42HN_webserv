@@ -1,16 +1,16 @@
-> GET /evil/ HTTP/1.1
-> Host: toastytech.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:01:20 GMT
-< Server: Apache
-< Last-Modified: Wed, 15 Jun 2022 22:28:36 GMT
-< Accept-Ranges: bytes
-< Content-Length: 6699
-< Content-Type: text/html
-<
+GET /evil/ HTTP/1.1
+Host: toastytech.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:01:20 GMT
+Server: Apache
+Last-Modified: Wed, 15 Jun 2022 22:28:36 GMT
+Accept-Ranges: bytes
+Content-Length: 6699
+Content-Type: text/html
+
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
 <head>

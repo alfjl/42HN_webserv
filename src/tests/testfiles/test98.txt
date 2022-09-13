@@ -1,20 +1,20 @@
-> GET / HTTP/1.1
-> Host: bsd.org
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Mon, 12 Sep 2022 13:45:40 GMT
-< Server: Apache/2.4.38 (Debian)
-< Upgrade: h2,h2c
-< Connection: Upgrade
-< Last-Modified: Fri, 02 Oct 2020 17:56:54 GMT
-< ETag: "1bf1-5b0b3dba1c580"
-< Accept-Ranges: bytes
-< Content-Length: 7153
-< Vary: Accept-Encoding
-< Content-Type: text/html
-<
+GET / HTTP/1.1
+Host: bsd.org
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Mon, 12 Sep 2022 13:45:40 GMT
+Server: Apache/2.4.38 (Debian)
+Upgrade: h2,h2c
+Connection: Upgrade
+Last-Modified: Fri, 02 Oct 2020 17:56:54 GMT
+ETag: "1bf1-5b0b3dba1c580"
+Accept-Ranges: bytes
+Content-Length: 7153
+Vary: Accept-Encoding
+Content-Type: text/html
+
 <html>
 <!--
     www.bsd.org home page

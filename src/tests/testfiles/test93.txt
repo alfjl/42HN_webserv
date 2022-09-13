@@ -1,21 +1,21 @@
-> GET / HTTP/1.1
-> Host: suckless.org
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Server: nginx
-< Date: Mon, 12 Sep 2022 14:16:49 GMT
-< Content-Type: text/html
-< Content-Length: 16129
-< Last-Modified: Sun, 24 Jul 2022 08:03:15 GMT
-< Connection: keep-alive
-< ETag: "62dcfcc3-3f01"
-< Expires: Mon, 12 Sep 2022 23:00:00 GMT
-< Cache-Control: max-age=31391
-< Strict-Transport-Security: max-age=31536000; includeSubDomains
-< Accept-Ranges: bytes
-<
+GET / HTTP/1.1
+Host: suckless.org
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 12 Sep 2022 14:16:49 GMT
+Content-Type: text/html
+Content-Length: 16129
+Last-Modified: Sun, 24 Jul 2022 08:03:15 GMT
+Connection: keep-alive
+ETag: "62dcfcc3-3f01"
+Expires: Mon, 12 Sep 2022 23:00:00 GMT
+Cache-Control: max-age=31391
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Accept-Ranges: bytes
+
 <!doctype html>
 <html>
 <head>

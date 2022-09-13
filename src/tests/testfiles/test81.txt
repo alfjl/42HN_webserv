@@ -1,19 +1,19 @@
-> GET /kitty/hpages/index.html HTTP/1.1
-> Host: www.snowcrest.net
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:33:36 GMT
-< Server: Apache/2.4.10 (Debian) mod_python/3.3.1 Python/2.7.9 OpenSSL/1.0.1t mod_perl/2.0.9dev Perl/v5.20.2
-< Last-Modified: Wed, 03 Apr 2013 22:07:12 GMT
-< ETag: "cac-4d97c136e2400"
-< Accept-Ranges: bytes
-< Content-Length: 3244
-< Vary: Accept-Encoding
-< Connection: close
-< Content-Type: text/html
-<
+GET /kitty/hpages/index.html HTTP/1.1
+Host: www.snowcrest.net
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:33:36 GMT
+Server: Apache/2.4.10 (Debian) mod_python/3.3.1 Python/2.7.9 OpenSSL/1.0.1t mod_perl/2.0.9dev Perl/v5.20.2
+Last-Modified: Wed, 03 Apr 2013 22:07:12 GMT
+ETag: "cac-4d97c136e2400"
+Accept-Ranges: bytes
+Content-Length: 3244
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html
+
 { [3244 bytes data]
 100  3244  100  3244    0     0   9830      0 --:--:-- --:--:-- --:--:--  9800
 * Closing connection 0

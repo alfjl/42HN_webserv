@@ -1,29 +1,29 @@
-> GET /sports/baseball/sbfant.htm HTTP/1.1
-> Host: usatoday30.usatoday.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Connection: keep-alive
-< Content-Length: 5029
-< Content-Type: text/html
-< Last-Modified: Wed, 08 Apr 2020 17:19:52 GMT
-< ETag: "131b36eac9dd61:0"
-< Server: Microsoft-IIS/10.0
-< X-Powered-By: ASP.NET
-< Access-Control-Allow-Origin: *
-< Via: 1.1 varnish, 1.1 varnish
-< Gannett-Debug-Path: (null) ---> usat30 backend
-< Gannett-Debug-Path-Full: restarts: 0 ttl: 2592000.000 shield: false server: cache-hhn11520-HHN path: (null) >>>> restarts: 0 ttl: 2592000.000 shield: true server: cache-iad-kcgs7200082-IAD path: (null) ---> usat30 backend
-< Accept-Ranges: bytes
-< Date: Tue, 13 Sep 2022 09:04:59 GMT
-< Age: 0
-< X-Served-By: cache-iad-kjyo7100169-IAD, cache-hhn4021-HHN
-< X-Cache: HIT, MISS
-< X-Cache-Hits: 1, 0
-< X-Timer: S1663059899.045032,VS0,VE93
-< Vary: Accept-Encoding
-<
+GET /sports/baseball/sbfant.htm HTTP/1.1
+Host: usatoday30.usatoday.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 5029
+Content-Type: text/html
+Last-Modified: Wed, 08 Apr 2020 17:19:52 GMT
+ETag: "131b36eac9dd61:0"
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+Access-Control-Allow-Origin: *
+Via: 1.1 varnish, 1.1 varnish
+Gannett-Debug-Path: (null) ---> usat30 backend
+Gannett-Debug-Path-Full: restarts: 0 ttl: 2592000.000 shield: false server: cache-hhn11520-HHN path: (null) >>>> restarts: 0 ttl: 2592000.000 shield: true server: cache-iad-kcgs7200082-IAD path: (null) ---> usat30 backend
+Accept-Ranges: bytes
+Date: Tue, 13 Sep 2022 09:04:59 GMT
+Age: 0
+X-Served-By: cache-iad-kjyo7100169-IAD, cache-hhn4021-HHN
+X-Cache: HIT, MISS
+X-Cache-Hits: 1, 0
+X-Timer: S1663059899.045032,VS0,VE93
+Vary: Accept-Encoding
+
 { [5029 bytes data]
 100  5029  100  5029    0     0  41908      0 --:--:-- --:--:-- --:--:-- 41908
 * Connection #0 to host usatoday30.usatoday.com left intact

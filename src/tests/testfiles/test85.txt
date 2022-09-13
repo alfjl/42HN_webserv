@@ -1,20 +1,20 @@
-> GET /~jbutler/anon/anon.html HTTP/1.1
-> Host: uh.edu
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:22:29 GMT
-< Server: Apache
-< Last-Modified: Tue, 15 Jan 2002 21:58:30 GMT
-< ETag: "ab2-3979e7e510d80"
-< Accept-Ranges: bytes
-< Content-Length: 2738
-< Access-Control-Allow-Origin: http://api.uh.edu
-< Connection: close
-< Content-Type: text/html
-< Set-Cookie: NSC_xg-xxx.vi.fev-wt-iuuqt=ffffffffaf1d280f45525d5f4f58455e445a4a423660;expires=Tue, 13-Sep-2022 09:24:29 GMT;path=/;secure
-<
+GET /~jbutler/anon/anon.html HTTP/1.1
+Host: uh.edu
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:22:29 GMT
+Server: Apache
+Last-Modified: Tue, 15 Jan 2002 21:58:30 GMT
+ETag: "ab2-3979e7e510d80"
+Accept-Ranges: bytes
+Content-Length: 2738
+Access-Control-Allow-Origin: http://api.uh.edu
+Connection: close
+Content-Type: text/html
+Set-Cookie: NSC_xg-xxx.vi.fev-wt-iuuqt=ffffffffaf1d280f45525d5f4f58455e445a4a423660;expires=Tue, 13-Sep-2022 09:24:29 GMT;path=/;secure
+
 { [2738 bytes data]
 100  2738  100  2738    0     0   5195      0 --:--:-- --:--:-- --:--:--  5185
 * Closing connection 0

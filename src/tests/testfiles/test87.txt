@@ -1,16 +1,16 @@
-> GET / HTTP/1.1
-> Host: www.gutenberg.org
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:10:43 GMT
-< Server: Apache
-< Last-Modified: Tue, 13 Sep 2022 09:08:00 GMT
-< Accept-Ranges: bytes
-< Content-Length: 20093
-< Content-Type: text/html
-<
+GET / HTTP/1.1
+Host: www.gutenberg.org
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:10:43 GMT
+Server: Apache
+Last-Modified: Tue, 13 Sep 2022 09:08:00 GMT
+Accept-Ranges: bytes
+Content-Length: 20093
+Content-Type: text/html
+
 { [1221 bytes data]
 100 20093  100 20093    0     0  34583      0 --:--:-- --:--:-- --:--:-- 34524
 * Connection #0 to host www.gutenberg.org left intact

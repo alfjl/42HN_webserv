@@ -1,18 +1,18 @@
-> GET /willow/home.html HTTP/1.1
-> Host: www.washington.edu
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:32:08 GMT
-< Server: Apache/2.2.24 (Unix) mod_ssl/2.2.24 OpenSSL/1.0.1e-fips PHP/7.2.23 mod_pubcookie/3.3.4a mod_uwa/3.2.1
-< Last-Modified: Thu, 27 Feb 2003 00:45:53 GMT
-< ETag: "1859b7-1485-3b79c4656b240"
-< Accept-Ranges: bytes
-< Content-Length: 5253
-< Vary: Accept-Encoding,User-Agent
-< Content-Type: text/html
-<
+GET /willow/home.html HTTP/1.1
+Host: www.washington.edu
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:32:08 GMT
+Server: Apache/2.2.24 (Unix) mod_ssl/2.2.24 OpenSSL/1.0.1e-fips PHP/7.2.23 mod_pubcookie/3.3.4a mod_uwa/3.2.1
+Last-Modified: Thu, 27 Feb 2003 00:45:53 GMT
+ETag: "1859b7-1485-3b79c4656b240"
+Accept-Ranges: bytes
+Content-Length: 5253
+Vary: Accept-Encoding,User-Agent
+Content-Type: text/html
+
 { [5253 bytes data]
 100  5253  100  5253    0     0   9930      0 --:--:-- --:--:-- --:--:--  9930
 * Connection #0 to host www.washington.edu left intact

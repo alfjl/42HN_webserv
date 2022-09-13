@@ -1,18 +1,18 @@
-> GET /Resources/freenets.html HTTP/1.1
-> Host: victoria.tc.ca
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:29:48 GMT
-< Server: Apache/2.2.16 (Debian)
-< Last-Modified: Fri, 16 May 2008 19:30:50 GMT
-< ETag: "30e6fb4e-9a11-44d5e0d2a8e80"
-< Accept-Ranges: bytes
-< Content-Length: 39441
-< Vary: Accept-Encoding
-< Content-Type: text/html
-<
+GET /Resources/freenets.html HTTP/1.1
+Host: victoria.tc.ca
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:29:48 GMT
+Server: Apache/2.2.16 (Debian)
+Last-Modified: Fri, 16 May 2008 19:30:50 GMT
+ETag: "30e6fb4e-9a11-44d5e0d2a8e80"
+Accept-Ranges: bytes
+Content-Length: 39441
+Vary: Accept-Encoding
+Content-Type: text/html
+
 { [1142 bytes data]
 <!DOCTYPE HTML PUBLIC "-//SoftQuad//DTD HoTMetaL PRO 4.0::19980408::extensions to HTML 4.0 for Miva//EN" "hmpro4.dtd">
 

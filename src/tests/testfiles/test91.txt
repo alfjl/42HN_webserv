@@ -1,17 +1,17 @@
-> GET /http-headers/ HTTP/1.1
-> Host: www.steves-internet-guide.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< Content-Type: text/html; charset=UTF-8
-< Transfer-Encoding: chunked
-< Connection: keep-alive
-< Keep-Alive: timeout=15
-< Date: Tue, 13 Sep 2022 08:09:15 GMT
-< Server: Apache
-< Link: <http://www.steves-internet-guide.com/wp-json/>; rel="https://api.w.org/", <http://www.steves-internet-guide.com/wp-json/wp/v2/posts/5722>; rel="alternate"; type="application/json", <http://www.steves-internet-guide.com/?p=5722>; rel=shortlink
-< Set-Cookie: __wpdm_client=d30f3483f72ae666831b536ae46523c6; HttpOnly
-<
+GET /http-headers/ HTTP/1.1
+Host: www.steves-internet-guide.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Keep-Alive: timeout=15
+Date: Tue, 13 Sep 2022 08:09:15 GMT
+Server: Apache
+Link: <http://www.steves-internet-guide.com/wp-json/>; rel="https://api.w.org/", <http://www.steves-internet-guide.com/wp-json/wp/v2/posts/5722>; rel="alternate"; type="application/json", <http://www.steves-internet-guide.com/?p=5722>; rel=shortlink
+Set-Cookie: __wpdm_client=d30f3483f72ae666831b536ae46523c6; HttpOnly
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US"
 	prefix="og: https://ogp.me/ns#" >

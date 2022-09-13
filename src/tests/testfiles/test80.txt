@@ -1,34 +1,34 @@
-> GET /US/OJ/ HTTP/1.1
-> Host: edition.cnn.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Content-Type: text/html
-< x-servedByHost: ::ffff:127.0.0.1
-< x-amz-id-2: SMefMrCb069LZCEToRmsLGsA8r35mass4xcNopl+3GYmILyTZHJH8NXDgihUqHfOsFv//WRnVnM=
-< x-amz-request-id: ANMFDTMR179VZP08
-< x-amz-server-side-encryption: AES256
-< x-amz-meta-md5: b0486d12516b19cf5550c613672f3fb2
-< x-amz-meta-privilege: 664
-< x-ua-profile: desktop
-< cache-control: max-age=3600
-< Via: 1.1 varnish, 1.1 varnish
-< Content-Length: 10078
-< Accept-Ranges: bytes
-< Date: Tue, 13 Sep 2022 09:36:08 GMT
-< Age: 0
-< Connection: keep-alive
-< Set-Cookie: countryCode=DE; Domain=.cnn.com; Path=/; SameSite=Lax
-< Set-Cookie: stateCode=ST; Domain=.cnn.com; Path=/; SameSite=Lax
-< Set-Cookie: geoData=schwarz|ST|39240|DE|EU|200|broadband|51.890|11.800|276007; Domain=.cnn.com; Path=/; SameSite=Lax
-< Set-Cookie: FastAB=0=2554,1=3896,2=6645,3=7061,4=3860,5=7647,6=1432,7=8052,8=2470,9=8534; Domain=.cnn.com; Path=/; Expires=Sat Jul 01 2023 00:00:00 GMT; SameSite=Lax
-< X-Served-By: cache-iad-kcgs7200090-IAD, cache-hhn4051-HHN
-< X-Cache: MISS, MISS
-< X-Cache-Hits: 0, 0
-< X-Timer: S1663061768.339406,VS0,VE211
-< Vary: Accept-Encoding
-<
+GET /US/OJ/ HTTP/1.1
+Host: edition.cnn.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+x-servedByHost: ::ffff:127.0.0.1
+x-amz-id-2: SMefMrCb069LZCEToRmsLGsA8r35mass4xcNopl+3GYmILyTZHJH8NXDgihUqHfOsFv//WRnVnM=
+x-amz-request-id: ANMFDTMR179VZP08
+x-amz-server-side-encryption: AES256
+x-amz-meta-md5: b0486d12516b19cf5550c613672f3fb2
+x-amz-meta-privilege: 664
+x-ua-profile: desktop
+cache-control: max-age=3600
+Via: 1.1 varnish, 1.1 varnish
+Content-Length: 10078
+Accept-Ranges: bytes
+Date: Tue, 13 Sep 2022 09:36:08 GMT
+Age: 0
+Connection: keep-alive
+Set-Cookie: countryCode=DE; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: stateCode=ST; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: geoData=schwarz|ST|39240|DE|EU|200|broadband|51.890|11.800|276007; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: FastAB=0=2554,1=3896,2=6645,3=7061,4=3860,5=7647,6=1432,7=8052,8=2470,9=8534; Domain=.cnn.com; Path=/; Expires=Sat Jul 01 2023 00:00:00 GMT; SameSite=Lax
+X-Served-By: cache-iad-kcgs7200090-IAD, cache-hhn4051-HHN
+X-Cache: MISS, MISS
+X-Cache-Hits: 0, 0
+X-Timer: S1663061768.339406,VS0,VE211
+Vary: Accept-Encoding
+
 { [10078 bytes data]
 100 10078  100 10078    0     0  44991      0 --:--:-- --:--:-- --:--:-- 44991
 * Connection #0 to host edition.cnn.com left intact

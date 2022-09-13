@@ -1,26 +1,26 @@
-> GET /knowledge-base/http-status-codes/ HTTP/1.1
-> Host: umbraco.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Mon, 12 Sep 2022 11:16:02 GMT
-< Content-Type: text/html; charset=utf-8
-< Transfer-Encoding: chunked
-< Connection: keep-alive
-< CF-Ray: 74983a8d084091d1-FRA
-< Cache-Control: private
-< Set-Cookie: uMarketingSuiteAnalyticsVisitorId=MjNuL76B4IqmCUg2jcjx8uCV6ZEC7iza8qgvK/6UBWtPh7c3h8bsuumSc5MQp2ds3PFSWtb8clb7hzGdCIXJz/19XLI8LQJOM4+xloj7rvXY2Ed9Fe1Iu9PQ5tRrrFNZ; expires=Tue, 12-Sep-2023 11:16:02 GMT; path=/; secure; HttpOnly; SameSite=Lax
-< Strict-Transport-Security: max-age=300; preload
-< Vary: Accept-Encoding
-< CF-Cache-Status: DYNAMIC
-< Set-Cookie: __RequestVerificationToken=JoAQMyC0_UrV-DLYOIklQWqXRB8RWTYiZyQZsIVbXpcNT6vkPxrqaOw9JyZu2Nl-q4koypxPEOjf2QvwSY5iJjl9kpsgLE8aGx8gltWWPs41; path=/; HttpOnly
-< X-Content-Type-Options: nosniff
-< X-Frame-Options: SAMEORIGIN
-< X-Frame-Options: SAMEORIGIN
-< X-Powered-By: An amazing team effort
-< X-XSS-Protection: 1; mode=block
-< Server: cloudflare
+GET /knowledge-base/http-status-codes/ HTTP/1.1
+Host: umbraco.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Mon, 12 Sep 2022 11:16:02 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+CF-Ray: 74983a8d084091d1-FRA
+Cache-Control: private
+Set-Cookie: uMarketingSuiteAnalyticsVisitorId=MjNuL76B4IqmCUg2jcjx8uCV6ZEC7iza8qgvK/6UBWtPh7c3h8bsuumSc5MQp2ds3PFSWtb8clb7hzGdCIXJz/19XLI8LQJOM4+xloj7rvXY2Ed9Fe1Iu9PQ5tRrrFNZ; expires=Tue, 12-Sep-2023 11:16:02 GMT; path=/; secure; HttpOnly; SameSite=Lax
+Strict-Transport-Security: max-age=300; preload
+Vary: Accept-Encoding
+CF-Cache-Status: DYNAMIC
+Set-Cookie: __RequestVerificationToken=JoAQMyC0_UrV-DLYOIklQWqXRB8RWTYiZyQZsIVbXpcNT6vkPxrqaOw9JyZu2Nl-q4koypxPEOjf2QvwSY5iJjl9kpsgLE8aGx8gltWWPs41; path=/; HttpOnly
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Frame-Options: SAMEORIGIN
+X-Powered-By: An amazing team effort
+X-XSS-Protection: 1; mode=block
+Server: cloudflare
 
 <!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="icon" type="image/png" href="/dist/icons/fav_32x32.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preconnect" href="https://www.google-analytics.com" crossorigin /><link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" crossorigin="anonymous" as="style"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" crossorigin="anonymous">
 <meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@umbraco">

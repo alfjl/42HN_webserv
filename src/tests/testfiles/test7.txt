@@ -1,18 +1,18 @@
-> GET /Web-Services/Perl-Socket-HTTP-1-1-Request-Response-Examples.html HTTP/1.1
-> Host: www.herongyang.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Content-Type: text/html
-< Content-Length: 13976
-< Connection: keep-alive
-< Keep-Alive: timeout=15
-< Date: Mon, 12 Sep 2022 14:17:36 GMT
-< Server: Apache
-< Last-Modified: Sat, 27 Feb 2021 09:57:59 GMT
-< ETag: "3698-5bc4e6b6d0ee5"
-< Accept-Ranges: bytes
+GET /Web-Services/Perl-Socket-HTTP-1-1-Request-Response-Examples.html HTTP/1.1
+Host: www.herongyang.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 13976
+Connection: keep-alive
+Keep-Alive: timeout=15
+Date: Mon, 12 Sep 2022 14:17:36 GMT
+Server: Apache
+Last-Modified: Sat, 27 Feb 2021 09:57:59 GMT
+ETag: "3698-5bc4e6b6d0ee5"
+Accept-Ranges: bytes
 
 <?xml version="1.0" encoding="UTF-8"?><html xmlns:fb="http://ogp.me/ns/fb#"><head><title>Examples of HTTP 1.1 Requests and Responses</title><meta content="This section provides some tutorial examples of HTTP 1.1 requests and responses. Real examples from perl.org and w3.org Web sites are included." name="description"/><meta content="SOAP, Perl, Socket, HTTP 1.1, Request, Response" name="keywords"/><meta content="13060" name="id"/><meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="http://www.herongyang.com/Web-Services/Web-Services.jpg" property="og:image"/><link href="../_hypub.css" type="text/css" rel="stylesheet"/><script src="../_upper3.js" type="text/javascript">x=1;</script><script src="_hypub.js" type="text/javascript">x=1;</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>

@@ -1,18 +1,18 @@
-> GET /WWW94/Welcome.html HTTP/1.1
-> Host: www94.web.cern.ch
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Content-Type: text/html
-< Last-Modified: Wed, 22 Nov 1995 06:32:48 GMT
-< Accept-Ranges: bytes
-< ETag: "0e8157a4b8ba1:0"
-< Server: Microsoft-IIS/10.0
-< X-Powered-By: ASP.NET
-< Date: Tue, 13 Sep 2022 09:28:27 GMT
-< Content-Length: 2794
-<
+GET /WWW94/Welcome.html HTTP/1.1
+Host: www94.web.cern.ch
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+Last-Modified: Wed, 22 Nov 1995 06:32:48 GMT
+Accept-Ranges: bytes
+ETag: "0e8157a4b8ba1:0"
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+Date: Tue, 13 Sep 2022 09:28:27 GMT
+Content-Length: 2794
+
 { [2794 bytes data]
 100  2794  100  2794    0     0  18878      0 --:--:-- --:--:-- --:--:-- 18878
 * Connection #0 to host www94.web.cern.ch left intact

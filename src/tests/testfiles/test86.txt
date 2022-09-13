@@ -1,20 +1,20 @@
-> GET /FRACTALS.HTM HTTP/1.1
-> Host: sprott.physics.wisc.edu
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 09:12:55 GMT
-< Server: Apache/2.4.38 (Debian)
-< Last-Modified: Mon, 27 Dec 2021 18:38:09 GMT
-< ETag: "9bdf-5d42501a32ca8"
-< Accept-Ranges: bytes
-< Content-Length: 39903
-< Cache-Control: max-age=300
-< Expires: Tue, 13 Sep 2022 09:17:55 GMT
-< Vary: Accept-Encoding
-< Content-Type: text/html
-<
+GET /FRACTALS.HTM HTTP/1.1
+Host: sprott.physics.wisc.edu
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:12:55 GMT
+Server: Apache/2.4.38 (Debian)
+Last-Modified: Mon, 27 Dec 2021 18:38:09 GMT
+ETag: "9bdf-5d42501a32ca8"
+Accept-Ranges: bytes
+Content-Length: 39903
+Cache-Control: max-age=300
+Expires: Tue, 13 Sep 2022 09:17:55 GMT
+Vary: Accept-Encoding
+Content-Type: text/html
+
 { [16384 bytes data]
 100 39903  100 39903    <!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
 <html>

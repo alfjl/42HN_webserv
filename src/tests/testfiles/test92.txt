@@ -1,21 +1,21 @@
-> GET /1996/ HTTP/1.1
-> Host: www.spacejam.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Tue, 13 Sep 2022 08:53:41 GMT
-< Server: Apache/2.4.53 () OpenSSL/1.0.2k-fips
-< Strict-Transport-Security: max-age=15768000
-< Upgrade: h2,h2c
-< Connection: Upgrade
-< Last-Modified: Mon, 01 Nov 2021 09:41:12 GMT
-< ETag: "1abe-5cfb6fa34e18a"
-< Accept-Ranges: bytes
-< Content-Length: 6846
-< Vary: Accept-Encoding
-< Content-Type: text/html; charset=UTF-8
-<
+GET /1996/ HTTP/1.1
+Host: www.spacejam.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 08:53:41 GMT
+Server: Apache/2.4.53 () OpenSSL/1.0.2k-fips
+Strict-Transport-Security: max-age=15768000
+Upgrade: h2,h2c
+Connection: Upgrade
+Last-Modified: Mon, 01 Nov 2021 09:41:12 GMT
+ETag: "1abe-5cfb6fa34e18a"
+Accept-Ranges: bytes
+Content-Length: 6846
+Vary: Accept-Encoding
+Content-Type: text/html; charset=UTF-8
+
 <html>
 
 
