@@ -1,0 +1,840 @@
+> GET /Resources/freenets.html HTTP/1.1
+> Host: victoria.tc.ca
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:29:48 GMT
+< Server: Apache/2.2.16 (Debian)
+< Last-Modified: Fri, 16 May 2008 19:30:50 GMT
+< ETag: "30e6fb4e-9a11-44d5e0d2a8e80"
+< Accept-Ranges: bytes
+< Content-Length: 39441
+< Vary: Accept-Encoding
+< Content-Type: text/html
+<
+{ [1142 bytes data]
+<!DOCTYPE HTML PUBLIC "-//SoftQuad//DTD HoTMetaL PRO 4.0::19980408::extensions to HTML 4.0 for Miva//EN" "hmpro4.dtd">
+
+<HTML>
+
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage Express 2.0">
+<TITLE>Community Computer Networks &amp; Free-Net{R} &amp;
+City-Regional Guides (VTN)</TITLE>
+</HEAD>
+
+<BODY BACKGROUND="../images/vtnshdw.gif" BGCOLOR="#FFFFFF">
+<!-- Maintained by David Mattison and Stewart Boddy
+Updated to reflect new location at /opt/csuite/info/Resources/ and /opt/csuite/info/images/ -->
+<H2>Community Computer Networks, Free-Nets and City-Regional
+Guides</H2>
+<P><IMG SRC="../images/update-w.gif" ALT="Updated " ALIGN="middle"> November
+26, 2004</P>
+<ADDRESS> This site is maintained by volunteers of the <A
+HREF="http://www.victoria.tc.ca/">Victoria Telecommunity
+Network</A> as a free service to the Internet community. Errors or
+omissions can be
+brought to their attention by e-mail: <A
+HREF="mailto:office@victoria.tc.ca?Subject=Community&#032;
+Networks&#032;Resource&#032;page&#032;
+(David Mattison)">office@victoria.tc.ca</A> </ADDRESS>
+
+
+<H2><A
+NAME="Top-Contents">Contents</a></H2>
+<P><A HREF="#City-RegionGuides">City-Regional Guides</A> | <A
+HREF="#Australia">Australia</A> | <A HREF="#Canada">Canada</A> |
+<A HREF="#Canada-Regional">Regional Directories</A>/Lists of Canadian Community
+Networks | <A HREF="#Canada-Individual">Individual Canadian</A> Community
+Networks | <A HREF="#Finland">Finland</A> | <A HREF="#Germany">Germany</A> |
+<A HREF="#Hungary">Hungary</A> | <A HREF="#Israel">Israel</A> |
+<A HREF="#Italy">Italy</A> | <A HREF="#Netherlands">Netherlands</A> |
+<A HREF="#NZ">New Zealand</A> | <A HREF="#Russia">Russia</A> |
+<A HREF="#Singapore">Singapore</A> | <A HREF="#Spain">Spain</A> |
+<A HREF="#Sweden">Sweden</A> | <A HREF="#Ukraine">Ukraine</A> | <A
+HREF="#UK">United Kingdom</A> | <A HREF="#USA">United States</A></P>
+
+<P><A HREF="#ORGANIZATIONS">Organizations</A> | <A HREF="#OtherInfo">Other
+Information</A> About Free-Nets and Community Computer Networks |
+<A HREF="#PeterScottSite">Peter Scott's Freenets</A> and Community Networks
+Site</P>
+
+<P>If you are interested in joining a non-geographical-based community
+whose point of presence is the Web itself, check the <A
+HREF="www.services.html#web-communities">VTN Web Communities
+List</A>.</P>
+
+<HR>
+
+<H3><A NAME="Australia"></A>AUSTRALIA</H3>
+<UL>
+<LI><A HREF="http://www.brisnet.org.au/">Brisnet (Brisbane Public Access
+Network Association)</A> </LI>
+<LI><A HREF="http://www.comu.net.au/">Gippsland Commu-NETY Network</A> </LI>
+<!-- <LI><A HREF="http://www.vicnet.net.au/vicnet/mfn.html">Melbourne Free-Net</A>
+</LI> -->
+<LI><A HREF="http://www.vicnet.net.au/">VICNET (Victoria)</A> </LI>
+</UL>
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="Canada"></A>CANADA</H3>
+<P><A NAME="CAP"></A></P>
+<P><A HREF="http://cnet.unb.ca/">Community Access Canada=Programme d'acchs
+communautaire</A> (Industry Canada=Industrie Canada)</P>
+100 39441  100 39441    0     0  41516      0 --:--:-- --:--:-- --:--:-- 41473
+* Connection #0 to host victoria.tc.ca left intact
+* Closing connection 0
+<P><A HREF="http://cnet.unb.ca/vision2020/index.html">Vision 2020</A> &quot;is
+a dynamic website designed to unite communities across Canada through on-line
+project participation well into the next millennium.&quot;</P>
+<P>For individual BC civic/municipal government Internet gateways use the
+<A
+ HREF="http://www.civicnet.gov.bc.ca/members/index.html">CivicNet(tm)
+Member Index</A> (Union of BC Municipalities). </P>
+<H4><A NAME="Canada-Regional"></A>Regional Directories/Lists of Canadian
+Community Networks (West to East)</H4>
+<UL>
+<LI><A HREF="http://www.tc.ca/alberta">Alberta Community Networks</A>
+(Telecommunities Canada)</LI>
+<LI><A HREF="http://www.bccna.bc.ca/cnd/index.html">British Columbia Community
+Networks Directory</A> (BC Community Networks Association)</LI>
+<LI><A
+HREF="http://www.freenet.mb.ca/othersys/freenets/freenets-man/geographic.html">Bl
+ue
+Sky Community Networks in Manitoba</A> (Blue Sky Community Networks)</LI>
+<!-- <LI><A HREF="http://www.bcpl.gov.bc.ca/comconnect/">Communities Connect
+Program</A>, Province of British Columbia</LI> -->
+<LI><A HREF="http://smartcommunities.ic.gc.ca/">Smart Communities
+Project</A>, Industry Canada,
+includes community-based interactive computer network services. The
+British Columbia Demonstration Project involves the communities of
+Coquitlam and Port Moody and is known as Smart Choices.</LI> </UL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H4><A NAME="Canada-Individual"></A>Individual Canadian Community Networks and
+CAP Internet Access Sites</H4>
+<UL>
+<LI><A HREF="http://www.grassroots.ns.ca/">Antigonish Community Network</A>
+(NS)</LI>
+<LI><A HREF="http://www.nocdc.bc.ca/cap/armstron.htm">Armstrong Community
+Internet Access Centre</A> (BC)</LI>
+<LI><A HREF="http://prairie.town.asquith.sk.ca/">Asquith Community Access
+Project</A> (Asquith, SK)</LI>
+<LI><A HREF="http://www.net.big-river.sk.ca/">Big River Network</A> (Big River,
+SK)</LI>
+<LI><A HREF="http://www.freenet.mb.ca/">Blue Sky Community Networks of
+Manitoba</A> (Winnipeg, MB)</LI>
+<LI><A HREF="http://www.bfree.on.ca/">Brant FreeNet</A> (Brantford, ON)</LI>
+<LI><A HREF="http://sea-to-sky.net/britanniabeach/">Britannia Beach</A> (BC, a
+<A NAME="CAP">CAP</A> Site)</LI>
+<LI><A HREF="http://www.calcna.ab.ca/">Calgary Community Network</A> (AB)</LI>
+<LI><A HREF="http://www.cn.camriv.bc.ca/">Campbell River Community Network
+</A>(BC)</LI>
+<LI><A HREF="http://highlander.cbnet.ns.ca/welcome.html">Cape Breton Community
+Network (CBNet)</A> (Sydney, NS)</LI>
+<LI><A HREF="http://chebucto.ns.ca/">Chebucto Free Community Net</A> (Halifax,
+NS)</LI>
+<LI><A HREF="http://www.christinalake.com/">Christina Lake Internet Access
+Centre</A> (BC, a <A NAME="CAP">CAP</A> Site)</LI>
+<LI><A HREF="http://www.ciao.trail.bc.ca/">CIAO! (Community Information Access
+Organization)</A> (Trail, BC)</LI>
+<LI><A HREF="http://www.valleylinks.net/">Comox ValleyLinks</A> (Comox
+Valley Community Information System Society, BC) </LI>
+<LI><A HREF="http://www.cornet.nf.ca/">Cornet (Community Online Resource
+NETwork)</A> (Corner Brook, NF)</LI>
+<LI>Durham Free-Net (Durham Region, ON) <B>Note:</B> No longer operational,
+1998.10.</LI>
+<LI><A HREF="http://wtp1.eastman.freenet.mb.ca/">EASTMAN FreeNet  </A>(MB)</LI>
+<LI><A HREF="http://www.freenet.edmonton.ab.ca/">Edmonton Free-Net</A> (AB)
+</LI>
+<LI><A HREF="http://www.807-city.on.ca/">807 Northwest Network</A> ( (Thunder
+Bay, ON; also known as 807 CITY)</LI>
+<LI>Elgin &amp; St. Thomas Community Centre for Information Access (ON)
+<B>Note:</B> No longer operational, 1998.10.</LI>
+<LI><A HREF="http://www.nocdc.bc.ca/enderby/">Enderby Community Internet Access
+Center</A> (BC)</LI>
+<LI><A HREF="http://www.flora.ottawa.on.ca/">FLORA Community Web</A> (Ottawa,
+ON)</LI>
+<LI><A HREF="http://www.fan.nb.ca/">Fredericton Area Network (FAN)</A>
+(Fredericton, NB)</LI>
+<LI><A HREF="http://www.go.ednet.ns.ca/">Glooscap Community Network</A>
+(Eastern Annapolis Valley, NS)</LI>
+<LI><A HREF="http://www.gpfn.sk.ca/">Great Plains Free-Net</A> (Regina, SK)
+</LI>
+<LI><A HREF="http://www.net.gull-lake.sk.ca/">Gull Lake Community Network</A>
+(Gull Lake, SK)</LI>
+<LI><A HREF="http://www.hhpl.on.ca/hcn.htm">Halton Community Network</A> (ON)
+</LI>
+<LI><A HREF="http://www.freenet.hamilton.on.ca/">Hamilton-Wentworth FreeNet
+ </A>(ON)</LI>
+<LI>HOMEtown Community Network (Southwestern Ontario) <B>Note:</B> No longer
+operational, 1998.10.</LI>
+<LI><A HREF="http://142.26.201.100/">Kaslo Information Network</A> (BC)</LI>
+<LI><A HREF="http://kawartha.net/jindex.html">KawarthaNET</A> (Peterborough,
+ON)</LI>
+<LI><A HREF="http://keremeos.com/">Keremeos STARS Internet</A> (BC)</LI>
+<LI><A HREF="http://www.libertel.montreal.qc.ca/">Libertel Montreal</A>
+(PQ)<B>Note:</B> Ceased operation 1996 November 30; see press release for
+details. </LI>
+<LI><A HREF="http://lillonet.org/public/default.htm">Lillonet Home Public</A>
+(Lillooet, BC)</LI>
+<LI><A HREF="http://www.monashee.com/">Monashee On-line: The
+Lumby Community Web Site</A>  (A <A NAME="CAP">CAP</A> Site)
+</LI>
+<LI><A HREF="http://macn.bc.ca/">Mount Arrowsmith Community Network</A>:
+Serving Central Vancouver Island (BC)</LI>
+<LI><A HREF="http://www.nanaimo.net/index.html">Nanaimo
+Online  </A>(BC)</LI>
+<LI><A HREF="http://www.sd68.bc.ca/schoolsnet/index.html">Nanaimo
+SchoolsNET</A> (BC)</LI>
+<LI><A HREF="http://www.nano.bc.ca/">NANO (Nechako Access Network
+Organization)</A> (Vanderhoof, BC)</LI>
+<LI><A HREF="http://www.ncf.carleton.ca/">National Capital Free-Net
+</A>(Ottawa, ON)</LI>
+<LI><A HREF="http://freenet.npiec.on.ca/">Niagara Peninsula Free-Net  </A>(ON)
+</LI>
+<LI><A HREF="http://www.nouveau.qc.ca/">Nouveau Libertel de Montreal</A>
+replaces Libertel Montreal (PQ)</LI>
+<LI><A HREF="http://freenet.alberni.net/">Port Alberni Community Network</A>
+(BC)</LI>
+<LI><A HREF="http://www.prcn.org/">Powell River Community Network</A> (BC)</LI>
+<LI><A HREF="http://www.mag-net.com/freenet/">Prince George Community
+Network</A> (BC)</LI>
+<LI><A HREF="http://www.islandnet.com/mountns/">Revelstoke (Discover
+Revelstoke)</A> (BC)</LI>
+<LI><A HREF="http://www.rmin.net/">Rocky Mountain Information Network
+</A>(Sparwood, BC)</LI>
+<LI><A HREF="http://www.InfoNET.st-johns.nf.ca/">St. John's InfoNET</A> (NF)
+</LI>
+<LI><A HREF="http://www.sfn.saskatoon.sk.ca/">Saskatoon Free-Net</A> (SK)</LI>
+<LI><A HREF="http://sea-to-sky.net/">Sea to Sky Free-Net</A> (BC)</LI>
+<LI><A HREF="http://www.netshop.net/sicamous/">Shuswap Outreach Society</A>
+(Sicamous, BC)</LI>
+<LI><A HREF="http://www.web.apc.org/sdn/">Social Development Network</A> (ON)
+</LI>
+<LI><A HREF="http://www.sookenet.com/sooke/">SookeNet</A>, BC (A <A NAME="CAP">CA
+P</A> Site)</LI>
+<LI><A HREF="http://www.sunshine.net/sunshine.html">Sunshine Coast Community
+Network</A> (BC)</LI>
+<LI><A HREF="http://www.torfree.net/">Toronto Free-Net</A> (ON)</LI>
+<LI><A HREF="http://www.tri-cities-website.org/">Tri-Cities Community
+Information Website</A> (Coquitlam, Port Coquitlam and Port Moody)</LI>
+<LI><A HREF="http://www.pris.bc.ca/tr-library/access.html">Tumbler Ridge
+Community Access</A> (BC)</LI>
+<LI><A HREF="http://members.pgonline.com/~jgrogan/">Valemount, British
+Columbia, Canada Home Town Page</A> </LI>
+<LI><A HREF="http://www.valleynet.bc.ca/">ValleyNet</A> (Abbotsford, BC)</LI>
+<LI><A HREF="http://www.vcn.bc.ca/">Vancouver CommunityNet  </A>(BC)</LI>
+<LI><A HREF="http://www.nocdc.bc.ca/cap/vcap.htm">Vernon Community Access</A>
+(BC)</LI>
+<LI><A HREF="http://victoria.tc.ca/">Victoria Telecommunity
+Network</A> (BC)</LI>
+<LI><A HREF="http://www.vvalley.net/">Virtual Valley Community Network</A>
+(Okanagan Valley, [Penticton] BC) </LI>
+<LI><A HREF="http://www.freespace.net/">Wellington FreeSpace</A> (ON)</LI>
+<LI><A HREF="http://wfn.ca/">Westbank First Nation</A> (BC, a <A NAME="CAP">CAP</
+A> Site)</LI>
+<LI><A HREF="http://cnet.windsor.ns.ca/">Windsor Western Hants Community Net
+(WWHCN)</A> (NS) </LI>
+<LI><A HREF="http://www.ycn.library.ns.ca/">Yarmouth Community Net</A> (NS)
+</LI>
+</UL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="Finland"></A>FINLAND</H3>
+<UL>
+<LI><A HREF="http://www.freenet.hut.fi/">FreeNet Finland (Helsinki)</A> </LI>
+</UL>
+<H3><A NAME="Germany"></A>GERMANY</H3>
+<UL>
+<LI><A HREF="http://www.fen-net.de/">Free-Net Erlangen-Nuernberg-Fuerth</A>
+</LI>
+</UL>
+<H3><A NAME="Hungary"></A>HUNGARY</H3>
+<UL>
+<LI><A HREF="http://caesar.elte.hu/Koz-Hely/kozhelye.html">K<F6>z-Hely
+Association for Public Computer Networks</A></LI>
+</UL>
+<H3><A NAME="Israel"></A>ISRAEL</H3>
+<UL>
+<LI><A HREF="http://ramat-negev.org.il/freenet.htm">Ramat-Negev Freenet</A>
+</LI>
+</UL>
+<H3><A NAME="Italy"></A>ITALY</H3>
+<UL>
+<LI><A HREF="http://www.infn.it/pub/CNAF/Bologna.html">City of Bologna</A>
+</LI>
+<LI><A HREF="http://www.sunrise.it/dnb/">DolomitiNews: Rete Civica Belluno</A>
+[Civic Network of Belluno] </LI>
+</UL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="Netherlands"></A>NETHERLANDS</H3>
+<UL>
+<LI><A HREF="http://www.dds.nl/">De Digitale Stad</A> </LI>
+</UL>
+<H3><A NAME="NZ"></A>NEW ZEALAND</H3>
+<UL>
+<LI><A HREF="http://www.wcc.govt.nz/">Wellington City Council
+Website</A> </LI>
+</UL>
+<H3><A NAME="Russia"></A>RUSSIA</H3>
+<UL>
+<LI><A HREF="#CIVNET_Russia">Russian Civic Networking Program - CIVNET
+Russia</A> (<A HREF="#Friends-Partners">Friends and Partners</A>) </LI>
+<LI><A HREF="http://www.spb.su/index.html">St. Petersburg</A> </LI>
+</UL>
+<H3><A NAME="Singapore"></A>SINGAPORE</H3>
+<UL>
+<LI><A HREF="http://www.sg/infomap/cmsoc/cmsoc.html">Community &amp; Social
+Sites</A> (via www.sg) </LI>
+</UL>
+<H3><A NAME="Spain"></A>SPAIN</H3>
+<UL>
+<LI><A HREF="http://www.bcnet.upc.es/">Bcnet (Barcelona Xarxa
+Ciutadana=Barcelona Civic Network)</A> </LI>
+<LI><A HREF="http://www.fut.es/">Tarragona InterNET (TINET) </A>(Tarragona,
+Catalonia) </LI>
+</UL>
+<H3><A NAME="Sweden"></A>SWEDEN</H3>
+<UL>
+<LI><A HREF="http://www.kalmar.se/">Kalmar kommuns v<E4>lkomstsida</A> </LI>
+<LI><A HREF="http://www.lp.se/gerrie-warner/freenet.htm">Swedish East Coast</A>
+</LI>
+</UL>
+<H3><A NAME="Ukraine"></A>UKRAINE</H3>
+<UL>
+<LI><A HREF="http://freelunch.freenet.kiev.ua/">Kyiv FreeNet</A> </LI>
+</UL>
+<H3><A NAME="UK"></A>UNITED KINGDOM</H3>
+<P>Includes England, Ireland, Northern Ireland, Scotland, and Wales</P>
+<UL>
+<LI><A HREF="http://www.netlab.co.uk/freenet/chilt1.html">Chiltern Freenet</A>
+</LI>
+<LI><A HREF="http://www.cinni.org/">Community Information Network for Northern
+Ireland</A></LI>
+<LI><A HREF="http://www.cwn.org.uk/index.html">Coventry and Warwickshire
+Network</A> </LI>
+<LI><A HREF="http://www.kc3ltd.co.uk/">Kington Connected Community</A> (KC3,
+Kington and area, Herefordshire)</LI>
+<LI><A HREF="http://www.nacn.org/">North Antrim Community Network</A></LI>
+<LI><A HREF="http://www.netlab.co.uk/freenet/soton1.html">Southampton
+FreeNet</A></LI>
+</UL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="USA"></A>UNITED STATES</H3>
+<UL>
+<LI><A HREF="#ORGANIZATIONS">Check under Organizations for State, Regional and
+National associations</A> </LI>
+<LI><A HREF="http://204.120.16.103/">Access Evansville (Indiana)</A> </LI>
+<LI><A HREF="http://www.lc-link.org/">Access LaPorte County (Indiana)</A> </LI>
+<LI><A HREF="http://www.afn.org/">Alachua Free-Net</A> (Alachua County,
+Florida) </LI>
+<LI><A HREF="http://www.alex.org/">ALEX, Electronic Alexandria Community
+(VA)</A> </LI>
+<LI><A HREF="http://www.avcnet.org/">Androscoggin Valley Community Network
+(AVCNet) (Maine)</A> </LI>
+<LI><A HREF="http://www.aocn.aurora.edu/">Aurora Online Community Network
+(IL)</A> </LI>
+<LI><A HREF="http://www.austinfree.net/">Austin Free-Net (Texas)</A> </LI>
+<LI><A HREF="http://aztec.asu.edu/">AzTeC Computing (Phoenix, AZ)</A> </LI>
+<LI><A HREF="http://www.belmont.gov/">Belmont-Access for the Community (BAC)
+(California)</A> </LI>
+<LI><A HREF="http://macsky.bigsky.dillon.mt.us/">Big Sky Telegraph
+(Montana)</A> </LI>
+<LI><A HREF="http://crusher.bev.net/index.html">Blacksburg Electronic Village
+(Virginia)</A> </LI>
+<LI><A HREF="http://www.bafn.org/">Bloomsburg Area Free-Net (Pennsylvania)</A>
+</LI>
+<LI><A HREF="http://www.a1.com/bremc/bccn/">Boone County Community Network
+(BCCN) (Indiana)</A> </LI>
+<LI><A HREF="http://bcn.boulder.co.us/">Boulder Community Net (Colorado)</A>
+</LI>
+<LI><A HREF="http://freenet.buffalo.edu/">Buffalo Free-Net (NY)</A> </LI>
+<LI><A
+HREF="http://www.civic.net:2401/cambridge_civic_network/cambridge_civic_network.h
+tml">Cambridge
+Civic Network (Massachusetts)</A> SEE ALSO City of Cambridge (Massachusetts)
+</LI>
+<LI><A HREF="http://www.capaccess.org">CapAccess: National Capital Area Public
+Access Network (Washington, DC)</A> </LI>
+<LI><A HREF="http://crisny.org/">Capital Region Information Service of New York
+(CRISNY)</A> (Albany, NY) </LI>
+<LI><A HREF="http://www.carlnet.org/">CarrollNet (Indiana)</A> </LI>
+<LI><A HREF="http://www.cedarnet.org/">CedarNet (Iowa)</A> </LI>
+<LI><A HREF="http://freenet.vcu.edu/cvanet.html">Central Virginia's
+Free-Net</A> </LI>
+<LI><A HREF="http://www.charweb.org/">Charlotte's Web (Charlotte, NC)</A> </LI>
+<LI><A HREF="http://www.cvfn.org/">Chippewa Valley Free-Net (WI)</A> </LI>
+<LI><A HREF="http://www.quadralay.com/www/Austin/Austin.html">City of Austin
+(Texas)</A> <BR>
+</LI>
+<LI><A HREF="http://www.bluecrab.org/%22">Chesapeake Free-Net (Maryland)</A>
+</LI>
+<LI><A HREF="http://www.ccil.org/">Chester County InterLink (Pennsylvania)</A>
+<BR>
+City of Belmont (California) SEE Belmont-Access for the Community (BAC) <BR>
+</LI>
+<LI><A HREF="http://www.ai.mit.edu/projects/iiip/Cambridge/homepage.html">City
+of Cambridge (Massachusetts)</A> </LI>
+<LI><A HREF="http://www.city.palo-alto.ca.us/home.html">City of Palo Alto
+(California)</A> </LI>
+<LI><A HREF="http://www.rtd.com/arizona/phoenix/index.html">City of Phoenix
+(Arizona)</A> </LI>
+<LI><A
+HREF="http://198.31.87.5/abag/local_gov/city/san_carlos/schome.html">City of
+San Carlos (California)</A> </LI>
+<LI><A HREF="http://white.nosc.mil/sandiego.html">City of San Diego
+(California)</A> </LI>
+<LI><A HREF="http://www.elpress.com/staunton/">City of Staunton (Virginia)</A>
+</LI>
+<LI><A HREF="http://www.rtd.com/arizona/tucson/index.html">City of Tucson
+(Arizona)</A> </LI>
+<LI><A HREF="http://www.coin.missouri.edu">Columbia Online Information Network
+(COIN) (Missouri)</A> </LI>
+<LI><A HREF="http://cnynet.gaylord.com/">CNYNet (Central New York State)</A>
+</LI>
+<LI><A HREF="http://www.communinet.org/">CommuniNet (Wabash County,
+Indiana)</A> </LI>
+<LI><A HREF="http://www.danbury.org/">Danbury Community Network
+(Connecticut)</A> </LI>
+<LI><A HREF="http://danenet.wicip.org/">DANEnet (Wisconsin)</A> </LI>
+<LI><A HREF="http://www.dcn.davis.ca.us/">Davis Community Network
+(California)</A> </LI>
+<LI><A HREF="http://www.ecicnet.org/">East Central Indiana Community
+Network</A> </LI>
+<LI><A HREF="http://www.efn.org/">Eugene Free Community Network (Oregon)</A>
+</LI>
+<LI><A HREF="http://www.fairnet.org/">FairNet (Fairbanks, AK)</A> </LI>
+<LI><A HREF="http://fccn.venus.net/">Falls Cities Community Net (Clark and
+Floyd Counties, Indiana)</A> </LI>
+<LI><A HREF="http://www.ft-wayne.in.us/">Fort Wayne Area InfoNet (Indiana)</A>
+</LI>
+<LI><A HREF="http://www.fortnet.org/">FortNet: Fort Collins Community Network
+(Colorado)</A> </LI>
+<LI><A HREF="http://genesee.freenet.org/">Genesee Free-Net</A> </LI>
+<LI><A HREF="http://www.grfn.org/">Grand Rapids Free-Net (Michigan)</A> </LI>
+<LI><A HREF="http://www.freenet.columbus.oh.us/">Greater Columbus Free-Net
+(Ohio)</A> </LI>
+<LI><A HREF="http://detroit.freenet.org">Greater Detroit FreeNet (Michigan)</A>
+</LI>
+<LI><A HREF="http://gnofn.org/">Greater New Orleans Free-Net (Louisiana)</A>
+</LI>
+<LI><A HREF="http://www.grovenet.org/">GroveNet</A> (Banks, Cornelius, Forest
+Grove, Gaston &amp; western Washington County, Oregon) </LI>
+<LI><A HREF="http://www.hawaii.net/">Hawai'i Home Page (Honolulu, Hawaii)</A>
+</LI>
+<LI><A HREF="http://www.library.sos.state.il.us/comm_net/hrn.html">Heartland
+Regional Network (Illinois)</A> </LI>
+<LI><A HREF="http://www.bloomington.in.us/">HoosierNet (Monroe County,
+Indiana)</A> </LI>
+<LI><A HREF="http://199.178.72.130/">Huntington CommNet (Huntington County
+Community Network, Indiana)</A> </LI>
+<LI><A HREF="http://www.hvcn.org/">Huron Valley Community Network (Ann Arbor,
+Michigan)</A> </LI>
+<LI><A HREF="http://www.indianapolis.in.us/">Indianapolis OnLine (Indiana)</A>
+</LI>
+<LI><A HREF="http://www.ithaca.ny.us">IthacaNet: Community Networking in
+Central New York</A> </LI>
+<LI><A HREF="http://www.jackson.freenet.org/">Jackson Area Free-Net (Jackson,
+Tennessee)</A> </LI>
+<LI><A HREF="http://www.franklincoll.edu/comweb/">Johnson County Community
+Network (Indiana)</A> </LI>
+<LI><A HREF="http://www.korrnet.org/">KORRnet (Knoxville-Oak Ridge Regional
+Network, Tennessee)</A> </LI>
+<LI><A HREF="http://laplaza.taos.nm.us/">La Plaza de Taos (Taos, New
+Mexico)</A> </LI>
+<LI><A HREF="http://www.calunet.com/lakenet/">LakeNET (Lake County,
+Indiana)</A> </LI>
+<LI><A HREF="http://www.llion.org/">Lebanon-Laclede Information Online
+Network</A> </LI>
+<LI><A HREF="http://libertynet.org/">Libertynet (Philadelphia,
+Pennsylvania)</A> </LI>
+<LI><A HREF="http://www.lincolnnet.net/">LincolnNet (&quot;Grand Prairie&quot;
+Region of Chicago Metropolis, Illinois)</A> </LI>
+<LI><A HREF="http://www.littleton.org/LCN/">Littleton Community Network
+(Colorado)</A> </LI>
+<LI><A HREF="http://www.lafn.org/">Los Angeles Free-Net (California)</A> </LI>
+<LI><A HREF="http://www.macatawa.org/">Macatawa Area Free-Net (Holland,
+Michigan)</A> </LI>
+<LI><A HREF="http://www.main.org/">MAIN (Metropolitan Austin Interactive
+Network)</A> (Texas) </LI>
+<LI><A HREF="http://freenet.medina.org/">Medina County Free-Net</A>
+(Ohio)</LI>
+<LI><A HREF="http://www.mcn.org/">Mendocino Community Network (California)</A>
+</LI>
+<LI><A HREF="http://www.merlink.org/">MERLINK: Mercer County Free-Net
+(Pennsylvania)</A> </LI>
+<LI><A HREF="http://michiana.org/">Michiana Free-Net (South Bend, Indiana)</A>
+</LI>
+<LI><A HREF="http://www.midnet.sc.edu/">MidNet: Community Access Network for
+Columbia &amp; the Midlands of South Carolina</A> </LI>
+<LI><A HREF="http://www.maf.mobile.al.us/">Mobile Area Free-Net (Mobile,
+Alabama)</A> </LI>
+<LI><A HREF="http://www.main.nc.us/">Mountain Area Information Network (MAIN,
+Asheville, NC)</A> </LI>
+<LI><A HREF="http://www.napanet.net/">NapaNet Community Network (Napa Valley,
+California)</A> </LI>
+<LI><A HREF="http://www.naples.net/">Naples Free-Net (Naples, Florida)</A>
+</LI>
+<LI><A HREF="http://www.noblecan.org/">Noble Community Access Network
+(NobleCAN) (Noble County, Indiana)</A> </LI>
+<LI><A HREF="http://xochi.tezcat.com/~neccn/">NorthEast Chicago Community
+Network (Illinois)</A> </LI>
+<LI><A HREF="http://www.nicon.org/">Northern Idaho Communities ON-line</A>
+(NICON)</LI>
+<LI><A HREF="http://listserv.nslsilus.org/">NorthStarNet Community Information
+Network </A>(northern Cook County, all of Lake County, and parts of Kane and
+McHenry Counties, Illinois) </LI>
+<LI><A HREF="http://oak-web.washington-ch.oh.us/">OAK WEB Internet Access</A>
+(Fayette County &amp; Washington Court House, Ohio) </LI>
+<LI><A HREF="http://www.osfn.org/">Ocean State Free-Net (Providence, Rhode
+Island)</A> </LI>
+<LI><A HREF="http://omahafreenet.org/">Omaha Free-Net (Omaha, Nebraska)</A>
+</LI>
+<LI><A HREF="http://www.orion.org/">Ozarks Regional Information Online Network
+(ORION)</A> (Springfield, Missouri) </LI>
+<LI><A HREF="http://www.prairienet.org/">Prairienet: the Free-Net of
+East-Central Illinois</A> </LI>
+<LI><A HREF="http://www.rain.org/">RAIN (Regional Alliance for Information
+Networking, Santa Barbara, CA)</A> </LI>
+<LI><A HREF="http://rgfn.epcc.edu:8001/rgfn/main.html">Rio Grande Free-Net
+(Texas)</A> </LI>
+<LI><A HREF="http://www.vivanet.com/freenet/">Rochester Free-Net (Rochester,
+New York)</A> </LI>
+<LI><A HREF="http://www.RTPnet.org/">RTPnet (Research Triangle Park Area
+[Raleigh/Durham/Chapel Hill], North Carolina)</A> </LI>
+<LI><A HREF="http://www.afrinet.net/~hallh/freenet.html">San Diego Freenet
+Working Group (California)</A> </LI>
+<LI><A HREF="http://www.newmexico.com/~inetserv/santa-fe-freenet/">Santa Fe
+Free-Net (New Mexico)</A> </LI>
+<LI><A HREF="http://www.scican.net/">SCICAN (South Central Indiana Community
+Access Network)</A> </LI>
+<LI><A HREF="http://www.scn.org/">Seattle Community Network (Washington)</A>
+</LI>
+<LI><A HREF="http://www.sheridan.org/">Sheridan Community Network (Indiana)</A>
+</LI>
+<LI><A HREF="http://www.svpal.org/">Silicon Valley Public Access Link (SV-PAL)
+(California)</A> </LI>
+<LI><A HREF="http://www.seva.net/">South Eastern Virginia Regional Free-Net
+(SEVAnet)</A> </LI>
+<LI><A HREF="http://206.150.180.10/webpages/south/index.html">SouthLake Net
+(Lake County, Indiana)</A> </LI>
+<LI><A HREF="http://web.frontier.net/SCAN/">Southwest Colorado Access Network
+(SCAN) (Durango, Colorado)</A> </LI>
+<LI><A HREF="http://www.state.mn.us/">State of Minnesota</A> </LI>
+<LI><A HREF="http://www.state.sd.us/">State of South Dakota</A> </LI>
+<LI><A HREF="http://www.scfn.net/">Suncoast Free-net</A> Tampa (Florida)</LI>
+<LI><A HREF="http://www.tfn.net/">Tallahassee Free-net</A> (Florida)</LI>
+<BR>
+Texas MetroNet <B>see</B> North Texas Free-Net <BR>
+</LI>
+<LI><A HREF="http://trfn.pgh.pa.us/">Three Rivers Free-Net (Pennsylvania)</A>
+</LI>
+<LI><A HREF="http://www.tincan.org/">TINCAN (The Inland Northwest Community
+Access Network) (Washington-Idaho)</A> </LI>
+<LI><A HREF="http://www.tcnet.org/">Traverse Community Network (Traverse City,
+Michigan)</A> <BR>
+Triangle Free-Net <B>see</B> RTPnet <BR>
+</LI>
+<LI><A HREF="http://www.tcfn.org/">Tri-Cities Free-Net (Washington)</A> </LI>
+<LI><A HREF="http://freenet.msp.mn.us/">Twin Cities Free-Net (Minnesota)</A>
+</LI>
+<LI><A HREF="http://www.usvi.net/">U.S. Virgin Islands: St. Croix, St. Thomas,
+St. John</A> </LI>
+<LI><A HREF="http://www.wcic.org/">WCIC Net (West Central Indiana Community
+Network)</A> </LI>
+<LI><A HREF="http://www.wcnet.org/">WCNet: The Wood County Free-Net (Ohio)</A>
+</LI>
+<LI><A HREF="http://www.slis.ua.edu/wafn/">West Alabama Free-Net (Alabama)</A>
+</LI>
+<LI><A HREF="http://www.win.org/">Westplex Information Network (WIN) (St.
+Charles County, Missouri)</A> </LI>
+</UL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="ORGANIZATIONS"></A>ORGANIZATIONS</H3>
+<P><A HREF="http://bcn.boulder.co.us/afcn/">Association For Community
+Networking (AFCN)</A> <BR>
+<A HREF="http://www.nano.bc.ca/local/personal/jrowland/bccia.htm">British
+Columbia Coalition for Information Access (BCCIA)</A> <BR>
+<A HREF="http://www.bccna.bc.ca/">British Columbia Community Networks</A> <BR>
+<A NAME="CenterCivicNetworking"></A><A
+HREF="http://www.civic.net:2401/ccn.html">Center for Civic Networking
+(USA)</A> sponsors the <A HREF="#ArsPortalisProject">Ars Portalis
+Project</A><BR>
+<A HREF="http://ccen.uccb.ns.ca/">Centre for Community &amp; Enterprise
+Networking (C\CEN)</A> (University College of Cape Breton, Sydney, Nova Scotia)
+<BR>
+<A HREF="http://www.digitaldividenetwork.org/">Digital Divide Network</A>
+contains a searchable database to locate public Internet access terminals
+in the United States (via a Zip Code)
+<BR><A NAME="dotforce"></A><A HREF="http://www.dotforce.org/">Digital
+Opportunity Task Force</a>
+(DOT Force, United Nations Development Program and World Bank)
+<BR><A NAME="Friends-Partners"></A><A
+HREF="http://www.friends-partners.org/friends/index.html">Friends and
+Partners</A> is an information services initiative pioneered by Natasha
+Bulashova (Russia) and Greg Cole (Tennessee) <BR>
+<A HREF="http://www.icna.ai.org/">Indiana Community Network Association (via
+Access Indiana Information Network)</A> <BR>
+<A NAME="NCSC-WashDC"></A><A HREF="http://www.natat.org/ncsc/">National
+Center for Small
+Communities</A> (NCSC, Washington, D.C.)<BR>
+<B>NOTE:</B> The National Public Telecomputing Network (NPTN) (Cleveland, OH)
+filed for bankruptcy in the United States. Efforts are being made in the USA
+and elsewhere by Free-Nets to restore some of the services formerly offered by
+the NPTN. <BR>
+<A HREF="http://www.shelburne.nscc.ns.ca/nsfcn/">Nova Scotia Federation of
+Community Networks</A> <BR>
+<A HREF="http://www.opn.org/">Oregon Public Networking</A> promotes community
+networks throughout Lane County<BR>
+<A HREF="http://ofcn.org/">Organization For Community Networks</A> is being
+organized by John Kurilec who formerly worked for the NPTN <BR>
+<A NAME="CIVNET_Russia"></A><A
+HREF="http://www.friends-partners.org/civnet/index.html">Russian Civic
+Networking Program - CIVNET Russia</A> (<A HREF="#Friends-Partners">Friends and
+Partners</A>) is a pilot project to develop Internet-based community networks
+in Russia <BR>
+<A HREF="http://www.sfn.saskatoon.sk.ca/sacn/">Saskatchewan Association of
+Community Networking (SACN)</A> <BR>
+<A HREF="http://www.tc.ca/">Telecommunities Canada</A> <BR>
+<A HREF="http://ccen.uccb.ns.ca/wins97/">Wire Nova Scotia (WiNS) '97</A>
+(Centre for Community &amp; Enterprise Networking (C\CEN) and the Nova Scotia
+Community Access Committee) <BR>
+<A HREF="http://www.afn.org/~wwfin/">World Wide Freenet IRC Network</A> </P>
+<P>The <A HREF="http://www.morino.org/">Morino Institute</A> (Reston, Virginia)
+supports community networking activities and maintains a directory of public
+access networks.</P>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<H3><A NAME="OtherInfo"></A>OTHER INFORMATION ABOUT FREE-NETS AND COMMUNITY
+COMPUTER NETWORKS</H3>
+<OL>
+<LI><A
+HREF="http://ruraltelecon.org/aolawards/aol00/aolawards.asp">AOL
+Rural Telecommunications Leadership Awards '00</A> (United States only)
+is a partnership between the <A HREF="#NCSC-WashDC">National Center for
+Small Communities</A> (NCSC) and the AOL Foundation</LI>
+<LI><A NAME="ArsPortalisProject"></A><A
+HREF="http://www.arsportalis.org/">Ars Portalis Project</A>: City Gates in
+CyberSpace: The Art of Civic and Community Networking (<A
+HREF="#CenterCivicNetworking">Center for Civic Networking</A>, USA)</LI>
+<LI><A HREF="http://www.asm-consultants.com/resource.htm">ASM (Advanced
+Strategic Management) Consultants Archives and Resources</A> is a digital
+library of mainly Canadian papers and conferences on community computer
+networking and economic development as effected by the Internet.</LI>
+<LI><A
+HREF="http://www.yampa.com/aerie/">AeRIE (Applied Rural
+Telecommunications Online Clearinghouse)</A> (Colorado Advanced Technology
+Institute, CATI) </LI>
+<LI><A HREF="http://www.bccna.bc.ca/resources.html">BC Community Networks
+Association (BCCNA) Community Network Resource Site</A> </LI>
+<LI>The BC in 2001: The Electronic Highway &amp; the Future of Our Communities
+Conference, Oct. 25-26, 1996 (Victoria), was sponsored by the Information and
+Technology Access Office.</LI>
+<LI><A HREF="http://lone-eagles.com/teled.htm">Building Learning
+            Communities</A>: A Web Tour at Lone Eagle Consulting includes the
+online version of <A HREF="#GoodNeighborGuide">The Good Neighbor's Guide
+to Community Networking</a></li>
+<LI><A HREF="http://www.cwf.ca/cnet/">Canadian Community-Net Volunteers
+Survey</A> by Allan Northcott, Info-Age Passport Project, Canada West
+Foundation (not available at URL as of 2000.02.15)</LI>
+<LI><A
+HREF="http://www.ncf.carleton.ca/freeport/freenet/conferences/com-net93/menu">Can
+adian
+Community Networks Conference, Aug. 18-19, 1993</A> (Ottawa) </LI>
+<LI><A
+HREF="http://www.ncf.carleton.ca/freeport/freenet/conferences/com-net94/menu">Can
+adian
+Community Networks Conference, Aug. 15-17, 1994</A> (Ottawa) </LI>
+<LI><A HREF="http://www.clo.com:80/~canadainfo/freenet.html">Canadian
+Free-Nets</A> (<I>Canadian Almanac &amp; Directory</I>) </LI>
+<LI><A HREF="http://www.naccess.com/~inter.canada/freenets.htm">Canadian
+Free-Nets / Libertels canadiens</A> (Interchange Canada)</LI>
+    <li><a href="http://deveau.chebucto.net/CdnInfoHwyDebate-thesisdoc.pdf" targe
+t="_blank" title="Opens in new browser window.">The Canadian Information Highway
+Debate and the Experience of Public Access In Rural Communities, 1993-1999</a>
+    by Leo J. Deveau, Master of Library and Information Studies&nbsp;thesis,
+    Dalhousie University, December 2002 (Adobe Acrobat PDF).</li>
+<LI><A HREF="http://www.tmn.com/civicnet/">CivicNet: The Spirit of Community
+Networking</A> (A Virtual Event on the Web, May 22 - June 30, 1997) </LI>
+<LI><A
+HREF="http://www.yorku.ca/research/dkproj/fortier/">&quot;Civil
+Society Computer Networks</A>: The Perilous Road of Cyber-politics&quot;
+by
+Frangois Fortier, Ph.D. dissertation, Political Science, York University,
+Toronto, Nov. 1996</LI>
+<LI><A
+HREF="http://alberti.mit.edu/arch/4.207/anneb/thesis/toc.html">&quot;Communities
+On-Line</A>: A Study of Community-Based Community Networks&quot; by Anne
+Beamish, Thesis, Master in City Planning, MIT, Feb. 1995 </LI>
+<LI><A
+HREF="http://highlander.cbnet.ns.ca/cbnet/events/confhome.html">Community
+Access '96</A> (Nov. 21-23, 1996, Sydney, NS) </LI>
+<LI><A
+HREF="http://www.cs.washington.edu/research/community-networks/">Community
+Computer Network Survey (Doug Schuler, University of Washington)</A> </LI>
+<LI><A HREF="http://www.si.umich.edu/Community/">The Community Connector</A>
+(Community Networking Initiative, School of Information, University of
+Michigan) is a comprehensive set of resources supporting community networking
+and community information systems, and includes a directory, a library, and an
+online journal. Formerly known as the Community Networking Resource Site which
+evolved from an original compilation by former student Catherine Kummer. </LI>
+<LI><A HREF="http://www.arsportalis.org/cnet_white.htm">Community
+Networking Gets Interesting</A>: A Synthesis of Issues, Findings and
+Recommendations (<A HREF="#ArsPortalisProject">Ars Portalis Project</A>,
+Strategic Planning Retreat, Sept. 17-19,
+2000,  Whidbey Institute, Langley, WA)</LI>
+<LI><A
+HREF="http://alastore.ala.org/SiteSolution.taf?_UserReference=E88F4C2C43C811D2392
+1C1DA&_sn=catalog2&_pn=product_detail&_op=524">The
+Community Networking Handbook</A> by Stephen Bajjaly (ALA Editions, 1999;
+ISBN 0-8389-0745-8) can be purchased online through the American
+Library Association</LI>
+<LI><A HREF="http://www.scn.org/ip/commnet/home.html">Community Networking
+Movement</A> (Douglas Schuler, Seattle, WA) includes resources based on his
+book <I>New Community Networks: Wired for Change</I> (Addison-Wesley, 1996)
+</LI>
+<LI><A HREF="http://ralph.gmu.edu/~pbaker/">Community Networks: An On-line
+Guide to Resources</A> by Paul Baker, Institute of Public Policy, George Mason
+University, Fairfax, Virginia </LI>
+<LI><A HREF="http://www.vcn.bc.ca/people/nkg/ma-thesis/">&quot;Community
+Networks: Building Real Communities in a Virtual Space?&quot;</A> by Neil K.
+Guy, Thesis, Master of Arts, Geography, Simon Fraser University, Burnaby, BC,
+July 1996. </LI>
+<LI><A HREF="http://www.math.grin.edu/~stalling/Free-Nets/FN_TOC.html">&quot;A
+Critical Study of Three Free-Net Community Networks&quot;</A> by Ben Stallings,
+Intel's Robert N. Noyce Technology Summer Internship, 1996. </LI>
+<LI><A HREF="http://www.tfn.net/surak/">&quot;A Cross-Cultural Comparison of
+Community Computer Networks&quot;</A> by Kristin M. Surak, Honors Thesis,
+College of Social Sciences, Florida State University, April 15, 1998 </LI>
+<LI><A HREF="http://www.cs.indiana.edu/horizon/970207/index.html">Cyberspace
+and the Future of Community</A> presented by Indiana University's Computer
+Science Dept. on 7 February 1997. </LI>
+<LI><A HREF="http://www.bcnet.upc.es/ecn97/">ECN '97: First European Community
+Networks Conference</A> (July 3 - 5, 1997, Milan, Italy) </LI>
+<LI><A HREF="http://www.bcnet.upc.es/ecn98.new/">ECN '98: Second European
+Community Networking Conference</A> (July 9 - 11, 1998, Barcelona, Spain);
+conference title, &quot;Models for Digital Cities: New Roles of Community
+Networking&quot;</LI>
+<LI><A HREF="http://info.ic.gc.ca/info-highway/final.report/eng/">Final Report
+of the Information Highway Advisory Council (Canada)</A> </LI>
+<LI><A NAME="PeterScottSite"></A><A
+HREF="http://www.lights.com/freenet/">Freenets and Community Networks</A>
+(Compiled by Peter Scott, Northern Lights Internet Solutions, Saskatoon, SK)
+</LI>
+<LI><A HREF="http://fox.nstn.ca/~infolink/intro96.html">Getting Online:
+Communities on the Internet Conference</A> (June 20-23, 1996, Carleton
+University, Ottawa, Ontario) </LI>
+<LI><A NAME="GoodNeighborGuide"></A><A
+HREF="http://lone-eagles.com/cnguide.htm">The Good Neighbor's Guide to
+Community Networking</A> (Lone Eagle Consulting)</LI>
+<LI><A HREF="libraries.html#HowLibrariesHelp">How Libraries and
+Librarians Help</A>: Context-Centered Methods for Evaluating Public
+Library Efforts at Bridging the Digital Divide and Building Community
+
+(University of Michigan School of Information and University of
+  Washington Information School). Research project established in October
+2000.</LI>
+<LI><A HREF="http://www.morino.org/schuler/ncn.htm">&quot;New Community
+Networks: Wired for Change&quot;</A> by Doug Schuler: Excerpts from the book
+</LI>
+<LI><A HREF="http://ccen.uccb.ns.ca/cpi/">On-Line Public Consultation On
+Information Highway Issues</A> presented by Canada's Coalition for Public
+Information from 23 January to 23 February 1997. </LI>
+<LI><A NAME="DonSnowdenConf199810"></A><A
+HREF="http://www.snowden.org/conference/index.cfm">Partnerships &amp;
+Participation in Telecommunications for Rural Development</A> presented by Don
+Snowden Program for Development Communication, University of Guelph, Ontario,
+26 and 27 October 1998.</LI>
+<LI><A HREF="http://www.ucalgary.ca/~aavis/thesis/thesis.html">&quot;Public
+Spaces on the Information Highway:</A> The Role of Community Networks&quot; by
+Andrew Avis, Thesis, Master of Arts, Communication Studies, University of
+Calgary, Aug. 1995. </LI>
+<LI><A HREF="http://www.cic.net/ruraldata/rd-home.html">The Rural Datafication
+Project (USA)</A></LI>
+<LI><A HREF="http://ruraltelecon.org/">Rural Telecommunications
+Congress</A> (RuralTeleCon) organizes an annual conference on rural
+telecommunications issues</LI>
+<LI><A HREF="http://www.sfn.saskatoon.sk.ca/sacn/report.html">Saskatchewan
+Community Networking Conference: Papers</A> (First, 13 April 1996, Saskatoon)
+</LI>
+<LI><A HREF="http://www.chebucto.ns.ca/TC97/Home.html">Telecommunities Canada
+97: Partnerships</A> (Hosted by Chebucto Community Network, August 15-18, 1997,
+Halifax, Nova Scotia)</LI>
+<LI><A HREF="http://www.sas.ab.ca/tc96/">Telecommunities Canada '96 Conference:
+Telecommunity Spirit</A> (August 16-20, 1996, Edmonton, Alberta) </LI>
+<LI><A HREF="http://www.swifty.com/TC95/cover.htm">Telecommunities Canada '95
+Conference: Equity on the Internet</A> (University of Victoria, August 19-23,
+1995, Victoria, BC, Canada) </LI>
+<LI><A
+HREF="http://cnidr.org/cnidr_staff/ghb/trips/940504_ALUG/940505.html">Ties That
+Bind Conference Report</A> May 4-6, 1994, Cupertino, California </LI>
+</OL>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<HR>
+
+<H3><A NAME="City-RegionGuides"></A>CITY-REGIONAL GUIDES</H3>
+
+<UL>
+<LI><A HREF="http://www.city.net/">City.Net</A>
+(Excite)</LI>
+<LI><A HREF="http://www.infospace.com/vangogh/index_cty.htm">InfoSpace.com
+City Guide</A></LI>
+<LI><A HREF="http://cityguide.lycos.com/">Lycos City Guide</A></LI>
+<LI><A HREF="http://www.neosoft.com/citylink/">USA City Link Project</A>
+(States and Cities)</LI>
+
+</UL>
+
+<HR>
+
+<A HREF="freenets.html#Top-Contents"><IMG
+SRC="../images/brick-to-top-button.jpg"
+ALIGN=MIDDLE BORDER=0 ALT="JUMP TO CONTENTS"></A>
+
+<A HREF="../menu.main.html"><IMG
+SRC="../images/brick-vtn-menus-button.jpg"
+BORDER=0 ALT="VTN MENUS"
+HEIGHT=50 WIDTH=100></A>
+<p>
+
+<strong><script language="JavaScript" type="text/javascript">
+<!--
+        document.write("Document address/URL: " + document.location);
+// -->
+</script>
+
+
+</strong></p>
+
+</BODY>
+</HTML>

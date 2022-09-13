@@ -1,0 +1,68 @@
+> GET /WWW94/Welcome.html HTTP/1.1
+> Host: www94.web.cern.ch
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: text/html
+< Last-Modified: Wed, 22 Nov 1995 06:32:48 GMT
+< Accept-Ranges: bytes
+< ETag: "0e8157a4b8ba1:0"
+< Server: Microsoft-IIS/10.0
+< X-Powered-By: ASP.NET
+< Date: Tue, 13 Sep 2022 09:28:27 GMT
+< Content-Length: 2794
+<
+{ [2794 bytes data]
+100  2794  100  2794    0     0  18878      0 --:--:-- --:--:-- --:--:-- 18878
+* Connection #0 to host www94.web.cern.ch left intact
+* Closing connection 0
+<HEADER>
+<TITLE>First WWW Conference</TITLE>
+<ISINDEX>
+</HEADER>
+<BODY>
+
+<h1><img src="Images/W3logo.gif" alt="">First International Conference on the World-Wide Web</h1>
+<h3>May 25-26-27 1994, CERN, Geneva (Switzerland)</h3>
+The Conference is over ... This page remains of interest as a report and as pointer to the next ones.
+<hr>
+<p>
+The Third one will be:
+<PRE>
+           <A HREF="http://www.igd.fhg.de/www95.html">WWW Spring '95</A>
+           Darmstadt, Germany, April 10-14 1995, organised by the
+                      <a href="http://www.igd.fhg.de/www/www95/igdhome.html">Fraunhofer Gesellschaft</a>.
+
+</PRE>
+<hr>
+<P>
+The second conference was held in the US:
+<PRE>
+           <A HREF="http://riwww.osf.org:8001/ri/announcements/WWW_Conf_F94.html">WWW Fall '94:</A>  Mosaic and the Web
+           Chicago, October 17-19, organised by <A HREF=" http://www.ncsa.uiuc.edu/SDG/IT94/IT94Info.html">NCSA</A> and CERN.
+
+</PRE>
+<hr>
+<p>
+The three days in Geneva were attended by 380 <A HREF="http://www.lcs.mit.edu/cgi-bin/wwwdirectory/wwwgetdir">participants</A> from all over the world.
+<P>
+My thanks go to many <A HREF="ThankPeople.html">people</A>,
+and also to many <A HREF="Sponsors0529.html">institutes and companies</A>, especially to the co-organisers from the <a href="http://cuiwww.unige.ch/home.html">CUI</A> (Centre Universitaire d'Informatique), Oscar Nierstrasz and Bertrand Ibrahim.
+<P>
+There were 49 formal presentations, 11 <A href="http://cuiwww.unige.ch/WWW94/Workshops/workshop.list.html">workshops</A> and many discussions going on in parallel. The <A href="Proceedings.html">proceedings</A> will be published in two forms, and until then, the <A href="PrelimProcs.html">preliminary proceedings</a> are available for inspection.
+<P>
+The Best of WWW <A HREF="Awards0529.html">Awards</A> were handed out at the Conference Dinner.
+<P>
+The conference closed on Friday afternoon with a general <A HREF="/WWW94/Images/ClosingPanel/list.html">panel</A> discussing issues for the future.
+<P>
+You can submit <A HREF="TripReports.html">trip reports</A> (but I do not guarantee publication!)
+<P>
+<h3>User Society</h3>
+Furthermore, we are considering creating a WWW User Society, which will serve the purpose of grouping the individual users, institutes and existing interest groups.  It will run the conferences and could also channel the input to the upcoming WWW Consortium.  We expect serious suggestions on purpose and structure, as well as offers of help with this Society, by e-mail to www-usersoc@www.cern.ch.
+<h3>Past History...</h3>
+You can still access the <A href="Welcome0522.html">old information</A> temporarily.
+<HR>
+<ADDRESS><A NAME=rc HREF="http://xwho.cern.ch/WHO/people/00603">RC</A> 02 June 94
+</ADDRESS>
+</BODY>

@@ -1,0 +1,97 @@
+> GET /kitty/hpages/index.html HTTP/1.1
+> Host: www.snowcrest.net
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:33:36 GMT
+< Server: Apache/2.4.10 (Debian) mod_python/3.3.1 Python/2.7.9 OpenSSL/1.0.1t mod_perl/2.0.9dev Perl/v5.20.2
+< Last-Modified: Wed, 03 Apr 2013 22:07:12 GMT
+< ETag: "cac-4d97c136e2400"
+< Accept-Ranges: bytes
+< Content-Length: 3244
+< Vary: Accept-Encoding
+< Connection: close
+< Content-Type: text/html
+<
+{ [3244 bytes data]
+100  3244  100  3244    0     0   9830      0 --:--:-- --:--:-- --:--:--  9800
+* Closing connection 0
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="kitty roach">
+   <meta name="GENERATOR" content="Mozilla/4.79 [en] (WinNT; U) [Netscape]">
+   <meta name="KeyWords" content="Animation,free,animations,download,gallery,art,pictures,cards,e-cards,alphabet,cartoon,children,educational,clipart,graphics,dragons">
+   <meta name="Description" content="Fun, entertaining and educational - wonderful original image animation free for personal webpage school use.">
+   <title>animation by kitty roach | Pageworks</title>
+</head>
+<body text="#778AA8" bgcolor="#1D1A60" link="#778AA8" vlink="#617798" alink="#8AABC6">
+&nbsp;
+<br>&nbsp;
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 COLS=3 WIDTH="765" >
+<tr>
+<td ALIGN=RIGHT VALIGN=CENTER WIDTH="267"><img SRC="indeximages/2012/pwhometop1.jpg" height=185 width=267></td>
+
+<td WIDTH="212"><img SRC="indeximages/2012/pwhometop2.jpg" height=185 width=212></td>
+
+<td ALIGN=LEFT WIDTH="286"><img SRC="indeximages/2012/pwhometop3.jpg" height=185 width=286></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT><img SRC="indeximages/2012/pwhometop4.jpg" height=224 width=267></td>
+
+<td><img SRC="indeximages/2012/pwdragon.gif" height=224 width=212></td>
+
+<td ALIGN=LEFT>
+<center><img SRC="indeximages/2012/pwhometop5.jpg" height=224 width=286></center>
+</td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT VALIGN=CENTER><img SRC="indeximages/2012/tsshp.gif" height=127 width=267></td>
+
+<td><img SRC="indeximages/2012/pwhomebottom2.gif" height=127 width=212></td>
+
+<td ALIGN=LEFT><img SRC="indeximages/2012/pwhomemush.gif" height=127 width=286></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT><img SRC="indeximages/2012/link1.jpg" BORDER=0 usemap="#Map" height=32 width=267></td>
+
+<td><img SRC="indeximages/2012/link2.jpg" BORDER=0 usemap="#Map2" height=32 width=212></td>
+
+<td ALIGN=LEFT><img SRC="indeximages/2012/link3.jpg" BORDER=0 usemap="#Map3" height=32 width=286></td>
+</tr>
+</table></center>
+
+<center>
+<p><font face="Arial,Helvetica"><font color="#60799F"><font size=-1>Kitty's
+PageWorks is proud to be sponsored by <a href="http://www.artie.com/">Arg!
+Cartoon Animation</a></font></font></font>
+<br><font face="Arial,Helvetica"><font color="#60799F"><font size=-1>&nbsp;<a href="Kittys.html">Site
+Map</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; <a href="whatisabc2.html">ABC's</a></font></font></font>
+<br><font face="Arial,Helvetica"><font color="#60799F"><font size=-1>&nbsp;PageWorks
+Established 1996 For kids of all ages! (c) Kitty Roach (1996 - 2013)</font></font></font></center>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><map name="Map"><area shape="rect" coords="28,2,134,34" href="zebra0.html"><ar
+ea shape="rect" coords="134,3,262,34" href="whatsnew.html"></map><map name="Map2"
+><area shape="rect" coords="-8,5,123,42" href="dos.html"><area shape="rect" coord
+s="123,5,220,38" href="zkids.html"></map><map name="Map3"><area shape="rect" coor
+ds="1,5,63,40" href="zkids.html"><area shape="rect" coords="63,5,196,44" href="ki
+ttys11.html"><area shape="rect" coords="196,4,265,45" href="Klinks.html"></map>
+</body>
+</html>
