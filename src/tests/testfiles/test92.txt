@@ -651,6 +651,3 @@ Content-Type: text/html; charset=UTF-8
 </body>
 
 </html>
-
-* Connection #0 to host www.spacejam.com left intact
-* Closing connection 0

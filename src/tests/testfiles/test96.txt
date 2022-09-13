@@ -110,5 +110,4 @@ Strict-Transport-Security: max-age=15768000
 			Licensed under the terms of the BSD License.
 		</footer>
 	</body>
-* Connection #0 to host calcurse.org left intact
-</html>* Closing connection 0
+</html>

@@ -14,7 +14,6 @@ Vary: Accept-Encoding
 ETag: "56cf504f-6a1"
 Accept-Ranges: bytes
 
-
 <html>
 
 <head>
@@ -79,5 +78,4 @@ Accept-Ranges: bytes
 </body>
 </noframes>
 
-* Connection #0 to host www.kleinplanetenseite.de left intact
-</html* Closing connection 0
+</html>
