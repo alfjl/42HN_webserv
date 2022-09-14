@@ -17,11 +17,15 @@ namespace webserv {
         std::map<socket *, payload_type>    elements; // socket = registered/active socket
 
     public:
-        selector();
-        ~selector();
+        selector() {}
+        ~selector() {}
 
         void register_socket(socket *socket, payload_type data_set) {
             elements[socket] = data_set;
+        }
+
+        void register_socket(socket* socket) {
+            elements[socket] = payload_type();
         }
 
         void unregister_socket(socket *socket) {
@@ -40,8 +44,8 @@ namespace webserv {
             FD_ZERO(&exception_fds);
 
             // iterate over all sockets and save into read_fds, writable or expect exception
-            std::map<socket *, payload_type>::iterator it = elements.begin();
-            std::map<socket *, payload_type>::iterator ite = elements.end();
+            typename std::map<socket *, payload_type>::iterator it = elements.begin();
+            typename std::map<socket *, payload_type>::iterator ite = elements.end();
 
             for ( ; it != ite; ++it) {
                 if (it->first->is_data_socket()) {
@@ -71,7 +75,7 @@ namespace webserv {
                     std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                     if (it->first->is_server_socket()) {
                         data_socket* ds = ((server_socket*) it->first)->accept();
-                        register_socket(ds, NULL);
+                        register_socket(ds);
                     } else if (it->first->is_data_socket()) {
                         char buffer[128];
                         ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));

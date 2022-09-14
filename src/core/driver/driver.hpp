@@ -9,7 +9,7 @@ namespace webserv {
     namespace core {
 
         class driver : public component {
-            webserv::pal::net::selector selector;
+            webserv::pal::net::selector<int> selector;
         
         public:
             driver(instance& the_inst);
