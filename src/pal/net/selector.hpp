@@ -1,5 +1,5 @@
-#ifndef WEBSERV_PAL_SOCKET_SELECTOR_HPP
-#define WEBSERV_PAL_SOCKET_SELECTOR_HPP
+#ifndef WEBSERV_PAL_NET_SELECTOR_HPP
+#define WEBSERV_PAL_NET_SELECTOR_HPP
 
 #include "../../defs.hpp"
 
@@ -11,7 +11,7 @@ namespace webserv {
     class selector {
 
     private:
-        typedef T*  payload_type;
+        typedef T  payload_type;
 
     private:
         std::map<socket *, payload_type>    elements; // socket = registered/active socket

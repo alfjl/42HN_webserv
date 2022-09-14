@@ -30,8 +30,6 @@ namespace webserv {
 
         void close();
 
-        friend class selector;
-
     }; // class socket
 
     class data_socket : public socket {
