@@ -2,7 +2,6 @@
 #define WEBSERV_PAL_CPP_GUARDED_HPP
 
 #include "../../defs.hpp"
-#include "../../threading/threading.hpp"
 
 /*
  * Based on implementation of std::shared_ptr and inspired by
@@ -25,7 +24,7 @@ namespace webserv {
         class borrow {
 
         private:
-            guarded&		_guard;
+            guarded&    _guard;
 
         public:
             borrow(guarded& guard) : _guard(guard) {
@@ -37,8 +36,8 @@ namespace webserv {
             T&  operator*() const { return *(_guard.base()); }
             T*  operator->() const { return _guard.base(); }
 
-            T&	getValue() { return _guard.getValue(); }
-            T&	getValue() const { return _guard.getValue(); }
+            T&  getValue() { return _guard.getValue(); }
+            T&  getValue() const { return _guard.getValue(); }
 
         }; // class borrow
 
@@ -46,7 +45,7 @@ namespace webserv {
         friend class borrow;
 
         T                           _value;
-        webserv::threading::mutex	_protection;
+        webserv::threading::mutex   _protection;
 
     public:
         guarded(T value) { _value = value; }
@@ -55,8 +54,8 @@ namespace webserv {
         }
 
     private:
-        T&	getValue() { return _value; }
-        T&	getValue() const { return _value; }
+        T&  getValue() { return _value; }
+        T&  getValue() const { return _value; }
 
     public:
         borrow  get_borrow() { return (borrow(*this)); }
