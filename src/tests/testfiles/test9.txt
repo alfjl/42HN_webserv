@@ -1,0 +1,2221 @@
+> GET / HTTP/1.1
+> Host: www.flg-online.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 07:47:40 GMT
+< Server: Apache
+< X-Frame-Options: SAMEORIGIN
+< X-XSS-Protection: 1; mode=block
+< X-Content-Type-Options: nosniff
+< Referrer-Policy: no-referrer-when-downgrade
+< Strict-Transport-Security: max-age=31536000; includeSubDomains
+< Content-Security-Policy-Report-Only: script-src 'self' 'sha256-oxC7rzQg3XOJCE94CKF06VJRFXm9VDMQkR2E8kUnhnc=';  ; frame-ancestors 'self'
+< Permissions-Policy: interest-cohort=()
+< Expires: Wed, 17 Aug 2005 00:00:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+< Pragma: no-cache
+< Set-Cookie: 95672c5a02f8e17de0bf2d8e28b78128=81345fee208c7724b97952353b40cdee; path=/; HttpOnly
+< Last-Modified: Tue, 13 Sep 2022 07:47:41 GMT
+< Vary: Accept-Encoding
+< X-bcwwwid: 01
+< Transfer-Encoding: chunked
+< Content-Type: text/html; charset=utf-8
+<
+<!DOCTYPE html>
+<html lang="de-DE" dir="ltr">
+        <head>
+    
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+
+                <link rel="icon" type="image/x-icon" href="/site/" />
+        
+                <link rel="apple-touch-icon" sizes="180x180" href="/site/">
+        <link rel="icon" sizes="192x192" href="/site/">
+            
+    <meta charset="utf-8" />
+	<base href="https://www.flg-online.de/" />
+	<meta name="robots" content="index, nofollow" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Aktuell</title>
+	<link href="/site/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+	<link href="/site/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
+	<link href="/site/plugins/system/jce/css/content.css?6fa988b94354bf23fa7dc91ecb0a42d7" rel="stylesheet" />
+	<link href="/site/media/gantry5/engines/nucleus/css-compiled/nucleus.css" rel="stylesheet" />
+	<link href="/site/templates/g5_helium/custom/css-compiled/helium_22.css" rel="stylesheet" />
+	<link href="/site/media/gantry5/assets/css/bootstrap-gantry.css" rel="stylesheet" />
+	<link href="/site/media/gantry5/engines/nucleus/css-compiled/joomla.css" rel="stylesheet" />
+	<link href="/site/media/jui/css/icomoon.css" rel="stylesheet" />
+	<link href="/site/media/gantry5/assets/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="/site/templates/g5_helium/custom/css-compiled/helium-joomla_22.css" rel="stylesheet" />
+	<link href="/site/templates/g5_helium/custom/css-compiled/custom_22.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/css/uikit.min.css" rel="stylesheet" />
+	<style>
+
+        #main-menu {
+            /* Needed for Safari (Mac) */
+            width: 100%;
+        }
+
+        #main-menu.g-fixed-active {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1003;
+            left: 0;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+
+        .animated {
+          -webkit-transition: transform 200ms linear;
+          -moz-transition: transform 200ms linear;
+          -ms-transition: transform 200ms linear;
+          -o-transition: transform 200ms linear;
+          transition: transform 200ms linear;
+        }
+
+        .slideDown {
+          -webkit-transform: translateY(0%);
+          -moz-transform: translateY(0%);
+          -ms-transform: translateY(0%);
+          -o-transform: translateY(0%);
+          transform: translateY(0%);
+        }
+
+        .slideUp {
+          -webkit-transform: translateY(-100%);
+          -moz-transform: translateY(-100%);
+          -ms-transform: translateY(-100%);
+          -o-transform: translateY(-100%);
+          transform: translateY(-100%);
+        }
+
+        .animated {
+          -webkit-animation-duration: 0.5s;
+          -moz-animation-duration: 0.5s;
+          -ms-animation-duration: 0.5s;
+          -o-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+          -webkit-animation-fill-mode: both;
+          -moz-animation-fill-mode: both;
+          -ms-animation-fill-mode: both;
+          -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+        }
+
+        @-webkit-keyframes slideDownHR {
+            0% {
+                -webkit-transform: translateY(-100%);
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+            }
+        }
+
+        @-moz-keyframes slideDownHR {
+            0% {
+                -moz-transform: translateY(-100%);
+            }
+
+            100% {
+                -moz-transform: translateY(0);
+            }
+        }
+
+        @-o-keyframes slideDownHR {
+            0% {
+                -o-transform: translateY(-100%);
+            }
+
+            100% {
+                -o-transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDownHR {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .animated.slideDown {
+            -webkit-animation-name: slideDownHR;
+            -moz-animation-name: slideDownHR;
+            -o-animation-name: slideDownHR;
+            animation-name: slideDownHR;
+        }
+
+        @-webkit-keyframes slideUpHR {
+            0% {
+                -webkit-transform: translateY(0);
+            }
+
+            100% {
+                -webkit-transform: translateY(-100%);
+            }
+        }
+
+        @-moz-keyframes slideUpHR {
+            0% {
+                -moz-transform: translateY(0);
+            }
+
+            100% {
+                -moz-transform: translateY(-100%);
+            }
+        }
+
+        @-o-keyframes slideUpHR {
+            0% {
+                -o-transform: translateY(0);
+            }
+
+            100% {
+                -o-transform: translateY(-100%);
+            }
+        }
+
+        @keyframes slideUpHR {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .animated.slideUp {
+            -webkit-animation-name: slideUpHR;
+            -moz-animation-name: slideUpHR;
+            -o-animation-name: slideUpHR;
+            animation-name: slideUpHR;
+        }
+
+        @-webkit-keyframes swingInX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(-90deg);
+            }
+            
+            100% {
+                -webkit-transform: perspective(400px) rotateX(0deg);
+            }
+        }
+
+        @-moz-keyframes swingInX {
+            0% {
+                -moz-transform: perspective(400px) rotateX(-90deg);
+            }
+
+            100% {
+                -moz-transform: perspective(400px) rotateX(0deg);
+            }
+        }
+
+        @-o-keyframes swingInX {
+            0% {
+                -o-transform: perspective(400px) rotateX(-90deg);
+            }
+            
+            100% {
+                -o-transform: perspective(400px) rotateX(0deg);
+            }
+        }
+
+        @keyframes swingInX {
+            0% {
+                transform: perspective(400px) rotateX(-90deg);
+            }
+            
+            100% {
+                transform: perspective(400px) rotateX(0deg);
+            }
+        }
+
+        .animated.swingInX {
+            -webkit-transform-origin: top;
+            -moz-transform-origin: top;
+            -ie-transform-origin: top;
+            -o-transform-origin: top;
+            transform-origin: top;
+          
+            -webkit-backface-visibility: visible !important;
+            -webkit-animation-name: swingInX;
+            -moz-backface-visibility: visible !important;
+            -moz-animation-name: swingInX;
+            -o-backface-visibility: visible !important;
+            -o-animation-name: swingInX;
+            backface-visibility: visible !important;
+            animation-name: swingInX;
+        }
+
+        @-webkit-keyframes swingOutX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(0deg);
+            }
+          100% {
+                -webkit-transform: perspective(400px) rotateX(-90deg);
+            }
+        }
+
+        @-moz-keyframes swingOutX {
+            0% {
+                -moz-transform: perspective(400px) rotateX(0deg);
+            }
+          100% {
+                -moz-transform: perspective(400px) rotateX(-90deg);
+            }
+        }
+
+        @-o-keyframes swingOutX {
+            0% {
+                -o-transform: perspective(400px) rotateX(0deg);
+            }
+          100% {
+                -o-transform: perspective(400px) rotateX(-90deg);
+            }
+        }
+
+        @keyframes swingOutX {
+            0% {
+                transform: perspective(400px) rotateX(0deg);
+            }
+          100% {
+                transform: perspective(400px) rotateX(-90deg);
+            }
+        }
+
+        .animated.swingOutX {
+            -webkit-transform-origin: top;
+            -webkit-animation-name: swingOutX;
+            -webkit-backface-visibility: visible !important;
+            -moz-animation-name: swingOutX;
+            -moz-backface-visibility: visible !important;
+            -o-animation-name: swingOutX;
+            -o-backface-visibility: visible !important;
+            animation-name: swingOutX;
+            backface-visibility: visible !important;
+        }
+
+        @-webkit-keyframes flipInX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            
+            100% {
+                -webkit-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes flipInX {
+            0% {
+                -moz-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+
+            100% {
+                -moz-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        @-o-keyframes flipInX {
+            0% {
+                -o-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            
+            100% {
+                -o-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flipInX {
+            0% {
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+            
+            100% {
+                transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        .animated.flipInX {
+            -webkit-backface-visibility: visible !important;
+            -webkit-animation-name: flipInX;
+            -moz-backface-visibility: visible !important;
+            -moz-animation-name: flipInX;
+            -o-backface-visibility: visible !important;
+            -o-animation-name: flipInX;
+            backface-visibility: visible !important;
+            animation-name: flipInX;
+        }
+
+        @-webkit-keyframes flipOutX {
+            0% {
+                -webkit-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+          100% {
+                -webkit-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes flipOutX {
+            0% {
+                -moz-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+          100% {
+                -moz-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes flipOutX {
+            0% {
+                -o-transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+          100% {
+                -o-transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flipOutX {
+            0% {
+                transform: perspective(400px) rotateX(0deg);
+                opacity: 1;
+            }
+          100% {
+                transform: perspective(400px) rotateX(90deg);
+                opacity: 0;
+            }
+        }
+
+        .animated.flipOutX {
+            -webkit-animation-name: flipOutX;
+            -webkit-backface-visibility: visible !important;
+            -moz-animation-name: flipOutX;
+            -moz-backface-visibility: visible !important;
+            -o-animation-name: flipOutX;
+            -o-backface-visibility: visible !important;
+            animation-name: flipOutX;
+            backface-visibility: visible !important;
+        }
+
+        @-webkit-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-200px);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translateY(30px);
+            }
+
+            80% {
+                -webkit-transform: translateY(-10px);
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+            }
+        }
+
+        @-moz-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -moz-transform: translateY(-200px);
+            }
+
+            60% {
+                opacity: 1;
+                -moz-transform: translateY(30px);
+            }
+
+            80% {
+                -moz-transform: translateY(-10px);
+            }
+
+            100% {
+                -moz-transform: translateY(0);
+            }
+        }
+
+        @-o-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -o-transform: translateY(-200px);
+            }
+
+            60% {
+                opacity: 1;
+                -o-transform: translateY(30px);
+            }
+
+            80% {
+                -o-transform: translateY(-10px);
+            }
+
+            100% {
+                -o-transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .animated.bounceInDown {
+            -webkit-animation-name: bounceInDown;
+            -moz-animation-name: bounceInDown;
+            -o-animation-name: bounceInDown;
+            animation-name: bounceInDown;
+        }
+
+        @-webkit-keyframes bounceOutUp {
+            0% {
+                -webkit-transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                -webkit-transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: translateY(-200px);
+            }
+        }
+
+        @-moz-keyframes bounceOutUp {
+            0% {
+                -moz-transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                -moz-transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 0;
+                -moz-transform: translateY(-200px);
+            }
+        }
+
+        @-o-keyframes bounceOutUp {
+            0% {
+                -o-transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                -o-transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 0;
+                -o-transform: translateY(-200px);
+            }
+        }
+
+        @keyframes bounceOutUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            30% {
+                opacity: 1;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+        }
+
+        .animated.bounceOutUp {
+            -webkit-animation-name: bounceOutUp;
+            -moz-animation-name: bounceOutUp;
+            -o-animation-name: bounceOutUp;
+            animation-name: bounceOutUp;
+        }
+        
+a {
+	/*font-weight: 600;*/
+	color: #369;
+}
+
+a:hover {
+	color: #369;
+}
+
+a.footer{
+	color: #ffffff;
+  	font-weight: 600;
+}
+	</style>
+	<script src="/site/media/jui/js/jquery.min.js?6fa988b94354bf23fa7dc91ecb0a42d7"></script>
+	<script src="/site/media/jui/js/jquery-noconflict.js?6fa988b94354bf23fa7dc91ecb0a42d7"></script>
+	<script src="/site/media/jui/js/jquery-migrate.min.js?6fa988b94354bf23fa7dc91ecb0a42d7"></script>
+	<script src="/site/media/system/js/caption.js?6fa988b94354bf23fa7dc91ecb0a42d7"></script>
+	<script src="/site/media/jui/js/bootstrap.min.js?6fa988b94354bf23fa7dc91ecb0a42d7"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.4.2/dist/js/uikit-icons.min.js"></script>
+	<script>
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+	</script>
+
+                
+</head>
+
+    <body class="gantry g-helium-style site com_content view-featured no-layout no-task dir-ltr itemid-101 outline-22 g-offcanvas-left g-default g-style-preset1">
+        
+                    
+
+        <div id="g-offcanvas"  data-g-offcanvas-swipe="1" data-g-offcanvas-css3="1">
+                        <div class="g-grid">                        
+
+        <div class="g-block size-100">
+             <div id="mobile-menu-5881-particle" class="g-content g-particle">            <div id="g-mobilemenu-container" data-g-menu-breakpoint="48rem"></div>
+            </div>
+        </div>
+            </div>
+    </div>
+        <div id="g-page-surround">
+            <div class="g-offcanvas-hide g-offcanvas-toggle" role="navigation" data-offcanvas-toggle aria-controls="g-offcanvas" aria-expanded="false"><i class="fa fa-fw fa-bars"></i></div>                        
+
+                                            
+                <section id="g-navigation">
+                <div class="g-container">                                <div class="g-grid">                        
+
+        <div id="flg-logo" class="g-block size-35">
+             <div id="custom-6194-particle" class="g-content g-particle">            <a href="https://www.flg-online.de/site/index.php"><img src="/site/images/template/flg_logo_20_farbe.svg" alt="SVG mit img Tag laden" style="height: 6.5rem;"></a>
+            </div>
+        </div>
+                    
+
+        <div id="flg-text" class="g-block size-65" style="padding-bottom&#x3A;&#x20;0&#x3B;&#x20;padding-left&#x3A;1rem&#x3B;">
+             <div id="custom-1613-particle" class="g-content g-particle">            <h3 style="margin-bottom: 0; font-weight: 700;">Feodor-Lynen-Gymnasium Planegg</h3>
+<span style="margin-bottom: 0; font-weight: 500;">
+naturwissenschaftlich-technologisches und wirtschaftswissenschaftliches Gymnasium<br>
+Referenzgymnasium der TU München</span>
+            </div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div id="main-menu" class="g-block size-100">
+             <div id="menu-2255-particle" class="g-content g-particle">            <nav class="g-main-nav" data-g-hover-expand="false">
+        <ul class="g-toplevel">
+                                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-101 active g-standard  " title="Aktuell">
+                            <a class="g-menu-item-container" href="/site/index.php">
+                                                <i class="fa fa-volume-up fa-lg" aria-hidden="true"></i>
+                                                    <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Aktuell</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-heading g-menu-item-115 g-parent g-fullwidth  " style="position: relative;" title="Info">
+                            <div class="g-menu-item-container" data-g-menuparent="">                                    <i class="fa fa-info fa-lg" aria-hidden="true"></i>
+                                                                            <span class="g-nav-header g-menu-item-content">            <span class="g-menu-item-title">Info</span>
+            </span>
+                                        <span class="g-menu-parent-indicator"></span>                            </div>                                            <ul class="g-dropdown g-inactive g-fade " style="width:24rem;" data-g-item-width="24rem">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-573  " title="Schulmanager Online">
+                            <a class="g-menu-item-container" href="/site/index.php/info/schulmanager-online">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulmanager Online</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-120  " title="Dokumente &amp; Formulare">
+                            <a class="g-menu-item-container" href="/site/index.php/info/dokumente-formulare">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Dokumente &amp; Formulare</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-266  " title="Unterrichtszeiten">
+                            <a class="g-menu-item-container" href="/site/index.php/info/unterrichtszeiten">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Unterrichtszeiten</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-123  " title="Einschreibung">
+                            <a class="g-menu-item-container" href="/site/index.php/info/einschreibung">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Einschreibung</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-621  " title="Elternbriefe">
+                            <a class="g-menu-item-container" href="/site/index.php/info/elternbriefe-feo-news">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Elternbriefe</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-116  " title="Termine">
+                            <a class="g-menu-item-container" href="/site/index.php/info/termine">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Termine</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-121  " title="Mensa">
+                            <a class="g-menu-item-container" href="/site/index.php/info/mensa">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Mensa</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-124  " title="Nachmittagsbetreuung">
+                            <a class="g-menu-item-container" href="/site/index.php/info/nachmittagsbetreuung">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Nachmittagsbetreuung</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+                <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-407  " title="Berufliche Orientierung">
+                            <a class="g-menu-item-container" href="/site/index.php/info/berufliche-orientierung">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Berufliche Orientierung</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-122  " title="Oberstufe">
+                            <a class="g-menu-item-container" href="/site/index.php/info/oberstufe">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Oberstufe</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-heading g-menu-item-134 g-parent g-standard  " title="Über das FLG">
+                            <div class="g-menu-item-container" data-g-menuparent="">                                    <i class="fa fa-institution fa-lg" aria-hidden="true"></i>
+                                                                            <span class="g-nav-header g-menu-item-content">            <span class="g-menu-item-title">Über das FLG</span>
+            </span>
+                                        <span class="g-menu-parent-indicator"></span>                            </div>                                                                <ul class="g-dropdown g-inactive g-fade g-dropdown-right">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-100">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-125  " title="Schulprofil">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/schulprofil">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulprofil</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-126  " title="Schulleitung">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/schulleitung">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulleitung</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-127  " title="Lehrer">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/lehrer">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Lehrer</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-128  " title="Sekretariat">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/sekretariat">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Sekretariat</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-129  " title="SMV">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/smv">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">SMV</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-130  " title="Elternbeirat">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/elternbeirat">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Elternbeirat</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-131  " title="Förderverein">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/foerderverein">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Förderverein</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-132  " title="Über Feodor Lynen">
+                            <a class="g-menu-item-container" href="/site/index.php/ueber-das-flg/ueber-feodor-lynen">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Über Feodor Lynen</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-heading g-menu-item-139 g-parent g-fullwidth  " style="position: relative;" title="Fachbereiche">
+                            <div class="g-menu-item-container" data-g-menuparent="">                                    <i class="fa fa-folder-open fa-lg" aria-hidden="true"></i>
+                                                                            <span class="g-nav-header g-menu-item-content">            <span class="g-menu-item-title">Fachbereiche</span>
+            </span>
+                                        <span class="g-menu-parent-indicator"></span>                            </div>                                            <ul class="g-dropdown g-inactive g-fade " style="width:24rem;" data-g-item-width="24rem">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-140  " title="Biologie">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/biologie">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Biologie</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-141  " title="Chemie">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/chemie">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Chemie</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-142  " title="Deutsch">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/deutsch">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Deutsch</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-143  " title="Englisch">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/englisch">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Englisch</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-416  " title="Ethik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/ethik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Ethik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-144  " title="Französisch">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/franzoesisch">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Französisch</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-145  " title="Geographie">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/geographie">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Geographie</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-146  " title="Geschichte / Sozialkunde">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/geschichte-sozialkunde">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Geschichte / Sozialkunde</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-147  " title="Informatik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/informatik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Informatik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-148  " title="Kunst">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/kunst">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Kunst</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+                <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-149  " title="Latein">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/latein">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Latein</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-150  " title="Mathematik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/mathematik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Mathematik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-151  " title="Musik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/musik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Musik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-152  " title="Natur &amp; Technik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/natur-technik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Natur &amp; Technik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-153  " title="Physik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/physik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Physik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-154  " title="Religion">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/religion">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Religion</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-155  " title="Spanisch">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/spanisch">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Spanisch</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-156  " title="Sport">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/sport">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Sport</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-157  " title="Wirtschaft &amp; Recht / Wirtschaftsinformatik">
+                            <a class="g-menu-item-container" href="/site/index.php/fachbereiche/wirtschaft-recht-wirtschaftsinformatik">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Wirtschaft &amp; Recht / Wirtschaftsinformatik</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-heading g-menu-item-238 g-parent g-fullwidth  " style="position: relative;" title="Schulleben">
+                            <div class="g-menu-item-container" data-g-menuparent="">                                    <i class="fa fa-child fa-lg" aria-hidden="true"></i>
+                                                                            <span class="g-nav-header g-menu-item-content">            <span class="g-menu-item-title">Schulleben</span>
+            </span>
+                                        <span class="g-menu-parent-indicator"></span>                            </div>                                            <ul class="g-dropdown g-inactive g-fade " style="width:24rem;" data-g-item-width="24rem">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-239  " title="Tutoren">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/tutoren">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Tutoren</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-240  " title="Schulsanitäter">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/schulsanitaeter">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulsanitäter</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-241  " title="Nachhilfebörse">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/nachhilfeboerse">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Nachhilfebörse</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-242  " title="Präventionsarbeit">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/praeventionsarbeit">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Präventionsarbeit</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-243  " title="Bibliothek">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/bibliothek">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Bibliothek</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-244  " title="Betriebspraktikum">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/betriebspraktikum">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Betriebspraktikum</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-646  " title="Erasmus+">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/erasmus">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Erasmus+</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+                <div class="g-block size-50">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-504  " title="Technikteam">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/technikteam">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Technikteam</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-246  " title="Lernen lernen">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/lernen-lernen">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Lernen lernen</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-247  " title="Bewegte Pause">
+                            <a class="g-menu-item-container" href="/site/index.php/schulleben/bewegte-pause">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Bewegte Pause</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-url g-menu-item-405  " title="Schul-Imkerei">
+                            <a class="g-menu-item-container" href="https://feobiene.wordpress.com">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schul-Imkerei</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+                                                                                                                                
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-url g-menu-item-849  " title="Schulgarten">
+                            <a class="g-menu-item-container" href="https://feobiene.wordpress.com" target="_blank" rel="noopener&#x20;noreferrer">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulgarten</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+                                                                                                                                
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-url g-menu-item-248  " title="Feo-Time(s)">
+                            <a class="g-menu-item-container" href="http://feotimes.flg-online.de" target="_blank" rel="noopener&#x20;noreferrer">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Feo-Time(s)</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-heading g-menu-item-250 g-parent g-standard  " title="Beratung &amp; Hilfe">
+                            <div class="g-menu-item-container" data-g-menuparent="">                                    <i class="fa fa-life-ring fa-lg" aria-hidden="true"></i>
+                                                                            <span class="g-nav-header g-menu-item-content">            <span class="g-menu-item-title">Beratung &amp; Hilfe</span>
+            </span>
+                                        <span class="g-menu-parent-indicator"></span>                            </div>                                                                <ul class="g-dropdown g-inactive g-fade g-dropdown-right">
+            <li class="g-dropdown-column">
+                        <div class="g-grid">
+                        <div class="g-block size-100">
+            <ul class="g-sublevel">
+                <li class="g-level-1 g-go-back">
+                    <a class="g-menu-item-container" href="#" data-g-menuparent=""><span>Back</span></a>
+                </li>
+                                                                                                                    
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-251  " title="Schulberatung">
+                            <a class="g-menu-item-container" href="/site/index.php/beratung/schulberatung">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulberatung</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-252  " title="Schulsozialarbeit">
+                            <a class="g-menu-item-container" href="/site/index.php/beratung/schulsozialarbeit">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulsozialarbeit</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-253  " title="Schulpsychologie">
+                            <a class="g-menu-item-container" href="/site/index.php/beratung/schulpsychologie">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulpsychologie</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-654  " title="Lerncoaching">
+                            <a class="g-menu-item-container" href="/site/index.php/beratung/konzept-zum-lerncoaching-am-feo">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Lerncoaching</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-619  " title="Hilfen: Kontakte und Adressen">
+                            <a class="g-menu-item-container" href="/site/index.php/beratung/hilfen-kontakte-und-adressen">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Hilfen: Kontakte und Adressen</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-url g-menu-item-580  " title="Angebote des Kultusministeriums">
+                            <a class="g-menu-item-container" href="https://www.km.bayern.de/schueler/was-tun-bei.html">
+                                                                <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Angebote des Kultusministeriums</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+            </ul>
+        </div>
+            </div>
+
+            </li>
+        </ul>
+            </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-263 g-standard  " title="Suche">
+                            <a class="g-menu-item-container" href="/site/index.php/suche">
+                                                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                                                    <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Suche</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-component g-menu-item-265 g-standard  " title="Kontakt">
+                            <a class="g-menu-item-container" href="/site/index.php/kontakt">
+                                                <i class="fa fa-phone fa-lg fa-flip-vertical" aria-hidden="true"></i>
+                                                    <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Kontakt</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+                                                                                                
+        
+                
+        
+                
+        
+        <li class="g-menu-item g-menu-item-type-url g-menu-item-574 g-standard  " title="Schulmanager">
+                            <a class="g-menu-item-container" href="https://www.schulmanager-online.de/">
+                                                <i class="fa fa-tasks fa-lg" aria-hidden="true"></i>
+                                                    <span class="g-menu-item-content">
+                                    <span class="g-menu-item-title">Schulmanager</span>
+            
+                    </span>
+                                                </a>
+                                </li>
+    
+    
+        </ul>
+    </nav>
+            </div>
+        </div>
+            </div>
+            </div>
+        
+    </section>
+                                
+                <header id="g-header" class="g-flushed" style="background-image&#x3A;&#x20;none&#x3B;">
+                <div class="g-container">                                <div class="g-grid">                        
+
+        <div class="g-block size-100">
+             <div id="custom-3769-particle" class="g-content g-particle">            <div uk-slider="autoplay: true">
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+        <!--<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">-->
+		<ul class="uk-slider-items">
+            <li>
+                <img src="/site/images/frontpage/slider/1.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/2.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/3.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/4.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/5.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/6.jpg" alt="">
+
+            </li>
+            <li>
+                 <img src="/site/images/frontpage/slider/7.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/8.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/9.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/10.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/11.jpg" alt="">
+
+            </li>
+            <li>
+                <img src="/site/images/frontpage/slider/12.jpg" alt="">		
+        </ul>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+    </div>
+
+    <!--<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>-->
+
+</div>
+            </div>
+        </div>
+            </div>
+            </div>
+        
+    </header>
+                
+                                
+                
+    
+                <section id="g-container-main" class="g-wrapper">
+                <div class="g-container">                    <div class="g-grid">                        
+
+        <div id="main_kacheln" class="g-block size-100">
+             <main id="g-mainbar">
+                                        <div class="g-grid">                        
+
+        <div class="g-block size-100 uk-card uk-card-default">
+             <div class="g-content">
+                                                            <div class="platform-content row-fluid"><div class="span12"><div class="blog-featured" itemscope itemtype="https://schema.org/Blog">
+<div class="page-header">
+	<h1>
+	Aktuell	</h1>
+</div>
+<div class="items-leading clearfix">
+			<div class="leading-0 clearfix"
+			itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+
+
+
+
+
+
+
+
+<p><span style="font-size: 36pt;"><strong><span style="color: #ff0000;">Sommerferien 2022</span></strong></span></p>
+<p><span style="font-size: 14pt;">Wir wünschen der ganzen Schulfamilie schöne, erholsame Ferien! Während der unterrichtsfreien Zeit ist die Schule wie folgt besetzt:&nbsp;</span></p>
+<p><span style="font-size: 14pt;">01.08. - 05.08.22 (erste Ferienwoche) von 8 - 14 Uhr</span></p>
+<p><span style="font-size: 14pt;">jeweils mittwochs (10.8., 17.08., 24.08. und 31.08.)&nbsp; von 10 - 12 Uhr</span></p>
+<p><span style="font-size: 14pt;">05.09. - 09.09.22 (letzte Ferienwoche) von 8 - 14 Uhr</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;"><strong><span style="color: #0000ff;">Termine der Nachprüfungen:&nbsp;</span></strong></span></p>
+<table style="color: #424753; font-family: Raleway, Helvetica, Tahoma, Geneva, Arial, sans-serif; font-size: 1rem; font-weight: 400; text-size-adjust: 100%; background-color: #fafafa; width: 1140px; height: 192px;" border="1">
+<tbody>
+<tr align="center">
+<td style="background-color: #e4f4f6;"><strong> Fächer </strong></td>
+<td style="background-color: #e4f4f6;"><strong> Datum </strong></td>
+<td style="background-color: #e4f4f6;"><strong> Tag </strong></td>
+<td style="background-color: #e4f4f6;"><strong> Raum </strong></td>
+<td style="background-color: #e4f4f6;"><strong> Zeit </strong></td>
+</tr>
+<tr align="center">
+<td style="background-color: #e4f4f6;">Deutsch, Französisch, kath. Religion</td>
+<td style="background-color: #e4f4f6;">07.09.2022</td>
+<td style="background-color: #e4f4f6;">Mittwoch</td>
+<td style="background-color: #e4f4f6;">248</td>
+<td style="background-color: #e4f4f6;">09:00</td>
+</tr>
+<tr align="center">
+<td style="background-color: #e4f4f6;">Mathematik</td>
+<td style="background-color: #e4f4f6;">08.09.2022</td>
+<td style="background-color: #e4f4f6;">Donnerstag</td>
+<td style="background-color: #e4f4f6;">248</td>
+<td style="background-color: #e4f4f6;">09:00</td>
+</tr>
+<tr align="center">
+<td style="background-color: #e4f4f6;">Englisch, Latein, Chemie</td>
+<td style="background-color: #e4f4f6;">09.09.2022</td>
+<td style="background-color: #e4f4f6;">Freitag</td>
+<td style="background-color: #e4f4f6;">248</td>
+<td style="background-color: #e4f4f6;">09:00</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><span style="font-size: 18pt;"><strong><span style="color: #0000ff;">Termine der Besonderen Prüfung:</span></strong></span></p>
+<table style="color: #424753; font-family: Raleway, Helvetica, Tahoma, Geneva, Arial, sans-serif; font-size: 1rem; font-weight: 400; background-color: #fdfdfd; text-size-adjust: 100%; width: 1144px; height: 146px;" border="1">
+<tbody>
+<tr align="center">
+<td style="background-color: #fcf7f7;"><strong> Fach </strong></td>
+<td style="background-color: #fcf7f7;"><strong> Datum </strong></td>
+<td style="background-color: #fcf7f7;"><strong> Tag </strong></td>
+<td style="background-color: #fcf7f7;"><strong> Raum </strong></td>
+<td style="background-color: #fcf7f7;"><strong> Zeit </strong></td>
+</tr>
+<tr align="center">
+<td style="background-color: #fcf7f7;">Deutsch</td>
+<td style="background-color: #fcf7f7;">07.09.2022</td>
+<td style="background-color: #fcf7f7;">Mittwoch</td>
+<td style="background-color: #fcf7f7;">248</td>
+<td style="background-color: #fcf7f7;">09:00 - 12:30</td>
+</tr>
+<tr align="center">
+<td style="background-color: #fcf7f7;">Mathematik</td>
+<td style="background-color: #fcf7f7;">08.09.2022</td>
+<td style="background-color: #fcf7f7;">Donnerstag</td>
+<td style="background-color: #fcf7f7;">248</td>
+<td style="background-color: #fcf7f7;">09:00 - 11:20</td>
+</tr>
+<tr align="center">
+<td style="background-color: #fcf7f7;">Englisch</td>
+<td style="background-color: #fcf7f7;">09.09.2022</td>
+<td style="background-color: #fcf7f7;">Freitag</td>
+<td style="background-color: #fcf7f7;">248</td>
+<td style="background-color: #fcf7f7;">09:00 - 11:20</td>
+</tr>
+</tbody>
+</table>
+<h1>&nbsp;</h1>
+<h1 style="text-align: center;"><span style="color: #ff0000;">Informationen für die neuen 5. Klassen des Schuljahres 2022/23</span></h1>
+<table>
+<tbody>
+<tr>
+<td style="background-color: #fcfc97;" colspan="2">
+<p style="text-align: center;"><strong>Einen Überblick zu den Informationen für die neuen fünften Klassen 2022 finden&nbsp;<a href="https://www.flg-online.de/site/index.php/component/jdownloads/?task=download.send&amp;id=447&amp;catid=31&amp;m=0&amp;Itemid=101">hier</a>:</strong></p>
+<p style="text-align: center;"><span style="font-size: 18pt;"><strong><a href="/site/index.php/info/einschreibung">Neue 5. Klassen&nbsp;2022</a></strong></span></p>
+<p style="text-align: center;"><strong>Bitte beachten Sie, dass wir unsere Seite derzeit aktualisieren, schauen Sie daher doch öfters bei uns vorbei! Es ist ein vollständiger Relaunch unserer Internetpräsenz in Planung.&nbsp;</strong></p>
+</td>
+</tr>
+<tr>
+<td style="background-color: #fcfc97;" colspan="2">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p style="text-align: center;"><span style="font-size: 24pt; color: #000080;"><strong>Luftreiniger am FLG in jedem Klassenzimmer!!</strong></span></p>
+<p style="text-align: center;">Das Feodor-Lynen-Gymnasium hat bereits seit Juni 2021 hochwertige Luftreiniger in jedem Klassenzimmer.&nbsp;&nbsp;</p>
+<hr />
+<p>&nbsp;</p>
+<!--
+<hr />
+<h4>Hinweise und einen Handzettel zu Corona finden Sie unter: <a href="http://www.flg-elternbeirat.de/corona/">http://www.flg-elternbeirat.de/corona/</a></h4>
+<hr />
+<h4>MVV - Verstärkerbusse für Schülerinnen und Schüler des FLG</h4>
+<p>Unter dem Link „<a href="https://www.mvv-muenchen.de/fahrplanauskunft/fahrplanaenderungen/index.html?tx_solr%5Bfilter%5D%5B0%5D=categories%3AMVV-Regionalbus">Fahrplanänderungen MVV-Regionalbusverkehr</a>“ sind die Verstärkerbusse des MVV einsehbar, die möglichst ausschließlich der <strong><span style="color: #ff0000;">Schülerbeförderung</span> </strong>dienen und <span style="color: #ff0000;"><strong>individuelle Fahrzeiten</strong></span> haben (Orientierung an den zentralen Schülerströmen).</p>
+-->
+
+
+
+		</div>
+			</div>
+
+
+
+</div></div></div>
+    
+            
+    </div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-100" style="height&#x3A;&#x20;2rem&#x3B;">
+             <div class="spacer"></div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-46 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p>&nbsp;</p>
+<p><a href="/site/index.php/info/schulmanager-online" target="_blank" rel="noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/smanager.png" alt="kachel erasmus" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+                    
+
+        <div class="g-block size-8">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-46 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p>&nbsp;</p>
+<p><a href="http://feotimes.flg-online.de/" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/kachel_feotimes.png" alt="kachel feotimes" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-100" style="height&#x3A;&#x20;2rem&#x3B;">
+             <div class="spacer"></div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="https://www.edu.tum.de/schule/referenzgymnasien/" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/kachel_tum.jpg" alt="kachel erasmus" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+                    
+
+        <div class="g-block size-5">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="https://www.junior-programme.de/" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/kachel_junior.jpg" alt="kachel erasmus" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+                    
+
+        <div class="g-block size-5">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="/site/index.php/schulleben/erasmus" target="_self"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/kachel_erasmus.png" alt="kachel erasmus" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-100" style="height&#x3A;&#x20;2rem&#x3B;">
+             <div class="spacer"></div>
+        </div>
+            </div>
+                            <div class="g-grid">                        
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="https://feobiene.wordpress.com/" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/frontpage/kacheln/img_1642.png" alt="" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+                    
+
+        <div class="g-block size-5">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="/site/index.php/schulleben/tutoren"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/schulleben/tutoren/logo.png" alt="logo" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+                    
+
+        <div class="g-block size-5">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-30 uk-card uk-card-default flg_card uk-card-small">
+             <div class="g-content">
+                                    <div class="platform-content"><div class="moduletable ">
+						
+
+<div class="custom"  >
+	<p><a href="/site/index.php/schulleben/schulsanitaeter"><img style="display: block; margin-left: auto; margin-right: auto;" src="/site/images/schulleben/sanitaeter/SSD_Logo.png" alt="SSD Logo" /></a></p></div>
+		</div></div>
+            
+        </div>
+        </div>
+            </div>
+            
+    </main>
+        </div>
+            </div>
+    </div>
+        
+    </section>
+    
+                                
+                <footer id="g-footer">
+                <div class="g-container">                                <div class="g-grid">                        
+
+        <div class="g-block size-27">
+             <div id="contentarray-7332-particle" class="g-content g-particle">            <div class="g-content-array g-joomla-articles">
+
+                    <div class="g-grid">
+                
+                    <div class="g-block">
+                        <div class="g-content">
+                            <div class="g-array-item">
+                                                                
+                                
+                                
+                                                                                                        <div class="g-array-item-text">
+                                                                                    <div><a class="footer" href="/site/index.php/ueber-das-flg/ueber-feodor-lynen/8-aktuell/10-kontakt"> Feodor-Lynen-Gymnasium Planegg<br />Feodor-Lynen-Str. 2<br /> 82152 Planegg</a> <br /> <br /> <strong>Tel: 089 / 863 065 20</strong><br /><strong> Fax: 089 / 863 065 220</strong> <br /> <a class="footer" href="mailto:sekretariat@flg-online.de"><span id="cloak563c202a2689d1e5112d3c30453e0a91">sekretariat@flg-online.de</span></a></div> 
+                                                                            </div>
+                                
+                                                            </div>
+                        </div>
+                    </div>
+
+                            </div>
+        
+            </div>
+            </div>
+        </div>
+                    
+
+        <div class="g-block size-33">
+             <div class="spacer"></div>
+        </div>
+                    
+
+        <div class="g-block size-40">
+             <div id="contentarray-3231-particle" class="g-content g-particle">            <div class="g-content-array g-joomla-articles">
+
+                    <div class="g-grid">
+                
+                    <div class="g-block">
+                        <div class="g-content">
+                            <div class="g-array-item">
+                                                                
+                                
+                                
+                                                                                                        <div class="g-array-item-text">
+                                                                                    <div style="text-align: right;"><a class="footer" style="padding: 0.5rem;" href="/site/index.php/datenschutzerklaerung">Datenschutz</a>&nbsp;-&nbsp;<a class="footer" style="padding: 0.5rem;" href="/site/index.php/impressum">Impressum</a>-<a class="footer" style="padding: 0.5rem;" href="/site/index.php/intern">Zugang für Lehrkräfte</a></div> 
+                                                                            </div>
+                                
+                                                            </div>
+                        </div>
+                    </div>
+
+                            </div>
+        
+            </div>
+            </div>
+        </div>
+            </div>
+            </div>
+        
+    </footer>
+            
+                        
+
+        </div>
+                    
+
+                        <script type="text/javascript" src="/site/media/gantry5/assets/js/main.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/headroom.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/headroom/0.9.3/jQuery.headroom.js"></script>
+    <script type="text/javascript">
+                (function($) {
+                    $(window).load(function() {
+                        $("#main-menu").headroom({
+                            "offset": 500,
+                            "tolerance": 5,
+                            "classes": {
+                                "initial": "animated",
+                                "pinned": "slideDown",
+                                "unpinned": "slideUp"
+                            }
+                        });
+
+                        var stickyOffset = $('#main-menu').offset().top;                
+                        var stickyContainerHeight = $('#main-menu').height();
+
+                        $('#main-menu').wrap( "<div class='g-fixed-container'><\/div>" );
+                        $('.g-fixed-container').css("height", stickyContainerHeight);
+
+                                                $(window).resize(function() {
+                            if( $(window).width() < 768 && $('.g-fixed-container').length ) {
+                                $('#main-menu').unwrap();
+                            }
+
+                            if( $(window).width() > 767 && $('.g-fixed-container').length == 0 ) {
+                                $('#main-menu').wrap( "<div class='g-fixed-container'><\/div>" );
+                                $('.g-fixed-container').css("height", stickyContainerHeight);
+                            }
+                        });
+                        
+                        $(window).scroll(function(){
+                            var sticky = $('#main-menu'),
+                                scroll = $(window).scrollTop();
+
+                            if (scroll > stickyOffset && $(window).width() > 767) sticky.addClass('g-fixed-active');
+                            else sticky.removeClass('g-fixed-active');
+                        });
+                    });
+                })(jQuery);
+            </script>
+    
+
+    
+
+        
+    </body>
+</html>
