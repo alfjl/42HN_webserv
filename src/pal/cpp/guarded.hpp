@@ -2,7 +2,6 @@
 #define WEBSERV_PAL_CPP_GUARDED_HPP
 
 #include "../../defs.hpp"
-#include "../../threading/threading.hpp"
 
 /*
  * Based on implementation of std::shared_ptr and inspired by
