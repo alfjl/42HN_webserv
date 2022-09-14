@@ -8,7 +8,7 @@
 namespace webserv {
     namespace http {
 
-    class http_handler : public state_machine {
+    class http_handler : public webserv::util::state_machine {
 
         void start() {}
         void end() {}

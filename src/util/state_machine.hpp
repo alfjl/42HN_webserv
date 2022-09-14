@@ -1,7 +1,7 @@
 #ifndef WEBSERV_UTIL_STATE_MACHINE_HPP
 #define WEBSERV_UTIL_STATE_MACHINE_HPP
 
-#include "../../defs.hpp"
+#include "../defs.hpp"
 
 namespace webserv {
     namespace util {
@@ -18,9 +18,7 @@ namespace webserv {
         virtual void start() = 0;
         virtual void end() = 0;
 
-        state_machine() {
-            next(&start);
-        }
+        state_machine() {}
 
         void next(state_function func) {
             current_func = func;
@@ -32,7 +30,7 @@ namespace webserv {
 
         void ret() {
             if (return_stack.empty()) {
-                next(&end);
+                end();
             } else {
                 next(return_stack.top());
                 return_stack.pop();
