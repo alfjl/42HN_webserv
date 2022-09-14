@@ -20,6 +20,10 @@ namespace webserv {
         pthread_cond_signal(&the_cond_var);
     }
 
+    void condvar::signal_all() {
+        pthread_cond_broadcast(&the_cond_var);
+    }
+
         }
     }
 }
