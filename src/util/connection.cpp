@@ -34,5 +34,10 @@ namespace webserv {
             return closed;
         }
 
-    }
-}
+
+        void connection::react_close() {
+            close();
+        }
+
+    } // namespace util
+} // namespace webserv

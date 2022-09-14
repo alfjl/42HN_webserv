@@ -4,11 +4,12 @@
 #include "../defs.hpp"
 
 #include "iflow.hpp"
+#include "../pal/net/reactor.hpp"
 
 namespace webserv {
     namespace util {
 
-        class connection : public iflow {
+        class connection : public iflow, public webserv::pal::net::reactor {
         private:
             std::queue<char>  buffer;
             bool              closed;
@@ -23,9 +24,12 @@ namespace webserv {
 
             void close();
             bool is_closed();
-        };
 
-    }
-}
+            void react_close();
+
+        }; // class connection
+
+    } // namespace util
+} // namespace webserv
 
 #endif
