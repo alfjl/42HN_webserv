@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        instance::instance() : _driver(*this) {
+        instance::instance() : _driver(*this), _scheduler(*this) {
 
         }
 
@@ -14,6 +14,7 @@ namespace webserv {
         void instance::run() {
             while (is_running()) {
                 _driver.tick();
+                _scheduler.tick();
             }
         }
 
