@@ -11,7 +11,7 @@ namespace webserv {
     class selector {
 
     private:
-        typedef T*  payload_type;
+        typedef T  payload_type;
 
     private:
         std::map<socket *, payload_type>    elements; // socket = registered/active socket
