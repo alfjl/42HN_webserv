@@ -1,17 +1,17 @@
-> GET / HTTP/1.1
-> Host: codefinity.com
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Date: Mon, 12 Sep 2022 14:23:31 GMT
-< Content-Type: text/html; charset=utf-8
-< Content-Length: 153588
-< Connection: keep-alive
-< Set-Cookie: INGRESSCOOKIE=1662992612.088.310.493529|5e9656f0b0d8b44e857a2cbce9d7af2d; Path=/; HttpOnly
-< X-Powered-By: Next.js
-< ETag: "257f4-ha0IGImSMULYb3YAkXpGs682bCk"
-< Vary: Accept-Encoding
+GET / HTTP/1.1
+Host: codefinity.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Mon, 12 Sep 2022 14:23:31 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 153588
+Connection: keep-alive
+Set-Cookie: INGRESSCOOKIE=1662992612.088.310.493529|5e9656f0b0d8b44e857a2cbce9d7af2d; Path=/; HttpOnly
+X-Powered-By: Next.js
+ETag: "257f4-ha0IGImSMULYb3YAkXpGs682bCk"
+Vary: Accept-Encoding
 
 
 <!DOCTYPE html>

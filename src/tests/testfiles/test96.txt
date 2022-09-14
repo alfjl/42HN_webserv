@@ -1,16 +1,16 @@
-> GET / HTTP/1.1
-> Host: calcurse.org
-> User-Agent: curl/7.64.1
-> Accept: */*
->
-< HTTP/1.1 200 OK
-< Server: nginx/1.22.0
-< Date: Mon, 12 Sep 2022 13:52:16 GMT
-< Content-Type: text/html; charset=utf-8
-< Content-Length: 4023
-< Connection: keep-alive
-< Strict-Transport-Security: max-age=15768000
-<
+GET / HTTP/1.1
+Host: calcurse.org
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Server: nginx/1.22.0
+Date: Mon, 12 Sep 2022 13:52:16 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 4023
+Connection: keep-alive
+Strict-Transport-Security: max-age=15768000
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -110,5 +110,4 @@
 			Licensed under the terms of the BSD License.
 		</footer>
 	</body>
-* Connection #0 to host calcurse.org left intact
-</html>* Closing connection 0
+</html>

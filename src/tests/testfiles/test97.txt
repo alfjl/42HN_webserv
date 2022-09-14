@@ -1,15 +1,15 @@
-< HTTP/1.1 200 OK
-< Vary: Accept-Encoding
-< Content-Type: text/html
-< Accept-Ranges: bytes
-< ETag: "280371335"
-< Last-Modified: Sat, 16 Apr 2022 17:33:57 GMT
-< Expires: Wed, 12 Oct 2022 13:49:10 GMT
-< Cache-Control: max-age=2592000
-< Content-Length: 7377
-< Date: Mon, 12 Sep 2022 13:49:10 GMT
-< Server: lighttpd/1.4.55
-<
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Content-Type: text/html
+Accept-Ranges: bytes
+ETag: "280371335"
+Last-Modified: Sat, 16 Apr 2022 17:33:57 GMT
+Expires: Wed, 12 Oct 2022 13:49:10 GMT
+Cache-Control: max-age=2592000
+Content-Length: 7377
+Date: Mon, 12 Sep 2022 13:49:10 GMT
+Server: lighttpd/1.4.55
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
