@@ -4,12 +4,13 @@
 #include "../component.hpp"
 
 #include "../../http/handler/http_handler.hpp"
+#include "../../util/state_machine.hpp"
 
 namespace webserv {
     namespace core {
 
         class scheduler : public component {
-            std::vector<webserv::http::http_handler*> handlers;
+            std::vector<webserv::util::state_machine*> handlers;
         
         public:
             scheduler(instance& the_inst);
