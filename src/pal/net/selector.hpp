@@ -2,25 +2,25 @@
 #define WEBSERV_PAL_NET_SELECTOR_HPP
 
 #include "../../defs.hpp"
+#include "reactor.hpp"
 
 namespace webserv {
     namespace pal {
         namespace net {
 
-    template <typename T>
     class selector {
 
     private:
-        typedef T  payload_type;
+        typedef reactor*  payload_type;
 
     private:
-        std::map<socket *, payload_type>    elements; // socket = registered/active socket
+        std::map<socket*, payload_type>    elements; // socket = registered/active socket
 
     public:
         selector() {}
         ~selector() {}
 
-        void register_socket(socket *socket, payload_type data_set) {
+        void register_socket(socket* socket, payload_type data_set) {
             elements[socket] = data_set;
         }
 
@@ -75,15 +75,17 @@ namespace webserv {
                     std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                     if (it->first->is_server_socket()) {
                         data_socket* ds = ((server_socket*) it->first)->accept();
+                        // TODO: Callback to driver, create new connection
                         register_socket(ds);
                     } else if (it->first->is_data_socket()) {
                         char buffer[128];
                         ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
-                        if (amount > 0)
-                            write(it->first->get_fd(), buffer, amount);
-                        else if (amount <= 0) {
+                        if (amount > 0) {
+                            for (ssize_t index = 0; index < amount; index++)
+                                it->second->push_char(buffer[index]);
+                        } else if (amount <= 0) {
                             std::cout << "Removing socket " << it->first->get_fd() << std::endl;
-                            unregister_socket(it->first);
+                            unregister_socket(it->first); // TODO: react_close()
                             it->first->close();
                             break; // Iterator gets invalidated
                         }
@@ -94,13 +96,14 @@ namespace webserv {
                 }
                 else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {
                     // do_exception_operation(); TODO: What to do with that information?
+                    // react()->close()??????
                 }
             }
         }
-    };
+    }; // class selector
 
-        }
-    }
-}
+        } // namespace net
+    } // namespace pal
+} // namespace webserv
 
 #endif
