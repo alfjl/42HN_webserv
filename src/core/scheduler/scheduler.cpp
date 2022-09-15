@@ -12,7 +12,7 @@ namespace webserv {
         }
 
         void scheduler::tick() {
-            std::vector<webserv::http::http_handler*>::iterator it = handlers.begin();
+            std::vector<webserv::util::state_machine*>::iterator it = handlers.begin();
 
             while (it != handlers.end()) {
                 (*it)->tick();

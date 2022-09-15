@@ -4,6 +4,7 @@
 #include "../../defs.hpp"
 
 #include "../../util/state_machine.hpp"
+#include "../../util/connection.hpp"
 
 namespace webserv {
     namespace http {
@@ -13,9 +14,9 @@ namespace webserv {
         void start() {}
         void end() {}
 
-        // char last_char;
-        // std::string buffer;
-        // connection in;
+        char                        last_char;
+        std::string                 buffer;
+        webserv::util::connection&  in;
 
         // void start() {
         //     next(&wait_for_char);
