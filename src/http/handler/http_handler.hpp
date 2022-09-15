@@ -11,6 +11,7 @@ namespace webserv {
 
     class http_handler : public webserv::util::state_machine {
 
+        http_handler() ()
         void start() {}
         void end() {}
 

@@ -18,5 +18,5 @@ namespace webserv {
             }
         }
 
-    }
-}
+    } // namespace core
+} // namespace webserv

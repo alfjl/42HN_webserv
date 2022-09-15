@@ -5,6 +5,7 @@
 
 #include "../../http/handler/http_handler.hpp"
 #include "../../util/state_machine.hpp"
+#include "../../util/connection.hpp"
 
 namespace webserv {
     namespace core {
@@ -17,8 +18,15 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-        };
-    }
-}
+            void register_connection(/*reactor/connection*/ webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
+                // int index = 0; // how get correct index?
+                handlers.push_back(new http_handler());
+                ->in = Conny;
+            }
+
+        }; // class scheduler
+
+    } // namespace core
+} // namespace webserv
 
 #endif

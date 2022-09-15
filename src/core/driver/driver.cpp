@@ -23,6 +23,7 @@ namespace webserv {
 
         void driver::tick() {
             selector.select();
+            selector.set_driver(this); // ALF
         }
 
     }

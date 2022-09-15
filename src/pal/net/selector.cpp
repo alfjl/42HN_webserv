@@ -54,6 +54,7 @@ namespace webserv {
             // iterate over all sockets check, which fd_set they belong to
             // and call corresponding function
             it = elements.begin();
+            // it = connections.begin();
             for ( ; it != ite; ++it) {
                 if (FD_ISSET(it->first->get_fd(), &read_fds)) {
                     // do_read_operation(); TODO: What to do with that information?
@@ -63,6 +64,9 @@ namespace webserv {
                     if (it->first->is_server_socket()) {
                         data_socket* ds = ((server_socket*) it->first)->accept();
                         // TODO: Callback to driver, create new connection
+                        webserv::util::connection* Conny = new webserv::util::connection();// ALF // just a test!
+                        register_socket(ds, Conny); // ALF
+                        the_driver->get_instance().pass_connection(Conny/*pass a connection*/); // ALF // how 'connect' the connection to this specific socket?
                         register_socket(ds);
                     } else if (it->first->is_data_socket()) {
                         char buffer[128];
