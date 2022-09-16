@@ -80,5 +80,6 @@ namespace webserv {
         void parser::skip_spaces() {
             while (check(' '));
         }
+
     }
 }

@@ -81,7 +81,7 @@ namespace webserv {
             //     ret();
             // }
 
-    }; // class http_handler
+        }; // class http_handler
 
     } // namespace http
 } // namespace webserve

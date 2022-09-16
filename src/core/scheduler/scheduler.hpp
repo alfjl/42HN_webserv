@@ -12,6 +12,8 @@ namespace webserv {
     namespace core {
 
         class scheduler : public component {
+
+        private:
             std::vector<webserv::util::state_machine*> handlers;
         
         public:

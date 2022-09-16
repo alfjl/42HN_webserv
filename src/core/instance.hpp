@@ -11,6 +11,8 @@ namespace webserv {
     namespace core {
 
         class instance {
+
+        private:
             driver    _driver;
             scheduler _scheduler;
 
@@ -20,7 +22,7 @@ namespace webserv {
 
             driver&     get_driver()    { return _driver; }
             scheduler&  get_scheduler() { return _scheduler; }
-            void        pass_connection(/*reactor/connection*/ webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
+            void        pass_connection(webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
                 _scheduler.register_connection(Conny); // ALF
             }
 
