@@ -27,6 +27,7 @@ namespace webserv {
             bool is_running() { return true; }
 
             void run();
+
         }; // class instance
 
     } // namespace core

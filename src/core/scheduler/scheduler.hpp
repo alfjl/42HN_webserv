@@ -2,6 +2,7 @@
 #define WEBSERV_CORE_SCHEDULER_SCHEDULER_HPP
 
 #include "../component.hpp"
+#include "../instance.hpp"
 
 #include "../../http/handler/http_handler.hpp"
 #include "../../util/state_machine.hpp"
@@ -20,8 +21,7 @@ namespace webserv {
             void tick();
             void register_connection(/*reactor/connection*/ webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
                 // int index = 0; // how get correct index?
-                handlers.push_back(new http_handler());
-                ->in = Conny;
+                handlers.push_back(new webserv::http::http_handler(Conny));
             }
 
         }; // class scheduler

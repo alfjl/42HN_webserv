@@ -30,7 +30,7 @@ namespace webserv {
         void register_socket(socket* socket, payload_type data_set);
         void register_socket(socket* socket);
         void unregister_socket(socket *socket);
-        void set_driver(webserv::core::driver* driver) { this->the_driver = driver; } // ALF //; spaeter auslagern
+        void set_driver(webserv::core::driver* driver) { the_driver = driver; } // ALF //; spaeter auslagern
 
         void select();
 
