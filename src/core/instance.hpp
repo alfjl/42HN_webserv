@@ -6,10 +6,17 @@
 #include "driver/driver.hpp"
 #include "scheduler/scheduler.hpp"
 
+#include "../util/connection.hpp" // ALF
+
 namespace webserv {
     namespace core {
 
+        class driver;
+        class scheduler;
+
         class instance {
+
+        private:
             driver    _driver;
             scheduler _scheduler;
 
@@ -17,15 +24,17 @@ namespace webserv {
             instance();
             ~instance();
 
-            driver&    get_driver()    { return _driver; }
-            scheduler& get_scheduler() { return _scheduler; }
+            driver&     get_driver()    { return _driver; }
+            scheduler&  get_scheduler() { return _scheduler; }
+            void        pass_connection(webserv::util::connection* new_connection); // ALF
 
             bool is_running() { return true; }
 
             void run();
-        };
 
-    }
-}
+        }; // class instance
+
+    } // namespace core
+} // namespace webserv
 
 #endif

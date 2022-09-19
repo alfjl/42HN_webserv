@@ -11,6 +11,10 @@ namespace webserv {
             
         }
 
+        void instance::pass_connection(webserv::util::connection* new_connection) {
+            _scheduler.register_connection(new_connection);
+        }
+
         void instance::run() {
             while (is_running()) {
                 _driver.tick();
@@ -18,5 +22,5 @@ namespace webserv {
             }
         }
 
-    }
-}
+    } // namespace core
+} // namespace webserv

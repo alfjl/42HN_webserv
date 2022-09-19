@@ -17,51 +17,51 @@ namespace webserv {
     namespace pal {
         namespace cpp {
 
-    template <typename T>
-    class guarded {
+            template <typename T>
+            class guarded {
 
-    public:
-        class borrow {
+            public:
+                class borrow {
 
-        private:
-            guarded&    _guard;
+                private:
+                    guarded&    _guard;
 
-        public:
-            borrow(guarded& guard) : _guard(guard) {
-                _guard._protection.lock();
-            }
+                public:
+                    borrow(guarded& guard) : _guard(guard) {
+                        _guard._protection.lock();
+                    }
 
-            ~borrow() { _guard._protection.unlock(); }
+                    ~borrow() { _guard._protection.unlock(); }
 
-            T&  operator*() const { return *(_guard.base()); }
-            T*  operator->() const { return _guard.base(); }
+                    T&  operator*() const { return *(_guard.base()); }
+                    T*  operator->() const { return _guard.base(); }
 
-            T&  getValue() { return _guard.getValue(); }
-            T&  getValue() const { return _guard.getValue(); }
+                    T&  getValue() { return _guard.getValue(); }
+                    T&  getValue() const { return _guard.getValue(); }
 
-        }; // class borrow
+                }; // class borrow
 
-    private:
-        friend class borrow;
+            private:
+                friend class borrow;
 
-        T                           _value;
-        webserv::threading::mutex   _protection;
+                T                           _value;
+                webserv::threading::mutex   _protection;
 
-    public:
-        guarded(T value) { _value = value; }
+            public:
+                guarded(T value) { _value = value; }
 
-        ~guarded() {
-        }
+                ~guarded() {
+                }
 
-    private:
-        T&  getValue() { return _value; }
-        T&  getValue() const { return _value; }
+            private:
+                T&  getValue() { return _value; }
+                T&  getValue() const { return _value; }
 
-    public:
-        borrow  get_borrow() { return (borrow(*this)); }
-        T*      base() const { return *(_value); }
+            public:
+                borrow  get_borrow() { return (borrow(*this)); }
+                T*      base() const { return *(_value); }
 
-    }; // class guarded
+            }; // class guarded
 
         } // namespace cpp
     } // namespace pal

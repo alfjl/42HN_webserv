@@ -5,11 +5,14 @@
 
 #include "../../http/handler/http_handler.hpp"
 #include "../../util/state_machine.hpp"
+#include "../../util/connection.hpp"
 
 namespace webserv {
     namespace core {
 
         class scheduler : public component {
+
+        private:
             std::vector<webserv::util::state_machine*> handlers;
         
         public:
@@ -17,8 +20,11 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-        };
-    }
-}
+            void register_connection(webserv::util::connection* new_connection); // ALF
+
+        }; // class scheduler
+
+    } // namespace core
+} // namespace webserv
 
 #endif

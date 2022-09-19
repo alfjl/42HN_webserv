@@ -4,7 +4,7 @@ namespace webserv {
     namespace core {
 
         driver::driver(instance& the_inst) : component(the_inst) {
-
+            selector.set_driver(this);
         }
 
         driver::~driver() {
@@ -23,7 +23,8 @@ namespace webserv {
 
         void driver::tick() {
             selector.select();
+            selector.set_driver(this); // ALF
         }
 
-    }
-}
+    } // namespace core
+} // namespace webserv
