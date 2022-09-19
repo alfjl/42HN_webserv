@@ -19,7 +19,7 @@ namespace webserv {
             virtual void end() = 0;
 
             state_machine() {
-                next(&state_machine::end);
+                next(&state_machine::start);
             }
 
             void next(state_function func) {
