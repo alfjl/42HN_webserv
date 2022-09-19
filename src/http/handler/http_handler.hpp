@@ -38,7 +38,6 @@ namespace webserv {
             }
 
             void char_arrived() {
-                std::cout << "New char arrived: " << last_char << std::endl;
                 buffer += last_char;
                 if (buffer.find("\r\n\r\n") != std::string::npos) {
                     std::cout << "Processing head: " << std::endl;
@@ -47,10 +46,6 @@ namespace webserv {
                 } else {
                     next(&http_handler::start);
                 }
-            }
-
-            void end() {
-                //std::cout << "End was reached!" << std::endl;
             }
 
             // void start() {

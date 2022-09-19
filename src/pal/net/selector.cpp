@@ -43,7 +43,8 @@ namespace webserv {
 
                 for ( ; it != ite; ++it) {
                     if (it->first->is_data_socket()) {
-                        FD_SET(it->first->get_fd(), &write_fds);
+                        // We disable writability checks in order to make select() block
+                        // FD_SET(it->first->get_fd(), &write_fds);
                     }
                     FD_SET(it->first->get_fd(), &read_fds);
                     FD_SET(it->first->get_fd(), &exception_fds);
