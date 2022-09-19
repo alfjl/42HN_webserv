@@ -10,6 +10,7 @@ extern "C" {
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <fcntl.h>
+#include <string.h>
 }
 
 #include <iostream>
