@@ -34,10 +34,16 @@ namespace webserv {
 
             void start() {
                 next(&http_handler::wait_for_char);
-                later(&http_handler::start);
+                later(&http_handler::char_arrived);
+            }
+
+            void char_arrived() {
+                std::cout << "New char arrived: " << last_char << std::endl;
+                next(&http_handler::start);
             }
 
             void end() {
+                std::cout << "End was reached!" << std::endl;
             }
 
             // void start() {
