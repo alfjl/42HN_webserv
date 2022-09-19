@@ -14,10 +14,10 @@ namespace webserv {
         private:
             char                        last_char;
             std::string                 buffer;
-            webserv::util::connection&  in;
+            webserv::util::connection*  in;
 
         public:
-            http_handler(webserv::util::connection* new_connection) : in(*new_connection) {} // ALF // rather use reference instead of pointer to hand it through the functions, or use shared_ptr?
+            http_handler(webserv::util::connection* new_connection) : in(new_connection) {}
             void start() {}
             void end() {}
 

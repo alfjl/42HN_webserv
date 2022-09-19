@@ -74,7 +74,6 @@ namespace webserv {
                             webserv::util::connection* new_connection = new webserv::util::connection();// ALF // just a test!
                             register_socket(ds, new_connection); // ALF
                             the_driver->get_instance().pass_connection(new_connection); // ALF
-                            register_socket(ds);
                         } else if (it->first->is_data_socket()) {
                             char buffer[128];
                             ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));

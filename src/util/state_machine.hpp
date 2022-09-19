@@ -13,12 +13,14 @@ namespace webserv {
             std::stack<state_function>  return_stack;
             state_function              current_func;
             bool                        yielding;
-        
+
         public:
             virtual void start() = 0;
             virtual void end() = 0;
 
-            state_machine() {}
+            state_machine() {
+                next(&state_machine::end);
+            }
 
             void next(state_function func) {
                 current_func = func;

@@ -47,9 +47,10 @@ namespace webserv {
             * Enables REUSEADDR mode for the socket
             */
             void socket::set_reuseaddr() {
+                int value = 1;
 
-                // TODO: add setsockopt()
-
+                if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &value, sizeof(int)) != 0)
+                    throw std::runtime_error("setsockopt(fd, SOL_SOKET, SO_REUSEADDR, ...) returned an error code!");
             }
 
             /*
