@@ -84,6 +84,7 @@ namespace webserv {
                                 std::cout << "Removing socket " << it->first->get_fd() << std::endl;
                                 unregister_socket(it->first); // TODO: react_close()
                                 it->first->close();
+                                it->second->react_close();
                                 break; // Iterator gets invalidated
                             }
                         }
