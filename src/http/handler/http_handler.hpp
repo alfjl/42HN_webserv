@@ -9,7 +9,7 @@
 namespace webserv {
     namespace http {
 
-        class http_handler : public webserv::util::state_machine {
+        class http_handler : public webserv::util::state_machine<http_handler> {
 
         private:
             char                        last_char;
@@ -18,8 +18,27 @@ namespace webserv {
 
         public:
             http_handler(webserv::util::connection* new_connection) : in(new_connection) {}
-            void start() {}
-            void end() {}
+
+            void wait_for_char() {
+                if (in->has_next()) {
+                    if (in->next_char(last_char)) {
+                        ret();
+                        return;
+                    }
+                }
+                if (in->is_closed())
+                    stop();
+                else
+                    yield();
+            }
+
+            void start() {
+                next(&http_handler::wait_for_char);
+                later(&http_handler::start);
+            }
+
+            void end() {
+            }
 
             // void start() {
             //     next(&wait_for_char);

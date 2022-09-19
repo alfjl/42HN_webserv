@@ -6,13 +6,21 @@
 namespace webserv {
     namespace util {
 
-        class state_machine {
+        class state_machine_base {
+        public:
+            virtual void tick() = 0;
+        };
+
+        template<typename Impl>
+        class state_machine : public state_machine_base {
         private:
-            typedef void (state_machine::*state_function)();
+            typedef void (Impl::*state_function)();
 
             std::stack<state_function>  return_stack;
             state_function              current_func;
             bool                        yielding;
+
+            void dispatch_end() { end(); }
 
         public:
             virtual void start() = 0;
@@ -39,13 +47,19 @@ namespace webserv {
                 }
             }
 
+            void stop() {
+                while (!return_stack.empty())
+                    return_stack.pop();
+                next(&state_machine::dispatch_end);
+            }
+
             bool is_yielding() { return yielding; }
             void yield() { yielding = true; }
             void unyield() { yielding = false; }
 
             void tick() {
                 unyield();
-                (this->*current_func)();
+                (((Impl*) this)->*current_func)();
             }
         }; // state_machine
 
