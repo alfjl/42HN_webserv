@@ -12,9 +12,15 @@ namespace webserv {
         }
 
         void scheduler::tick() {
-            std::vector<webserv::util::state_machine*>::iterator it = handlers.begin();
+            std::vector<webserv::util::state_machine_base*>::iterator it = handlers.begin();
 
             while (it != handlers.end()) {
+                std::cout << "Ticking " << *it << std::endl;
+                if ((*it)->is_stopped()) {
+                    handlers.erase(it);
+                    std::cout << "Removing state machine " << *it << std::endl;
+                    break;
+                }
                 (*it)->tick();
                 ++it;
             }

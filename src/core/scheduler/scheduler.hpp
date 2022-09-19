@@ -13,7 +13,7 @@ namespace webserv {
         class scheduler : public component {
 
         private:
-            std::vector<webserv::util::state_machine*> handlers;
+            std::vector<webserv::util::state_machine_base*> handlers;
         
         public:
             scheduler(instance& the_inst);

@@ -16,7 +16,9 @@ namespace webserv {
         }
 
         void instance::run() {
+            static int i = 0;
             while (is_running()) {
+                std::cout << "Hey! " << (i++) << std::endl;
                 _driver.tick();
                 _scheduler.tick();
             }
