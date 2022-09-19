@@ -21,8 +21,7 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-            void register_connection(/*reactor/connection*/ webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
-                // int index = 0; // how get correct index?
+            void register_connection(webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
                 handlers.push_back(new webserv::http::http_handler(Conny));
             }
 

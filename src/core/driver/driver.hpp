@@ -8,6 +8,11 @@
 namespace webserv {
     namespace core {
 
+        class   selector;
+        /* ----------- TTT ------------ */
+        class   component;
+        /* ----------- TTT ------------ */
+
         class driver : public component {
             webserv::pal::net::selector selector;
         
