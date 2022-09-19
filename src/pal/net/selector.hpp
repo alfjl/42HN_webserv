@@ -3,19 +3,23 @@
 
 #include "../../defs.hpp"
 #include "reactor.hpp"
-#include "../../util/notification.hpp" // ALF
+// #include "../../util/notification.hpp" // ALF
 #include "../../util/connection.hpp" // ALF
-#include "../../core/driver/driver.hpp" // ALF
-#include "../../core/instance.hpp" // ALF
 
 namespace webserv {
+    namespace core {
+
+        class driver;
+    };
+
+
     namespace pal {
         namespace net {
 
             class selector {
 
             private:
-                typedef reactor*                        payload_type; // payload_type_1?
+                typedef reactor*                payload_type; // payload_type_1?
                 // typedef webserv::util::notification*    payload_type_2; // ALF
 
             private:
@@ -30,7 +34,7 @@ namespace webserv {
                 void register_socket(socket* socket, payload_type data_set);
                 void register_socket(socket* socket);
                 void unregister_socket(socket *socket);
-                void set_driver(webserv::core::driver* driver) { the_driver = driver; } // ALF //; spaeter auslagern
+                void set_driver(webserv::core::driver* driver); // ALF
 
                 void select();
 

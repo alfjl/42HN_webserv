@@ -1,5 +1,8 @@
 #include "selector.hpp"
 
+#include "../../core/instance.hpp"
+#include "../../core/driver/driver.hpp"
+
 namespace webserv {
     namespace pal {
         namespace net {
@@ -17,6 +20,10 @@ namespace webserv {
 
             void selector::unregister_socket(socket* socket) {
                 elements.erase(socket); // call function on payload?
+            }
+
+            void selector::set_driver(webserv::core::driver* driver) {
+                the_driver = driver;
             }
 
             void selector::select() {

@@ -1,15 +1,11 @@
 #ifndef WEBSERV_CORE_COMPONENT_HPP
 #define WEBSERV_CORE_COMPONENT_HPP
 
-// #include "driver/driver.hpp"
-#include "instance.hpp"
 
 namespace webserv {
     namespace core {
-        /* ----------- TTT ------------ */
+
         class instance;
-        class driver;
-        /* ----------- TTT ------------ */
 
         class component {
             instance& the_inst;

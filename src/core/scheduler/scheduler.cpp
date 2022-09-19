@@ -20,5 +20,9 @@ namespace webserv {
             }
         }
 
+        void scheduler::register_connection(webserv::util::connection* Conny) {
+            handlers.push_back(new webserv::http::http_handler(Conny));
+        }
+
     } // namespace core
 } // namespace webserv

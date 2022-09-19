@@ -5,15 +5,14 @@
 
 #include "driver/driver.hpp"
 #include "scheduler/scheduler.hpp"
+
 #include "../util/connection.hpp" // ALF
 
 namespace webserv {
     namespace core {
 
-        /* ----------- TTT ------------ */
         class driver;
         class scheduler;
-        /* ----------- TTT ------------ */
 
         class instance {
 
@@ -27,9 +26,7 @@ namespace webserv {
 
             driver&     get_driver()    { return _driver; }
             scheduler&  get_scheduler() { return _scheduler; }
-            void        pass_connection(webserv::util::connection* Conny) { // ALF //; spaeter auslagern
-                _scheduler.register_connection(Conny); // ALF
-            }
+            void        pass_connection(webserv::util::connection* Conny); // ALF
 
             bool is_running() { return true; }
 

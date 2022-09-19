@@ -2,6 +2,7 @@
 #define WEBSERV_CORE_DRIVER_DRIVER_HPP
 
 #include "../component.hpp"
+
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
 
@@ -9,9 +10,6 @@ namespace webserv {
     namespace core {
 
         class   selector;
-        /* ----------- TTT ------------ */
-        class   component;
-        /* ----------- TTT ------------ */
 
         class driver : public component {
             webserv::pal::net::selector selector;

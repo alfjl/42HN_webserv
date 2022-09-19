@@ -2,7 +2,6 @@
 #define WEBSERV_CORE_SCHEDULER_SCHEDULER_HPP
 
 #include "../component.hpp"
-#include "../instance.hpp"
 
 #include "../../http/handler/http_handler.hpp"
 #include "../../util/state_machine.hpp"
@@ -21,9 +20,7 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-            void register_connection(webserv::util::connection* Conny) {  // ALF //; spaeter auslagern
-                handlers.push_back(new webserv::http::http_handler(Conny));
-            }
+            void register_connection(webserv::util::connection* Conny); // ALF
 
         }; // class scheduler
 
