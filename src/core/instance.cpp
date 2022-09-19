@@ -11,8 +11,8 @@ namespace webserv {
             
         }
 
-        void instance::pass_connection(webserv::util::connection* Conny) {
-            _scheduler.register_connection(Conny);
+        void instance::pass_connection(webserv::util::connection* new_connection) {
+            _scheduler.register_connection(new_connection);
         }
 
         void instance::run() {

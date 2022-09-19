@@ -17,7 +17,7 @@ namespace webserv {
             webserv::util::connection&  in;
 
         public:
-            http_handler(webserv::util::connection* Conny) : in(*Conny) {} // ALF // rather use reference instead of pointer to hand it through the functions, or use shared_ptr?
+            http_handler(webserv::util::connection* new_connection) : in(*new_connection) {} // ALF // rather use reference instead of pointer to hand it through the functions, or use shared_ptr?
             void start() {}
             void end() {}
 

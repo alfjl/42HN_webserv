@@ -70,10 +70,10 @@ namespace webserv {
                         std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                         if (it->first->is_server_socket()) {
                             data_socket* ds = ((server_socket*) it->first)->accept();
-                            // TODO: Callback to driver, create new connection
-                            webserv::util::connection* Conny = new webserv::util::connection();// ALF // just a test!
-                            register_socket(ds, Conny); // ALF
-                            the_driver->get_instance().pass_connection(Conny/*pass a connection*/); // ALF // how 'connect' the connection to this specific socket?
+                            // Callback to driver, create new connection
+                            webserv::util::connection* new_connection = new webserv::util::connection();// ALF // just a test!
+                            register_socket(ds, new_connection); // ALF
+                            the_driver->get_instance().pass_connection(new_connection); // ALF
                             register_socket(ds);
                         } else if (it->first->is_data_socket()) {
                             char buffer[128];
