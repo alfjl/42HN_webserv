@@ -18,8 +18,15 @@ namespace webserv {
                 elements[socket] = payload_type();
             }
 
-            void selector::unregister_socket(socket* socket) {
-                elements.erase(socket); // call function on payload?
+            void selector::unregister_socket(socket* sock) {
+                std::map<socket*, payload_type>::iterator it = elements.find(sock);
+                if (it != elements.end()) {
+                    std::cout << "Removing socket " << sock << std::endl;
+                    it->first->close();
+                    if (it->second != NULL)
+                        it->second->react_close();
+                    elements.erase(it); // call function on payload?
+                }
             }
 
             void selector::set_driver(webserv::core::driver* driver) {
@@ -79,10 +86,7 @@ namespace webserv {
                                 for (ssize_t index = 0; index < amount; index++)
                                     it->second->get_input().push_char(buffer[index]);
                             } else if (amount <= 0) {
-                                std::cout << "Removing socket " << it->first->get_fd() << std::endl;
                                 unregister_socket(it->first);
-                                it->first->close();
-                                it->second->react_close();
                                 break; // Iterator gets invalidated
                             }
                         }
@@ -109,7 +113,21 @@ namespace webserv {
                     else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {
                         // do_exception_operation(); TODO: What to do with that information?
                         // react()->close()??????
+                        unregister_socket(it->first);
+                        break;
                     }
+                }
+
+                it = elements.begin();
+                while (it != elements.end()) {
+                    if (it->second != NULL) {
+                        if (it->second->is_closed()) {
+                            unregister_socket(it->first);
+                            it = elements.begin();
+                            continue;
+                        }
+                    }
+                    ++it;
                 }
             }
 
