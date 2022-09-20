@@ -43,6 +43,7 @@ namespace webserv {
 
                 for ( ; it != ite; ++it) {
                     if (it->first->is_data_socket()) {
+                        // TODO
                         // We disable writability checks in order to make select() block
                         // FD_SET(it->first->get_fd(), &write_fds);
                     }
@@ -65,9 +66,7 @@ namespace webserv {
                 // it = connections.begin();
                 for ( ; it != ite; ++it) {
                     if (FD_ISSET(it->first->get_fd(), &read_fds)) {
-                        // do_read_operation(); TODO: What to do with that information?
-                        // e.g.: read(it->first.get_fd(), it->second, [which size???]);
-                        // or: it->second.read(it->first)
+                        // do_read_operation();
                         std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                         if (it->first->is_server_socket()) {
                             data_socket* ds = ((server_socket*) it->first)->accept();
@@ -80,10 +79,10 @@ namespace webserv {
                             ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
                             if (amount > 0) {
                                 for (ssize_t index = 0; index < amount; index++)
-                                    it->second->push_char(buffer[index]);
+                                    it->second->get_input().push_char(buffer[index]);
                             } else if (amount <= 0) {
                                 std::cout << "Removing socket " << it->first->get_fd() << std::endl;
-                                unregister_socket(it->first); // TODO: react_close()
+                                unregister_socket(it->first);
                                 it->first->close();
                                 it->second->react_close();
                                 break; // Iterator gets invalidated
@@ -91,7 +90,21 @@ namespace webserv {
                         }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &write_fds)) {
-                        // do_write_operation(); TODO: What to do with that information?
+                        std::cout << "Writeable " << it->first->get_fd() << "!" << std::endl;
+                        // TODO: do_write_operation();
+                        if (it->first->is_data_socket()) {
+                            char buffer[128]; // bis char buffer voll, oder connection zuende, dann ....
+                            // output queue nach Inhalt fragen
+                            // falls vorhanden, in buffer[128] schreiben (Anzahl mitzaehlen)
+                            // entweder output_queue leer, oder buffer voll (0 - 127, kein /0 noetig)
+                            // ssize_t amount = write(((data_socket*) it->first)->get_fd(), buffer, sizeof(was im buffer steht/Anzahl));
+
+                            if (amount > 0) {
+                                for (ssize_t index = 0; index < amount; index++)
+                                    it->second->get_output().push_char(buffer[index]);
+                            }
+                            ssize_t amount = write(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
+                        }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {
                         // do_exception_operation(); TODO: What to do with that information?
