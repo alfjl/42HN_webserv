@@ -121,7 +121,7 @@ namespace webserv {
                 it = elements.begin();
                 while (it != elements.end()) {
                     if (it->second != NULL) {
-                        if (it->second->is_closed()) {
+                        if (it->second->is_closed() && !it->second->get_output().has_next()) {
                             unregister_socket(it->first);
                             it = elements.begin();
                             continue;
