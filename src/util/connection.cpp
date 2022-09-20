@@ -7,22 +7,12 @@ namespace webserv {
             closed = false;
         }
 
-        void connection::push_char(char c) {
-            buffer.push(c);
+        wrapped_queue& connection::get_input() {
+            return input_buffer;
         }
 
-
-        bool connection::has_next() {
-            return (!buffer.empty());
-        }
-
-        bool connection::next_char(char& loc) {
-            if (has_next()) {
-                loc = buffer.front();
-                buffer.pop();
-                return true;
-            }
-            return false;
+        wrapped_queue& connection::get_output() {
+            return output_buffer;
         }
 
 
@@ -37,11 +27,6 @@ namespace webserv {
 
         void connection::react_close() {
             close();
-        }
-
-
-        std::ostream& connection::get_stream() { // ALF2
-            return the_ostream;
         }
 
     } // namespace util

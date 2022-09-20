@@ -4,6 +4,7 @@
 #include "../defs.hpp"
 
 #include "iflow.hpp"
+#include "wrapped_queue.hpp"
 #include "../pal/net/reactor.hpp"
 
 namespace webserv {
@@ -11,24 +12,20 @@ namespace webserv {
 
         class connection : public iflow, public webserv::pal::net::reactor {
         private:
-            std::queue<char>  buffer;
+            wrapped_queue     input_buffer;
+            wrapped_queue     output_buffer;
             bool              closed;
-            std::ostream      the_ostream; // ALF2
 
         public:
             connection();
 
-            void push_char(char c);
-
-            bool has_next();
-            bool next_char(char& loc);
+            wrapped_queue& get_input();
+            wrapped_queue& get_output();
 
             void close();
             bool is_closed();
 
             void react_close();
-
-            std::ostream& get_stream(); // ALF2
 
         }; // class connection
 
