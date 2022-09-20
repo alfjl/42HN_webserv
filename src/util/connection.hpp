@@ -10,7 +10,7 @@
 namespace webserv {
     namespace util {
 
-        class connection : public iflow, public webserv::pal::net::reactor {
+        class connection : public webserv::pal::net::reactor {
         private:
             wrapped_queue     input_buffer;
             wrapped_queue     output_buffer;

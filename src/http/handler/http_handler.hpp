@@ -14,19 +14,21 @@ namespace webserv {
         private:
             char                        last_char;
             std::string                 buffer;
-            webserv::util::connection*  in;
+            webserv::util::connection*  connection;
 
         public:
-            http_handler(webserv::util::connection* new_connection) : in(new_connection) {}
+            http_handler(webserv::util::connection* new_connection) : connection(new_connection) {}
+
+            webserv::util::wrapped_queue& in() { return connection->get_input(); }
 
             void wait_for_char() {
-                if (in->has_next()) {
-                    if (in->next_char(last_char)) {
+                if (in().has_next()) {
+                    if (in().next_char(last_char)) {
                         ret();
                         return;
                     }
                 }
-                if (in->is_closed())
+                if (connection->is_closed())
                     stop();
                 else
                     yield();

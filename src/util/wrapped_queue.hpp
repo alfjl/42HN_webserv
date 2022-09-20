@@ -4,7 +4,6 @@
 #include "../defs.hpp"
 
 #include "iflow.hpp"
-#include "../pal/net/reactor.hpp"
 
 namespace webserv {
     namespace util {

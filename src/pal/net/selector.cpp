@@ -42,10 +42,8 @@ namespace webserv {
                 std::map<socket*, payload_type>::iterator ite = elements.end();
 
                 for ( ; it != ite; ++it) {
-                    if (it->first->is_data_socket()) {
-                        // TODO
-                        // We disable writability checks in order to make select() block
-                        // FD_SET(it->first->get_fd(), &write_fds);
+                    if (it->first->is_data_socket() && it->second != NULL && it->second->get_output().has_next()) {
+                        FD_SET(it->first->get_fd(), &write_fds);
                     }
                     FD_SET(it->first->get_fd(), &read_fds);
                     FD_SET(it->first->get_fd(), &exception_fds);
@@ -99,11 +97,13 @@ namespace webserv {
                             // entweder output_queue leer, oder buffer voll (0 - 127, kein /0 noetig)
                             // ssize_t amount = write(((data_socket*) it->first)->get_fd(), buffer, sizeof(was im buffer steht/Anzahl));
 
-                            if (amount > 0) {
-                                for (ssize_t index = 0; index < amount; index++)
-                                    it->second->get_output().push_char(buffer[index]);
+                            ssize_t amount = 0;
+                            while (amount < 128 && it->second->get_output().next_char(buffer[amount])) {
+                                amount++;
                             }
-                            ssize_t amount = write(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
+                            ssize_t written = write(it->first->get_fd(), buffer, amount);
+
+                            // TODO: Compare `amount` against `written` and push back characters, if needed
                         }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {
