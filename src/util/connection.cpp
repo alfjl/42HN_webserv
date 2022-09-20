@@ -39,5 +39,10 @@ namespace webserv {
             close();
         }
 
+
+        std::ostream& connection::get_stream() { // ALF2
+            return the_ostream;
+        }
+
     } // namespace util
 } // namespace webserv

@@ -13,6 +13,7 @@ namespace webserv {
         private:
             std::queue<char>  buffer;
             bool              closed;
+            std::ostream      the_ostream; // ALF2
 
         public:
             connection();
@@ -26,6 +27,8 @@ namespace webserv {
             bool is_closed();
 
             void react_close();
+
+            std::ostream& get_stream(); // ALF2
 
         }; // class connection
 
