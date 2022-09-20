@@ -1,5 +1,6 @@
 #include "oflow.hpp"
 
+#include "connection.hpp"
 
 namespace webserv {
     namespace util {
@@ -8,12 +9,22 @@ namespace webserv {
 
         }
 
+        std::streamsize oflow::xsputn(const char * s, std::streamsize n)
+        {
+            for (std::streamsize i = 0; i < n; i++) {
+                con.get_output().push_char(s[i]);
+            }
+            return n;
+        }
+
         oflow::int_type oflow::overflow(int_type c) {
             if (c == traits_type::eof())
                 con.close();
             else {
-                con.get_output().push_char(traits_type::to_char_type(c));
+                char_type ch = traits_type::to_char_type(c);
+                return xsputn(&ch, 1) == 1 ? c : traits_type::eof();
             }
+            return c;
         }
 
     }

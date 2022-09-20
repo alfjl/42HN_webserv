@@ -20,6 +20,7 @@ namespace webserv {
             http_handler(webserv::util::connection* new_connection) : connection(new_connection) {}
 
             webserv::util::wrapped_queue& in() { return connection->get_input(); }
+            std::ostream& out() { return connection->get_ostream(); }
 
             void wait_for_char() {
                 if (in().has_next()) {
@@ -44,6 +45,8 @@ namespace webserv {
                 if (buffer.find("\r\n\r\n") != std::string::npos) {
                     std::cout << "Processing head: " << std::endl;
                     std::cout << buffer;
+                    out() << "HTTP/1.1 500 Error\r\n\r\n";
+                    connection->close();
                     stop();
                 } else {
                     next(&http_handler::start);

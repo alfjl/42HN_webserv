@@ -3,7 +3,7 @@
 namespace webserv {
     namespace util {
 
-        connection::connection() {
+        connection::connection() : out(*this), ostream(&out) {
             closed = false;
         }
 
@@ -15,6 +15,9 @@ namespace webserv {
             return output_buffer;
         }
 
+        std::ostream& connection::get_ostream() {
+            return ostream;
+        }
 
         void connection::close() {
             closed = true;
