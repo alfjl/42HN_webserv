@@ -18,8 +18,15 @@ namespace webserv {
                 elements[socket] = payload_type();
             }
 
-            void selector::unregister_socket(socket* socket) {
-                elements.erase(socket); // call function on payload?
+            void selector::unregister_socket(socket* sock) {
+                std::map<socket*, payload_type>::iterator it = elements.find(sock);
+                if (it != elements.end()) {
+                    std::cout << "Removing socket " << sock << std::endl;
+                    it->first->close();
+                    if (it->second != NULL)
+                        it->second->react_close();
+                    elements.erase(it); // call function on payload?
+                }
             }
 
             void selector::set_driver(webserv::core::driver* driver) {
@@ -42,9 +49,8 @@ namespace webserv {
                 std::map<socket*, payload_type>::iterator ite = elements.end();
 
                 for ( ; it != ite; ++it) {
-                    if (it->first->is_data_socket()) {
-                        // We disable writability checks in order to make select() block
-                        // FD_SET(it->first->get_fd(), &write_fds);
+                    if (it->first->is_data_socket() && it->second != NULL && it->second->get_output().has_next()) {
+                        FD_SET(it->first->get_fd(), &write_fds);
                     }
                     FD_SET(it->first->get_fd(), &read_fds);
                     FD_SET(it->first->get_fd(), &exception_fds);
@@ -65,9 +71,7 @@ namespace webserv {
                 // it = connections.begin();
                 for ( ; it != ite; ++it) {
                     if (FD_ISSET(it->first->get_fd(), &read_fds)) {
-                        // do_read_operation(); TODO: What to do with that information?
-                        // e.g.: read(it->first.get_fd(), it->second, [which size???]);
-                        // or: it->second.read(it->first)
+                        // do_read_operation();
                         std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                         if (it->first->is_server_socket()) {
                             data_socket* ds = ((server_socket*) it->first)->accept();
@@ -80,23 +84,50 @@ namespace webserv {
                             ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
                             if (amount > 0) {
                                 for (ssize_t index = 0; index < amount; index++)
-                                    it->second->push_char(buffer[index]);
+                                    it->second->get_input().push_char(buffer[index]);
                             } else if (amount <= 0) {
-                                std::cout << "Removing socket " << it->first->get_fd() << std::endl;
-                                unregister_socket(it->first); // TODO: react_close()
-                                it->first->close();
-                                it->second->react_close();
+                                unregister_socket(it->first);
                                 break; // Iterator gets invalidated
                             }
                         }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &write_fds)) {
-                        // do_write_operation(); TODO: What to do with that information?
+                        std::cout << "Writeable " << it->first->get_fd() << "!" << std::endl;
+                        // TODO: do_write_operation();
+                        if (it->first->is_data_socket()) {
+                            char buffer[128]; // bis char buffer voll, oder connection zuende, dann ....
+                            // output queue nach Inhalt fragen
+                            // falls vorhanden, in buffer[128] schreiben (Anzahl mitzaehlen)
+                            // entweder output_queue leer, oder buffer voll (0 - 127, kein /0 noetig)
+                            // ssize_t amount = write(((data_socket*) it->first)->get_fd(), buffer, sizeof(was im buffer steht/Anzahl));
+
+                            ssize_t amount = 0;
+                            while (amount < 128 && it->second->get_output().next_char(buffer[amount])) {
+                                amount++;
+                            }
+                            ssize_t written = write(it->first->get_fd(), buffer, amount);
+
+                            // TODO: Compare `amount` against `written` and push back characters, if needed
+                        }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {
                         // do_exception_operation(); TODO: What to do with that information?
                         // react()->close()??????
+                        unregister_socket(it->first);
+                        break;
                     }
+                }
+
+                it = elements.begin();
+                while (it != elements.end()) {
+                    if (it->second != NULL) {
+                        if (it->second->is_closed() && !it->second->get_output().has_next()) {
+                            unregister_socket(it->first);
+                            it = elements.begin();
+                            continue;
+                        }
+                    }
+                    ++it;
                 }
             }
 

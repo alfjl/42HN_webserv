@@ -3,28 +3,21 @@
 namespace webserv {
     namespace util {
 
-        connection::connection() {
+        connection::connection() : out(*this), ostream(&out) {
             closed = false;
         }
 
-        void connection::push_char(char c) {
-            buffer.push(c);
+        wrapped_queue& connection::get_input() {
+            return input_buffer;
         }
 
-
-        bool connection::has_next() {
-            return (!buffer.empty());
+        wrapped_queue& connection::get_output() {
+            return output_buffer;
         }
 
-        bool connection::next_char(char& loc) {
-            if (has_next()) {
-                loc = buffer.front();
-                buffer.pop();
-                return true;
-            }
-            return false;
+        std::ostream& connection::get_ostream() {
+            return ostream;
         }
-
 
         void connection::close() {
             closed = true;
