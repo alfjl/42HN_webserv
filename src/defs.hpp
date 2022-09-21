@@ -13,6 +13,8 @@ extern "C" {
 }
 
 #include <iostream>
+#include <fstream>
+#include <sstream>
 #include <limits>
 #include <stdexcept>
 #include <string>

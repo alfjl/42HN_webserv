@@ -9,26 +9,26 @@ namespace webserv {
 	namespace util {
 
 		class streamflow : public iflow {
+			std::istream& the_stream;
 		public:
-			streamflow(std::istream&);
-			~streamflow();
+			streamflow(std::istream& stream);
 
 			bool has_next();
             bool next_char(char& loc);
 		};
 
-		// class stringflow : public streamflow {
-		// public: 
-		// 	stringflow(std::string&);
+		class stringflow : public streamflow {
+			std::istringstream stream;
+		public:
+			stringflow(const std::string& s);
+		};
 
+		class fileflow : public streamflow {
+			std::ifstream stream;
+		public:
+			fileflow(std::string s);
+		};
 
-		// };
-
-		// class fileflow : public streamflow {
-		// public: 
-			
-
-		// }:
 
 	}
 }
