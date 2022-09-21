@@ -18,8 +18,10 @@ namespace webserv {
             ~routing();
 
             webserv::pal::cpp::shared_ptr<http_response> look_up(http_request& request);
-        };
-    }
-}
+
+        }; // class selector
+
+    } // namespace core
+} // namespace webserv
 
 #endif
