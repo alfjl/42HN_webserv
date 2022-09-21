@@ -1,0 +1,101 @@
+GET /~jbutler/anon/anon.html HTTP/1.1
+Host: uh.edu
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Tue, 13 Sep 2022 09:22:29 GMT
+Server: Apache
+Last-Modified: Tue, 15 Jan 2002 21:58:30 GMT
+ETag: "ab2-3979e7e510d80"
+Accept-Ranges: bytes
+Content-Length: 2738
+Access-Control-Allow-Origin: http://api.uh.edu
+Connection: close
+Content-Type: text/html
+Set-Cookie: NSC_xg-xxx.vi.fev-wt-iuuqt=ffffffffaf1d280f45525d5f4f58455e445a4a423660;expires=Tue, 13-Sep-2022 09:24:29 GMT;path=/;secure
+
+{ [2738 bytes data]
+100  2738  100  2738    0     0   5195      0 --:--:-- --:--:-- --:--:--  5185
+* Closing connection 0
+* TLSv1.2 (OUT), TLS alert, close notify (256):
+} [2 bytes data]
+
+
+<html>
+<head><title>  Anon</title></head>
+
+<body bgcolor=#ffffff>
+
+<CENTER><font color="red">
+<h1>Another Node On the interNet
+<font color="black"><p>ANON</h1>
+</CENTER><p>
+<center><font color="black">
+<h3>for those with interests in Geosciences, Mathematics and Computing</h3></center></font color>
+<pre>
+</pre>
+<center>
+<table border = 0 cell spacing = 5 cell padding =4>
+<tr><td align = center><a href="about.html"><b>About ANON</b></a><br>
+</td>
+<th rowspan=3 valign=top><img src="398.gif">
+<td align=center><a href="anonfield.html"><b>the Virtual Geosciences Professor</b></a><br></td></tr>
+
+
+<tr><td align=center><br><br><a href="columns.html"><b>ANON Columns </b></a></td>
+
+<td align=center><br><br><a href="anonposters.html"><b>the Virtual Poster Session</b></a></td></tr>
+
+
+<tr><td align=center><br><br><a href="agu.html"><b>Macintosh Computer Applications</b></td>
+
+
+<td align=center><br><br><a href="survey.html"><b>ANON Surveys</b></a></td></tr>
+
+</table>
+
+</center>
+
+<p>
+<font size="+1">
+<center><b>|<a href="http://www.uh.edu/~jbutler/">John Butler</a>|<a href="search.html">Search ANON</a>|<a href="http://www.elsevier.nl/locate/compgeosci">Computers&Geosciences</A>|<A HREF="http://www.iamg.org">IAMG</A>| </center><p>
+</b>
+
+
+<P><IMG SRC="/cgi-bin/counter_home?dd=K|ft=0|frgb=235;0;10|md=5|pad=N|df=jbutler_anon.html" HEIGHT=12 WIDTH=33>
+Since July 19, 1996</FONT></P></center>
+
+<P><IMG SRC="awarded.gif" HEIGHT=87 WIDTH=42 ALIGN=TOP><FONT SIZE=+0><B><A HREF="http://agcwww.bio.ns.ca/misc/geores/sotw/sotw.html">Earth
+Science Site of the Week</A></B> <p>
+
+<img src="iagstmp.gif" align=top><b><a href="http://www.internic.net/aldea/attframes2.html">
+InterNIC Academic Guide</b></a><p>
+
+
+<IMG SRC="blueweb6.gif"  ALIGN=TOP><B><A HREF="http://www.kn.pacbell.com/wired/bluewebn/">Blue
+Web'n </A></B></FONT><p>
+
+<IMG SRC="ccheck.GIF" HEIGHT=25 WIDTH=29 ALIGN=TOP><FONT SIZE=+0><A HREF="http://www.clearinghouse.net/">
+<B>Clearing House Approved</B></a> <p>
+
+<IMG SRC="scoutsel.gif" HEIGHT=29 WIDTH=100><B><A HREF="http://www.cs.wisc.edu/scout/report">
+Scout Report Selection</A></B> </FONT></P>
+
+<P><IMG SRC="ekkie.gif" HEIGHT=40 WIDTH=40><IMG SRC="ekkie.gif" HEIGHT=40 WIDTH=4
+0><IMG SRC="ekkie.gif" HEIGHT=40 WIDTH=40><IMG SRC="ekkie.gif" HEIGHT=40 WIDTH=40
+><IMG SRC="ekkie.gif" HEIGHT=40 WIDTH=40><FONT SIZE=+0><B><A HREF="http://www.man
+.ac.uk/Geology/pwood/esenet/resource/compgeo/ngo.htm">
+Ekkie</A></B> </FONT></P>
+
+<img src="surfer.gif"><a href="http://shell.rmi.net/~michaelg/index.html"><b>WebS
+urfer</b></a>
+
+
+<P><FONT SIZE=+0><B>Copyright March 1, 1996</B>. <p><A HREF="mailto:jbutler@uh.ed
+u"><b>Comments,
+suggestions, and contributions welcomed</A></b><p> [Updated : January 15, 2001].
+</FONT></P>
+
+</BODY>
+</HTML>

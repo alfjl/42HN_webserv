@@ -1,0 +1,1095 @@
+> GET /bildungszentrum/grundschule HTTP/1.1
+> Host: www.bz-stkilian.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Server: nginx/1.18.0
+< Date: Tue, 13 Sep 2022 09:06:28 GMT
+< Content-Type: text/html; charset=utf-8
+< Content-Length: 37739
+< Connection: keep-alive
+< Content-Language: de
+< Strict-Transport-Security: max-age=0
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2022 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+<base href="https://www.bz-stkilian.de/">
+
+<title>Grundschule : Bildungszentrum St.Kilian Heilbronn</title>
+<meta name="generator" content="TYPO3 CMS" />
+<meta name="twitter:card" content="summary" />
+
+
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/rx_shariff/Resources/Public/Css/shariff.min.css?1539784022" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/maps2/Resources/Public/Css/Leaflet/Leaflet.css?1581004379" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/cal/Resources/Public/v2/css/cal.css?1550434001" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/skfs_template/Resources/Public/Css/slick.css?1662373143" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/skfs_template/Resources/Public/Css/styles-red.css?1662373143" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/skfs_template/Resources/Public/Css/featherlight.min.css?1662373143" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/skfs_template/Resources/Public/Css/featherlight.gallery.min.css?1662373143" media="all">
+<link rel="stylesheet" type="text/css" href="/typo3conf/ext/skfs_template/Resources/Public/Css/print.css?1662373143" media="all">
+
+
+
+
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/jquery.min.js?1662373143" type="text/javascript"></script>
+<script src="/typo3temp/assets/js/301d3defed.js?1662373315" type="text/javascript"></script>
+
+
+
+<script src="https://cdn.consentmanager.mgr.consensu.org/delivery/cookieblock.min.js" data-cmp-ab="1"></script><link rel="stylesheet" href="https://cdn.consentmanager.mgr.consensu.org/delivery/cmp.min.css" /><script>window.gdprAppliesGlobally=true;if(!("cmp_id" in window)){window.cmp_id=21589}if(!("cmp_params" in window)){window.cmp_params=""}window.cmp_host="consentmanager.mgr.consensu.org";window.cmp_cdn="cdn.consentmanager.mgr.consensu.org";function cmp_getlang(j){if(typeof(j)!="boolean"){j=true}if(j&&typeof(cmp_getlang.usedlang)=="string"&&cmp_getlang.usedlang!==""){return cmp_getlang.usedlang}var g=["DE","EN","FR","IT","NO","DA","FI","ES","PT","RO","BG","ET","EL","GA","HR","LV","LT","MT","NL","PL","SV","SK","SL","CS","HU","RU","SR","ZH","TR","UK"];var c=[];var f=location.hash;var e=location.search;var a="languages" in navigator?navigator.languages:[];if(f.indexOf("cmplang=")!=-1){c.push(f.substr(f.indexOf("cmplang=")+8,2))}else{if(e.indexOf("cmplang=")!=-1){c.push(e.substr(e.indexOf("cmplang=")+8,2))}else{if("cmp_setlang" in window&&window.cmp_setlang!=""){c.push(window.cmp_setlang.toUpperCase())}else{if(a.length>0){for(var d=0;d<a.length;d++){c.push(a[d])}}}}}if("language" in navigator){c.push(navigator.language)}if("userLanguage" in navigator){c.push(navigator.userLanguage)}var h="";for(var d=0;d<c.length;d++){var b=c[d].toUpperCase();if(b.indexOf("-")!=-1){b=b.substr(0,2)}if(g.indexOf(b)!=-1){h=b;break}}if(h==""&&typeof(cmp_getlang.defaultlang)=="string"&&cmp_getlang.defaultlang!==""){return cmp_getlang.defaultlang}else{if(h==""){h="EN"}}h=h.toUpperCase();return h}(function(){var a="";var c="_en";if("cmp_getlang" in window){a=window.cmp_getlang().toLowerCase();c="_"+a}var d=("cmp_ref" in window)?window.cmp_ref:location.href;var b=document.createElement("script");b.src="https://"+window.cmp_host+"/delivery/cmp.php?id="+window.cmp_id+"&h="+encodeURIComponent(d)+"&"+window.cmp_params+(document.cookie.length>0?"&__cmpfcc=1":"")+"&l="+a+"&o="+(new Date()).getTime();b.type="text/javascript";b.setAttribute("data-cmp-ab","1");b.async=true;if(document.body){document.body.appendChild(b)}else{if(document.currentScript){document.currentScript.parentElement.appendChild(b)}else{document.write(b.outerHTML)}}var b=document.createElement("script");b.src="https://"+window.cmp_cdn+"/delivery/cmp"+c+".min.js";b.type="text/javascript";b.setAttribute("data-cmp-ab","1");b.async=true;if(document.body){document.body.appendChild(b)}else{if(document.currentScript){document.currentScript.parentElement.appendChild(b)}else{document.write(b.outerHTML)}}window.cmp_addFrame=function(f){if(!window.frames[f]){if(document.body){var e=document.createElement("iframe");e.style.cssText="display:none";e.name=f;document.body.appendChild(e)}else{window.setTimeout('window.cmp_addFrame("'+f+'")',10)}}};window.cmp_rc=function(l){var e=document.cookie;var j="";var g=0;while(e!=""&&g<100){g++;while(e.substr(0,1)==" "){e=e.substr(1,e.length)}var k=e.substring(0,e.indexOf("="));if(e.indexOf(";")!=-1){var f=e.substring(e.indexOf("=")+1,e.indexOf(";"))}else{var f=e.substr(e.indexOf("=")+1,e.length)}if(l==k){j=f}var h=e.indexOf(";")+1;if(h==0){h=e.length}e=e.substring(h,e.length)}return(j)};window.cmp_stub=function(){var e=arguments;__cmapi.a=__cmapi.a||[];if(!e.length){return __cmapi.a}else{if(e[0]==="ping"){if(e[1]===2){e[2]({gdprApplies:gdprAppliesGlobally,cmpLoaded:false,cmpStatus:"stub",displayStatus:"hidden",apiVersion:"2.0",cmpId:31},true)}else{e[2]({gdprAppliesGlobally:gdprAppliesGlobally,cmpLoaded:false},true)}}else{if(e[0]==="getUSPData"){e[2]({version:1,uspString:window.cmp_rc("")},true)}else{if(e[0]==="getTCData"){__cmapi.a.push([].slice.apply(e))}else{if(e[0]==="addEventListener"){__cmapi.a.push([].slice.apply(e))}else{if(e.length==4&&e[3]===false){e[2]({},false)}else{__cmapi.a.push([].slice.apply(e))}}}}}}};window.cmp_msghandler=function(j){var f=typeof j.data==="string";try{var h=f?JSON.parse(j.data):j.data}catch(k){var h=null}if(typeof(h)==="object"&&h!==null&&"__cmpCall" in h){var g=h.__cmpCall;window.__cmp(g.command,g.parameter,function(l,i){var e={__cmpReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__cmapiCall" in h){var g=h.__cmapiCall;window.__cmapi(g.command,g.parameter,function(l,i){var e={__cmapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__uspapiCall" in h){var g=h.__uspapiCall;window.__uspapi(g.command,g.version,function(l,i){var e={__uspapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")})}if(typeof(h)==="object"&&h!==null&&"__tcfapiCall" in h){var g=h.__tcfapiCall;window.__tcfapi(g.command,g.version,function(l,i){var e={__tcfapiReturn:{returnValue:l,success:i,callId:g.callId}};j.source.postMessage(f?JSON.stringify(e):e,"*")},g.parameter)}};window.cmp_setStub=function(e){if(!(e in window)||(typeof(window[e])!=="function"&&typeof(window[e])!=="object"&&(typeof(window[e])==="undefined"||window[e]!==null))){window[e]=window.cmp_stub;window[e].msgHandler=window.cmp_msghandler;if(window.addEventListener){window.addEventListener("message",window.cmp_msghandler,false)}else{window.attachEvent("onmessage",window.cmp_msghandler)}}};window.cmp_addFrame("__cmapiLocator");window.cmp_addFrame("__cmpLocator");window.cmp_addFrame("__uspapiLocator");window.cmp_addFrame("__tcfapiLocator");window.cmp_setStub("__cmapi");window.cmp_setStub("__cmp");window.cmp_setStub("__tcfapi");window.cmp_setStub("__uspapi")})();</script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="shortcut icon" href="/typo3conf/ext/skfs_template/Resources/Public/Icons/skfs.png" type="image/png">
+<link rel="canonical" href="https://www.bz-stkilian.de/bildungszentrum/grundschule"/>
+
+
+<meta property="og:title" content="Grundschule : Bildungszentrum St.Kilian Heilbronn"  >
+<meta property="og:description"  >
+<meta property="og:type" content="website"  >
+<meta name="keywords"  >
+</head>
+<body>
+
+
+
+<div id="main">
+    
+    
+
+<header>
+    <div class="container">
+        <div class="row">
+            
+                    <div class="col-xs-6 col-lg-3">
+                        
+
+
+    <div class="logo">
+        
+
+
+    <a href="/">
+        <img style="" src="/fileadmin/_processed_/d/f/csm_logo_6e4b02059a.png" width="407" height="140" alt="Logo der Testschule" title="zur Startseite" />
+    </a>
+
+
+    </div>
+
+
+                    </div>
+                    <div class="col-xs-6 col-lg-9">
+                        
+
+<section id="header-navigation">
+    <nav class="metanav">
+        <div class="search">
+            <a href="#" rel="nofollow"></a>
+        </div>
+        <ul class="metanav-ul"><li><a href="/" title="Home">Home</a></li><li><a href="/login" title="Login">Login</a></li></ul>
+    </nav>
+    <nav id="mainnav">
+        <p class="mobile-menu"></p><div class="navigations closed"><ul><li class="close"><li class="active has-subnav"><span><span></span></span><a href="/bildungszentrum" class="active" title="Bildungszentrum" data-text="Bildungszentrum">Bildungszentrum</a><ul><li class="active"><a href="/bildungszentrum/grundschule" class="active" title="Grundschule" data-text="Grundschule">Grundschule</a></li><li><a href="/bildungszentrum/gemeinschaftsschule" title="Gemeinschaftsschule" data-text="Gemeinschaftsschule">Gemeinschaftsschule</a></li><li><a href="/bildungszentrum/haupt-realschule" title="Haupt-/Realschule" data-text="Haupt-/Realschule">Haupt-/Realschule</a></li><li><a href="/bildungszentrum/realschulaufsetzer" title="Realschulaufsetzer" data-text="Realschulaufsetzer">Realschulaufsetzer</a></li><li><a href="/bildungszentrum/gymnasium" title="Gymnasium" data-text="Gymnasium">Gymnasium</a></li><li><a href="/bildungszentrum/ganztagskonzept" title="Ganztagskonzept" data-text="Ganztagskonzept">Ganztagskonzept</a></li><li><a href="/bildungszentrum/geschichte" title="Geschichte" data-text="Geschichte">Geschichte</a></li><li><a href="/bildungszentrum/leitung" title="Leitung" data-text="Leitung">Leitung</a></li></ul></li><li class="has-subnav"><span><span></span></span><a href="/konzept" title="Konzept" data-text="Konzept">Konzept</a><ul><li><a href="/konzept/leitbild" title="Leitbild" data-text="Leitbild">Leitbild</a></li><li><a href="/konzept/marchtaler-plan" title="Marchtaler Plan" data-text="Marchtaler Plan">Marchtaler Plan</a></li></ul></li><li class="has-subnav"><span><span></span></span><a href="/partner" title="Partner" data-text="Partner">Partner</a><ul><li><a href="/partner/leitung" title="Leitung" data-text="Leitung">Leitung</a></li><li><a href="/partner/elternbeirat" title="Elternbeirat" data-text="Elternbeirat">Elternbeirat</a></li><li><a href="/partner/foerderverein" title="Förderverein" data-text="Förderverein">Förderverein</a></li><li><a href="/partner/vogelmann-stiftung" title="Vogelmann-Stiftung" data-text="Vogelmann-Stiftung">Vogelmann-Stiftung</a></li><li><a href="/partner/soziale-projekte" title="Soziale Projekte" data-text="Soziale Projekte">Soziale Projekte</a></li></ul></li><li class="has-subnav"><span><span></span></span><a href="/aktuelles" title="Aktuelles" data-text="Aktuelles">Aktuelles</a><ul><li><a href="/aktuelles/presseberichte" title="Presseberichte" data-text="Presseberichte">Presseberichte</a></li><li><a href="/aktuelles/aktuelle-meldungen" title="Aktuelle Meldungen" data-text="Aktuelle Meldungen">Aktuelle Meldungen</a></li><li><a href="/aktuelles/mensa" title="Mensa" data-text="Mensa">Mensa</a></li><li><a href="/aktuelles/stellenangebote" title="Stellenangebote" data-text="Stellenangebote">Stellenangebote</a></li><li><a href="/aktuelles/schulfilme-st-kilian" title="Schulfilme St. Kilian" data-text="Schulfilme St. Kilian">Schulfilme St. Kilian</a></li></ul></li><li class="has-subnav"><span><span></span></span><a href="/service" title="Service" data-text="Service">Service</a><ul><li><a href="/service/iserv" title="IServ" data-text="IServ">IServ</a></li><li><a href="/service/ferienplan-fuer-das-schuljahr-2020/21" title="Ferienpläne" data-text="Ferienpläne">Ferienpläne</a></li><li><a href="/kontakt" title="Kontakt" data-text="Kontakt">Kontakt</a></li><li><a href="/service/handbuch" title="Handbuch" data-text="Handbuch">Handbuch</a></li><li><a href="/service/schueleraufnahme" title="Schüleraufnahme" data-text="Schüleraufnahme">Schüleraufnahme</a></li></ul></li></ul><ul class="metanav-ul"><li><a href="/" title="Home">Home</a></li><li><a href="/login" title="Login">Login</a></li></ul></div>
+    </nav>
+</section>
+
+                    </div>
+                
+        </div>
+    </div>
+</header>
+
+    <main>
+        
+
+
+
+<section id="slider-22471" class="contentelement slider">
+    <div class="slides">
+        
+            <div class="item">
+                
+                    <img src="/fileadmin/_processed_/a/d/csm_Gebaeude1_70137f0563.png" width="1700" height="370" alt="" />
+                
+                
+                        
+                    
+            </div>
+        
+    </div>
+</section>
+
+
+        
+
+
+
+        <section class="breadcrumb">
+                        <div class="container">
+                            <ul><li><a href="/bildungszentrum" target="_top" title="">Bildungszentrum</a></li><li><a href="/bildungszentrum/grundschule" target="_top" title="">Grundschule</a></li></ul>
+                        </div>
+                    </section>
+        <!-- TYPO3SEARCH begin -->
+        
+
+<section class="contentelement only-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-12"><h2>Unsere Grundschule</h2></div>
+                </div>
+            </div>
+        </section><section class="default default gridelement"><div class="container">
+
+<section class="contentelement  " id="c22345">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p> Jedes Kind ist einmalig und wird an unserer Grundschule mit seinen unterschiedlichen individuellen Lernvoraussetzungen und Lernfähigkeiten gefördert, sodass sich die Grundlagen für selbstständiges Denken, Lernen und Arbeiten bestmöglich entwickeln können.
+</p>
+<p>Im Marchtaler Plan der Grundschule ziehen sich zentrale Erziehungs- und Bildungsaufgaben wie Kettfäden bei einem Webrahmen durch die vier Schuljahre. 
+</p>
+<p>Ein Einschulungskurs ermöglicht ein frühes erstes Kennenlernen und erleichtert den Übergang vom Kindergarten in die Grundschule.&nbsp;
+</p>
+<p>Zu unseren Zielen gehören:</p><ul><li>das Beherrschen grundlegender Kulturtechniken;</li><li>Ausdauer und grundlegende Arbeits- und Lerntechniken;</li><li>die Neugier für die Welt und die Lernfreude;</li><li>soziales Verhalten und soziale Haltungen;</li><li>musische und praktische Fertigkeiten;</li><li>die persönliche Gesamtentwicklung, die von christlichen Werten geprägt ist.</li></ul><p><sub></sub><sup></sup>
+</p>
+<p>So erwerben die Kinder unserer Grundschule eine Basis zur Orientierung und zum Handeln in ihrer Lebenswelt sowie für das Lernen in weiterführenden Schulen, idealerweise hier an St. Kilian.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div></section>
+
+<section class="contentelement  " id="c22314">
+	
+
+
+		
+
+
+
+
+
+        
+    
+
+
+        <div class="container">
+            
+                    
+                        
+
+
+<div class="image-wrapper img-top   ">
+    
+            
+                    
+                            
+                                    
+                                    
+                                            <a href="/fileadmin/mediapool/baukaesten/BZ_stkilian/Header/Frederiktag.png" rel="nofollow" data-fl="image">
+                                                <img data-caption="" src="/fileadmin/_processed_/1/b/csm_Frederiktag_dd6b956c3d.png" width="1700" height="370" alt="" />
+                                                
+
+
+
+
+
+                                            </a>
+                                        
+                                
+                        
+                
+        
+</div>
+
+                    
+                
+
+            <p><br> </p>
+        </div>
+    
+
+
+	
+
+
+
+
+
+
+
+
+
+
+</section>
+<section class="default colored gridelement"><div class="container">
+
+<section class="contentelement quote">
+    <div class="">
+        
+                <div class="quote">
+                    
+                        <p>Sankt                                              Kilian</p>
+                    
+                    
+                </div>
+            
+    </div>
+</section>
+</div></section><h2> </h2><section class="default default gridelement"><div class="container"><div class="row"><div class="col-xs-12 col-sm-6 col-lg-6"><section class="accordion alternative" id="accordion-24382">
+                <div class="container"><div class="accordion-head">
+                <p><span></span>
+                    S - wie Sozialkompetenz<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24400">
+	
+
+
+		
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p><span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px; ">Der Umgang miteinander ist für Groß und Klein allgegenwärtig. Die Art und Weise wie Menschen miteinander umgehen ist Voraussetzung für ein gelingendes Miteinander. Aus diesem Grund legen wir in der Grundschule an St. Kilian großen Wert auf die Förderung von sozialer und emotionaler Kompetenz. Dies geschieht in den ersten beiden Klassenstufen durch wöchentliche Sozialtrainingsstunden in doppelter Besetzung. In Klasse 3 und 4 wird demokratisches Handeln durch die Einführung des Klassenrates geübt.&nbsp;</span><br> </p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+
+
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    A - wie Achtsamkeit<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24406">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p><span style="margin: 0px; color: black; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; font-size: 9pt; ">Die Fähigkeit der Achtsamkeit&nbsp;können auch Kinder schon früh lernen und so ihre emotionale Intelligenz stärken. Durch einen friedlichen, liebevollen und akzeptierenden Umgang mit sich selbst, mit den Mitmenschen und den Ereignissen des Lebens gegenüber wird Achtsamkeit wirksam.</span></p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    N - wie Neugierde<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24411">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="margin:0in; font-family:Calibri; font-size:11.0pt">Kinder sind von Natur aus neugierig. Sie sind im Lernfluss, wenn sie sich ganz auf das Lernende einlassen. Wir Lehrerinnen sehen es als unsere Aufgabe, den Lernstoff so aufzubereiten, dass die Kinder Interesse und Freude daran haben. Die Neugierde soll sich an St. Kilian jedoch nicht nur auf Lerninhalte beruhen. Wir wollen Interesse wecken für die Natur, für die Umwelt und für die Mitmenschen.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    K - wie Kirche<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24409">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="margin:0in; font-family:Calibri; font-size:11.0pt"><span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Calibri; font-size: 14.66px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px; ">Katholische Schulen haben heute die Aufgabe, zu neuen „Kirch-Orten“ zu werden. </span><sub></sub><sup></sup></p>
+<p style="margin:0in; font-family:Calibri; font-size:11.0pt">Beten vor dem Essen, gemeinsame Gottesdienste feiern, Lobpreise singen sind Elemente, die unseren Schulalltag begleiten. So wird Schule ein Ort, an denen der  christliche Glaube im Alltag erfahren werden kann und an denen die  Kinder Menschen begegnen, denen der Glaube wichtig und  eine Kraftquelle für ihr Leben ist.&nbsp;</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    T - wie Teamarbeit<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24410">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="margin:0in; font-family:Calibri; font-size:11.0pt">Voneinander Lernen ist einer der größten Vorteile in einem Team. Dies fördern wir an St. Kilian, indem wir Viertklässlerpaten für unsere neuen Erstklässler ernennen, die sie nicht nur zu Beginn in die Pausen begleiten, sondern auch über das erste Schuljahr zu ihren Bookbuddies, ihren Bücherkumpeln werden. Regelmäßige Lese- und Vorlesezeit sind dafür eingeplant.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div></div>
+            </section></div><div class="col-xs-12 col-sm-6 col-lg-6"><section class="accordion alternative" id="accordion-24388">
+                <div class="container"><div class="accordion-head">
+                <p><span></span>
+                    K - wie Kreativität<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24404">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="margin:0in; font-family:Calibri; font-size:11.0pt">Kreativität gilt schon seit einigen Jahren als Schlüsselkompetenz der Zukunft. Wer kreativ ist, kann auch „um die Ecke denken“, neue Wege finden und fantasievoll mit anderen zusammen arbeiten und spielen. Als Anregungen, die die Kreativität fördern sollen, bieten wir neben unterrichtlichen Angeboten auch Arbeitsgemeinschaften wie Chor und Darstellendes Spiel an.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    I - wie Individualität<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24405">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="margin:0in; font-family:Calibri; font-size:11.0pt">An St. Kilian wird jedes Kind in seiner Einzigartigkeit angenommen. Vielfalt sehen wir als Chance. Die individuelle Entfaltung findet in der Freien Stillarbeit und in vielen offenen Unterrichtsangeboten ihren Raum. Grenzen der Individualität beginnen dort, wo die persönlichen Grenzen der Mitschüler überschritten werden.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    L - wie Lernwerkstatt<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24407">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p><span style="margin: 0px; color: black; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; font-size: 9pt; ">Die Lernwerkstatt ist derzeit unser Schulentwicklungsprojekt und soll im Laufe dieses Schuljahres konzipiert und eingerichtet werden.</span></p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    I - wie Identifikation<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24408">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p><span style="margin: 0px; color: black; font-family: &quot;Verdana&quot;,sans-serif; font-size: 9pt; ">In gemeinsamen Versammlungen in der Aula präsentieren die einzelnen Klassen, womit sie sich gerade beschäftigen. Dies stärkt unser Wir-Gefühl.</span>
+</p>
+<p><span style="margin: 0px; "><span style="margin: 0px; color: black; font-family: &quot;Verdana&quot;,sans-serif; font-size: 9pt; ">Unser Grundschulteam besteht aus 13 Lehrerinnen, die sich bewusst für eine Schule mit dem Konzept des Marchtaler Plans entschieden haben.</span></span>
+</p>
+<p>&nbsp;</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    A - wie Angebot<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24413">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p style="background-color: transparent; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 12px; margin-left: 0px; margin-right: 0px; margin-top: 12px; orphans: 2; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px; ">Sankt Kilian soll nicht nur Lernort, sondern auch Lebensort für die Schülerinnen und Schüler sein. In der bedarfsorientierten Ganztagsbetreuung erleben die Kinder im außerunterrichtlichen Bereich ein breites Lern- und Spielangebot.</p>
+<p><span style="display: inline !important; float: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px; "> </span>
+</p>
+<p style="background-color: transparent; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-top-width: 0px; color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; margin-bottom: 12px; margin-left: 0px; margin-right: 0px; margin-top: 12px; orphans: 2; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px; ">Für unsere Dritt- und Viertklässler gibt es einen verbindlichen Ganztag, der zum einen die Klassengemeinschaft stärken und zum anderen auf die Ganztagsschule im Sekundarbereich vorbereiten soll.</p>
+<p><sub></sub><sup></sup></p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div><div class="accordion-head">
+                <p><span></span>
+                    N - wie Neue Medien<em></em>
+                </p>
+            </div>
+            <div class="accordion-body">
+
+<section class="contentelement  " id="c24412">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+    
+
+
+        
+            <div class="">
+                <p>Medien spielen auch schon bei Grundschulkindern oft eine große Rolle. Nur durch eigene Erfahrungen im Umgang mit den Medien, dem Wissen, wie Medien gemacht werden, welchen Nutzen sie haben und wie sie auch verführen und manipulieren, können Kinder „kompetent“ werden. In diesem Sinn ist Medienerziehung Inhalt von Unterrichtseinheiten des Vernetzten Unterrichts. Die Ausstattung unserer Klassenräume mit PC, Beamer und Dokumentenkamera macht einen modernen Medienunterricht möglich. Dennoch wollen wir auf das Schreiben mit Kreide an die Tafel nicht verzichten.</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+</div></div>
+            </section></div></div></div></section>
+
+        <!-- TYPO3SEARCH end -->
+    </main>
+    
+
+<footer class="standard">
+    
+        <section class="socials">
+            <div class="container">
+                
+<div id="c20977" class="frame frame-default frame-type-list frame-layout-0"><div data-orientation="horizontal" data-theme="standard" data-mail-url="mailto:" data-services="[&quot;twitter&quot;,&quot;facebook&quot;,&quot;whatsapp&quot;,&quot;mail&quot;,&quot;info&quot;]" data-lang="de" class="shariff"></div></div>
+
+
+            </div>
+        </section>
+    
+    <section class="footer-information">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    
+
+<section class="contentelement  " id="c20976">
+	
+
+
+		
+
+
+
+
+
+        <div class="container">
+            
+                    
+
+
+
+        
+            
+                    <h1>
+                        Katholisches Freies Bildungszentrum St. Kilian
+                    </h1>
+                    
+                
+        
+        
+            <h3>Staatlich anerkannte Schulen</h3>
+        
+    
+
+                
+        </div>
+    
+
+
+        
+            <div class="container">
+                <p>John-F.-Kennedy-Str. 21<br> 74074 Heilbronn<br> Telefon: 07131/8 99 58-0<br> Fax: 07131/ 8 99 58 - 49</p>
+<p><a href="javascript:linkTo_UnCryptMailto(%27kygjrm8kygjYzx%2Bqrigjgyl%2Cbc%27);" title="Opens window for sending email" class="mail">mail(a)bz-stkilian.de</a></p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+
+
+
+
+
+
+</section>
+
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    
+
+<section class="contentelement  " id="c22470">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        <div class="container">
+            
+                    
+
+
+
+        
+            
+                    <h2>
+                        Öffnungszeiten Sekretariat
+                    </h2>
+                
+        
+        
+    
+
+                
+        </div>
+    
+
+
+        
+            <div class="container">
+                <table style="height:60px; width:80%" class="contenttable"> 	<tbody> 		<tr> 			<td style="width:40%">Montag- Freitag</td> 			<td style="text-align:right; width:40%">7:15 - 11:45 Uhr</td> 		</tr> 		<tr> 			<td style="width:40%">Mittwoch</td> 			<td style="text-align:right; width:40%">13:00 - 14:45 Uhr</td> 		</tr> 	</tbody> </table><p>&nbsp;</p>
+            </div>
+        
+    
+
+
+	
+
+
+
+
+</section>
+
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    
+
+<section class="contentelement  only-headline" id="c20973">
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+        
+            <div class="container">
+                
+                        
+
+
+
+        
+        
+            <h3>In Trägerschaft der Stiftung Katholische Freie Schule</h3>
+        
+    
+
+                    
+            </div>
+        
+    
+
+
+        
+    
+
+
+	
+
+
+
+
+</section>
+
+
+<section class="contentelement  only-headline" id="c20974">
+	
+
+
+		
+
+
+
+
+
+        
+    
+
+
+        <div class="container">
+            
+                    
+                        
+
+
+<div class="image-wrapper img-top   ">
+    
+            
+                    
+                            <a href="https://www.schulstiftung.de/">
+                                <img src="/fileadmin/mediapool/baukaesten/BZ_stkilian/logo_skfs_negativ_A4.svg" width="145" height="169" alt="Logo der SKFS" title="zur SKFS" />
+                                
+
+
+
+
+
+                            </a>
+                        
+                
+        
+</div>
+
+                    
+                
+
+            
+        </div>
+    
+
+
+	
+
+
+
+
+
+
+
+
+
+
+</section>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-bottom">
+        <div class="container">
+            
+                <p class="copyright">
+                    Bildungszentrum St.Kilian Heilbronn
+                </p>
+            
+            <nav class="footernav">
+                <ul><li><a href="/kontakt" title="Kontakt">Kontakt</a></li><li><a href="/impressum" title="Impressum">Impressum</a></li><li><a href="/datenschutz" title="Datenschutz">Datenschutz</a></li></ul>
+            </nav>
+        </div>
+    </section>
+</footer>
+
+    <div class="searchform">
+                    <div class="container"><a href="#" rel="nofollow" class="close"></a>
+                    <h2>Suche</h2>
+<div id="c323" class="frame frame-default frame-type-list frame-layout-0">    
+
+    <form enctype="multipart/form-data" method="post" class="ajax-search" id="main-search-form" action="/bildungszentrum/grundschule?no_cache=1&amp;tx_sudhaus7solr_solr%5Baction%5D=list&amp;type=1582617291&amp;cHash=db6ca5c0337358f197008b44edb4a8fe">
+<div>
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][@extension]" value="Sudhaus7Solr" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][@vendor]" value="SUDHAUS7" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][@controller]" value="Solr" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][@action]" value="form" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][arguments]" value="YTowOnt9eeaeeb8eb2396077cd96f35177aff8c8d58273c1" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__referrer][@request]" value="a:4:{s:10:&quot;@extension&quot;;s:12:&quot;Sudhaus7Solr&quot;;s:11:&quot;@controller&quot;;s:4:&quot;Solr&quot;;s:7:&quot;@action&quot;;s:4:&quot;form&quot;;s:7:&quot;@vendor&quot;;s:8:&quot;SUDHAUS7&quot;;}7c1ac601e7cb559ea43686696b2aa1eb759cbb1c" />
+<input type="hidden" name="tx_sudhaus7solr_solr[__trustedProperties]" value="a:1:{s:11:&quot;searchValue&quot;;i:1;}0664f4f44dbfc06b9ebb88783a8a20129b5000d6" />
+</div>
+
+        <input type="hidden" name="type" value="70599"/>
+        <input type="hidden" name="tx_sudhaus7solr_solr[filter][site]" value="bzstkilian" />
+        <div class="row">
+            <div class="col-xs-12 input-field">
+            <label for="searchValue"></label>
+                <input placeholder="Bitte Stichworte hier eintragen" id="main-search-input" type="text" name="tx_sudhaus7solr_solr[searchValue]" required="required" />
+            </div>
+            <div class="col-xs-12">
+                <p class="morelink search-submit">
+                    <a href="#" rel="nofollow" id="main-search-submit">
+                        suchen
+                    </a>
+                </p>
+            </div>
+        </div>
+
+    </form>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="divider">
+            </div>
+        </div>
+    </div>
+    <div id="search-layer-content">
+
+    </div>
+
+</div>
+
+
+</div>
+                </div>
+
+</div>
+
+    <!-- Matomo -->
+    <script type="text/plain" class="cmplazyload" data-cmp-vendor="c11055">
+        var _paq = window._paq || [];
+        console.log('piwik 1');
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            console.log('piwik 2');
+            var u="https://piwik.schulstiftung.de/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '35']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.setAttribute('data-cmp-ab', '1'); g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+<script src="/typo3conf/ext/maps2/Resources/Public/JavaScript/jquery.min.js?1581004379" type="text/javascript"></script>
+<script src="/typo3conf/ext/maps2/Resources/Public/JavaScript/Leaflet.js?1581004379" type="text/javascript"></script>
+<script src="/typo3conf/ext/maps2/Resources/Public/JavaScript/OpenStreetMaps2.js?1581004379" type="text/javascript"></script>
+
+<script src="/typo3conf/ext/rx_shariff/Resources/Public/JavaScript/shariff.min.js?1539784022" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_formcenter/Resources/Public/Js/main.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/jquery-ui-drag-and-drop.min.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/slick.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/featherlight.min.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/featherlight.gallery.min.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/main.js?1662373143" type="text/javascript"></script>
+<script src="/typo3conf/ext/skfs_template/Resources/Public/Js/calendar.js?1662373143" type="text/javascript"></script>
+
+
+
+</body>
+</html>

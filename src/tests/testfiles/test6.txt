@@ -1,0 +1,140 @@
+GET / HTTP/1.1
+Host: www.grumpygamer.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Date: Mon, 12 Sep 2022 13:35:22 GMT
+Server: Apache/2.4.41 (Ubuntu)
+X-Clacks-Overhead: Terry Pratchett
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Grumpy Gamer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel='alternate' type='application/rss+xml' title='Grumpy Gamer RSS' href='https://grumpygamer.com/rss2.0' />
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.grumpygamer.com/favicon.ico">
+	<link href="https://micro.blog/grumpygamer" rel="me" />
+	<link rel="apple-touch-icon" href="https://www.grumpygamer.com/apple-touch-icon.png"> <!-- 180×180 -->
+	<meta name="twitter:site" content="@grumpygamer">
+	<meta name="twitter:title" content="">
+	<meta name="twitter:description" content="">
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- <meta name="twitter:image" content=""> -->
+	<!-- <meta name="twitter:creator" content="@grumpygamer"> -->
+	<meta property="og:title" content=""/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:site_name" content="Grumpy Gamer"/><script async defer data-domain='grumpygamer.com' src='https://plausible.io/js/plausible.js'></script>	<link href="https://www.grumpygamer.com/blog3.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+	<div class="header">
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="/">Home</a>
+        </li>
+        <li class="menu-item">
+          <a href="/contact">Contact</a>
+        </li>
+        <li class="menu-item">
+          <a href="/archives">Archives</a>
+        </li>
+        <li class="menu-item">
+          <a href="/about">About</a>
+        </li>
+	    <li class="menu-item">
+          <a href="/rss">RSS</a>
+        </li>
+		<!--
+	    <li class="menu-item">
+			<a href='http://cloud.feedly.com/#subscription/feed/https://grumpygamer.com/rss' target='blank'>
+				<img id='feedlyFollow' src='https://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png' alt='follow us in feedly' width='66' height='20'>
+			</a>
+		</li>
+ 		-->
+      </ul>
+	  
+	  <h1>Grumpy Gamer</h1>
+      <h3>Ye Olde Grumpy Gamer Blog. Est. 2004</h3>
+	</div> 
+      <main role="main"><div class='row marketing'><div class='container' data-infinite-scroll='{ "path": ".pagination__next", "append": ".post", "history": false }'><div class='post'><div class='grumpypost'><hr><h3 class='post-title'><a href='rtmi_trailer'>Return to Monkey Island Trailer</a></h3>
+		      <div class='date'>Jun 28, 2022</div><p><center><iframe class='youtube' width='595' height='385' src='https://www.youtube.com/embed/p3mxq44HhnU?rel=0&fs=1&hd=1' frameborder='0' allowfullscreen></iframe></center></p></div></div><div class='post'><div class='grumpypost'><hr><h3 class='post-title'><a href='dev_diary'>Return to Monkey Island Dev Diary</a></h3>
+		      <div class='date'>May 25, 2022</div><h3>Jul 17, 2020</h3>
+<p>First official day is Monday but I've started setting up Slack and other web services.</p>
+<h3>Jul 18, 2020</h3>
+<p>Ordered Linux machine. Talked to Dave about maybe controlling Elaine for a section of the game.  </p>
+<p>Starting to worry about finding great people. It's going to be hard because we have to keep the project a secret.</p>
+<p>Played MI1 again. Taking a lot of notes about what made MI MI.  After TWP and fast walk and other almost invisible improvements, it's painful to play a 35 year-old adventure game.</p>
+<p>I was surprised at how many objects didn't have custom default responses. A large number of objects just said "That doesn't seem to work."</p>
+<h3>Jul 19, 2020</h3>
+<p>Played MI again.</p>
+<h3>Jul 20, 2020</h3>
+<p>Working with the lawyer to get contractor contracts done that conform to Disney's requirements. Taking longer than I thought.</p>
+<p>Hope to get Dave's contract done by tomorrow.</p>
+<h3>Jul 23, 2020</h3>
+<p>First "real" design meeting with dave.  Laying down the backbone puzzles for Act 1.</p>
+<h3>Jul 24, 2020</h3>
+<p>Started the Puzzle Dependency Chart for Act 1.</p>
+<h3>Jul 27, 2020</h3>
+<p>Jenn started</p>
+<h3>Jul 28, 2020</h3>
+<p>Making good progress on design.  I know we'll slow down when we have to do all the details.  Looking forward to getting a concept artist.  Things come alive for me when concepts start to come in.</p>
+<h3>Nov 17, 2020</h3>
+<p>Starting up diary again... maybe I'll be able to keep it going this time.</p>
+<p>Thinking about the ui. I hate the current status-quo.</p>
+<h3>Nov 18, 2020</h3>
+<p>Meeting with Disney.</p>
+<h3>May 25, 2022</h3>
+<p>Yep, this dev diary didn't last long.</p><br><div><a href='/dev_diary'>View 250 comments or add yours</a></div></div></div><div class='post'><div class='grumpypost'><hr><h3 class='post-title'><a href='when_i_made_another_monkeyisland'>When I Made Another Monkey Island</a></h3>
+		      <div class='date'>May 01, 2022</div><p>Nine years ago I wrote a blog post titled <a href="https://grumpygamer.com/if_i_made_another_monkeyisland">"If I made another Monkey Island"</a> and it feels like there are some things I need to say.</p>
+<p>I can't remember the exact incident, but the day I wrote that I was feeling down about never being able to make another Monkey Island.  I wrote it in a single afternoon, and it was not much more than a stream of thoughts. In the movie version, tears would have been pouring down my cheeks, but it wasn't the movie version so I was probably sipping coffee and eating a chocolate chip cookie.</p>
+<p>My point is these were not commandments handed down and etched in stone on a giant tablet. They were just random thoughts about a (then very unlikely) new Monkey Island game. </p>
+<p>None of these are promises or anything I owe anybody.</p>
+<p>People talk a lot about Monkey Island 3a as if it was the game I would have made after Monkey Island 2 had I stayed at Lucasfilm.</p>
+<p>Here's the deal.</p>
+<p>The totality of that idea was "Guybrush chases the demon pirate LeChuck to hell and Stan is there."  That's it. That's all it was. </p>
+<p>Games, movies, and books don't come out fully formed.  They start as a morsel of an idea and then all the hard work begins.</p>
+<p>Roger Ebert had a great quote that I am constantly reminding myself of: </p>
+<blockquote>
+<p>"The muse visits during the act of creation, not before."</p>
+</blockquote>
+<p>Had I stayed at Lucasfilm I might have started with that idea, but by the time the game was done it would have been something completely different and better.</p>
+<p>And that is exactly what Return to Monkey Island is.  </p>
+<p>When Dave and I first got together to talk about Return to Monkey Island we had a nearly blank slate. We talked over ideas we'd had over the years including one of mine where Guybrush wakes up 3000 years in the future on a snowball Earth.</p>
+<p>We talked about my original "hell" idea but other Monkey Island games had already done much of that (by pure coincidence) and there was little point in rehashing it.</p>
+<p>The one thing I wanted to do was start the new game right where LeChuck's Revenge ended, and that became the one unmovable stone.</p>
+<p>I have made one pixel art game in my entire career and that was Thimbleweed Park.  Monkey Island 1 and 2 weren't pixel art games. They were games using state-of-the-art tech and art. Monkey Island 1 was 16 color EGA and we jumped at the chance to upgrade it to 256 colors.  Monkey Island 2 featured the magical wizardry of scanned art by Peter Chan and Steve Purcell and we lusted to keep pushing everything forward.  </p>
+<p>If I had stayed and done Monkey Island 3 it wouldn't have looked like Monkey Island 2. We would have kept pushing forward, and Day of the Tentacle is a good example of that.</p>
+<p>I never liked the art in DotT.  Technically and artistically it was fantastic, but I never liked the wacky Chuck Jones style.  But that was Dave and Tim's game, not mine. They can do what they want and I completely supported that.</p>
+<p>Curse of Monkey Island also took a leap forward. It introduced us to a fully voiced and taller, lankier Guybrush with painted backgrounds that were all the rage in the late 90s.  It was very much a game of its time.</p>
+<p>When Dave and I first started brainstorming Return to Monkey Island we talked about pixel art, but it didn't feel right. We didn't want to make a retro game. You can't read an article about Thimbleweed Park without it being called a "throwback game".  I didn't want Return to Monkey Island to be just a throwback game, I wanted to keep moving Monkey Island forward because it's interesting, fun, and exciting. It's what the Monkey Island games have always done.</p>
+<p>I wanted the art in Return to Monkey Island to be provocative, shocking, and not what everyone was expecting.  Rex is an amazing creative force and we have a team of incredible artists, animators, sound designers, programmers, and testers all pouring their souls into this game and it's beautiful to see, play, and listen to.</p>
+<p>The music Michael, Peter, and Clint are doing is equally amazing.  It's not AdLib, Sound Blaster, or even Roland MT-32 music. Its stunning, interactive, and recorded live.</p>
+<p>Return to Monkey Island may not be the art style you wanted or were expecting but it's the art style I wanted.</p>
+<p>When I started this game my biggest fear was Disney wouldn't let me make the game I wanted to make but they have been wonderful to work with.</p>
+<p>It's ironic that the people who don't want me to make the game I want to make are some of the hard core Monkey Island fans. And that is what makes me sad about all the comments.</p>
+<p>Return to Monkey Island is an incredible rollercoaster.  Get on and have some fun or stomp out of the amusement park because it's not exactly the rollercoaster you wanted.</p>
+<p>I hope you'll jump on with the rest of us.</p>
+<p><a href="https://grumpygamer.com/if_i_made_another_monkeyisland">*Seventeen</a> - The game would be the game I wanted to make. I don't want the pressure of trying to make the game you want me to make. I would vanish for long periods of time. I would not constantly keep you up-to-date or be feeding the hype-machine. I'd show stuff that excited me or amused me. If you let me do those things, you will love the game. That, I promise.</p></div></div><div class='post'><div class='grumpypost'><hr><h3 class='post-title'><a href='return_to_monkey_island'>Return to Monkey Island</a></h3>
+		      <div class='date'>Apr 04, 2022</div><p>I felt bad about the April Fools' joke so over the weekend I whipped up the game so no one was disappointed.</p>
+<p><center><iframe class='youtube' width='595' height='385' src='https://www.youtube.com/embed/sahskKAxSCY?rel=0&fs=1&hd=1' frameborder='0' allowfullscreen></iframe></center></p></div></div><div class='post'><div class='grumpypost'><hr><h3 class='post-title'><a href='april_fools_2022'>April Fools' 2022</a></h3>
+		      <div class='date'>Apr 01, 2022</div><p>For 18 years the Grumpy Gamer blog has been April Fools' day free because it's a stupid tradition.</p>
+<p>So to mix things up a little I'm taking this opportunity to announce I've decided to make another Monkey Island.</p></div></div><a class='pagination__next' href='post-6.html'>Next</a></div></div>      <footer class="footer thin-font">
+        <p>Unless otherwise noted, all content is Copyright 2004-2022 Ron Gilbert. Unauthorized use under penalty of death by dismemberment and/or fine not less than one million dollars. (v4.1)</p>
+      </footer>
+    </div>
+	<script src="/infinite-scroll.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+GET / HTTP/1.1
+Host: www.ifossf.org
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 12 Sep 2022 14:14:39 GMT
+Content-Length: 0
+location: https://www.ifossf.org/
+strict-transport-security: max-age=3600
+Age: 103
+X-Seen-By: GXNXSWFXisshliUcwO20NZL9Lwun+M+7c/tw2Pto8/F7ohSd5HIQqoFCM0zJgPyv,qquldgcFrj2n046g4RNSVD9afXLLL4YLJMcUpB+/QLk=,2d58ifebGbosy5xc+FRalrDVWX6AvY3ORbNYLgK135VEGe9FREA6+wYgL//fxqQ1IfmLvG9NAENrGV7lk37nh6zHrINshlO7K7ay8aEL5EE=,2UNV7KOq4oGjA5+PKsX47F5jMLVr16cVhIB31+65vJdYgeUJqUXtid+86vZww+nL
+Cache-Control: no-cache
+X-Wix-Request-Id: 1662992079.68549493971932313
+server-timing: cache;desc=hit, varnish;desc=hit, dc;desc=euw3_g
+X-Content-Type-Options: nosniff
+Server: Pepyaka/1.19.10
+Via: 1.1 google

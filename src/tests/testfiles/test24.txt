@@ -1,0 +1,121 @@
+> GET / HTTP/1.1
+> Host: www.silcherschule-heilbronn.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:20:47 GMT
+< Server: Apache
+< Expires: Mon, 26 Jul 1997 05:00:00 GMT
+< Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
+< Pragma: no-cache
+< Upgrade: h2,h2c
+< Connection: Upgrade
+< Last-Modified: Tue, 13 Sep 2022 09:20:47 GMT
+< Vary: Accept-Encoding,User-Agent
+< Transfer-Encoding: chunked
+< Content-Type: text/html
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<title>Herzlich willkommen in der Silcherschule!</title>
+	<meta NAME="keywords" CONTENT="Silcherschule Heilbronn ">
+<!--	<meta name="viewport" content="width=device-width, initial-scale=0.9">-->
+	<link rel="icon" href="/_lay/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/_lay/favicon.ico" type="image/x-icon">
+	<link rel=stylesheet type="text/css" href="/_lay/standard.css">
+<!--	<link rel=stylesheet type="text/css" href="/_lay/responsive.css">-->
+<!--[if lt IE 9]>
+	<script src="/_lay/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="/_lay/css3-mediaqueries.js"></script>
+<![endif]-->
+	
+</head>
+
+<body>
+	<div id="main">
+		
+		<div id="logo"><a href="/"><img class="png" src="/_lay/img/Logo_web_neu.png" width="165" height="159" alt="Logo - zur Startseite"></a></div>
+		
+		<div id="menuh">
+			<div id="impressum" class="menu1"><p class="menu1"><a href="/wir/datenschutz/">Datenschutz</a></p>&nbsp;<span>&#8226;</span>&nbsp;<p class="menu1"><a href="/wir/impressum/">Impressum</a></p></div>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+										<td class="menu1"><p class="menu1">
+										<a name="_wir_"></a><a href="/wir/">Wir</a>
+					
+					</p></td>
+										<td class="menu1"><p class="menu1">
+										<a name="_unterricht_"></a><a href="/unterricht/">Unterricht</a>
+					
+					</p></td>
+										<td class="menu1"><p class="menu1">
+										<a name="_profilkurse_"></a><a href="/profilkurse/">Profilkurse</a>
+					
+					</p></td>
+										<td class="menu1"><p class="menu1">
+										<a name="_gtb_"></a><a href="/gtb/">Ganztagsbetreuung</a>
+					
+					</p></td>
+										<td class="menu1"><p class="menu1">
+										<a name="_Termine_"></a><a href="/Termine/">Termine</a>
+					
+					</p></td>
+										<td class="menu1"><p class="menu1">
+										<a name="_term_akt_"></a><a href="/term_akt/">Fernlernunterricht und Download</a>
+					
+					</p></td>
+									</tr>
+			</table>
+		</div>
+		<div id="splh"></div>
+		<div id="splv"></div>
+		<div id="menuv">
+				
+			
+					</div>
+		<div id="cont">
+
+<h2 class="cont_title">Herzlich willkommen in der Silcherschule!</h2>
+
+<a name="cont_000003" id="cont_000003"></a>
+<div class="element">
+		<img src="/_files/1659006070796.jpg" alt="" title="" height="525" width="700" class="cont_img">
+		<br>
+	<p><strong>4 Jahre Silcherschule - Wir fliegen weiter!</strong></p>
+<p>&nbsp;</p>
+<p>Am 27. Juli schickte die Schulgemeinschaft seine 4. Kl&auml;ssler in die gro&szlig;e weite Welt. Viele Eltern waren in die liebevoll geschm&uuml;ckte Turnhalle gekommen, um Ihre Kinder bei diesem Schritt zu begleiten. Mit einem kraftvollen Lied er&ouml;ffnete der Chor die Veranstaltung und schon jetzt waren viele Sch&uuml;ler und Eltern ger&uuml;hrt.</p>
+<p>Jede Klasse bekam mit einer pers&ouml;nlichen Ansprache durch Schulleiter Martin Vetter und viel Applaus der Eltern die Zeugnisse &uuml;berreicht. Der kr&ouml;nende Abschluss war der feierliche und bewegende Auszug aller 100 Viertkl&auml;ssler auf den Sportplatz.</p>
+<p>&nbsp;</p>
+<p>Heimlich hatte sich die ganze Schulgemeinschaft versammelt und bejubelte den traditionellen Luftballon-Start. Mit einem lauten Countdown und dem beliebten Schultanz freuten sich alle auf die nun kommende, neue und sicher aufregende Zeit.</p>
+<p>&nbsp;</p>
+<p>Jetzt ist es soweit. Sie fliegen weiter...!</p></div>
+<a name="cont_000002" id="cont_000002"></a>
+<div class="element">
+		<img src="/_files/Chor%20-%20Tanz.JPG" alt="" title="" height="392" width="700" class="cont_img">
+		<br>
+	<p><strong>Mit dem Musical &bdquo;Lenny&ldquo; auf die gro&szlig;e Schulb&uuml;hne</strong></p>
+<p>Endlich konnten die vielen kleinen und gro&szlig;en Silchersch&uuml;ler wieder zeigen, was in ihnen steckt. Das diesj&auml;hrige Schulmusical fand zum Ende des Schuljahres nach langer Coronapause wieder in der Turnhalle der Silcherschule statt.</p>
+<p>Rund 100 Kinder standen voller Begeisterung auf der B&uuml;hne. Sie pr&auml;sentierten ihr K&ouml;nnen, das sie ein Jahr lang in den angebotenen Profilkursen Tanz und Theater, sowie im Chor trainiert und professionalisiert haben.</p>
+<p>Auch an beiden Auff&uuml;hrungsabenden war es hei&szlig;, genau wie bei Jimmy, der in einer Sommernacht seinen Kaiman Lenny heimlich im BUGA-See schwimmen lie&szlig;. Dieser genoss die neue Freiheit und riss aus. Dabei machte er Bekanntschaft mit den Bewohnern des Sees.</p>
+<p>Auch bei den Bewohnern im Heilbronner L&auml;ndle erregte der entflohene Lenny gro&szlig;es Aufsehen. Es fand eine aufregende Kaiman-Jagd statt, die ein gefundenes Fressen f&uuml;r die Sensationsreporterin Stefanie Stammel war. Diese berichtete sp&auml;ter auch aus dem Gerichtssaal, wo &uuml;ber die Zukunft von Lenny entschieden werden sollte. &nbsp;Zum Gl&uuml;ck konnte die geplante Modenschau &bdquo;Haute Couture auf dem Holzweg&ldquo; auf dem BUGA-Gel&auml;nde stattfinden und alle feierten dabei die erfolgreiche Rettung Lennys. Der F&ouml;rderverein der Schule organisierte eine gem&uuml;tliche Hocketse im Anschluss der Veranstaltung, bei der Eltern, Kinder und Lehrer gemeinsam den Abend ausklingen lassen konnten.</p>
+<p>Wir bedanken uns ganz herzlich f&uuml;r das Engagement aller Beteiligten!</p></div>
+<a name="cont_000001" id="cont_000001"></a>
+<div class="element">
+		<img src="/_files/1656071158820.jpg" alt="" title="" height="835" width="700" class="cont_img">
+		<br>
+	<p><strong><em>&nbsp;</em></strong></p>
+<p>Bei sch&ouml;nstem Wetter fand endlich wieder der Sporttag an unserer Schule statt.&nbsp; Es liegt uns sehr am Herzen, dass alle Kinder Freude an der Bewegung haben, sodass nicht nur der Dreikampf, bestehend aus Sprung, Wurf und Lauf bestritten wurde, sondern auch jede Menge Bewegungsangebote den jungen Sportlerinnen und Sportlern zur Verf&uuml;gung standen. So konnte jeder zeigen, was er kann.</p>
+<p>Zur Einstimmung versammelten sich die Sch&uuml;lerinnen und Sch&uuml;ler auf dem oberen Pausenhof. Herr Vetter begr&uuml;&szlig;te die Kinder feierlich. Traditonell wurde nat&uuml;rlich auch der Eid gesprochen, worauf der Schultanz &bdquo;Ein Hoch auf uns!&ldquo; folgte. Und dann ging es los: Der Dreikampf auf dem Sportplatz, Spielstationen auf dem gesamten Pausenhof, eine Bewegungslandschaft in der Sporthalle, wo Wagnis, Kraft und K&ouml;rpergef&uuml;hl gefragt war oder aber auch eine Traumreise zur Entspannung im ansprechend gestalteten Musiksaal warteten auf die Kinder. F&uuml;r Erfrischung sorgten die leckeren Bananen und Melonen am schattigen Stand des F&ouml;rdervereins der Silcherschule.</p>
+<p>&nbsp;</p>
+<p>Ein herzliches Dankesch&ouml;n geht an den F&ouml;rderverein und an alle Eltern, die uns an diesem Tag durch ihre Hilfe und Mitwirkung so tatkr&auml;ftig unterst&uuml;tzt haben und den Sporttag f&uuml;r die begeisterten Kinder zu einem echten Highlight im Schuljahr haben werden lassen.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><strong><strong><strong><strong><strong><strong><strong>Silcherschule </strong><strong>Grundschule </strong><strong>Heilbronn</strong></strong></strong></strong></strong></strong></strong></strong></p>
+Lenaustra&szlig;e 8<br>74074 Heilbronn<br>Tel.: 07131 - 72432-0<br>Fax.: 07131 - 72432-20<br>poststelle@04122117.schule.bwl.de</div>
+
+	</div>
+</body>
+</html>

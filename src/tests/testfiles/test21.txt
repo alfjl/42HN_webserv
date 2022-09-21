@@ -1,0 +1,201 @@
+> GET /klingenberg/grundschule-klingenberg.html HTTP/1.1
+> Host: www.mein-heilbronn.org
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:14:08 GMT
+< Server: Apache
+< Upgrade: h2,h2c
+< Connection: Upgrade
+< Content-Length: 22948
+< Vary: Accept-Encoding,User-Agent
+< Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2020 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at http://typo3.org/
+-->
+
+<base href="http://www.mein-heilbronn.org/">
+
+<title>Grundschule Klingenberg</title>
+<meta name="generator" content="TYPO3 CMS">
+
+
+<link rel="stylesheet" type="text/css" href="http://www.mein-heilbronn.org/typo3temp/stylesheet_4e5ee0bf79.css?1585730259" media="all">
+<link rel="stylesheet" type="text/css" href="http://www.mein-heilbronn.org/typo3conf/ext/snet_tmpl_mein-heilbronn/Resources/Public/Styles/Extensions/tt_news/styles.css?1436346934" media="all">
+
+
+
+<script src="http://www.mein-heilbronn.org/uploads/tx_t3jquery/jquery-1.7.x-1.8.x.js" type="text/javascript"></script>
+
+<script>if(!window.snet){window.snet = {};}snet.resolveExtPath=function(path){return path.replace('EXT:','/typo3conf/ext/');};snet.jsRootPath=snet.resolveExtPath('EXT:snet_tmpl_mein-heilbronn/Resources/Public/Scripts/JS');snet.cssRootPath=snet.resolveExtPath('EXT:snet_tmpl_mein-heilbronn/Resources/Public/Styles');</script> <script src="//cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js" type="text/javascript"></script>
+<script src="http://www.mein-heilbronn.org/typo3temp/javascript_9a38f34785.js?1532009298" type="text/javascript"></script>
+
+
+
+<script src="https://cookie.innovis.de/ccm19-mein-heilbronn.org/public/ccm19.js?apiKey=d796421e82007d21da9bade33cdd7ac4b94309842186ede2&amp;domain=f6e23a3&amp;lang=de_DE" referrerpolicy="origin"></script>
+<!-- Subpart ###title-tag### begin -->
+<title>&quot;Startseite&quot;</title>
+<!-- Subpart ###title-tag### end -->
+
+
+<link href="http://www.mein-heilbronn.org/fileadmin/default/css/styles.css" rel="stylesheet" type="text/css"/>
+<!-- <link href="http://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister%7CDroid+Sans:400,700" rel="stylesheet" type="text/css" /> -->
+<meta name="viewport" content="width=device-width; initial-scale=1.0;" />
+
+<!--[if lte IE 7]>
+<link href="http://www.mein-heilbronn.org/fileadmin/default/css/ie-patch.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />		<script type="text/javascript" src="http://www.mein-heilbronn.org/fileadmin/scripts/js/imagemap.js"></script>
+		<script type="text/javascript" src="http://www.mein-heilbronn.org/fileadmin/scripts/js/paddings.js"></script>    <link rel="stylesheet" type="text/css" href="http://www.mein-heilbronn.org/fileadmin/default/css/styles_unterseiten.css" /><link rel="stylesheet" type="text/css" href="http://www.mein-heilbronn.org/fileadmin/default/css/styles_klingenberg.css" />
+<link rel="stylesheet" href="http://www.mein-heilbronn.org/typo3conf/ext/perfectlightbox/res/css/slightbox.css" type="text/css" media="screen,projection" /><script type="text/javascript" src="http://www.mein-heilbronn.org/typo3conf/ext/perfectlightbox/res/js/prototype.1.7.0.yui.js"></script>
+<script type="text/javascript" src="http://www.mein-heilbronn.org/typo3conf/ext/perfectlightbox/res/js/scriptaculous.js?load=effects,builder"></script><script type="text/javascript" src="http://www.mein-heilbronn.org/typo3conf/ext/perfectlightbox/res/js/lightbox.2.0.5.yui.js"></script><script type="text/javascript">
+	LightboxOptions.borderSize = 10;
+	LightboxOptions.resizeSpeed = 400;
+	LightboxOptions.overlayOpacity = 0.8;
+	LightboxOptions.loop = true;
+	LightboxOptions.allowSave = false;
+	LightboxOptions.slideshowAutoplay = false;
+	LightboxOptions.slideshowInterval = 5000;
+	LightboxOptions.slideshowAutoclose = true;
+	LightboxOptions.labelImage = 'Bild';
+	LightboxOptions.labelOf = 'von';</script>
+
+
+</head>
+<body>
+
+
+
+
+
+<div class="page_margins">
+
+  <div id="header">
+    <div id="headerContainer">
+      <div id="sprechblase"><img src="http://www.mein-heilbronn.org/fileadmin/default/images/layout/sprechblase-blau.png" alt="Entdecke deine Stadt" />&nbsp;</div>
+      <div id="top">
+      <div id="logo"><a href="/"><img src="http://www.mein-heilbronn.org/fileadmin/default/images/layout/logo-meinHeilbronn.png" alt="Logo Mein Heilbronn" /></a></div>
+      <div id="suche"><div class="tx-macinasearchbox-pi1">
+		
+<form action="http://www.mein-heilbronn.org/de/erweiterte-suche.html" method="post" name="searchform" id="searchform" style="margin:0px; padding:0px; ">
+  <table>
+    <!--<tr>
+      <td valign="top">Suchen & Finden</td>
+      <td valign="middle" width="10">&nbsp;</td>
+    </tr>-->
+    <tr>
+      <td><input onfocus="if(this.value=='Suchwort eingeben')this.value=''" onblur="if(this.value=='')this.value='Suchwort eingeben'" name="tx_indexedsearch[sword]" type="text" value="Suchwort eingeben" /></td>
+      <td><input name="tx_indexedsearch[submit_button]" type="submit" value="" />
+        <input type="hidden" name="tx_indexedsearch[_sections]" value="0" />
+        <input type="hidden" name="tx_indexedsearch[pointer]" value="0" />
+        <input type="hidden" name="tx_indexedsearch[ext]" value="0" />
+        <input type="hidden" name="tx_indexedsearch[lang]" value="0" />
+      </td>
+    </tr>
+    <tr>
+      <td style="font-size:9px; text-align:right;" colspan="2"><a href="http://www.mein-heilbronn.org/de/erweiterte-suche.html?tx_indexedsearch%5Bext%5D=1">Genauer suchen</a></td>
+    </tr>
+  </table>
+</form>
+
+	</div>
+	</div>
+      </div>
+
+
+      <div id="headerbild"><img src="http://www.mein-heilbronn.org/fileadmin/_migrated/media/Klingenberg_01.jpg" width="995" height="170"   alt="Mein Heilbronn" title="Mein Heilbronn" ></div>
+      </div>
+  </div>
+
+    <div id="mainnav"><div id="mainnavCont"><ul><li id="item_28" class="no no_first"><a href="http://www.mein-heilbronn.org/themen/heilbronn-im-ueberblick.html" target="_self" title="THEMEN stadtteilübergreifend" class="no">THEMEN</a></li><li id="item_19" class="no"><a href="http://www.mein-heilbronn.org/kernstadt/heilbronn-kernstadt.html" target="_self" title="KERNSTADT Heilbronn" class="no">KERNSTADT</a></li><li id="item_20" class="no"><a href="http://www.mein-heilbronn.org/biberach/stadtteil-biberach.html" target="_self" title="BIBERACH" class="no">BIBERACH</a></li><li id="item_21" class="no"><a href="http://www.mein-heilbronn.org/boeckingen/stadtteil-boeckingen.html" target="_self" title="BÖCKINGEN" class="no">BÖCKINGEN</a></li><li id="item_22" class="no"><a href="http://www.mein-heilbronn.org/frankenbach/stadtteil-frankenbach.html" target="_self" title="FRANKENBACH" class="no">FRANKENBACH</a></li><li id="item_23" class="no"><a href="http://www.mein-heilbronn.org/horkheim/stadtteil-horkheim.html" target="_self" title="HORKHEIM" class="no">HORKHEIM</a></li><li id="item_24" class="no"><a href="http://www.mein-heilbronn.org/kirchhausen/stadtteil-kirchhausen.html" target="_self" title="KIRCHHAUSEN" class="no">KIRCHHAUSEN</a></li><li id="item_25" class="act"><a href="http://www.mein-heilbronn.org/klingenberg/stadtteil-klingenberg.html" target="_self" title="KLINGENBERG" class="act">KLINGENBERG</a></li><li id="item_26" class="no"><a href="http://www.mein-heilbronn.org/neckargartach/stadtteil-neckargartach.html" target="_self" title="NECKARGARTACH" class="no">NECKARGARTACH</a></li><li id="item_27" class="no no_last"><a href="http://www.mein-heilbronn.org/sontheim/stadtteil-sontheim.html" target="_self" title="SONTHEIM" class="no">SONTHEIM</a></li></ul></div></div>
+
+    <div id="main">
+    <div id="mainContainer">
+      <div id="breadcrumb"><span>Du bist hier:&nbsp;</span><a href="/index.php?id=2"><img src="/fileadmin/default/images/layout/home-button.png" alt="Startseite" title="Startseite" /></a>&nbsp;<span class="breadcrumb-img">&nbsp;</span>&nbsp;<a href="http://www.mein-heilbronn.org/klingenberg/stadtteil-klingenberg.html" target="_top" title=" Zurück zu: KLINGENBERG ">KLINGENBERG</a>&nbsp;<span class="breadcrumb-img">&nbsp;</span>&nbsp;Grundschule Klingenberg</div>
+      <div id="col1">
+      <div id="col1_content" class="clearfix">
+        <div id="subnav"><ul class="ebene1"><li id="item_354" class="no no_first"><a href="http://www.mein-heilbronn.org/klingenberg/stadtteil-klingenberg.html" target="_self" title="Stadtteil Klingenberg" class="no">Stadtteil Klingenberg</a></li><li id="item_408" class="cur cur_last"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html" target="_self" title="Grundschule Klingenberg" class="cur">Grundschule Klingenberg</a></li></ul></div>
+        <div id="inhaltsboxen"><div id="c4197" class="csc-frame csc-frame-frame2"><div class="csc-header csc-header-n1"><h2 class="kennstDu">Auf dem Stadtplan</h2></div><div class="csc-textpic csc-textpic-center csc-textpic-below"><div class="csc-textpic-text"><ol><li>Finde die Schule auf der Stadtkarte von&nbsp;<a href="https://openstreetmap.de/karte/?zoom=17&amp;lat=49.12027&amp;lon=9.15637&amp;layers=B00TT" title="OSM" target="_blank" class="external-link-new-window">OpenStreetMap</a>. (Falls du dort etwas suchen möchtest, gib auch <i>Heilbronn </i>im Suchfenster mit ein.)</li><li>Finde die Schule auch auf dem Heilbronner Stadtplan zum Vergrößern.</li></ol></div><div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="1"><div class="csc-textpic-center-outer"><div class="csc-textpic-center-inner"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/default/user/files/00_Meta/05_Karte_Orientierung/Stadtplan-HN-ia-2017/Stadtplan-HN-ia-2017.html" target="_blank"  title="Stadtplan zum Vergrößern (HN-VK)" ><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_Stadtplan-HN-ia-2017_Vorschau_1945b08c98.jpg" width="250" height="188" alt="Stadtplan zum Vergrößern (HN-VK)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-l">Stadtplan zum Vergrößern (<dfn title="© Stadt Heilbronn; Vermessungs- und Katasteramt">HN-VK</dfn>)</figcaption></figure></div></div></div></div></div></div>
+      </div>
+      </div>
+
+      <div id="col3">
+
+      <div id="col3_content" class="clearfix">
+        <div class="contentnav contentnav-top"><div class="helper"><ul class="nav-list"><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4196" title="direkt zur Box" target="_self">Bilder</a></li><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4191" title="direkt zur Box" target="_self">Weblinks</a></li><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4190" title="direkt zur Box" target="_self">Zum Namen</a></li></ul></div></div>
+                <!--TYPO3SEARCH_begin-->
+        <div id="c4187" class="csc-frame csc-frame-frame1"><div class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Die Grundschule Klingenberg</h1></div><div class="csc-textpic csc-textpic-intext-right"><div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="1"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_GSKlingenberg_2015-07-03_HMS_3267_1bc2ab1229.jpg"  title="Die Schule im Grünen (Juli 2015, HMS)" rel="lightbox[lb4187]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_GSKlingenberg_2015-07-03_HMS_3267_3fc1293df6.jpg" width="280" height="210" alt="Die Schule im Grünen (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">Grundschule Klingenberg (Juli 2015, <dfn title="Hans-Michael Scheurlen">HMS</dfn>)</figcaption></figure></div><div class="csc-textpic-text"><p class="bodytext"><i>Von Hans-Michael Scheurlen</i>
+</p>
+<p class="bodytext">&quot;Leben und Lernen - Lernen und Leben&quot; 
+</p>
+<p class="bodytext">Das ist die Leitlinie der Grundschule Klingenberg.&nbsp; Das Lernen miteinander und voneinander wird auch durch die flexible Eingangsstufe ermöglicht. Das ist etwas Besonderes: Dein erstes Schuljahr beginnt im Herbst oder erst im Frühjahr. Dadurch sind die Klassen an der Schule altersgemischt. Es sind also in deiner Klasse Kinder, die unterschiedlich alt sind. 
+</p>
+<p class="bodytext">Wenn du besonders schnell lernst, kannst du die Grundschule in drei Jahren durchlaufen. Wenn du etwas mehr Zeit benötigst, darfst du fünf Jahre in der Grundschule bleiben.&nbsp; 
+</p>
+<p class="bodytext">Du hast die Möglichkeit, bis spät in den Nachmittag hinein an der Schule zu bleiben. Nach dem Mittagessen gibt es Freispielzeiten, Hausaufgabenbetreuung und Freizeitangebote wie Basteln, Werken, Brettspiele, Sport und vieles mehr.</p></div></div></div><a href="http://www.mein-heilbronn.org/no_cache/klingenberg/grundschule-klingenberg.html?contid=4187&amp;type=77777" target="_blank" class="pdflink">Buchseite (PDF)</a><div id="c4186" class="csc-default"><div class="column-2cols"><div class="grid grid1"><div id="c4196" class="csc-frame csc-frame-frame1"><div class="csc-header csc-header-n1"><h2 class="csc-firstHeader">Bilder</h2></div><div class="csc-textpic csc-textpic-left csc-textpic-above csc-textpic-equalheight"><div class="csc-textpic-imagewrap" data-csc-images="6" data-csc-cols="3"><div class="csc-textpic-imagerow"><div class="csc-textpic-imagecolumn csc-textpic-firstcol"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Schulhof_aussen_GSKlingenberg_2015-07-03_HMS_3256_d1bba8d9ff.jpg"  title="Der vordere Pausenbereich (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Schulhof_aussen_GSKlingenberg_2015-07-03_HMS_3256_331070e4d2.jpg" width="87" height="65" alt="Der vordere Pausenbereich (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">1</figcaption></figure></div>
+<div class="csc-textpic-imagecolumn"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Eingang_2015-07-03_HMS_3257_1cd42a7129.jpg"  title="Schuleingang (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Eingang_2015-07-03_HMS_3257_21eb41f66d.jpg" width="87" height="65" alt="Schuleingang (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">2</figcaption></figure></div>
+<div class="csc-textpic-imagecolumn csc-textpic-lastcol"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Mensa_2015-07-03_HMS_3260_fb16ee19af.jpg"  title="Die Mensa (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Mensa_2015-07-03_HMS_3260_b7951c7027.jpg" width="87" height="65" alt="Die Mensa (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">3</figcaption></figure></div></div>
+<div class="csc-textpic-imagerow csc-textpic-imagerow-last"><div class="csc-textpic-imagecolumn csc-textpic-firstcol"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Schulhof_Spielgeraet_2015-07-03_HMS_3259_6feee810be.jpg"  title="Der Innenhof mit Spielgeräten (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Schulhof_Spielgeraet_2015-07-03_HMS_3259_1840f91632.jpg" width="87" height="65" alt="Der Innenhof mit Spielgeräten (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">4</figcaption></figure></div>
+<div class="csc-textpic-imagecolumn"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Vom_Pausenhof_2015-07-03_HMS_3261_cb3db058d3.jpg"  title="Blick vom Innenhof auf die Schule (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Vom_Pausenhof_2015-07-03_HMS_3261_693ce8d57d.jpg" width="87" height="65" alt="Blick vom Innenhof auf die Schule (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">5</figcaption></figure></div>
+<div class="csc-textpic-imagecolumn csc-textpic-lastcol"><figure class="csc-textpic-image csc-textpic-last"><a href="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Eingang_vom_Pausenhof_2015-07-03_HMS_3264_d3c60db73a.jpg"  title="Der Eingang vom inneren Pausenhof (Juli 2015, HMS)" rel="lightbox[presentlb4196]"><img src="http://www.mein-heilbronn.org/fileadmin/_processed_/csm_7-2-1_Eingang_vom_Pausenhof_2015-07-03_HMS_3264_837d1a5399.jpg" width="49" height="65" alt="Der Eingang vom inneren Pausenhof (Juli 2015, HMS)"></a><figcaption class="csc-textpic-caption csc-textpic-caption-c">6</figcaption></figure></div></div></div><div class="csc-textpic-text"></div></div></div></div><div class="grid grid2"><div id="c4191" class="csc-frame csc-frame-frame1"><div class="csc-header csc-header-n1"><h2 class="weblinks">Weblinks</h2></div><div class="csc-textpic-text"><p class="bodytext">Schulhomepage
+</p>
+<p class="bodytext"><a href="http://www.gsklingenberg.de" title="Grundschule Klingenberg" target="_blank" class="external-link-new-window">www.gsklingenberg.de</a>
+</p>
+<p class="bodytext">Schulwegplan
+</p>
+<p class="bodytext"><a href="https://www.heilbronn.de/schule-bildung/schulen/grund-undwerkrealschulen/schulwegplaene.html" title="Stadt Heilbronn" target="_blank" class="external-link-new-window">https://www.heilbronn.de/</a></p></div></div><div id="c4190" class="csc-frame csc-frame-frame1"><div class="csc-header csc-header-n2"><h2 class="kennstDu">Zum Namen</h2></div><div class="csc-textpic-text"><p class="bodytext">Die Grundschule Klingenberg ist nach dem Ortsnamen benannt.</p></div></div></div></div><div style="clear:both;"></div></div><div class="csc-frame csc-frame-invisible"><div class="divider"><hr></div></div><div id="c4182" class="csc-default"><div class="csc-textpic-text"><p class="bodytext"><i>Erstellt: 26.06.2015 (<dfn title="Hans-Michael Scheurlen">HMS</dfn>) - Bearbeitet: <dfn title="Hans-Michael Scheurlen">HMS</dfn>, <dfn title="Vera Neureuther">VN</dfn> - Zuletzt geändert: 11.03.2016 (<dfn title="Folkhard Leuschner">FL</dfn>)<br /></i></p></div></div>
+                <!-- TYPO3SEARCH_end-->
+        <div class="contentnav contentnav-bottom"><div class="helper"><ul class="nav-list"><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4196" title="direkt zur Box" target="_self">Bilder</a></li><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4191" title="direkt zur Box" target="_self">Weblinks</a></li><li class="nav-list-item"><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#c4190" title="direkt zur Box" target="_self">Zum Namen</a></li></ul></div></div>
+      </div>
+      <div id="ie_clearing">&nbsp;</div>
+      </div>
+      </div>
+    <div style="clear:both">&nbsp;</div>
+    </div>
+
+    <div id="footer">
+    <div id="footerContainer">
+      <div id="footerLeft">
+      <div id="metanav"><ul><li id="item_2" class="no no_first"><a href="http://www.mein-heilbronn.org/meta/start.html" target="_self" title="Startseite" class="no">START</a><span>&Iota;</span></li><li id="item_30" class="no"><a href="http://www.mein-heilbronn.org/meta/faq.html" target="_self" title="Lehrkräfte-FAQ" class="no">FAQ</a><span>&Iota;</span></li><li id="item_29" class="no"><a href="http://www.mein-heilbronn.org/meta/team.html" target="_self" title="Team" class="no">Team</a><span>&Iota;</span></li><li id="item_80" class="no"><a href="http://www.mein-heilbronn.org/meta/nutzung-urheber.html" target="_self" title="Nutzung / Urhebernachweis" class="no">Nutzung / Urheber</a><span>&Iota;</span></li><li id="item_4" class="no"><a href="http://www.mein-heilbronn.org/meta/sitemap.html" target="_self" title="Sitemap" class="no">Sitemap</a><span>&Iota;</span></li><li id="item_372" class="no"><a href="http://www.mein-heilbronn.org/meta/glossar.html" target="_self" title="Glossar" class="no">Glossar</a><span>&Iota;</span></li><li id="item_6" class="no no_last"><a href="http://www.mein-heilbronn.org/meta/impressum-datenschutz.html" target="_self" title="Impressum | Datenschutz" class="no">Impressum | Datenschutz</a></li></ul> <ul><li><a href="http://www.mein-heilbronn.org/klingenberg/grundschule-klingenberg.html#" onclick="CCM.openWidget();return false;">Cookieeinstellungen öffnen</a></li></ul></div>
+      <div id="footerInhalt"><div id="c3" class="csc-default"><div class="csc-textpic-text"><p class="bodytext">WIE GEHT DAS? | <a href="http://www.mein-heilbronn.org/bilder.html" title="Bilder" class="internal-link">Bilder</a> | <a href="http://www.mein-heilbronn.org/worterklaerungen.html" title="Worterklärungen" class="internal-link">Worterklärungen</a> | <a href="http://www.mein-heilbronn.org/suchen.html" title="Suchen" class="internal-link">Suchen</a> |&nbsp;<a href="http://www.mein-heilbronn.org/heft-oder-buch.html" title="Mein-Heilbronn-Buch oder -Heft" class="internal-link">Heft/Buch</a> | <a href="http://www.mein-heilbronn.org/zeitstrahl.html" title="Zeitstrahl und Zeitmarken" class="internal-link">Zeitstrahl</a> </p></div></div></div>
+      </div>
+      <div id="loginbox" style="position:relative;"><a href="/index.php?id=140" style="outline:none;position:absolute;display:block;width:290px;height:100px;">&nbsp;</a><div id="c16" class="csc-default"><div class="csc-header csc-header-n1"><h2 class="lehrkraefte">* Lehrkräfte-Infos sind aus</h2></div><div class="csc-textpic-text"><p class="bodytext">Die Lehrkräfte-Infos werden momentan <i>nicht </i>angezeigt.
+</p>
+<p class="bodytext">Bitte <b>auf den Schlüssel klicken</b>, um&nbsp;sie generell anzuzeigen.</p></div></div></div>
+
+    </div>
+  </div>
+</div>
+    <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+
+         var u="//piwik.mein-heilbronn.org/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 2]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+        g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+        </script>
+        <noscript><p><img src="http://piwik.mein-heilbronn.org/piwik.php?idsite=2" style="border:0" alt="" /></p></noscript>
+        <!-- /Piwik -->
+
+
+
+
+</body>
+</html>
