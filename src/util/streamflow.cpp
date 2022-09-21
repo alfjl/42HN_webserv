@@ -23,7 +23,7 @@ namespace webserv {
 		stringflow::stringflow(const std::string& s) : streamflow(stream), stream(s) {
 		}
 
-		fileflow::fileflow(std::string s) : streamflow(stream), stream(s) {
+		fileflow::fileflow(const char* path) : streamflow(stream), stream(path) {
 		}
 
 	}
