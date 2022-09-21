@@ -17,208 +17,95 @@ namespace webserv {
     namespace pal {
         namespace cpp {
 
-            /*
-            * Maintains the count of shared owners
-            * (number of pointers pointing to member 'ptr')
-            * and the object pointed to.
-            */
-            template<typename T>
-            class shared_ptr_payload {
-
-            public:
-                typedef T element_type;
-
-            private:
-                element_type*               ptr; // shared pointer
-                unsigned long               count; // number of owners of 'ptr'
-
-            public:
-
-                // Default constructor
-                shared_ptr_payload(T* ptrValue);
-
-            protected:
-                // Default destructor
-                ~shared_ptr_payload();
-
-            public:
-                // Increment reference count
-                void increment();
-
-                // Decrement reference count
-                void decrement();
-
-                // Get reference count
-                long getCount();
-
-                T* base() const { return ptr; }
-
-            }; // class shared_ptr_payload
-
-            /*
-            * Default constructor
-            */
-            template<typename T>
-            shared_ptr_payload<T>::shared_ptr_payload(T* ptrValue) : ptr(ptrValue), count(0) {
-                if (ptrValue != NULL)
-                    this->increment();
-            }
-
-            /*
-            * Default destructor
-            */
-            template<typename T>
-            shared_ptr_payload<T>::~shared_ptr_payload() {
-
-                // Use Safe delete to avoid crash and dangling pointer
-                if (this->ptr) {
-                    delete this->ptr;
-                    this->ptr = NULL;
-                }
-            }
-
-            /*
-            * Increment reference count
-            */
-            template<typename T>
-            void shared_ptr_payload<T>::increment() {
-                ++(this->count);
-            }
-
-            /*
-            * Decrement reference count
-            */
-            template<typename T>
-            void shared_ptr_payload<T>::decrement() {
-                --(this->count);
-                if (count == 0) {
-                    delete this;
-                }
-            }
-
-            /*
-            * Get reference count
-            */
-            template<typename T>
-            long shared_ptr_payload<T>::getCount() {
-                return (this->count);
-            }
-
-
-            /*
-            * Own implementation of the std::shared_ptr to be usable in our std=c++98 Standard project.
-            * Keeps track of the number of owners pointing on the same ptr.
-            * This class will automatically allocate and deallocate memory, via it's payload struct.
-            */
             template<typename T>
             class shared_ptr {
-
             private:
-                shared_ptr_payload<T>*   payload; // shared pointer
+                class core {
+                    unsigned int  refcount;
+                    T*            ptr;
+                public:
+                    template<typename T2>
+                    core(T2* _ptr) : refcount(0), ptr(_ptr) {
+                        // std::cout << this << " gets created " << std::endl;
+                    }
+
+                    ~core() {
+                        if (ptr != NULL) {
+                            delete ptr;
+                        }
+                    }
+
+                    void increment() {
+                        refcount++;
+                        // std::cout << this << " gets incremented to " << refcount << std::endl;
+                    }
+
+                    void decrement() {
+                        if (refcount == 0) {
+                            // std::cout << this << " is at zero!" << std::endl;
+                            delete this;
+                        } else {
+                            refcount--;
+                            // std::cout << this << " gets decremented to " << refcount << std::endl;
+                        }
+                    }
+
+                    T* get_ptr() const { return ptr; }
+                };
+
+                core* the_core;
 
             public:
-                // Parametarized Constructor
-                shared_ptr(T* ptrValue = NULL);
-
-                // Copy constructor
-                shared_ptr(const shared_ptr<T>& other);
-
-                // Destructor
-                ~shared_ptr();
-
-                // Overload operator * to get class object
-                T& operator*();
-
-                // Overload operator -> to access class member functions
-                T* operator->();
-
-                // Assignment operator
-                shared_ptr<T>& operator=(const shared_ptr<T>& other);
-
-            }; // class shared_ptr
-
-            /*
-            * Parametarized Constructor
-            */
-            template<typename T>
-            shared_ptr<T>::shared_ptr(T* ptrValue) {
-                this->payload = new shared_ptr_payload<T>(ptrValue);
-            }
-
-            /*
-            * Copy constructor
-            * DO NOT ALLOCATE NEW MEMORY IN COPY CONSTRUCTOR
-            * Do shallow copy of the payload struct and increment payload count
-            */
-            template<typename T>
-            shared_ptr<T>::shared_ptr(const shared_ptr<T>& other) {
-                this->payload = other.payload;
-                this->payload->increment();
-            }
-
-            /*
-            * Destructor
-            * It will play an important role in shared pointer
-            * We use shallow copy instead of deep copy, so payload destructor will
-            * de-allocate the memory only when payload count reaches '0'
-            * We can't directly free the memory without adding check of payload count, 
-            * otherwise program will crash
-            * 1. Decrement reference count
-            * 2. Check if reference count reaches to zero, then delete the memory
-            */
-            template<typename T>
-            shared_ptr<T>::~shared_ptr() {
-                this->payload->decrement();
-
-                // // Use Safe delete to avoid crash and dangling pointer
-                // if (this->getCount() == 0) {
-                //  delete this->payload;
-                // }
-            }
-
-            /*
-            * Overload operator * to get class object
-            */
-            template<typename T>
-            T& shared_ptr<T>::operator*() {
-                return *(this->payload->base());
-            }
-
-            /*
-            * Overload operator -> to access class member functions
-            */
-            template<typename T>
-            T* shared_ptr<T>::operator->() {
-                return this->payload->base();
-            }
-
-            /*
-            * Assignment operator
-            * DO NOT ALLOCATE NEW MEMORY WHILE OVERLOADING ASSIGNMENT OPERATOR
-            * 1. Decrement count of pointers
-            * 2. Do shallow copy of other's payload struct
-            * 3. increment reference count
-            */
-            template<typename T>
-            shared_ptr<T>& shared_ptr<T>::operator=(const shared_ptr<T>& other) {
-
-                // Avoid self assignment
-                if (this != &other) {
-                    this->payload->decrement();
-
-                    // Copy the payload link
-                    // and increment the count payload count
-                    this->payload = other.payload;
-                    this->payload->increment();
+                shared_ptr() {
+                    // std::cout << "+ shared_ptr(NULL): " << this << std::endl;
+                    the_core = new core((T*) NULL);
                 }
-                return *this;
-            }
 
-            /*
-            * Allocates and constructs an object of type T
-            * and returns an object of type shared_ptr<T>
-            * that owns and stores a pointer to it (with a use count of 1).
-            */
+                template<typename T2>
+                explicit shared_ptr(T2* ptr) {
+                    // std::cout << "+ shared_ptr(p): " << this << std::endl;
+                    the_core = new core(ptr);
+                }
+
+                template<typename T2>
+                shared_ptr(const shared_ptr<T2>& other) {
+                    // std::cout << "+ shared_ptr(&): " << this << std::endl;
+                    the_core = (core*) other.get_core();
+                    the_core->increment();
+                }
+
+                template<typename T2>
+                shared_ptr(shared_ptr<T2>& other) {
+                    // std::cout << "! shared_ptr(&): " << this << std::endl;
+                    the_core = (core*) other.get_core();
+                    the_core->increment();
+                }
+
+                ~shared_ptr() {
+                    // std::cout << "+ ~shared_ptr(): " << this << std::endl;
+                    the_core->decrement();
+                }
+
+                shared_ptr& operator=(const shared_ptr& other) {
+                    // std::cout << "+ shared_ptr(=): " << this << std::endl;
+                    core* c = the_core;
+
+                    if (this != &other) {
+                        the_core = other.get_core();
+                        the_core->increment();
+                        c->decrement();
+                    }
+
+                    return *this;
+                }
+
+                core* get_core() const { return the_core; }
+                T*    get() const { return get_core()->get_ptr(); }
+
+                T& operator*() { return *(get()); }
+                T* operator->() { return get(); }
+            };
+            
             template<typename T>
             shared_ptr<T> wrap_shared(T* value) {
                 shared_ptr<T>   ptr(value);
