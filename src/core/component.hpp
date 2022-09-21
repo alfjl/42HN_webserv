@@ -1,6 +1,7 @@
 #ifndef WEBSERV_CORE_COMPONENT_HPP
 #define WEBSERV_CORE_COMPONENT_HPP
 
+#include "../defs.hpp"
 
 namespace webserv {
     namespace core {
