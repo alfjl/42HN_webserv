@@ -26,7 +26,7 @@ namespace webserv {
 		class fileflow : public streamflow {
 			std::ifstream stream;
 		public:
-			fileflow(std::string s);
+			fileflow(const char* path);
 		};
 
 
