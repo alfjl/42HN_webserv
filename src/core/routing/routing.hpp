@@ -3,6 +3,8 @@
 
 #include "../component.hpp"
 
+#include "../../http/http_response.hpp"
+#include "../../http/request.hpp"
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
 
@@ -17,7 +19,7 @@ namespace webserv {
             routing(instance& the_inst);
             ~routing();
 
-            http_response* look_up(http_request& request);
+            webserv::http::http_response* look_up(webserv::http::request_line& request);
 
         }; // class selector
 

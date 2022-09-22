@@ -26,9 +26,9 @@ namespace webserv {
             int     _code;
 
         public:
-        /*
-         * Accepts a status code and sends the correct response back to the connection
-        */
+            /*
+            * Accepts a status code and sends the correct response back to the connection
+            */
             void    write(int code, webserv::util::connection& con);
 
         }; // class http_response

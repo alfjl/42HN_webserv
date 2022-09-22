@@ -21,6 +21,7 @@ void webserv_main() {
 }
 
 int main(int argc, char *argv[]) {
-    webserv_main();
+    // webserv_main();
+    test_all();
     return 0;
 }

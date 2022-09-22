@@ -11,7 +11,7 @@ namespace webserv {
 
         }
 
-        http_response* look_up(http_request& request) {
+        webserv::http::http_response* look_up(webserv::http::request_line& request) {
 
         }
 
