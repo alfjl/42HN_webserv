@@ -3,16 +3,28 @@
 namespace webserv {
     namespace http {
 
+        /*
+         * Default constructor initializes the members
+         * with members from http_request
+         */
         http_response::http_response(webserv::http::request_core& request)
             : _fields(request.get_fields()), _code(0) {
 
         }
 
+        /*
+         * Extracts the ostream of the connection
+         * and passes it on as its return value
+         */
         std::ostream& http_response::out(webserv::util::connection& con) {
             return con.get_ostream();
         }
 
-        void    http_response::write_code(webserv::util::connection& con) {
+        /*
+         * Writes the status_code and corresponding message (e.g. 200 OK)
+         * of the http_response to the connection
+         */
+        void    http_response::write_status(webserv::util::connection& con) {
             switch (_code)
             {
                 // 1xx informational response
@@ -127,7 +139,7 @@ namespace webserv {
                 case 451:
                     out(con) << "451 Unavailable For Legal Resons\r\n";
 
-                // Unofficial codes: nginx
+                // Unofficial codes: nginx // TODO: nginx codes needed?
                 case 444:
                     out(con) << "444 No Response\r\n";
                 case 494:
@@ -164,22 +176,39 @@ namespace webserv {
                     out(con) << "510 Not Extended\r\n";
                 case 511:
                     out(con) << "511 Network Authentication Required\r\n";
+                default: // TODO: needed? 
+                    out(con) << "500 Internal Server Error\r\n";
             }
         }
 
+        /*
+         * Iterates over the _fields member
+         * and writes field by field to the connection
+         */
+        void    write_fields(webserv::util::connection& con) {
+            fields::iterator    it
+        }
+
+        /*
+         * Writes the body of the http_response to the connections ostream
+         */
         void    http_response::write_body(webserv::util::connection& con) {
 
         }
 
+        /*
+         * Accepts a status code and writes the correct response back
+         * to the connections ostream
+         */
         void    http_response::write(int code, webserv::util::connection& con) {
             _code = code;
 
-            // do we need to write "HTTP/1.1" in every case?
+            // TODO: do we need to write "HTTP/1.1" in every case?
 
             // write code + corresponding message (e.g. 200 OK)
-            write_code(con);
+            write_status(con);
             // iterate over fields, and write all fields
-
+            write_fields(con);
             // write CRLF before begin of body
             out(con) << "\r\n";
             // write response body
