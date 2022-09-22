@@ -14,10 +14,10 @@ namespace webserv {
         class routing : public component {
 
         public:
-            routing();
+            routing(instance& the_inst);
             ~routing();
 
-            webserv::pal::cpp::shared_ptr<http_response> look_up(http_request& request);
+            http_response* look_up(http_request& request);
 
         }; // class selector
 
