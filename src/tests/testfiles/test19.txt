@@ -1,0 +1,1137 @@
+> GET /index.php/en/ HTTP/1.1
+> Host: www.gs-biberach.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:10:31 GMT
+< Server: Apache
+< X-Powered-By: PHP/7.3.5
+< P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+< Expires: Wed, 17 Aug 2005 00:00:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+< Pragma: no-cache
+< Set-Cookie: 4156ddfef37fb678f33b2751b80b0f5d=bkr17e95rgo6l9sei71aethqr7; path=/; HttpOnly
+< Set-Cookie: f61b48c14962f8b08d365293a451afcc=en-GB; expires=Wed, 13-Sep-2023 09:10:31 GMT; Max-Age=31536000; path=/; HttpOnly
+< X-Content-Type-Options: nosniff
+< Last-Modified: Tue, 13 Sep 2022 09:10:31 GMT
+< Vary: Accept-Encoding
+< X-Powered-By: PleskLin
+< Transfer-Encoding: chunked
+< Content-Type: text/html; charset=utf-8
+
+
+<!DOCTYPE HTML>
+<html xml:lang="en-GB" lang="en-GB"
+>
+<head>
+<base href="http://www.gs-biberach.de/index.php/en/" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Startseite</title>
+	<link href="/index.php/en/?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+	<link href="/index.php/en/?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
+	<link href="/templates/forte/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="http://www.gs-biberach.de/plugins/content/pdf_embed/assets/css/style.css" rel="stylesheet" type="text/css" />
+	<script src="/media/jui/js/jquery.min.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-noconflict.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/system/js/caption.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/jui/js/bootstrap.min.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery.ui.core.min.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery.ui.sortable.min.js?79e748d6655ce183783e0d787df14189" type="text/javascript"></script>
+	<script src="http://www.gs-biberach.de/templates/forte/js/jquery/jquery-ui-addons.js" type="text/javascript"></script>
+	<script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+	</script>
+	<script language="javascript" type="text/javascript">var s5_verticalhorizontal = "null";</script>
+	<script language="javascript" type="text/javascript">var s5_randomorder = "no";</script>
+	<script language="javascript" type="text/javascript">var s5_hidecar = "true";</script>
+	<script language="javascript" type="text/javascript">var s5_hidebut = "false";</script>
+	<script language="javascript" type="text/javascript">var s5_hidetext = "true";</script>
+	<script language="javascript" type="text/javascript">var s5_hideh2 = "true";</script>
+	<script language="javascript" type="text/javascript">var s5_dropdowntext = "Open Gallery";</script>
+	<style>.carouselInner .thumbnail {background-size: 100% 100% !important;;}</style>
+	<script type="text/javascript">var s5_slide_opacity=1</script>
+	<script language="javascript" type="text/javascript">var s5_verticalhorizontal = "false";</script>
+	<script src="http://www.gs-biberach.de/modules/mod_s5_image_and_content_fader/js/jd.gallery.jquery.js" type="text/javascript"></script>
+	<script src="http://www.gs-biberach.de/modules/mod_s5_image_and_content_fader/js/jd.gallery.transitions.jquery.js" type="text/javascript"></script>
+
+
+
+			<meta name="viewport" content="initial-scale=1.0" />
+	
+		<link href="http://www.gs-biberach.de/images/_bilder/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	
+<script type="text/javascript">
+	if(jQuery().jquery=='1.11.0') { jQuery.easing['easeOutExpo'] = jQuery.easing['easeOutCirc'] };
+</script>
+
+	<link href="http://www.gs-biberach.de/templates/forte/css/bootstrap/bootstrap-default-min.css" rel="stylesheet" type="text/css" />
+	<link href="http://www.gs-biberach.de/templates/forte/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+		
+	<link rel="stylesheet" href="http://www.gs-biberach.de/templates/forte/css/font-awesome/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="http://www.gs-biberach.de/templates/forte/css/ionicons/css/ionicons.min.css">
+
+<!-- Css and js addons for vertex features -->	
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+<style type="text/css"> /* MAX IMAGE WIDTH */img {  height:auto !important;   max-width:100% !important; -webkit-box-sizing: border-box !important; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box !important; /* Firefox, other Gecko */ box-sizing: border-box !important; /* Opera/IE 8+ */  }#map_canvas img, .gm-style img { max-width:none !important; }.full_width { width:100% !important; -webkit-box-sizing: border-box !important; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box !important; /* Firefox, other Gecko */ box-sizing: border-box !important; /* Opera/IE 8+ */ }.S5_submenu_itemTablet{ background:none !important; } #s5_right_wrap, #s5_left_wrap, #s5_right_inset_wrap, #s5_left_inset_wrap, #s5_right_top_wrap, #s5_left_top_wrap, #s5_right_bottom_wrap, #s5_left_bottom_wrap { width:100% !important; }   #s5_right_column_wrap { width:12.5% !important; margin-left:-25% !important; } #s5_left_column_wrap { width:12.5% !important; } #s5_center_column_wrap_inner { margin-right:25% !important; margin-left:25% !important; }  #s5_responsive_mobile_drop_down_wrap input { width:96% !important; } #s5_responsive_mobile_drop_down_search input { width:100% !important; }  @media screen and (max-width: 750px){ body { height:100% !important; position:relative !important;  padding-bottom:48px !important;  } #s5_responsive_menu_button { display:block !important; }  }  @media screen and (max-width: 970px){ #subMenusContainer .S5_subtext { width:85%; } }   #s5_responsive_mobile_sidebar { background:#414141; background: -moz-linear-gradient(top, #414141 0%, #414141 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#414141), color-stop(100%,#414141)); background: -webkit-linear-gradient(top, #414141 0%,#414141 100%); background: -o-linear-gradient(top, #414141 0%,#414141 100%); background: -ms-linear-gradient(top, #414141 0%,#414141 100%); background: linear-gradient(top, #414141 0%,#414141 100%); font-family: Raleway !important; } #s5_responsive_mobile_sidebar a, #s5_responsive_mobile_search, #s5_responsive_mobile_sidebar_login_register_wrap, #s5_responsive_mobile_sidebar_menu_wrap, .module_round_box-sidebar, .module_round_box-sidebar .s5_mod_h3, .module_round_box-sidebar .s5_h3_first, .module_round_box-sidebar .s5_h3_last, #s5_responsive_mobile_sidebar_menu_wrap h3 { color:#FFFFFF !important; font-family: Raleway !important; } .s5_responsive_mobile_sidebar_inactive .s5_responsive_mobile_sidebar_title_wrap:hover, #s5_responsive_mobile_sidebar_title_wrap_login_open, #s5_responsive_mobile_sidebar_title_wrap_register_open, #s5_responsive_mobile_sidebar_search_wrap_inner1, #s5_responsive_mobile_sidebar .first_level_li:hover { background:#303030; cursor:pointer; font-family: Raleway !important; } .s5_mobile_sidebar_h3_open, #s5_responsive_mobile_sidebar_menu_wrap h3:hover { background:#303030; cursor:pointer; } .s5_mobile_sidebar_h3_open span, #s5_responsive_mobile_sidebar_title_wrap_register_open, #s5_responsive_mobile_sidebar_title_wrap_login_open, #s5_responsive_mobile_sidebar a.s5_mobile_sidebar_active, #s5_responsive_mobile_sidebar .s5_mobile_sidebar_h3_open a { color:#23C0CC !important; } #s5_responsive_mobile_sidebar_menu_wrap div, #s5_responsive_mobile_sidebar_login_bottom, #s5_responsive_mobile_sidebar_register_bottom { background:#2A2A2A; } #s5_responsive_mobile_sidebar_search_wrap, #s5_responsive_mobile_sidebar_login_register_wrap, #s5_responsive_mobile_sidebar_menu_wrap { border-bottom:solid 1px #555555; font-family: Raleway !important; } #s5_pos_sidebar_top, #s5_pos_sidebar_bottom { border-bottom:solid 1px #555555; } #s5_responsive_mobile_sidebar_login_bottom #modlgn-username, #s5_responsive_mobile_sidebar_login_bottom #modlgn-passwd, #s5_responsive_mobile_sidebar_register_bottom input { background:#FFFFFF; color:#666666; border:solid 1px #FFFFFF; font-family: Raleway !important; }  #s5_responsive_mobile_bottom_bar, #s5_responsive_mobile_top_bar { background:#373737; background: -moz-linear-gradient(top, #373737 0%, #373737 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#373737), color-stop(100%,#373737)); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, #373737 0%,#373737 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, #373737 0%,#373737 100%); /* Opera11.10+ */ background: -ms-linear-gradient(top, #373737 0%,#373737 100%); /* IE10+ */ background: linear-gradient(top, #373737 0%,#373737 100%); /* W3C */   font-family: Raleway !important; } .s5_responsive_mobile_drop_down_inner, .s5_responsive_mobile_drop_down_inner input, .s5_responsive_mobile_drop_down_inner button, .s5_responsive_mobile_drop_down_inner .button, #s5_responsive_mobile_drop_down_search .validate { font-family: Raleway !important; } .s5_responsive_mobile_drop_down_inner button:hover, .s5_responsive_mobile_drop_down_inner .button:hover { background:#373737 !important; } #s5_responsive_mobile_drop_down_menu, #s5_responsive_mobile_drop_down_menu a, #s5_responsive_mobile_drop_down_login a { font-family: Raleway !important; color:#FFFFFF !important; } #s5_responsive_mobile_bar_active, #s5_responsive_mobile_drop_down_menu .current a, .s5_responsive_mobile_drop_down_inner .s5_mod_h3, .s5_responsive_mobile_drop_down_inner .s5_h3_first { color:#23C0CC !important; } .s5_responsive_mobile_drop_down_inner button, .s5_responsive_mobile_drop_down_inner .button { background:#23C0CC !important; } #s5_responsive_mobile_drop_down_menu .active ul li, #s5_responsive_mobile_drop_down_menu .current ul li a, #s5_responsive_switch_mobile a, #s5_responsive_switch_desktop a, #s5_responsive_mobile_drop_down_wrap { color:#FFFFFF !important; } #s5_responsive_mobile_toggle_click_menu span { border-right:solid 1px #373737; } #s5_responsive_mobile_toggle_click_menu { border-right:solid 1px #373737; } #s5_responsive_mobile_toggle_click_search span, #s5_responsive_mobile_toggle_click_register span, #s5_responsive_mobile_toggle_click_login span, #s5_responsive_mobile_scroll a { border-left:solid 1px #373737; } #s5_responsive_mobile_toggle_click_search, #s5_responsive_mobile_toggle_click_register, #s5_responsive_mobile_toggle_click_login, #s5_responsive_mobile_scroll { border-left:solid 1px #373737; } .s5_responsive_mobile_open, .s5_responsive_mobile_closed:hover, #s5_responsive_mobile_scroll:hover { background:#373737; } #s5_responsive_mobile_drop_down_menu .s5_responsive_mobile_drop_down_inner, #s5_responsive_mobile_drop_down_register .s5_responsive_mobile_drop_down_inner, #s5_responsive_mobile_drop_down_login .s5_responsive_mobile_drop_down_inner, #s5_responsive_mobile_drop_down_search .s5_responsive_mobile_drop_down_inner { background:#373737; } .s5_wrap { max-width:1400px !important; }      @media screen and (max-width: 1000px){ #s5_columns_wrap_inner { width:100% !important; } #s5_center_column_wrap { width:100% !important; left:100% !important; } #s5_left_column_wrap { left:0% !important; } #s5_left_top_wrap, #s5_left_column_wrap, #s5_left_inset_wrap, #s5_left_wrap, #s5_left_bottom_wrap, #s5_right_top_wrap, #s5_right_column_wrap, #s5_right_inset_wrap, #s5_right_wrap, #s5_right_bottom_wrap { width:100% !important; } #s5_center_column_wrap_inner { margin:0px !important; } #s5_left_column_wrap { margin-right:0px !important; } #s5_right_column_wrap { margin-left:0px !important; } .items-row .item { width:100% !important; padding-left:0px !important; padding-right:0px !important; margin-right:0px !important; margin-left:0px !important; } }      @media screen and (min-width:580px) and (max-width: 1100px){  #s5_top_row1 .s5_float_left { float:left !important; width:50% !important; } }                    @media screen and (min-width:580px) and (max-width: 1000px){  #s5_bottom_row3 .s5_float_left { float:left !important; width:50% !important; } }         body { background:none !important; background-color:#ffffff !important;  } #s5_top_row1_area1 {  background:#F2F2F2 !important;   }       .subMenusContainer, .s5_drop_down_container { position: fixed !important; } #s5_menu_wrap.s5_wrap {    position: fixed;  top:0px !important;  z-index:2;   margin-top:0px !important; }   #s5_menu_wrap { -webkit-transition: top 600ms ease-out; -moz-transition: top 600ms ease-out; -o-transition:top 600ms ease-out; transition: top 600ms ease-out; } #s5_menu_wrap.s5_wrap_fmfullwidth, #s5_menu_wrap.s5_wrap { top:0px; }  #s5_menu_wrap.s5_wrap, #s5_menu_wrap.s5_wrap_fmfullwidth {    }    </style><script type="text/javascript">  jQuery(document).ready( function() {  if (window.addEventListener) { window.addEventListener('scroll', s5_fm_check_scroll_height, false); } else if (window.attachEvent) { window.attachEvent('onscroll', s5_fm_check_scroll_height); } window.setTimeout(s5_fm_check_scroll_height,100); } ); var s5_menu_wrap_height = 0; var s5_menu_wrap_parent_height = 0; var s5_menu_wrap_parent_parent_height = 0; var s5_menu_wrap_run = "no"; function s5_fm_check_scroll_height() { if (s5_menu_wrap_run == "no") { s5_menu_wrap_height = document.getElementById("s5_menu_wrap").offsetHeight; s5_menu_wrap_parent_height = document.getElementById("s5_menu_wrap").parentNode.offsetHeight; s5_menu_wrap_parent_parent_height = document.getElementById("s5_menu_wrap").parentNode.parentNode.offsetHeight; s5_menu_wrap_run = "yes"; }    var s5_fmenuheight_new = 999999;  s5_fmenuheight_new = document.getElementById("s5_menu_wrap").offsetHeight;  if (window.pageYOffset >= 200 - s5_fmenuheight_new){ document.getElementById("s5_menu_wrap").style.top = "0px";} else {document.getElementById("s5_menu_wrap").style.top = "-500px";}  if (window.pageYOffset >= 200 && window.innerWidth > 750){ document.getElementById("s5_floating_menu_spacer").style.height = s5_menu_wrap_height + "px"; document.getElementById("s5_menu_wrap").className = 's5_wrap notfullwidth'; document.getElementById("subMenusContainer").className = 'subMenusContainer'; if (s5_menu_wrap_parent_height >= s5_menu_wrap_height - 20 && s5_menu_wrap_parent_parent_height >= s5_menu_wrap_height - 20 && document.getElementById("s5_menu_wrap").parentNode.style.position != "absolute" && document.getElementById("s5_menu_wrap").parentNode.parentNode.style.position != "absolute") { document.getElementById("s5_floating_menu_spacer").style.display = "block"; } } else { document.getElementById("s5_menu_wrap").className = ''; document.getElementById("subMenusContainer").className = ''; document.getElementById("s5_floating_menu_spacer").style.display = "none"; } }   </script>
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/core/s5_flex_menu-min.js"></script>
+<link rel="stylesheet" href="http://www.gs-biberach.de/templates/forte/css/s5_flex_menu.css" type="text/css" />
+<link rel="stylesheet" href="http://www.gs-biberach.de/templates/system/css/system.css" type="text/css" />
+<link rel="stylesheet" href="http://www.gs-biberach.de/templates/system/css/general.css" type="text/css" />
+
+
+<link href="http://www.gs-biberach.de/templates/forte/css/template.css" rel="stylesheet" type="text/css" />
+
+
+
+<link href="http://www.gs-biberach.de/templates/forte/css/editor.css" rel="stylesheet" type="text/css" />
+
+<link href="http://www.gs-biberach.de/templates/forte/css/thirdparty.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" />
+
+<link href="http://www.gs-biberach.de/templates/forte/css/multibox/multibox.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gs-biberach.de/templates/forte/css/multibox/ajax.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/multibox/overlay.js"></script>
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/multibox/multibox.js"></script>
+
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/core/s5_font_adjuster-min.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="http://www.gs-biberach.de/templates/forte/css/core/s5_responsive_bars-min.css" />
+	<link href="http://www.gs-biberach.de/templates/forte/css/core/s5_responsive_hide_classes-min.css" rel="stylesheet" type="text/css" />
+	<style type="text/css"> @media screen and (min-width: 650px){.s5_responsive_mobile_sidebar_show_ltr {width:400px !important;}.s5_responsive_mobile_sidebar_body_wrap_show_ltr {margin-left:400px !important;}.s5_responsive_mobile_sidebar_show_rtl {width:400px !important;}.s5_responsive_mobile_sidebar_body_wrap_show_rtl {margin-right:400px !important;}#s5_responsive_mobile_sidebar_inner1 {width:400px !important;}}</style>
+
+
+	<link rel="stylesheet" type="text/css" href="http://www.gs-biberach.de/templates/forte/css/s5_responsive.css" />
+	
+	
+
+<link rel="stylesheet" type="text/css" href="http://www.gs-biberach.de/templates/forte/css/custom.css" />	<script type="text/javascript">
+	//<![CDATA[
+				        jQuery(document).ready( function() {
+		            var myMenu = new MenuMatic({
+				tabletWidth:1400,
+                effect:"slide & fade",
+                duration:500,
+                physics: 'easeOutCirc',
+                hideDelay:250,
+                orientation:"horizontal",
+                tweakInitial:{x:0, y:0},
+				                                     	            direction:{    x: 'right',    y: 'down' },
+				                opacity:100            });
+        });		
+			//]]>	
+    </script>    
+
+<!-- Info Slide Script - Called in header so css validates -->	
+<link href="http://www.gs-biberach.de/templates/forte/css/core/s5_info_slide-min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/core/s5_info_slide-min.js"></script>
+
+	
+
+<!-- Resize column function -->	
+<script type="text/javascript">//<![CDATA[
+	var s5_resize_columns_browser_check = "safari";
+	var s5_resize_columns = "all";
+	var s5_resize_columns_delay = "500";
+	var s5_resize_columns_small_tablets = "default";
+//]]></script>
+<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/core/s5_columns_equalizer-min.js"></script>
+<!-- File compression. Needs to be called last on this file -->	
+<!-- The excluded files, listed below the compressed php files, are excluded because their calls vary per device or per browser. Included compression files are only ones that have no conditions and are included on all devices and browsers. Otherwise unwanted css will compile in the compressed files. -->	
+
+<!-- Additional scripts to load inside of the header -->
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" />
+
+<style type="text/css"> 
+.readon, button, .btn, .button, .highlight_font, h1, h2, h3, h4, h5, .pagenav a, .pagenav a, label, #s5_menu_search_wrap, #subMenusContainer {
+font-family: Roboto;
+}
+
+.s5_h3_first, .btn-link, a, #s5_search_wrap:hover, .s5_icon_search_close:hover, .readon.readon_grey, #subMenusContainer .moduletable a {
+color:#f37355;
+}
+
+.readon.readon_grey, .module_round_box ul.menu ul a:hover, .module_round_box ul.menu ul span:hover, .module_round_box ul.menu li ul li.current a, #s5_bottom_row3_area1 .module_round_box_outer ul li a:hover, #s5_bottom_row3_area1 .module_round_box_outer ul.menu a:hover, #s5_bottom_row3_area1 .module_round_box_outer ul.menu span:hover, h2 a:hover {
+color:#f37355 !important;
+}
+
+#s5_nav li.active, .button, .readmore a, .readon, button, .s5_ls_readmore, .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a, .dropdown-menu .active > a, .dropdown-menu .active > a:hover, .nav-list > .active > a, .nav-list > .active > a:hover, .nav-pills > .active > a, .nav-pills > .active > a:hover, .btn-group.open .btn-primary.dropdown-toggle, .btn-primary, .item-page .dropdown-menu li > a:hover, .blog .dropdown-menu li > a:hover, .item .dropdown-menu li > a:hover, .btn, .pagenav a, .jdGallery .carousel .carouselInner .active, #s5_pos_custom_2, .module_round_box-highlight, .recommended .s5_title, .ac-container label:hover, .ac-container2 label:hover {
+background:#f37355 !important;
+}
+
+.module_round_box ul.menu li.active span, .module_round_box ul.menu li.active a {
+background:#f37355;
+}
+
+#s5_nav li.mainMenuParentBtnFocused, #s5_nav li.mainMenuParentBtnFocused, .S5_submenu_item:hover, .S5_grouped_child_item .S5_submenu_item:hover, #s5_nav li.mainMenuParentBtn:hover, p.readmore:hover a, .readon:hover, .button:hover, button:hover, .pagenav a:hover, .well .btn:hover, .module_round_box-highlight .s5_mod_h3_outer {
+background:#d55537 !important;
+}
+
+.module_round_box ul.menu li a:hover, .module_round_box ul.menu li span:hover {
+background:#d55537;
+}
+
+.s5_scrolltotop:hover {
+background-color:#f37355 !important;
+}
+
+
+
+
+
+#s5_bottom_menu_wrap {
+padding-right:60px;
+}
+
+body, .inputbox {font-family: 'Roboto',Helvetica,Arial,Sans-Serif ;} 
+
+
+/* k2 stuff */
+div.itemHeader h2.itemTitle, div.catItemHeader h3.catItemTitle, h3.userItemTitle a, #comments-form p, #comments-report-form p, #comments-form span, #comments-form .counter, #comments .comment-author, #comments .author-homepage,
+#comments-form p, #comments-form #comments-form-buttons, #comments-form #comments-form-error, #comments-form #comments-form-captcha-holder {font-family: 'Roboto',Helvetica,Arial,Sans-Serif ;} 
+	
+.s5_wrap{width:96%;}	
+</style>
+</head>
+
+<body id="s5_body">
+
+<div id="s5_scrolltotop"></div>
+
+<!-- Top Vertex Calls -->
+<!-- Call mobile sidebar -->
+<div id="s5_responsive_mobile_sidebar" class="s5_responsive_mobile_sidebar_hide_ltr">
+	<div id="s5_responsive_mobile_sidebar_inner1" class="s5_responsive_mobile_sidebar_light">
+<div id="s5_responsive_mobile_sidebar_inner2">
+
+		<div id="s5_responsive_mobile_sidebar_search_wrap">
+	<div id="s5_responsive_mobile_sidebar_search_wrap_inner1">
+	<div id="s5_responsive_mobile_sidebar_search_wrap_inner2">
+		<form method="post" action="http://www.gs-biberach.de/">
+		<input type="text" onfocus="if (this.value=='Search...') this.value='';" onblur="if (this.value=='') this.value='Search...';" value="Search..." id="s5_responsive_mobile_search" name="searchword" />
+		<input type="hidden" value="search" name="task" />
+		<input type="hidden" value="com_search" name="option" />
+		<input type="hidden" value="1" name="Itemid" />
+	</form>
+	</div>
+	</div>
+	</div>
+	<div style="clear:both"></div>
+	
+	
+			
+			<div id="s5_responsive_mobile_sidebar_menu_wrap">
+			
+<!--<ul class="menu">-->
+<h3 class=''><span><a  class="s5_mobile_sidebar_active"  href='/index.php/en/' >Startseite</a></span></h3><h3 class='' onclick='s5_responsive_mobile_sidebar_h3_click(this.id)'><span class='s5_sidebar_deeper'><a  href='javascript:;' >Über uns</a></span></h3><div class='s5_responsive_mobile_sidebar_sub'><ul><li><a   href="/index.php/en/ueber-uns/kollegium" >Schulteam</a></li><li><a   href="/index.php/en/ueber-uns/leitbild" >Leitbild</a></li><li><a   href="/index.php/en/ueber-uns/sozialwirksame-grundschule" >Sozialwirksame Grundschule</a></li><li><a   href="http://gs-biberach.de/images/_pdf/ueberuns/UnsereWerte.pdf" target="_blank" >Unsere Werte</a></li><li><a   href="/index.php/en/ueber-uns/schulordnung" >Schulordnung</a></li><li><a   href="http://gs-biberach.de/images/_pdf/Stark-Strker-Wir-Matrix.pdf" target="_blank" >Präventionskonzept</a></li><li><a   href="/index.php/en/ueber-uns/schulgelaende" >Schulgelände</a></li><li><a   href="/index.php/en/ueber-uns/einzugsgebiet" >Einzugsgebiet</a></li></ul></div><h3 class='' onclick='s5_responsive_mobile_sidebar_h3_click(this.id)'><span class='s5_sidebar_deeper'><a  href='javascript:;' >Elterninfos</a></span></h3><div class='s5_responsive_mobile_sidebar_sub'><ul><li><a   href="/index.php/en/elterninfos/abc-der-grundschule-biberach" >ABC der Grundschule Biberach</a></li><li><a   href="/index.php/en/elterninfos/unser-elternbeirat" >Elternbeirat</a></li><li><a   href="/index.php/en/elterninfos/beratungslehrerin" >Beratungslehrerin</a></li><li><a   href="http://gs-biberach.de/images/_pdf/elterninfo/konfliktmanagement.pdf" target="_blank" >Konfliktmanagement</a></li><li><a   href="/index.php/en/elterninfos/materialliste" >Materialliste</a></li><li><a   href="/index.php/en/elterninfos/nuetzliches" >Nützliches</a></li></ul></div><h3 class='' onclick='s5_responsive_mobile_sidebar_h3_click(this.id)'><span class='s5_sidebar_deeper'><a  href='javascript:;' >Ganztagesbetrieb</a></span></h3><div class='s5_responsive_mobile_sidebar_sub'><ul><li><a   href="/index.php/en/ganztagesbetrieb/betreuungspersonal" >Betreuungspersonal</a></li><li><a   href="/index.php/en/ganztagesbetrieb/raeumlichkeiten" >Räumlichkeiten</a></li><li><a   href="/index.php/en/ganztagesbetrieb/angebote-der-gtb" >Angebote der GTB</a></li></ul></div><h3 class='' onclick='s5_responsive_mobile_sidebar_h3_click(this.id)'><span class='s5_sidebar_deeper'><a  href='javascript:;' >Bildungs +</a></span></h3><div class='s5_responsive_mobile_sidebar_sub'><ul><li><a   href="/index.php/en/bildungsplus/persoenlichkeitsstaerkung" >Persönlichkeitsstärkung</a></li><li><a   href="/index.php/en/bildungsplus/atelierunterricht" >Atelierunterricht</a></li><li><a   href="/index.php/en/bildungsplus/erweiterte-bildungsangebote" >Erweiterte Bildungsangebote</a></li><li><a   href="/index.php/en/bildungsplus/floetengruppe-und-blaeserklasse" >Flötengruppe und Bläserklasse</a></li></ul></div><h3 class=''><span><a   href='/index.php/en/foerderverein' >Förderverein</a></span></h3><!--</ul>-->
+		</div>
+	
+	
+</div>
+</div>
+</div>
+<div id="s5_responsive_mobile_sidebar_body_wrap">
+<div id="s5_responsive_mobile_sidebar_body_wrap_inner">
+
+<!-- Call top bar for mobile devices if layout is responsive -->	
+	
+			<!-- s5_responsive_mobile_top_bar_spacer must be called to keep a space at the top of the page since s5_responsive_mobile_top_bar_wrap is position absolute. -->	
+		<div id="s5_responsive_mobile_top_bar_spacer"></div>
+
+		<!-- s5_responsive_mobile_top_bar_wrap must be called off the page and not with display:none or it will cause issues with the togglers. -->
+		<div id="s5_responsive_mobile_top_bar_wrap" style="margin-top:-50000px;position:absolute;z-index:20;top:0px">
+
+			<div id="s5_responsive_mobile_top_bar" onclick="s5_responsive_mobile_sidebar()" class="s5_responsive_mobile_bar_light">
+
+					<div id="s5_responsive_mobile_toggle_click_menu">
+						<span></span>
+					</div>
+					
+											<div id="s5_responsive_mobile_bar_active">
+							<span>
+								Startseite							</span>
+						</div>
+					
+				<div style="clear:both;height:0px"></div>
+				
+			</div>
+
+		</div>
+	
+	<script type="text/javascript">
+		var s5_responsive_trigger = 750;
+		var s5_responsive_layout = "sidebar";
+		var s5_responsive_layout_direction = "_ltr";
+		var s5_responsive_menu_auto_open = "open";
+	</script>
+	<script type="text/javascript" src="http://www.gs-biberach.de/templates/forte/js/core/s5_responsive_mobile_bar-min.js"></script>
+
+
+<!-- Fixed Tabs -->	
+
+<!-- Drop Down -->	
+
+<!-- Parallax Backgrounds -->
+
+<!-- Floating Menu Spacer -->
+	
+<div id="s5_floating_menu_spacer" style="display:none;width:100%;"></div>
+
+<!-- Body Padding Div Used For Responsive Spacing -->		
+<div id="s5_body_padding">
+<div id="s5_main_wrapper" class="s5_wrap">
+
+	<!-- Header -->			
+		<header id="s5_menu_wrap">					
+			
+							<div id="s5_logo_wrap" class="s5_logo s5_logo_module">
+																					<div id="s5_logo_text_wrap">
+									<div class="moduletable">
+			
+
+<div class="custom"  >
+	<a href="http://gs-biberach.de/index.php"><img src="http://gs-biberach.de/images/_bilder/logo/logo.png" caption="false" width="120" /></a></div>
+		</div>
+	
+							<div style="clear:both;"></div>
+						</div>
+															<div style="clear:both;"></div>
+				</div>	
+					
+			<div id="s5_search_wrap_outer">
+				
+								<div style="clear:both; height:0px"></div>	
+			</div>
+			
+			<div id="s5_menu_wrap_inner">
+						
+					<nav id="s5_menu_inner" class="s5_wrap_menu">
+												<div style="clear:both; height:0px"></div>	
+					</nav>
+							</div>
+	
+			<div style="clear:both; height:0px"></div>			
+		</header>
+	<!-- End Header -->	
+	
+	<div id="s5_content_body_wrap">
+	
+			<div id="s5_pos_custom_1">
+					<div class="moduletable">
+			
+
+
+
+
+
+	
+				<script type="text/javascript">//<![CDATA[
+		document.write('<link href="http://www.gs-biberach.de/modules/mod_s5_image_and_content_fader/css/s5imagecontent.css" rel="stylesheet" type="text/css" media="screen" />');
+	//]]></script>
+
+		
+		
+			<script type="text/javascript">
+
+			
+				function s5_icfstartGallery() { 
+				document.getElementById("s5_iacf_content_wrap").style.display = 'block';
+				window.myGallery = new gallery(jQuery('#myGallery'), {
+						timed: true,
+						showArrows: false,
+						showCarousel: true,
+						showInfopane: true,	
+						slideShowDuration:500,
+						slideHideDuration:500,
+						fadeDuration:500,
+						randomOrder:"no",						
+							
+						delay: 5000,
+							
+													defaultTransition: "continuoushorizontal"
+							
+												                        					});
+										jQuery('#myGallery').bind('mouseover',function(){window.myGallery.clearTimer();});
+					jQuery('#myGallery').bind('mouseout',function(){window.myGallery.prepareTimer();});
+								}
+		function s5_icfstartGalleryload() {
+		s5_icfstartGallery();}
+		window.setTimeout(s5_icfstartGalleryload,400);		
+			</script>
+	
+			
+			<div class="content " style="position:relative;z-index:0">
+			<div id="myGallery" style="background:#;width:100%;">
+							<div id="myGallery_height">
+					<img id="myGallery_height_img" alt="" src="/images/_bilder/gallery/1.jpg" />
+				</div>
+						 <div id="s5_iacf_content_wrap" style="display:none">
+									<div class="imageElement" style="z-index:0;">
+						<h3>Grundschule Biberach</h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="/index.php/ueber-uns/kollegium" >Mehr...</a></p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/1.jpg" alt="Grundschule Biberach" class="full" />
+						<img src="/images/_bilder/gallery/1.jpg" alt="Grundschule Biberach" class="thumbnail" />
+
+					</div>
+									<div class="imageElement" style="z-index:0;">
+						<h3>Sozialwirksame Grundschule</h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="/index.php/ueber-uns/sozialwirksame-grundschule" >Mehr...</a></p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/2.jpg" alt="Sozialwirksame Grundschule" class="full" />
+						<img src="/images/_bilder/gallery/2.jpg" alt="Sozialwirksame Grundschule" class="thumbnail" />
+
+					</div>
+									<div class="imageElement" style="z-index:0;">
+						<h3>mit sport- und bewegungserzieherischem Profil </h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="http://www.km-bw.de/,Lde_DE/Startseite/Jugend_Sport/Bewegungserzieherischer+Schwerpunkt?QUERYSTRING=sport+und+bewegungserzieherischer+schwerpunkt" target="_blank" >Mehr...</a></p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/3.jpg" alt="mit sport- und bewegungserzieherischem Profil " class="full" />
+						<img src="/images/_bilder/gallery/3.jpg" alt="mit sport- und bewegungserzieherischem Profil " class="thumbnail" />
+
+					</div>
+									<div class="imageElement" style="z-index:0;">
+						<h3>Gelebte Gemeinschaft</h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="/index.php/bildungsplus/persoenlichkeitsstaerkung" >Mehr...</a></p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/4.jpg" alt="Gelebte Gemeinschaft" class="full" />
+						<img src="/images/_bilder/gallery/4.jpg" alt="Gelebte Gemeinschaft" class="thumbnail" />
+
+					</div>
+									<div class="imageElement" style="z-index:0;">
+						<h3>Vielfältige Bildungsangebote</h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="/index.php/bildungsplus/erweiterte-bildungsangebote" >Mehr...</a>
+</p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/5.jpg" alt="Vielfältige Bildungsangebote" class="full" />
+						<img src="/images/_bilder/gallery/5.jpg" alt="Vielfältige Bildungsangebote" class="thumbnail" />
+
+					</div>
+									<div class="imageElement" style="z-index:0;">
+						<h3>Gesundheit und Wohlbefinden</h3>
+						<p style="text-shadow:1px 1px #000000;"><a class="button" href="/images/_pdf/ueberuns/Praeventionkonzept.pdf" target="_blank" >Mehr...</a></p>
+												<a href="javascript:;" title="open image" class="open"></a>
+												<img src="/images/_bilder/gallery/6.jpg" alt="Gesundheit und Wohlbefinden" class="full" />
+						<img src="/images/_bilder/gallery/6.jpg" alt="Gesundheit und Wohlbefinden" class="thumbnail" />
+
+					</div>
+							</div>
+                            
+			</div>
+		</div>
+	
+
+
+	
+<script type="text/javascript">//<![CDATA[
+    document.write('<style>.jdGallery .slideElement {background-size:100% auto;}@media screen and (max-width: 750px) {#myGallery { height:300px !important; } .jdGallery .slideElement {background-size:cover !important;}}</style>');
+//]]></script>
+
+
+
+
+
+		</div>
+	
+			<div style="clear:both; height:0px"></div>
+		</div>
+		
+	<!-- Top Row1 -->	
+			<!-- End Top Row1 -->	
+		
+		
+			<div id="s5_breadcrumb_font_login_wrap">
+		
+							<div id="s5_breadcrumb_wrap">
+							<div class="moduletable">
+			<div aria-label="Breadcrumbs" role="navigation">
+	<ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+					<li class="active">
+				<span class="divider icon-location"></span>
+			</li>
+		
+						<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+					<span itemprop="name">
+						Startseite					</span>
+					<meta itemprop="position" content="1">
+				</li>
+				</ul>
+</div>
+		</div>
+	
+				</div>
+						
+							<div id="fontControls"></div>
+						
+						
+						
+			<div style="clear:both; height:0px"></div>
+		</div>
+		
+	<!-- Top Row2 -->	
+			<!-- End Top Row2 -->
+	
+	
+	
+	<!-- Top Row3 -->	
+			<!-- End Top Row3 -->	
+		
+		
+		
+	<!-- Center area -->	
+				<section id="s5_center_area1" class="s5_slidesection s5_no_custom_bg">
+		<div id="s5_center_area2" class="s5_no_custom_bg">
+		<div id="s5_center_area_inner">
+		
+		<!-- Above Columns Wrap -->	
+					<!-- End Above Columns Wrap -->			
+				
+			<!-- Columns wrap, contains left, right and center columns -->	
+			<section id="s5_columns_wrap" class="s5_no_custom_bg">
+			<div id="s5_columns_wrap_inner" class="s5_no_custom_bg">
+				
+				<section id="s5_center_column_wrap">
+				<div id="s5_center_column_wrap_inner" style="margin-left:25px; margin-right:25px;">
+					
+										
+											
+						<section id="s5_component_wrap">
+						<div id="s5_component_wrap_inner">
+						
+																
+														<main>
+								<div id="system-message-container">
+	</div>
+
+<div class="blog-featured" itemscope itemtype="https://schema.org/Blog">
+<div class="items-leading clearfix">
+			<div class="leading-0 clearfix"
+			itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+
+
+
+
+
+
+
+
+
+<img src="http://gs-biberach.de/images/_bilder/team/Frau_Goermez_Rektorin.jpg" width="150" caption="false" style="float: right; margin: 10px;" />Liebe Gäste, <br /> ich freue mich über Ihr Interesse an unserer Homepage und lade Sie herzlich ein unsere sozialwirksame Grundschule mit sport-und bewegungserzieherischem Schwerpunkt kennenzulernen. <br /> Sie werden sehen, dass wir unsere Schule als Lern- und Lebensraum mit viel Engagement gestalten, um den Schülerinnen und Schülern ein optimales Bildungsangebot zu machen. Dazu gehört nebst der zunächst spielerischen Vermittlung von Grundkenntnissen und Grundfertigkeiten die Förderung der sozialen Kompetenzen für ein respektvolles Miteinander in der Gemeinschaft. <br /> Einen besonderen Schwerpunkt setzten wir hierbei auf den musisch-ästhetischen Bereich, der gleichermaßen die Kräfte des eigenen Gestaltens als auch das gemeinschaftliche Erleben &amp; Lernen auf kindgerechte Weise fördert. <br /> Über das verbindliche Bildungsangebot hinaus ermöglichen wir unseren Schülerinnen und Schülern im Rahmen von Atelierunterricht, Bläserklassen, AGs, Sporttagen und Exkursionen ein weites Lernfeld. <br /> Ich lade Sie herzlich ein, sich bei unseren Schulfesten, Musicals oder sportlichen Veranstaltungen selbst ein Bild zu machen. <br /> <br /> Dipl. Päd.  Sabine Görmez<br /> Schulleiterin
+
+
+
+		</div>
+			</div>
+
+
+
+</div>
+
+								<div style="clear:both;height:0px"></div>
+							</main>
+														
+														
+						</div>
+						</section>
+						
+										
+										
+				</div>
+				</section>
+				<!-- Left column -->	
+									<aside id="s5_left_column_wrap" class="s5_float_left" style="width:25px">
+					<div id="s5_left_column_wrap_inner">
+																			<div id="s5_left_wrap" class="s5_float_left" style="width:25px">
+											
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						<ul class="nav menu mod-list">
+<li class="item-493 default current active"><a href="/index.php/en/" >Startseite</a></li><li class="item-494 divider deeper parent"><span class="separator ">Über uns</span>
+<ul class="nav-child unstyled small"><li class="item-516"><a href="/index.php/en/ueber-uns/kollegium" >Schulteam</a></li><li class="item-510"><a href="/index.php/en/ueber-uns/leitbild" >Leitbild</a></li><li class="item-519"><a href="/index.php/en/ueber-uns/sozialwirksame-grundschule" >Sozialwirksame Grundschule</a></li><li class="item-522"><a href="http://gs-biberach.de/images/_pdf/ueberuns/UnsereWerte.pdf" target="_blank" rel="noopener noreferrer">Unsere Werte</a></li><li class="item-518"><a href="/index.php/en/ueber-uns/schulordnung" >Schulordnung</a></li><li class="item-521"><a href="http://gs-biberach.de/images/_pdf/Stark-Strker-Wir-Matrix.pdf" target="_blank" rel="noopener noreferrer">Präventionskonzept</a></li><li class="item-517"><a href="/index.php/en/ueber-uns/schulgelaende" >Schulgelände</a></li><li class="item-515"><a href="/index.php/en/ueber-uns/einzugsgebiet" >Einzugsgebiet</a></li></ul></li><li class="item-495 divider deeper parent"><span class="separator ">Elterninfos</span>
+<ul class="nav-child unstyled small"><li class="item-512"><a href="/index.php/en/elterninfos/abc-der-grundschule-biberach" >ABC der Grundschule Biberach</a></li><li class="item-523"><a href="/index.php/en/elterninfos/unser-elternbeirat" >Elternbeirat</a></li><li class="item-513"><a href="/index.php/en/elterninfos/beratungslehrerin" >Beratungslehrerin</a></li><li class="item-514"><a href="http://gs-biberach.de/images/_pdf/elterninfo/konfliktmanagement.pdf" target="_blank" rel="noopener noreferrer">Konfliktmanagement</a></li><li class="item-520"><a href="/index.php/en/elterninfos/materialliste" >Materialliste</a></li><li class="item-524"><a href="/index.php/en/elterninfos/nuetzliches" >Nützliches</a></li></ul></li><li class="item-496 divider deeper parent"><span class="separator ">Ganztagesbetrieb</span>
+<ul class="nav-child unstyled small"><li class="item-529"><a href="/index.php/en/ganztagesbetrieb/betreuungspersonal" >Betreuungspersonal</a></li><li class="item-530"><a href="/index.php/en/ganztagesbetrieb/raeumlichkeiten" >Räumlichkeiten</a></li><li class="item-531"><a href="/index.php/en/ganztagesbetrieb/angebote-der-gtb" >Angebote der GTB</a></li></ul></li><li class="item-497 divider deeper parent"><span class="separator ">Bildungs +</span>
+<ul class="nav-child unstyled small"><li class="item-528"><a href="/index.php/en/bildungsplus/persoenlichkeitsstaerkung" >Persönlichkeitsstärkung</a></li><li class="item-526"><a href="/index.php/en/bildungsplus/atelierunterricht" >Atelierunterricht</a></li><li class="item-527"><a href="/index.php/en/bildungsplus/erweiterte-bildungsangebote" >Erweiterte Bildungsangebote</a></li><li class="item-525"><a href="/index.php/en/bildungsplus/floetengruppe-und-blaeserklasse" >Flötengruppe und Bläserklasse</a></li></ul></li><li class="item-498"><a href="/index.php/en/foerderverein" >Förderverein</a></li></ul>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_mod_h3_outer">
+							<h3 class="s5_mod_h3">
+																						<span class="s5_h3_first">Links </span><span class="s5_h3_last"></span>
+								
+							</h3>
+													</div>
+												<div class="s5_mod_h3_below" style="clear:both"></div>
+												<div class="s5_outer ">
+						<ul class="nav menu mod-list">
+<li class="item-533"><a href="/index.php/en/kalender" >Kalender</a></li><li class="item-502"><a href="http://www.musikkapelle-biberach.de" target="_blank" rel="noopener noreferrer">Musikkapelle</a></li><li class="item-503"><a href="http://www.tsv-biberach.de/" target="_blank" rel="noopener noreferrer">TSV Biberach</a></li><li class="item-504"><a href="http://www.wlsb.de" target="_blank" rel="noopener noreferrer">WLSB</a></li><li class="item-505"><a href="http://stiftungrechnen.de/mehr-erleben/matheforscher/" target="_blank" rel="noopener noreferrer">Matheforscher</a></li><li class="item-507"><a href="https://stadtbibliothek.heilbronn.de/" target="_blank" rel="noopener noreferrer">Stadtbücherei</a></li><li class="item-508"><a href="http://www.theater-heilbronn.de" target="_blank" rel="noopener noreferrer">Theater Heilbronn</a></li><li class="item-535"><a href="http://www.stephenhawkingschule.de" target="_blank" rel="noopener noreferrer">Stephen Hawking Schule</a></li><li class="item-509"><a href="http://jtbiberach.jufa-hn.de/" target="_blank" rel="noopener noreferrer">Jugendcafé</a></li><li class="item-532"><a href="https://mlr.baden-wuerttemberg.de/de/unsere-themen/ernaehrung/eu-schulprogramm/allgemeine-informationen/" target="_blank" rel="noopener noreferrer">Schulfrucht BW</a></li><li class="item-539"><a href="https://musikschule.heilbronn.de/" onclick="window.open(this.href, 'targetWindow', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,'); return false;">Musikschule Heilbronn</a></li></ul>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_mod_h3_outer">
+							<h3 class="s5_mod_h3">
+																						<span class="s5_h3_first">Kontakt </span><span class="s5_h3_last"></span>
+								
+							</h3>
+													</div>
+												<div class="s5_mod_h3_below" style="clear:both"></div>
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<div><strong>Grundschule HN-Biberach</strong></div>
+<div>Bibersteige 9</div>
+<div>74078 Heilbronn-Biberach</div>
+<div>Tel.: 07066/91250</div>
+<div>E-Mail: <a href="mailto:info@gs-biberach.de">info@gs-biberach.de</a></div></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+							</div>
+																								<div style="clear:both;height:0px;"></div>
+					</div>
+					</aside>
+								<!-- End Left column -->	
+				<!-- Right column -->	
+									<aside id="s5_right_column_wrap" class="s5_float_left" style="width:25px; margin-left:-50px">
+					<div id="s5_right_column_wrap_inner">
+																									<div id="s5_right_wrap" class="s5_float_left" style="width:25px">
+											
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box-gray">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_mod_h3_outer">
+							<h3 class="s5_mod_h3">
+																						<span class="s5_h3_first">News </span><span class="s5_h3_last"> - Aktuelle Infos</span>
+								
+							</h3>
+													</div>
+												<div class="s5_mod_h3_below" style="clear:both"></div>
+												<div class="s5_outer-gray">
+						<ul class="latestnews-gray mod-list">
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/en/news/322-information-zum-ergaenzenden-kommunalen-ganztagsangebot-ab-dem-schuljahr-2022-23" itemprop="url">
+			<span itemprop="name">
+				Information zum ergänzenden kommunalen Ganztagsangebot ab dem Schuljahr 2022/23 			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/en/news/321-ein-kraeuterbeet-fuer-den-schulgarten" itemprop="url">
+			<span itemprop="name">
+				Ein Kräuterbeet für den Schulgarten			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/en/news/320-gemeinsam-schule-machen" itemprop="url">
+			<span itemprop="name">
+				Gemeinsam Schule machen			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/en/news/319-stadtradeln-tour-de-biberach-fuer-die-grundschule" itemprop="url">
+			<span itemprop="name">
+				Stadtradeln: Tour de Biberach für die Grundschule			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/en/news/318-stadtradeln-wir-sind-dabei" itemprop="url">
+			<span itemprop="name">
+				Stadtradeln - Wir sind dabei			</span>
+		</a>
+	</li>
+</ul>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box-gray">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_mod_h3_outer">
+							<h3 class="s5_mod_h3">
+																						<span class="s5_h3_first">Sponsoren </span><span class="s5_h3_last"></span>
+								
+							</h3>
+													</div>
+												<div class="s5_mod_h3_below" style="clear:both"></div>
+												<div class="s5_outer-gray">
+						
+
+<div class="custom-gray"  >
+	<p>Biberacher Mineralbrunnen<a href="https://www.apotheke-biberach.de/apotheke-biberach/" target="_blank" rel="noopener noreferrer"><br /><br />Biberacher Apotheke</a><br /><br /><a href="https://www.sparkasse.de/filialen/h/kreissparkasse-heilbronn-filiale-heilbronn-biberach/13888.html" target="_blank" rel="noopener noreferrer">Kreissparkasse HN-Biberach<br /></a><br /><a href="https://www.marbach-concepte.de/en/">Marbach Concepte</a><a href="https://www.huettig-rompf.de/huettig-rompf/standorte/heilbronn/" target="_blank" rel="noopener noreferrer"><br /><br /></a><a href="https://www.zeag-energie.de/" target="_blank" rel="noopener noreferrer">Zeag Energie</a><br /><a href="https://www.huettig-rompf.de/huettig-rompf/standorte/heilbronn/" target="_blank" rel="noopener noreferrer"><br /><br /><br /><br /><br /><br /></a></p>
+<p></p></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+							</div>
+																		<div style="clear:both;height:0px;"></div>
+					</div>
+					</aside>
+								<!-- End Right column -->	
+			</div>
+			</section>
+			<!-- End columns wrap -->	
+			
+		<!-- Below Columns Wrap -->	
+					<!-- End Below Columns Wrap -->				
+			
+			
+		</div>
+		</div>
+		</section>
+			<!-- End Center area -->	
+	
+	
+	<!-- Bottom Row1 -->	
+					<section id="s5_bottom_row1_area1" class="s5_slidesection s5_no_custom_bg">
+			<div id="s5_bottom_row1_area2" class="s5_no_custom_bg">
+			<div id="s5_bottom_row1_area_inner">
+
+				<div id="s5_bottom_row1_wrap">
+				<div id="s5_bottom_row1">
+				<div id="s5_bottom_row1_inner">
+				
+											<div id="s5_pos_bottom_row1_1" class="s5_float_left" style="width:25%">
+										
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/bewegtwachsen.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/rsschullogo.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+						</div>
+										
+											<div id="s5_pos_bottom_row1_2" class="s5_float_left" style="width:25%">
+										
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/gsb.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/heilbronnerbuergerstiftung.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+						</div>
+										
+											<div id="s5_pos_bottom_row1_3" class="s5_float_left" style="width:25%">
+										
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/schulfrucht.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/matheforscher.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+						</div>
+										
+											<div id="s5_pos_bottom_row1_4" class="s5_float_left" style="width:25%">
+										
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/freiwilligendienstesport.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+					
+			<div class="module_round_box_outer">
+			
+			<div class="module_round_box ">
+
+				<div class="s5_module_box_1">
+					<div class="s5_module_box_2">
+												<div class="s5_outer ">
+						
+
+<div class="custom"  >
+	<img src="http://gs-biberach.de/images/_bilder/logo/starkstaerkerwir.png" alt="" /></div>
+						</div>
+						<div style="clear:both; height:0px"></div>
+					</div>
+				</div>
+
+			</div>
+			
+			</div>
+
+		
+						</div>
+										
+										
+										
+					<div style="clear:both; height:0px"></div>
+
+				</div>
+				</div>
+				</div>
+
+		</div>
+		</div>
+		</section>
+			<!-- End Bottom Row1 -->	
+		
+		
+	<!-- Bottom Row2 -->	
+			<!-- End Bottom Row2 -->
+	
+	
+		
+	
+	<!-- Bottom Row3 -->	
+			<!-- End Bottom Row3 -->
+	
+	
+	<!-- Footer Area -->
+		<footer id="s5_footer_area1" class="s5_slidesection">
+		<div id="s5_footer_area2">
+		<div id="s5_footer_area_inner">
+		
+			<a title="Shape5.com Professional Joomla Templates and Wordpress Themes" href="http://www.shape5.com" target="blank" id="s5_shape5_logo"></a>
+			<div style="clear:both; height:0px"></div>
+		
+							<div id="s5_footer">
+					<span class="footerc">
+Copyright &copy; 2022.  Grundschule Biberach.
+Designed by Shape5.com <a href="http://www.shape5.com/" title="Visit Shape5.com Joomla Template Club" target="blank" class="footerc">Joomla Templates</a>
+</span>
+				</div>
+						
+							<div id="s5_bottom_menu_wrap">
+							<div class="moduletable">
+			<ul class="nav menu mod-list">
+<li class="item-499"><a href="/index.php/en/impressum" >Impressum</a></li><li class="item-540"><a href="/index.php/en/datenschutz" >Datenschutz</a></li><li class="item-501"><a href="/index.php/en/anfahrt" >Anfahrt</a></li><li class="item-511"><a href="/index.php/en/news" >News</a></li></ul>
+		</div>
+	
+				</div>	
+						<div style="clear:both; height:0px"></div>
+			
+		</div>
+		</div>
+		</footer>
+	<!-- End Footer Area -->
+	
+	
+	
+	<!-- Bottom Vertex Calls -->
+	<!-- Page scroll, tooltips, multibox, and ie6 warning -->	
+			<div id="s5_scroll_wrap" class="s5_wrap">
+			<script type="text/javascript">
+/*! Jquery scrollto function */
+!function(o,n){var l=function(){var l,t=n(o.documentElement),e=n(o.body);return t.scrollTop()?t:(l=e.scrollTop(),e.scrollTop(l+1).scrollTop()==l?t:e.scrollTop(l))}();n.fn.smoothScroll=function(o){return o=~~o||400,this.find('a[href*="#s5"]').click(function(t){var e=this.hash,a=n(e);location.pathname.replace(/^\//,"")===this.pathname.replace(/^\//,"")&&location.hostname===this.hostname&&a.length&&(t.preventDefault(),jQuery.fn.fullpage?jQuery.fn.fullpage.scrollPage2(a):l.stop().animate({scrollTop:a.offset().top},o,function(){location.hash=e}))}).end()}}(document,jQuery);
+function initSmoothscroll(){
+	jQuery('html').smoothScroll(700);
+}
+jQuery(document).ready(function(){
+	initSmoothscroll();
+});
+var s5_page_scroll_enabled = 1;
+function s5_page_scroll(obj){ if(jQuery.browser.mozilla) var target = 'html'; else var target='html body'; jQuery(target).stop().animate({scrollTop:jQuery(obj).offset().top},700,function(){location.hash=obj}); } 
+function s5_hide_scroll_to_top_display_none() { if (window.pageYOffset < 300) { document.getElementById("s5_scrolltopvar").style.display = "none"; } }
+function s5_hide_scroll_to_top_fadein_class() { document.getElementById("s5_scrolltopvar").className = "s5_scrolltop_fadein"; }
+function s5_hide_scroll_to_top() {
+	if (window.pageYOffset >= 300) {document.getElementById("s5_scrolltopvar").style.display = "block";
+		document.getElementById("s5_scrolltopvar").style.visibility = "visible";
+		window.setTimeout(s5_hide_scroll_to_top_fadein_class,300);}
+	else {document.getElementById("s5_scrolltopvar").className = "s5_scrolltop_fadeout";window.setTimeout(s5_hide_scroll_to_top_display_none,300);}}
+jQuery(document).ready( function() {s5_hide_scroll_to_top();});
+jQuery(window).resize(s5_hide_scroll_to_top);
+if(window.addEventListener) {
+	window.addEventListener('scroll', s5_hide_scroll_to_top, false);   
+}
+else if (window.attachEvent) {
+	window.attachEvent('onscroll', s5_hide_scroll_to_top); 
+}
+</script>
+<div id="s5_scrolltopvar" class="s5_scrolltop_fadeout" style="visibility:hidden">
+<a href="#s5_scrolltotop" id="s5_scrolltop_a" class="s5_scrolltotop"></a>
+</div>
+
+
+	
+		</div>
+		<!-- Start compression if enabled -->	
+		
+
+		
+	
+	<script type="text/javascript">
+		var s5_multibox_enabled = 1;
+		jQuery(document).ready(function(){
+			jQuery('.s5mb').each(function(i,z){if(!z.getAttribute('rel'))z.setAttribute('rel','[me]');});
+		}(jQuery));
+		var s5mbox = {};
+				        jQuery(document).ready(function($){
+            initMultibox('.s5mb');
+        });
+		
+			function initMultibox(mbClass){
+		window.s5mbox = new multiBox({
+			mbClass: mbClass,/*class you need to add links that you want to trigger multiBox with (remember and update CSS files)*/
+			container: jQuery(document.body),/*where to inject multiBox*/
+			path: 'http://www.gs-biberach.de/templates/forte/js/multibox/',/*path to mp3player and flvplayer etc*/
+			useOverlay: true,/*detect overlay setting*/
+			maxSize: {w:600, h:400},/*max dimensions (width,height) - set to null to disable resizing*/
+			movieSize: {w:400, h:300},
+			addDownload: false,/*do you want the files to be downloadable?*/
+			descClassName: 's5_multibox',/*the class name of the description divs*/
+			pathToDownloadScript: 'http://www.gs-biberach.de/templates/forte/js/multibox/forceDownload.asp',/*if above is true, specify path to download script (classicASP and ASP.NET versions included)*/
+			addRollover: false,/*add rollover fade to each multibox link*/
+			addOverlayIcon: false,/*adds overlay icons to images within multibox links*/
+			addChain: false,/*cycle through all images fading them out then in*/
+			recalcTop: true,/*subtract the height of controls panel from top position*/
+			addTips: false,/*adds MooTools built in 'Tips' class to each element (see: http://mootools.net/docs/Plugins/Tips)*/
+			autoOpen: 0/*to auto open a multiBox element on page load change to (1, 2, or 3 etc)*/
+		});	}
+		<!--}(jQuery));-->
+				Eventx.onResizend(function(){		
+			s5mbox.resize(); 
+		});
+			</script>
+
+
+
+
+
+
+
+	
+<!-- Additional scripts to load just before closing body tag -->
+	
+<!-- Info Slide script - JS and CSS called in header -->
+		<script type='text/javascript'>
+	jQuery(document).ready(function(){
+	    jQuery('.s5_is_slide').each(function (i, d) {
+				jQuery(d).wrapInner(jQuery('<div class="s5_is_display"></div>'));
+			});
+			var options = {
+				wrapperId: "s5_body"
+			};
+			var slide = new Slidex();
+			slide.init(options);
+		});
+	</script>
+		
+<!-- Scroll Reavel script - JS called in header -->
+		
+	
+<!-- File compression. Needs to be called last on this file -->	
+		
+<!-- Responsive Bottom Mobile Bar -->
+	<!-- Call bottom bar for mobile devices if layout is responsive -->	
+	<div id="s5_responsive_mobile_bottom_bar_outer" style="display:none">
+	<div id="s5_responsive_mobile_bottom_bar" class="s5_responsive_mobile_bar_light">
+		<!-- Call mobile links if links are enabled and cookie is currently set to mobile -->	
+					<div id="s5_responsive_switch_mobile">
+				<a id="s5_responsive_switch" href="/?s5_responsive_switch_wwwgsbiberachde=0">Desktop Version</a>
+			</div>
+		
+					<div id="s5_responsive_mobile_scroll">
+				<a href="#s5_scrolltotop" class="s5_scrolltotop"></a>
+			</div>
+				<div style="clear:both;height:0px"></div>
+	</div>
+	</div>
+
+<!-- Call bottom bar for all devices if user has chosen to see desktop version -->	
+	
+	
+<!-- Closing call for mobile sidebar body wrap defined in includes top file -->
+<div style="clear:both"></div>
+</div>
+</div>
+	
+	</div>
+	
+</div>
+</div>
+<!-- End Body Padding -->
+	
+<script>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,333 @@
+> GET /de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/ HTTP/1.1
+> Host: jss-erlenbach.phorms.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:18:57 GMT
+< Server: Apache
+< X-Powered-By: PHP/7.2.34
+< Content-Language: de
+< Set-Cookie: fe_typo_user=fea8082d7dcc6090333026056ddf1d27; path=/; httponly; samesite=lax
+< Content-Length: 56388
+< Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2021 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+<base href="https://jss-erlenbach.phorms.de/">
+
+
+<meta name="generator" content="TYPO3 CMS">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="lastUpdated" content="0">
+
+
+<link rel="stylesheet" type="text/css" href="typo3temp/assets/css/9de4ac7421.css?1539187481" media="all">
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/ws_flexslider/Resources/Public/Css/flexslider.css?1528301319" media="all">
+<link rel="stylesheet" type="text/css" href="typo3conf/ext/ws_flexslider/Resources/Public/Css/mods.css?1528301319" media="all">
+<link rel="stylesheet" type="text/css" href="fileadmin/phorms.de/public/css/global.css?1622467600" media="all">
+<link rel="stylesheet" type="text/css" href="fileadmin/jss-erlenbach.phorms.de/public/css/phorms-style.css?1646906502" media="all">
+<link rel="stylesheet" type="text/css" href="fileadmin/jss-erlenbach.phorms.de/public/css/phorms-ccGallery.css?1623328291" media="all">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tinos:400,700" media="all">
+
+
+
+
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/jquery.2.1.4.min.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/fadeSlideShow.js?1623328291" type="text/javascript"></script>
+
+
+
+<title>08.11.2022 Infoabend Reception/Grundschule Heilbronn und Erlenbach</title>		<link rel="shortcut icon" href="/fileadmin/phorms.de/public/assets/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="/fileadmin/phorms.de/public/assets/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/fileadmin/phorms.de/public/assets/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/fileadmin/phorms.de/public/assets/android-chrome-512x512.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/fileadmin/phorms.de/public/assets/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/fileadmin/phorms.de/public/assets/favicon-32x32.png">
+		<link rel="manifest" href="/fileadmin/phorms.de/public/assets/site.webmanifest">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">		<!-- UserCentrics -->
+		<script id="usercentrics-cmp" data-settings-id="McPP5482E" src="https://app.usercentrics.eu/browser-ui/latest/bundle.js" defer></script>
+		<!-- End UserCentrics -->
+
+		<!-- Google Tag Manager -->
+		<script type="text/plain" data-usercentrics="Google Tag Manager">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TDDMKK');</script>
+		<!-- End Google Tag Manager --><link rel="canonical" href="https://jss-erlenbach.phorms.de/de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/">
+
+    
+        <link rel="alternate" hreflang="en" href="en/information-evening-for-our-reception-primary-school-in-erlenbach-and-heilbronn/" />
+    
+
+    
+        <link rel="alternate" hreflang="de" href="de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/" />
+    
+
+
+
+</head>
+<body>
+
+		<div id="body" class="page-type-schoolfrontpage domain-josef_schwarz_schule_phorms_de page-83 chrome  chrome-56  win  lang-de  desktop" data-lang="1">
+			<div id="headerc" style="height: 560px;">
+
+				<article class="sliderelements"><div class="image"><img src="fileadmin/user_upload/220117_JSS_Slider_SEK_02.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/user_upload/BS_Header_GYM_01_Landingpage4.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/user_upload/220117_JSS_Slider_SEK_01.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/user_upload/220117_JSS_Slider_GS_01.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_01.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_02.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_04.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_05.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_07.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_09.jpg" width="1800" height="560"   alt="" ></div></article><article class="sliderelements"><div class="image"><img src="fileadmin/jss-erlenbach.phorms.de/public/img/content/JSS_Slider_Start_10.jpg" width="1800" height="560"   alt="" ></div></article>
+
+				<div id="supersizedc">
+					<div id="supersized" class="quality" style="display: block; visibility: visible;">
+					</div>
+					<div id="controls-arrow-navigation">
+						<a id="prevslide" class="load-item" style="display: block;"></a>
+						<a id="nextslide" class="load-item" style="display: block;"></a>
+					</div>
+					<div id="controls-wrapper" class="innerWrapper welcome-caption">
+						<div id="controls">
+							<ul id="slide-list">
+								<li class="slide-link-0">
+									<a></a>
+								</li>
+								<li class="slide-link-1 current-slide">
+									<a></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<header id="header">
+					<div class="innerWrapper">
+						<div id="logo">
+							<a href="/de/"><img src="/fileadmin/jss-erlenbach.phorms.de/public/img/logo/phorms_josef-schwarz.png"></a>
+						</div>
+
+						<nav id="languages">
+							<ul class="languages">
+								<li><a href="en/information-evening-for-our-reception-primary-school-in-erlenbach-and-heilbronn/"><a href="en/information-evening-for-our-reception-primary-school-in-erlenbach-and-heilbronn/">en</a></a></li><li class="active"><a href="de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/"><a href="de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/">de</a></a></li>
+							</ul>
+						</nav>
+
+						<div id="search">
+							<div class="button"></div>
+							<div class="tx-indexedsearch">
+
+								<div class="tx-indexedsearch-searchbox">
+									
+
+	<form method="post" id="tx_indexedsearch" action="de/suche/?tx_indexedsearch_pi2%5Baction%5D=search&amp;tx_indexedsearch_pi2%5Bcontroller%5D=Search">
+<div>
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@extension]" value="IndexedSearch" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@vendor]" value="TYPO3\CMS" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@controller]" value="Search" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@action]" value="form" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][arguments]" value="YTowOnt9dc560ab4d3edc40464a9f4cccbe8640cedfc4460" />
+<input type="hidden" name="tx_indexedsearch_pi2[__referrer][@request]" value="a:4:{s:10:&quot;@extension&quot;;s:13:&quot;IndexedSearch&quot;;s:11:&quot;@controller&quot;;s:6:&quot;Search&quot;;s:7:&quot;@action&quot;;s:4:&quot;form&quot;;s:7:&quot;@vendor&quot;;s:9:&quot;TYPO3\CMS&quot;;}e0a75e55c0416a97b4c378a4f43a6e0f31e1eb35" />
+<input type="hidden" name="tx_indexedsearch_pi2[__trustedProperties]" value="a:1:{s:6:&quot;search&quot;;a:15:{s:9:&quot;_sections&quot;;i:1;s:13:&quot;_freeIndexUid&quot;;i:1;s:7:&quot;pointer&quot;;i:1;s:3:&quot;ext&quot;;i:1;s:10:&quot;searchType&quot;;i:1;s:14:&quot;defaultOperand&quot;;i:1;s:9:&quot;mediaType&quot;;i:1;s:9:&quot;sortOrder&quot;;i:1;s:5:&quot;group&quot;;i:1;s:11:&quot;languageUid&quot;;i:1;s:4:&quot;desc&quot;;i:1;s:15:&quot;numberOfResults&quot;;i:1;s:14:&quot;extendedSearch&quot;;i:1;s:5:&quot;sword&quot;;i:1;s:12:&quot;submitButton&quot;;i:1;}}c4ba38e2c42707c12795dc652574651e1b7ceccf" />
+</div>
+
+		<div class="tx-indexedsearch-hidden-fields">
+			<input type="hidden" name="tx_indexedsearch_pi2[search][_sections]" value="0" />
+			<input id="tx_indexedsearch_freeIndexUid" type="hidden" name="tx_indexedsearch_pi2[search][_freeIndexUid]" value="_" />
+			<input id="tx_indexedsearch_pointer" type="hidden" name="tx_indexedsearch_pi2[search][pointer]" value="0" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][ext]" value="" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][searchType]" value="1" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][defaultOperand]" value="0" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][mediaType]" value="-1" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][sortOrder]" value="rank_flag" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][group]" value="" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][languageUid]" value="-1" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][desc]" value="" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][numberOfResults]" value="10" />
+			<input type="hidden" name="tx_indexedsearch_pi2[search][extendedSearch]" value="" />
+		</div>
+		<div class="tx-indexedsearch-form">
+			<input placeholder="Search for" class="tx-indexedsearch-searchbox-sword sword" id="tx-indexedsearch-searchbox-sword" type="text" name="tx_indexedsearch_pi2[search][sword]" value="" />
+			<input class="tx-indexedsearch-searchbox-button" id="tx-indexedsearch-searchbox-button-submit" type="submit" value="Suchen" name="tx_indexedsearch_pi2[search][submitButton]" />
+			
+			<button class="tx-indexedsearch-searchbox-button" id="tx-indexedsearch-searchbox-button-submit" type="submit" name="tx_indexedsearch_pi2[search][submitButton]" value="Suchen" />
+		</div>
+	</form>
+
+
+
+
+								</div>
+
+							</div>
+						</div>
+<!--
+						<div class="phone">
+							<a class="tel" href="tel:+4971324884980" title="Telefonnummer">T +49 7132 488 49 80</a>
+						</div>
+-->
+						<nav id="servicenav" class="mainnav servicenav">
+							<div class="lvl1"><div class="treeMenu lvl_2"><ul class="innerWrapper"><li class="lvl_2 extends clickable"><a href="de/ueber-uns/unsere-standorte/">Über Uns</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/unsere-standorte/">Unsere Standorte</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unsere-standorte/erlenbach/">Erlenbach</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unsere-standorte/heilbronn/">Heilbronn</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/unser-team/leitungsteam/">Unser Team</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unser-team/leitungsteam/">Leitungsteam</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unser-team/paedagogen/">Pädagogen</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/ueber-josef-schwarz/">Über Josef Schwarz</a></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/phorms-konzept/">Phorms Konzept</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/zweisprachige-bildung/">Zweisprachige Bildung</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/differenziertes-lernen/">Differenziertes Lernen</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/begeisternde-paedagogen/">Begeisternde Pädagogen</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/ganztaegige-gemeinschaft/">Ganztägige Gemeinschaft</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/lokale-wurzeln/">Lokale Wurzeln</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/gelebte-vielfalt/">Gelebte Vielfalt</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/erfahrungsberichte/">Erfahrungsberichte</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/erfahrungsberichte/erfahrungsberichte/">Erfahrungsberichte</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/kontakt/">Kontakt</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/kontakt/lageanfahrt/">Lage/Anfahrt</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/kontakt/kontaktformular/">Kontaktformular</a></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/aktuelles/">Aktuelles</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/aktuelles/jss-waehrend-covid-19/">JSS während Covid-19</a></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/veranstaltungen/">Veranstaltungen</a></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/schulkalender/grundschule/">Schulkalender</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/aktuelles/schulkalender/grundschule/">Grundschule</a></li><li class="lvl_4 extends hoverable"><a href="de/aktuelles/schulkalender/sekundarschule/">Sekundarschule</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/speiseplaene/">Speisepläne</a></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/registrierung/registrierung/">Registrierung</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/registrierung/registrierung/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-erlenbach/">Registrierung Erlenbach</a></li><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-heilbronn/">Registrierung Heilbronn</a></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="https://jobs.phorms.de/de/jobs/?state=BaW%C3%BC">Jobs</a></li></ul></div></div>
+						</nav>
+						<nav id="mainnav" class="mainnav">
+							<div class="lvl0"><div class="treeMenu lvl_2 childPage"><ul class="innerWrapper"><li class="lvl_2 extends clickable"><a href="de/reception/reception/">Reception</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/reception/reception/">Reception</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/reception/reception/phorms-konzept/">Phorms Konzept</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/zweisprachige-bildung/">Zweisprachige Bildung</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/differenziertes-lernen/">Differenziertes Lernen</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/begeisternde-paedagogen/">Begeisternde Pädagogen</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/ganztaegige-gemeinschaft/">Ganztägige Gemeinschaft</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/lokale-wurzeln/">Lokale Wurzeln</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/reception/phorms-konzept/gelebte-vielfalt/">Gelebte Vielfalt</a></li></ul></div></li><li class="lvl_4 extends hoverable"><a href="de/reception/reception/foerderverein/">Förderverein</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/reception/lage-kontakt/">Lage & Kontakt</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/reception/menschen/">Menschen</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/reception/menschen/schulleitung/">Schulleitung</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/menschen/leitungsteam/">Leitungsteam</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/menschen/elternbeirat/">Elternbeirat</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/reception/konzept/">Konzept</a></li><li class="lvl_3 extends hoverable"><a href="de/reception/alltag/struktur-der-reception/">Alltag</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/struktur-der-reception/">Struktur der Reception</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/tagesablauf/">Tagesablauf</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/bilingualitaet/">Bilingualität</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/raeume-und-umgebung/">Räume und Umgebung</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/essen/">Essen</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/betreuungszeiten/">Betreuungszeiten</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/alltag/schulkleidung/">Schulkleidung</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/reception/aktuelles/termine/">Aktuelles</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/reception/aktuelles/termine/">Termine</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/aktuelles/schulkalender/">Schulkalender</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/reception/registrierung/admissions-team/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/reception/registrierung/admissions-team/">Admissions Team</a></li><li class="lvl_4 extends hoverable"><a href="https://jss-heilbronn.phorms.de/index.php?id=5261">Online-Registrierung</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/registrierung/aufnahmeverfahren/">Aufnahmeverfahren</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/registrierung/elternbeitraege/">Elternbeiträge</a></li><li class="lvl_4 extends hoverable"><a href="de/reception/registrierung/faq/registrierung-und-admission/">FAQ</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/reception/registrierung/faq/registrierung-und-admission/">Registrierung und Admission</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/registrierung/faq/vorbereitung-zum-einstieg/">Vorbereitung zum Einstieg</a></li><li class="lvl_5 extends hoverable"><a href="de/reception/registrierung/faq/uebergang-in-die-sekundarschule/">Übergang in die Sekundarschule</a></li></ul></div></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/grundschule/grundschule/">Grundschule</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/grundschule/grundschule/">Grundschule</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/">Phorms Konzept</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/zweisprachige-bildung/">Zweisprachige Bildung</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/differenziertes-lernen/">Differenziertes Lernen</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/begeisternde-paedagogen/">Begeisternde Pädagogen</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/ganztaegige-gemeinschaft/">Ganztägige Gemeinschaft</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/lokale-wurzeln/">Lokale Wurzeln</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/grundschule/phorms-konzept/gelebte-vielfalt/">Gelebte Vielfalt</a></li></ul></div></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/grundschule/auszeichnungen/">Auszeichnungen</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/grundschule/foerderverein/">Förderverein</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/grundschule/lage-kontakt/">Lage & Kontakt</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/menschen/schulleitung/">Menschen</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/menschen/schulleitung/">Schulleitung</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/menschen/leitungsteam/">Leitungsteam</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/menschen/paedagogen/">Pädagogen</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/menschen/elternbeirat/">Elternbeirat</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/unterricht/bildungsplancurriculum/">Unterricht</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/bildungsplancurriculum/">Bildungsplan/Curriculum</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/curriculum-fuer-englisch/">Curriculum für Englisch</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/mint-schwerpunkt/">MINT Schwerpunkt</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/talent-coaching/">Talent Coaching</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/it-und-multimedia/">IT und Multimedia</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/unterricht/school-coaching/">School Coaching</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/alltag/essen/">Alltag</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/alltag/essen/">Essen</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/alltag/raeume-und-umgebung/">Räume und Umgebung</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/alltag/betreuungszeiten/">Betreuungszeiten</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/alltag/schulkleidung/">Schulkleidung</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/nachmittag-und-ferien/ganztagsbetreuung/">Nachmittag und Ferien</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/nachmittag-und-ferien/ganztagsbetreuung/">Ganztagsbetreuung</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/nachmittag-und-ferien/ferienbetreuung/">Ferienbetreuung</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/aktuelles/termine/">Aktuelles</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/aktuelles/termine/">Termine</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/aktuelles/schulkalender/">Schulkalender</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/grundschule/registrierung/admissions-team/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/grundschule/registrierung/admissions-team/">Admissions Team</a></li><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/">Online-Registrierung</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/registrierung/aufnahmeverfahren/">Aufnahmeverfahren</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/registrierung/elternbeitraege/">Elternbeiträge</a></li><li class="lvl_4 extends hoverable"><a href="de/grundschule/registrierung/faq/registrierung-und-aufnahme/">FAQ</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/grundschule/registrierung/faq/registrierung-und-aufnahme/">Registrierung und Aufnahme</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/registrierung/faq/vorbereitung-zum-einstieg/">Vorbereitung zum Einstieg</a></li><li class="lvl_5 extends hoverable"><a href="de/grundschule/registrierung/faq/uebergang-in-die-sekundarschule/">Übergang in die Sekundarschule</a></li></ul></div></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/sekundarschule/sekundarstufe-1/">Sekundarschule</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/">Sekundarstufe 1</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/menschen/schulleitung/">Menschen</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/menschen/schulleitung/">Schulleitung</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/menschen/leitungsteam/">Leitungsteam</a></li></ul></div></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/foerderverein/">Förderverein</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/elternbeirat/">Elternbeirat</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/gebaeude/">Gebäude</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/neu-lage-kontakt/">Lage & Kontakt</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/sekundarstufe-1/oeffnungszeiten/">Öffnungszeiten</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/sekundarschule/profil/">Profil</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/customized-learning/">Customized Learning</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/innovation-coding-media-icm/">Innovation - Coding - Media (ICM)</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/naturwissenschaft/">Naturwissenschaft</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/bilingualitaet/">Bilingualität</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/profilfaecher/">Profilfächer</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/profilfaecher/naturwissenschaft-technik-nwt/">Naturwissenschaft & Technik (NWT)</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/profilfaecher/informatik-mathematik-physik-imp/">Informatik - Mathematik - Physik (IMP)</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/profilfaecher/spanisch/">Spanisch</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/profilfaecher/sport/">Sport</a></li></ul></div></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/profil/wahlpflichtfaecher/franzoesisch/">Wahlpflichtfächer</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/wahlpflichtfaecher/franzoesisch/">Französisch</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/wahlpflichtfaecher/alltagskultur-ernaehrung-soziales-aes/">Alltagskultur, Ernährung & Soziales (AES)</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/profil/wahlpflichtfaecher/technik/">Technik</a></li></ul></div></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/sekundarschule/schulalltag/staatliche-anerkennung/">Schulalltag</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/staatliche-anerkennung/">Staatliche Anerkennung</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/career-coaching/">Career Coaching</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/klassenlehrer/">Klassenlehrer</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/schulkleidung/">Schulkleidung</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/essen/">Essen</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/clubs/">Clubs</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/professional-skills-training-pst/">Professional Skills Training (PST)</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/ferienbetreuung/">Ferienbetreuung</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/schulalltag/schueler-mitverantwortung-smv/">Schüler-Mitverantwortung (SMV)</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/sekundarschule/quereinstieg/">Quereinstieg</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/quereinstieg/your-choice-your-school/">Your choice. Your school.</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/sekundarschule/registrierung/admissions-team/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/registrierung/admissions-team/">Admissions Team</a></li><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-erlenbach/">Online-Registrierung</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/registrierung/aufnahmeverfahren/">Aufnahmeverfahren</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/registrierung/elternbeitraege/">Elternbeiträge</a></li><li class="lvl_4 extends hoverable"><a href="de/sekundarschule/registrierung/faq/uebergang-in-die-sekundarschule/">FAQ</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/registrierung/faq/uebergang-in-die-sekundarschule/">Übergang in die Sekundarschule</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/registrierung/faq/registrierung-und-aufnahme/">Registrierung und Aufnahme</a></li><li class="lvl_5 extends hoverable"><a href="de/sekundarschule/registrierung/faq/vorbereitung-zum-einstieg/">Vorbereitung zum Einstieg</a></li></ul></div></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/college-abitur-g9/college/">College / Abitur (G9)</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/college-abitur-g9/college/">College</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/college/menschen/leitung-college/">Menschen</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/college/menschen/leitung-college/">Leitung College</a></li><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/college/menschen/leitungsteam/">Leitungsteam</a></li></ul></div></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/college/abitur/">Abitur</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/college/internationales-abitur/">Internationales Abitur</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/college/warum-g9/">Warum G9?</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/college/lage-kontakt/">Lage & Kontakt</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/">Schwerpunkte</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/bilingualitaet/">Bilingualität</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/naturwissenschaft/">Naturwissenschaft</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/wirtschaft/">Wirtschaft</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/informatik/">Informatik</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/neubeginnende-fremdsprache/">Neubeginnende Fremdsprache</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schwerpunkte/digitale-schule/">Digitale Schule</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/college-abitur-g9/schulalltag/career-coaching/">Schulalltag</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/career-coaching/">Career Coaching</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/klassenlehrertutor/">Klassenlehrer/Tutor</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/schulkleidung/">Schulkleidung</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/essen/">Essen</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/clubs/">Clubs</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/professional-skills-training-pst/">Professional Skills Training (PST)</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/schueler-mitverantwortung-smv/">Schüler-Mitverantwortung (SMV)</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/schulalltag/gebaeude/">Gebäude</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/schulalltag/gebaeude/fachraeume/">Fachräume</a></li><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/schulalltag/gebaeude/quiet-space/">Quiet-Space</a></li><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/schulalltag/gebaeude/teamwork-space/">TeamWork-Space</a></li></ul></div></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/college-abitur-g9/quereinstieg/">Quereinstieg</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/quereinstieg/quereinstieg-ins-college/">Quereinstieg ins College</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/college-abitur-g9/registrierung/admissions-team/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/registrierung/admissions-team/">Admissions Team</a></li><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-erlenbach/">Online-Registrierung</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/registrierung/aufnahmeverfahren/">Aufnahmeverfahren</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/registrierung/elternbeitraege/">Elternbeiträge</a></li><li class="lvl_4 extends hoverable"><a href="de/college-abitur-g9/registrierung/faq/uebergang-in-das-college/">FAQ</a><div class="treeMenu lvl_5"><ul class="innerWrapper"><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/registrierung/faq/uebergang-in-das-college/">Übergang in das College</a></li><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/registrierung/faq/vorbereitung-zum-einstieg/">Vorbereitung zum Einstieg</a></li><li class="lvl_5 extends hoverable"><a href="de/college-abitur-g9/registrierung/faq/registrierung-und-aufnahme/">Registrierung und Aufnahme</a></li></ul></div></li></ul></div><div id="overload"></div></li></ul></div></li></ul></div></div>
+							<div class="lvl1"><div class="treeMenu lvl_2"><ul class="innerWrapper"><li class="lvl_2 extends clickable"><a href="de/ueber-uns/unsere-standorte/">Über Uns</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/unsere-standorte/">Unsere Standorte</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unsere-standorte/erlenbach/">Erlenbach</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unsere-standorte/heilbronn/">Heilbronn</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/unser-team/leitungsteam/">Unser Team</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unser-team/leitungsteam/">Leitungsteam</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/unser-team/paedagogen/">Pädagogen</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/ueber-josef-schwarz/">Über Josef Schwarz</a></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/phorms-konzept/">Phorms Konzept</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/zweisprachige-bildung/">Zweisprachige Bildung</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/differenziertes-lernen/">Differenziertes Lernen</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/begeisternde-paedagogen/">Begeisternde Pädagogen</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/ganztaegige-gemeinschaft/">Ganztägige Gemeinschaft</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/lokale-wurzeln/">Lokale Wurzeln</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/phorms-konzept/gelebte-vielfalt/">Gelebte Vielfalt</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/erfahrungsberichte/">Erfahrungsberichte</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/erfahrungsberichte/erfahrungsberichte/">Erfahrungsberichte</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/ueber-uns/kontakt/">Kontakt</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/kontakt/lageanfahrt/">Lage/Anfahrt</a></li><li class="lvl_4 extends hoverable"><a href="de/ueber-uns/kontakt/kontaktformular/">Kontaktformular</a></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/aktuelles/">Aktuelles</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/aktuelles/jss-waehrend-covid-19/">JSS während Covid-19</a></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/veranstaltungen/">Veranstaltungen</a></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/schulkalender/grundschule/">Schulkalender</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/aktuelles/schulkalender/grundschule/">Grundschule</a></li><li class="lvl_4 extends hoverable"><a href="de/aktuelles/schulkalender/sekundarschule/">Sekundarschule</a></li></ul></div><div id="overload"></div></li><li class="lvl_3 extends hoverable"><a href="de/aktuelles/speiseplaene/">Speisepläne</a></li></ul></div></li><li class="lvl_2 extends clickable"><a href="de/registrierung/registrierung/">Registrierung</a><div class="treeMenu lvl_3"><ul class="innerWrapper"><li class="lvl_3 extends hoverable"><a href="de/registrierung/registrierung/">Registrierung</a><div class="treeMenu lvl_4"><ul class="innerWrapper"><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-erlenbach/">Registrierung Erlenbach</a></li><li class="lvl_4 extends hoverable"><a href="de/registrierung/registrierung/registrierung-heilbronn/">Registrierung Heilbronn</a></li></ul></div><div id="overload"></div></li></ul></div></li><li class="lvl_2 extends clickable"><a href="https://jobs.phorms.de/de/jobs/?state=BaW%C3%BC">Jobs</a></li></ul></div></div>
+						</nav>
+						<div id="nav-icon"></div>
+					</div>
+				</header>
+			</div>
+
+
+
+
+<div id="page">
+  <div class="innerWrapper">
+    <div id="content">
+			<!--TYPO3SEARCH_begin-->
+      <div class="inner">
+				<h1>08.11.2022 Infoabend Reception/Grundschule Heilbronn und Erlenbach</h1>
+				
+<div id="c29998" class="frame frame-default frame-type-textpic frame-layout-0"><div class="ce-textpic ce-center ce-above"><div class="ce-bodytext"><p>Wir laden Sie herzlich ein, unsere Grundschule mit Reception kennenzulernen. Diese Veranstaltung richtet sich an alle Interessenten, die Kinder im Vorschul- und Grundschulalter haben.</p><p>Adresse:<br> Bilinguale Josef-Schwarz-Schule<br> Georg-Ohm-Str. 15<br> 74235 Erlenbach</p><p><a href="https://www.google.de/maps/search/Bilinguale+Josef-Schwarz-Schule+Georg-Ohm-Str.+15+74235+Erlenbach" title="Google Maps Josef-Schwarz-Schule" target="_blank">Karte öffnen</a></p><p><strong>Um die ungefähre Anzahl der Teilnehmer abschätzen zu können, würden wir uns freuen, wenn Sie sich zu dieser Veranstaltung anmelden:</strong></p></div></div></div>
+
+
+<div id="c24548" class="frame frame-default frame-type-form_formframework frame-layout-0"><div class="ext_form"><form data-ajaxuri="de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/?tx_typoscriptrendering%5Bcontext%5D=%7B%22record%22%3A%22tt_content_24548%22%2C%22path%22%3A%22tt_content.form_formframework.20%22%7D&amp;tx_form_formframework%5Bcontroller%5D=FormFrontend" enctype="multipart/form-data" method="post" id="jssAnmeldeformularInfoabend" action="de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/?tx_form_formframework%5Baction%5D=perform&amp;tx_form_formframework%5Bcontroller%5D=FormFrontend#jssAnmeldeformularInfoabend"><div><input type="hidden" name="tx_form_formframework[jssAnmeldeformularInfoabend][__state]" value="TzozOToiVFlQTzNcQ01TXEZvcm1cRG9tYWluXFJ1bnRpbWVcRm9ybVN0YXRlIjoyOntzOjI1OiIAKgBsYXN0RGlzcGxheWVkUGFnZUluZGV4IjtpOjA7czoxMzoiACoAZm9ybVZhbHVlcyI7YTowOnt9fQ==eb85194c8fff3b9b39f74c403fc8031dcd3ef5d9" /><input type="hidden" name="tx_form_formframework[__trustedProperties]" value="a:1:{s:27:&quot;jssAnmeldeformularInfoabend&quot;;a:8:{s:18:&quot;KwOXqxUCLmorySBJWd&quot;;i:1;s:9:&quot;firstName&quot;;i:1;s:8:&quot;lastName&quot;;i:1;s:14:&quot;numberOfPeople&quot;;i:1;s:5:&quot;eMail&quot;;i:1;s:9:&quot;hearAbout&quot;;i:1;s:17:&quot;readPrivacyPolicy&quot;;i:1;s:13:&quot;__currentPage&quot;;i:1;}}07baa1409c72a94774a34e3cf90c1ec04e160fe7" /></div><input autocomplete="off" aria-hidden="true" id="jssAnmeldeformularInfoabend-KwOXqxUCLmorySBJWd" style="position:absolute; margin:0 0 0 -999em;" tabindex="-1" type="text" name="tx_form_formframework[jssAnmeldeformularInfoabend][KwOXqxUCLmorySBJWd]" /><fieldset id="jssAnmeldeformularInfoabend-fieldset-1" class="form-group"><legend>Application</legend><fieldset id="jssAnmeldeformularInfoabend-fieldsetPersonalInformation" class="form-group"><legend>personalInformation</legend><div class="form-group"><label class="control-label" for="jssAnmeldeformularInfoabend-firstName">Vorname
+<span class="required">*</span></label><div class="input"><input required="required" class=" form-control" id="jssAnmeldeformularInfoabend-firstName" type="text" name="tx_form_formframework[jssAnmeldeformularInfoabend][firstName]" value="" /></div></div><div class="form-group"><label class="control-label" for="jssAnmeldeformularInfoabend-lastName">Nachname
+<span class="required">*</span></label><div class="input"><input required="required" class=" form-control" id="jssAnmeldeformularInfoabend-lastName" type="text" name="tx_form_formframework[jssAnmeldeformularInfoabend][lastName]" value="" /></div></div><div class="form-group"><label class="control-label" for="jssAnmeldeformularInfoabend-numberOfPeople">Personenanzahl</label><div class="input"><select class=" form-control" id="jssAnmeldeformularInfoabend-numberOfPeople" name="tx_form_formframework[jssAnmeldeformularInfoabend][numberOfPeople]"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div></div><div class="form-group"><label class="control-label" for="jssAnmeldeformularInfoabend-eMail">E-Mail
+<span class="required">*</span></label><div class="input"><input required="required" class=" form-control" id="jssAnmeldeformularInfoabend-eMail" type="text" name="tx_form_formframework[jssAnmeldeformularInfoabend][eMail]" value="" /></div></div></fieldset><fieldset id="jssAnmeldeformularInfoabend-data-collection" class="form-group"><legend>Data protection statement</legend><div class="form-group"><label class="control-label" for="jssAnmeldeformularInfoabend-hearAbout">Wie sind Sie auf Phorms aufmerksam geworden?
+<span class="required">*</span></label><div class="input"><select required="required" class=" form-control" id="jssAnmeldeformularInfoabend-hearAbout" name="tx_form_formframework[jssAnmeldeformularInfoabend][hearAbout]"><option value="">-----------</option><option value="friend_relative">Familie, Freunde oder Bekannte</option><option value="intern">Unser/e Kind/er ist/sind bereits an der JSS</option><option value="promotion_material">Werbematerial</option><option value="press">Anzeige in Zeitung/Zeitschrift/Broschüre</option><option value="Hanix">Hanix</option><option value="Moritz">Moritz</option><option value="Zappelino">Zappelino</option><option value="other">Andere oder keine Angaben</option><option value="event">Event</option><option value="online">Online</option></select></div></div><div class="form-group"><div class="input checkbox"><div class="form-check"><label class="add-on form-check-label"><input type="hidden" name="tx_form_formframework[jssAnmeldeformularInfoabend][readPrivacyPolicy]" value="" /><input required="required" class="add-on" id="jssAnmeldeformularInfoabend-readPrivacyPolicy" type="checkbox" name="tx_form_formframework[jssAnmeldeformularInfoabend][readPrivacyPolicy]" value="Yes / Ja" /><span>Ich akzeptiere die Speicherung und Nutzung meiner Daten gemäß <a href="de/datenschutz/" target="_blank">Datenschutzerklärung.</a><span class="required">*</span></span></label></div></div></div></fieldset><div class="clearfix"><p>Pflichtfeld *</p></div></fieldset><div class="actions"><nav class="form-navigation"><div class="btn-toolbar" role="toolbar"><div class="btn-group" role="group"><span class="next submit"><button class="btn btn-primary" type="submit" name="tx_form_formframework[jssAnmeldeformularInfoabend][__currentPage]" value="1">
+							Senden
+						</button></span></div></div></nav></div></form></div></div>
+
+
+
+				<div>
+
+					<section name="Share">
+						<!-- Load Facebook SDK for JavaScript -->
+						<div id="fb-root"></div>
+						<script type="text/plain" data-usercentrics="Facebook Social Plugins">(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id)) return;
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "//connect.facebook.net/de_DE/sdk.js#xfbml=1&version=v2.0";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));</script>
+
+						<!-- Load Twitter API -->
+						<script type="text/plain" data-usercentrics="Twitter Button">window.twttr = (function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0],
+								t = window.twttr || {};
+							if (d.getElementById(id)) return t;
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "https://platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+
+							t._e = [];
+							t.ready = function(f) {
+								t._e.push(f);
+							};
+
+							return t;
+						}(document, "script", "twitter-wjs"));</script>
+
+						<div id="share">
+							<div class="share-links">
+								<div class="facebook">
+									<div class="fb-share-button"
+										 data-href="https://jss-erlenbach.phorms.de/de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/"
+										 data-layout="button_count">
+									</div>
+								</div>
+								<div class="twitter">
+									<a class="twitter-share-button"
+									   href="https://twitter.com/intent/tweet?text=08.11.2022%20Infoabend%20Reception%2FGrundschule%20Heilbronn%20und%20Erlenbach">Tweet</a>
+								</div>
+								<div class="email">
+									<a href="mailto:?subject=08.11.2022%20Infoabend%20Reception%2FGrundschule%20Heilbronn%20und%20Erlenbach&body=https://jss-erlenbach.phorms.de/de/infoabend-fuer-die-reception-grundschule-am-standort-erlenbach-heilbronn/">E-Mail</a>
+								</div>
+								<div class="printer">
+									<a href="javascript:if(window.print)window.print()">Drucken</a>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+    </div>
+			<!--TYPO3SEARCH_end-->
+  </div>
+    <div id="sidebar">
+      <div class="sidebar-block">
+      </div>
+			
+    </div>
+  </div>
+  <div class="clearfix">
+  </div>
+</div>
+
+
+		<div id="footer">
+			<footer class="footer">
+				<div class="innerWrapper">
+					
+<div id="c13508" class="frame frame-default frame-type-dce_dceuid12 frame-layout-0"><div class="tx-dce-pi1"><div class="footer-address half">
+		Standort Erlenbach: Georg-Ohm-Str. 15 | 74235 Erlenbach  |  T +49 7132 488 49 80 | <a href="mailto:jss.erlenbach@phorms.de">jss.erlenbach@phorms.de</a> |<br/><a href="https://jss-erlenbach.phorms.de/">jss-erlenbach.phorms.de</a></div><div class="footer-address half">
+				Standort Heilbronn: Bildungscampus 10 | 74076 Heilbronn | T +49 7131 394 80 0 | <a href="mailto:jss.heilbronn@phorms.de">jss.heilbronn@phorms.de</a> |<br/><a href="https://jss-heilbronn.phorms.de/">jss-heilbronn.phorms.de</a></div></div></div>
+
+
+					
+<div id="c13533" class="frame frame-default frame-type-html frame-layout-0"><div class="footer-contact"><p>Haben Sie Fragen zur Anmeldung für einen Vorschul- oder Schulplatz? Wir helfen Ihnen gerne weiter:<br><br>T +49 7132 488 49 80<br><a href="mailto:admissions.jss@phorms.de" title="sending email" class="mail">admissions.jss@phorms.de</a><br><br> Möchten Sie sich bei uns für eine Arbeitsstelle bewerben? Wir freuen uns auf Ihre Online-Bewerbung unter: <a href="https://jobs.phorms.de" target="_blank">jobs.phorms.de</a></p></div></div>
+
+
+					<nav id="footernav">
+						<div class="lvl1"><div class="treeMenu lvl_2"><ul class="innerWrapper"><li class="lvl_2 hoverable"><a href="de/gender-hinweis/">Gender-Hinweis</a></li><li class="lvl_2 hoverable"><a href="de/ueber-uns/kontakt/kontaktformular/">Kontakt</a></li><li class="lvl_2 hoverable"><a href="de/registrierung/registrierung/">Registrierung</a></li><li class="lvl_2 hoverable"><a href="https://jobs.phorms.de/index.php?id=1997">Karriere</a></li><li class="lvl_2 hoverable"><a href="http://www.phorms-shop.de/">Phorms Shop</a></li><li class="lvl_2 hoverable"><a href="de/impressum/">Impressum</a></li><li class="lvl_2 hoverable"><a href="de/datenschutz/">Datenschutz</a></li><li class="lvl_2 hoverable"><a href="de/social-media-netiquette/">Social Media Netiquette</a></li><li class="lvl_2 hoverable"><a href="de/sitemap/">Sitemap</a></li></ul></div></div>
+
+					</nav>
+					<ul class="social">
+						<li class="instagram"><a href="https://www.instagram.com/jss.erlenbach/" title="Instagram" target="_blank"></a></li>
+						<li class="facebook"><a href="https://www.facebook.com/jss.phorms/" title="Facebook" target="_blank"></a></li>
+						<li class="youtube"><a href="https://www.youtube.com/channel/UCOlKwRhfp1krO0E07sX0gbg/featured" title="YouTube" target="_blank"></a></li>
+						<li class="xing"><a href="http://www.xing.com/companies/phormseducation" title="XING" target="_blank"></a></li>
+						<li class="linkedin"><a href="https://www.linkedin.com/company/josef-schwarz-schule/" title="LinkedIn" target="_blank"></a></li>
+					</ul>
+					<p class="claim"><a href="https://phorms.de/" title="">Phorms Education<br> LOCAL SCHOOLS - GLOBAL EDUCATION</a></p>
+					<div class="footer-logos">
+						<div class="footer-logos-inner"></div>
+					</div>
+				</div>
+				
+<div id="c13531" class="frame frame-default frame-type-html frame-layout-0"><div class="footer-registration-link"><a title="Apply now Online Form" href="/de/anmeldung/anmeldung/"><span>Jetzt anmelden</span><br>
+    Online-Formular
+  </a></div></div>
+
+
+			</footer>
+		</div>
+		</div>
+
+<script src="typo3conf/ext/ws_flexslider/Resources/Public/JavaScript/jquery.flexslider-min.js?1525250768" type="text/javascript"></script>
+<script src="fileadmin/phorms.de/public/js/userCentricsHandler.js?1620735083" type="text/javascript"></script>
+<script src="fileadmin/phorms.de/public/js/formHandler.js?1622467600" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/jquery-ui.min.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/jquery.easing.min.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/supersized.3.2.7.min.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/supersized.shutter.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/jquery.cycle.lite.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/select2.full.min.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/main.js?1623328291" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/ccGallery.js?1629312214" type="text/javascript"></script>
+<script src="fileadmin/jss-erlenbach.phorms.de/public/js/jqueryCookie.js?1623328291" type="text/javascript"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+> GET /de/ HTTP/1.1
+> Host: jss.phorms.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 09:32:37 GMT
+< Server: Apache
+< X-Powered-By: PHP/7.2.34
+< Content-Language: de
+< Content-Length: 7216
+< Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2021 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+
+
+<title>Josef-Schwarz-Schule</title>
+<meta name="generator" content="TYPO3 CMS">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link rel="stylesheet" type="text/css" href="/typo3temp/assets/compressed/merged-a9b5ca01b6417b06a7fe209476d9a1ed-1319d603a6d845e5e7a543411c6c39d1.css?1622471612" media="all">
+
+
+
+
+
+
+<link rel="shortcut icon" href="/fileadmin/phorms.de/public/assets/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="/fileadmin/phorms.de/public/assets/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="/fileadmin/phorms.de/public/assets/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/fileadmin/phorms.de/public/assets/android-chrome-512x512.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/fileadmin/phorms.de/public/assets/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/fileadmin/phorms.de/public/assets/favicon-32x32.png">
+		<link rel="manifest" href="/fileadmin/phorms.de/public/assets/site.webmanifest">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="theme-color" content="#ffffff">		<!-- UserCentrics -->
+		<script id="usercentrics-cmp" data-settings-id="McPP5482E" src="https://app.usercentrics.eu/browser-ui/latest/bundle.js" defer></script>
+		<!-- End UserCentrics -->
+
+		<!-- Google Tag Manager -->
+		<script type="text/plain" data-usercentrics="Google Tag Manager">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TDDMKK');</script>
+		<!-- End Google Tag Manager -->
+</head>
+<body class="ph-canvas ph-typography">
+
+
+
+
+<header class="ph-header ph-canvas__row ph-canvas__top">
+  <a class="ph-header__logo" href="/de/">
+    <img class="ph-header__logo-img" alt="Josef-Schwarz-Schule" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/header/assets/logo-josef-schwarz-schule.png" width="403" height="128" />
+  </a>
+</header>
+
+
+
+
+
+  <main class="ph-canvas__middle">
+    <section class="ph-canvas__col">
+      
+
+
+  <a class="ph-teaser ph-teaser--bg-1" href="https://jss-erlenbach.phorms.de/">
+    <div class="ph-teaser__inner ph-teaser__inner--bottom">
+      
+        <h1 class="ph-teaser__title">
+          Josef-Schwarz-Schule<br>Erlenbach
+        </h1>
+      
+
+      
+        <p class="ph-teaser__description">
+          Eingangsstufe, Grundschule und<br>Sekundarschule in Erlenbach
+        </p>
+      
+
+      <div class="ph-teaser__anchor">
+        <span class="ph-teaser__icon">
+          <span class="ph-teaser__icon-arrow"></span>
+        </span>
+        <span class="ph-teaser__label">Learn more</span>
+      </div>
+    </div>
+  </a>
+
+
+
+
+    </section>
+
+    <section class="ph-canvas__col">
+      
+
+
+  <a class="ph-teaser ph-teaser--bg-2" href="https://jss-heilbronn.phorms.de/">
+    <div class="ph-teaser__inner ph-teaser__inner--top">
+      
+        <h1 class="ph-teaser__title">
+          Josef-Schwarz-Schule<br>Heilbronn
+        </h1>
+      
+
+      
+        <p class="ph-teaser__description">
+          Eingangsstufe und Grundschule<br>in Heilbronn
+        </p>
+      
+
+      <div class="ph-teaser__anchor">
+        <span class="ph-teaser__icon">
+          <span class="ph-teaser__icon-arrow"></span>
+        </span>
+        <span class="ph-teaser__label">Learn more</span>
+      </div>
+    </div>
+  </a>
+
+
+
+
+
+      
+<div id="c26421" class="frame frame-default frame-type-list frame-layout-0"><div class="ph-news"><span class="ph-news__triangle"></span><div class="ph-news__content"><div class="ph-news__headline"><span class="ph-news__headline-icon"></span><span class="ph-news__headline-label">Termine</span></div><div class="ph-news__list"><article class="ph-news__item"><span class="ph-news__date"><span class="ph-news__date">
+  
+      
+          27.10.2022, 18:30
+        
+    
+</span></span><h2 class="ph-news__title"><a title="Infoabend JSS College" href="https://jss-heilbronn.phorms.de/de/frontpage/aktuelles/veranstaltungen/termine/news/detail/News/2120/">
+      Infoabend JSS College
+    </a></h2></article><article class="ph-news__item"><span class="ph-news__date"><span class="ph-news__date">
+  
+      
+          08.11.2022, 18:30
+        
+    
+</span></span><h2 class="ph-news__title"><a title="Infoabend Reception/Primary" href="https://jss-heilbronn.phorms.de/de/frontpage/aktuelles/veranstaltungen/termine/news/detail/News/931/">
+      Infoabend Reception/Primary
+    </a></h2></article></div></div></div></div>
+
+
+    </section>
+  </main>
+
+
+
+
+
+<footer class="ph-footer ph-canvas__bottom">
+  <div class="ph-footer__content">
+    
+
+<div class="ph-social">
+  <a class="ph-social__item" target="blank" href="https://www.facebook.com/jss.phorms/">
+    <img class="ph-social__icon" alt="Facebook" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/social/assets/facebook.svg" width="73" height="73" />
+  </a>
+
+  <a class="ph-social__item" target="blank" href="http://www.xing.com/companies/phormseducation">
+    <img class="ph-social__icon" alt="Xing" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/social/assets/xing.svg" width="73" height="73" />
+  </a>
+
+  <a class="ph-social__item" target="blank" href="https://www.linkedin.com/company/josef-schwarz-schule/">
+    <img class="ph-social__icon" alt="LinkedIn" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/social/assets/linkedin.svg" width="73" height="73" />
+  </a>
+
+  <a class="ph-social__item" target="blank" href="https://www.youtube.com/channel/UCOlKwRhfp1krO0E07sX0gbg/featured">
+    <img class="ph-social__icon" alt="YouTube" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/social/assets/youtube.svg" width="73" height="73" />
+  </a>
+
+  <a class="ph-social__item" target="blank" href="https://www.instagram.com/jss.erlenbach/">
+    <img class="ph-social__icon" alt="Instagram" src="/fileadmin/jss.phorms.de/public/dist/src/modules/phorms/social/assets/instagram.svg" width="73" height="73" />
+  </a>
+</div>
+
+
+
+  </div>
+
+  <div class="ph-footer__content">
+    
+
+
+  <div class="ph-menu">
+    
+      <a href="https://jss-erlenbach.phorms.de/de/impressum/" class="ph-menu__item" target="_blank">Impressum</a>
+    
+      <a href="https://jss-erlenbach.phorms.de/de/datenschutz/" class="ph-menu__item" target="_blank">Datenschutz</a>
+    
+  </div>
+
+
+
+  </div>
+</footer>
+
+<script src="/typo3temp/assets/compressed/merged-beaf5be192b332c81b36cdc8ebd226e3-ee04eddce9581e8b5e4d143cc9fd77b1.js?1622471612" type="text/javascript"></script>
+
+
+</body>
+</html>

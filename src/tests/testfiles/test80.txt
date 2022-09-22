@@ -1,0 +1,363 @@
+GET /US/OJ/ HTTP/1.1
+Host: edition.cnn.com
+User-Agent: curl/7.64.1
+Accept: */*
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+x-servedByHost: ::ffff:127.0.0.1
+x-amz-id-2: SMefMrCb069LZCEToRmsLGsA8r35mass4xcNopl+3GYmILyTZHJH8NXDgihUqHfOsFv//WRnVnM=
+x-amz-request-id: ANMFDTMR179VZP08
+x-amz-server-side-encryption: AES256
+x-amz-meta-md5: b0486d12516b19cf5550c613672f3fb2
+x-amz-meta-privilege: 664
+x-ua-profile: desktop
+cache-control: max-age=3600
+Via: 1.1 varnish, 1.1 varnish
+Content-Length: 10078
+Accept-Ranges: bytes
+Date: Tue, 13 Sep 2022 09:36:08 GMT
+Age: 0
+Connection: keep-alive
+Set-Cookie: countryCode=DE; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: stateCode=ST; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: geoData=schwarz|ST|39240|DE|EU|200|broadband|51.890|11.800|276007; Domain=.cnn.com; Path=/; SameSite=Lax
+Set-Cookie: FastAB=0=2554,1=3896,2=6645,3=7061,4=3860,5=7647,6=1432,7=8052,8=2470,9=8534; Domain=.cnn.com; Path=/; Expires=Sat Jul 01 2023 00:00:00 GMT; SameSite=Lax
+X-Served-By: cache-iad-kcgs7200090-IAD, cache-hhn4051-HHN
+X-Cache: MISS, MISS
+X-Cache-Hits: 0, 0
+X-Timer: S1663061768.339406,VS0,VE211
+Vary: Accept-Encoding
+
+{ [10078 bytes data]
+100 10078  100 10078    0     0  44991      0 --:--:-- --:--:-- --:--:-- 44991
+* Connection #0 to host edition.cnn.com left intact
+* Closing connection 0
+<HTML>
+<HEAD>
+<TITLE>CNN - O.J. Simpson Trial</TITLE>
+</HEAD>
+
+<BODY BGCOLOR=#FFFFFF>
+<CENTER>
+<A HREF="/US/OJ/MAPS/OJ_main.map">
+<IMG ALT="CNN O.J. Simpson Trial" BORDER=0 HEIGHT=66 WIDTH=470
+SRC="/US/OJ/images/OJ_main.gif" ISMAP></A>
+</CENTER></p>
+
+<!---------------------------------------------------------------------->
+<A HREF="/US/9609/25/simpson/"><IMG SRC="/US/9609/25/simpson/simpson.generic.jpg" ALT="Simpson" ALIGN=RIGHT WIDTH="157" HEIGHT="133" BORDER="0"></A>
+
+<h2>Simpson judge OKs jury prospects who admit bias</H2>
+
+<P> The pool of prospective jurors in the O.J. Simpson civil trial split along racial lines Tuesday, with whites saying Simpson was probably guilty of murder and African-Americans saying he is innocent.
+
+<BR>
+<A HREF="/US/9609/25/simpson/">-Full story-</A></P>
+
+<BR CLEAR=ALL><HR WIDTH=40%>
+<!---------------------------------------------------------------------->
+
+
+
+<Center>
+<P><Table Cellpadding=1>
+
+<TR align=center valign=top>
+<td><A HREF="verdict/index.html">The Verdict</a></td>
+<td><A HREF="suspect/index.html">The Suspect</a></td>
+<td><A HREF="victims/index.html">The Victims</a></td>
+</tr>
+
+<TR>
+<TD><A HREF="verdict/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0
+SRC="images/verdict_icon.gif" width=84
+height=74></A></td>
+<TD><A HREF="suspect/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/oj.gif" width=84
+height=84></A></td>
+<TD><A HREF="victims/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/victims.gif"
+width=84
+height=73></A></td>
+</TR>
+</Table></p>
+<HR WIDTH=75%>
+<P><Table Cellpadding=1>
+<TR align=center valign=top>
+<td><A HREF="murder/index.html">The Murder</a></td>
+<td><A HREF="arrest/index.html">The Arrest</a></td>
+<td><A HREF="evidence/index.html">The Evidence</A></td>
+</tr>
+
+<tr>
+<TD><A HREF="murder/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/murder.gif"
+width=84
+height=68></A></td>
+<TD><A HREF="arrest/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/arrest.gif"
+width=97
+height=75></A></td>
+<TD><A HREF="evidence/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/evidence.gif"
+width=97
+height=84></A></td>
+</TR>
+</Table></p>
+
+<HR WIDTH=75%>
+<P><Table Cellpadding=1>
+<TR align=center valign=top>
+<td><A HREF="players/index.html">The Players</A></td>
+<td><A HREF="trial/index.html">The Trial</A></td>
+<td><A HREF="otherviews.html">Other Views</A></td>
+</tr>
+<TR>
+<TD><A HREF="players/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/players.gif"
+width=76
+height=114></A></td>
+<TD><A HREF="trial/index.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/gavel.gif"
+width=103
+height=56></A></td>
+<TD><A HREF="otherviews.html">
+    <IMG hspace=5 vspace=5 BORDER=0 SRC="images/views.gif"
+width=103
+height=69></A></td>
+</TR>
+
+</Table></p>
+
+</Center>
+
+<br clear=all>
+<H4>More stories</H4>
+<UL>
+
+<li><A HREF="/US/9606/12/simpson.cast/index.html">Two years later, Simpson story
+ still being played out</A> - June 12
+
+<li><A HREF="/US/9605/29/oj.investigation/index.html">PIs offer Simpson free sleu
+thing</A> - May 29
+<li><A HREF="/US/9605/26/simspon.wir/index.html">Simpson depositions winding down
+</A> - May 26
+<li><A HREF="/US/9605/15/oj.oxford/index.html">Simpson defends himself at Oxford<
+/A> - May 15
+<li><A HREF="/US/9605/14/simpson.lien/index.html">IRS slaps lien on O.J. Simpson'
+s mansion</A> - May 14
+<li><a href="/US/9604/29/fuhrman.advancer/index.html">Fuhrman mum in deposition f
+or Simpson civil suit</a> - April 29
+<LI><a href="/US/9604/02/simpson/index.html">Nicole Simpson planned sexual encoun
+ter with Goldman, friend says</a> - April 2
+
+<LI><a href="/US/9604/01/simpson_juror/index.html">Former O.J. juror says she was
+ victim of jury tampering</a> - April 1
+
+<LI><a href="/US/OJ/daily/9603/30/index.html">Officials probing possible jury tam
+pering in Simpson trial</a> - March 30
+
+<LI><a href="/US/OJ/daily/9603/26/index.html">Furhman deposition delayed in Simps
+on case</a> - March 26
+
+<LI><A HREF="/US/OJ/daily/9603/16/index.html">Darden criticizes most players in S
+impson case, but not Clark</A> - March 16
+
+<li><A HREF="/US/OJ/daily/9603/05/index.html">Simpson recalls day of murders</A>
+- March 5
+
+<li><A HREF="/US/OJ/daily/9603/03/index.html">Simpson denies events in ex-wife's
+diary</A> - March 3
+
+<li><A HREF="/US/OJ/daily/9603/01/index.html">Simpson trial date moved to Septemb
+er</A> - March 1
+
+<li><A HREF="/US/OJ/daily/9602/28/simpson/index.html">'Kato' says Nicole predicte
+d her murder</A> - February 28
+
+<LI><A HREF="/US/OJ/daily/9602/28/simpson_attorney/index.html">Simpson's attorney
+ angry over publicity</A> - February 28
+
+<li><a href="/US/OJ/daily/9602/27/index.html">No settlement, Goldman family says<
+/a> - February 27
+
+<li><A HREF="/US/OJ/daily/9602/06/he_said/index.html">O.J.: He said...They said</
+A> - February 6
+
+<LI><A HREF="/US/OJ/daily/9602/05/goldman.html">Kim Goldman says she hates O.J.</
+A> - February 5
+
+<li><A HREF="/US/OJ/daily/9602/05/deposition/index.html">Simpson case: Goldmans t
+o be questioned</A> - February 5
+
+<LI><A HREF="/US/OJ/daily/9602/05/oj_burden_proof/index.html">Simpson makes spont
+aneous call to "Burden of Proof"</A> - February 5
+
+
+<LI><A HREF="/US/OJ/daily/9602/05/oj_burden_proof/index.html">O.J. talks to CNN:
+ Simpson makes spontaneous call to "Burden of Proof"</A> - February 5
+
+<LI><A HREF="/US/OJ/daily/9602/05/goldman.html">Ron Goldman's sister questioned a
+bout her brother</A> - February 5
+
+<li><A HREF="/US/OJ/daily/9602/05/deposition/index.html">Simpson case: Goldmans t
+o be questioned</A> - February 5
+
+<li><A HREF="/US/OJ/daily/9602/03/index.html">Simpson: Nicole invented abuse char
+ges</A> - February 3
+
+
+<li><A HREF="/US/OJ/daily/9601/01-31/index.html">Source: Simpson alibi conflicts
+with limo driver's testimony</A> - January 31
+
+<li><A HREF="/US/OJ/daily/9601/01-26/index.html">Simpson deposition postponed for
+ a week</A> - January 26
+
+<li><A HREF="daily/9601/01-25/interview/index.html">Simpson: 'I couldn't kill any
+one'</A> - January 25
+
+<li><A HREF="/US/OJ/daily/9601/01-24/index.html">Simpson keeps low profile during
+ day 3 of deposition</A> - January 24
+
+<li><A HREF="daily/9601/01-23/pm/index.html">Goldman says hopes lifted by Simpson
+ questioning</A> - January 23
+
+<li><A HREF="daily/9601/01-23/index.html">Simpson begins deposition in wrongful d
+eath suits</A> - January 23
+
+<LI><A HREF="/US/OJ/daily/9601/01-22/index.html">Simpson arrives to begin deposit
+ion</A> - January 22
+
+<LI><A HREF="/US/OJ/daily/9601/01-21/index.html">O.J. Simpson to speak to the cou
+rt in civil cases</A> - January 21
+
+<LI><A HREF="/US/Newsbriefs/9601/01-16/index.html#3">Judge clears hurdle to Simps
+on deposition</A> - January 16
+
+<li><A HREF="daily/9601/01-05/index.html">O.J. Simpson deposition postponed</A> -
+ January 5
+</UL>
+
+
+<HR>
+
+
+<H2>The Verdict</H2>
+<ul>
+<li>A multi-media view of the verdict:
+
+<A HREF="daily/9510/10-03/gallery/gallery1.html"><IMG SRC="/icon/picture.icon.gif
+" ALT="|Images |" ALIGN=absmiddle border=1></A>
+
+<A HREF="daily/9510/10-04/sounds/index.html"><IMG
+SRC="/icon/sndicon.gif" ALT=" Sounds |" ALIGN=absmiddle border=1></A>
+
+<A HREF="daily/9510/10-04/movies/index.html"><IMG
+SRC="/icon/movicon.gif" ALT=" Movies |" ALIGN=absmiddle border=1></A>
+
+<LI><A HREF="daily/9510/10-04/poll/index.html"><IMG
+SRC="daily/9510/10-04/poll/poll_logo_icon.gif" ALT="poll logo"
+ALIGN=absmiddle WIDTH=27 HEIGHT=25 border=0 hspace=3>Simpson
+verdict opinion poll</A>
+</ul>
+<ul>
+<li><A HREF="daily/9510/10-04/jurors_speak/index.html">Jurors say evidence made t
+he case for Simpson</A> - October 4
+
+<li><A HREF="verdict/reaction/index.html">Sobbing, elation at Simpson verdict</A>
+ - October 3
+<LI><a href="verdict/prosecution/index.html">The case for the prosecution</A> - O
+ctober 3
+
+<LI><a href="verdict/defense/index.html">The case for the defense</A> - October 3
+
+<LI><a href="verdict/index.html">The verdict: how the defense prevailed</A> - Oct
+ober 3
+
+<LI><a href="daily/9510/10-03/figures/index.html">The numbers behind the case</A>
+ - October 3
+
+<LI><A HREF="daily/9510/10-03/index.html">"Trial of the century" ends with Simpso
+n's acquittal</A> - October 3
+</ul>
+
+
+<H4>The Reaction</H4>
+<ul>
+<LI><A HREF="daily/9510/10-04/women_react/index.html">Many women outraged at O.J.
+ verdict</A> - October 4
+
+<li><A HREF="daily/9510/10-04/mcdermott/index.html">Simpson camp rejoices while a
+dversaries grieve</A> - October 4
+
+
+<li><A HREF="verdict/world/index.html">Simpson trial draws jeers 'round the world
+</A>
+
+<li><A HREF="verdict/political/index.html">Politicians speak out on Simpson verdi
+ct</A> - October 3
+
+<li><A HREF="daily/9510/10-03/home/index.html">Champagne and
+hugs greet Simpson at home</A> - October 3
+</ul>
+
+<H4>What's Next</H4>
+<ul>
+<LI><A HREF="daily/9510/10-04/kids/index.html">Simpson may get custody of the chi
+ldren</A> - October 4
+
+<LI><A HREF="daily/9510/10-04/whats_next/index.html">What's next for O.J.?</A> -
+October 4
+
+<LI><A HREF="/SHOWBIZ/misc/9510/image_handlers/index.html">Simpson trial's bit pl
+ayers become deal makers</A> - October 3
+
+<li><A HREF="daily/9510/10-03/fuhrman/index.html">Justice Department looks into F
+uhrman tapes</A> - October 3
+</UL>
+
+<BR CLEAR=ALL>
+<hr width=40%>
+<BR CLEAR=ALL>
+
+<P><B><A HREF="more.html">More Simpson stories</A></B></P>
+
+<!------------------------------------------------------------->
+
+<IMG SRC="/US/OJ/images/whatyouthink.gif" WIDTH=62 HEIGHT=62
+ALT="What you think" ALIGN=LEFT>
+<H3>What do you think?</H3>
+
+<B>View <A HREF="/US/OJ/feedback/feedback.html">comments from other
+users on the trial verdict.</A></B>
+<BR CLEAR=ALL><HR WIDTH=40%>
+
+
+
+
+
+
+<!------------------------------------------------------------->
+
+<BR CLEAR=all>
+<HR SIZE=3>
+<CENTER>
+<A HREF="/US/MAPS/us_nav.map">
+<IMG ALT="[Imagemap]" BORDER=0 width=470 height=18
+SRC="/US/OJ/images/main_nav.gif"
+ISMAP></A>
+<H5>| <A HREF="/INDEX/index.html">CONTENTS</A> | <A
+HREF="/SEARCH/index.html">SEARCH</A> | <A HREF="/index.html">CNN
+HOME
+PAGE</A> | <A HREF="/US/index.html">MAIN U.S. NEWS PAGE</A>
+|</H5>
+<HR SIZE=3>
+<P>
+<EM>Copyright &#169; 1995 Cable News Network, Inc.
+ALL RIGHTS RESERVED.</EM>
+</P>
+</CENTER>
+</BODY>
+</HTML>

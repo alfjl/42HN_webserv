@@ -1,0 +1,618 @@
+> GET / HTTP/1.1
+> Host: www.gruenewaldschule-hn.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Sep 2022 08:29:26 GMT
+< Server: Apache
+< P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"
+< Expires: Wed, 17 Aug 2005 00:00:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+< Pragma: no-cache
+< Set-Cookie: 15cae6bc428242d18cac3909cf936b04=2v3dn9j35vkbmda7mbs7r00rsn; path=/; HttpOnly
+< X-XSS-Protection: 1;  mode=block
+< Last-Modified: Tue, 13 Sep 2022 08:29:26 GMT
+< Connection: close
+< Transfer-Encoding: chunked
+< Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="de-de" dir="ltr">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<base href="http://www.gruenewaldschule-hn.de/" />
+	<meta name="keywords" content="Grünewaldschule Böckingen Grundschule Schule Heilbronn HN" />
+	<meta name="description" content="Die Grünewaldschule Grundschule Böckingen (Heilbronn) begrüßt Sie auf ihrer Homepage." />
+	<meta name="generator" content="Joomla! - Open Source Content Management" />
+	<title>Grünewaldschule Grundschule Böckingen Heilbronn</title>
+	<link href="/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+	<link href="/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
+	<link href="/templates/protostar/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="/cache/widgetkit/widgetkit-8e9e81c5.css" rel="stylesheet" />
+	<link href="/templates/protostar/css/template.css?2d56ded5c522087343ba497bc028a047" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+	<link href="/templates/protostar/css/user.css?2d56ded5c522087343ba497bc028a047" rel="stylesheet" />
+	<link href="/plugins/system/cookiehint/css/green.css?2d56ded5c522087343ba497bc028a047" rel="stylesheet" />
+	<style>
+
+	h1, h2, h3, h4, h5, h6, .site-title {
+		font-family: 'Open Sans', sans-serif;
+	}
+	body.site {
+		border-top: 3px solid #7ba428;
+		background-color: #f4f6f7;
+	}
+	a {
+		color: #7ba428;
+	}
+	.nav-list > .active > a,
+	.nav-list > .active > a:hover,
+	.dropdown-menu li > a:hover,
+	.dropdown-menu .active > a,
+	.dropdown-menu .active > a:hover,
+	.nav-pills > .active > a,
+	.nav-pills > .active > a:hover,
+	.btn-primary {
+		background: #7ba428;
+	}
+#redim-cookiehint-bottom {position: fixed; z-index: 99999; left: 0px; right: 0px; bottom: 0px; top: auto !important;}
+	</style>
+	<script src="/media/jui/js/jquery.min.js?2d56ded5c522087343ba497bc028a047"></script>
+	<script src="/media/jui/js/jquery-noconflict.js?2d56ded5c522087343ba497bc028a047"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js?2d56ded5c522087343ba497bc028a047"></script>
+	<script src="/media/system/js/caption.js?2d56ded5c522087343ba497bc028a047"></script>
+	<script src="/cache/widgetkit/widgetkit-ce284e72.js"></script>
+	<script src="/media/jui/js/bootstrap.min.js?2d56ded5c522087343ba497bc028a047"></script>
+	<script src="/templates/protostar/js/template.js?2d56ded5c522087343ba497bc028a047"></script>
+	<!--[if lt IE 9]><script src="/media/jui/js/html5.js?2d56ded5c522087343ba497bc028a047"></script><![endif]-->
+	<script>
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+	</script>
+
+</head>
+<body class="site com_content view-featured no-layout no-task itemid-435">
+	<!-- Body -->
+	<div class="body" id="top">
+		<div class="container">
+			<!-- Header -->
+			<header class="header" role="banner">
+				<div class="header-inner clearfix">
+					<a class="brand pull-left" href="/">
+						<span class="site-title" title="Grünewaldschule Heilbronn">Grünewaldschule Heilbronn</span>													<div class="site-description">Ganztagsgrundschule in Wahlform </div>											</a>
+					<div class="header-search pull-right">
+						
+
+<div class="custom"  >
+	<p><img src="/images/logo/gwshn-logo.png" alt="gwshn logo" width="173" height="80" /></p></div>
+
+					</div>
+				</div>
+			</header>
+						
+<div id="slideshow-1-63203f8cdfd0a" class="wk-slideshow wk-slideshow-default" data-widgetkit="slideshow" data-options='{"index":0,"buttons":1,"navigation":1,"style":"default","autoplay":1,"interval":5000,"width":"auto","height":"auto","duration":500,"order":"default","slices":20,"animated":"kenburns","caption_animation_duration":500}'>
+	<div>
+		<ul class="slides">
+
+									<li>
+				<article class="wk-content clearfix"><img src="/images/imageslider/heilbronner_stimme_und_schulhaus.jpg" alt="heilbronner stimme und schulhaus" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/img_3964_s.jpg" alt="img 3964 s" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/img_3984_s.jpg" alt="img 3984 s" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/schulrundgang_022.jpg" alt="schulrundgang 022" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/schulrundgang_041.jpg" alt="schulrundgang 041" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/schulrundgang_048.jpg" alt="schulrundgang 048" width="1050" height="250" /></article>
+			</li>
+												<li>
+				<article class="wk-content clearfix"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAD6CAYAAAAP1yTOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEEUlEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODZAAd6AAHE2RtYAAAAAElFTkSuQmCC" data-src="/images/imageslider/schulrundgang_083.jpg" alt="schulrundgang 083" width="1050" height="250" /></article>
+			</li>
+								</ul>
+		<div class="next"></div><div class="prev"></div>		<div class="caption"></div><ul class="captions"><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+	</div>
+	<ul class="nav"><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li></ul></div>
+			<div class="row-fluid">
+									<!-- Begin Sidebar -->
+					<div id="sidebar" class="span3">
+						<div class="sidebar-nav">
+							<div class="well _menu"><h3 class="page-header">Navigation</h3><ul class="nav menu mod-list">
+<li class="item-435 default current active"><a href="/index.php" >Startseite</a></li><li class="item-473 parent"><a href="/index.php/termine" >Aktuelles und Termine</a></li><li class="item-469 parent"><a href="/index.php/gruenewaldschule-heilbronn" >Unsere Schule</a></li><li class="item-484"><a href="/index.php/fragen-und-antworten" >Fragen und Antworten </a></li><li class="item-525"><a href="/index.php/zeitplan" >Zeitplan</a></li><li class="item-755"><a href="/index.php/fit-ins-leben" >Fit ins Leben</a></li><li class="item-748"><a href="/index.php/hygieneplan" >Hygieneplan</a></li><li class="item-730"><a href="/index.php/datenschutz" >Datenschutz</a></li><li class="item-732"><a href="/index.php/rechtliche-hinweise" >Rechtliche Hinweise</a></li><li class="item-475"><a href="/index.php/elternbeirat" >Elternbeirat</a></li><li class="item-477"><a href="/index.php/foerderverein" >Förderverein</a></li><li class="item-481"><a href="/index.php/schulordnung" >Schulordnung</a></li><li class="item-749"><a href="/index.php/schulgarten" >Schulgarten</a></li><li class="item-751"><a href="/index.php/corona-blog" >Corona-Blog</a></li><li class="item-566"><a href="/index.php/brotzeit" >BrotZeit e.V.</a></li><li class="item-233"><a href="/index.php/anmeldung" >Lehrkräfte Anmeldung</a></li><li class="item-756"><a href="/index.php/kontakt" >Kontakt</a></li><li class="item-468"><a href="/index.php/impressum" >Impressum</a></li></ul>
+</div><div class="well "><h3 class="page-header">Neueste Beiträge</h3><ul class="latestnews mod-list">
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/termine/304-neue-mailadresse" itemprop="url">
+			<span itemprop="name">
+				- - - neue Mailadresse - - -			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/termine/303-limatag" itemprop="url">
+			<span itemprop="name">
+				- - - Limatag - - -			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/termine/302-keine-testpflicht-mehr" itemprop="url">
+			<span itemprop="name">
+				- - - keine Testpflicht mehr - - -			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/termine/301-osterferien-2022" itemprop="url">
+			<span itemprop="name">
+				- - - Osterferien 2022 - - - 			</span>
+		</a>
+	</li>
+	<li itemscope itemtype="https://schema.org/Article">
+		<a href="/index.php/termine/300-kleiderspende" itemprop="url">
+			<span itemprop="name">
+				- - - Kleiderspende - - -			</span>
+		</a>
+	</li>
+</ul>
+</div>
+						</div>
+					</div>
+					<!-- End Sidebar -->
+								<main id="content" role="main" class="span9">
+					<!-- Begin Content -->
+					
+					<div id="system-message-container">
+	</div>
+
+					<div class="blog-featured" itemscope itemtype="https://schema.org/Blog">
+<div class="items-leading clearfix">
+			<div class="leading-0 clearfix"
+			itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - neue Mailadresse - - -		</h2>
+
+
+
+
+
+
+
+
+<p>Die Grünewaldschule hat eine neue Mailadresse:</p>
+<p><span id="cloak4dd8be5976eacde7d5c3f0fbf79cb022">Diese E-Mail-Adresse ist vor Spambots geschützt! Zur Anzeige muss JavaScript eingeschaltet sein!</span><script type='text/javascript'>
+				document.getElementById('cloak4dd8be5976eacde7d5c3f0fbf79cb022').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy4dd8be5976eacde7d5c3f0fbf79cb022 = '&#105;nf&#111;' + '&#64;';
+				addy4dd8be5976eacde7d5c3f0fbf79cb022 = addy4dd8be5976eacde7d5c3f0fbf79cb022 + 'gws-hn' + '&#46;' + 'd&#101;';
+				var addy_text4dd8be5976eacde7d5c3f0fbf79cb022 = '&#105;nf&#111;' + '&#64;' + 'gws-hn' + '&#46;' + 'd&#101;';document.getElementById('cloak4dd8be5976eacde7d5c3f0fbf79cb022').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy4dd8be5976eacde7d5c3f0fbf79cb022 + '\'>'+addy_text4dd8be5976eacde7d5c3f0fbf79cb022+'<\/a>';
+		</script></p>
+<p>Bitte verwenden Sie zukünftig diese Kontaktmöglichkeit.</p>
+<p>Vielen Dank</p>
+<p>Das Grüni-Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+		</div>
+			</div>
+	
+		
+		<div class="items-row cols-1 row-0 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Limatag - - -		</h2>
+
+
+
+
+
+
+
+
+<p style="text-align: right;">Donnerstag, 2.6.2022</p>
+<p>Es wuselte im kompletten Schulhaus.<br />Überall wurde von 11 bis 12 Uhr geschaut, gewühlt, gehandelt, gekauft und eben verkauft.</p>
+<p>Und warum das alles?</p>
+<p>Die Grünewaldschule unterstützt seit vielen Jahren ein Kinderheim in Lima (Peru).<br />Viele Grünis haben Spielsachen, Bücher und vieles mehr gespendet.<br />Das alles konnte man heute auf dem Flohmarkt im Schulhaus kaufen.</p>
+<p>Viele Eltern haben schon vor dem Flohmarkt Waffeln gebacken und verkauft.<br />Während des Flohmarkts gab es Eis zu kaufen.</p>
+<p>Alle Beteiligten hatten eine große Freude am Limatag.</p>
+<p>Schon allein der Flohmarkt brachte wieder über 1.200 Euro für das Kinderheim in Lima ein.</p>
+<p>Zusätzlich kommt noch der Erlös vom Waffel- und Eisverkauf.<br />Hier einen <strong>herzlichen Dank</strong> <strong>an die Bäckerei Lang,</strong> die den leckeren Waffelteig zum Selbstkostenpreis beigesteuert hat <strong>und an den Förderverein</strong>, der die Kosten für den Teig und das Eis übernommen hat.</p>
+<p><strong>DANKE</strong> <strong>an alle Helfer,</strong><strong> Verkäufer, Käufer und die Lehrer und ganz besonders an den Elternbeirat</strong>, der die ganze Aktion organisiert hat.</p>
+<p>&nbsp;</p>
+<p>Das glückliche Grüni-Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-1 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - keine Testpflicht mehr - - -		</h2>
+
+
+
+
+
+
+
+
+<p style="text-align: right;">Do, 14.04.2022</p>
+<p>Liebe Grünis,</p>
+<p>heute kam die offizielle Meldung, dass die Testpflicht nach den Osterferien nicht mehr besteht.</p>
+<p>Es gilt also:</p>
+<ul>
+<li>KEINE Corona-Testungen mehr</li>
+<li>KEINE Maskenpflicht</li>
+</ul>
+<p>Aber weiterhin gilt:</p>
+<ul>
+<li>Wer krank ist, bleibt zu Hause</li>
+<li>Hygiene- und Abstandsregeln beachten</li>
+</ul>
+<p>&nbsp;</p>
+<p>Liebe Grüße<br />vom Grüni-Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-2 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Kleiderspende - - -		</h2>
+
+
+
+
+
+
+
+
+<p>Liebe Grünis,</p>
+<p>vor einigen Wochen wurde allen Eltern angeboten, Fundsachen in der Grünewaldschule abzuholen, die vermisst werden. Danach wurden die Fundsachen für alle Interessierten freigegeben.</p>
+<p>Da immernoch Jacken, Pullover, T-Shirts, Hosen, Schals, Trinkflaschen, Schuhe usw. übrig waren, bot sich Frau Hatos an, für die Gegenstände ein neues Zuhause zu finden.</p>
+<p>Frau Weissert und Frau Hatos konnten die Fundsachen nun an eine Dame übermitteln, die die Sachen an ein Kinderheim in Ungarn weiterleitet.</p>
+<p>Vielen Dank im Namen aller Grünis!</p>
+<p>&nbsp;<img src="/images/Kinderheim_Ungarn_Zimmer._2jpg.jpg" alt="Kinderheim Ungarn Zimmer. 2jpg" width="289" height="226" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-3 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Reifenschaukel - - -		</h2>
+
+
+
+
+
+
+
+
+<p style="text-align: right;">04.02.2022</p>
+<p>Liebe Grünis,</p>
+<p>mit großem Entsetzen mussten wir am 04.02.2022 zusehen, wie unsere Reifenschaukel abgebaut wurde.<br />In der jährlichen Hauptuntersuchung wurden Mängel festgestellt, sodass zur Sicherheit der Kinder das Spielgerät entfernt werden musste.</p>
+<p>Leider wurden wir darüber im Voraus nicht informiert, sonst hätten wir uns schon längst um Ersatz bemüht.</p>
+<p>Nun wird es leider einige Zeit in Anspruch nehmen, bis wir wissen, ob und wann wir einen Ersatz für die Reifenschaukel bekommen können.</p>
+<p>Wir bleiben dran!</p>
+<p>Ihr Grüni-Team</p>
+<p>&nbsp;</p>
+<p><span style="color: #008000;">Nachtrag am 24.02.2022</span></p>
+<p><span style="color: #008000;">Die Stadt Heilbronn konnte uns mitteilen, dass eine neue Reifenschaukel beschafft und aufgebaut wird. Der zeitliche Rahmen ist noch unklar.</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-4 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Kontakt zur Grünewaldschule - - - 		</h2>
+
+
+
+
+
+
+
+
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Telefon:</span><br /><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">07131 / 87 31 80</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Mail:<span id="cloakb03a996ebeb5118435bdd60311ad9ea0"><a href="mailto:sekretariat@gruenewaldschule-hn.de"><br /></a><span id="cloakdb6d3dc880d39379dcfb1271db3b6197">Diese E-Mail-Adresse ist vor Spambots geschützt! Zur Anzeige muss JavaScript eingeschaltet sein!</span><script type='text/javascript'>
+				document.getElementById('cloakdb6d3dc880d39379dcfb1271db3b6197').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addydb6d3dc880d39379dcfb1271db3b6197 = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;';
+				addydb6d3dc880d39379dcfb1271db3b6197 = addydb6d3dc880d39379dcfb1271db3b6197 + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';
+				var addy_textdb6d3dc880d39379dcfb1271db3b6197 = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;' + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';document.getElementById('cloakdb6d3dc880d39379dcfb1271db3b6197').innerHTML += '<a ' + path + '\'' + prefix + ':' + addydb6d3dc880d39379dcfb1271db3b6197 + '\'>'+addy_textdb6d3dc880d39379dcfb1271db3b6197+'<\/a>';
+		</script></span></span></p>
+<p>&nbsp;</p>
+<p><span style="color: #008000;">- - - ACHTUNG - - -</span> </p>
+<p>Durch die Umstellung zu IServ werden sich die eMail-Adressen der Lehrer und der Schule ändern.</p>
+<p>Sie bekommen rechtzeitig Bescheid.</p>
+<p>Die neue eMail-Adresse des Sekretariats wird lauten:</p>
+<p><span id="cloakbe0a3e28e76b1d4c520ccf0847e6a08a">Diese E-Mail-Adresse ist vor Spambots geschützt! Zur Anzeige muss JavaScript eingeschaltet sein!</span><script type='text/javascript'>
+				document.getElementById('cloakbe0a3e28e76b1d4c520ccf0847e6a08a').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addybe0a3e28e76b1d4c520ccf0847e6a08a = '&#105;nf&#111;' + '&#64;';
+				addybe0a3e28e76b1d4c520ccf0847e6a08a = addybe0a3e28e76b1d4c520ccf0847e6a08a + 'gws-hn' + '&#46;' + 'd&#101;';
+				var addy_textbe0a3e28e76b1d4c520ccf0847e6a08a = '&#105;nf&#111;' + '&#64;' + 'gws-hn' + '&#46;' + 'd&#101;';document.getElementById('cloakbe0a3e28e76b1d4c520ccf0847e6a08a').innerHTML += '<a ' + path + '\'' + prefix + ':' + addybe0a3e28e76b1d4c520ccf0847e6a08a + '\'>'+addy_textbe0a3e28e76b1d4c520ccf0847e6a08a+'<\/a>';
+		</script></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-5 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Infos zum Schuljahr 2021/22 - - - 		</h2>
+
+
+
+
+
+
+
+
+<p style="text-align: right;">Stand: 28.08.2021<br />11.00 Uhr<br />überarbeitet am 22.09.2021</p>
+<p>Liebe Grünis,</p>
+<p>für das neue Schuljahr gilt weiterhin der <strong>Regelbetrieb unter Pandemiebedingungen</strong>.<br />Dieser ist geregelt durch die <a href="https://km-bw.de/site/pbs-bw-km-root/get/documents_E496318276/KULTUS.Dachmandant/KULTUS/KM-Homepage/Coronaverordnungen/2021-08-27%20CoronaVO%20Schule.pdf" target="_blank" rel="noopener noreferrer">aktuelle Coronaverordnung für Schulen vom 27.08.2021</a>.</p>
+<p><br />Regelbetrieb unter Pandemiebedingungen bedeutet unter anderem:</p>
+<ul>
+<li><strong>Unterricht nach Stundenplan</strong><br /><br /><span style="text-decoration: underline; color: #339966;"><em><strong>Halbtag:</strong></em></span><br />Einlass ab 7.45 Uhr: Kinder betreten das Schulhaus einzeln und gehen direkt ins Klassenzimmer, waschen sich dort die Hände und setzen sich an ihren Platz. Der Aufenthalt auf dem Pausenhof ist nicht gestattet.<br /><strong>Unterrichtsbeginn 8.00 Uhr</strong><br /><strong>Unterrichtsende 12.30 Uhr</strong>: Lehrkräfte begleiten die Klassen zum Ausgang. Der Aufenthalt auf dem Pausenhof ist nicht gestattet.<br /><br /><span style="text-decoration: underline; color: #339966;"><em><strong>Ganztag:</strong></em></span><br />Einlass ab 7.45 Uhr: Kinder betreten das Schulhaus einzeln und gehen direkt ins Klassenzimmer, waschen sich dort die Hände und setzen sich an ihren Platz. Der Aufenthalt auf dem Pausenhof ist nicht gestattet.<br /><strong>Unterrichtsbeginn 8.00 Uhr</strong><br />Mittagspause von 12.30 Uhr bis 14.30 Uhr: entweder zu Hause (s. Halbtag) oder in der EBA-Betreuung<br /><strong>Unterrichtsende (Mo, Di, Do) 16.00 Uhr:</strong> Lehrkräfte bzw. AG-Leiter begleiten die Klassen zum Ausgang. Der Aufenthalt auf dem Pausenhof ist nicht gestattet.</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><strong>Maskenpflicht</strong> auf dem gesamten Schulgelände (Ausnahme: betreute Pausen mit Abstand)</li>
+</ul>
+<ul>
+<li><strong>Hygieneregeln</strong> und empfohlener <strong>Mindestabstand</strong> von 1,5 Metern wo immer möglich<br /><br /></li>
+<li><strong>regelmäßiges Lüften</strong> der Räume<br /><br /></li>
+<li>Durchmischung der Jahrgangsstufen ist nicht gestattet<br /><br /></li>
+<li>AGs und Religionsunterricht dürfen innerhalb einer Jahrgangsstufe in festen Gruppen durchmischt stattfinden<br /><br /></li>
+<li><strong>regelmäßige Testung:</strong><br />- 3x pro Woche<br />- montags, mittwochs und freitags (ab 27.09.2021)<br />- in der Schule (oder zu Hause + Vorlage eines Testnachweises)<br /><br /></li>
+<li>Befreiung von der Pflicht zum Besuch des Präsenzunterrichts nur durch <strong>Vorlage einer ärztlichen Bescheinigung</strong> möglich. Diese muss innerhalb der ersten Woche nach Beginn des Schul(halb)jahres abgegeben werden.<br /><br /></li>
+<li>generelles <strong>Zutrittsverbot</strong> für Personen (Erwachsene wie auch Kinder),<br />die sich coronabedingt absondern müssen (Quarantäne),<br />die keine medizinische Maske tragen (Ausnahme: mit ärztlichem Attest),<br />die keinen aktuellen Negativtest vorweisen bzw. keinen Impf- oder Genesenen-Nachweis vorlegen können.<br /><br /><strong>--&gt; Außerdem bleiben Kinder mit typischen Symptomen einer Infektion zu Hause<br /></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Husten, Fieber, Geruchs- oder Geschmacksverlust, Atemnot,...)</li>
+</ul>
+<p>&nbsp;</p>
+<p>Die hier vorliegende Zusammenfassung ist nur als grober Leitfaden zu betrachten.<br />Konkrete Umsetzungsmaßnahmen können sich jederzeit ändern.</p>
+<p>Bitte informieren Sie sich regelmäßig über neue Bestimmungen und schauen Sie kurz vor Schulbeginn nochmals nach Schulmails oder auf die Homepage.</p>
+<p>&nbsp;</p>
+<p>Liebe Grüße</p>
+<p>das Grüni-Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-6 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Ganztagsschule in Wahlform		</h2>
+
+
+
+
+
+
+
+
+<p style="text-align: right;">19.10.2021, 8.00 Uhr</p>
+<p>Liebe Grüni-Familien und liebe Besucher unserer Homepage,</p>
+<p>die Grünewaldschule ist eine <strong>Ganztagsschule (GTS)</strong> in Wahlform mit ergänzendem <strong>Betreuung</strong>sangebot <strong>(EBA)</strong> vor, zwischen und nach dem Unterricht.</p>
+<p>Das macht das Schulleben und auch die Anmeldung der Kinder manchmal kompliziert.<br />Deshalb versuchen wir hier, die allgemeinen Fragen zu klären.</p>
+<p><strong>Unterricht</strong> ist morgens von 8.00 bis 11.40/12.30 Uhr und mittags von 14.30 bis 16.00 Uhr.</p>
+<p><strong>Betreuung</strong> (EBA) findet davor (von 7.00 - 8.00 Uhr), dazwischen (von 12.30 - 14.30 Uhr) und danach (von 16.00 - 17.30 Uhr) statt.</p>
+<p>Ganztagskinder (GT) sind montags, dienstags und donnerstags von 8.00 bis 16.00 Uhr in der Schule verpflichtend angemeldet. In diesen Zeiten finden Unterricht, Mittagsschule, AGs und auch die Betreuung im Mittagsband von 12.30-14.30 Uhr statt.<br />Die Betreuung im Mittagsband ist für GT kostenlos, aber nicht verbindlich. Die Kinder können auch zu Hause essen.</p>
+<p>Halbtagskinder (HT) sind nur für den Unterricht (auch Mittagsschule je nach Jahrgang) in der Schule.</p>
+<p>Die Betreuung (EBA) kann für GT und HT gebucht werden.</p>
+<p>Deshalb gibt es 4 Möglichkeiten:</p>
+<ol>
+<li>Halbtagskind ohne Betreuung</li>
+<li>Halbtagskind mit Betreuung</li>
+<li>Ganztagskind ohne Betreuung</li>
+<li>Ganztagskind mit Betreuung</li>
+</ol>
+<p>ANMELDUNG:</p>
+<p>Die Anmeldung zur <strong>Ganztagsschule (GTS) erfolgt in der Schule</strong> (Sekretariat) bei der Schulanmeldung bzw. jeweils im zweiten Schulhalbjahr (grünes Formular).</p>
+<p>Die Anmeldung zur <strong>Betreuung (EBA) erfolgt in der Betreuung</strong> (Büro der DJHN) (weiße Formulare). Bitte Anmeldezeiträume beachten.</p>
+<p>&nbsp;</p>
+<p>Da für jede Klassenstufe ein anderer Stundenplan gilt, ist es schwer, alles in einen Plan zu packen.</p>
+<p>Ab Klasse 2 ist donnerstags verpflichtend Nachmittagsunterricht.<br />Ab Klasse 3 ist dienstags und donnerstags verpflichtend Nachmittagsunterricht.<br />Dies gilt auch für Halbtagskinder (HT).</p>
+<p>Bitte fragen Sie im Sekretariat oder bei der Betreuung genau nach, wenn Sie etwas nicht verstehen.</p>
+<p>Plan als Beispiel:</p>
+<p><img src="/images/Stundenplan-Tabelle_EBA_GT_HT_für_Homepage.PNG" alt="Stundenplan Tabelle EBA GT HT für Homepage" width="612" height="554" /></p>
+<p>&nbsp;</p>
+<p>Weitere Informationen zu HT oder GT gibt's im Sekretariat oder unter <span id="cloak2cc4ee9552019a60d7730f48067bfc18">Diese E-Mail-Adresse ist vor Spambots geschützt! Zur Anzeige muss JavaScript eingeschaltet sein!</span><script type='text/javascript'>
+				document.getElementById('cloak2cc4ee9552019a60d7730f48067bfc18').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy2cc4ee9552019a60d7730f48067bfc18 = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;';
+				addy2cc4ee9552019a60d7730f48067bfc18 = addy2cc4ee9552019a60d7730f48067bfc18 + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';
+				var addy_text2cc4ee9552019a60d7730f48067bfc18 = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;' + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';document.getElementById('cloak2cc4ee9552019a60d7730f48067bfc18').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy2cc4ee9552019a60d7730f48067bfc18 + '\'>'+addy_text2cc4ee9552019a60d7730f48067bfc18+'<\/a>';
+		</script>.</p>
+<p>Weitere Informationen zur EBA gibt's unter "Unsere Schule" / "Betreuung (EBA)" oder unter 0176 169 10 158.</p>
+<p>&nbsp;</p>
+<p>Freundliche Grüße</p>
+<p>das Grüni-Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+		
+		<div class="items-row cols-1 row-7 row-fluid">
+					<div class="item column-1 span12"
+				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+			
+	<h2 class="item-title" itemprop="headline">
+			- - - Nutzungsordnungen und Datenschutzhinweise zu Lernplattformen - - - 17.05.2021		</h2>
+
+
+
+
+
+
+
+
+<ul style="list-style-type: square;">
+<li><a href="/images/westermann_Einverständnis.pdf" target="_blank" rel="noopener noreferrer">Alfons, Antolin (Westermann)</a></li>
+<li><a href="/images/Nutzungserklarung_Eklassenraum-Zugangsdaten.pdf" target="_blank" rel="noopener noreferrer">eKlara (eKlassenraum)</a></li>
+<li><a href="/images/BigBlueButton_Nutzungsordnung.pdf" target="_blank" rel="noopener noreferrer">BBB (BigBlueButton, Videotool für eKlara)</a></li>
+</ul>
+<p>Bitte lesen Sie sich die Nutzungsordnungen und Datenschutzhinweise genau durch.</p>
+<p>Die zu unterschreibende Einverständniserklärung erhalten alle Grünis in Papierform.</p>
+<p>Ohne die Einverständniserklärung können Grünis leider nicht an digitalen Unterrichtsangeboten teilnehmen.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>- - -&nbsp;&nbsp; - - -&nbsp;&nbsp;&nbsp; - - -&nbsp;&nbsp;&nbsp; - - -</p>
+<p>Kontakt:</p>
+<p>07131 / 87 31 80</p>
+<p><span id="cloak45f6e8215df7e71ecf8fdf3846e4a23f">Diese E-Mail-Adresse ist vor Spambots geschützt! Zur Anzeige muss JavaScript eingeschaltet sein!</span><script type='text/javascript'>
+				document.getElementById('cloak45f6e8215df7e71ecf8fdf3846e4a23f').innerHTML = '';
+				var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+				var path = 'hr' + 'ef' + '=';
+				var addy45f6e8215df7e71ecf8fdf3846e4a23f = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;';
+				addy45f6e8215df7e71ecf8fdf3846e4a23f = addy45f6e8215df7e71ecf8fdf3846e4a23f + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';
+				var addy_text45f6e8215df7e71ecf8fdf3846e4a23f = 's&#101;kr&#101;t&#97;r&#105;&#97;t' + '&#64;' + 'gr&#117;&#101;n&#101;w&#97;ldsch&#117;l&#101;-hn' + '&#46;' + 'd&#101;';document.getElementById('cloak45f6e8215df7e71ecf8fdf3846e4a23f').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy45f6e8215df7e71ecf8fdf3846e4a23f + '\'>'+addy_text45f6e8215df7e71ecf8fdf3846e4a23f+'<\/a>';
+		</script></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+			</div>
+			
+			
+		</div>
+		
+	
+	<div class="items-more">
+	<ol class="nav nav-tabs nav-stacked">
+	<li>
+		<a href="/index.php/fit-ins-leben/290-fit-ins-leben">
+			- - - Fit ins Leben - - -</a>
+	</li>
+</ol>
+	</div>
+
+	<div class="pagination">
+
+					<p class="counter pull-right">
+				Seite 1 von 2			</p>
+						<nav role="navigation" aria-label="Seitennummerierung"><ul class="pagination-list"><li class="disabled"><a><span class="icon-first" aria-hidden="true"></span></a></li><li class="disabled"><a><span class="icon-previous" aria-hidden="true"></span></a></li><li class="active hidden-phone"><a aria-current="true" aria-label="Seite 1">1</a></li><li class="hidden-phone"><a title="2" href="/index.php?start=9" class="pagenav" aria-label="Gehe zur Seite 2">2</a></li><li><a title="Weiter" href="/index.php?start=9" class="pagenav" aria-label="Zur Seite weiter wechseln"><span class="icon-next" aria-hidden="true"></span></a></li><li><a title="Ende" href="/index.php?start=9" class="pagenav" aria-label="Zur Seite ende wechseln"><span class="icon-last" aria-hidden="true"></span></a></li></ul></nav>	</div>
+
+</div>
+
+					<div class="clearfix"></div>
+					
+					<!-- End Content -->
+				</main>
+							</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer class="footer" role="contentinfo">
+		<div class="container">
+			<hr />
+			
+			<p class="pull-right">
+				<a href="#top" id="back-top">
+					Nach oben				</a>
+			</p>
+			<p>
+				&copy; 2022 Grünewaldschule Heilbronn			</p>
+		</div>
+	</footer>
+	
+
+<div id="redim-cookiehint-bottom">   <div id="redim-cookiehint">     <div class="cookiecontent">   <p>Wir nutzen Cookies auf unserer Website. Einige von ihnen sind essenziell für den Betrieb der Seite, während andere uns helfen, diese Website und die Nutzererfahrung zu verbessern (Tracking Cookies). Sie können selbst entscheiden, ob Sie die Cookies zulassen möchten. Bitte beachten Sie, dass bei einer Ablehnung womöglich nicht mehr alle Funktionalitäten der Seite zur Verfügung stehen.</p>    </div>     <div class="cookiebuttons">        <a id="cookiehintsubmit" onclick="return cookiehintsubmit(this);" href="http://www.gruenewaldschule-hn.de/?rCH=2"         class="btn">Akzeptieren</a>          <div class="text-center" id="cookiehintinfo">                <a target="_self" href="/index.php/datenschutz">Weitere Informationen</a>                      </div>      </div>     <div class="clr"></div>   </div> </div>  <script type="text/javascript">        document.addEventListener("DOMContentLoaded", function(event) {         if (!navigator.cookieEnabled){           document.getElementById('redim-cookiehint-bottom').remove();         }       });        function cookiehintfadeOut(el) {         el.style.opacity = 1;         (function fade() {           if ((el.style.opacity -= .1) < 0) {             el.style.display = "none";           } else {             requestAnimationFrame(fade);           }         })();       }         function cookiehintsubmit(obj) {         document.cookie = 'reDimCookieHint=1; expires=0;29; path=/';         cookiehintfadeOut(document.getElementById('redim-cookiehint-bottom'));         return true;       }        function cookiehintsubmitno(obj) {         document.cookie = 'reDimCookieHint=-1; expires=0; path=/';         cookiehintfadeOut(document.getElementById('redim-cookiehint-bottom'));         return true;       }  </script>  
+</body>
+</html>

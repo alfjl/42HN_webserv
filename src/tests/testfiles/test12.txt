@@ -1,0 +1,1936 @@
+> GET /,Lde/Startseite/Themen/Grundschule HTTP/1.1
+> Host: schulamt-heilbronn.de
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 200
+< Date: Tue, 13 Sep 2022 08:19:31 GMT
+< Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips
+< Cache-Control: private
+< Expires: Thu, 01 Jan 1970 00:00:00 GMT
+< X-Frame-Options: SAMEORIGIN
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 1; mode=block
+< Content-Type: text/html;charset=UTF-8
+< Content-Language: de
+< Vary: Accept-Encoding
+< X-PB9node: lbw-cms02
+< Transfer-Encoding: chunked
+
+<!DOCTYPE html>
+<html class="no-js v-m-wm" lang="de">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link rel="shortcut icon" href="http://schulamt-heilbronn.de/site/pbs-bw-km-root/resourceCached/256/prjbawue/images/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="http://schulamt-heilbronn.de/site/pbs-bw-km-root/resourceCached/256/prjbawue/images/favicon.ico" type="image/x-icon"/>		
+		<meta http-equiv="x-ua-compatible" content="IE=edge" />
+		<title>SCHULAMT-HEILBRONN - Grundschule</title>
+		<meta name="title" content="Grundschule" />
+		<meta name="DC.title" content="Grundschule" />
+		<link rel="schema.DC" href="https://dublincore.org/documents/1998/09/dces/#title" />
+		<meta property="og:title" content="Grundschule" />
+		<meta name="twitter:title" content="Grundschule" />
+				
+		<meta name="author" content="SCHULAMT-HEILBRONN" />
+		<meta name="date" content="Tue Sep 13 10:19:55 CEST 2022" />
+		<meta name="keywords" content=", Informationen zu Grundschulangelegenheiten" />
+		<meta name="DC.subject" content=", Informationen zu Grundschulangelegenheiten" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#subject" />
+		<meta name="description" content="" />
+		<meta name="DC.description" content="" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#description" />
+		<meta name="Content-Language" content="de">
+		<meta name="DC.creator" content="SCHULAMT-HEILBRONN" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#creator" />
+		<meta name="DC.date" content="" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#date" />
+		<meta name="DC.identifier" content="cbi:///cms/790232" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#identifier" />
+		<meta name="DC.language" content="de" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#language" />
+		<meta name="DC.type" content="html" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#type" />
+		<meta name="DC.format" content="text" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#format" />
+		<meta name="DC.date.X-MetadataLastModified" content="8/10/21 4:26 PM" />
+		<link rel="schema.DC" href="https://purl.org/metadata/dublin_core_elements#date" />
+						
+		<!--[if IE 8]><link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/ci/ie8-m-mfw.css?1374250422" media="all"><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/ci/ie7-m-mfw.css?1374250422" media="all"><![endif]-->
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/ci/jquery.fancybox-1.3.4.css" media="all">
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/ci/jquery-ui.css" media="all">
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/rebrush/main.css" media="all">
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/rebrush/custom.css" media="all">
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/rebrush/bg-overwrite.css" media="all">
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/cssdynamic/790005/Lde/style.css" media="all" />
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/ci/print.css" media="print" />
+		<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/rebrush/all.css">
+						
+		<style>
+			.x-lsbp-conto {
+				position: relative;
+			}
+			.x-lsbp-conti {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+			}
+			.x-lsbp-conti a {
+				margin-left: 2px;
+			}
+		</style>
+		<style>
+			@media (min-width: 64.0625em){
+				.navi__header__meta {
+					left: 0;
+					padding: 0;
+					position: absolute;
+					right: 0;
+					top: inherit;
+					bottom: 20px;
+				}
+			}
+
+			.modlogoandclaim.claim-right img {
+				height: 70px;
+			}
+		</style>
+		
+        <script src="/site/pbs-bw-km-root/resourceCached/256/libs/jquery/js/jquery-1.7.2.min.js"></script>
+        <script src="/site/pbs-bw-km-root/resourceCached/256/libs/jquery/js/jquery-ui-1.12.1.min.js"></script>
+        <script src="/site/pbs-bw-km-root/resourceCached/256/libs/jquery/js/jquery.rwdImageMaps.min.js"></script>
+        <script src="/site/pbs-bw-km-root/resourceCached/256/navigation/navigation.js"></script>
+
+        <link href="/site/pbs-bw-km-root/resourceCached/256/content/content.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/site/pbs-bw-km-root/resourceTemplate/SCHULAMT-HEILBRONN/Lde/-/790232/256/resource.content-colors.css" media="screen" />
+        <script src="/site/pbs-bw-km-root/resourceCached/256/content/js/content.js"></script>
+<link rel="stylesheet" href="/site/pbs-bw-km-root/resourceCached/256/libs/scrolltop/css/ap-scroll-top.css">
+<script type="text/javascript" src="/site/pbs-bw-km-root/resourceCached/256/libs/scrolltop/js/ap-scroll-top.min.js"></script>
+        <script src="/site/pbs-bw-km-root/resourceCached/256/pluginLib/pluginLib.1561986382.js"></script>
+        <link href="/site/pbs-bw-km-root/resourceCached/256/pluginLib/pluginLib.41758676.css" rel="stylesheet" />
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/modernizer.2.6.1.js"></script>
+		<!--[if lt IE 9]><script src="templates/js/html5.min.js?1355419909"></script><![endif]-->
+		<!--[if lt IE 9]><script src="templates/js/respond.src.js?1355419909"></script><![endif]-->
+		<!--[if lt IE 9]><script src="templates/iefix/excanvas.min.js?1357154264"></script><![endif]-->
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/jquery.cookie.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/jquery.jplayer.min.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/scripts.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/main.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/callback.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/lang.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/jquery.jack4flash.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/search_functions.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/behaviour-ci.js"></script>
+		<script>
+			document.documentElement.className = document.documentElement.className.replace(/(\s|^)no-js(\s|$)/, '$1js$2');
+			window.lazySizesConfig = {
+				lazyClass: 'js-lazyload'
+			};
+			window.bawu = {
+				ASSET_BASE_URL: '../../index.html',
+				JS_BASE_URL: '../../javascripts.html',
+				ICON_SPRITE_URL: '/site/pbs-bw-km-root/resourceCached/256/prjbawue/css/rebrush/icons/icons.svg',
+				SITE_NAME: 'pbs-bw-km-root'
+			};
+		</script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/head-sync.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/head-async.js" async></script>
+		
+				
+		
+		<style>
+			.mod-article .well.article .wrap-content h1 {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+			.m-pbs .modlogoandclaim.logoandclaim-left span.logo-claim {
+				position: relative; 
+			}
+			.m-pbs .modlogoandclaim.claim-right span.logo-claim {
+				position: relative; 
+			}
+			.m-pbs .modlogoandclaim.claim-right img {
+				
+			}
+		</style>
+		
+	</head>
+
+	<body class="no-cookie-warning nachgeordnet">
+				<!-- Mark1: 0 -->
+		    <!-- Wiredminds V7 am Ende der Seite -->
+		
+	<a class="skip-nav t-dark" href="#content">
+		<span class="icon-link icon-link--large skip-link__text">
+			<span class="icon-link__button icon-link__button--small">
+				<svg class="icon icon--arrow-right icon-link__icon" viewBox="0 0 200 200" role="presentation">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</span>
+			<span class="icon-link__text">Navigation überspringen</span>
+		</span>
+	</a>
+
+		<div class="page" id="page">
+			
+<header class="header header--light header--ministry">
+    <div class="header__service">
+        <div class="header__service-inner">
+            <div class="header__service-navigation">
+                
+                
+
+						
+	
+	
+	
+		
+				
+					<div class="metaNavItems " id="type-customlink-0">
+				<span class="header__navigation-item-text"><a href="http://www.km-bw.de" title="Kultusministerium Baden-Württemberg" target="_blank">Zum Kultusministerium</a></span>
+			</div>
+			
+		
+						
+					<div class="metaNavItems hide-mobile" id="type-customlink-1">
+				<span class="header__navigation-item-text"><a href="http://www.schule-bw.de" target="_blank">Zum Landesbildungsserver</a></span>
+			</div>
+			
+		
+						
+					<div class="metaNavItems hide-mobile" id="type-customlink-2">
+				<span class="header__navigation-item-text"><a href="http://lehrerfortbildung-bw.de/" target="_blank">Zum Lehrerfortbildungsserver</a></span>
+			</div>
+			
+		
+						
+					<div class="metaNavItems hide-mobile" id="type-customlink-3">
+				<span class="header__navigation-item-text"><a href="http://www.lmz-bw.de/" target="_blank">Zum Landesmedienzentrum</a></span>
+			</div>
+			
+		
+						
+					<div class="metaNavItems hide-mobile" id="type-customlink-4">
+				<span class="header__navigation-item-text"><a href="http://www.rp.baden-wuerttemberg.de/" title="Zu den Regierungspräsidien" target="_blank">Zu den Regierungspräsidien</a></span>
+			</div>
+			
+				
+								            </div>
+        </div>
+    </div>
+
+    <div class="header__inner">
+                    <div class="header__logo-wrap">
+                <div class="header__logo">
+                    <a class="logo logo--ministry" href="/,Lde/Startseite" accesskey="1">
+                        <img class="logo__image" src="/site/pbs-bw-km-root/get/params_E-2095755824/7266770/landeswappen_klein.png" alt="kleines Landeswappen Baden-Württemberg" title="Zur Startseite" />
+                        <span class="logo__text"><span > Staatliches Schulamt Heilbronn</span></span>                     </a>
+                </div>
+            </div>
+        
+        
+        <nav class="header__wrapper" aria-labelledby="header-toggle">
+            <a class="header__toggle" id="header-toggle" href="sitemap.html" aria-expanded="false" aria-controls="header-mobile-menu">
+                <span class="header__toggle-icon"></span><span class="header__toggle-label">Menü</span>
+            </a>
+
+            <div class="header__menu" id="header-mobile-menu">
+                <div class="header__menu-logo-wrapper"></div>
+
+                <div class="header__meta">
+                    <div class="header__meta-inner">
+                        <div class="header__meta-inner">
+                            <div class="header__meta-navigation">
+                                <div class="header__navigation-item-wrap header__navigation-item-wrap--search">
+                                            
+                 <form class="header__search" method="POST" action="/site/pbs-bw-km-root/search/790229/Lde/suche.html" role="search">
+        <input type="hidden" name="viewSecurityToken" value="d19af7a84a13ed9d90c7cf9f2034ee691364f7" />
+        <input name="quicksearch" type="hidden" value="true" />
+        <input name="mimetypes" value="text" type="hidden">
+        <input name="mimetypes" value="documents" type="hidden">
+        <label class="label u-hidden-visually" for="header-search-32a9">Suchbegriff</label>
+        <input class="input header__search-input" id="header-search-32a9" name="query" placeholder="Suchbegriff eingeben" type="search">
+        <button class="header__search-submit" type="submit">
+            <svg class="icon icon--search header__search-submit-icon" viewBox="0 0 200 200" role="img" aria-labelledby="icon-5867-title">
+                <title id="icon-5867-title">Suchen</title>
+                <use xlink:href="#icon-search"></use>
+            </svg>
+        </button>
+    </form>
+
+<script>
+	$(document).ready(function() {
+                    $("#search").attr("onsubmit", "if (this.elements['query'].value != this.elements['query'].defaultValue) { return true; } else { return false; }");
+            });
+</script>                                </div>
+                                
+                            </div>
+                                                                                                                                    
+
+
+                                                                                                                        </div>
+                    </div>
+                </div>
+
+                <ul class="header__navigation header__navigation--main">
+                    
+ 
+
+
+
+
+                
+    
+    <li id="navigation-790009" class="header__navigation-item-wrap header__navigation-item-wrap--main ">
+        <a class="header__navigation-item header__navigation-item--main "
+           href="/,Lde/Startseite/Ueber+uns" id="navigation--573747997" aria-controls="menu--573747997" aria-expanded="false" aria-haspopup="true" target="_self">
+            <span class="header__navigation-item-text">&Uuml;ber uns
+                            </span>
+                            <svg class="icon icon--arrow-down header__navigation-dropdown-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+                    </a>
+
+        <div class="header__navigation-menu" role="group" id="menu--573747997" aria-hidden="true" aria-labelledby="navigation--573747997">
+                            <div class="header__navigation-menu-inner">
+                    <div class="header__navigation-cols-wrap">
+                                                
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Ansprechpartner" target="_self">
+                                                <span class="header__navigation-item-text">Ansprechpartner
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Zustaendigkeiten" target="_self">
+                                                <span class="header__navigation-item-text">Zust&auml;ndigkeiten
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/So+finden+Sie+uns" target="_self">
+                                                <span class="header__navigation-item-text">So finden Sie uns
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Beauftragte+fuer+Chancengleichheit+Lehrkraefte" target="_self">
+                                                <span class="header__navigation-item-text">Beauftragte f&uuml;r Chancengleichheit Lehrkr&auml;fte
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Oertlicher+Personalrat+Lehrkraefte" target="_self">
+                                                <span class="header__navigation-item-text">&Ouml;rtlicher Personalrat Lehrkr&auml;fte
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Vertretung+der+schwerbehinderten+Lehrkraefte" target="_self">
+                                                <span class="header__navigation-item-text">Vertretung der schwerbehinderten Lehrkr&auml;fte
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Ueber+uns/Stellenangebote" target="_self">
+                                                <span class="header__navigation-item-text">Stellenangebote
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                        <div class="header__navigation-col header__navigation-col--teaser">
+                            
+<!--// Navigat ion Teaser - Start -->
+
+<!--// Navigation Teaser - Ende -->
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+    </li>
+
+                
+    
+    <li id="navigation-790093" class="header__navigation-item-wrap header__navigation-item-wrap--main ">
+        <a class="header__navigation-item header__navigation-item--main "
+           href="/,Lde/Startseite/Unterstuetzung+_+Beratung" id="navigation-569877139" aria-controls="menu-569877139" aria-expanded="false" aria-haspopup="true" target="_self">
+            <span class="header__navigation-item-text">Unterst&uuml;tzung &amp; Beratung
+                            </span>
+                            <svg class="icon icon--arrow-down header__navigation-dropdown-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+                    </a>
+
+        <div class="header__navigation-menu" role="group" id="menu-569877139" aria-hidden="true" aria-labelledby="navigation-569877139">
+                            <div class="header__navigation-menu-inner">
+                    <div class="header__navigation-cols-wrap">
+                                                
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Wer+hilft+weiter+_+Blaue+Linkliste+_" target="_self">
+                                                <span class="header__navigation-item-text">Wer hilft weiter (Blaue Linkliste) 
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/ADHS+_+Ansprechpartner" target="_self">
+                                                <span class="header__navigation-item-text">ADHS - Ansprechpartner
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Fruehfoerderung" target="_self">
+                                                <span class="header__navigation-item-text">Arbeitsstelle Fr&uuml;hf&ouml;rderung
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Regionale+Arbeitsstelle" target="_self">
+                                                                <span class="header__navigation-item-text">Regionale Arbeitsstelle
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Aufgabenfelder" target="_self">
+                                                                <span class="header__navigation-item-text">Aufgabenfelder
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/5683613" target="_self">
+                                                                <span class="header__navigation-item-text">Kooperationspartner
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Downloads+Arbeitsstelle+Fruehfoerderung" target="_self">
+                                                                <span class="header__navigation-item-text">Downloads Arbeitsstelle Fr&uuml;hf&ouml;rderung
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Fruehkindliche+Bildung" target="_self">
+                                                <span class="header__navigation-item-text">Arbeitsstelle Fr&uuml;hkindliche Bildung
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Kooperation+ASKO" target="_self">
+                                                <span class="header__navigation-item-text">Arbeitsstelle Kooperation ASKO
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Mitarbeiter+und+Themen" target="_self">
+                                                                <span class="header__navigation-item-text">Mitarbeiter und Themen
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Begegnungsmassnahmen" target="_self">
+                                                                <span class="header__navigation-item-text">Begegnungsma&szlig;nahmen
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Autismus+_+Ansprechpartner" target="_self">
+                                                <span class="header__navigation-item-text">Autismus - Ansprechpartner
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Inklusion" target="_self">
+                                                <span class="header__navigation-item-text">Inklusion
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Mitarbeiterinnen+und+Mitarbeiter" target="_self">
+                                                                <span class="header__navigation-item-text">Mitarbeiterinnen und Mitarbeiter
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Raumschaftsplan+der+inklusiven+Bildungsstandorte" target="_self">
+                                                                <span class="header__navigation-item-text">Raumschaftsplan der inklusiven Bildungsstandorte
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Informationen+fuer+Schulen_+Lehrkraefte+und+Eltern" target="_self">
+                                                                <span class="header__navigation-item-text">Informationen f&uuml;r Schulen, Lehrkr&auml;fte und Eltern
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Fortbildungs-+und+Beratungsmoeglichkeiten" target="_self">
+                                                                <span class="header__navigation-item-text">Fortbildungs- und Beratungsm&ouml;glichkeiten
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Links+Inklusion" target="_self">
+                                                                <span class="header__navigation-item-text">Links Inklusion
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Lese_+u_+Rechtschreibschwaeche+_LRS_" target="_self">
+                                                <span class="header__navigation-item-text">Lese- u. Rechtschreibschw&auml;che (LRS)
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/schullaufbahn+-+schulabsentismus+-+mobbing" target="_self">
+                                                <span class="header__navigation-item-text">Schullaufbahn - Schulabsentismus - Mobbing
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Kinder+u_+Jugendliche+von+beruflich+Reisenden" target="_self">
+                                                <span class="header__navigation-item-text">Kinder u. Jugendliche von beruflich Reisenden
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Berufliche+Orientierung" target="_self">
+                                                <span class="header__navigation-item-text">Berufliche Orientierung
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Kooperationspartner" target="_self">
+                                                                <span class="header__navigation-item-text">Kooperationspartner
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Downloadbereich" target="_self">
+                                                                <span class="header__navigation-item-text">Downloadbereich
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/4840023" target="_self">
+                                                                <span class="header__navigation-item-text">Links
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Schulpsychologische+Beratungsstelle" target="_self">
+                                                <span class="header__navigation-item-text">Schulpsychologische Beratungsstelle
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                        <div class="header__navigation-col header__navigation-col--teaser">
+                            
+<!--// Navigat ion Teaser - Start -->
+
+<!--// Navigation Teaser - Ende -->
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+    </li>
+
+                        
+    
+    <li id="navigation-790253" class="header__navigation-item-wrap header__navigation-item-wrap--main header__navigation-item-wrap--active">
+        <a class="header__navigation-item header__navigation-item--main header__navigation-item--active"
+           href="/,Lde/Startseite/Themen" id="navigation-2041426561" aria-controls="menu-2041426561" aria-expanded="false" aria-haspopup="true" target="_self">
+            <span class="header__navigation-item-text">Themen
+                            </span>
+                            <svg class="icon icon--arrow-down header__navigation-dropdown-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+                    </a>
+
+        <div class="header__navigation-menu" role="group" id="menu-2041426561" aria-hidden="true" aria-labelledby="navigation-2041426561">
+                            <div class="header__navigation-menu-inner">
+                    <div class="header__navigation-cols-wrap">
+                                                
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Arbeits-+und+Gesundheitsschutz+an+Schulen" target="_self">
+                                                <span class="header__navigation-item-text">Arbeits- und Gesundheitsschutz an Schulen
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Themen/Arbeits_+und+Gesundheitsschutz+an+Schulen" target="_self">
+                                                                <span class="header__navigation-item-text">Links und Unterlagen zum Download
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Migration+_+Integration" target="_self">
+                                                <span class="header__navigation-item-text">Migration / Integration
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Kinderschutz+und+Schulen" target="_self">
+                                                <span class="header__navigation-item-text">Kinderschutz und Schulen
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Grundschulfoerderklasse" target="_self">
+                                                <span class="header__navigation-item-text">Grundschulf&ouml;rderklasse
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Grundschule" target="_self">
+                                                <span class="header__navigation-item-text">Grundschule
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Ganztagsschule" target="_self">
+                                                <span class="header__navigation-item-text">Ganztagsschule
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Bildung+fuer+nachhaltige+Entwicklung+BNE" target="_self">
+                                                <span class="header__navigation-item-text">Bildung f&uuml;r nachhaltige Entwicklung BNE
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Schulabschlusspruefungen" target="_self">
+                                                <span class="header__navigation-item-text">Schulabschlusspr&uuml;fungen
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Themen/Schulfremdenpruefung+Realschulabschluss" target="_self">
+                                                                <span class="header__navigation-item-text">Schulfremdenpr&uuml;fung Realschulabschluss
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Themen/Schulfremdenpruefung+Hauptschul-+und+Werkrealschulabschluss" target="_self">
+                                                                <span class="header__navigation-item-text">Schulfremdenpr&uuml;fung Hauptschul- und Werkrealschulabschluss
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Hector_Kinderakademie" target="_self">
+                                                <span class="header__navigation-item-text">Hector-Kinderakademie
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/engpass+lehrerversorung+2016_2017" target="_self">
+                                                <span class="header__navigation-item-text">Gewinnung von Lehrkr&auml;ften
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Datenschutz+im+Bewerbungsverfahren" target="_self">
+                                                <span class="header__navigation-item-text">Datenschutz im Bewerbungsverfahren
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Themen/Vorschulische+bzw_+fruehkindliche+Bildung" target="_self">
+                                                <span class="header__navigation-item-text">Vorschulische bzw. fr&uuml;hkindliche Bildung
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                        <div class="header__navigation-col header__navigation-col--teaser">
+                            
+<!--// Navigat ion Teaser - Start -->
+
+<!--// Navigation Teaser - Ende -->
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+    </li>
+
+    
+    
+    <li id="navigation-790177" class="header__navigation-item-wrap header__navigation-item-wrap--main ">
+        <a class="header__navigation-item header__navigation-item--main "
+           href="/,Lde/Startseite/Fortbildung" id="navigation--538081502" aria-controls="menu--538081502" aria-expanded="false" aria-haspopup="true" target="_self">
+            <span class="header__navigation-item-text">Fortbildung
+                            </span>
+                            <svg class="icon icon--arrow-down header__navigation-dropdown-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+                    </a>
+
+        <div class="header__navigation-menu" role="group" id="menu--538081502" aria-hidden="true" aria-labelledby="navigation--538081502">
+                            <div class="header__navigation-menu-inner">
+                    <div class="header__navigation-cols-wrap">
+                                                
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Fortbildung/LFB++Online" target="_self">
+                                                <span class="header__navigation-item-text">LFB  Online
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Fortbildung/LFBregio+-+Schnellzugriff+auf+unsere+Fortbildungen" target="_self">
+                                                <span class="header__navigation-item-text">LFBregio - Schnellzugriff auf unsere Fortbildungen
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                        <div class="header__navigation-col header__navigation-col--teaser">
+                            
+<!--// Navigat ion Teaser - Start -->
+
+<!--// Navigation Teaser - Ende -->
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+    </li>
+
+    
+    
+    <li id="navigation-790321" class="header__navigation-item-wrap header__navigation-item-wrap--main ">
+        <a class="header__navigation-item header__navigation-item--main "
+           href="/,Lde/Startseite/Service" id="navigation--181078227" aria-controls="menu--181078227" aria-expanded="false" aria-haspopup="true" target="_self">
+            <span class="header__navigation-item-text">Service
+                            </span>
+                            <svg class="icon icon--arrow-down header__navigation-dropdown-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+                    </a>
+
+        <div class="header__navigation-menu" role="group" id="menu--181078227" aria-hidden="true" aria-labelledby="navigation--181078227">
+                            <div class="header__navigation-menu-inner">
+                    <div class="header__navigation-cols-wrap">
+                                                
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Service+fuer+Schulleitungen" target="_self">
+                                                <span class="header__navigation-item-text">Service f&uuml;r Schulleitungen
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Service/Formulare+fuer+die+Schulleitung" target="_self">
+                                                                <span class="header__navigation-item-text">Formulare f&uuml;r die Schulleitung
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Service/Hauptschulabschlusspruefung+2016+_+Sprachpruefungen" target="_self">
+                                                                <span class="header__navigation-item-text">Hauptschulabschlusspr&uuml;fung - Sprachpr&uuml;fungen
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Service+fuer+Lehrkraefte" target="_self">
+                                                <span class="header__navigation-item-text">Service f&uuml;r Lehrkr&auml;fte
+                                                                                                    </span>
+
+                                                                                                    <span class="toggle-child-navi">
+                                                        <svg class="icon icon--arrow-down accordion__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                                                            <use xlink:href="#icon-arrow-down"></use>
+                                                        </svg>
+                                                    </span>
+                                                                                            </a>
+
+                                                                                            <ul class="header__navigation header__navigation--level2">
+                                                                                                            <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Service/Formulare+u_+Vordrucke" target="_self">
+                                                                <span class="header__navigation-item-text">Formulare u. Vordrucke
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="header__navigation-item-wrap">
+                                                            <a class="header__navigation-item header__navigation-item--level2" href="/,Lde/Startseite/Service/Info+zu+Reisekosten" target="_self">
+                                                                <span class="header__navigation-item-text">Info zu Reisekosten
+                                                                                                                                    </span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                            </ul>
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Schulen+des+SSA+HN" target="_self">
+                                                <span class="header__navigation-item-text">Schulen des SSA HN
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Schulen+in+Baden_Wuerttemberg" target="_self">
+                                                <span class="header__navigation-item-text">Schulen in Baden-W&uuml;rttemberg
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/moodle_Schulamt+Heilbronn" target="_self">
+                                                <span class="header__navigation-item-text">moodle_Schulamt Heilbronn
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                                                                                        <div class="header__navigation-col">
+                                                                                            <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Ferienplan" target="_self">
+                                                <span class="header__navigation-item-text">Ferienplan
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/Links" target="_self">
+                                                <span class="header__navigation-item-text">Links
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                
+                                                                                        <div class="header__navigation-level1-wrap">
+                                    <ul class="header__navigation header__navigation--level1">
+                                        <li class="header__navigation-item-wrap">
+                                            <a class="header__navigation-item header__navigation-item--level1" href="/,Lde/Startseite/Service/kontakt" target="_self">
+                                                <span class="header__navigation-item-text">Kontakt
+                                                                                                    </span>
+
+                                                                                            </a>
+
+                                            
+                                        </li>
+                                    </ul>
+                                </div>
+                                                                                        </div>
+                                                    
+                        <div class="header__navigation-col header__navigation-col--teaser">
+                            
+<!--// Navigat ion Teaser - Start -->
+
+<!--// Navigation Teaser - Ende -->
+
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+    </li>
+
+                                     </ul>
+            </div>
+        </nav>
+    </div>
+</header>		</div>
+
+				<!-- Mark3: 13 -->
+
+		<div class="contentslot slot-TeaserBreit">
+   
+        </div>
+		
+
+    <!-- hierarchySidebar: com.pironet.pbng.prj.comet.impl.content.ComposedContentImpl : cbi:///cms/7333196 -->
+                                                    <div class="stickySidebar" style="">
+        <div class="stickySidebar-wrapper">
+                            
+
+<div class="stickyElement">
+    <div class="stickyIcon" tabindex="0" >
+        
+        <div class="stickyIconImg">
+            <img src="/site/pbs-bw-km-root/get/params_E1636356072/7333200/iconmonstr-id-card-6-48-rot.png" alt="Kontakt" title="Kontakt">
+        </div>
+
+        
+        <div class="stickyIconImgHover">
+            <img src="/site/pbs-bw-km-root/get/params_E-1666566321/7333201/iconmonstr-id-card-6-48-gau.png" alt="Kontakt" title="Kontakt">
+        </div>
+
+                <div class="stickyFlyout">
+            <div class="stickyFlyoutElement text">
+                <svg id="sidebarSearchClose" class="stickyFlyoutClose" style="display: block; enable-background: new 0 0 48 48;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" xml:space="preserve">
+                    <g><path d="M31,32c-0.3,0-0.5-0.1-0.7-0.3l-14-14c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l14,14c0.4,0.4,0.4,1,0,1.4
+                        C31.5,31.9,31.3,32,31,32z"/></g><g><path d="M17,32c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l14-14c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-14,14
+                        C17.5,31.9,17.3,32,17,32z"/></g>
+                </svg>
+                <div class="sidebarContent">
+                                                                                                        <div class=" text composedcontent-pbsbw2---allgemeines-modul  " style=""><div class="mod-header">
+			<div class="teaser__meta">
+		
+                    <span class="teaser__meta-item">
+                        <span class="teaser__meta-text">Kontakt</span>
+                    </span>
+                
+            </div>
+        </div><div class="mod-body"><div class="">
+  <div id="anker7900052374755237480323748067333204719372971937307193731" class=""><!-- HTML ElementId -->
+    <div class="composedcontent-pbsbw---html-element"><!-- HTML --><div style="height: 1px;overflow: hidden"><a name="anker79000523747552374803237480673332047193729719373071937317193732">&nbsp;</a></div>
+      <div class="basecontent-pbsbw---html-editor">
+<p>Staatliches Schulamt Heilbronn<br />
+Rollwagstr. 14<br />
+74072 Heilbronn</p>
+<p><a href='mailto:poststelle@ssa-hn.kv.bwl.de' class=' p-icon-email' target='_blank'>E-Mail</a><br />
+</p>
+<p><a href='tel:%2007131%20/%2064%20-%2037700' title='Telefon' class=' link' target='_self'><span class="p-icon-phone">07131 / 64 - 37700</span></a><br />
+<span class="p-icon-fax"><a href='tel:07131%20/%2064%20-%2037720' title='Fax' class=' link' target='_self'>07131 / 64 - 37720</a></span></p>
+<p><a title="Telefonliste des Schulamts" class=" link link-download" target="_blank" href="/site/pbs-bw-km-root/get/documents_E-1685608369/KULTUS.Dachmandant/KULTUS/Schulaemter/schulamt-heilbronn/%C3%9CBER%20UNS/Telefonliste_M%C3%A4rz_2022.pdf">Telefonliste</a></p>
+<p><span id="CmCaReT"></span><br />
+</p>
+</div>
+    </div>
+  </div><div style="height: 1px;overflow: hidden"><a name="anker7900052374755237480323748067333204719372971937307333214">&nbsp;</a></div>
+  <div class="basecontent-pbsbw---text">
+    <p><strong>Erreichbarkeit:</strong><br /><br />Montag - Donnerstag:<br />8.00 - 12.00 Uhr<br />13.00 - 15.30 Uhr<br /><br />Freitag:<br />8.00 - 12.00 Uhr</p>
+  </div>
+</div></div></div>                                                                    </div>
+            </div>
+        </div>
+            </div>
+</div>
+                            
+
+<div class="stickyElement no-hidden-print">
+    <div class="stickyIcon" tabindex="0" onclick="window.print()" >
+        
+        <div class="stickyIconImg">
+            <img src="/site/pbs-bw-km-root/get/params_E2021712753/790005/2374755/2374803/2374806/7333198/6387851/iconmonstr-printer-6-48-rot.png" alt="Drucken" title="Drucken">
+        </div>
+
+        
+        <div class="stickyIconImgHover">
+            <img src="/site/pbs-bw-km-root/get/params_E121814481/790005/2374755/2374803/2374806/7333198/6387852/iconmonstr-printer-6-48-grau.png" alt="Drucken" title="Drucken">
+        </div>
+
+            </div>
+</div>
+                    </div>
+    </div>
+
+			<main id="content" class="page__content">
+				<div class="container">
+					<div class="page">
+						<div class="row-fluid">
+							<div class="mod mod-breadcrumb span9" data-composer-template="breadcrumb">
+								<div class="">
+									<!-- Wayhome Navigation -->
+									<!-- start: path navigation #pathnav -->
+	 
+						
+				
+		<div class="breadcrumb breadcrumb--light">
+			<div class="breadcrumb__inner">
+				<span class="label breadcrumb__label" id="breadcrumb-label">Sie sind hier:</span>
+				<nav class="breadcrumb__nav" aria-labelledby="breadcrumb-label">
+					<ol class="breadcrumb__list">
+																																																															<li class="breadcrumb__list-item xxx">
+													<a href="/,Lde/Startseite" class="breadcrumb__item">
+														<span class="breadcrumb__item-label">Startseite</span>
+													</a>
+												</li>
+																																																																																															<li class="breadcrumb__list-item xxx">
+													<a href="/,Lde/Startseite/Themen" class="breadcrumb__item">
+														<span class="breadcrumb__item-label">Themen</span>
+													</a>
+												</li>
+																																																																								<li class="breadcrumb__list-item xxx">
+											<span class="breadcrumb__item" aria-current="page">
+												<span class="breadcrumb__item-label">Grundschule</span>
+											</span>
+										</li>
+										 																								
+																		</ol>
+				</nav>
+			</div>
+		</div>
+	<!-- end: path navigation #pathnav -->									<!-- Wayhome Navigation Ende -->
+								</div>
+							</div>
+							
+
+						</div>
+
+						<!-- Modulseite: false -->
+<!-- GENERAL CONTENT -->
+<!-- CONTENT -->
+			<div class="contentslot slot-content">
+   
+
+
+
+
+
+
+<div class="page__section">
+    <article class="article article__print">
+                    <div class="article__title">
+                <div class="article-title">
+                    <div class="article-title__title">
+                        <header class="page-title page-title--article">
+                            <div class="page-title__meta row_title_modifier">
+                                <p class="page-title__category"></p>
+                                <ul class="page-title__meta-list">
+                                                                                                        </ul>
+                            </div>
+                            <div class="page-title__headline">
+                                <h1 class="headline headline--1">Grundschule</h1>
+                            </div>
+                        </header>
+                    </div>
+                                    </div>
+            </div>
+                        <div class="article__body">
+            <div class="article__content text">
+                                                                                                                                                                        <div class="">
+                        <div class="article__section">
+                
+                                    <div class="text">
+                        <div id="anker3124834" class=""><!-- HTML ElementId -->
+  <div class="composedcontent-pbsbw---html-element"><!-- HTML --><div style="height: 1px;overflow: hidden"><a name="anker859259">&nbsp;</a></div>
+    <div class="basecontent-pbsbw---html-editor">
+<p><span style="text-decoration: underline;">Ansprechpartner:</span></p>
+<p>Frau Heike K&#252;hnle</p>
+<p><span class="p-icon-phone">07131 / 64 - 377 34</span></p>
+<p>Hier gelangen Sie zum <a href='https://www.heilbronn.de/bildung/schulen/grund-undwerkrealschulen/schulbezirksfinder.html' title='Link zum Grundschulfinder der Stadt Heilbronn' class=' link link-external' target='_blank'>Grundschulfinder der Stadt
+Heilbronn</a>.</p>
+<p>Generelle Informationen rund um das Thema Grundschule finden Sie &#252;ber die Seiten des <a href='https://www.schule-bw.de/faecher-und-schularten/schularten/grundschule' title='Link zum Landesbildungsserver Baden-W&#252;rttemberg' class=' link link-external' target='_blank'>Landesbildungsservers
+Baden-W&#252;rttemberg</a>.</p>
+<p><br />
+<br />
+</p>
+</div>
+  </div>
+</div>                    </div>
+                
+                            </div>
+            </div>                                                                                        
+                            </div>
+        </div>
+    </article>
+</div>
+        </div>
+	
+	
+	
+ <!-- Content ENDE -->
+ 
+<!-- GENERAL CONTENT Ende -->
+			
+<!-- CB -->
+
+	
+        
+        
+<script>
+<!--
+	var ns4CB = document.layers;
+	var ns6CB = document.getElementById && !document.all;
+	var ie4CB = document.all;
+	var offsetXCB = 0;
+	var offsetYCB = 20;
+	var toolTipSTYLECB="";
+	var addScrollValuesCB=true;
+
+	function initToolTipsCB()
+	{
+	  if(ns4CB||ns6CB||ie4CB)
+	  {
+		if(ns4CB) toolTipSTYLECB = document.toolTipLayerCB;
+		else if(ns6CB) toolTipSTYLECB = document.getElementById("toolTipLayerCB").style;
+		else if(ie4CB) toolTipSTYLECB = document.all.toolTipLayerCB.style;
+		if(ns4CB) document.captureEvents(Event.MOUSEMOVE);
+		else
+		{
+		  toolTipSTYLECB.visibility = "visible";
+		  toolTipSTYLECB.display = "none";
+		}
+		document.onmousemove = moveToMouseLocCB;
+	  }
+	}
+
+	function toolTipCB(msg, fg, bg, direction)
+	{
+	  if(toolTipCB.arguments.length < 1) // hide
+	  {
+		if(ns4CB) toolTipSTYLECB.visibility = "hidden";
+		else toolTipSTYLECB.display = "none";
+	  }
+	  else // show
+	  {
+		if(!fg) fg = "#777777";
+		if(!bg) bg = "#FFFFFF";
+		if(direction=="left") {
+			msgLength = msg.length;
+			offsetXCB = (0-msgLength*6);
+		} else {
+			offsetXCB = 0;
+		}
+		var content =
+		'<table border="0" cellspacing="0" cellpadding="1" bgcolor="' + fg +
+		'"><td>' +
+		'<table border="0" cellspacing="0" cellpadding="1" bgcolor="' + bg +
+		'"><td align="center"><font face="Verdana, Arial, sans-serif" color="' + fg +
+		'" size="1">&nbsp\;' + msg +
+		'&nbsp\;</font></td></table></td></table>';
+		if(ns4CB)
+		{
+		  toolTipSTYLECB.document.write(content);
+		  toolTipSTYLECB.document.close();
+		  toolTipSTYLECB.visibility = "visible";
+		}
+		if(ns6CB)
+		{
+		  document.getElementById("toolTipLayerCB").innerHTML = content;
+		  toolTipSTYLECB.display='block';
+		}
+		if(ie4CB)
+		{
+		  document.all("toolTipLayerCB").innerHTML=content;
+		  toolTipSTYLECB.display='block';
+		}
+	  }
+	}
+
+	function moveToMouseLocCB(e)
+	{
+	  if(ns4CB||ns6CB)
+	  {
+		x = e.pageX;
+		y = e.pageY;
+	  }
+	  else
+	  {
+		if (addScrollValuesCB) {
+			x = event.x + document.body.scrollLeft;
+			y = event.y + document.body.scrollTop;
+		} else {
+			x = event.x;
+			y = event.y;
+		}
+	  }
+	  toolTipSTYLECB.left = x + offsetXCB;
+	  toolTipSTYLECB.top = y + offsetYCB;
+	  return true;
+	}
+
+
+	function oWinCB(url,title,sizeH,sizeV) {
+		winHandle = top.open(url,title,'toolbar=no,directories=no,status=no,scrollbars=yes,menubar=no,resizable=yes,width='+sizeH+',height='+sizeV);
+		// winHandle = top.open(url,title,'toolbar=no,directories=no,status=no,scrollbars=yes,menubar=no,resizable=no,width='+sizeH+',height='+sizeV);
+		if(navigator.appVersion.indexOf("MSIE 3",0)==-1) {
+			id = setTimeout('winHandle.focus()',1000);
+		}
+	}
+
+	// call this functions in your project for specific values
+	function setoffsetYCB (newValue) {
+		offsetYCB = newValue;
+		initToolTipsCB();
+	}
+	function setoffsetXCB (newValue) {
+		offsetXCB = newValue;
+		initToolTipsCB();
+	}
+	function setaddScrollValuesCB (newValue) {
+		addScrollValuesCB = newValue;
+		initToolTipsCB();
+	}
+//-->
+</script>
+
+<div id="toolTipLayerCB" style="VISIBILITY: hidden; POSITION: absolute; z-index:99;"></div>
+
+<!--// Content - Start -->
+<script>
+<!--
+	initToolTipsCB();
+//-->
+</script>
+<!--// Content - Ende -->
+ <!-- CB ENDE -->
+
+				
+
+
+					</div>
+				</div>
+			</main>
+				<!-- Mark4: 23 -->
+		
+
+<footer class="footer ">
+            <div class="footer__inner footer__inner--top">
+            <button class="footer__toggle" id="footer-toggle" aria-expanded="false" aria-controls="footer-mobile-menu"><span class="footer__toggle-text footer__link">Themenübersicht</span>
+                <svg class="icon icon--arrow-down footer__toggle-icon" viewBox="0 0 200 200" role="presentation">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+            </button>
+            <div class="footer__links-wrapper">
+
+                                
+                                            <div class="footer__links-menu testFooterMenu" id="footer-mobile-menu">
+                                                                                                                            <div class="footer__links">
+                                        <div class="footer__navigation testmiddleFooter">
+                                            <ul class="footer__navigation-list">
+                                                <li class="footer__navigation-item">
+                                                    <a class="footer__link footer__navigation-link footer__navigation-link--main" href="/,Lde/Startseite/Ueber+uns" id="footer-links-0">Über uns</a>
+                                                    <div class="footer__navigation" aria-labelledby="footer-links-0">
+                                                        <ul class="footer__navigation-list">
+                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Ansprechpartner">Ansprechpartner</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Zustaendigkeiten">Zuständigkeiten</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/So+finden+Sie+uns">So finden Sie uns</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Beauftragte+fuer+Chancengleichheit+Lehrkraefte">Beauftragte für Chancengleichheit Lehrkräfte</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Oertlicher+Personalrat+Lehrkraefte">Örtlicher Personalrat Lehrkräfte</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Vertretung+der+schwerbehinderten+Lehrkraefte">Vertretung der schwerbehinderten Lehrkräfte</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Ueber+uns/Stellenangebote">Stellenangebote</a>
+                                                                    </li>
+                                                                                                                                                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                                                                                                <div class="footer__links">
+                                        <div class="footer__navigation testmiddleFooter">
+                                            <ul class="footer__navigation-list">
+                                                <li class="footer__navigation-item">
+                                                    <a class="footer__link footer__navigation-link footer__navigation-link--main" href="/,Lde/Startseite/Unterstuetzung+_+Beratung" id="footer-links-1">Unterstützung & Beratung</a>
+                                                    <div class="footer__navigation" aria-labelledby="footer-links-1">
+                                                        <ul class="footer__navigation-list">
+                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Wer+hilft+weiter+_+Blaue+Linkliste+_">Wer hilft weiter (Blaue Linkliste) </a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/ADHS+_+Ansprechpartner">ADHS - Ansprechpartner</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Fruehfoerderung">Arbeitsstelle Frühförderung</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Fruehkindliche+Bildung">Arbeitsstelle Frühkindliche Bildung</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Arbeitsstelle+Kooperation+ASKO">Arbeitsstelle Kooperation ASKO</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Autismus+_+Ansprechpartner">Autismus - Ansprechpartner</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Inklusion">Inklusion</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Lese_+u_+Rechtschreibschwaeche+_LRS_">Lese- u. Rechtschreibschwäche (LRS)</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/schullaufbahn+-+schulabsentismus+-+mobbing">Schullaufbahn - Schulabsentismus - Mobbing</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Kinder+u_+Jugendliche+von+beruflich+Reisenden">Kinder u. Jugendliche von beruflich Reisenden</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Berufliche+Orientierung">Berufliche Orientierung</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Unterstuetzung+_+Beratung/Schulpsychologische+Beratungsstelle">Schulpsychologische Beratungsstelle</a>
+                                                                    </li>
+                                                                                                                                                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                                                                                                <div class="footer__links">
+                                        <div class="footer__navigation testmiddleFooter">
+                                            <ul class="footer__navigation-list">
+                                                <li class="footer__navigation-item">
+                                                    <a class="footer__link footer__navigation-link footer__navigation-link--main" href="/,Lde/Startseite/Themen" id="footer-links-2">Themen</a>
+                                                    <div class="footer__navigation" aria-labelledby="footer-links-2">
+                                                        <ul class="footer__navigation-list">
+                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Arbeits-+und+Gesundheitsschutz+an+Schulen">Arbeits- und Gesundheitsschutz an Schulen</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Migration+_+Integration">Migration / Integration</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Kinderschutz+und+Schulen">Kinderschutz und Schulen</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Grundschulfoerderklasse">Grundschulförderklasse</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Grundschule">Grundschule</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Ganztagsschule">Ganztagsschule</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Bildung+fuer+nachhaltige+Entwicklung+BNE">Bildung für nachhaltige Entwicklung BNE</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Schulabschlusspruefungen">Schulabschlussprüfungen</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Hector_Kinderakademie">Hector-Kinderakademie</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/engpass+lehrerversorung+2016_2017">Gewinnung von Lehrkräften</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Datenschutz+im+Bewerbungsverfahren">Datenschutz im Bewerbungsverfahren</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Themen/Vorschulische+bzw_+fruehkindliche+Bildung">Vorschulische bzw. frühkindliche Bildung</a>
+                                                                    </li>
+                                                                                                                                                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                                                                                                <div class="footer__links">
+                                        <div class="footer__navigation testmiddleFooter">
+                                            <ul class="footer__navigation-list">
+                                                <li class="footer__navigation-item">
+                                                    <a class="footer__link footer__navigation-link footer__navigation-link--main" href="/,Lde/Startseite/Fortbildung" id="footer-links-3">Fortbildung</a>
+                                                    <div class="footer__navigation" aria-labelledby="footer-links-3">
+                                                        <ul class="footer__navigation-list">
+                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Fortbildung/LFB++Online">LFB  Online</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Fortbildung/LFBregio+-+Schnellzugriff+auf+unsere+Fortbildungen">LFBregio - Schnellzugriff auf unsere Fortbildungen</a>
+                                                                    </li>
+                                                                                                                                                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                                                                                                <div class="footer__links">
+                                        <div class="footer__navigation testmiddleFooter">
+                                            <ul class="footer__navigation-list">
+                                                <li class="footer__navigation-item">
+                                                    <a class="footer__link footer__navigation-link footer__navigation-link--main" href="/,Lde/Startseite/Service" id="footer-links-4">Service</a>
+                                                    <div class="footer__navigation" aria-labelledby="footer-links-4">
+                                                        <ul class="footer__navigation-list">
+                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Service+fuer+Schulleitungen">Service für Schulleitungen</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Service+fuer+Lehrkraefte">Service für Lehrkräfte</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Schulen+des+SSA+HN">Schulen des SSA HN</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Schulen+in+Baden_Wuerttemberg">Schulen in Baden-Württemberg</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/moodle_Schulamt+Heilbronn">moodle_Schulamt Heilbronn</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Ferienplan">Ferienplan</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/Links">Links</a>
+                                                                    </li>
+                                                                                                                                                                                                                                                                <li class="footer__navigation-item">
+                                                                        <a class="footer__link footer__navigation-link" href="/,Lde/Startseite/Service/kontakt">Kontakt</a>
+                                                                    </li>
+                                                                                                                                                                                    </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                                                                    </div>
+
+                                    
+                
+                </div>
+        </div>
+    
+    <div class="footer__inner footer__inner--bottom">
+        <div class="footer__meta">
+            <span class="footer__navigation-item footer__navigation-item--to-top">
+                <a class="footer__link footer__navigation-link js-scroll-to" href="#page">Zum Seitenanfang</a>
+            </span>
+            <div class="footer__navigation footer__navigation-list footer__navigation-list--inline">
+                	
+
+			
+	
+	
+	
+		
+				
+								
+			
+				<div class="header__navigation-item-wrap metaNavItems ">
+					<a class="header__navigation-item" href="/,Lde/Startseite"  title="Internal link: Startseite">
+						<span class="header__navigation-item-text">Startseite</span>
+					</a>
+				</div>
+						
+		
+				
+					 						
+						
+			            	<div class="metaNavItems " id="type-inhalt">
+                	<a class="header__navigation-item " href="/site/pbs-bw-km-root/sitemap/790005/Lde/inhaltsuebersicht.html" title="Interner Link: Inhalts&uuml;bersicht">
+                    	<span class="header__navigation-item-text">Inhalts&uuml;bersicht</span>
+                	</a>
+            	</div>
+						
+		
+				
+								
+												
+							<div class="metaNavItems ">
+					<a class="header__navigation-item " href="/,Lde/Startseite/Service/IMPRESSUM" title="Interner Link: Impressum">
+						<span class="header__navigation-item-text">Impressum</span>
+					</a>
+				</div>
+						
+		
+				
+		
+									
+						
+							<div class="metaNavItems ">
+					<a class="header__navigation-item" href="/,Lde/Startseite/Service/kontakt" title="Interner Link: Kontaktseite">
+						<span class="header__navigation-item-text">Kontakt</span>
+					</a>
+				</div>
+						
+		
+				
+								
+												
+							<div class="metaNavItems ">
+					<a class="header__navigation-item" href="/,Lde/Startseite/Service/Datenschutz" title="Interner Link: Datenschutz">
+						<span class="header__navigation-item-text">Datenschutz</span>
+					</a>
+				</div>
+						
+		
+				
+								
+												
+							<div class="metaNavItems ">
+					<a class="header__navigation-item" href="/,Lde/Startseite/Service/erklaerung-zur-barrierefreiheit" title="Interner Link: Erkl&auml;rung zur Barrierefreiheit">
+						<span class="header__navigation-item-text">Erkl&auml;rung zur Barrierefreiheit</span>
+					</a>
+				</div>
+						
+		
+				
+		
+									
+						
+							<div class="metaNavItems ">
+					<a class="header__navigation-item" href="/,Lde/Startseite/Service/benutzungshinweise" title="Interner Link: Benutzungshinweise">
+						<span class="header__navigation-item-text">Benutzungshinweise</span>
+					</a>
+				</div>
+						
+            </div>
+        </div>
+    </div>
+</footer>		<!-- Mark5: 31 -->								<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/loadFbModule.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/loadModule.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/combined.js"></script>
+		<script type="text/vbscript">
+		Function IEBinary_getByteAt(strBinary, iOffset)
+			IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))
+		End Function
+		Function IEBinary_getLength(strBinary)
+			IEBinary_getLength = LenB(strBinary)
+		End Function
+		</script>
+
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/ci/combined-m-mfw.js"></script>
+		<script>
+			$('article.teaser .teaser__text a:not([class*="link"]):not(:has(img))').addClass("link-inline");
+			$('article.teaser .teaser__text a[href^="mailto"]').removeClass("link-inline").addClass("mail");
+
+			$('.composedcontent-pbsbw---standard > .image, .composedcontent-standard > .image').each(function() {
+				if ($(this).children('table').width() == 700) {
+					$(this).css("margin-left", "-30px");
+				}
+
+			});
+		</script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/main.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/popper.min.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/tippy-bundle.umd.min.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/custom.js"></script>
+		<script src="/site/pbs-bw-km-root/resourceCached/256/prjbawue/js/rebrush/formValidation.js"></script>
+				
+		<div class="contentslot slot-config">
+   
+        </div>
+
+										    <!-- wiredminds V7: pixelunten -->
+    		<!-- WiredMinds V7 -->
+	<script>
+		// Begin parameters
+		var wiredminds = wiredminds || [];
+		wiredminds.push(['setTrackParam','wm_page_name','SCHULAMT-HEILBRONN\u007cStartseite\u007cThemen\u007cGrundschule']);
+
+		
+				// End parameters
+	</script>
+				<!-- wiredmindsV7 -->
+						<script type="text/javascript">
+				(function(d,s) {
+					var l = d.createElement(s), e = d.getElementsByTagName(s)[0];
+					l.async = true;
+					l.type = 'text/javascript';
+					l.src = 'https://count.webstatistik-bw.de/7e4464f6d166628c.js';
+					e.parentNode.insertBefore(l,e);
+				})(document,'script');
+			</script>
+					
+		<div id="cookiehinweis" class="alert t-dark">
+		<div id="cookiehinweisinner" class="alert__inner">
+			<div class="text alert__text">
+				<div style="height: 1px;overflow: hidden"><a name="anker79000523747552374759237476297025116035534">&nbsp;</a></div><div class="basecontent-pbsbw---text">
+  <p>Unsere Webseite verwendet nur Cookies, die technisch notwendig sind und keine Informationen an Dritte weitergeben. Für diese Cookies ist keine Einwilligung erforderlich. <br />Weitere Informationen erhalten Sie in unserer Datenschutzerklärung.</p>
+</div>
+			</div>
+			<div class="alert__buttons">
+									
+        
+<a class="button button--secondary alert__button focus-within" href="/,Lde/Startseite/Service/Datenschutz">
+    <span class="button__text">Datenschutzerklärung</span>
+</a>
+								<button class="button button--primary alert__button" id="cookiehinweisCloser" type="submit" onclick="document.cookie = 'cookiesbestaetigt=1;path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT';jQuery('#cookiehinweis').hide();jQuery('body').css('margin-bottom', 0);">
+					<span class="button__text">OK</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	 if(document.cookie.indexOf('cookiesbestaetigt=1') !== -1){
+		jQuery('#cookiehinweis').hide();
+	 } else {
+		jQuery('#cookiehinweis').prependTo('body');
+		jQuery('#cookiehinweisCloser').show();
+	 }
+	</script>
+	</body>
+	
+	
+</html>
