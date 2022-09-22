@@ -19,7 +19,9 @@ namespace webserv {
             routing(instance& the_inst);
             ~routing();
 
-            webserv::http::http_response* look_up(webserv::http::request_line& request);
+            webserv::http::http_response* look_up(webserv::http::request_core& request);
+
+            void tick();
 
         }; // class selector
 

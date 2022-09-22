@@ -5,6 +5,6 @@
 204 No Content
 205 Reset Content
 206 Partial Content
-207 Multi-Status (WebDAV)
-208 Already Reported (WebDAV)
-226 IM Used (HTTP Delta encoding)
+207 Multi-Status
+208 Already Reported
+226 IM Used

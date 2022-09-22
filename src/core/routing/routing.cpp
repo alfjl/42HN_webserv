@@ -11,10 +11,15 @@ namespace webserv {
 
         }
 
-        webserv::http::http_response* look_up(webserv::http::request_line& request) {
-
+        webserv::http::http_response* routing::look_up(webserv::http::request_core& request) {
+            webserv::http::http_response *response = new webserv::http::http_response(request);
+            return (response);
         }
 
+        void routing::tick() {
+
+                //TODO
+            }
 
     } // namespace core
 } // namespace webserv

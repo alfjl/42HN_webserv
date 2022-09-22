@@ -20,7 +20,7 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-            void register_connection(webserv::util::connection* new_connection); // ALF
+            void register_connection(webserv::util::connection* new_connection);
 
         }; // class scheduler
 

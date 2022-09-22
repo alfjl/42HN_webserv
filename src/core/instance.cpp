@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this) {
 
         }
 
@@ -21,6 +21,7 @@ namespace webserv {
                 std::cout << "Hey! " << (i++) << std::endl;
                 _driver.tick();
                 _scheduler.tick();
+                _routing.tick();
             }
         }
 
