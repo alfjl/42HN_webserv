@@ -9,7 +9,7 @@ namespace webserv {
         class fields {
         
         public:
-            typedef typename std::map<std::string, std::string>::const_iterator const_iterator;
+            typedef std::map<std::string, std::string>::const_iterator const_iterator;
 
         private:
             std::map<std::string, std::string> _fields;

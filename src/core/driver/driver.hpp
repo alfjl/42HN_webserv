@@ -20,8 +20,10 @@ namespace webserv {
 
             void open_port(int port);
             void tick();
-        };
-    }
-}
+
+        }; // class selector
+
+    } // namespace core
+} // namespace webserv
 
 #endif

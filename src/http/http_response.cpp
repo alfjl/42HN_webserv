@@ -185,15 +185,29 @@ namespace webserv {
          * Iterates over the _fields member
          * and writes field by field to the connection
          */
-        void    write_fields(webserv::util::connection& con) {
-            fields::iterator    it
+        void    http_response::write_fields(webserv::util::connection& con) {
+            fields::const_iterator  it = _fields.begin();
+            fields::const_iterator  ite = _fields.end();
+
+            for (; it != ite; ++it) {
+                out(con) << it->first;
+                out(con) << ":"; // TODO: Do we need to take care of the spaces before and after the ':'? The parsers seems to skip them!
+                out(con) << it->second;
+                out(con) << "\r\n"; // TODO: Needed? The parser seems to not save them in 'into.value'.
+            }
         }
 
         /*
          * Writes the body of the http_response to the connections ostream
          */
-        void    http_response::write_body(webserv::util::connection& con) {
+        void    http_response::write_body(webserv::util::connection& con) { // TODO: just for testing so far! Needs to be adaptet later!
 
+                std::string response;
+
+                response += "<html><head></head><body>";
+                response += "<br/>   ---  WHATS OUR BODY???  ---   <br/>";
+                response += "</body></html>";
+                out(con) << response;
         }
 
         /*
@@ -203,8 +217,8 @@ namespace webserv {
         void    http_response::write(int code, webserv::util::connection& con) {
             _code = code;
 
-            // TODO: do we need to write "HTTP/1.1" in every case?
-
+            out(con) << "\n\n ------------- TEST BEGIN --------------\n"; // TODO: Delete! Testing purposes only!
+            out(con) << "HTTP/1.1 "; // TODO: do we need to write "HTTP/1.1" in every case? If yes, with or without trailing space?
             // write code + corresponding message (e.g. 200 OK)
             write_status(con);
             // iterate over fields, and write all fields
@@ -213,30 +227,7 @@ namespace webserv {
             out(con) << "\r\n";
             // write response body
             write_body(con);
-
-            /*
-            buffer += last_char;
-            if (buffer.find("\r\n\r\n") != std::string::npos) {
-                std::cout << "Processing head: " << std::endl;
-                std::cout << buffer;
-                std::string response;
-                response += "<html><head></head><body>";
-                replace(buffer, "\n", "<br/>");
-                response += buffer;
-                response += "</body></html>";
-                out() << "HTTP/1.1 200 OK\r\n";
-                out() << "Server: Webserv/0.1\r\n";
-                out() << "Content-type: text/html, text, plain\r\n";
-                out() << "Content-length: " << response.size() << "\r\n";
-                out() << "\r\n";
-                out() << response;
-                connection->close();
-                stop();
-            } else {
-                next(&http_handler::start);
-            }
-            */
-
+            out(con) << "\n\n ------------- TEST END --------------\n"; // TODO: Delete! Testing purposes only!
         }
 
     } // namespace http

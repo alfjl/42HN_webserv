@@ -16,12 +16,12 @@ namespace webserv {
             _fields[key] = value;
         }
 
-        typename fields::const_iterator fields::begin() const
+        fields::const_iterator fields::begin() const
         {
             return ( this->_fields.begin() );
         }
 
-        typename fields::const_iterator fields::end() const
+        fields::const_iterator fields::end() const
         {
             return ( this->_fields.end() );
         }
