@@ -19,9 +19,9 @@ namespace webserv {
             static int i = 0;
             while (is_running()) {
                 std::cout << "Hey! " << (i++) << std::endl;
+                _routing.tick();
                 _driver.tick();
                 _scheduler.tick();
-                _routing.tick();
             }
         }
 

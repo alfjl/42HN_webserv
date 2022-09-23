@@ -21,18 +21,22 @@ namespace webserv {
         class http_response {
         
         private:
-            fields  _fields;
-            int     _code;
+            fields           _fields;
+            unsigned int     _code;
+
+            void          write_status(webserv::util::connection& con);
+            void          write_fields(webserv::util::connection& con);
+
+        protected:
+            virtual void  write_body(webserv::util::connection& con);
 
         public:
             http_response(webserv::http::request_core& request);
 
             std::ostream& out(webserv::util::connection& con);
 
-            void          write_status(webserv::util::connection& con);
-            void          write_fields(webserv::util::connection& con);
-            virtual void  write_body(webserv::util::connection& con); // TODO: 'virtual' really needed?
-            void          write(int code, webserv::util::connection& con);
+            void          set_code(unsigned int code);
+            void          write(webserv::util::connection& con);
 
         }; // class http_response
 

@@ -13,13 +13,13 @@ namespace webserv {
 
         webserv::http::http_response* routing::look_up(webserv::http::request_core& request) {
             webserv::http::http_response *response = new webserv::http::http_response(request);
+            response->set_code(500);
             return (response);
         }
 
         void routing::tick() {
 
-                //TODO
-            }
+        }
 
     } // namespace core
 } // namespace webserv
