@@ -26,8 +26,8 @@ namespace webserv {
             }
         }
 
-        void scheduler::register_connection(webserv::util::connection* new_connection) {
-            handlers.push_back(new webserv::http::http_handler(new_connection));
+        void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing) {
+            handlers.push_back(new webserv::http::http_handler(new_connection, routing));
         }
 
     } // namespace core

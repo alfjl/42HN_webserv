@@ -7,8 +7,8 @@ namespace webserv {
          * Default constructor initializes the members
          * with members from http_request
          */
-        http_response::http_response(webserv::http::request_core& request)
-            : _fields(request.get_fields()), _code(0) {
+        http_response::http_response()
+            : _fields(), _code(418) {
 
         }
 
@@ -23,8 +23,16 @@ namespace webserv {
         /*
          * Sets status code in instance
          */
-        void set_code(unsigned int code) {
+        void http_response::set_code(unsigned int code) {
             _code = code;
+        }
+
+        void http_response::set_field(std::string name, std::string value) {
+            _fields.put(name, value);
+        }
+
+        void http_response::set_body(std::string body) {
+            _body = body;
         }
 
         /*
@@ -121,7 +129,7 @@ namespace webserv {
          * of the http_response to the connection
          */
         void    http_response::write_status(webserv::util::connection& con) {
-            out(con) << code << " " << code2str(code) << "\r\n";
+            out(con) << _code << " " << code2str(_code) << "\r\n";
         }
 
         /*
@@ -134,23 +142,22 @@ namespace webserv {
 
             for (; it != ite; ++it) {
                 out(con) << it->first;
-                out(con) << ":"; // TODO: Do we need to take care of the spaces before and after the ':'? The parsers seems to skip them!
+                out(con) << ": ";
                 out(con) << it->second;
-                out(con) << "\r\n"; // TODO: Needed? The parser seems to not save them in 'into.value'.
+                out(con) << "\r\n";
             }
+
+            // TODO: Remove these later
+            out(con) << "Server: Webserv/0.1\r\n";
+            out(con) << "Content-type: text/html, text, plain\r\n";
+            out(con) << "Content-length: " << _body.size() << "\r\n";
         }
 
         /*
          * Writes the body of the http_response to the connections ostream
          */
-        void    http_response::write_body(webserv::util::connection& con) { // TODO: just for testing so far! Needs to be adaptet later!
-
-                std::string response;
-
-                response += "<html><head></head><body>";
-                response += "<br/>   ---  WHATS OUR BODY???  ---   <br/>";
-                response += "</body></html>";
-                out(con) << response;
+        void    http_response::write_body(webserv::util::connection& con) {
+                out(con) << _body;
         }
 
         /*
@@ -158,10 +165,7 @@ namespace webserv {
          * to the connections ostream
          */
         void    http_response::write(webserv::util::connection& con) {
-            _code = code;
-
-            out(con) << "\n\n ------------- TEST BEGIN --------------\n"; // TODO: Delete! Testing purposes only!
-            out(con) << "HTTP/1.1 "; // TODO: do we need to write "HTTP/1.1" in every case? If yes, with or without trailing space?
+            out(con) << "HTTP/1.1 ";
             // write code + corresponding message (e.g. 200 OK)
             write_status(con);
             // iterate over fields, and write all fields
@@ -170,7 +174,6 @@ namespace webserv {
             out(con) << "\r\n";
             // write response body
             write_body(con);
-            out(con) << "\n\n ------------- TEST END --------------\n"; // TODO: Delete! Testing purposes only!
         }
 
     } // namespace http

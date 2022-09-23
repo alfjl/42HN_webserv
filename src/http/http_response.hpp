@@ -23,6 +23,7 @@ namespace webserv {
         private:
             fields           _fields;
             unsigned int     _code;
+            std::string      _body;
 
             void          write_status(webserv::util::connection& con);
             void          write_fields(webserv::util::connection& con);
@@ -31,11 +32,13 @@ namespace webserv {
             virtual void  write_body(webserv::util::connection& con);
 
         public:
-            http_response(webserv::http::request_core& request);
+            http_response();
 
             std::ostream& out(webserv::util::connection& con);
 
             void          set_code(unsigned int code);
+            void          set_field(std::string name, std::string value);
+            void          set_body(std::string body);
             void          write(webserv::util::connection& con);
 
         }; // class http_response

@@ -12,7 +12,7 @@ namespace webserv {
         }
 
         void instance::pass_connection(webserv::util::connection* new_connection) {
-            _scheduler.register_connection(new_connection);
+            _scheduler.register_connection(new_connection, _routing);
         }
 
         void instance::run() {
