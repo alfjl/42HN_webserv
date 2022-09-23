@@ -16,5 +16,15 @@ namespace webserv {
             _fields[key] = value;
         }
 
+        fields::const_iterator fields::begin() const
+        {
+            return ( this->_fields.begin() );
+        }
+
+        fields::const_iterator fields::end() const
+        {
+            return ( this->_fields.end() );
+        }
+
     }
 }

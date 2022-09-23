@@ -6,6 +6,7 @@
 #include "../../http/handler/http_handler.hpp"
 #include "../../util/state_machine.hpp"
 #include "../../util/connection.hpp"
+#include "../routing/routing.hpp"
 
 namespace webserv {
     namespace core {
@@ -20,7 +21,7 @@ namespace webserv {
             ~scheduler();
 
             void tick();
-            void register_connection(webserv::util::connection* new_connection); // ALF
+            void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
 
         }; // class scheduler
 
