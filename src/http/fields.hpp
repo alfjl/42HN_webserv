@@ -7,6 +7,10 @@ namespace webserv {
     namespace http {
 
         class fields {
+        
+        public:
+            typedef typename std::map<std::string, std::string>::const_iterator const_iterator;
+
         private:
             std::map<std::string, std::string> _fields;
         
@@ -16,6 +20,9 @@ namespace webserv {
 
             std::string get_or_default(std::string key, std::string deflt) const;
             void        put(std::string key, std::string value);
+            
+            const_iterator begin() const;
+            const_iterator end() const;
 
         }; // class fields
 
