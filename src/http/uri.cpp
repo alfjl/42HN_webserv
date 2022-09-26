@@ -75,6 +75,30 @@ namespace webserv {
             } while (i != std::string::npos);
         }
 
+        path path::cd(std::string dirs) {
+            path p(*this);
+            p.mov_cd(dirs);
+            return p;
+        }
+
+        std::string path::get_first() {
+            if (_addr.empty()) return "";
+            return _addr[0];
+        }
+
+        std::string path::get_last() {
+            if (_addr.empty()) return "";
+            return _addr[_addr.size() - 1];
+        }
+        
+        path path::get_rest() {
+            std::vector<std::string> v(_addr);
+            if (!v.empty())
+                v.erase(v.begin());
+            return path(v);
+        }
+
+
         path operator+(const path& a, const path& b) {
             path new_path;
 

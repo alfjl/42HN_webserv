@@ -41,4 +41,7 @@ void test_uri_parsing() {
     webserv::http::path resource("/img/favicon.png");
 
     std::cout << (anchor + resource) << std::endl;
+    std::cout << (anchor + resource).get_first() << std::endl;
+    std::cout << (anchor + resource).get_last() << std::endl;
+    std::cout << (anchor + resource).get_rest() << std::endl;
 }

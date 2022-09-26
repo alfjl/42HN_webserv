@@ -29,13 +29,12 @@ namespace webserv {
             void mov_cd1(std::string dir);
             void mov_cd(std::string new_addr);
         
-            // void cd1()
-            // path mov_cd1();
- 
-            // get_first() // erstes Element von _addr
-            // get_last() // letztes Element von _addr
-            // get_rest() // alle elemente von _addr ausser first
+            path cd(std::string);
 
+            std::string get_first();
+            std::string get_last();
+            path        get_rest();
+ 
             std::string get_addr() const; // returnes concatenated string von allen elementen von _addr
         };
 
