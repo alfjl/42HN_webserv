@@ -7,10 +7,15 @@ namespace webserv {
     namespace http {
 
         class path {
+            std::string   _addr;
+
         public:
             path();
             path(std::string addr);
             ~path();
+
+            std::string& get_addr() { return _addr; }
+            const std::string& get_addr() const { return _addr; }
         };
 
         class uri {

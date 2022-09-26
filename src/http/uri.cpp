@@ -7,7 +7,7 @@ namespace webserv {
 
         }
 
-        path::path(std::string addr) {
+        path::path(std::string addr) : _addr(addr) {
 
         }
 
@@ -25,7 +25,7 @@ namespace webserv {
         }
 
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri) {
-            stream << the_uri.get_proto() << " | " << the_uri.get_server() << " | " << the_uri.get_port() << " | (TODO: Path)";
+            stream << the_uri.get_proto() << " | " << the_uri.get_server() << " | " << the_uri.get_port() << " | " << the_uri.get_path().get_addr();
             return stream;
         }
     }
