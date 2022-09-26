@@ -76,6 +76,11 @@ namespace webserv {
             }
 
             // should path.addr remain "/" as our default, or change to "[empty string]"
+            // into.get_path() = path(text);
+            
+            // while (split_on()) {
+
+            // }
             into.get_path() = path(text);
 
             return true;

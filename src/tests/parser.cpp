@@ -29,6 +29,8 @@ void test_uri_parsing() {
     test_uri_parsing("", false);
     test_uri_parsing("/", true);
     test_uri_parsing("/index", true);
+    test_uri_parsing("/index/whatever/hallo", true);
+    test_uri_parsing("/index/../whatever/hallo", true);
     test_uri_parsing("/index", true);
     test_uri_parsing("/index.html", true);
     test_uri_parsing(":42/", false);
