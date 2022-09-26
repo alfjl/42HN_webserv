@@ -35,7 +35,7 @@ namespace webserv {
             std::string get_last();
             path        get_rest();
  
-            std::string get_addr() const; // returnes concatenated string von allen elementen von _addr
+            std::string get_addr() const;
         };
 
         path operator+(const path& a, const path& b);
