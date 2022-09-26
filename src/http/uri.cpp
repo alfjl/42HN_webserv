@@ -60,7 +60,7 @@ namespace webserv {
                 _addr.push_back(dir);
         }
 
-        void path::mov_cd(std::string& new_addr) {
+        void path::mov_cd(std::string new_addr) {
             size_t i = 0;
 
             if (new_addr.find("/") == 0) {
@@ -73,6 +73,22 @@ namespace webserv {
                 mov_cd1(elem);
                 i = i2 + ((i2 != std::string::npos) ? 1 : 0);
             } while (i != std::string::npos);
+        }
+
+        path operator+(const path& a, const path& b) {
+            path new_path;
+
+            path::const_iterator  it = a.begin();
+            path::const_iterator  ite = a.end();
+            for (; it != ite; ++it)
+                new_path.mov_cd(*it);
+
+            it = b.begin();
+            ite = b.end();
+            for (; it != ite; ++it)
+                new_path.mov_cd(*it);
+            
+            return new_path;
         }
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path) {
