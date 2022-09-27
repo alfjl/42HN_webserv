@@ -129,6 +129,9 @@ namespace webserv {
             return true;
         }
 
+        /*
+         * Substitute old_prefix with new_prefix in this->_addr
+         */
         path path::adapt_prefix(path old_prefix, path new_prefix) {
             path v(_addr);
             
@@ -140,7 +143,8 @@ namespace webserv {
 
         /*
          * Iterates over all strings in _addr of this and rhs
-         * and checks, if value is equal
+         * and checks, if string is equal
+         * Returns true, if all strings are equal
          */
         bool path::is_equal(const path& rhs) const {
             size_t size_lhs = this->size();
