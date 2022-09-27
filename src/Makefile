@@ -9,7 +9,7 @@ OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 DEPENDS = $(patsubst %.cpp, %.d, $(SOURCES))
 
 CCFLAGS = --std=c++98 -g -Wall
-LDFLAGS = -lpthread
+LDFLAGS = 
 
 %.o: %.cpp
 	$(CXX) $(CCFLAGS) -MMD -MP -c $< -o $@
