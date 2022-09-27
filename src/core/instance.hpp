@@ -6,6 +6,7 @@
 #include "driver/driver.hpp"
 #include "scheduler/scheduler.hpp"
 #include "routing/routing.hpp"
+#include "filesystem/filesystem.hpp"
 
 #include "../util/connection.hpp"
 
@@ -19,9 +20,10 @@ namespace webserv {
         class instance {
 
         private:
-            driver    _driver;
-            scheduler _scheduler;
-            routing   _routing;
+            driver      _driver;
+            scheduler   _scheduler;
+            routing     _routing;
+            filesystem  _fs;
 
 
         public:
