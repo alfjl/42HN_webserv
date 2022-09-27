@@ -3,6 +3,8 @@
 namespace webserv {
     namespace http {
 
+        /* ---------------------- PATH -------------------------------------- */
+
         /*
          * returns a concatenated string of all elements of _addr
          */
@@ -98,6 +100,19 @@ namespace webserv {
             return path(v);
         }
 
+        bool path::begins_with(path prefix) {
+            size_t i = 0;
+            size_t size_p = prefix._addr.size();
+            size_t size_this = this->_addr.size();
+
+            for (size_t i = 0; i < size; ++i) {
+                if (i >= size_this
+                || prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
+                    return false;
+            }
+            return true;
+        }
+
 
         path operator+(const path& a, const path& b) {
             path new_path;
@@ -120,8 +135,7 @@ namespace webserv {
             return stream;
         }
 
-
-
+        /* ---------------------- URI --------------------------------------- */
 
         uri::uri() : _proto("http"), _server(""), _port(80), _path() {
 

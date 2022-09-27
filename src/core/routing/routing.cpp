@@ -4,6 +4,7 @@ namespace webserv {
     namespace core {
 
         /* ---------------------- ROUTING ----------------------------------- */
+
         routing::routing(instance& the_inst) : component(the_inst) {
 
         }
@@ -25,13 +26,27 @@ namespace webserv {
 
 
         /* ---------------------- ROUTING_TABLE ----------------------------- */
-        void add_rule(std::string a, std::string b) {
+
+        void add_rule(webserv::http::path in, webserv::http::path out) {
             // TODO: Implement!
         }
 
         webserv::http::path routing_table::query(webserv::http::path old_path) {
             webserv::http::path queried_path;
-            
+
+            // look_up if prefix substitution rule for old_path exist
+            const_iterator it = prefix_rules.begin();
+            const_iterator ite = prefix_rules.end();
+            for (; it != ite; ++it) {
+                if (old_path.begins_with(it->first)) {
+                    break;
+                }
+            }
+
+            // 
+            queried_path.adapt_prefix();
+
+
             return queried_path;
         }
 

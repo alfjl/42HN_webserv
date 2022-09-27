@@ -21,7 +21,6 @@ namespace webserv {
             path(std::string addr);
             ~path();
 
-
             const_iterator begin() const;
             const_iterator end() const;
 
@@ -33,9 +32,10 @@ namespace webserv {
 
             std::string get_first();
             std::string get_last();
-            path        get_rest();
- 
+            path        get_rest(); 
             std::string get_addr() const;
+
+            bool begins_with(path prefix);
         };
 
         path operator+(const path& a, const path& b);
