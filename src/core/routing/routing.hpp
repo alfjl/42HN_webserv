@@ -27,7 +27,7 @@ namespace webserv {
 
         class routing_table {
             // TODO: private member "anchor"?
-            std::map<std::pair<std::string, std::string> >   prefix_rules;
+            std::vector<std::pair<webserv::http::path, webserv::http::path> >   prefix_rules;
         
         public:
             routing_table() {}
