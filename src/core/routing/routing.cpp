@@ -32,20 +32,19 @@ namespace webserv {
         }
 
         webserv::http::path routing_table::query(webserv::http::path old_path) {
-            webserv::http::path queried_path;
+            webserv::http::path queried_path(old_path.get_addr_s());
 
             // look_up if prefix substitution rule for old_path exist
             const_iterator it = prefix_rules.begin();
             const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
                 if (old_path.begins_with(it->first)) {
+                    // change prefix of old_path, according to prefix rule
+                    // and save in queried_path
+                    queried_path = old_path.adapt_prefix(it->first, it->second);
                     break;
                 }
             }
-
-            // 
-            queried_path.adapt_prefix();
-
 
             return queried_path;
         }

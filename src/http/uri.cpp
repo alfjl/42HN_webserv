@@ -6,9 +6,16 @@ namespace webserv {
         /* ---------------------- PATH -------------------------------------- */
 
         /*
+         * returns a copy of _addr
+         */
+        std::vector<std::string> path::get_addr() {
+            return _addr;
+        }
+
+        /*
          * returns a concatenated string of all elements of _addr
          */
-        std::string path::get_addr() const {
+        std::string path::get_addr_s() const {
             std::string concatenated_addr;
 
             const_iterator it = _addr.begin();
@@ -47,6 +54,11 @@ namespace webserv {
         {
             return ( this->_addr.end() );
         }
+
+        size_t path::size() {
+            return _addr.size();
+        }
+
 
         void path::mov_up() {
             if (!_addr.empty())
@@ -100,17 +112,29 @@ namespace webserv {
             return path(v);
         }
 
+        /*
+         * Checks if prefix is beginning of this->_addr
+         */
         bool path::begins_with(path prefix) {
-            size_t i = 0;
             size_t size_p = prefix._addr.size();
             size_t size_this = this->_addr.size();
 
-            for (size_t i = 0; i < size; ++i) {
+            for (size_t i = 0; i < size_p; ++i) {
                 if (i >= size_this
                 || prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
                     return false;
             }
             return true;
+        }
+
+        path path::adapt_prefix(path old_prefix, path new_prefix) {
+            path v(_addr);
+            
+            for (size_t i = 0; i < old_prefix.size(); ++i){
+                v = this->get_rest();
+            }
+
+            return new_prefix + v;
         }
 
 
@@ -131,7 +155,7 @@ namespace webserv {
         }
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path) {
-            stream << the_path.get_addr();
+            stream << the_path.get_addr_s();
             return stream;
         }
 
