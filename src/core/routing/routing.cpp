@@ -25,6 +25,10 @@ namespace webserv {
 
 
         /* ---------------------- ROUTING_TABLE ----------------------------- */
+        void add_rule(std::string a, std::string b) {
+            // TODO: Implement!
+        }
+
         webserv::http::path routing_table::query(webserv::http::path old_path) {
             webserv::http::path queried_path;
             

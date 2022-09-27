@@ -27,11 +27,13 @@ namespace webserv {
 
         class routing_table {
             // TODO: private member "anchor"?
+            std::map<std::pair<std::string, std::string> >   prefix_rules;
         
         public:
             routing_table() {}
             ~routing_table() {}
 
+            void add_rule(std::string a, std::string b);
             webserv::http::path query(webserv::http::path oldpath);
 
         }; // class routing_table
