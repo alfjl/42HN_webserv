@@ -8,10 +8,39 @@ namespace webserv {
 
         class path {
         public:
+            typedef std::vector<std::string>::const_iterator const_iterator;
+
+        private:
+            std::vector<std::string>   _addr;
+
+        private:
+            path(std::vector<std::string> addr);
+
+        public:
             path();
             path(std::string addr);
             ~path();
+
+
+            const_iterator begin() const;
+            const_iterator end() const;
+
+            void mov_up();
+            void mov_cd1(std::string dir);
+            void mov_cd(std::string new_addr);
+        
+            path cd(std::string);
+
+            std::string get_first();
+            std::string get_last();
+            path        get_rest();
+ 
+            std::string get_addr() const;
         };
+
+        path operator+(const path& a, const path& b);
+
+        std::ostream& operator<<(std::ostream& stream, const path& the_path);
 
         class uri {
             std::string   _proto;

@@ -29,9 +29,19 @@ void test_uri_parsing() {
     test_uri_parsing("", false);
     test_uri_parsing("/", true);
     test_uri_parsing("/index", true);
+    test_uri_parsing("/index/whatever/hallo", true);
+    test_uri_parsing("/index/../whatever/hallo", true);
     test_uri_parsing("/index", true);
     test_uri_parsing("/index.html", true);
     test_uri_parsing(":42/", false);
     test_uri_parsing("42/", false);  // Is this really correct?
     test_uri_parsing("42.fr", true);
+
+    webserv::http::path anchor("/var/www");
+    webserv::http::path resource("/img/favicon.png");
+
+    std::cout << (anchor + resource) << std::endl;
+    std::cout << (anchor + resource).get_first() << std::endl;
+    std::cout << (anchor + resource).get_last() << std::endl;
+    std::cout << (anchor + resource).get_rest() << std::endl;
 }
