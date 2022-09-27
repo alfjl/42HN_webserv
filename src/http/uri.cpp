@@ -138,6 +138,10 @@ namespace webserv {
             return new_prefix + v;
         }
 
+        /*
+         * Iterates over all strings in _addr of this and rhs
+         * and checks, if value is equal
+         */
         bool path::is_equal(const path& rhs) const {
             size_t size_lhs = this->size();
             size_t size_rhs = rhs.size();

@@ -42,6 +42,7 @@ namespace webserv {
             bool is_equal(const path& rhs) const;
 
         };
+        bool operator==(const path& lhs, const path& rhs);
 
         path operator+(const path& a, const path& b);
 
@@ -68,7 +69,6 @@ namespace webserv {
         
         };
         
-        bool operator==(const path& lhs, const path& rhs);
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
     }
