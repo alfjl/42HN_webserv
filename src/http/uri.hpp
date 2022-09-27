@@ -23,7 +23,7 @@ namespace webserv {
 
             const_iterator begin() const;
             const_iterator end() const;
-            size_t         size();
+            size_t         size() const;
 
             void mov_up();
             void mov_cd1(std::string dir);
@@ -39,6 +39,7 @@ namespace webserv {
 
             bool begins_with(path prefix);
             path adapt_prefix(path old_prefix, path new_prefix);
+            bool is_equal(const path& rhs) const;
 
         };
 
@@ -64,8 +65,10 @@ namespace webserv {
             const std::string& get_server() const { return _server; }
             unsigned int get_port() const { return _port; }
             const path& get_path() const { return _path; }
+        
         };
-
+        
+        bool operator==(const path& lhs, const path& rhs);
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
     }

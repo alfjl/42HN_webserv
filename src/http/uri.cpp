@@ -55,7 +55,7 @@ namespace webserv {
             return ( this->_addr.end() );
         }
 
-        size_t path::size() {
+        size_t path::size() const {
             return _addr.size();
         }
 
@@ -115,6 +115,8 @@ namespace webserv {
         /*
          * Checks if prefix is beginning of this->_addr
          */
+        // can we use algorithm.search(ForwardIt1 first, ForwardIt1 last,
+        //                             ForwardIt2 s_first, ForwardIt2 s_last) instead?
         bool path::begins_with(path prefix) {
             size_t size_p = prefix._addr.size();
             size_t size_this = this->_addr.size();
@@ -130,13 +132,23 @@ namespace webserv {
         path path::adapt_prefix(path old_prefix, path new_prefix) {
             path v(_addr);
             
-            for (size_t i = 0; i < old_prefix.size(); ++i){
+            for (size_t i = 0; i < old_prefix.size(); ++i) {
                 v = this->get_rest();
             }
-
             return new_prefix + v;
         }
 
+        bool path::is_equal(const path& rhs) const {
+            size_t size_lhs = this->size();
+            size_t size_rhs = rhs.size();
+
+            for (size_t i = 0; i < size_lhs; ++i) {
+                if (i >= size_rhs
+                || this->_addr[i] != rhs._addr[i]) // do we need to pull these apart in 2 ifs?
+                    return false;
+            }
+            return true;
+        }
 
         path operator+(const path& a, const path& b) {
             path new_path;
@@ -153,6 +165,11 @@ namespace webserv {
             
             return new_path;
         }
+
+        bool operator==(const path& lhs, const path& rhs) {
+            return (lhs.is_equal(rhs));
+        }
+
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path) {
             stream << the_path.get_addr_s();

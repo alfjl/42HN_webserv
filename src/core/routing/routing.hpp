@@ -26,6 +26,7 @@ namespace webserv {
         }; // class selector
 
         class routing_table {
+            typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::iterator       iterator;
             typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::const_iterator const_iterator;
             
             // TODO: private member "anchor"?
