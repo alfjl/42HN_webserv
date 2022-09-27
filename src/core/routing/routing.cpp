@@ -3,6 +3,7 @@
 namespace webserv {
     namespace core {
 
+        /* ---------------------- ROUTING ----------------------------------- */
         routing::routing(instance& the_inst) : component(the_inst) {
 
         }
@@ -21,6 +22,15 @@ namespace webserv {
         void routing::tick() {
 
         }
+
+
+        /* ---------------------- ROUTING_TABLE ----------------------------- */
+        webserv::http::path routing_table::query(webserv::http::path old_path) {
+            webserv::http::path queried_path;
+            
+            return queried_path;
+        }
+
 
     } // namespace core
 } // namespace webserv

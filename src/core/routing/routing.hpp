@@ -25,6 +25,17 @@ namespace webserv {
 
         }; // class selector
 
+        class routing_table {
+            // file_system  _fs;// TODO: routing_table should get an instance of the ?virtual? file system as private member
+        
+        public:
+            routing_table(/* instance of ?virtual? file system*/) /*: _fs(fs)*/{}
+            ~routing_table() {}
+
+            webserv::http::path query(webserv::http::path oldpath);
+
+        }; // class routing_table
+
     } // namespace core
 } // namespace webserv
 
