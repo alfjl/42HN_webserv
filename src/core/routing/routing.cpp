@@ -29,8 +29,8 @@ namespace webserv {
 
         /*
          * Checks if 'in' is already in prefix_rules
-         * if yes, only changes the second rule to 'out'
-         * if not, adds the whole pair<in, out>
+         * If yes, only changes the second rule to 'out'
+         * If not, adds the whole pair<in, out> to prefix_rules
          */
         void routing_table::add_rule(webserv::http::path in, webserv::http::path out) {
             iterator it = prefix_rules.begin();
@@ -42,15 +42,21 @@ namespace webserv {
             }
             if (it != ite) {
                 it->second = out;
+            } else {
+                prefix_rules.push_back(std::make_pair(in, out));
             }
-            prefix_rules.push_back(std::make_pair(in, out));
         }
 
+        /*
+         * Checks if prefix of old_path is included in prefix_rules
+         * If yes, substitutes the prefix of old_path
+         * according to the specific rule set
+         */
         webserv::http::path routing_table::query(webserv::http::path old_path) {
             webserv::http::path queried_path(old_path.get_addr_s());
 
             // look_up if prefix substitution rule for old_path exist
-            // and substitute if found
+            // and substitute it, if found
             const_iterator it = prefix_rules.begin();
             const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
