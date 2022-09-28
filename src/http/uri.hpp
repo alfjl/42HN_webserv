@@ -21,9 +21,9 @@ namespace webserv {
             path(std::string addr);
             ~path();
 
-
             const_iterator begin() const;
             const_iterator end() const;
+            size_t         size() const;
 
             void mov_up();
             void mov_cd1(std::string dir);
@@ -31,12 +31,18 @@ namespace webserv {
         
             path cd(std::string);
 
-            std::string get_first();
-            std::string get_last();
-            path        get_rest();
- 
-            std::string get_addr() const;
+            std::string              get_first();
+            std::string              get_last();
+            path                     get_rest(); 
+            std::vector<std::string> get_addr();
+            std::string              get_addr_s() const;
+
+            bool begins_with(path prefix);
+            path adapt_prefix(path old_prefix, path new_prefix);
+            bool is_equal(const path& rhs) const;
+
         };
+        bool operator==(const path& lhs, const path& rhs);
 
         path operator+(const path& a, const path& b);
 
@@ -60,8 +66,9 @@ namespace webserv {
             const std::string& get_server() const { return _server; }
             unsigned int get_port() const { return _port; }
             const path& get_path() const { return _path; }
+        
         };
-
+        
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
     }

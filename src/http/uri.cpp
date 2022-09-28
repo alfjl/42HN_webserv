@@ -3,10 +3,19 @@
 namespace webserv {
     namespace http {
 
+        /* ---------------------- PATH -------------------------------------- */
+
+        /*
+         * returns a copy of _addr
+         */
+        std::vector<std::string> path::get_addr() {
+            return _addr;
+        }
+
         /*
          * returns a concatenated string of all elements of _addr
          */
-        std::string path::get_addr() const {
+        std::string path::get_addr_s() const {
             std::string concatenated_addr;
 
             const_iterator it = _addr.begin();
@@ -45,6 +54,11 @@ namespace webserv {
         {
             return ( this->_addr.end() );
         }
+
+        size_t path::size() const {
+            return _addr.size();
+        }
+
 
         void path::mov_up() {
             if (!_addr.empty())
@@ -98,6 +112,51 @@ namespace webserv {
             return path(v);
         }
 
+        /*
+         * Checks if prefix is beginning of this->_addr
+         */
+        // can we use algorithm.search(ForwardIt1 first, ForwardIt1 last,
+        //                             ForwardIt2 s_first, ForwardIt2 s_last) instead?
+        bool path::begins_with(path prefix) {
+            size_t size_p = prefix._addr.size();
+            size_t size_this = this->_addr.size();
+
+            for (size_t i = 0; i < size_p; ++i) {
+                if (i >= size_this
+                || prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
+                    return false;
+            }
+            return true;
+        }
+
+        /*
+         * Substitute old_prefix with new_prefix in this->_addr
+         */
+        path path::adapt_prefix(path old_prefix, path new_prefix) {
+            path v(_addr);
+            
+            for (size_t i = 0; i < old_prefix.size(); ++i) {
+                v = this->get_rest();
+            }
+            return new_prefix + v;
+        }
+
+        /*
+         * Iterates over all strings in _addr of this and rhs
+         * and checks, if string is equal
+         * Returns true, if all strings are equal
+         */
+        bool path::is_equal(const path& rhs) const {
+            size_t size_lhs = this->size();
+            size_t size_rhs = rhs.size();
+
+            for (size_t i = 0; i < size_lhs; ++i) {
+                if (i >= size_rhs
+                || this->_addr[i] != rhs._addr[i]) // do we need to pull these apart in 2 ifs?
+                    return false;
+            }
+            return true;
+        }
 
         path operator+(const path& a, const path& b) {
             path new_path;
@@ -115,13 +174,17 @@ namespace webserv {
             return new_path;
         }
 
-        std::ostream& operator<<(std::ostream& stream, const path& the_path) {
-            stream << the_path.get_addr();
-            return stream;
+        bool operator==(const path& lhs, const path& rhs) {
+            return (lhs.is_equal(rhs));
         }
 
 
+        std::ostream& operator<<(std::ostream& stream, const path& the_path) {
+            stream << the_path.get_addr_s();
+            return stream;
+        }
 
+        /* ---------------------- URI --------------------------------------- */
 
         uri::uri() : _proto("http"), _server(""), _port(80), _path() {
 
