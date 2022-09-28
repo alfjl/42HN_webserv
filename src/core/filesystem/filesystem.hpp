@@ -17,8 +17,8 @@ namespace webserv {
 			filesystem(instance& the_inst);
 			~filesystem();
 
-			std::ifstream open_absolute(webserv::http::path path);
-			std::ifstream open(webserv::http::path path);
+			bool open_absolute(webserv::http::path path, std::ifstream& stream);
+			bool open(webserv::http::path path, std::ifstream& stream);
 
 		}; //class filesystem
 

@@ -11,12 +11,13 @@ namespace webserv {
 
 		}
 
-		std::ifstream open_absolute(webserv::http::path path) {
-			return std::ifstream("/" + path.get_addr_s());
+		bool open_absolute(webserv::http::path path, std::ifstream& stream) {
+			stream.open("/" + path.get_addr_s());
+			return true;
 		}
 
-		std::ifstream open(webserv::http::path path) {
-			return open_absolute(path);
+		bool open(webserv::http::path path, std::ifstream& stream) {
+			return open_absolute(path, stream);
 		}
 
 	} // namespace core
