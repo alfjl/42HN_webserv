@@ -22,7 +22,7 @@ namespace webserv {
                 // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
                 case webserv::http::http_method_get: {
                     webserv::core::routing_table table;
-                    webserv::http::path file_path = table.query(request.get_line().get_uri().get_path());
+                    webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
                     if (get_instance().get_fs().open(file_path, stream)) {
                         std::ostringstream payload;
@@ -68,7 +68,7 @@ namespace webserv {
          * If yes, only changes the second rule to 'out'
          * If not, adds the whole pair<in, out> to prefix_rules
          */
-        void routing_table::add_rule(webserv::http::path in, webserv::http::path out) {
+        void routing_table::add_rule(webserv::util::path in, webserv::util::path out) {
             iterator it = prefix_rules.begin();
             iterator ite = prefix_rules.end();
 
@@ -88,8 +88,8 @@ namespace webserv {
          * If yes, substitutes the prefix of old_path
          * according to the specific rule set
          */
-        webserv::http::path routing_table::query(webserv::http::path old_path) {
-            webserv::http::path queried_path(old_path.get_addr_s());
+        webserv::util::path routing_table::query(webserv::util::path old_path) {
+            webserv::util::path queried_path(old_path.get_addr_s());
 
             // look_up if prefix substitution rule for old_path exist
             // and substitute it, if found

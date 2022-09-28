@@ -26,18 +26,18 @@ namespace webserv {
         }; // class selector
 
         class routing_table {
-            typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::iterator       iterator;
-            typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::const_iterator const_iterator;
+            typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::iterator       iterator;
+            typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::const_iterator const_iterator;
             
             // TODO: private member "anchor"?
-            std::vector<std::pair<webserv::http::path, webserv::http::path> >   prefix_rules;
+            std::vector<std::pair<webserv::util::path, webserv::util::path> >   prefix_rules;
         
         public:
             routing_table() {}
             ~routing_table() {}
 
-            void add_rule(webserv::http::path in, webserv::http::path out);
-            webserv::http::path query(webserv::http::path old_path);
+            void add_rule(webserv::util::path in, webserv::util::path out);
+            webserv::util::path query(webserv::util::path old_path);
 
         }; // class routing_table
 
