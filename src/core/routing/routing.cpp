@@ -16,7 +16,11 @@ namespace webserv {
         void use_method(webserv::http::request_core& request) {
             switch (request.get_line().get_method()) {
                 // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
-                case webserv::http::http_method_get: std::cout << "TODO: case http_method_get:" << std::endl; break;
+                case webserv::http::http_method_get: {
+                    webserv::http::path file_path = query(request.get_line().get_uri().get_path());
+                    std::ifstream stream = get_instance().get_fs().open(file_path);
+                    break;
+                }
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
                 case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;

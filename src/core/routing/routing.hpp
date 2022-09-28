@@ -2,6 +2,7 @@
 #define WEBSERV_CORE_ROUTING_ROUTING_HPP
 
 #include "../component.hpp"
+#include "../filesystem/filesystem.hpp"
 
 #include "../../http/http_response.hpp"
 #include "../../http/request.hpp"
