@@ -3,7 +3,7 @@
 
 #include "../component.hpp"
 
-#include "../../http/http_response.hpp"
+#include "../../http/response.hpp"
 #include "../../http/request.hpp"
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
@@ -19,7 +19,7 @@ namespace webserv {
             routing(instance& the_inst);
             ~routing();
 
-            webserv::http::http_response* look_up(webserv::http::request_core& request);
+            webserv::http::response* look_up(webserv::http::request_core& request);
 
             void tick();
 

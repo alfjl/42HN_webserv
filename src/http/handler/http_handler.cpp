@@ -3,7 +3,7 @@
 #include "../../core/routing/routing.hpp"
 #include "../../util/streamflow.hpp"
 #include "../parsing/request_parser.hpp"
-#include "../http_response.hpp"
+#include "../response.hpp"
 
 namespace webserv {
     namespace http {
@@ -56,7 +56,7 @@ namespace webserv {
                 std::cout << buffer << std::endl;
                 std::cout << into.get_line().get_uri() << std::endl;
 
-                http_response* response = routing.look_up(into);
+                response* response = routing.look_up(into);
 
                 response->write(*connection);
                 // std::string response;

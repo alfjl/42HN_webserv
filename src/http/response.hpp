@@ -18,7 +18,7 @@ namespace webserv {
          *                                       - alanghan
          */
 
-        class http_response {
+        class response {
         
         private:
             fields           _fields;
@@ -32,7 +32,7 @@ namespace webserv {
             virtual void  write_body(webserv::util::connection& con);
 
         public:
-            http_response();
+            response();
 
             std::ostream& out(webserv::util::connection& con);
 
@@ -41,7 +41,7 @@ namespace webserv {
             void          set_body(std::string body);
             void          write(webserv::util::connection& con);
 
-        }; // class http_response
+        }; // class response
 
     } // namespace http
 } // namespace webserv
