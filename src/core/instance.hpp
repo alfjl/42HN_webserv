@@ -33,6 +33,7 @@ namespace webserv {
             driver&     get_driver()    { return _driver; }
             scheduler&  get_scheduler() { return _scheduler; }
             routing&    get_routing()   { return _routing; }
+            filesystem& get_fs()        { return _fs; }
             void        pass_connection(webserv::util::connection* new_connection);
 
             bool is_running() { return true; }

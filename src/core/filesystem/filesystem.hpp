@@ -3,6 +3,7 @@
 
 #include "../../defs.hpp"
 #include "../component.hpp"
+#include "../../http/uri.hpp"
 
 /*
 	For later What does the filesystem do?
@@ -16,7 +17,8 @@ namespace webserv {
 			filesystem(instance& the_inst);
 			~filesystem();
 
-			// fileflow open()
+			std::ifstream open_absolute(webserv::http::path path);
+			std::ifstream open(webserv::http::path path);
 
 		}; //class filesystem
 
