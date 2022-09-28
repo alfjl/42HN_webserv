@@ -37,8 +37,8 @@ void test_uri_parsing() {
     test_uri_parsing("42/", false);  // Is this really correct?
     test_uri_parsing("42.fr", true);
 
-    webserv::http::path anchor("/var/www");
-    webserv::http::path resource("/img/favicon.png");
+    webserv::util::path anchor("/var/www");
+    webserv::util::path resource("/img/favicon.png");
 
     std::cout << (anchor + resource) << std::endl;
     std::cout << (anchor + resource).get_first() << std::endl;

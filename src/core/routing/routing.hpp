@@ -23,23 +23,7 @@ namespace webserv {
 
             void tick();
 
-        }; // class selector
-
-        class routing_table {
-            typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::iterator       iterator;
-            typedef std::vector<std::pair<webserv::http::path, webserv::http::path> >::const_iterator const_iterator;
-            
-            // TODO: private member "anchor"?
-            std::vector<std::pair<webserv::http::path, webserv::http::path> >   prefix_rules;
-        
-        public:
-            routing_table() {}
-            ~routing_table() {}
-
-            void add_rule(webserv::http::path in, webserv::http::path out);
-            webserv::http::path query(webserv::http::path old_path);
-
-        }; // class routing_table
+        }; // class routing
 
     } // namespace core
 } // namespace webserv

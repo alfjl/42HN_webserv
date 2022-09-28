@@ -81,7 +81,7 @@ namespace webserv {
             // while (split_on()) {
 
             // }
-            into.get_path() = path(text);
+            into.get_path() = webserv::util::path(text);
 
             return true;
         }
