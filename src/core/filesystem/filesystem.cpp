@@ -11,12 +11,12 @@ namespace webserv {
 
 		}
 
-		bool open_absolute(webserv::http::path path, std::ifstream& stream) {
+		bool filesystem::open_absolute(webserv::http::path path, std::ifstream& stream) {
 			stream.open("/" + path.get_addr_s());
 			return true;
 		}
 
-		bool open(webserv::http::path path, std::ifstream& stream) {
+		bool filesystem::open(webserv::http::path path, std::ifstream& stream) {
 			return open_absolute(path, stream);
 		}
 

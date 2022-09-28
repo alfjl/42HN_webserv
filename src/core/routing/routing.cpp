@@ -1,5 +1,7 @@
 #include "routing.hpp"
 
+#include "../instance.hpp"
+
 namespace webserv {
     namespace core {
 
@@ -19,8 +21,10 @@ namespace webserv {
             switch (request.get_line().get_method()) {
                 // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
                 case webserv::http::http_method_get: {
-                    webserv::http::path file_path = query(request.get_line().get_uri().get_path());
-                    std::ifstream stream = get_instance().get_fs().open(file_path);
+                    webserv::core::routing_table table;
+                    webserv::http::path file_path = table.query(request.get_line().get_uri().get_path());
+                    std::ifstream stream;
+                    get_instance().get_fs().open(file_path, stream);
                     std::ostringstream payload;
                     while (!stream.eof()) {
                         char c;
@@ -44,9 +48,8 @@ namespace webserv {
                     response->set_body("<html><head></head><body>Error 404!</body></html>");
                     break;
                 }
-
-                return (response);
             }
+            return (response);
         }
 
         void routing::tick() {
