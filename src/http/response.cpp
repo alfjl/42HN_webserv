@@ -1,4 +1,4 @@
-#include "http_response.hpp"
+#include "response.hpp"
 
 namespace webserv {
     namespace http {
@@ -7,7 +7,7 @@ namespace webserv {
          * Default constructor initializes the members
          * with members from http_request
          */
-        http_response::http_response()
+        response::response()
             : _fields(), _code(418) {
 
         }
@@ -16,22 +16,22 @@ namespace webserv {
          * Extracts the ostream of the connection
          * and passes it on as its return value
          */
-        std::ostream& http_response::out(webserv::util::connection& con) {
+        std::ostream& response::out(webserv::util::connection& con) {
             return con.get_ostream();
         }
 
         /*
          * Sets status code in instance
          */
-        void http_response::set_code(unsigned int code) {
+        void response::set_code(unsigned int code) {
             _code = code;
         }
 
-        void http_response::set_field(std::string name, std::string value) {
+        void response::set_field(std::string name, std::string value) {
             _fields.put(name, value);
         }
 
-        void http_response::set_body(std::string body) {
+        void response::set_body(std::string body) {
             _body = body;
         }
 
@@ -126,9 +126,9 @@ namespace webserv {
 
         /*
          * Writes the status_code and corresponding message (e.g. 200 OK)
-         * of the http_response to the connection
+         * of the response to the connection
          */
-        void    http_response::write_status(webserv::util::connection& con) {
+        void    response::write_status(webserv::util::connection& con) {
             out(con) << _code << " " << code2str(_code) << "\r\n";
         }
 
@@ -136,7 +136,7 @@ namespace webserv {
          * Iterates over the _fields member
          * and writes field by field to the connection
          */
-        void    http_response::write_fields(webserv::util::connection& con) {
+        void    response::write_fields(webserv::util::connection& con) {
             fields::const_iterator  it = _fields.begin();
             fields::const_iterator  ite = _fields.end();
 
@@ -154,9 +154,9 @@ namespace webserv {
         }
 
         /*
-         * Writes the body of the http_response to the connections ostream
+         * Writes the body of the response to the connections ostream
          */
-        void    http_response::write_body(webserv::util::connection& con) {
+        void    response::write_body(webserv::util::connection& con) {
                 out(con) << _body;
         }
 
@@ -164,7 +164,7 @@ namespace webserv {
          * Accepts a status code and writes the correct response back
          * to the connections ostream
          */
-        void    http_response::write(webserv::util::connection& con) {
+        void    response::write(webserv::util::connection& con) {
             out(con) << "HTTP/1.1 ";
             // write code + corresponding message (e.g. 200 OK)
             write_status(con);
