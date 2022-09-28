@@ -43,7 +43,11 @@ namespace webserv {
         bool parser::check(char c) {
             char other;
 
-            return (this_char(other) && (other == c));
+            if (this_char(other) && (other == c)) {
+                next_char(other);
+                return true;
+            }
+            return false;
         }
 
         bool parser::checks(std::string text) {

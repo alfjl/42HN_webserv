@@ -1,5 +1,7 @@
 #include "routing.hpp"
 
+#include "../instance.hpp"
+
 namespace webserv {
     namespace core {
 
@@ -15,13 +17,43 @@ namespace webserv {
 
         webserv::http::http_response* routing::look_up(webserv::http::request_core& request) {
             webserv::http::http_response *response = new webserv::http::http_response();
-            response->set_code(200);
-            response->set_body("<html><head></head><body>Dies ist ein Text!!!</body></html>");
+
+            switch (request.get_line().get_method()) {
+                // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
+                case webserv::http::http_method_get: {
+                    webserv::core::routing_table table;
+                    webserv::http::path file_path = table.query(request.get_line().get_uri().get_path());
+                    std::ifstream stream;
+                    get_instance().get_fs().open(file_path, stream);
+                    std::ostringstream payload;
+                    while (!stream.eof()) {
+                        char c;
+                        stream.get(c);
+                        payload << c;
+                    }
+
+                    response->set_code(200);
+                    response->set_body(payload.str());
+
+                    break;
+                }
+                // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
+                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
+                // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
+                case webserv::http::http_method_delete: std::cout << "TODO: case http_method_delete:" << std::endl;
+                // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
+                // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
+                default: {
+                    response->set_code(404);
+                    response->set_body("<html><head></head><body>Error 404!</body></html>");
+                    break;
+                }
+            }
             return (response);
         }
 
         void routing::tick() {
-
+            // Do nothing!
         }
 
 
@@ -70,7 +102,6 @@ namespace webserv {
 
             return queried_path;
         }
-
 
     } // namespace core
 } // namespace webserv

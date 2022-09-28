@@ -109,8 +109,6 @@ namespace webserv {
             }
             // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
 
-            parser.expect_space();
-
             parse_http_version(parser, line.get_version());
 
             parser.expect_http_newline();
