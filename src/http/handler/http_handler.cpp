@@ -53,6 +53,8 @@ namespace webserv {
                 
                 parse_http_request_core(parser, into);
 
+                std::cout << buffer << std::endl;
+                std::cout << into.get_line().get_uri() << std::endl;
 
                 http_response* response = routing.look_up(into);
 

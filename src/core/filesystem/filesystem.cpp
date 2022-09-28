@@ -13,6 +13,7 @@ namespace webserv {
 
 		bool filesystem::open_absolute(webserv::http::path path, std::ifstream& stream) {
 			stream.open("/" + path.get_addr_s());
+            std::cout << "Opening /" << path << std::endl;
 			return true;
 		}
 
