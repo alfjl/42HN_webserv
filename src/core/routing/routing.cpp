@@ -24,16 +24,20 @@ namespace webserv {
                     webserv::core::routing_table table;
                     webserv::http::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
-                    get_instance().get_fs().open(file_path, stream);
-                    std::ostringstream payload;
-                    while (!stream.eof()) {
-                        char c;
-                        stream.get(c);
-                        payload << c;
-                    }
+                    if (get_instance().get_fs().open(file_path, stream)) {
+                        std::ostringstream payload;
+                        while (!stream.eof()) {
+                            char c;
+                            stream.get(c);
+                            payload << c;
+                        }
+                        std::cout << "Done!" << std::endl;
 
-                    response->set_code(200);
-                    response->set_body(payload.str());
+                        response->set_code(200);
+                        response->set_body(payload.str());
+                    } else {
+                        response->set_code(404);
+                    }
 
                     break;
                 }
