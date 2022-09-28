@@ -41,7 +41,8 @@ namespace webserv {
             path adapt_prefix(path old_prefix, path new_prefix);
             bool is_equal(const path& rhs) const;
 
-        };
+        }; // class path
+
         bool operator==(const path& lhs, const path& rhs);
 
         path operator+(const path& a, const path& b);
@@ -67,11 +68,11 @@ namespace webserv {
             unsigned int get_port() const { return _port; }
             const path& get_path() const { return _path; }
         
-        };
+        }; // class uri
         
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
-    }
-}
+    } // namespace http
+} // namespace webserv
 
 #endif

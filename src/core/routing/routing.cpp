@@ -21,7 +21,7 @@ namespace webserv {
         }
 
         void routing::tick() {
-
+            // Do nothing!
         }
 
 
@@ -67,10 +67,8 @@ namespace webserv {
                     break;
                 }
             }
-
             return queried_path;
         }
-
 
     } // namespace core
 } // namespace webserv
