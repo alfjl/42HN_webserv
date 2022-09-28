@@ -10,7 +10,9 @@ namespace webserv {
     namespace http {
 
         class request_parser : public webserv::util::parser {
+
         private:
+
         public:
             request_parser(iflow& flow);
             ~request_parser();
@@ -20,6 +22,7 @@ namespace webserv {
 
             bool check_http_newline();
             void expect_http_newline();
+
         }; // class request_parser
 
         bool parse_uri(std::string text, uri& into);

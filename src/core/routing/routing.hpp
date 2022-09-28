@@ -19,6 +19,8 @@ namespace webserv {
             routing(instance& the_inst);
             ~routing();
 
+            void use_method(webserv::http::request_core& request);
+
             webserv::http::http_response* look_up(webserv::http::request_core& request);
 
             void tick();

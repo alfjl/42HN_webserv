@@ -42,6 +42,8 @@ namespace webserv {
             void set_method(enum http_method m) { _method = m; }
             uri& get_uri() { return _uri; }
             http_version& get_version() { return _http_version; }
+            http_method&  get_method() { return _method; }
+
         }; // class request_line
 
 

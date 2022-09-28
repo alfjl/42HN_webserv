@@ -13,6 +13,21 @@ namespace webserv {
 
         }
 
+        void use_method(webserv::http::request_core& request) {
+            switch (request.get_line().get_method()) {
+                // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
+                case webserv::http::http_method_get: std::cout << "TODO: case http_method_get:" << std::endl; break;
+                // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
+                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
+                // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
+                case webserv::http::http_method_delete: std::cout << "TODO: case http_method_delete:" << std::endl;
+                // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
+                // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
+                default: std::cout << "TODO:default: Fehlermeldung!!!!!" << std::endl; break;
+
+            }
+        }
+
         webserv::http::http_response* routing::look_up(webserv::http::request_core& request) {
             webserv::http::http_response *response = new webserv::http::http_response();
             response->set_code(200);
