@@ -2,15 +2,20 @@
 #define WEBSERV_DEFS_HPP
 
 extern "C" {
+// Standard C
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+// I/O & Files
+#include <fcntl.h>
+#include <dirent.h>
+#include <sys/stat.h>
+// Networking
 #include <sys/socket.h>
 #include <sys/select.h>
-#include <sys/time.h>
 #include <sys/types.h>
+#include <sys/time.h>
 #include <netinet/in.h>
-#include <fcntl.h>
-#include <string.h>
 }
 
 #include <iostream>
