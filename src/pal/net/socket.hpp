@@ -1,5 +1,5 @@
-#ifndef WEBSERV_PAL_SOCKET_SOCKET_HPP
-#define WEBSERV_PAL_SOCKET_SOCKET_HPP
+#ifndef WEBSERV_PAL_NET_SOCKET_HPP
+#define WEBSERV_PAL_NET_SOCKET_HPP
 
 #include "../../defs.hpp"
 
