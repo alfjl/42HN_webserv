@@ -49,7 +49,47 @@ namespace webserv {
             return false;
         }
 
-        bool parse_uri(std::string text, uri& into) {
+        void parse_uri(request_parser& parser, uri& into) {
+            if (parser.checks("http://")) {
+                into.get_proto() = "http";
+            } else {
+                /*
+                 * This is not exactly right, technically a URI can contain
+                 * any kind of protocol. However, since we can only handle HTTP
+                 * and we prefer to have a clean LL(1) parser, this is valid.
+                 *                                          - nijakow
+                 */
+                parser.parse_error("Expected a valid protocol!");
+            }
+
+            std::string server_name;
+
+            while (parser.has_next()) {
+                if (parser.check(':')) {
+                    parser.expect_uint(into.get_port());
+                    break;
+                } else if (parser.check_space()) {
+                    break;
+                }
+                server_name += parser.force_next_char();
+            }
+
+            into.get_server() = server_name;
+
+            std::string path;
+
+            while (parser.has_next()) {
+                // TODO: "?p1=v1&p2=v2"
+                if (parser.check_space()) {
+                    break;
+                }
+                path += parser.force_next_char();
+            }
+
+            into.get_path() = webserv::util::path(path);
+        }
+
+        /*bool parse_uri(std::string text, uri& into) {
             split_on("://", text, into.get_proto(), text);
             std::string addr;
 
@@ -84,7 +124,7 @@ namespace webserv {
             into.get_path() = webserv::util::path(text);
 
             return true;
-        }
+        }*/
 
         void parse_http_version(request_parser& parser, http_version& into) {
             parser.expects("HTTP/1.1");
@@ -98,7 +138,7 @@ namespace webserv {
 
             parser.expect_space();
 
-            {
+            /*{
                 std::string uri_text;
 
                 while (!parser.check_space()) {
@@ -106,7 +146,10 @@ namespace webserv {
                 }
 
                 parse_uri(uri_text, line.get_uri());
-            }
+            }*/
+
+            parse_uri(parser, line.get_uri());
+
             // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
 
             parse_http_version(parser, line.get_version());

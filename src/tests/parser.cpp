@@ -1,9 +1,19 @@
 #include "../http/parsing/request_parser.hpp"
+#include "../util/streamflow.hpp"
 
 void test_uri_parsing(std::string text, bool expected) {
     webserv::http::uri the_uri;
+    webserv::util::stringflow flow(text);
+    webserv::http::request_parser parser(flow);
 
-    bool res = webserv::http::parse_uri(text, the_uri);
+    bool res = false;
+
+    try {
+        webserv::http::parse_uri(parser, the_uri);
+        res = true;
+    } catch (std::exception& e) {
+        std::cout << "(expected parse exception: " << e.what() << ")" << std::endl;
+    }
 
     if (res == expected) {
         std::cout << "\033[32m";

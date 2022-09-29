@@ -26,11 +26,11 @@ namespace webserv {
             bool check(char c);
             bool check_one_of(std::string c, char& which);
             bool checks(std::string text);
-
             bool check_uint(unsigned int& value);
 
             void expect(char c);
             void expects(std::string text);
+            void expect_uint(unsigned int& value);
 
             void skip_spaces();
         };

@@ -107,6 +107,11 @@ namespace webserv {
                 parse_error("Expected a different string!");
         }
 
+        void parser::expect_uint(unsigned int& value) {
+            if (!check_uint(value))
+                parse_error("Expected an integer!");
+        }
+
         void parser::skip_spaces() {
             while (check(' '));
         }
