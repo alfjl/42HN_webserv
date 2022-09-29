@@ -71,7 +71,6 @@ namespace webserv {
             std::string key = parse_uri_field_word(parser);
             parser.expect('=');
             std::string value = parse_uri_field_word(parser);
-            std::cout << "Setting " << key << " to " << value << std::endl;
             into.put(key, value);
         }
 

@@ -52,6 +52,13 @@ void test_uri_parsing() {
     test_uri_parsing("42.fr?x=hi", false);
     test_uri_parsing("/42.fr?x=hi", true);
     test_uri_parsing("httelloworld.com/42.fr?x=hi", true);
+    test_uri_parsing("httelloworld.com/42.fr?x=hi&y=ho", true);
+    test_uri_parsing("/42.fr?x=hi", true);
+    test_uri_parsing("/42.fr?x=hi&y=ho", true);
+    test_uri_parsing("42.fr/hey/ho?x=hi", true);
+    test_uri_parsing("42.fr/hey/ho/?x=hi&y=ho", true);
+    test_uri_parsing("42.fr/hey/ho/?x=hi&y=", true);
+    test_uri_parsing("42.fr/hey/ho/?x=42&y=", true);
 
     webserv::util::path anchor("/var/www");
     webserv::util::path resource("/img/favicon.png");
