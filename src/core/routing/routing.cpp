@@ -23,6 +23,9 @@ namespace webserv {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
+                    // is Datei oder nicht?
+                    // Falls nein, machen wir directory listing
+                    // (ALF) Check links in html!
                     if (get_instance().get_fs().open(file_path, stream)) {
                         std::ostringstream payload;
                         while (!stream.eof()) {
