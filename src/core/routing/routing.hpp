@@ -24,6 +24,8 @@ namespace webserv {
             void tick();
 
         protected:
+            void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
+ 
             // error codes
             void error_code(webserv::http::response_fixed* response, unsigned int code);
             void permanent_redirect_301(webserv::http::response_fixed* response);

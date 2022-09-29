@@ -31,9 +31,9 @@ namespace webserv {
         
             path cd(std::string);
 
-            std::string              get_first();
-            std::string              get_last();
-            path                     get_rest(); 
+            std::string              get_first() const;
+            std::string              get_last() const;
+            path                     get_rest() const;
             // std::vector<std::string> get_addr();
             std::string              get_addr_s() const;
 

@@ -33,7 +33,9 @@ namespace webserv {
                     // is Datei oder nicht?
                     // Falls nein, machen wir directory listing
                     // (ALF) Check links in html!
-                    if (get_instance().get_fs().open(file_path, stream)) {
+                    if (get_instance().get_fs().is_directory(file_path)) {
+                        directory_listing(response, get_instance().get_fs().read_relative_path(file_path));
+                    } else if (get_instance().get_fs().open(file_path, stream)) {
                         std::ostringstream payload;
                         while (!stream.eof()) {
                             char c;
@@ -68,10 +70,35 @@ namespace webserv {
             // Do nothing!
         }
 
+        void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
+            std::ostringstream ost;
+            
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            ost << "<head>\r\n";
+            ost << "<meta charset=\"UTF-8\" />\r\n";
+            ost << "<title>Listing</title>\r\n";
+            ost << "</head>\r\n";
+            ost << "<body>\r\n";
+
+            std::vector<webserv::util::path>::const_iterator it = paths.begin();
+            while (it != paths.end()) {
+                ost << "<a href=\"" << (*it) << "\">" << (*it).get_last() << "</a>";
+                ost << "<br/>\r\n";
+                ++it;
+            }
+
+            ost << "</body>\r\n";
+            ost << "</html>\r\n";
+
+            response->set_code(200);
+            response->set_body(ost.str());
+        }
+
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
             std::ostringstream ost;
                 
-            std::pair<std::string, std::string> quote("Ah, there’s nothing like the hot winds of Hell blowing in your face.", "– Le Chuck"); // Todo: code2str for monkey island quotes!
+            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "– Le Chuck"); // Todo: code2str for monkey island quotes!
 
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
