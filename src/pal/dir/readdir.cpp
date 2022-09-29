@@ -23,6 +23,8 @@ namespace webserv {
                     }
                 }
 
+                closedir(dir_ptr);
+
                 return files;
             }
 
