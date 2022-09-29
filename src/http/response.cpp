@@ -36,13 +36,6 @@ namespace webserv {
         }
 
         /*
-         * Sets string body as the responses _body 
-         */
-        void response::set_body(std::string body) {
-            _body = body;
-        }
-
-        /*
          * Accepts a http status_code and returns the matching status message
          */
         const char* code2str(unsigned int code) {
@@ -157,14 +150,6 @@ namespace webserv {
             // TODO: Remove these later
             out(con) << "Server: Webserv/0.1\r\n";
             out(con) << "Content-type: text/html, text, plain\r\n";
-            out(con) << "Content-length: " << _body.size() << "\r\n";
-        }
-
-        /*
-         * Writes the body of the response to the connections ostream
-         */
-        void    response::write_body(webserv::util::connection& con) {
-                out(con) << _body;
         }
 
         /*
@@ -219,7 +204,14 @@ namespace webserv {
          * Sets string body as the base class' _body 
          */
         void response_fixed::set_body(std::string body) {
-            response::set_body(body);
+            _body = body;
+        }
+
+        /*
+         * Writes the body of the response to the connections ostream
+         */
+        void    response_fixed::write_body(webserv::util::connection& con) {
+                out(con) << _body;
         }
 
         /*
