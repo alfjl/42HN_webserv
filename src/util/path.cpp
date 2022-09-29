@@ -3,12 +3,12 @@
 namespace webserv {
     namespace util {
 
-        /*
-         * returns a copy of _addr
-         */
-        std::vector<std::string> path::get_addr() {
-            return _addr;
-        }
+        // /*
+        //  * returns a copy of _addr
+        //  */
+        // std::vector<std::string> path::get_addr() {
+        //     return _addr;
+        // }
 
         /*
          * returns a concatenated string of all elements of _addr
