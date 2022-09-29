@@ -3,9 +3,10 @@
 namespace webserv {
     namespace http {
 
+        /* --------------------- RESPONSE ----------------------------------- */
+
         /*
-         * Default constructor initializes the members
-         * with members from http_request
+         * Default constructor default-initializes the members
          */
         response::response()
             : _fields(), _code(418) {
@@ -27,12 +28,11 @@ namespace webserv {
             _code = code;
         }
 
+        /*
+         * Sets a new field with pair name and value
+         */
         void response::set_field(std::string name, std::string value) {
             _fields.put(name, value);
-        }
-
-        void response::set_body(std::string body) {
-            _body = body;
         }
 
         /*
@@ -150,14 +150,6 @@ namespace webserv {
             // TODO: Remove these later
             out(con) << "Server: Webserv/0.1\r\n";
             out(con) << "Content-type: text/html, text, plain\r\n";
-            out(con) << "Content-length: " << _body.size() << "\r\n";
-        }
-
-        /*
-         * Writes the body of the response to the connections ostream
-         */
-        void    response::write_body(webserv::util::connection& con) {
-                out(con) << _body;
         }
 
         /*
@@ -174,6 +166,60 @@ namespace webserv {
             out(con) << "\r\n";
             // write response body
             write_body(con);
+        }
+
+
+       /* --------------------- RESPONSE_FIXED ------------------------------ */
+
+        /*
+         * Default constructor default-initializes the members in base class
+         */
+        response_fixed::response_fixed() : response() {
+
+        }
+
+        /*
+         * Extracts the ostream of the connection
+         * and passes it on as its return value
+         */
+        std::ostream& response_fixed::out(webserv::util::connection& con) {
+            return response::out(con);
+        }
+
+        /*
+         * Sets status code in base class
+         */
+        void response_fixed::set_code(unsigned int code) {
+            response::set_code(code);
+        }
+
+        /*
+         * Sets a new field in base class with pair name and value
+         */
+        void response_fixed::set_field(std::string name, std::string value) {
+            response::set_field(name, value);
+        }
+
+        /*
+         * Sets string body as the base class' _body 
+         */
+        void response_fixed::set_body(std::string body) {
+            _body = body;
+        }
+
+        /*
+         * Writes the body of the response to the connections ostream
+         */
+        void    response_fixed::write_body(webserv::util::connection& con) {
+                out(con) << _body;
+        }
+
+        /*
+         * Accepts a status code and writes the correct response back
+         * to the connections ostream
+         */
+        void    response_fixed::write(webserv::util::connection& con) {
+            response::write(con);
         }
 
     } // namespace http
