@@ -88,7 +88,7 @@ namespace webserv {
                 case 415: return "Unsupported Media Type";
                 case 416: return "Range Not Satisfiable";
                 case 417: return "Expectation Failed";
-                case 418: return "I’m a teapot";
+                case 418: return "I'm a teapot";
                 case 421: return "Misdirected Request";
                 case 422: return "Unprocessable Entity";
                 case 423: return "Locked";

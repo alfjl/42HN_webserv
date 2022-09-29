@@ -93,17 +93,17 @@ namespace webserv {
             return p;
         }
 
-        std::string path::get_first() {
+        std::string path::get_first() const {
             if (_addr.empty()) return "";
             return _addr[0];
         }
 
-        std::string path::get_last() {
+        std::string path::get_last() const {
             if (_addr.empty()) return "";
             return _addr[_addr.size() - 1];
         }
         
-        path path::get_rest() {
+        path path::get_rest() const {
             std::vector<std::string> v(_addr);
             if (!v.empty())
                 v.erase(v.begin());

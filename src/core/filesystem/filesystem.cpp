@@ -29,7 +29,7 @@ namespace webserv {
         std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path)
         {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory(path.get_addr_s());
+            std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
 
             for (int i = 0; i < files.size(); ++i) {
                 v_path.push_back(webserv::util::path(files[i]));
@@ -45,7 +45,7 @@ namespace webserv {
         std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path)
         {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory(path.get_addr_s());
+            std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
 
             for (int i = 0; i < files.size(); ++i) {
                 v_path.push_back(webserv::util::path(files[i] + path.get_addr_s()));
@@ -59,7 +59,7 @@ namespace webserv {
          */
         bool filesystem::is_directory(webserv::util::path path)
         {
-            return webserv::pal::dir::is_directory(path.get_addr_s());
+            return webserv::pal::dir::is_directory("/" + path.get_addr_s());
         }
 
 	} // namespace core
