@@ -34,7 +34,7 @@ namespace webserv {
             std::string              get_first();
             std::string              get_last();
             path                     get_rest(); 
-            std::vector<std::string> get_addr();
+            // std::vector<std::string> get_addr();
             std::string              get_addr_s() const;
 
             bool begins_with(path prefix);

@@ -22,16 +22,41 @@ namespace webserv {
 			return open_absolute(path, stream);
 		}
 
-        webserv::util::path filesystem::read_relative_path(webserv::util::path path)
+        /*
+         * Returns a vector of path, for all elements lying under this path
+         * Relative path only
+         */
+        std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path)
         {
+            std::vector<webserv::util::path> v_path;
+            std::vector<std::string> files = webserv::pal::dir::read_directory(path.get_addr_s());
 
+            for (int i = 0; i < files.size(); ++i) {
+                v_path.push_back(webserv::util::path(files[i]));
+            }
+
+            return v_path;
         }
 
-        webserv::util::path filesystem::read_absolute_path(webserv::util::path path)
+        /*
+         * Returns a vector of path, for all elements lying under this path
+         * Absolute path
+         */
+        std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path)
         {
+            std::vector<webserv::util::path> v_path;
+            std::vector<std::string> files = webserv::pal::dir::read_directory(path.get_addr_s());
 
+            for (int i = 0; i < files.size(); ++i) {
+                v_path.push_back(webserv::util::path(files[i] + path.get_addr_s()));
+            }
+
+            return v_path;
         }
 
+        /*
+         * Checks if path is a directory
+         */
         bool filesystem::is_directory(webserv::util::path path)
         {
             return webserv::pal::dir::is_directory(path.get_addr_s());
