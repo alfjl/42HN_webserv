@@ -81,11 +81,8 @@ namespace webserv {
                 if (parser.check_space()) {
                     break;
                 }
-                std::cout << path << std::endl;
                 path += parser.force_next_char();
-                std::cout << path << std::endl;
             }
-            std::cout << "Done" << std::endl;
 
             into.get_path() = webserv::util::path(path);
         }
