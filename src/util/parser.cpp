@@ -50,6 +50,17 @@ namespace webserv {
             return false;
         }
 
+        bool parser::check_one_of(std::string c, char& which) {
+            std::string::iterator it = c.begin();
+            while (it != c.end()) {
+                if (check(*it)) {
+                    which = *it;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         bool parser::checks(std::string text) {
             std::vector<char> chars;
 
@@ -69,6 +80,21 @@ namespace webserv {
                 }
             }
             return true;
+        }
+
+        bool parser::check_uint(unsigned int& value) {
+            unsigned int  i = 0;
+            unsigned int  chars = 0;
+            char          which;
+
+            while (check_one_of("0123456789", which)) {
+                i = (i * 10) + (which - '0');
+                chars++;
+            }
+
+            value = i;
+
+            return chars > 0;
         }
 
         void parser::expect(char c) {
