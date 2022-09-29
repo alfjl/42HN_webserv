@@ -14,8 +14,8 @@ namespace webserv {
 
         }
 
-        webserv::http::response* routing::look_up(webserv::http::request_core& request) {
-            webserv::http::response *response = new webserv::http::response();
+        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
+            webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
             switch (request.get_line().get_method()) {
                 // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
