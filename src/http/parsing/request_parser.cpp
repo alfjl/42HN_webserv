@@ -50,31 +50,29 @@ namespace webserv {
         }
 
         void parse_uri(request_parser& parser, uri& into) {
+            into.get_proto() = "http";
+
             if (parser.checks("http://")) {
-                into.get_proto() = "http";
-            } else {
-                /*
-                 * This is not exactly right, technically a URI can contain
-                 * any kind of protocol. However, since we can only handle HTTP
-                 * and we prefer to have a clean LL(1) parser, this is valid.
-                 *                                          - nijakow
-                 */
-                parser.parse_error("Expected a valid protocol!");
+                // We do nothing here
             }
 
-            std::string server_name;
+            if (!parser.check_noadvance('/')) {
+                std::string server_name;
 
-            while (parser.has_next()) {
-                if (parser.check(':')) {
-                    parser.expect_uint(into.get_port());
-                    break;
-                } else if (parser.check_space()) {
-                    break;
+                while (parser.has_next()) {
+                    if (parser.check_noadvance('/')) {
+                        break;
+                    } else if (parser.check(':')) {
+                        parser.expect_uint(into.get_port());
+                        break;
+                    } else if (parser.check_space()) {
+                        break;
+                    }
+                    server_name += parser.force_next_char();
                 }
-                server_name += parser.force_next_char();
-            }
 
-            into.get_server() = server_name;
+                into.get_server() = server_name;
+            }
 
             std::string path;
 
@@ -83,8 +81,11 @@ namespace webserv {
                 if (parser.check_space()) {
                     break;
                 }
+                std::cout << path << std::endl;
                 path += parser.force_next_char();
+                std::cout << path << std::endl;
             }
+            std::cout << "Done" << std::endl;
 
             into.get_path() = webserv::util::path(path);
         }

@@ -40,6 +40,16 @@ namespace webserv {
             return true;
         }
 
+        bool parser::check_noadvance(char c) {
+            char loc;
+
+            if (this_char(loc)) {
+                return c == loc;
+            }
+
+            return false;
+        }
+
         bool parser::check(char c) {
             char other;
 
@@ -57,6 +67,7 @@ namespace webserv {
                     which = *it;
                     return true;
                 }
+                ++it;
             }
             return false;
         }
@@ -76,7 +87,7 @@ namespace webserv {
                 if ((!r) || c != *it) {
                     for (std::vector<char>::iterator ci = chars.begin(); ci != chars.end(); ++ci)
                         pushbacks.push(*ci);
-                    return true;
+                    return false;
                 }
             }
             return true;

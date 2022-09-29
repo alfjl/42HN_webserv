@@ -31,7 +31,9 @@ void test_uri_parsing(std::string text, bool expected) {
 }
 
 void test_uri_parsing() {
-    test_uri_parsing("httpx://www.42heilbronn.de:4242/index.html", true);
+    test_uri_parsing("http://www.42heilbronn.de:4242/index.html", true);
+    test_uri_parsing("http://www.42heilbronn.de:/index.html", false);
+    test_uri_parsing("httpx://www.42heilbronn.de:4242/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:4242x/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:42x42/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:x4242/index.html", false);

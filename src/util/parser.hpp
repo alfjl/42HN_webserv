@@ -23,6 +23,7 @@ namespace webserv {
             bool has_next();
             bool next_char(char& loc);
 
+            bool check_noadvance(char c);
             bool check(char c);
             bool check_one_of(std::string c, char& which);
             bool checks(std::string text);
