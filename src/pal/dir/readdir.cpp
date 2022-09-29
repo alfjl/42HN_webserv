@@ -12,9 +12,8 @@ namespace webserv {
                 dir_ptr = opendir(path.c_str());
                 if (dir_ptr != NULL) {
                     while ((entry = readdir(dir_ptr)) != NULL) {
-                        if ((strcmp(entry->d_name, ".") != 0) && (strcmp(entry->d_name, "..") != 0)) {
+                        //if ((strcmp(entry->d_name, ".") != 0) && (strcmp(entry->d_name, "..") != 0))
                             files.push_back(entry->d_name);
-                        }
                     }
                     closedir(dir_ptr);
                 }
