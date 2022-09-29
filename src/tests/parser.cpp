@@ -10,7 +10,7 @@ void test_uri_parsing(std::string text, bool expected) {
 
     try {
         webserv::http::parse_uri(parser, the_uri);
-        res = true;
+        res = !parser.has_next();
     } catch (std::exception& e) {
         std::cout << "(expected parse exception: " << e.what() << ")" << std::endl;
     }
@@ -48,6 +48,10 @@ void test_uri_parsing() {
     test_uri_parsing(":42/", false);
     test_uri_parsing("42/", false);  // Is this really correct?
     test_uri_parsing("42.fr", true);
+
+    test_uri_parsing("42.fr?x=hi", false);
+    test_uri_parsing("/42.fr?x=hi", true);
+    test_uri_parsing("httelloworld.com/42.fr?x=hi", true);
 
     webserv::util::path anchor("/var/www");
     webserv::util::path resource("/img/favicon.png");

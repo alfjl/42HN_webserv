@@ -85,7 +85,7 @@ namespace webserv {
                 }
 
                 if ((!r) || c != *it) {
-                    for (std::vector<char>::iterator ci = chars.begin(); ci != chars.end(); ++ci)
+                    for (std::vector<char>::reverse_iterator ci = chars.rbegin(); ci != chars.rend(); ++ci)
                         pushbacks.push(*ci);
                     return false;
                 }

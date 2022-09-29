@@ -13,6 +13,10 @@ namespace webserv {
 
         }
 
+        bool request_parser::check_space_noadvance() {
+            return check_noadvance(' ');
+        }
+
         bool request_parser::check_space() {
             return check(' ');
         }
@@ -49,6 +53,34 @@ namespace webserv {
             return false;
         }
 
+        static std::string parse_uri_field_word(request_parser& parser) {
+            std::string word;
+            while (parser.has_next()) {
+                if (parser.check_space_noadvance()) break;
+                else if (parser.check_noadvance('=')) break;
+                else if (parser.check_noadvance('&')) break;
+                else word += parser.force_next_char();
+            }
+            return word;
+        }
+
+        static void parse_uri_field(request_parser& parser, fields& into) {
+            /*
+             * TODO: Check for length
+             */
+            std::string key = parse_uri_field_word(parser);
+            parser.expect('=');
+            std::string value = parse_uri_field_word(parser);
+            std::cout << "Setting " << key << " to " << value << std::endl;
+            into.put(key, value);
+        }
+
+        void parse_uri_fields(request_parser& parser, fields& into) {
+            do {
+                parse_uri_field(parser, into);
+            } while (parser.check('&'));
+        }
+
         void parse_uri(request_parser& parser, uri& into) {
             into.get_proto() = "http";
 
@@ -65,6 +97,8 @@ namespace webserv {
                     } else if (parser.check(':')) {
                         parser.expect_uint(into.get_port());
                         break;
+                    } else if (parser.check_noadvance('?')) {
+                        break;
                     } else if (parser.check_space()) {
                         break;
                     }
@@ -74,17 +108,22 @@ namespace webserv {
                 into.get_server() = server_name;
             }
 
-            std::string path;
+            if (parser.check_noadvance('/')) {
+                std::string path;
 
-            while (parser.has_next()) {
-                // TODO: "?p1=v1&p2=v2"
-                if (parser.check_space()) {
-                    break;
+                while (parser.has_next()) {
+                    // TODO: "?p1=v1&p2=v2"
+                    if (parser.check_space()) {
+                        break;
+                    } else if (parser.check('?')) {
+                        parse_uri_fields(parser, into.get_params());
+                        break;
+                    }
+                    path += parser.force_next_char();
                 }
-                path += parser.force_next_char();
-            }
 
-            into.get_path() = webserv::util::path(path);
+                into.get_path() = webserv::util::path(path);
+            }
         }
 
         /*bool parse_uri(std::string text, uri& into) {
