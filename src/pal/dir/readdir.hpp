@@ -9,6 +9,11 @@ namespace webserv {
 
             class readdir {
 
+                readdir() {}
+                ~readdir() {}
+
+                std::vector<std::string> readdir_r(const std::string& dir);
+
             }; // class readdir
 
         } // namespace dir

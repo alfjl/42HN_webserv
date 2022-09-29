@@ -49,12 +49,11 @@ namespace webserv {
 
             std::ostream& out(webserv::util::connection& con);
 
-            void          set_code(unsigned int code);
-            void          set_field(std::string name, std::string value);
-            void          set_body(std::string body);
-            void          write_body(webserv::util::connection& con);
-            void          write(webserv::util::connection& con);
-        
+            void set_code(unsigned int code);
+            void set_field(std::string name, std::string value);
+            void set_body(std::string body);
+            void write_body(webserv::util::connection& con);
+            void write(webserv::util::connection& con);
 
         }; // class response_fixed
 
