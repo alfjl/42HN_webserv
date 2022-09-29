@@ -10,6 +10,11 @@ namespace webserv {
 
 		class streamflow : public iflow {
 			std::istream& the_stream;
+			int           last;
+			bool          last_valid;
+
+			void refresh();
+
 		public:
 			streamflow(std::istream& stream);
 

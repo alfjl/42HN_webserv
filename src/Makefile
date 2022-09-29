@@ -21,7 +21,7 @@ all: $(EXECUTABLE)
 
 .phony: run
 run: all
-	$(EXECUTABLE) ${RAVEN_MUDLIB}
+	$(EXECUTABLE)
 
 .phony: debug
 debug: all

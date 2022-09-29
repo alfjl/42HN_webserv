@@ -5,19 +5,26 @@
 namespace webserv {
 	namespace util {
 
-		streamflow::streamflow(std::istream& stream) : the_stream(stream){
+		streamflow::streamflow(std::istream& stream) : the_stream(stream), last(-1), last_valid(false) {
+		}
+
+		void streamflow::refresh() {
+			if (!last_valid) {
+				last = the_stream.eof() ? -1 : the_stream.get();
+				last_valid = true;
+			}
 		}
 	
 		bool streamflow::has_next() {
-			return (!the_stream.eof());
+			refresh();
+			return (last != -1);
 		}
 
 		bool streamflow::next_char(char& loc) {
-			if (has_next()) {
-				loc = the_stream.get();// was aus the_stream kommt & nur wenn er auch daten hat
-				return true;
-			}
-			return false;
+			refresh();
+			loc = last;
+			last_valid = false;
+			return last != -1;
 		}
 
 		stringflow::stringflow(const std::string& s) : streamflow(stream), stream(s) {
