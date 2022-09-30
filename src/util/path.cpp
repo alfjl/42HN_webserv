@@ -140,6 +140,20 @@ namespace webserv {
         }
 
         /*
+         * Extracts and returns everything after the last '.'
+         * Calling function needs to check validity
+         */
+        std::string path::get_extension() {
+            std::string extension = get_last();
+
+            size_t i = extension.rfind('.', extension.length());
+            if (i != std::string::npos) {
+                return(extension.substr(i + 1, extension.length() - i));
+            }
+            return "";
+        }
+
+        /*
          * Iterates over all strings in _addr of this and rhs
          * and checks, if string is equal
          * Returns true, if all strings are equal

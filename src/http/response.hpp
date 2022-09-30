@@ -51,7 +51,8 @@ namespace webserv {
 
             void set_code(unsigned int code);
             void set_field(std::string name, std::string value);
-            void set_body(std::string body);
+            void set_body(std::string body, std::string content_type);
+            void set_html_body(std::string body);
             void write_body(webserv::util::connection& con);
             void write(webserv::util::connection& con);
 

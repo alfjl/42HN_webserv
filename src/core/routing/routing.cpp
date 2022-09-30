@@ -30,9 +30,6 @@ namespace webserv {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
-                    // is Datei oder nicht?
-                    // Falls nein, machen wir directory listing
-                    // (ALF) Check links in html!
                     if (get_instance().get_fs().is_directory(file_path)) {
                         directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
@@ -45,7 +42,7 @@ namespace webserv {
                         std::cout << "Done!" << std::endl;
 
                         response->set_code(200);
-                        response->set_body(payload.str());
+                        response->set_body(payload.str(), find_mime(file_path.get_extension()));
                     } else {
                         not_found_404(response);
                     }
@@ -92,7 +89,7 @@ namespace webserv {
             ost << "</html>\r\n";
 
             response->set_code(200);
-            response->set_body(ost.str());
+            response->set_html_body(ost.str());
         }
 
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
@@ -130,7 +127,7 @@ namespace webserv {
             ost << "</html>\r\n";
 
             response->set_code(code);
-            response->set_body(ost.str());
+            response->set_html_body(ost.str());
         }
 
         void routing::permanent_redirect_301(webserv::http::response_fixed* response) {
@@ -167,6 +164,39 @@ namespace webserv {
 
         void routing::service_unavailable_503(webserv::http::response_fixed* response) {
             error_code(response, 503);
+        }
+
+        std::string routing::find_mime(std::string extension) {
+            if (extension == ".bmp")
+                return "image/bmp";
+            else if (extension == ".css")
+                return "text/css";
+            else if (extension == ".csv")
+                return "text/csv";
+            else if (extension == ".doc")
+                return "application/msword";
+            else if (extension == ".docx")
+                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+            else if (extension == ".gif")
+                return "image/gif";
+            else if ((extension == ".html") || (extension == ".htm"))
+                return "text/html";
+            else if ((extension == ".jpeg") || (extension == ".jpg"))
+                return "image/jpeg";
+            else if (extension == ".js")
+                return "text/javascript";
+            else if (extension == ".json")
+                return "application/json";
+            else if (extension == ".png")
+                return "image/png";
+            else if (extension == ".pdf")
+                return "application/pdf";
+            else if (extension == ".php")
+                return "application/x-httpd-php";
+            else if (extension == ".txt")
+                return "text/plain";
+            else
+                return "*/*";
         }
 
     } // namespace core
