@@ -13,7 +13,7 @@ namespace webserv {
 		}
 
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
-			stream.open("/" + path.get_addr_s());
+			stream.open(("/" + path.get_addr_s()).c_str());
             std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
@@ -23,7 +23,7 @@ namespace webserv {
 		}
 
         bool filesystem::write_absolute(webserv::util::path path, std::ofstream& stream) {
-			stream.open("/" + path.get_addr_s());
+			stream.open(("/" + path.get_addr_s()).c_str());
             std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
@@ -41,8 +41,8 @@ namespace webserv {
             std::vector<webserv::util::path> v_path;
             std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
 
-            for (int i = 0; i < files.size(); ++i) {
-                v_path.push_back(webserv::util::path(files[i]));
+            for (std::vector<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
+                v_path.push_back(webserv::util::path(*it));
             }
 
             return v_path;
