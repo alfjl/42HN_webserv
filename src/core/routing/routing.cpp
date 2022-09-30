@@ -89,7 +89,7 @@ namespace webserv {
             ost << "</html>\r\n";
 
             response->set_code(200);
-            response->set_directory_body(ost.str());
+            response->set_html_body(ost.str());
         }
 
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {

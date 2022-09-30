@@ -201,13 +201,6 @@ namespace webserv {
         }
 
         /*
-         * Sets _body 
-         */
-        void response_fixed::set_directory_body(std::string body) {
-            _body = body;
-        }
-
-        /*
          * Sets _body and field 'Content-type' for html responses 
          */
         void response_fixed::set_html_body(std::string body) {
