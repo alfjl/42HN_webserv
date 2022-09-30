@@ -26,11 +26,11 @@ namespace webserv {
             http_method_delete,
             // http_method_trace,
             // http_method_connect
-        }; // class http_method
+        };
 
         class http_version {
             /* TODO */
-        }; // class http_version
+        };
 
         class request_line {
         private:
@@ -43,8 +43,7 @@ namespace webserv {
             uri& get_uri() { return _uri; }
             http_version& get_version() { return _http_version; }
             http_method&  get_method() { return _method; }
-
-        }; // class request_line
+        };
 
 
         /*
@@ -57,17 +56,16 @@ namespace webserv {
          *                                       - nijakow
          */
         class request_core {
-        private:
             request_line  _line;
             fields        _fields;
         
         public:
             request_line& get_line()   { return _line;   }
             fields&       get_fields() { return _fields; }
-        }; // class request_core
+        };
 
-    } // namespace http
-} // namespace webserv
+    }
+}
 
 
 #endif

@@ -1,14 +1,16 @@
 #include "routing.hpp"
 
-#include "routing_table.hpp"
-#include "../instance.hpp"
 #include "../../http/response.hpp"
+#include "../instance.hpp"
 
+#include "routing_table.hpp"
 
 namespace webserv {
 
     namespace http {
+
         const char* code2str(unsigned int code); // TODO: Move to utility directory
+
     }
 
     namespace core {
@@ -199,5 +201,5 @@ namespace webserv {
                 return "*/*";
         }
 
-    } // namespace core
-} // namespace webserv
+    }
+}

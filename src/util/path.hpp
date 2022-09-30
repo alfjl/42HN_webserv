@@ -34,15 +34,13 @@ namespace webserv {
             std::string              get_first() const;
             std::string              get_last() const;
             path                     get_rest() const;
-            // std::vector<std::string> get_addr();
             std::string              get_addr_s() const;
 
             bool        begins_with(path prefix);
             path        adapt_prefix(path old_prefix, path new_prefix);
             std::string get_extension();
             bool        is_equal(const path& rhs) const;
-
-        }; // class path
+        };
 
         bool operator==(const path& lhs, const path& rhs);
 
@@ -50,7 +48,7 @@ namespace webserv {
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path);
 
-    } // namespace util
-} // namespace webserv
+    }
+}
 
 #endif

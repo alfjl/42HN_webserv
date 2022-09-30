@@ -30,5 +30,5 @@ namespace webserv {
             handlers.push_back(new webserv::http::http_handler(new_connection, routing));
         }
 
-    } // namespace core
-} // namespace webserv
+    }
+}

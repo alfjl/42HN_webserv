@@ -25,7 +25,7 @@ namespace webserv {
                     it->first->close();
                     if (it->second != NULL)
                         it->second->react_close();
-                    elements.erase(it); // call function on payload?
+                    elements.erase(it); // TODO: call function on payload?
                 }
             }
 
@@ -131,6 +131,6 @@ namespace webserv {
                 }
             }
 
-        } // namespace net
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}

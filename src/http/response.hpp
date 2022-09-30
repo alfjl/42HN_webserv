@@ -19,8 +19,6 @@ namespace webserv {
          */
 
         class response {
-        
-        private:
             fields           _fields;
             unsigned int     _code;
 
@@ -36,12 +34,10 @@ namespace webserv {
             void          set_field(std::string name, std::string value);
             virtual void  write_body(webserv::util::connection& con) = 0;
             void          write(webserv::util::connection& con);
-
-        }; // class response
+        };
 
 
         class response_fixed : public response {
-        private:
             std::string      _body;
 
         public:
@@ -55,11 +51,9 @@ namespace webserv {
             void set_html_body(std::string body);
             void write_body(webserv::util::connection& con);
             void write(webserv::util::connection& con);
+        };
 
-        }; // class response_fixed
-
-    } // namespace http
-} // namespace webserv
-
+    }
+}
 
 #endif

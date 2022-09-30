@@ -47,5 +47,5 @@ namespace webserv {
             return queried_path;
         }
 
-    } // namespace core
-} // namespace webserv
+    }
+}

@@ -3,16 +3,16 @@
 
 #include "../defs.hpp"
 
+#include "../pal/net/reactor.hpp"
+
 #include "iflow.hpp"
 #include "oflow.hpp"
 #include "wrapped_queue.hpp"
-#include "../pal/net/reactor.hpp"
 
 namespace webserv {
     namespace util {
 
         class connection : public webserv::pal::net::reactor {
-        private:
             oflow             out;
             std::ostream      ostream;
             wrapped_queue     input_buffer;
@@ -30,10 +30,9 @@ namespace webserv {
             bool is_closed();
 
             void react_close();
+        };
 
-        }; // class connection
-
-    } // namespace util
-} // namespace webserv
+    }
+}
 
 #endif

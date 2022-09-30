@@ -2,14 +2,15 @@
 #define WEBSERV_PAL_NET_SELECTOR_HPP
 
 #include "../../defs.hpp"
+#include "../../util/connection.hpp"
+
 #include "reactor.hpp"
-// #include "../../util/notification.hpp" // ALF
-#include "../../util/connection.hpp" // ALF
 
 namespace webserv {
     namespace core {
 
         class driver;
+
     };
 
 
@@ -17,15 +18,11 @@ namespace webserv {
         namespace net {
 
             class selector {
-
-            private:
-                typedef reactor*                payload_type; // payload_type_1?
-                // typedef webserv::util::notification*    payload_type_2; // ALF
+                typedef reactor*                payload_type;
 
             private:
                 std::map<socket*, payload_type> elements; // socket = registered/active socket
-                // std::map<socket*, payload_type_2>    connections; // socket = registered/active socket
-                webserv::core::driver*          the_driver; // ALF
+                webserv::core::driver*          the_driver;
 
             public:
                 selector();
@@ -34,14 +31,13 @@ namespace webserv {
                 void register_socket(socket* socket, payload_type data_set);
                 void register_socket(socket* socket);
                 void unregister_socket(socket *socket);
-                void set_driver(webserv::core::driver* driver); // ALF
+                void set_driver(webserv::core::driver* driver);
 
                 void select();
+            };
 
-            }; // class selector
-
-        } // namespace net
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif

@@ -9,7 +9,6 @@ namespace webserv {
         class connection;
 
         class oflow : public std::streambuf {
-        private:
             connection& con;
 
         public:
@@ -17,7 +16,6 @@ namespace webserv {
             
             std::streamsize xsputn(const char * s, std::streamsize n);
             int_type overflow(int_type c = traits_type::eof());
-
         };
 
     }

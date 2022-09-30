@@ -3,13 +3,6 @@
 namespace webserv {
     namespace util {
 
-        // /*
-        //  * returns a copy of _addr
-        //  */
-        // std::vector<std::string> path::get_addr() {
-        //     return _addr;
-        // }
-
         /*
          * returns a concatenated string of all elements of _addr
          */
@@ -113,17 +106,17 @@ namespace webserv {
         /*
          * Checks if prefix is beginning of this->_addr
          */
-        // can we use algorithm.search(ForwardIt1 first, ForwardIt1 last,
-        //                             ForwardIt2 s_first, ForwardIt2 s_last) instead?
         bool path::begins_with(path prefix) {
             size_t size_p = prefix._addr.size();
             size_t size_this = this->_addr.size();
 
+            if (prefix.size() > size()) return false;
+
             for (size_t i = 0; i < size_p; ++i) {
-                if (i >= size_this
-                || prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
+                if (prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
                     return false;
             }
+
             return true;
         }
 
@@ -162,11 +155,13 @@ namespace webserv {
             size_t size_lhs = this->size();
             size_t size_rhs = rhs.size();
 
+            if (size_lhs != size_rhs) return false;
+            
             for (size_t i = 0; i < size_lhs; ++i) {
-                if (i >= size_rhs
-                || this->_addr[i] != rhs._addr[i]) // do we need to pull these apart in 2 ifs?
+                if (this->_addr[i] != rhs._addr[i])
                     return false;
             }
+
             return true;
         }
 
@@ -196,5 +191,5 @@ namespace webserv {
             return stream;
         }
 
-    } // namespace util
-} // namespace webserv
+    }
+}

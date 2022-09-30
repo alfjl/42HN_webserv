@@ -14,8 +14,8 @@ namespace webserv {
 
             bool rmdir(std::string path);
 
-        } // namespace dir
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif
