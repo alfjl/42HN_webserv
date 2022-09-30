@@ -22,6 +22,16 @@ namespace webserv {
 			return open_absolute(path, stream);
 		}
 
+        bool filesystem::write_absolute(webserv::util::path path, std::ofstream& stream) {
+			stream.open("/" + path.get_addr_s());
+            std::cout << "Opening /" << path << std::endl;
+			return stream.is_open();
+		}
+
+		bool filesystem::write(webserv::util::path path, std::ofstream& stream) {
+			return write_absolute(path, stream);
+		}
+
         /*
          * Returns a vector of path, for all elements lying under this path
          * Relative path only

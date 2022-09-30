@@ -20,6 +20,9 @@ namespace webserv {
 			bool open_absolute(webserv::util::path path, std::ifstream& stream);
 			bool open(webserv::util::path path, std::ifstream& stream);
 
+			bool write_absolute(webserv::util::path path, std::ofstream& stream);
+			bool write(webserv::util::path path, std::ofstream& stream);
+
             std::vector<webserv::util::path> read_relative_path(webserv::util::path path);
             std::vector<webserv::util::path> read_absolute_path(webserv::util::path path);
             bool                             is_directory(webserv::util::path path);
