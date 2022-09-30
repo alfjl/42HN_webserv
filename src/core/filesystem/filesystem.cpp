@@ -1,4 +1,6 @@
 #include "filesystem.hpp"
+
+#include "../../pal/dir/del.hpp"
 #include "../../pal/dir/readdir.hpp"
 
 namespace webserv {
@@ -31,6 +33,14 @@ namespace webserv {
 		bool filesystem::write(webserv::util::path path, std::ofstream& stream) {
 			return write_absolute(path, stream);
 		}
+
+        bool del_absolute(webserv::util::path path) {
+            return webserv::pal::dir::rmdir(("/" + path.get_addr_s()).c_str());
+        }
+
+        bool del(webserv::util::path path) {
+            return del_absolute(path);
+        }
 
         /*
          * Returns a vector of path, for all elements lying under this path
