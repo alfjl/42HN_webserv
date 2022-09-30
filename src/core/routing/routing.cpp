@@ -27,11 +27,11 @@ namespace webserv {
             webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
             switch (request.get_line().get_method()) {
-                // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
                 case webserv::http::http_method_get: {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
+
                     if (get_instance().get_fs().is_directory(file_path)) {
                         directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
@@ -93,17 +93,16 @@ namespace webserv {
                 stream->get(c);
                 payload << c;
             }
-            std::cout << "Done!" << std::endl;
+            std::cout << "Done!" << std::endl; // TODO: Delete after tests
 
             response->set_code(200);
-            std::cout << "file_path.get_extension() = " << file_path.get_extension() << std::endl;
             response->set_body(payload.str(), find_mime(file_path.get_extension()));
         }
 
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
             std::ostringstream ost;
                 
-            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "– Le Chuck"); // Todo: code2str for monkey island quotes!
+            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
