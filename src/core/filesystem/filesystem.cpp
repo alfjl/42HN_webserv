@@ -82,5 +82,5 @@ namespace webserv {
             return webserv::pal::dir::is_directory("/" + path.get_addr_s());
         }
 
-	} // namespace core
-} // namespace webserv
+	}
+}

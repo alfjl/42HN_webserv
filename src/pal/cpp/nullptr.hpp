@@ -28,6 +28,7 @@ namespace webserv {
     void operator&() const;    /* Can't take address of nullptr */
 
     } null = {};               /* and whose name is null     */
+
 }
 
 #endif

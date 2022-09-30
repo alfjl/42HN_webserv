@@ -3,16 +3,15 @@
 
 #include "../defs.hpp"
 
-#include "iflow.hpp"
 #include "../pal/net/reactor.hpp"
+
+#include "iflow.hpp"
 
 namespace webserv {
     namespace util {
 
         class notification {
-        private:
-            // connection   in;
-            bool              closed;
+            bool  closed;
 
         public:
             notification();
@@ -21,10 +20,9 @@ namespace webserv {
             bool is_closed();
 
             void react_close();
+        };
 
-        }; // class notification
-
-    } // namespace util
-} // namespace webserv
+    }
+}
 
 #endif

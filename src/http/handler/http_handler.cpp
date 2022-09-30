@@ -59,24 +59,13 @@ namespace webserv {
                 response* response = routing.look_up(into);
 
                 response->write(*connection);
-                // std::string response;
-                // response += "<html><head></head><body>";
-                // replace(buffer, "\n", "<br/>");
-                // response += buffer;
-                // response += "</body></html>";
-
-                // out() << "HTTP/1.1 200 OK\r\n";
-                // out() << "Server: Webserv/0.1\r\n";
-                // out() << "Content-type: text/html, text, plain\r\n";
-                // out() << "Content-length: " << response.size() << "\r\n";
-                // out() << "\r\n";
-                // out() << response;
                 connection->close();
+
                 stop();
             } else {
                 next(&http_handler::start);
             }
         }
 
-    } // namespace http
-} // namespace webserve
+    }
+}

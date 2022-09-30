@@ -16,10 +16,9 @@ namespace webserv {
             ~component();
 
             instance& get_instance() { return the_inst; }
+        };
 
-        }; // class component
-
-    } // namespace core
-} // namespace webserv
+    }
+}
 
 #endif
