@@ -48,7 +48,7 @@ namespace webserv {
             std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
 
             for (int i = 0; i < files.size(); ++i) {
-                v_path.push_back(webserv::util::path(files[i] + path.get_addr_s()));
+                v_path.push_back(webserv::util::path(path.get_addr_s()).cd(files[i]));
             }
 
             return v_path;

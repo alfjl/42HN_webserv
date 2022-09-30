@@ -31,7 +31,7 @@ namespace webserv {
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
                     if (get_instance().get_fs().is_directory(file_path)) {
-                        directory_listing(response, get_instance().get_fs().read_relative_path(file_path));
+                        directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
                         std::ostringstream payload;
                         while (!stream.eof()) {
@@ -80,7 +80,7 @@ namespace webserv {
 
             std::vector<webserv::util::path>::const_iterator it = paths.begin();
             while (it != paths.end()) {
-                ost << "<a href=\"" << (*it) << "\">" << (*it).get_last() << "</a>";
+                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
                 ost << "<br/>\r\n";
                 ++it;
             }
