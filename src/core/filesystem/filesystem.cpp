@@ -34,11 +34,11 @@ namespace webserv {
 			return write_absolute(path, stream);
 		}
 
-        bool del_absolute(webserv::util::path path) {
+        bool filesystem::del_absolute(webserv::util::path path) {
             return webserv::pal::dir::rmdir(("/" + path.get_addr_s()).c_str());
         }
 
-        bool del(webserv::util::path path) {
+        bool filesystem::del(webserv::util::path path) {
             return del_absolute(path);
         }
 

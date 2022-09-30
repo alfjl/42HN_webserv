@@ -25,7 +25,6 @@ namespace webserv {
             webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
             switch (request.get_line().get_method()) {
-                // case webserv::http::http_method_options: std::cout << "TODO: case http_method_options:" << std::endl; break;
                 case webserv::http::http_method_get: {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
@@ -52,7 +51,48 @@ namespace webserv {
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
                 case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
-                case webserv::http::http_method_delete: std::cout << "TODO: case http_method_delete:" << std::endl;
+                case webserv::http::http_method_delete: {
+                    webserv::core::routing_table table;
+                    webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+                    std::ifstream stream;
+
+                    if (get_instance().get_fs().is_directory(file_path)) { // TODO: Should we allow this?
+                        // get_instance().get_fs().del(file_path);
+                        unauthorized_401(response); // TODO: Check against nginx if this is correct behaviour!
+                    } else if (get_instance().get_fs().del(file_path)) {
+                        std::ostringstream ost;
+                        std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
+
+                        ost << "<!DOCTYPE html>\r\n";
+                        ost << "<html>\r\n";
+                        ost << "<head>\r\n";
+                        ost << "<meta charset=\"UTF-8\" />\r\n";
+                        ost << "<title>";
+                        ost << "File deleted.";
+                        ost << "</title>\r\n";
+                        ost << "</head>\r\n";
+                        ost << "<body>\r\n";
+                        ost << "<h1>";
+                        ost << "File deleted.";
+                        ost << "</h1>\r\n";
+                        ost << "<hr/>\r\n";
+                        ost << "<blockquote>\r\n";
+                        ost << "<p>";
+                        ost << quote.first;
+                        ost << "</p>\r\n";
+                        ost << quote.second;
+                        ost << "</blockquote>\r\n";
+                        ost << "</body>\r\n";
+                        ost << "</html>\r\n";
+
+                        response->set_code(200);
+                        response->set_html_body(ost.str());
+                    } else {
+                        not_found_404(response);
+                    }
+
+                    break;
+                };
                 // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
                 // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
                 default: {
