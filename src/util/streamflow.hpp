@@ -34,7 +34,6 @@ namespace webserv {
 			fileflow(const char* path);
 		};
 
-
 	}
 }
 

@@ -19,11 +19,8 @@ namespace webserv {
 
             template <typename T>
             class guarded {
-
             public:
                 class borrow {
-
-                private:
                     guarded&    _guard;
 
                 public:
@@ -38,8 +35,7 @@ namespace webserv {
 
                     T&  getValue() { return _guard.getValue(); }
                     T&  getValue() const { return _guard.getValue(); }
-
-                }; // class borrow
+                };
 
             private:
                 friend class borrow;
@@ -60,11 +56,10 @@ namespace webserv {
             public:
                 borrow  get_borrow() { return (borrow(*this)); }
                 T*      base() const { return *(_value); }
+            };
 
-            }; // class guarded
-
-        } // namespace cpp
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif

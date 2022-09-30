@@ -11,8 +11,6 @@ namespace webserv {
     namespace http {
 
         class http_handler : public webserv::util::state_machine<http_handler> {
-
-        private:
             char                        last_char;
             std::string                 buffer;
             webserv::util::connection*  connection;
@@ -31,10 +29,9 @@ namespace webserv {
             void replace(std::string& str, const std::string& from, const std::string& to);
 
             void char_arrived();
+        };
 
-        }; // class http_handler
-
-    } // namespace http
-} // namespace webserve
+    }
+}
 
 #endif

@@ -2,13 +2,13 @@
 #define WEBSERV_UTIL_GENERIC_PARSER_HPP
 
 #include "../defs.hpp"
+
 #include "iflow.hpp"
 
 namespace webserv {
     namespace util {
 
         class parser : public iflow {
-        private:
             iflow&            flow;
             std::stack<char>  pushbacks;
 
@@ -35,7 +35,6 @@ namespace webserv {
 
             void skip_spaces();
         };
-
 
     }
 }

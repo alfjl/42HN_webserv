@@ -10,7 +10,6 @@ namespace webserv {
             typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::iterator       iterator;
             typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::const_iterator const_iterator;
             
-            // TODO: private member "anchor"?
             std::vector<std::pair<webserv::util::path, webserv::util::path> >   prefix_rules;
         
         public:
@@ -19,10 +18,9 @@ namespace webserv {
 
             void add_rule(webserv::util::path in, webserv::util::path out);
             webserv::util::path query(webserv::util::path old_path);
+        };
 
-        }; // class routing_table
-
-    } // namespace core
-} // namespace webserv
+    }
+}
 
 #endif
