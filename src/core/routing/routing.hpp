@@ -24,6 +24,7 @@ namespace webserv {
 
         protected:
             void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
+            void file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream);
  
             void error_code(webserv::http::response_fixed* response, unsigned int code);
             void permanent_redirect_301(webserv::http::response_fixed* response);
