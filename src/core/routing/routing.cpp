@@ -30,9 +30,6 @@ namespace webserv {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
-                    // is Datei oder nicht?
-                    // Falls nein, machen wir directory listing
-                    // (ALF) Check links in html!
                     if (get_instance().get_fs().is_directory(file_path)) {
                         directory_listing(response, get_instance().get_fs().read_relative_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
@@ -45,7 +42,7 @@ namespace webserv {
                         std::cout << "Done!" << std::endl;
 
                         response->set_code(200);
-                        response->set_body(payload.str());
+                        response->set_body(payload.str()); // find_mime(get_file_extension()) ?
                     } else {
                         not_found_404(response);
                     }
@@ -130,7 +127,7 @@ namespace webserv {
             ost << "</html>\r\n";
 
             response->set_code(code);
-            response->set_body(ost.str());
+            response->set_html_body(ost.str());
         }
 
         void routing::permanent_redirect_301(webserv::http::response_fixed* response) {

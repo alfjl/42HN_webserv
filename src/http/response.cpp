@@ -201,10 +201,18 @@ namespace webserv {
         }
 
         /*
-         * Sets string body as the base class' _body 
+         * Sets _body and field 'Content-type' for html responses 
          */
-        void response_fixed::set_body(std::string body) {
+        void response_fixed::set_html_body(std::string body) {
+            set_body(body, "text/html");
+        }
+
+        /*
+         * Sets string body as the base class' _body & field Content-type in accordance with MIME-type 'content_type'
+         */
+        void response_fixed::set_body(std::string body, std::string content_type) {
             _body = body;
+            set_field("Content-type", content_type);
         }
 
         /*
