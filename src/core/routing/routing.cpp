@@ -35,9 +35,9 @@ namespace webserv {
                     } else if (get_instance().get_fs().open(file_path, stream)) {
                         std::ostringstream payload;
                         while (!stream.eof()) {
-                            char c;
-                            stream.get(c);
-                            payload << c;
+                            int i = stream.get();
+                            if (i < 0) break;
+                            payload << ((char) i);
                         }
                         std::cout << "Done!" << std::endl;
 
