@@ -38,6 +38,8 @@ namespace webserv {
             void internal_server_error_500(webserv::http::response_fixed* response);
             void service_unavailable_503(webserv::http::response_fixed* response);
 
+            std::string find_mime(std::string extension);
+
         }; // class routing
 
     } // namespace core

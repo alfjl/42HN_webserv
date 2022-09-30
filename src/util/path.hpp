@@ -37,9 +37,10 @@ namespace webserv {
             // std::vector<std::string> get_addr();
             std::string              get_addr_s() const;
 
-            bool begins_with(path prefix);
-            path adapt_prefix(path old_prefix, path new_prefix);
-            bool is_equal(const path& rhs) const;
+            bool        begins_with(path prefix);
+            path        adapt_prefix(path old_prefix, path new_prefix);
+            std::string get_extension();
+            bool        is_equal(const path& rhs) const;
 
         }; // class path
 

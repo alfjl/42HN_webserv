@@ -149,7 +149,7 @@ namespace webserv {
 
             // TODO: Remove these later
             out(con) << "Server: Webserv/0.1\r\n";
-            out(con) << "Content-type: text/html, text, plain\r\n";
+            //out(con) << "Content-type: text/html, text, plain\r\n";
         }
 
         /*
@@ -198,6 +198,13 @@ namespace webserv {
          */
         void response_fixed::set_field(std::string name, std::string value) {
             response::set_field(name, value);
+        }
+
+        /*
+         * Sets _body 
+         */
+        void response_fixed::set_directory_body(std::string body) {
+            _body = body;
         }
 
         /*
