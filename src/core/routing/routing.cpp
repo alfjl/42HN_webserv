@@ -23,20 +23,6 @@ namespace webserv {
 
         }
 
-        void routing::file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream) {
-            std::ostringstream payload;
-            while (!stream->eof()) {
-                char c;
-                stream->get(c);
-                payload << c;
-            }
-            std::cout << "Done!" << std::endl;
-
-            response->set_code(200);
-            std::cout << "file_path.get_extension() = " << file_path.get_extension() << std::endl;
-            response->set_body(payload.str(), find_mime(file_path.get_extension()));
-        }
-
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
@@ -50,16 +36,6 @@ namespace webserv {
                         directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
                         file_listing(response, file_path, &stream);
-                        // std::ostringstream payload;
-                        // while (!stream.eof()) {
-                        //     char c;
-                        //     stream.get(c);
-                        //     payload << c;
-                        // }
-                        // std::cout << "Done!" << std::endl;
-
-                        // response->set_code(200);
-                        // response->set_body(payload.str(), find_mime(file_path.get_extension()));
                     } else {
                         not_found_404(response);
                     }
@@ -74,6 +50,7 @@ namespace webserv {
                 // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
                 default: {
                     teapot_418(response);
+
                     break;
                 }
             }
@@ -107,6 +84,20 @@ namespace webserv {
 
             response->set_code(200);
             response->set_html_body(ost.str());
+        }
+
+        void routing::file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream) {
+            std::ostringstream payload;
+            while (!stream->eof()) {
+                char c;
+                stream->get(c);
+                payload << c;
+            }
+            std::cout << "Done!" << std::endl;
+
+            response->set_code(200);
+            std::cout << "file_path.get_extension() = " << file_path.get_extension() << std::endl;
+            response->set_body(payload.str(), find_mime(file_path.get_extension()));
         }
 
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
