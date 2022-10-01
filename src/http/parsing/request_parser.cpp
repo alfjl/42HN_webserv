@@ -66,7 +66,7 @@ namespace webserv {
         void parse_uri_fields(request_parser& parser, fields& into) {
             do {
                 parse_uri_field(parser, into);
-            } while (parser.check('&'));
+            } while (!parser.check_space() && parser.check('&'));
         }
 
         void parse_uri(request_parser& parser, uri& into) {
@@ -88,7 +88,7 @@ namespace webserv {
                     } else if (parser.check_noadvance('?')) {
                         break;
                     } else if (parser.check_space()) {
-                        break;
+                        return;
                     }
                     server_name += parser.force_next_char();
                 }
