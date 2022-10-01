@@ -50,15 +50,27 @@ namespace webserv {
                 webserv::util::stringflow   flow(buffer);
                 request_parser  parser(flow);
                 request_core    into;
+
+                bool correct = false;
                 
-                parse_http_request_core(parser, into);
+                try {
+                    parse_http_request_core(parser, into);
+                    correct = true;
+                } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
 
-                std::cout << buffer << std::endl;
-                std::cout << into.get_line().get_uri() << std::endl;
+                }
 
-                response* response = routing.look_up(into);
+                if (correct) {
+                    std::cout << buffer << std::endl;
+                    std::cout << into.get_line().get_uri() << std::endl;
 
-                response->write(*connection);
+                    response* response = routing.look_up(into);
+
+                    response->write(*connection);
+                } else {
+                    // TODO: Error
+                    std::cout << "Error in request!" << std::endl;
+                }
                 connection->close();
 
                 stop();
