@@ -13,6 +13,7 @@ namespace webserv {
         namespace dir {
 
             bool rmdir(std::string path);
+            bool remove(std::string path);
 
         }
     }
