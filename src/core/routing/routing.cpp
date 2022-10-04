@@ -23,25 +23,25 @@ namespace webserv {
 
         }
 
+        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
+            webserv::core::routing_table table;
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            std::ifstream stream;
+            if (get_instance().get_fs().is_directory(file_path)) {
+                directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+            } else if (get_instance().get_fs().open(file_path, stream)) {
+                file_listing(response, file_path, &stream);
+            } else {
+                not_found_404(response);
+            }
+            return (response);
+        }
+
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
             switch (request.get_line().get_method()) {
-                case webserv::http::http_method_get: {
-                    webserv::core::routing_table table;
-                    webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
-                    std::ifstream stream;
-
-                    if (get_instance().get_fs().is_directory(file_path)) {
-                        directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
-                    } else if (get_instance().get_fs().open(file_path, stream)) {
-                        file_listing(response, file_path, &stream);
-                    } else {
-                        not_found_404(response);
-                    }
-
-                    break;
-                }
+                case webserv::http::http_method_get: { return (http_get_method(response, request)); }
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
                 case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
