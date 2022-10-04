@@ -27,6 +27,7 @@ namespace webserv {
             webserv::core::routing_table table;
             webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
             std::ifstream stream;
+
             if (get_instance().get_fs().is_directory(file_path)) {
                 directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
             } else if (get_instance().get_fs().open(file_path, stream)) {
@@ -37,15 +38,68 @@ namespace webserv {
             return (response);
         }
 
-        void routing::header_start(std::ostringstream* ost, std::string s){
-            *ost << "<!DOCTYPE html>\r\n";
-            *ost << "<html>\r\n";
+        void routing::set_response(webserv::http::response_fixed* response){
+            std::ostringstream ost;
+            std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
+            
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(&ost, "File deleted.");
+            ost << "<body>\r\n";
+            header_one(&ost, "File deleted.");
+            blockquote(&ost, quote);
+            ost << "</body>\r\n";
+            ost << "</html>\r\n";
+
+            response->set_code(200);
+            response->set_html_body(ost.str());
+        }
+
+        webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
+            webserv::core::routing_table table;
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            std::ifstream stream;
+
+            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
+                if (!get_instance().get_fs().del(file_path))
+                    unauthorized_401(response);
+            } else if ((get_instance().get_fs().del(file_path))) {
+                set_response(response);
+            } else {
+                not_found_404(response);
+            }
+            return (response);
+        }
+
+        void routing::head_start(std::ostringstream* ost, std::string s){
             *ost << "<head>\r\n";
             *ost << "<meta charset=\"UTF-8\" />\r\n";
             *ost << "<title>";
             *ost << s;
             *ost << "</title>\r\n";
             *ost << "</head>\r\n";
+        }
+
+        void routing::header_one(std::ostringstream* ost, std::string s){
+            *ost << "<h1>";
+            *ost << s;
+            *ost << "</h1>\r\n";
+            *ost << "<hr/>\r\n";
+        }
+
+        void routing::header_three(std::ostringstream* ost, std::string s){
+            *ost << "<h3>";
+            *ost << s;
+            *ost << "</h3>";
+        }
+
+        void routing::blockquote(std::ostringstream* ost, std::pair<std::string, std::string> quote){
+            *ost << "<blockquote>\r\n";
+            *ost << "<p>";
+            *ost << quote.first;
+            *ost << "</p>\r\n";
+            *ost << quote.second;
+            *ost << "</blockquote>\r\n";
         }
 
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
@@ -56,41 +110,7 @@ namespace webserv {
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
                 case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
-                case webserv::http::http_method_delete: {
-                    webserv::core::routing_table table;
-                    webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
-                    std::ifstream stream;
-
-                    if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
-                        if (!get_instance().get_fs().del(file_path))
-                            unauthorized_401(response);
-                    } else if ((get_instance().get_fs().del(file_path))) {
-                        std::ostringstream ost;
-                        std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
-
-                        header_start(&ost, "File deleted.");
-                        ost << "<body>\r\n";
-                        ost << "<h1>";
-                        ost << "File deleted.";
-                        ost << "</h1>\r\n";
-                        ost << "<hr/>\r\n";
-                        ost << "<blockquote>\r\n";
-                        ost << "<p>";
-                        ost << quote.first;
-                        ost << "</p>\r\n";
-                        ost << quote.second;
-                        ost << "</blockquote>\r\n";
-                        ost << "</body>\r\n";
-                        ost << "</html>\r\n";
-
-                        response->set_code(200);
-                        response->set_html_body(ost.str());
-                    } else {
-                        not_found_404(response);
-                    }
-
-                    break;
-                };
+                case webserv::http::http_method_delete: { return (http_delete_method(response, request)); }
                 // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
                 // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
                 default: {
@@ -108,8 +128,9 @@ namespace webserv {
 
         void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
             std::ostringstream ost;
-            
-            header_start(&ost, "Listing");
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(&ost, "Listing");
 
             ost << "<body>\r\n";
 
@@ -154,23 +175,13 @@ namespace webserv {
             std::string buf(itos(code));
             buf.append(" ");
             buf.append(webserv::http::code2str(code));
-            header_start(&ost, buf);
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(&ost, buf);
             ost << "<body>\r\n";
-            ost << "<h1>";
-            ost << "Error at WebServ!";
-            ost << "</h1>\r\n";
-            ost << "<hr/>\r\n";
-            ost << "<blockquote>\r\n";
-            ost << "<p>";
-            ost << quote.first;
-            ost << "</p>\r\n";
-            ost << quote.second;
-            ost << "</blockquote>\r\n";
-            ost << "<h3>";
-            ost << code;
-            ost << " ";
-            ost << webserv::http::code2str(code);
-            ost << "</h3>";
+            header_one(&ost, "Error at WebServ!");
+            blockquote(&ost, quote);
+            header_three(&ost, buf);
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
