@@ -61,12 +61,10 @@ namespace webserv {
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
 
-                    if (get_instance().get_fs().is_directory(file_path)) { // TODO: Should we allow this?
-                        // get_instance().get_fs().del(file_path);
-                        unauthorized_401(response); // TODO: Check against nginx if this is correct behaviour!!
-                    } else if (get_instance().get_fs().del(file_path)) {
-                        
-                        
+                    if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
+                        if (!get_instance().get_fs().del(file_path))
+                            unauthorized_401(response);
+                    } else if ((get_instance().get_fs().del(file_path))) {
                         std::ostringstream ost;
                         std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
 

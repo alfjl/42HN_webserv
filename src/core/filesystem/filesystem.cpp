@@ -39,7 +39,8 @@ namespace webserv {
 		}
 
         bool filesystem::del_absolute(webserv::util::path path) {
-            return webserv::pal::dir::rmdir(add_anchor(path).c_str());
+            // return webserv::pal::dir::rmdir(add_anchor(path).c_str());
+            return webserv::pal::dir::remove(add_anchor(path).c_str());
         }
 
         bool filesystem::del(webserv::util::path path) {
