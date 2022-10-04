@@ -44,10 +44,10 @@ namespace webserv {
             
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
-            head_start(&ost, "File deleted.");
+            head_start(ost, "File deleted.");
             ost << "<body>\r\n";
-            header_one(&ost, "File deleted.");
-            blockquote(&ost, quote);
+            header_one(ost, "File deleted.");
+            blockquote(ost, quote);
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
@@ -71,35 +71,35 @@ namespace webserv {
             return (response);
         }
 
-        void routing::head_start(std::ostringstream* ost, std::string s){
-            *ost << "<head>\r\n";
-            *ost << "<meta charset=\"UTF-8\" />\r\n";
-            *ost << "<title>";
-            *ost << s;
-            *ost << "</title>\r\n";
-            *ost << "</head>\r\n";
+        void routing::head_start(std::ostringstream& ost, std::string s){
+            ost << "<head>\r\n";
+            ost << "<meta charset=\"UTF-8\" />\r\n";
+            ost << "<title>";
+            ost << s;
+            ost << "</title>\r\n";
+            ost << "</head>\r\n";
         }
 
-        void routing::header_one(std::ostringstream* ost, std::string s){
-            *ost << "<h1>";
-            *ost << s;
-            *ost << "</h1>\r\n";
-            *ost << "<hr/>\r\n";
+        void routing::header_one(std::ostringstream& ost, std::string s){
+            ost << "<h1>";
+            ost << s;
+            ost << "</h1>\r\n";
+            ost << "<hr/>\r\n";
         }
 
-        void routing::header_three(std::ostringstream* ost, std::string s){
-            *ost << "<h3>";
-            *ost << s;
-            *ost << "</h3>";
+        void routing::header_three(std::ostringstream& ost, std::string s){
+            ost << "<h3>";
+            ost << s;
+            ost << "</h3>";
         }
 
-        void routing::blockquote(std::ostringstream* ost, std::pair<std::string, std::string> quote){
-            *ost << "<blockquote>\r\n";
-            *ost << "<p>";
-            *ost << quote.first;
-            *ost << "</p>\r\n";
-            *ost << quote.second;
-            *ost << "</blockquote>\r\n";
+        void routing::blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote){
+            ost << "<blockquote>\r\n";
+            ost << "<p>";
+            ost << quote.first;
+            ost << "</p>\r\n";
+            ost << quote.second;
+            ost << "</blockquote>\r\n";
         }
 
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
@@ -130,7 +130,7 @@ namespace webserv {
             std::ostringstream ost;
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
-            head_start(&ost, "Listing");
+            head_start(ost, "Listing");
 
             ost << "<body>\r\n";
 
@@ -177,11 +177,11 @@ namespace webserv {
             buf.append(webserv::http::code2str(code));
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
-            head_start(&ost, buf);
+            head_start(ost, buf);
             ost << "<body>\r\n";
-            header_one(&ost, "Error at WebServ!");
-            blockquote(&ost, quote);
-            header_three(&ost, buf);
+            header_one(ost, "Error at WebServ!");
+            blockquote(ost, quote);
+            header_three(ost, buf);
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 

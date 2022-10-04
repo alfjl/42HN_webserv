@@ -25,10 +25,10 @@ namespace webserv {
             void tick();
 
         protected:
-            void head_start(std::ostringstream* ost, std::string s);
-            void header_one(std::ostringstream* ost, std::string s);
-            void header_three(std::ostringstream* ost, std::string s);
-            void blockquote(std::ostringstream* ost, std::pair<std::string, std::string> quote);
+            void head_start(std::ostringstream& ost, std::string s);
+            void header_one(std::ostringstream& ost, std::string s);
+            void header_three(std::ostringstream& ost, std::string s);
+            void blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote);
             void set_response(webserv::http::response_fixed* response);
             std::string itos(unsigned int code);
             void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
