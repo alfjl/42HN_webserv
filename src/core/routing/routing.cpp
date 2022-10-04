@@ -23,25 +23,36 @@ namespace webserv {
 
         }
 
+        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
+            webserv::core::routing_table table;
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            std::ifstream stream;
+            if (get_instance().get_fs().is_directory(file_path)) {
+                directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+            } else if (get_instance().get_fs().open(file_path, stream)) {
+                file_listing(response, file_path, &stream);
+            } else {
+                not_found_404(response);
+            }
+            return (response);
+        }
+
+        void routing::header_start(std::ostringstream* ost, std::string s){
+            *ost << "<!DOCTYPE html>\r\n";
+            *ost << "<html>\r\n";
+            *ost << "<head>\r\n";
+            *ost << "<meta charset=\"UTF-8\" />\r\n";
+            *ost << "<title>";
+            *ost << s;
+            *ost << "</title>\r\n";
+            *ost << "</head>\r\n";
+        }
+
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed();
 
             switch (request.get_line().get_method()) {
-                case webserv::http::http_method_get: {
-                    webserv::core::routing_table table;
-                    webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
-                    std::ifstream stream;
-
-                    if (get_instance().get_fs().is_directory(file_path)) {
-                        directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
-                    } else if (get_instance().get_fs().open(file_path, stream)) {
-                        file_listing(response, file_path, &stream);
-                    } else {
-                        not_found_404(response);
-                    }
-
-                    break;
-                }
+                case webserv::http::http_method_get: { return (http_get_method(response, request)); }
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
                 case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
@@ -57,14 +68,7 @@ namespace webserv {
                         std::ostringstream ost;
                         std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
 
-                        ost << "<!DOCTYPE html>\r\n";
-                        ost << "<html>\r\n";
-                        ost << "<head>\r\n";
-                        ost << "<meta charset=\"UTF-8\" />\r\n";
-                        ost << "<title>";
-                        ost << "File deleted.";
-                        ost << "</title>\r\n";
-                        ost << "</head>\r\n";
+                        header_start(&ost, "File deleted.");
                         ost << "<body>\r\n";
                         ost << "<h1>";
                         ost << "File deleted.";
@@ -105,12 +109,8 @@ namespace webserv {
         void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
             std::ostringstream ost;
             
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            ost << "<head>\r\n";
-            ost << "<meta charset=\"UTF-8\" />\r\n";
-            ost << "<title>Listing</title>\r\n";
-            ost << "</head>\r\n";
+            header_start(&ost, "Listing");
+
             ost << "<body>\r\n";
 
             std::vector<webserv::util::path>::const_iterator it = paths.begin();
@@ -140,21 +140,21 @@ namespace webserv {
             response->set_body(payload.str(), find_mime(file_path.get_extension()));
         }
 
+        std::string routing::itos(unsigned int code){
+            std::ostringstream ost;
+            ost << code;
+            return ost.str();
+        }
+
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
             std::ostringstream ost;
                 
             std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            ost << "<head>\r\n";
-            ost << "<meta charset=\"UTF-8\" />\r\n";
-            ost << "<title>";
-            ost << code;
-            ost << " ";
-            ost << webserv::http::code2str(code);
-            ost << "</title>\r\n";
-            ost << "</head>\r\n";
+            std::string buf(itos(code));
+            buf.append(" ");
+            buf.append(webserv::http::code2str(code));
+            header_start(&ost, buf);
             ost << "<body>\r\n";
             ost << "<h1>";
             ost << "Error at WebServ!";
