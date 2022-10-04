@@ -111,12 +111,6 @@ namespace webserv {
         void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
             std::ostringstream ost;
             
-            // ost << "<!DOCTYPE html>\r\n";
-            // ost << "<html>\r\n";
-            // ost << "<head>\r\n";
-            // ost << "<meta charset=\"UTF-8\" />\r\n";
-            // ost << "<title>Listing</title>\r\n";
-            // ost << "</head>\r\n";
             header_start(&ost, "Listing");
 
             ost << "<body>\r\n";
@@ -159,24 +153,10 @@ namespace webserv {
                 
             std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
-            // std::string os = itos(code);
-            // std::string buf(os);
             std::string buf(itos(code));
             buf.append(" ");
             buf.append(webserv::http::code2str(code));
             header_start(&ost, buf);
-            // ost << "<!DOCTYPE html>\r\n";
-            // ost << "<html>\r\n";
-            // ost << "<head>\r\n";
-            // ost << "<meta charset=\"UTF-8\" />\r\n";
-            // ost << "<title>";
-            // ost << code;
-            // ost << " ";
-            // ost << buf;
-            // ost << " ";
-            // ost << webserv::http::code2str(code);
-            // ost << "</title>\r\n";
-            // ost << "</head>\r\n";
             ost << "<body>\r\n";
             ost << "<h1>";
             ost << "Error at WebServ!";
