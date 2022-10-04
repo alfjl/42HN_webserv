@@ -52,7 +52,7 @@ namespace webserv {
 
                     if (get_instance().get_fs().is_directory(file_path)) { // TODO: Should we allow this?
                         // get_instance().get_fs().del(file_path);
-                        unauthorized_401(response); // TODO: Check against nginx if this is correct behaviour!
+                        unauthorized_401(response); // TODO: Check against nginx if this is correct behaviour!!
                     } else if (get_instance().get_fs().del(file_path)) {
                         std::ostringstream ost;
                         std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
