@@ -54,7 +54,7 @@ namespace webserv {
             switch (request.get_line().get_method()) {
                 case webserv::http::http_method_get: { return (http_get_method(response, request)); }
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
-                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
+                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl; // request.get_body() --> std:string
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
                 case webserv::http::http_method_delete: {
                     webserv::core::routing_table table;
@@ -83,7 +83,7 @@ namespace webserv {
                         ost << "</body>\r\n";
                         ost << "</html>\r\n";
 
-                        response->set_code(200);
+                        response->set_code(200); // check against nginx: maybe it's "204"?
                         response->set_html_body(ost.str());
                     } else {
                         not_found_404(response);
