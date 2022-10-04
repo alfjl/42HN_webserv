@@ -2,6 +2,7 @@
 
 #include "../../pal/dir/del.hpp"
 #include "../../pal/dir/readdir.hpp"
+#include "../../pal/env/env.hpp"
 
 namespace webserv {
 	namespace core {
@@ -15,7 +16,7 @@ namespace webserv {
 		}
 
         std::string filesystem::add_anchor(webserv::util::path path) const {
-            return "/" + path.get_addr_s();
+            return "/" + (webserv::pal::env::pwd().cd("../www") + path).get_addr_s();
         }
 
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
