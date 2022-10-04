@@ -21,5 +21,5 @@ namespace webserv {
             close();
         }
 
-    } // namespace util
-} // namespace webserv
+    }
+}

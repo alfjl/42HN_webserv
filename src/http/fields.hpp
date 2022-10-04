@@ -7,7 +7,6 @@ namespace webserv {
     namespace http {
 
         class fields {
-        
         public:
             typedef std::map<std::string, std::string>::const_iterator const_iterator;
 
@@ -23,10 +22,9 @@ namespace webserv {
             
             const_iterator begin() const;
             const_iterator end() const;
+        };
 
-        }; // class fields
-
-    } // namespace http
-} // namespace webserv
+    }
+}
 
 #endif

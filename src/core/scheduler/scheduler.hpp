@@ -12,7 +12,6 @@ namespace webserv {
     namespace core {
 
         class scheduler : public component {
-
         private:
             std::vector<webserv::util::state_machine_base*> handlers;
         
@@ -22,10 +21,9 @@ namespace webserv {
 
             void tick();
             void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
+        };
 
-        }; // class scheduler
-
-    } // namespace core
-} // namespace webserv
+    }
+}
 
 #endif

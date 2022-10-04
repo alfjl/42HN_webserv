@@ -14,8 +14,12 @@ namespace webserv {
 
 		}
 
+        std::string filesystem::add_anchor(webserv::util::path path) const {
+            return "/" + path.get_addr_s();
+        }
+
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
-			stream.open(("/" + path.get_addr_s()).c_str());
+			stream.open(add_anchor(path).c_str());
             std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
@@ -25,7 +29,7 @@ namespace webserv {
 		}
 
         bool filesystem::write_absolute(webserv::util::path path, std::ofstream& stream) {
-			stream.open(("/" + path.get_addr_s()).c_str());
+			stream.open(add_anchor(path).c_str());
             std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
@@ -35,7 +39,7 @@ namespace webserv {
 		}
 
         bool filesystem::del_absolute(webserv::util::path path) {
-            return webserv::pal::dir::rmdir(("/" + path.get_addr_s()).c_str());
+            return webserv::pal::dir::rmdir(add_anchor(path).c_str());
         }
 
         bool filesystem::del(webserv::util::path path) {
@@ -49,7 +53,7 @@ namespace webserv {
         std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path)
         {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
+            std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
             for (std::vector<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
                 v_path.push_back(webserv::util::path(*it));
@@ -65,7 +69,7 @@ namespace webserv {
         std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path)
         {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory("/" + path.get_addr_s());
+            std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
             for (int i = 0; i < files.size(); ++i) {
                 v_path.push_back(webserv::util::path(path.get_addr_s()).cd(files[i]));
@@ -79,8 +83,8 @@ namespace webserv {
          */
         bool filesystem::is_directory(webserv::util::path path)
         {
-            return webserv::pal::dir::is_directory("/" + path.get_addr_s());
+            return webserv::pal::dir::is_directory(add_anchor(path));
         }
 
-	} // namespace core
-} // namespace webserv
+	}
+}

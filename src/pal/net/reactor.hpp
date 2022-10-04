@@ -9,20 +9,16 @@ namespace webserv {
         namespace net {
 
             class reactor {
-
             public:
                 virtual webserv::util::wrapped_queue& get_input() = 0;
                 virtual webserv::util::wrapped_queue& get_output() = 0;
 
                 virtual void react_close() = 0;
                 virtual bool is_closed() = 0;
-                // virtual void push_char(char c) = 0;
-                // virtual std::ostream& get_stream() = 0;
+            };
 
-            }; // class reactor
-
-        } // namespace net
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif

@@ -115,7 +115,7 @@ namespace webserv {
 
         void parser::expects(std::string text) {
             if (!checks(text))
-                parse_error("Expected a different string!");
+                parse_error("Expected a different string: " + text);
         }
 
         void parser::expect_uint(unsigned int& value) {

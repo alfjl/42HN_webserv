@@ -42,17 +42,6 @@ namespace webserv {
                 parse_error("Expected a newline!");
         }
 
-
-        static bool split_on(std::string text, std::string& in, std::string& left, std::string& right) {
-            size_t it = in.find(text);
-            if (it != std::string::npos) {
-                left  = in.substr(0, it);
-                right = in.substr(it + text.size(), in.size());
-                return true;
-            }
-            return false;
-        }
-
         static std::string parse_uri_field_word(request_parser& parser) {
             std::string word;
             while (parser.has_next()) {
@@ -77,7 +66,7 @@ namespace webserv {
         void parse_uri_fields(request_parser& parser, fields& into) {
             do {
                 parse_uri_field(parser, into);
-            } while (parser.check('&'));
+            } while (!parser.check_space() && parser.check('&'));
         }
 
         void parse_uri(request_parser& parser, uri& into) {
@@ -99,7 +88,7 @@ namespace webserv {
                     } else if (parser.check_noadvance('?')) {
                         break;
                     } else if (parser.check_space()) {
-                        break;
+                        return;
                     }
                     server_name += parser.force_next_char();
                 }
@@ -125,43 +114,6 @@ namespace webserv {
             }
         }
 
-        /*bool parse_uri(std::string text, uri& into) {
-            split_on("://", text, into.get_proto(), text);
-            std::string addr;
-
-            if (split_on("/", text, addr, text)) {
-                // We lost the "/", so we just add it again
-                text = "/" + text;
-            } else {
-                addr = text;
-                text = "/";
-            }
-
-            {
-                std::string num;
-                int         loc;
-
-                if (split_on(":", addr, into.get_server(), num)) {
-                    if (!webserv::pal::cpp::string_to_int(num.c_str(), loc)) {
-                        return false;
-                    }
-                    into.get_port() = loc;
-                } else {
-                    into.get_server() = addr;
-                }
-            }
-
-            // should path.addr remain "/" as our default, or change to "[empty string]"
-            // into.get_path() = path(text);
-            
-            // while (split_on()) {
-
-            // }
-            into.get_path() = webserv::util::path(text);
-
-            return true;
-        }*/
-
         void parse_http_version(request_parser& parser, http_version& into) {
             parser.expects("HTTP/1.1");
         }
@@ -173,16 +125,6 @@ namespace webserv {
             else /* TODO: Error */;
 
             parser.expect_space();
-
-            /*{
-                std::string uri_text;
-
-                while (!parser.check_space()) {
-                    uri_text += parser.force_next_char();
-                }
-
-                parse_uri(uri_text, line.get_uri());
-            }*/
 
             parse_uri(parser, line.get_uri());
 

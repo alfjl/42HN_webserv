@@ -3,6 +3,7 @@
 
 #include "../defs.hpp"
 #include "../util/path.hpp"
+
 #include "fields.hpp"
 
 namespace webserv {
@@ -30,12 +31,11 @@ namespace webserv {
             unsigned int get_port() const { return _port; }
             const webserv::util::path& get_path() const { return _path; }
             const fields& get_params() const { return _params; }
-        
-        }; // class uri
+        };
         
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
 
-    } // namespace http
-} // namespace webserv
+    }
+}
 
 #endif

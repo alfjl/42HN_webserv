@@ -1,14 +1,16 @@
 #include "routing.hpp"
 
-#include "routing_table.hpp"
-#include "../instance.hpp"
 #include "../../http/response.hpp"
+#include "../instance.hpp"
 
+#include "routing_table.hpp"
 
 namespace webserv {
 
     namespace http {
+
         const char* code2str(unsigned int code); // TODO: Move to utility directory
+
     }
 
     namespace core {
@@ -29,19 +31,11 @@ namespace webserv {
                     webserv::core::routing_table table;
                     webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
                     std::ifstream stream;
+
                     if (get_instance().get_fs().is_directory(file_path)) {
                         directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                     } else if (get_instance().get_fs().open(file_path, stream)) {
-                        std::ostringstream payload;
-                        while (!stream.eof()) {
-                            char c;
-                            stream.get(c);
-                            payload << c;
-                        }
-                        std::cout << "Done!" << std::endl;
-
-                        response->set_code(200);
-                        response->set_body(payload.str(), find_mime(file_path.get_extension()));
+                        file_listing(response, file_path, &stream);
                     } else {
                         not_found_404(response);
                     }
@@ -97,6 +91,7 @@ namespace webserv {
                 // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
                 default: {
                     teapot_418(response);
+
                     break;
                 }
             }
@@ -132,10 +127,23 @@ namespace webserv {
             response->set_html_body(ost.str());
         }
 
+        void routing::file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream) {
+            std::ostringstream payload;
+            while (!stream->eof()) {
+                char c;
+                stream->get(c);
+                payload << c;
+            }
+            std::cout << "Done!" << std::endl; // TODO: Delete after tests
+
+            response->set_code(200);
+            response->set_body(payload.str(), find_mime(file_path.get_extension()));
+        }
+
         void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
             std::ostringstream ost;
                 
-            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "– Le Chuck"); // Todo: code2str for monkey island quotes!
+            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
@@ -207,37 +215,37 @@ namespace webserv {
         }
 
         std::string routing::find_mime(std::string extension) {
-            if (extension == ".bmp")
+            if (extension == "bmp")
                 return "image/bmp";
-            else if (extension == ".css")
+            else if (extension == "css")
                 return "text/css";
-            else if (extension == ".csv")
+            else if (extension == "csv")
                 return "text/csv";
-            else if (extension == ".doc")
+            else if (extension == "doc")
                 return "application/msword";
-            else if (extension == ".docx")
+            else if (extension == "docx")
                 return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            else if (extension == ".gif")
+            else if (extension == "gif")
                 return "image/gif";
-            else if ((extension == ".html") || (extension == ".htm"))
+            else if ((extension == "html") || (extension == "htm"))
                 return "text/html";
-            else if ((extension == ".jpeg") || (extension == ".jpg"))
+            else if ((extension == "jpeg") || (extension == "jpg"))
                 return "image/jpeg";
-            else if (extension == ".js")
+            else if (extension == "js")
                 return "text/javascript";
-            else if (extension == ".json")
+            else if (extension == "json")
                 return "application/json";
-            else if (extension == ".png")
+            else if (extension == "png")
                 return "image/png";
-            else if (extension == ".pdf")
+            else if (extension == "pdf")
                 return "application/pdf";
-            else if (extension == ".php")
+            else if (extension == "php")
                 return "application/x-httpd-php";
-            else if (extension == ".txt")
+            else if (extension == "txt")
                 return "text/plain";
             else
                 return "*/*";
         }
 
-    } // namespace core
-} // namespace webserv
+    }
+}

@@ -14,7 +14,6 @@ namespace webserv {
         class   selector;
 
         class routing : public component {
-
         public:
             routing(instance& the_inst);
             ~routing();
@@ -25,8 +24,8 @@ namespace webserv {
 
         protected:
             void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
+            void file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream);
  
-            // error codes
             void error_code(webserv::http::response_fixed* response, unsigned int code);
             void permanent_redirect_301(webserv::http::response_fixed* response);
             void temporary_redirect_302(webserv::http::response_fixed* response);
@@ -39,10 +38,9 @@ namespace webserv {
             void service_unavailable_503(webserv::http::response_fixed* response);
 
             std::string find_mime(std::string extension);
+        };
 
-        }; // class routing
-
-    } // namespace core
-} // namespace webserv
+    }
+}
 
 #endif

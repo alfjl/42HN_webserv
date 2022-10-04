@@ -17,8 +17,8 @@ namespace webserv {
 
             bool is_directory(std::string entry);
 
-        } // namespace dir
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif

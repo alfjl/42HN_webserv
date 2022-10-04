@@ -3,13 +3,10 @@
 namespace webserv {
     namespace http {
 
-        /* --------------------- RESPONSE ----------------------------------- */
-
         /*
          * Default constructor default-initializes the members
          */
-        response::response()
-            : _fields(), _code(418) {
+        response::response() : _fields(), _code(418) {
 
         }
 
@@ -120,7 +117,7 @@ namespace webserv {
                 case 508: return "Loop Detected";
                 case 510: return "Not Extended";
                 case 511: return "Network Authentication Required";
-                default: return "I’m a teapot";
+                default: return "I'm a teapot";
             }
         }
 
@@ -149,7 +146,6 @@ namespace webserv {
 
             // TODO: Remove these later
             out(con) << "Server: Webserv/0.1\r\n";
-            //out(con) << "Content-type: text/html, text, plain\r\n";
         }
 
         /*
@@ -168,8 +164,6 @@ namespace webserv {
             write_body(con);
         }
 
-
-       /* --------------------- RESPONSE_FIXED ------------------------------ */
 
         /*
          * Default constructor default-initializes the members in base class
@@ -230,5 +224,5 @@ namespace webserv {
             response::write(con);
         }
 
-    } // namespace http
-} // namespace webserv
+    }
+}
