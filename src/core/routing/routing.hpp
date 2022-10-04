@@ -24,6 +24,8 @@ namespace webserv {
             void tick();
 
         protected:
+            void header_start(std::ostringstream* ost, std::string s);
+            std::string itos(unsigned int code);
             void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
             void file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream);
  
