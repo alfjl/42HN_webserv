@@ -52,22 +52,10 @@ namespace webserv {
                 response->set_code(200); // 201 Created?????
                 response->set_html_body(request.get_body());
             } else {
-                internal_server_error_500(response);
+                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
             }
 
             return (response);
-            // webserv::core::routing_table table;
-            // webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
-
-            // if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
-            //     if (!get_instance().get_fs().del(file_path))
-            //         unauthorized_401(response);
-            // } else if ((get_instance().get_fs().del(file_path))) {
-            //     set_response(response);
-            // } else {
-            //     not_found_404(response);
-            // }
-            // return (response);
         }
 
         void routing::set_response(webserv::http::response_fixed* response){
