@@ -20,11 +20,16 @@ namespace webserv {
 
             webserv::http::response_fixed* look_up(webserv::http::request_core& request);
             webserv::http::response_fixed* http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
+            webserv::http::response_fixed* http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
 
             void tick();
 
         protected:
-            void header_start(std::ostringstream* ost, std::string s);
+            void head_start(std::ostringstream& ost, std::string s);
+            void header_one(std::ostringstream& ost, std::string s);
+            void header_three(std::ostringstream& ost, std::string s);
+            void blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote);
+            void set_response(webserv::http::response_fixed* response);
             std::string itos(unsigned int code);
             void directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths);
             void file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream);
