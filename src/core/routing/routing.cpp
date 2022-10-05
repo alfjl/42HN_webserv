@@ -39,11 +39,25 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            //request.get_body() --> std::string
+            webserv::core::routing_table table;
+            webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path());
+            std::ofstream                outfile(file_path, std::ios_base::out | std::ios_base::app);
 
+            // if (outfile) {
+            if (outfile.is_open()) {
+                outfile << request.get_body().c_str();
+
+                outfile.close;
+
+                response->set_code(200); // 201 Created?????
+                response->set_html_body(request.get_body());
+            } else {
+                internal_server_error_500(response);
+            }
+
+            return (response);
             // webserv::core::routing_table table;
             // webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
-            // std::ifstream stream;
 
             // if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
             //     if (!get_instance().get_fs().del(file_path))
