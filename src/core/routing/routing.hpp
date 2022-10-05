@@ -20,6 +20,7 @@ namespace webserv {
 
             webserv::http::response_fixed* look_up(webserv::http::request_core& request);
             webserv::http::response_fixed* http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
+            webserv::http::response_fixed* http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
 
             void tick();
 
