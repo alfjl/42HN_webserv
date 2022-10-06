@@ -11,6 +11,8 @@ namespace webserv {
             selector::~selector() {}
 
             void selector::register_socket(socket* socket, payload_type data_set) {
+                if (data_set != NULL)
+                    data_set->increment_refcount();
                 elements[socket] = data_set;
             }
 
@@ -23,8 +25,10 @@ namespace webserv {
                 if (it != elements.end()) {
                     std::cout << "Removing socket " << sock << std::endl;
                     it->first->close();
-                    if (it->second != NULL)
+                    if (it->second != NULL) {
                         it->second->react_close();
+                        it->second->decrement_refcount();
+                    }
                     elements.erase(it); // TODO: call function on payload?
                 }
             }

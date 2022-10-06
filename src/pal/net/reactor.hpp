@@ -10,6 +10,11 @@ namespace webserv {
 
             class reactor {
             public:
+                virtual ~reactor();
+                
+                virtual void increment_refcount() = 0;
+                virtual void decrement_refcount() = 0;
+
                 virtual webserv::util::wrapped_queue& get_input() = 0;
                 virtual webserv::util::wrapped_queue& get_output() = 0;
 

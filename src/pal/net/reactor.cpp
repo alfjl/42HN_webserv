@@ -4,6 +4,10 @@ namespace webserv {
     namespace pal {
         namespace net {
 
+            reactor::~reactor() {
+                
+            }
+
         }
     }
 }

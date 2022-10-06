@@ -10,7 +10,15 @@ namespace webserv {
     namespace http {
 
         http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
-            : connection(new_connection), routing(routing) {}
+            : connection(new_connection), routing(routing) {
+            if (connection != NULL)
+                connection->increment_refcount();
+        }
+
+        http_handler::~http_handler() {
+            if (connection != NULL)
+                connection->decrement_refcount();
+        }
 
         webserv::util::wrapped_queue& http_handler::in() { return connection->get_input(); }
         std::ostream& http_handler::out() { return connection->get_ostream(); }

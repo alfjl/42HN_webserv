@@ -19,6 +19,7 @@ namespace webserv {
                 if ((*it)->is_stopped()) {
                     handlers.erase(it);
                     std::cout << "Removing state machine " << *it << std::endl;
+                    delete (*it);
                     break;
                 }
                 (*it)->tick();

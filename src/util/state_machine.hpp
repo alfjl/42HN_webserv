@@ -14,6 +14,8 @@ namespace webserv {
 
         class state_machine_base {
         public:
+            virtual ~state_machine_base() {}
+            
             virtual void tick() = 0;
             virtual bool is_stopped() = 0;
         };
