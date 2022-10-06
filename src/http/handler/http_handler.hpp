@@ -15,6 +15,7 @@ namespace webserv {
             std::string                 buffer;
             webserv::util::connection*  connection;
             webserv::core::routing&     routing;
+            request_core                into;
 
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
@@ -29,6 +30,10 @@ namespace webserv {
             void replace(std::string& str, const std::string& from, const std::string& to);
 
             void char_arrived();
+
+            void process_head();
+            void process_request();
+            void end_request();
         };
 
     }

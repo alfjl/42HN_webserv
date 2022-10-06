@@ -44,39 +44,53 @@ namespace webserv {
         void http_handler::char_arrived() {
             buffer += last_char;
             if (buffer.find("\r\n\r\n") != std::string::npos) {
-                std::cout << "Processing head: " << std::endl;
-                std::cout << buffer;
-
-                webserv::util::stringflow   flow(buffer);
-                request_parser  parser(flow);
-                request_core    into;
-
-                bool correct = false;
-                
-                try {
-                    parse_http_request_core(parser, into);
-                    correct = true;
-                } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
-
-                }
-
-                if (correct) {
-                    std::cout << buffer << std::endl;
-                    std::cout << into.get_line().get_uri() << std::endl;
-
-                    response* response = routing.look_up(into);
-
-                    response->write(*connection);
-                } else {
-                    // TODO: Error
-                    std::cout << "Error in request!" << std::endl;
-                }
-                connection->close();
-
-                stop();
+                next(&http_handler::process_head);
             } else {
                 next(&http_handler::start);
             }
+        }
+
+        void http_handler::process_head() {
+            std::cout << "Processing head: " << std::endl;
+            std::cout << buffer;
+
+            webserv::util::stringflow   flow(buffer);
+            request_parser  parser(flow);
+            into = request_core();
+
+            bool correct = false;
+            
+            try {
+                parse_http_request_core(parser, into);
+                correct = true;
+            } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
+
+            }
+
+            if (correct) {
+                next(&http_handler::process_request);
+            } else {
+                // TODO: Error
+                std::cout << "Error in request!" << std::endl;
+                next(&http_handler::end_request);
+            }
+        }
+
+        void http_handler::process_request() {
+            std::cout << buffer << std::endl;
+            std::cout << into.get_line().get_uri() << std::endl;
+
+            response* response = routing.look_up(into);
+
+            response->write(*connection);
+
+            next(&http_handler::end_request);
+        }
+
+        void http_handler::end_request() {
+            connection->close();
+
+            stop();
         }
 
     }
