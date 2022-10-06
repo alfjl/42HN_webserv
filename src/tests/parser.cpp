@@ -1,9 +1,19 @@
 #include "../http/parsing/request_parser.hpp"
+#include "../util/streamflow.hpp"
 
 void test_uri_parsing(std::string text, bool expected) {
     webserv::http::uri the_uri;
+    webserv::util::stringflow flow(text);
+    webserv::http::request_parser parser(flow);
 
-    bool res = webserv::http::parse_uri(text, the_uri);
+    bool res = false;
+
+    try {
+        webserv::http::parse_uri(parser, the_uri);
+        res = !parser.has_next();
+    } catch (std::exception& e) {
+        std::cout << "(expected parse exception: " << e.what() << ")" << std::endl;
+    }
 
     if (res == expected) {
         std::cout << "\033[32m";
@@ -21,7 +31,9 @@ void test_uri_parsing(std::string text, bool expected) {
 }
 
 void test_uri_parsing() {
-    test_uri_parsing("httpx://www.42heilbronn.de:4242/index.html", true);
+    test_uri_parsing("http://www.42heilbronn.de:4242/index.html", true);
+    test_uri_parsing("http://www.42heilbronn.de:/index.html", false);
+    test_uri_parsing("httpx://www.42heilbronn.de:4242/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:4242x/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:42x42/index.html", false);
     test_uri_parsing("httpx://www.42heilbronn.de:x4242/index.html", false);
@@ -29,9 +41,30 @@ void test_uri_parsing() {
     test_uri_parsing("", false);
     test_uri_parsing("/", true);
     test_uri_parsing("/index", true);
+    test_uri_parsing("/index/whatever/hallo", true);
+    test_uri_parsing("/index/../whatever/hallo", true);
     test_uri_parsing("/index", true);
     test_uri_parsing("/index.html", true);
     test_uri_parsing(":42/", false);
     test_uri_parsing("42/", false);  // Is this really correct?
     test_uri_parsing("42.fr", true);
+
+    test_uri_parsing("42.fr?x=hi", false);
+    test_uri_parsing("/42.fr?x=hi", true);
+    test_uri_parsing("httelloworld.com/42.fr?x=hi", true);
+    test_uri_parsing("httelloworld.com/42.fr?x=hi&y=ho", true);
+    test_uri_parsing("/42.fr?x=hi", true);
+    test_uri_parsing("/42.fr?x=hi&y=ho", true);
+    test_uri_parsing("42.fr/hey/ho?x=hi", true);
+    test_uri_parsing("42.fr/hey/ho/?x=hi&y=ho", true);
+    test_uri_parsing("42.fr/hey/ho/?x=hi&y=", true);
+    test_uri_parsing("42.fr/hey/ho/?x=42&y=", true);
+
+    webserv::util::path anchor("/var/www");
+    webserv::util::path resource("/img/favicon.png");
+
+    std::cout << (anchor + resource) << std::endl;
+    std::cout << (anchor + resource).get_first() << std::endl;
+    std::cout << (anchor + resource).get_last() << std::endl;
+    std::cout << (anchor + resource).get_rest() << std::endl;
 }

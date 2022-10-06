@@ -13,6 +13,10 @@ namespace webserv {
 
         }
 
+        bool request_parser::check_space_noadvance() {
+            return check_noadvance(' ');
+        }
+
         bool request_parser::check_space() {
             return check(' ');
         }
@@ -38,46 +42,76 @@ namespace webserv {
                 parse_error("Expected a newline!");
         }
 
-
-        static bool split_on(std::string text, std::string& in, std::string& left, std::string& right) {
-            size_t it = in.find(text);
-            if (it != std::string::npos) {
-                left  = in.substr(0, it);
-                right = in.substr(it + text.size(), in.size());
-                return true;
+        static std::string parse_uri_field_word(request_parser& parser) {
+            std::string word;
+            while (parser.has_next()) {
+                if (parser.check_space_noadvance()) break;
+                else if (parser.check_noadvance('=')) break;
+                else if (parser.check_noadvance('&')) break;
+                else word += parser.force_next_char();
             }
-            return false;
+            return word;
         }
 
-        bool parse_uri(std::string text, uri& into) {
-            split_on("://", text, into.get_proto(), text);
-            std::string addr;
+        static void parse_uri_field(request_parser& parser, fields& into) {
+            /*
+             * TODO: Check for length
+             */
+            std::string key = parse_uri_field_word(parser);
+            parser.expect('=');
+            std::string value = parse_uri_field_word(parser);
+            into.put(key, value);
+        }
 
-            if (split_on("/", text, addr, text)) {
-                // We lost the "/", so we just add it again
-                text = "/" + text;
-            } else {
-                addr = text;
-                text = "/";
+        void parse_uri_fields(request_parser& parser, fields& into) {
+            do {
+                parse_uri_field(parser, into);
+            } while (!parser.check_space() && parser.check('&'));
+        }
+
+        void parse_uri(request_parser& parser, uri& into) {
+            into.get_proto() = "http";
+
+            if (parser.checks("http://")) {
+                // We do nothing here
             }
 
-            {
-                std::string num;
-                int         loc;
+            if (!parser.check_noadvance('/')) {
+                std::string server_name;
 
-                if (split_on(":", addr, into.get_server(), num)) {
-                    if (!webserv::pal::cpp::string_to_int(num.c_str(), loc)) {
-                        return false;
+                while (parser.has_next()) {
+                    if (parser.check_noadvance('/')) {
+                        break;
+                    } else if (parser.check(':')) {
+                        parser.expect_uint(into.get_port());
+                        break;
+                    } else if (parser.check_noadvance('?')) {
+                        break;
+                    } else if (parser.check_space()) {
+                        return;
                     }
-                    into.get_port() = loc;
-                } else {
-                    into.get_server() = addr;
+                    server_name += parser.force_next_char();
                 }
+
+                into.get_server() = server_name;
             }
 
-            into.get_path() = path(text);
+            if (parser.check_noadvance('/')) {
+                std::string path;
 
-            return true;
+                while (parser.has_next()) {
+                    // TODO: "?p1=v1&p2=v2"
+                    if (parser.check_space()) {
+                        break;
+                    } else if (parser.check('?')) {
+                        parse_uri_fields(parser, into.get_params());
+                        break;
+                    }
+                    path += parser.force_next_char();
+                }
+
+                into.get_path() = webserv::util::path(path);
+            }
         }
 
         void parse_http_version(request_parser& parser, http_version& into) {
@@ -92,18 +126,9 @@ namespace webserv {
 
             parser.expect_space();
 
-            {
-                std::string uri_text;
+            parse_uri(parser, line.get_uri());
 
-                while (!parser.check_space()) {
-                    uri_text += parser.force_next_char();
-                }
-
-                parse_uri(uri_text, line.get_uri());
-            }
             // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
-
-            parser.expect_space();
 
             parse_http_version(parser, line.get_version());
 

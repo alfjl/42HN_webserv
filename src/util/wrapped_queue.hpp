@@ -9,8 +9,6 @@ namespace webserv {
     namespace util {
 
         class wrapped_queue {
-        
-        private:
             std::queue<char> buffer;
 
         public:
@@ -18,10 +16,9 @@ namespace webserv {
 
             bool has_next();
             bool next_char(char& loc);
+        };
 
-        }; // class wrapped_queue
-
-    } // namespace util
-} // namespace webserv
+    }
+}
 
 #endif

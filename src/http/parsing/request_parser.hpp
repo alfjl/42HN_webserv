@@ -10,11 +10,11 @@ namespace webserv {
     namespace http {
 
         class request_parser : public webserv::util::parser {
-        private:
         public:
             request_parser(iflow& flow);
             ~request_parser();
 
+            bool check_space_noadvance();
             bool check_space();
             void expect_space();
 
@@ -22,7 +22,8 @@ namespace webserv {
             void expect_http_newline();
         };
 
-        bool parse_uri(std::string text, uri& into);
+        void parse_uri_fields(request_parser& parser, fields& into);
+        void parse_uri(request_parser& parser, uri& into);
         void parse_http_request_line(request_parser& parser, request_line& line);
         void parse_request_fields(request_parser& parser, fields& into);
         void parse_http_request_core(request_parser& parser, request_core& into);

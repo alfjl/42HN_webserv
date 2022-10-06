@@ -19,6 +19,7 @@ namespace webserv {
 
             template<typename T>
             class shared_ptr {
+
             private:
                 class core {
                     unsigned int  refcount;
@@ -26,7 +27,6 @@ namespace webserv {
                 public:
                     template<typename T2>
                     core(T2* _ptr) : refcount(0), ptr(_ptr) {
-                        // std::cout << this << " gets created " << std::endl;
                     }
 
                     ~core() {
@@ -37,16 +37,13 @@ namespace webserv {
 
                     void increment() {
                         refcount++;
-                        // std::cout << this << " gets incremented to " << refcount << std::endl;
                     }
 
                     void decrement() {
                         if (refcount == 0) {
-                            // std::cout << this << " is at zero!" << std::endl;
                             delete this;
                         } else {
                             refcount--;
-                            // std::cout << this << " gets decremented to " << refcount << std::endl;
                         }
                     }
 
@@ -57,37 +54,31 @@ namespace webserv {
 
             public:
                 shared_ptr() {
-                    // std::cout << "+ shared_ptr(NULL): " << this << std::endl;
                     the_core = new core((T*) NULL);
                 }
 
                 template<typename T2>
                 explicit shared_ptr(T2* ptr) {
-                    // std::cout << "+ shared_ptr(p): " << this << std::endl;
                     the_core = new core(ptr);
                 }
 
                 template<typename T2>
                 shared_ptr(const shared_ptr<T2>& other) {
-                    // std::cout << "+ shared_ptr(&): " << this << std::endl;
                     the_core = (core*) other.get_core();
                     the_core->increment();
                 }
 
                 template<typename T2>
                 shared_ptr(shared_ptr<T2>& other) {
-                    // std::cout << "! shared_ptr(&): " << this << std::endl;
                     the_core = (core*) other.get_core();
                     the_core->increment();
                 }
 
                 ~shared_ptr() {
-                    // std::cout << "+ ~shared_ptr(): " << this << std::endl;
                     the_core->decrement();
                 }
 
                 shared_ptr& operator=(const shared_ptr& other) {
-                    // std::cout << "+ shared_ptr(=): " << this << std::endl;
                     core* c = the_core;
 
                     if (this != &other) {
@@ -112,8 +103,8 @@ namespace webserv {
                 return ptr;
             }
 
-        } // namespace cpp
-    } // namespace pal
-} // namespace webserv
+        }
+    }
+}
 
 #endif

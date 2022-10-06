@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this) {
 
         }
 
@@ -25,5 +25,5 @@ namespace webserv {
             }
         }
 
-    } // namespace core
-} // namespace webserv
+    }
+}

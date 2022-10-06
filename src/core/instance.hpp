@@ -2,12 +2,13 @@
 #define WEBSERV_CORE_INSTANCE_HPP
 
 #include "../defs.hpp"
+#include "../util/connection.hpp"
 
 #include "driver/driver.hpp"
 #include "scheduler/scheduler.hpp"
 #include "routing/routing.hpp"
+#include "filesystem/filesystem.hpp"
 
-#include "../util/connection.hpp"
 
 namespace webserv {
     namespace core {
@@ -17,12 +18,10 @@ namespace webserv {
         class routing;
 
         class instance {
-
-        private:
-            driver    _driver;
-            scheduler _scheduler;
-            routing   _routing;
-
+            driver      _driver;
+            scheduler   _scheduler;
+            routing     _routing;
+            filesystem  _fs;
 
         public:
             instance();
@@ -31,15 +30,15 @@ namespace webserv {
             driver&     get_driver()    { return _driver; }
             scheduler&  get_scheduler() { return _scheduler; }
             routing&    get_routing()   { return _routing; }
+            filesystem& get_fs()        { return _fs; }
             void        pass_connection(webserv::util::connection* new_connection);
 
             bool is_running() { return true; }
 
             void run();
+        };
 
-        }; // class instance
-
-    } // namespace core
-} // namespace webserv
+    }
+}
 
 #endif

@@ -20,7 +20,6 @@ namespace webserv {
 
         template<typename Impl>
         class state_machine : public state_machine_base {
-        private:
             typedef void (Impl::*state_function)();
 
             enum state_machine_status   status;
@@ -75,9 +74,9 @@ namespace webserv {
                     (((Impl*) this)->*current_func)();
                 }
             }
-        }; // state_machine
+        };
 
-    } // namespace util
-} // namespace webserve
+    }
+}
 
 #endif

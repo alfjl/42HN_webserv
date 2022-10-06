@@ -1,14 +1,12 @@
-#include "http_response.hpp"
+#include "response.hpp"
 
 namespace webserv {
     namespace http {
 
         /*
-         * Default constructor initializes the members
-         * with members from http_request
+         * Default constructor default-initializes the members
          */
-        http_response::http_response()
-            : _fields(), _code(418) {
+        response::response() : _fields(), _code(418) {
 
         }
 
@@ -16,23 +14,22 @@ namespace webserv {
          * Extracts the ostream of the connection
          * and passes it on as its return value
          */
-        std::ostream& http_response::out(webserv::util::connection& con) {
+        std::ostream& response::out(webserv::util::connection& con) {
             return con.get_ostream();
         }
 
         /*
          * Sets status code in instance
          */
-        void http_response::set_code(unsigned int code) {
+        void response::set_code(unsigned int code) {
             _code = code;
         }
 
-        void http_response::set_field(std::string name, std::string value) {
+        /*
+         * Sets a new field with pair name and value
+         */
+        void response::set_field(std::string name, std::string value) {
             _fields.put(name, value);
-        }
-
-        void http_response::set_body(std::string body) {
-            _body = body;
         }
 
         /*
@@ -88,7 +85,7 @@ namespace webserv {
                 case 415: return "Unsupported Media Type";
                 case 416: return "Range Not Satisfiable";
                 case 417: return "Expectation Failed";
-                case 418: return "I’m a teapot";
+                case 418: return "I'm a teapot";
                 case 421: return "Misdirected Request";
                 case 422: return "Unprocessable Entity";
                 case 423: return "Locked";
@@ -120,15 +117,15 @@ namespace webserv {
                 case 508: return "Loop Detected";
                 case 510: return "Not Extended";
                 case 511: return "Network Authentication Required";
-                default: return "I’m a teapot";
+                default: return "I'm a teapot";
             }
         }
 
         /*
          * Writes the status_code and corresponding message (e.g. 200 OK)
-         * of the http_response to the connection
+         * of the response to the connection
          */
-        void    http_response::write_status(webserv::util::connection& con) {
+        void    response::write_status(webserv::util::connection& con) {
             out(con) << _code << " " << code2str(_code) << "\r\n";
         }
 
@@ -136,7 +133,7 @@ namespace webserv {
          * Iterates over the _fields member
          * and writes field by field to the connection
          */
-        void    http_response::write_fields(webserv::util::connection& con) {
+        void    response::write_fields(webserv::util::connection& con) {
             fields::const_iterator  it = _fields.begin();
             fields::const_iterator  ite = _fields.end();
 
@@ -149,22 +146,13 @@ namespace webserv {
 
             // TODO: Remove these later
             out(con) << "Server: Webserv/0.1\r\n";
-            out(con) << "Content-type: text/html, text, plain\r\n";
-            out(con) << "Content-length: " << _body.size() << "\r\n";
-        }
-
-        /*
-         * Writes the body of the http_response to the connections ostream
-         */
-        void    http_response::write_body(webserv::util::connection& con) {
-                out(con) << _body;
         }
 
         /*
          * Accepts a status code and writes the correct response back
          * to the connections ostream
          */
-        void    http_response::write(webserv::util::connection& con) {
+        void    response::write(webserv::util::connection& con) {
             out(con) << "HTTP/1.1 ";
             // write code + corresponding message (e.g. 200 OK)
             write_status(con);
@@ -176,5 +164,65 @@ namespace webserv {
             write_body(con);
         }
 
-    } // namespace http
-} // namespace webserv
+
+        /*
+         * Default constructor default-initializes the members in base class
+         */
+        response_fixed::response_fixed() : response() {
+
+        }
+
+        /*
+         * Extracts the ostream of the connection
+         * and passes it on as its return value
+         */
+        std::ostream& response_fixed::out(webserv::util::connection& con) {
+            return response::out(con);
+        }
+
+        /*
+         * Sets status code in base class
+         */
+        void response_fixed::set_code(unsigned int code) {
+            response::set_code(code);
+        }
+
+        /*
+         * Sets a new field in base class with pair name and value
+         */
+        void response_fixed::set_field(std::string name, std::string value) {
+            response::set_field(name, value);
+        }
+
+        /*
+         * Sets _body and field 'Content-type' for html responses 
+         */
+        void response_fixed::set_html_body(std::string body) {
+            set_body(body, "text/html");
+        }
+
+        /*
+         * Sets string body as the base class' _body & field Content-type in accordance with MIME-type 'content_type'
+         */
+        void response_fixed::set_body(std::string body, std::string content_type) {
+            _body = body;
+            set_field("Content-type", content_type);
+        }
+
+        /*
+         * Writes the body of the response to the connections ostream
+         */
+        void    response_fixed::write_body(webserv::util::connection& con) {
+                out(con) << _body;
+        }
+
+        /*
+         * Accepts a status code and writes the correct response back
+         * to the connections ostream
+         */
+        void    response_fixed::write(webserv::util::connection& con) {
+            response::write(con);
+        }
+
+    }
+}

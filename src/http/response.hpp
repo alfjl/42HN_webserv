@@ -18,33 +18,42 @@ namespace webserv {
          *                                       - alanghan
          */
 
-        class http_response {
-        
-        private:
+        class response {
             fields           _fields;
             unsigned int     _code;
-            std::string      _body;
 
             void          write_status(webserv::util::connection& con);
             void          write_fields(webserv::util::connection& con);
 
-        protected:
-            virtual void  write_body(webserv::util::connection& con);
-
         public:
-            http_response();
+            response();
 
             std::ostream& out(webserv::util::connection& con);
 
             void          set_code(unsigned int code);
             void          set_field(std::string name, std::string value);
-            void          set_body(std::string body);
+            virtual void  write_body(webserv::util::connection& con) = 0;
             void          write(webserv::util::connection& con);
+        };
 
-        }; // class http_response
 
-    } // namespace http
-} // namespace webserv
+        class response_fixed : public response {
+            std::string      _body;
 
+        public:
+            response_fixed();
+
+            std::ostream& out(webserv::util::connection& con);
+
+            void set_code(unsigned int code);
+            void set_field(std::string name, std::string value);
+            void set_body(std::string body, std::string content_type);
+            void set_html_body(std::string body);
+            void write_body(webserv::util::connection& con);
+            void write(webserv::util::connection& con);
+        };
+
+    }
+}
 
 #endif

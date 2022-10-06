@@ -1,6 +1,18 @@
 #include "routing.hpp"
 
+#include "../../http/response.hpp"
+#include "../instance.hpp"
+
+#include "routing_table.hpp"
+
 namespace webserv {
+
+    namespace http {
+
+        const char* code2str(unsigned int code); // TODO: Move to utility directory
+
+    }
+
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
@@ -11,16 +23,240 @@ namespace webserv {
 
         }
 
-        webserv::http::http_response* routing::look_up(webserv::http::request_core& request) {
-            webserv::http::http_response *response = new webserv::http::http_response();
+        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
+            webserv::core::routing_table table;
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            std::ifstream stream;
+
+            if (get_instance().get_fs().is_directory(file_path)) {
+                directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+            } else if (get_instance().get_fs().open(file_path, stream)) {
+                file_listing(response, file_path, &stream);
+            } else {
+                not_found_404(response);
+            }
+            return (response);
+        }
+
+        void routing::set_response(webserv::http::response_fixed* response){
+            std::ostringstream ost;
+            std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
+            
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(ost, "File deleted.");
+            ost << "<body>\r\n";
+            header_one(ost, "File deleted.");
+            blockquote(ost, quote);
+            ost << "</body>\r\n";
+            ost << "</html>\r\n";
+
             response->set_code(200);
-            response->set_body("<html><head></head><body>Dies ist ein Text!!!</body></html>");
+            response->set_html_body(ost.str());
+        }
+
+        webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
+            webserv::core::routing_table table;
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            std::ifstream stream;
+
+            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
+                if (!get_instance().get_fs().del(file_path))
+                    unauthorized_401(response);
+            } else if ((get_instance().get_fs().del(file_path))) {
+                set_response(response);
+            } else {
+                not_found_404(response);
+            }
+            return (response);
+        }
+
+        void routing::head_start(std::ostringstream& ost, std::string s){
+            ost << "<head>\r\n";
+            ost << "<meta charset=\"UTF-8\" />\r\n";
+            ost << "<title>";
+            ost << s;
+            ost << "</title>\r\n";
+            ost << "</head>\r\n";
+        }
+
+        void routing::header_one(std::ostringstream& ost, std::string s){
+            ost << "<h1>";
+            ost << s;
+            ost << "</h1>\r\n";
+            ost << "<hr/>\r\n";
+        }
+
+        void routing::header_three(std::ostringstream& ost, std::string s){
+            ost << "<h3>";
+            ost << s;
+            ost << "</h3>";
+        }
+
+        void routing::blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote){
+            ost << "<blockquote>\r\n";
+            ost << "<p>";
+            ost << quote.first;
+            ost << "</p>\r\n";
+            ost << quote.second;
+            ost << "</blockquote>\r\n";
+        }
+
+        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
+            webserv::http::response_fixed *response = new webserv::http::response_fixed();
+
+            switch (request.get_line().get_method()) {
+                case webserv::http::http_method_get: { return (http_get_method(response, request)); }
+                // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
+                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
+                // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
+                case webserv::http::http_method_delete: { return (http_delete_method(response, request)); }
+                // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
+                // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
+                default: {
+                    teapot_418(response);
+
+                    break;
+                }
+            }
             return (response);
         }
 
         void routing::tick() {
-
+            // Do nothing!
         }
 
-    } // namespace core
-} // namespace webserv
+        void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
+            std::ostringstream ost;
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(ost, "Listing");
+
+            ost << "<body>\r\n";
+
+            std::vector<webserv::util::path>::const_iterator it = paths.begin();
+            while (it != paths.end()) {
+                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
+                ost << "<br/>\r\n";
+                ++it;
+            }
+
+            ost << "</body>\r\n";
+            ost << "</html>\r\n";
+
+            response->set_code(200);
+            response->set_html_body(ost.str());
+        }
+
+        void routing::file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream) {
+            std::ostringstream payload;
+            while (!stream->eof()) {
+                char c;
+                stream->get(c);
+                payload << c;
+            }
+            std::cout << "Done!" << std::endl; // TODO: Delete after tests
+
+            response->set_code(200);
+            response->set_body(payload.str(), find_mime(file_path.get_extension()));
+        }
+
+        std::string routing::itos(unsigned int code){
+            std::ostringstream ost;
+            ost << code;
+            return ost.str();
+        }
+
+        void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
+            std::ostringstream ost;
+                
+            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
+
+            std::string buf(itos(code));
+            buf.append(" ");
+            buf.append(webserv::http::code2str(code));
+            ost << "<!DOCTYPE html>\r\n";
+            ost << "<html>\r\n";
+            head_start(ost, buf);
+            ost << "<body>\r\n";
+            header_one(ost, "Error at WebServ!");
+            blockquote(ost, quote);
+            header_three(ost, buf);
+            ost << "</body>\r\n";
+            ost << "</html>\r\n";
+
+            response->set_code(code);
+            response->set_html_body(ost.str());
+        }
+
+        void routing::permanent_redirect_301(webserv::http::response_fixed* response) {
+            error_code(response, 301);
+        }
+
+        void routing::temporary_redirect_302(webserv::http::response_fixed* response) {
+            error_code(response, 302);
+        }
+
+        void routing::bad_request_400(webserv::http::response_fixed* response) {
+            error_code(response, 400);
+        }
+
+        void routing::unauthorized_401(webserv::http::response_fixed* response) {
+            error_code(response, 401);
+        }
+
+        void routing::not_found_404(webserv::http::response_fixed* response) {
+            error_code(response, 404);
+        }
+
+        void routing::gone_410(webserv::http::response_fixed* response) {
+            error_code(response, 410);
+        }
+
+        void routing::teapot_418(webserv::http::response_fixed* response) {
+            error_code(response, 418);
+        }
+
+        void routing::internal_server_error_500(webserv::http::response_fixed* response) {
+            error_code(response, 500);
+        }
+
+        void routing::service_unavailable_503(webserv::http::response_fixed* response) {
+            error_code(response, 503);
+        }
+
+        std::string routing::find_mime(std::string extension) {
+            if (extension == "bmp")
+                return "image/bmp";
+            else if (extension == "css")
+                return "text/css";
+            else if (extension == "csv")
+                return "text/csv";
+            else if (extension == "doc")
+                return "application/msword";
+            else if (extension == "docx")
+                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+            else if (extension == "gif")
+                return "image/gif";
+            else if ((extension == "html") || (extension == "htm"))
+                return "text/html";
+            else if ((extension == "jpeg") || (extension == "jpg"))
+                return "image/jpeg";
+            else if (extension == "js")
+                return "text/javascript";
+            else if (extension == "json")
+                return "application/json";
+            else if (extension == "png")
+                return "image/png";
+            else if (extension == "pdf")
+                return "application/pdf";
+            else if (extension == "php")
+                return "application/x-httpd-php";
+            else if (extension == "txt")
+                return "text/plain";
+            else
+                return "*/*";
+        }
+
+    }
+}
