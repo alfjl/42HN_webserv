@@ -45,6 +45,7 @@ namespace webserv {
             void bad_request_400(webserv::http::response_fixed* response);
             void unauthorized_401(webserv::http::response_fixed* response);
             void not_found_404(webserv::http::response_fixed* response);
+            void method_not_allowed_405(webserv::http::response_fixed* response);
             void gone_410(webserv::http::response_fixed* response);
             void teapot_418(webserv::http::response_fixed* response);
             void internal_server_error_500(webserv::http::response_fixed* response);
