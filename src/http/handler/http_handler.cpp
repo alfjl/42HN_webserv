@@ -91,7 +91,7 @@ namespace webserv {
                 if (hex2int(buffer[i], h)) {
                     hex = (hex * 16) + h;
                 } else {
-                    if (i == buffer.size() - 2) { // TODO: Properly check for invalid lines!
+                    if (i > 0 && i == buffer.size() - 2) { // TODO: Properly check for invalid lines!
                         break;
                     } else {
                         next(&http_handler::total_failure);
