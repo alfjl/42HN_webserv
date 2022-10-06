@@ -6,6 +6,8 @@ extern "C" {
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+// Signals
+#include <signal.h>
 // I/O & Files
 #include <fcntl.h>
 #include <dirent.h>

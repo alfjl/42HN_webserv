@@ -13,6 +13,10 @@ void test_all() {
     test_uri_parsing();
 }
 
+void setup_interrupts() {
+    signal(SIGPIPE, SIG_IGN);
+}
+
 void webserv_main() {
     webserv::core::instance  the_webserv;
 
