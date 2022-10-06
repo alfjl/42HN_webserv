@@ -21,7 +21,11 @@ namespace webserv {
         class response {
             fields           _fields;
             unsigned int     _code;
+        
+        protected:
+            bool             _blocked;
 
+        private:
             void          write_status(webserv::util::connection& con);
             void          write_fields(webserv::util::connection& con);
 
@@ -34,6 +38,7 @@ namespace webserv {
             void          set_field(std::string name, std::string value);
             virtual void  write_body(webserv::util::connection& con) = 0;
             void          write(webserv::util::connection& con);
+            void          block_body();
         };
 
 
