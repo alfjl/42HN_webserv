@@ -1,6 +1,7 @@
 #include "routing.hpp"
 
 #include "../../http/response.hpp"
+#include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
 #include "routing_table.hpp"
@@ -23,8 +24,7 @@ namespace webserv {
 
         }
 
-        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
-            webserv::core::routing_table table;
+        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
             webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
             std::ifstream stream;
 
@@ -35,6 +35,33 @@ namespace webserv {
             } else {
                 not_found_404(response);
             }
+            return (response);
+        }
+
+        webserv::http::response_fixed* routing::http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
+            webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path());
+
+            int status = get_instance().get_fs().accessible(file_path);
+
+            if (status == 0)
+                response->set_code(200);
+            else
+                response->set_code(201);
+
+            std::ofstream outfile;
+
+            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
+                outfile << request.get_body().c_str();
+
+                if (!outfile.good())
+                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                outfile.close();
+
+                response->set_html_body(request.get_body());
+            } else {
+                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+            }
+
             return (response);
         }
 
@@ -56,7 +83,6 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
-            webserv::core::routing_table table;
             webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
             std::ifstream stream;
 
@@ -108,7 +134,7 @@ namespace webserv {
             switch (request.get_line().get_method()) {
                 case webserv::http::http_method_get: { return (http_get_method(response, request)); }
                 // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
-                case webserv::http::http_method_post: std::cout << "TODO: case http_method_post:" << std::endl;
+                case webserv::http::http_method_post: { return (http_post_method(response, request)); }
                 // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
                 case webserv::http::http_method_delete: { return (http_delete_method(response, request)); }
                 // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;

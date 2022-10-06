@@ -8,18 +8,23 @@
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
 
+#include "routing_table.hpp"
+
 namespace webserv {
     namespace core {
 
         class   selector;
 
         class routing : public component {
+            webserv::core::routing_table table;
+
         public:
             routing(instance& the_inst);
             ~routing();
 
             webserv::http::response_fixed* look_up(webserv::http::request_core& request);
             webserv::http::response_fixed* http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
+            webserv::http::response_fixed* http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
             webserv::http::response_fixed* http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request);
 
             void tick();
