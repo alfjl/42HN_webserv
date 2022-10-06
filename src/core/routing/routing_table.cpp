@@ -29,7 +29,7 @@ namespace webserv {
          * according to the specific rule set
          */
         webserv::util::path routing_table::query(webserv::util::path old_path) {
-            webserv::util::path queried_path(old_path.get_addr_s());
+            webserv::util::path queried_path(old_path);
 
             // look_up if prefix substitution rule for old_path exist
             // and substitute it, if found
