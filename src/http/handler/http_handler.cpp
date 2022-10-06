@@ -101,6 +101,7 @@ namespace webserv {
                 i++;
             }
 
+            buffer = "";
             if (hex == 0) {
                 ret();
             } else {
