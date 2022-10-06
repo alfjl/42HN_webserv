@@ -3,7 +3,7 @@
 namespace webserv {
     namespace util {
 
-        connection::connection() : refcount(0), out(*this), ostream(&out) {
+        connection::connection() : /* refcount(0), */out(*this), ostream(&out) {
             closed = false;
         }
 
@@ -11,14 +11,14 @@ namespace webserv {
             std::cout << "Deleting connection!" << std::endl;
         }
 
-        void connection::increment_refcount() {
+        /*void connection::increment_refcount() {
             refcount++;
         }
 
         void connection::decrement_refcount() {
             if (refcount <= 1) delete this;
             else refcount--;
-        }
+        }*/
 
 
         wrapped_queue& connection::get_input() {
