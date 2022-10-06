@@ -28,7 +28,7 @@ namespace webserv {
          * If yes, substitutes the prefix of old_path
          * according to the specific rule set
          */
-        webserv::util::path routing_table::query(webserv::util::path old_path) {
+        route routing_table::query(webserv::util::path old_path) {
             webserv::util::path queried_path(old_path);
 
             // look_up if prefix substitution rule for old_path exist
@@ -44,7 +44,12 @@ namespace webserv {
                 }
             }
 
-            return queried_path;
+            /*
+             * For now, just return a new route.
+             * We do need to do lookups soon, though.
+             *                       - nijakow
+             */
+            return route(queried_path);
         }
 
     }

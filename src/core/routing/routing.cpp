@@ -25,7 +25,7 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
             std::ifstream stream;
 
             if (get_instance().get_fs().is_directory(file_path)) {
@@ -39,7 +39,7 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path());
+            webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
 
             int status = get_instance().get_fs().accessible(file_path);
 
@@ -88,7 +88,7 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
-            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
+            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
             std::ifstream stream;
 
             if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
