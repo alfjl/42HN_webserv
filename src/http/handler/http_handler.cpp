@@ -154,9 +154,6 @@ namespace webserv {
         }
 
         void http_handler::process_head() {
-            std::cout << "Processing head: " << std::endl;
-            std::cout << buffer;
-
             webserv::util::stringflow   flow(buffer);
             request_parser  parser(flow);
             into = request_core();

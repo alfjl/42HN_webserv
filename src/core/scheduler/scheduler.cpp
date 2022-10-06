@@ -15,10 +15,8 @@ namespace webserv {
             std::vector<webserv::util::state_machine_base*>::iterator it = handlers.begin();
 
             while (it != handlers.end()) {
-                std::cout << "Ticking " << *it << std::endl;
                 if ((*it)->is_stopped()) {
                     handlers.erase(it);
-                    std::cout << "Removing state machine " << *it << std::endl;
                     delete (*it);
                     break;
                 }

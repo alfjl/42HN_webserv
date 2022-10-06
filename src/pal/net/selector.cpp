@@ -23,7 +23,6 @@ namespace webserv {
             void selector::unregister_socket(socket* sock) {
                 std::map<socket*, payload_type>::iterator it = elements.find(sock);
                 if (it != elements.end()) {
-                    std::cout << "Removing socket " << sock << std::endl;
                     it->first->close();
                     if (it->second != NULL) {
                         it->second->react_close();
@@ -76,7 +75,6 @@ namespace webserv {
                 for ( ; it != ite; ++it) {
                     if (FD_ISSET(it->first->get_fd(), &read_fds)) {
                         // do_read_operation();
-                        std::cout << "Readable " << it->first->get_fd() << "!" << std::endl;
                         if (it->first->is_server_socket()) {
                             data_socket* ds = ((server_socket*) it->first)->accept();
                             // Callback to driver, create new connection
@@ -96,7 +94,6 @@ namespace webserv {
                         }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &write_fds)) {
-                        std::cout << "Writeable " << it->first->get_fd() << "!" << std::endl;
                         // TODO: do_write_operation();
                         if (it->first->is_data_socket()) {
                             char buffer[128]; // bis char buffer voll, oder connection zuende, dann ....

@@ -192,7 +192,6 @@ namespace webserv {
                 stream->get(c);
                 payload << c;
             }
-            std::cout << "Done!" << std::endl; // TODO: Delete after tests
 
             response->set_code(200);
             response->set_body(payload.str(), find_mime(file_path.get_extension()));

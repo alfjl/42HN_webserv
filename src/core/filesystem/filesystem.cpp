@@ -22,7 +22,6 @@ namespace webserv {
 
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
 			stream.open(add_anchor(path).c_str());
-            std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
 
@@ -32,7 +31,6 @@ namespace webserv {
 
         bool filesystem::write_absolute(webserv::util::path path, std::ofstream& stream) {
 			stream.open(add_anchor(path).c_str());
-            std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
 
@@ -41,7 +39,6 @@ namespace webserv {
 		}
 
         bool filesystem::del_absolute(webserv::util::path path) {
-            // return webserv::pal::dir::rmdir(add_anchor(path).c_str());
             return webserv::pal::dir::remove(add_anchor(path).c_str());
         }
 
@@ -92,7 +89,6 @@ namespace webserv {
         bool filesystem::accessible(webserv::util::path path) {
             return (webserv::pal::dir::access(path.get_addr_s()));
         }
-
 
 	}
 }

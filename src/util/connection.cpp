@@ -8,7 +8,7 @@ namespace webserv {
         }
 
         connection::~connection() {
-            std::cout << "Deleting connection!" << std::endl;
+            
         }
 
         wrapped_queue& connection::get_input() {
