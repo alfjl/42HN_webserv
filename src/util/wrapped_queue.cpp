@@ -7,13 +7,21 @@ namespace webserv {
             buffer.push(c);
         }
 
+        void wrapped_queue::unread_char(char c) {
+            unreads.push(c);
+        }
+
 
         bool wrapped_queue::has_next() {
-            return (!buffer.empty());
+            return (!buffer.empty() || !unreads.empty());
         }
 
         bool wrapped_queue::next_char(char& loc) {
-            if (has_next()) {
+            if (!unreads.empty()) {
+                loc = unreads.top();
+                unreads.pop();
+                return true;
+            } else if (!buffer.empty()) {
                 loc = buffer.front();
                 buffer.pop();
                 return true;

@@ -107,7 +107,14 @@ namespace webserv {
                             }
                             ssize_t written = write(it->first->get_fd(), buffer, amount);
 
-                            // TODO: Compare `amount` against `written` and push back characters, if needed
+                            if (written > 0) {
+                                while (amount > written) {
+                                    amount--;
+                                    it->second->get_output().unread_char(buffer[amount]);
+                                }
+                            } else {
+                                // TODO: Print an error and close
+                            }
                         }
                     }
                     else if (FD_ISSET(it->first->get_fd(), &exception_fds)) {

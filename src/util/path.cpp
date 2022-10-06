@@ -108,7 +108,6 @@ namespace webserv {
          */
         bool path::begins_with(path prefix) {
             size_t size_p = prefix._addr.size();
-            size_t size_this = this->_addr.size();
 
             if (prefix.size() > size()) return false;
 

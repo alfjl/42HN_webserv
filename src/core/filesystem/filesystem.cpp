@@ -72,8 +72,8 @@ namespace webserv {
             std::vector<webserv::util::path> v_path;
             std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
-            for (int i = 0; i < files.size(); ++i) {
-                v_path.push_back(webserv::util::path(path.get_addr_s()).cd(files[i]));
+            for (std::vector<std::string>::const_iterator it = files.begin(); it < files.end(); ++it) {
+                v_path.push_back(webserv::util::path(path.get_addr_s()).cd(*it));
             }
 
             return v_path;
