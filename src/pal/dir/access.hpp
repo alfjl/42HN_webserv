@@ -12,7 +12,7 @@ namespace webserv {
     namespace pal {
         namespace dir {
 
-            int access(std::string path);
+            bool access(std::string path);
 
         }
     }

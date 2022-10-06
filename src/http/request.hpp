@@ -62,6 +62,8 @@ namespace webserv {
         public:
             request_line& get_line()   { return _line;   }
             fields&       get_fields() { return _fields; }
+            // http_body&  get_body() { return _body; } // TODO: implement correct function!
+            std::string   get_body() { return ""; } // TODO: delete!
         };
 
     }

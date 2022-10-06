@@ -53,8 +53,7 @@ namespace webserv {
          * Returns a vector of path, for all elements lying under this path
          * Relative path only
          */
-        std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path)
-        {
+        std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path) {
             std::vector<webserv::util::path> v_path;
             std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
@@ -69,8 +68,7 @@ namespace webserv {
          * Returns a vector of path, for all elements lying under this path
          * Absolute path
          */
-        std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path)
-        {
+        std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path) {
             std::vector<webserv::util::path> v_path;
             std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
@@ -88,7 +86,10 @@ namespace webserv {
             return webserv::pal::dir::is_directory(add_anchor(path));
         }
 
-        int accessible(webserv::util::path path) {
+        /*
+         * Checks if path is accessible
+         */
+        bool filesystem::accessible(webserv::util::path path) {
             return (webserv::pal::dir::access(path.get_addr_s()));
         }
 

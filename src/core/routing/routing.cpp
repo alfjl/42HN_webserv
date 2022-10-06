@@ -1,7 +1,7 @@
 #include "routing.hpp"
 
-#include "../../pal/dir/access.hpp"
 #include "../../http/response.hpp"
+#include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
 #include "routing_table.hpp"
@@ -50,7 +50,7 @@ namespace webserv {
 
             std::ofstream outfile;
 
-            if (get_instance().get_fs().write((file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) {
+            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
                 outfile << request.get_body().c_str();
 
                 if (!outfile.good())
