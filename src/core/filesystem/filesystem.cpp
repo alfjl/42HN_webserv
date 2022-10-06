@@ -1,5 +1,6 @@
 #include "filesystem.hpp"
 
+#include "../../pal/dir/access.hpp"
 #include "../../pal/dir/del.hpp"
 #include "../../pal/dir/readdir.hpp"
 #include "../../pal/env/env.hpp"
@@ -83,10 +84,14 @@ namespace webserv {
         /*
          * Checks if path is a directory
          */
-        bool filesystem::is_directory(webserv::util::path path)
-        {
+        bool filesystem::is_directory(webserv::util::path path) {
             return webserv::pal::dir::is_directory(add_anchor(path));
         }
+
+        int accessible(webserv::util::path path) {
+            return (webserv::pal::dir::access(path.get_addr_s()));
+        }
+
 
 	}
 }

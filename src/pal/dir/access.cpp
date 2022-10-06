@@ -6,8 +6,8 @@ namespace webserv {
     namespace pal {
         namespace dir {
 
-            int access(webserv::util::path path) {
-                return (::access(path.get_addr_s().c_str(), F_OK));
+            int access(std::string path) {
+                return (::access(path.c_str(), F_OK));
             }
 
         }

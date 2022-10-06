@@ -1,5 +1,6 @@
 #include "routing.hpp"
 
+#include "../../pal/dir/access.hpp"
 #include "../../http/response.hpp"
 #include "../instance.hpp"
 
@@ -24,7 +25,6 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::core::routing_table table;
             webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
             std::ifstream stream;
 
@@ -39,10 +39,9 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::core::routing_table table; // 1.) in routing!
             webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path());
 
-            int status = webserv::pal::dir::access(file_path.get_addr_s().c_str(), F_OK); // in PAL wrappen
+            int status = get_instance().get_fs().accessible(file_path);
 
             if (status == 0)
                 response->set_code(200);
@@ -51,7 +50,7 @@ namespace webserv {
 
             std::ofstream outfile;
 
-            if (filesystem.write((file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) {
+            if (get_instance().get_fs().write((file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) {
                 outfile << request.get_body().c_str();
 
                 if (!outfile.good())
@@ -84,7 +83,6 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
-            webserv::core::routing_table table;
             webserv::util::path file_path = table.query(request.get_line().get_uri().get_path());
             std::ifstream stream;
 
