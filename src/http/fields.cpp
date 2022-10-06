@@ -6,6 +6,10 @@ namespace webserv {
         fields::fields() {}
         fields::~fields() {}
 
+        bool fields::has(std::string key) const {
+            return _fields.find(key) != _fields.end();
+        }
+
         std::string fields::get_or_default(std::string key, std::string deflt) const {
             std::map<std::string, std::string>::const_iterator it = _fields.find(key);
             if (it == _fields.end()) return deflt;

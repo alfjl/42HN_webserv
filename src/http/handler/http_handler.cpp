@@ -1,6 +1,7 @@
 #include "http_handler.hpp"
 
 #include "../../core/routing/routing.hpp"
+#include "../../pal/cpp/conv.hpp"
 #include "../../util/streamflow.hpp"
 #include "../parsing/request_parser.hpp"
 #include "../response.hpp"
@@ -69,6 +70,24 @@ namespace webserv {
             next(&http_handler::read_until_newline_loop);
         }
 
+        void http_handler::parse_normal_body() {
+            next(&http_handler::parse_normal_body_loop);
+        }
+
+        void http_handler::parse_normal_body_loop() {
+            if (bytes == 0) ret();
+            else {
+                bytes--;
+                next(&http_handler::wait_for_char);
+                later(&http_handler::parse_normal_body_continue);
+            }
+        }
+
+        void http_handler::parse_normal_body_continue() {
+            body += last_char;
+            next(&http_handler::parse_normal_body_loop);
+        }
+
         void http_handler::parse_chunked_body() {
             next(&http_handler::read_until_newline);
             later(&http_handler::parse_chunked_body_parse_byte_count);
@@ -82,7 +101,6 @@ namespace webserv {
         }
 
         void http_handler::parse_chunked_body_parse_byte_count() {
-            // TODO: Parse hex
             hex = 0;
             unsigned int i = 0;
 
@@ -112,8 +130,9 @@ namespace webserv {
         void http_handler::parse_chunked_body_parse_bytes() {
             buffer = "";
             if (hex == 0) {
-                // TODO, FIXME, XXX: Is there a trailing \r\n?
-                next(&http_handler::parse_chunked_body);
+                // TODO, FIXME, XXX: Is there always a trailing \r\n?
+                next(&http_handler::read_until_newline);
+                later(&http_handler::parse_chunked_body);
             } else {
                 hex--;
                 next(&http_handler::wait_for_char);
@@ -122,7 +141,7 @@ namespace webserv {
         }
 
         void http_handler::parse_chunked_body_parse_bytes_loop() {
-            buffer += last_char;
+            body += last_char;
             next(&http_handler::parse_chunked_body_parse_bytes);
         }
 
@@ -143,10 +162,21 @@ namespace webserv {
 
             }
 
+            body = "";
+
             if (correct) {
                 if (into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
                     next(&http_handler::parse_chunked_body);
                     later(&http_handler::process_request);
+                } else if (into.get_fields().has("Content-Length")) {
+                    int bytes;
+                    if (webserv::pal::cpp::string_to_int(into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                        this->bytes = bytes;
+                        next(&http_handler::parse_normal_body);
+                        later(&http_handler::process_request);
+                    } else {
+                        next(&http_handler::total_failure);
+                    }
                 } else {
                     next(&http_handler::process_request);
                 }
@@ -157,7 +187,9 @@ namespace webserv {
         }
 
         void http_handler::process_request() {
-            std::cout << buffer << std::endl;
+            into.get_body() = body;
+            body = "";
+
             std::cout << into.get_line().get_uri() << std::endl;
 
             response* response = routing.look_up(into);

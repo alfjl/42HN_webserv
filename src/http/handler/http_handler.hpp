@@ -13,10 +13,12 @@ namespace webserv {
         class http_handler : public webserv::util::state_machine<http_handler> {
             char                        last_char;
             std::string                 buffer;
+            std::string                 body;
             webserv::util::connection*  connection;
             webserv::core::routing&     routing;
             request_core                into;
             unsigned int                hex;
+            unsigned int                bytes;
 
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
@@ -35,6 +37,10 @@ namespace webserv {
             void read_until_newline();
             void read_until_newline_loop();
             void read_until_newline_continue();
+
+            void parse_normal_body();
+            void parse_normal_body_loop();
+            void parse_normal_body_continue();
 
             void parse_chunked_body();
             void parse_chunked_body_parse_byte_count();
