@@ -16,6 +16,7 @@ namespace webserv {
             webserv::util::connection*  connection;
             webserv::core::routing&     routing;
             request_core                into;
+            unsigned int                hex;
 
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
@@ -31,9 +32,20 @@ namespace webserv {
 
             void char_arrived();
 
+            void read_until_newline();
+            void read_until_newline_loop();
+            void read_until_newline_continue();
+
+            void parse_chunked_body();
+            void parse_chunked_body_parse_byte_count();
+            void parse_chunked_body_parse_bytes();
+            void parse_chunked_body_parse_bytes_loop();
+
             void process_head();
             void process_request();
             void end_request();
+
+            void total_failure();
         };
 
     }

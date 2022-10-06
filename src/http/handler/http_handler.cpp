@@ -50,6 +50,81 @@ namespace webserv {
             }
         }
 
+        void http_handler::read_until_newline() {
+            buffer = "";
+            next(&http_handler::read_until_newline);
+        }
+
+        void http_handler::read_until_newline_loop() {
+            if (buffer.find("\r\n") != std::string::npos) {
+                ret();
+            } else {
+                next(&http_handler::wait_for_char);
+                later(&http_handler::read_until_newline_continue);
+            }
+        }
+
+        void http_handler::read_until_newline_continue() {
+            buffer += last_char;
+            next(&http_handler::read_until_newline_loop);
+        }
+
+        void http_handler::parse_chunked_body() {
+            next(&http_handler::read_until_newline);
+            later(&http_handler::parse_chunked_body_parse_byte_count);
+        }
+
+        static bool hex2int(char c, unsigned int& i) {
+                 if (c >= '0' && c <= '9') { i = c - '0'; return true; }
+            else if (c >= 'a' && c <= 'f') { i = c - 'a' + 10; return true; }
+            else if (c >= 'A' && c <= 'F') { i = c - 'A' + 10; return true; }
+            else return false;
+        }
+
+        void http_handler::parse_chunked_body_parse_byte_count() {
+            // TODO: Parse hex
+            hex = 0;
+            unsigned int i = 0;
+
+            while (i < buffer.size()) {
+                unsigned int h;
+                if (hex2int(buffer[i], h)) {
+                    hex = (hex * 16) + h;
+                } else {
+                    if (i == buffer.size() - 2) { // TODO: Properly check for invalid lines!
+                        break;
+                    } else {
+                        next(&http_handler::total_failure);
+                        return;
+                    }
+                }
+                i++;
+            }
+
+            if (hex == 0) {
+                ret();
+            } else {
+                next(&http_handler::parse_chunked_body_parse_bytes);
+            }
+        }
+
+        void http_handler::parse_chunked_body_parse_bytes() {
+            buffer = "";
+            if (hex == 0) {
+                // TODO, FIXME, XXX: Is there a trailing \r\n?
+                next(&http_handler::parse_chunked_body);
+            } else {
+                hex--;
+                next(&http_handler::wait_for_char);
+                later(&http_handler::parse_chunked_body_parse_bytes_loop);
+            }
+        }
+
+        void http_handler::parse_chunked_body_parse_bytes_loop() {
+            buffer += last_char;
+            next(&http_handler::parse_chunked_body_parse_bytes);
+        }
+
         void http_handler::process_head() {
             std::cout << "Processing head: " << std::endl;
             std::cout << buffer;
@@ -68,7 +143,12 @@ namespace webserv {
             }
 
             if (correct) {
-                next(&http_handler::process_request);
+                if (into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                    later(&http_handler::process_request);
+                    next(&http_handler::parse_chunked_body);
+                } else {
+                    next(&http_handler::process_request);
+                }
             } else {
                 // TODO: Error
                 std::cout << "Error in request!" << std::endl;
@@ -91,6 +171,11 @@ namespace webserv {
             connection->close();
 
             stop();
+        }
+
+        void http_handler::total_failure() {
+            std::cout << "Total failure!" << std::endl;
+            next(&http_handler::end_request);
         }
 
     }
