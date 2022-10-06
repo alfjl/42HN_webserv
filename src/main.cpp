@@ -16,7 +16,7 @@ void test_all() {
 void webserv_main() {
     webserv::core::instance  the_webserv;
 
-    the_webserv.get_driver().open_port(4242);
+    the_webserv.on_port(4242);
     the_webserv.run();
 }
 
