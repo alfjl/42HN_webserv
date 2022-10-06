@@ -1,6 +1,7 @@
 #include "http_handler.hpp"
 
 #include "../../core/routing/routing.hpp"
+#include "../../pal/cpp/conv.hpp"
 #include "../../util/streamflow.hpp"
 #include "../parsing/request_parser.hpp"
 #include "../response.hpp"
@@ -169,7 +170,7 @@ namespace webserv {
                     later(&http_handler::process_request);
                 } else if (into.get_fields().has("Content-length")) {
                     int bytes;
-                    if (webserv::pal::cpp::string_to_int(into.get_fields().get_or_default("Content-length", "").c_str(), bytes)) {
+                    if (webserv::pal::cpp::string_to_int(into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
                         this->bytes = bytes;
                         next(&http_handler::parse_normal_body);
                         later(&http_handler::process_request);
