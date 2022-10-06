@@ -52,7 +52,7 @@ namespace webserv {
 
         void http_handler::read_until_newline() {
             buffer = "";
-            next(&http_handler::read_until_newline);
+            next(&http_handler::read_until_newline_loop);
         }
 
         void http_handler::read_until_newline_loop() {
@@ -144,15 +144,14 @@ namespace webserv {
 
             if (correct) {
                 if (into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
-                    later(&http_handler::process_request);
                     next(&http_handler::parse_chunked_body);
+                    later(&http_handler::process_request);
                 } else {
                     next(&http_handler::process_request);
                 }
             } else {
-                // TODO: Error
                 std::cout << "Error in request!" << std::endl;
-                next(&http_handler::end_request);
+                next(&http_handler::total_failure);
             }
         }
 
