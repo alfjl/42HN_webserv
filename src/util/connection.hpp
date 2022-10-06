@@ -14,7 +14,6 @@ namespace webserv {
     namespace util {
 
         class connection : public virtual webserv::pal::net::reactor, public virtual webserv::util::refcounted {
-            //unsigned int      refcount;
             oflow             out;
             std::ostream      ostream;
             wrapped_queue     input_buffer;
@@ -24,9 +23,6 @@ namespace webserv {
         public:
             connection();
             ~connection();
-
-            // void increment_refcount();
-            // void decrement_refcount();
 
             wrapped_queue& get_input();
             wrapped_queue& get_output();
