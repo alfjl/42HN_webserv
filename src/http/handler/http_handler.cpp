@@ -75,7 +75,7 @@ namespace webserv {
         }
 
         void http_handler::parse_normal_body_loop() {
-            if (bytes == 0) next(&http_handler::parse_chunked_body);
+            if (bytes == 0) ret();
             else {
                 bytes--;
                 next(&http_handler::wait_for_char);
@@ -101,7 +101,6 @@ namespace webserv {
         }
 
         void http_handler::parse_chunked_body_parse_byte_count() {
-            // TODO: Parse hex
             hex = 0;
             unsigned int i = 0;
 
@@ -131,8 +130,9 @@ namespace webserv {
         void http_handler::parse_chunked_body_parse_bytes() {
             buffer = "";
             if (hex == 0) {
-                // TODO, FIXME, XXX: Is there a trailing \r\n?
-                next(&http_handler::parse_chunked_body);
+                // TODO, FIXME, XXX: Is there always a trailing \r\n?
+                next(&http_handler::read_until_newline);
+                later(&http_handler::parse_chunked_body);
             } else {
                 hex--;
                 next(&http_handler::wait_for_char);
@@ -168,7 +168,7 @@ namespace webserv {
                 if (into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
                     next(&http_handler::parse_chunked_body);
                     later(&http_handler::process_request);
-                } else if (into.get_fields().has("Content-length")) {
+                } else if (into.get_fields().has("Content-Length")) {
                     int bytes;
                     if (webserv::pal::cpp::string_to_int(into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
                         this->bytes = bytes;
