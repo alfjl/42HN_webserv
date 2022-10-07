@@ -22,7 +22,7 @@ namespace webserv {
             http_method_get,
             http_method_head,
             http_method_post,
-            // http_method_put,
+            http_method_put,
             http_method_delete,
             // http_method_trace,
             // http_method_connect

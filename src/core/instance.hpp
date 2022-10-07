@@ -23,6 +23,8 @@ namespace webserv {
             routing     _routing;
             filesystem  _fs;
 
+            void banner();
+
         public:
             instance();
             ~instance();
@@ -36,6 +38,8 @@ namespace webserv {
             bool is_running() { return true; }
 
             void run();
+
+            void on_port(int port);
         };
 
     }

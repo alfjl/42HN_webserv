@@ -4,6 +4,7 @@
 #include "../defs.hpp"
 
 #include "../pal/net/reactor.hpp"
+#include "../util/refcounted.hpp"
 
 #include "iflow.hpp"
 #include "oflow.hpp"
@@ -12,7 +13,7 @@
 namespace webserv {
     namespace util {
 
-        class connection : public webserv::pal::net::reactor {
+        class connection : public virtual webserv::pal::net::reactor, public virtual webserv::util::refcounted {
             oflow             out;
             std::ostream      ostream;
             wrapped_queue     input_buffer;
@@ -21,6 +22,7 @@ namespace webserv {
 
         public:
             connection();
+            ~connection();
 
             wrapped_queue& get_input();
             wrapped_queue& get_output();

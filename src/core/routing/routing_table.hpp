@@ -3,6 +3,8 @@
 
 #include "../../util/path.hpp"
 
+#include "route.hpp"
+
 namespace webserv {
     namespace core {
 
@@ -17,7 +19,7 @@ namespace webserv {
             ~routing_table() {}
 
             void add_rule(webserv::util::path in, webserv::util::path out);
-            webserv::util::path query(webserv::util::path old_path);
+            route query(webserv::util::path path);
         };
 
     }

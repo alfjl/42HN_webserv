@@ -22,6 +22,7 @@ namespace webserv {
 
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
+            ~http_handler();
 
             webserv::util::wrapped_queue& in();
             std::ostream& out();

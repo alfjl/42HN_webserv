@@ -10,7 +10,15 @@ namespace webserv {
     namespace http {
 
         http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
-            : connection(new_connection), routing(routing) {}
+            : connection(new_connection), routing(routing) {
+            if (connection != NULL)
+                connection->increment_refcount();
+        }
+
+        http_handler::~http_handler() {
+            if (connection != NULL)
+                connection->decrement_refcount();
+        }
 
         webserv::util::wrapped_queue& http_handler::in() { return connection->get_input(); }
         std::ostream& http_handler::out() { return connection->get_ostream(); }
@@ -146,9 +154,6 @@ namespace webserv {
         }
 
         void http_handler::process_head() {
-            std::cout << "Processing head: " << std::endl;
-            std::cout << buffer;
-
             webserv::util::stringflow   flow(buffer);
             request_parser  parser(flow);
             into = request_core();
@@ -190,9 +195,11 @@ namespace webserv {
             into.get_body() = body;
             body = "";
 
-            std::cout << into.get_line().get_uri() << std::endl;
+            std::cout << "Serving " << into.get_line().get_uri().get_path().to_absolute_string() << "... ";
 
             response* response = routing.look_up(into);
+
+            std::cout << response->get_code() << std::endl;
 
             response->write(*connection);
 

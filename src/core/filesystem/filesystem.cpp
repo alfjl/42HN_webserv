@@ -17,12 +17,11 @@ namespace webserv {
 		}
 
         std::string filesystem::add_anchor(webserv::util::path path) const {
-            return "/" + (webserv::pal::env::pwd().cd("../www") + path).get_addr_s();
+            return (webserv::pal::env::pwd().cd("../www") + path).to_absolute_string();
         }
 
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
 			stream.open(add_anchor(path).c_str());
-            std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
 
@@ -32,7 +31,6 @@ namespace webserv {
 
         bool filesystem::write_absolute(webserv::util::path path, std::ofstream& stream) {
 			stream.open(add_anchor(path).c_str());
-            std::cout << "Opening /" << path << std::endl;
 			return stream.is_open();
 		}
 
@@ -41,7 +39,6 @@ namespace webserv {
 		}
 
         bool filesystem::del_absolute(webserv::util::path path) {
-            // return webserv::pal::dir::rmdir(add_anchor(path).c_str());
             return webserv::pal::dir::remove(add_anchor(path).c_str());
         }
 
@@ -72,8 +69,8 @@ namespace webserv {
             std::vector<webserv::util::path> v_path;
             std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
 
-            for (int i = 0; i < files.size(); ++i) {
-                v_path.push_back(webserv::util::path(path.get_addr_s()).cd(files[i]));
+            for (std::vector<std::string>::const_iterator it = files.begin(); it < files.end(); ++it) {
+                v_path.push_back(webserv::util::path(path.to_relative_string()).cd(*it));
             }
 
             return v_path;
@@ -90,9 +87,8 @@ namespace webserv {
          * Checks if path is accessible
          */
         bool filesystem::accessible(webserv::util::path path) {
-            return (webserv::pal::dir::access(path.get_addr_s()));
+            return (webserv::pal::dir::access(add_anchor(path)));
         }
-
 
 	}
 }

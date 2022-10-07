@@ -7,6 +7,10 @@ namespace webserv {
             closed = false;
         }
 
+        connection::~connection() {
+            
+        }
+
         wrapped_queue& connection::get_input() {
             return input_buffer;
         }

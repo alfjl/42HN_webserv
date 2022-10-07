@@ -13,15 +13,18 @@ void test_all() {
     test_uri_parsing();
 }
 
+void setup_interrupts() {
+    signal(SIGPIPE, SIG_IGN);
+}
+
 void webserv_main() {
     webserv::core::instance  the_webserv;
 
-    the_webserv.get_driver().open_port(4242);
+    the_webserv.on_port(4242);
     the_webserv.run();
 }
 
 int main(int argc, char *argv[]) {
-    //test_all();
     webserv_main();
     return 0;
 }

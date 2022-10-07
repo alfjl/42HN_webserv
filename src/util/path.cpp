@@ -6,7 +6,7 @@ namespace webserv {
         /*
          * returns a concatenated string of all elements of _addr
          */
-        std::string path::get_addr_s() const {
+        std::string path::to_relative_string() const {
             std::string concatenated_addr;
 
             const_iterator it = _addr.begin();
@@ -17,6 +17,10 @@ namespace webserv {
                 concatenated_addr += *it;
             }
             return (concatenated_addr);
+        }
+
+        std::string path::to_absolute_string() const {
+            return "/" + to_relative_string();
         }
 
 
@@ -108,7 +112,6 @@ namespace webserv {
          */
         bool path::begins_with(path prefix) {
             size_t size_p = prefix._addr.size();
-            size_t size_this = this->_addr.size();
 
             if (prefix.size() > size()) return false;
 
@@ -187,7 +190,7 @@ namespace webserv {
 
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path) {
-            stream << the_path.get_addr_s();
+            stream << the_path.to_relative_string();
             return stream;
         }
 
