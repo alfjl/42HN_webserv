@@ -24,13 +24,15 @@ namespace webserv {
             _extension = path;
         }
 
+        bool basic_rule::matches(webserv::util::path path) {
+            webserv::util::path ext(path.get_extension());
+
+            return (path.begins_with(basic_rule::get_prefix()) && ext.is_equal(basic_rule::get_extension()));
+        }
+
 
         prefix_rule::prefix_rule(webserv::util::path prefix) {
             basic_rule::set_prefix(prefix);
-        }
-
-        bool prefix_rule::matches(webserv::util::path path) {
-            return (path.begins_with(basic_rule::get_prefix())); // Does 'path' always start exactly with prefix, or might the prefix be somewhere in the middle of 'path'?
         }
 
 
@@ -38,22 +40,10 @@ namespace webserv {
             basic_rule::set_extension(extension);
         }
 
-        bool ext_rule::matches(webserv::util::path path) {
-            webserv::util::path ext(path.get_extension());
-
-            return ( ext.is_equal(basic_rule::get_extension()));
-        }
-
 
         prefix_ext_rule::prefix_ext_rule(webserv::util::path prefix, webserv::util::path extension) {
             basic_rule::set_prefix(prefix);
             basic_rule::set_extension(extension);
-        }
-
-        bool prefix_ext_rule::matches(webserv::util::path path) {
-            webserv::util::path ext(path.get_extension());
-
-            return (path.begins_with(basic_rule::get_prefix()) && ext.is_equal(basic_rule::get_extension()));
         }
 
     }
