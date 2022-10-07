@@ -34,7 +34,7 @@ namespace webserv {
         }
 
         void instance::on_port(int port) {
-            std::cout << "Now serving on port " << port << "..." << std::endl;
+            std::cout << "Now serving on http://localhost:" << port << "/ ..." << std::endl;
             get_driver().open_port(port);
         }
 
