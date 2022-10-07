@@ -24,8 +24,13 @@ namespace webserv {
 
         }
 
-        webserv::http::response_fixed* routing::http_get_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
+        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+            handle_http_get(response, request, route);
+            response.block_body();
+        }
+
+        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+            webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
             if (get_instance().get_fs().is_directory(file_path)) {
@@ -35,18 +40,17 @@ namespace webserv {
             } else {
                 not_found_404(response);
             }
-            return (response);
         }
 
-        webserv::http::response_fixed* routing::http_post_method(webserv::http::response_fixed *response, webserv::http::request_core& request) {
-            webserv::util::path          file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
+        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+            webserv::util::path file_path = route.get_file_target();
 
             int status = get_instance().get_fs().accessible(file_path);
 
             if (status == 0)
-                response->set_code(200);
+                response.set_code(200);
             else
-                response->set_code(201);
+                response.set_code(201);
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
@@ -61,16 +65,14 @@ namespace webserv {
                         internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
                     outfile.close();
 
-                    response->set_html_body(request.get_body());
+                    response.set_html_body(request.get_body());
                 } else {
                     internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
                 }
             }
-
-            return (response);
         }
 
-        void routing::set_response(webserv::http::response_fixed* response){
+        void routing::set_response(webserv::http::response_fixed& response){
             std::ostringstream ost;
             std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
             
@@ -83,12 +85,12 @@ namespace webserv {
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
-            response->set_code(200);
-            response->set_html_body(ost.str());
+            response.set_code(200);
+            response.set_html_body(ost.str());
         }
 
-        webserv::http::response_fixed* routing::http_delete_method(webserv::http::response_fixed *response, webserv::http::request_core& request){
-            webserv::util::path file_path = table.query(request.get_line().get_uri().get_path()).get_file_target();
+        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route){
+            webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
             if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
@@ -99,7 +101,6 @@ namespace webserv {
             } else {
                 not_found_404(response);
             }
-            return (response);
         }
 
         void routing::head_start(std::ostringstream& ost, std::string s){
@@ -134,26 +135,23 @@ namespace webserv {
         }
 
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
-            webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We are leaking this!
+            webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
 
-            switch (request.get_line().get_method()) {
-                case webserv::http::http_method_head: {
-                    method_not_allowed_405(response);
-                    //response = http_get_method(response, request);
-                    response->block_body();
-                    return response;
-                }
-                case webserv::http::http_method_get: { return (http_get_method(response, request)); }
-                // case webserv::http::http_method_head: std::cout << "TODO: case http_method_head:" << std::endl; break;
-                case webserv::http::http_method_post: { return (http_post_method(response, request)); }
-                // case webserv::http::http_method_put: std::cout << "TODO: case http_method_put:" << std::endl; break;
-                case webserv::http::http_method_delete: { return (http_delete_method(response, request)); }
-                // case webserv::http::http_method_trace: std::cout << "TODO:case http_method_trace:" << std::endl; break;
-                // case webserv::http::http_method_connect: std::cout << "TODO: case http_method_connect:" << std::endl; break;
-                default: {
-                    teapot_418(response);
+            route the_route = table.query(request.get_line().get_uri().get_path());
 
-                    break;
+            if (!the_route.is_method_allowed(request.get_line().get_method())) {
+                method_not_allowed_405(*response);
+            } else {
+                switch (request.get_line().get_method()) {
+                    case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(*response, request, the_route); break; }
+                    case webserv::http::http_method_put:
+                    case webserv::http::http_method_post: { handle_http_post(*response, request, the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, the_route); break; }
+                    default: {
+                        teapot_418(*response);
+                        break;
+                    }
                 }
             }
             return (response);
@@ -163,7 +161,7 @@ namespace webserv {
             // Do nothing!
         }
 
-        void routing::directory_listing(webserv::http::response_fixed* response, std::vector<webserv::util::path> paths) {
+        void routing::directory_listing(webserv::http::response_fixed& response, std::vector<webserv::util::path> paths) {
             std::ostringstream ost;
             ost << "<!DOCTYPE html>\r\n";
             ost << "<html>\r\n";
@@ -181,11 +179,11 @@ namespace webserv {
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
-            response->set_code(200);
-            response->set_html_body(ost.str());
+            response.set_code(200);
+            response.set_html_body(ost.str());
         }
 
-        void routing::file_listing(webserv::http::response_fixed* response, webserv::util::path file_path, std::ifstream* stream) {
+        void routing::file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
             std::ostringstream payload;
             while (!stream->eof()) {
                 char c;
@@ -193,8 +191,8 @@ namespace webserv {
                 payload << c;
             }
 
-            response->set_code(200);
-            response->set_body(payload.str(), find_mime(file_path.get_extension()));
+            response.set_code(200);
+            response.set_body(payload.str(), find_mime(file_path.get_extension()));
         }
 
         std::string routing::itos(unsigned int code){
@@ -203,7 +201,7 @@ namespace webserv {
             return ost.str();
         }
 
-        void routing::error_code(webserv::http::response_fixed* response, unsigned int code) {
+        void routing::error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
             std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
@@ -221,47 +219,47 @@ namespace webserv {
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
-            response->set_code(code);
-            response->set_html_body(ost.str());
+            response.set_code(code);
+            response.set_html_body(ost.str());
         }
 
-        void routing::permanent_redirect_301(webserv::http::response_fixed* response) {
+        void routing::permanent_redirect_301(webserv::http::response_fixed& response) {
             error_code(response, 301);
         }
 
-        void routing::temporary_redirect_302(webserv::http::response_fixed* response) {
+        void routing::temporary_redirect_302(webserv::http::response_fixed& response) {
             error_code(response, 302);
         }
 
-        void routing::bad_request_400(webserv::http::response_fixed* response) {
+        void routing::bad_request_400(webserv::http::response_fixed& response) {
             error_code(response, 400);
         }
 
-        void routing::unauthorized_401(webserv::http::response_fixed* response) {
+        void routing::unauthorized_401(webserv::http::response_fixed& response) {
             error_code(response, 401);
         }
 
-        void routing::not_found_404(webserv::http::response_fixed* response) {
+        void routing::not_found_404(webserv::http::response_fixed& response) {
             error_code(response, 404);
         }
 
-        void routing::method_not_allowed_405(webserv::http::response_fixed* response) {
+        void routing::method_not_allowed_405(webserv::http::response_fixed& response) {
             error_code(response, 405);
         }
 
-        void routing::gone_410(webserv::http::response_fixed* response) {
+        void routing::gone_410(webserv::http::response_fixed& response) {
             error_code(response, 410);
         }
 
-        void routing::teapot_418(webserv::http::response_fixed* response) {
+        void routing::teapot_418(webserv::http::response_fixed& response) {
             error_code(response, 418);
         }
 
-        void routing::internal_server_error_500(webserv::http::response_fixed* response) {
+        void routing::internal_server_error_500(webserv::http::response_fixed& response) {
             error_code(response, 500);
         }
 
-        void routing::service_unavailable_503(webserv::http::response_fixed* response) {
+        void routing::service_unavailable_503(webserv::http::response_fixed& response) {
             error_code(response, 503);
         }
 
