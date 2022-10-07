@@ -7,6 +7,8 @@ namespace webserv {
     namespace pal {
         namespace fork {
 
+            bool safe_pipe(int* pipe_in, int* pipe_out);
+
             enum fork_status {
                 fork_status_boom,
                 fork_status_i_am_parent,

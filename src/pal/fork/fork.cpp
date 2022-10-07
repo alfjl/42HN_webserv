@@ -4,6 +4,18 @@ namespace webserv {
     namespace pal {
         namespace fork {
 
+            bool safe_pipe(int* pipe_in, int* pipe_out) {
+                int fds[2];
+
+                if (::pipe(fds) != 0) return false;
+                else {
+                    *pipe_in  = fds[1];
+                    *pipe_out = fds[0];
+                }
+                
+                return true;
+            }
+
             static fork_status fork_status_for(pid_t pid) {
                      if (pid <  0) return fork_status_boom;
                 else if (pid == 0) return fork_status_i_am_child;
