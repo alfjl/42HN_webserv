@@ -16,7 +16,15 @@ namespace webserv {
             std::pair<fork_status, pid_t> fork();
 
             class fork_task {
+                std::string _executable;
+
+                void do_child_stuff();
+
             public:
+                fork_task(std::string executable);
+                ~fork_task();
+
+                pid_t perform();
             };
 
         }
