@@ -17,6 +17,7 @@ namespace webserv {
             webserv::util::path get_file_target();
 
             bool is_method_allowed(webserv::http::http_method method);
+            bool is_cgi();
         };
 
     }

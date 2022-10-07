@@ -21,5 +21,15 @@ namespace webserv {
             return true;
         }
 
+        bool route::is_cgi(){
+            /*
+                TODO!
+            */
+            
+            return false;
+        }
+
+        
+
     }
 }

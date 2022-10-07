@@ -1,5 +1,6 @@
 #include "routing.hpp"
 
+#include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
@@ -141,6 +142,12 @@ namespace webserv {
 
             if (!the_route.is_method_allowed(request.get_line().get_method())) {
                 method_not_allowed_405(*response);
+            } else if (the_route.is_cgi()) {
+                webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+                webserv::pal::fork::wait_set ws;
+
+                task.perform(ws);
+                ws.wait_for_all();
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
