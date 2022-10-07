@@ -12,6 +12,7 @@ namespace webserv {
 
         public:
             route(webserv::util::path file_target);
+            route(const route& other);
 
             webserv::util::path get_file_target();
 

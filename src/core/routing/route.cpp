@@ -7,6 +7,11 @@ namespace webserv {
 
         }
 
+        route::route(const route& other) {
+            if (this != &other)
+                _file_target = other._file_target;
+        }
+
         webserv::util::path route::get_file_target() { return _file_target; }
 
         bool route::is_method_allowed(webserv::http::http_method method) {
