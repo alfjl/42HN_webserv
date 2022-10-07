@@ -72,7 +72,21 @@ namespace webserv {
             }
         }
 
-        void routing::set_response(webserv::http::response_fixed& response){
+        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route){
+            webserv::util::path file_path = route.get_file_target();
+            std::ifstream stream;
+
+            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
+                if (!get_instance().get_fs().del(file_path))
+                    unauthorized_401(response);
+            } else if ((get_instance().get_fs().del(file_path))) {
+                set_delete_response(response);
+            } else {
+                not_found_404(response);
+            }
+        }
+
+        void routing::set_delete_response(webserv::http::response_fixed& response){
             std::ostringstream ost;
             std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
             
@@ -87,20 +101,6 @@ namespace webserv {
 
             response.set_code(200);
             response.set_html_body(ost.str());
-        }
-
-        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route){
-            webserv::util::path file_path = route.get_file_target();
-            std::ifstream stream;
-
-            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
-                if (!get_instance().get_fs().del(file_path))
-                    unauthorized_401(response);
-            } else if ((get_instance().get_fs().del(file_path))) {
-                set_response(response);
-            } else {
-                not_found_404(response);
-            }
         }
 
         void routing::head_start(std::ostringstream& ost, std::string s){
