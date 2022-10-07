@@ -16,6 +16,10 @@ namespace webserv {
                 return true;
             }
 
+            bool safe_dup2(int overridden_fd, int original_fd) {
+                return (::dup2(original_fd, overridden_fd) >= 0);
+            }
+
             static fork_status fork_status_for(pid_t pid) {
                      if (pid <  0) return fork_status_boom;
                 else if (pid == 0) return fork_status_i_am_child;
@@ -48,6 +52,9 @@ namespace webserv {
                     if (envp != NULL) {
                         envp[0] = NULL;
 
+                        if (_input_to.enabled())  safe_dup2(STDIN_FILENO,  _input_to.value());
+                        if (_output_to.enabled()) safe_dup2(STDOUT_FILENO, _output_to.value());
+
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
                     }
                 }
@@ -68,6 +75,19 @@ namespace webserv {
                 }
 
                 return 0;
+            }
+
+            void fork_task::input_to(int input) {
+                _input_to.enable(input);
+            }
+
+            void fork_task::output_to(int output) {
+                _output_to.enable(output);
+            }
+
+            void fork_task::io_to(int input, int output) {
+                input_to(input);
+                output_to(output);
             }
 
         }
