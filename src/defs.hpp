@@ -8,6 +8,8 @@ extern "C" {
 #include <string.h>
 // Signals
 #include <signal.h>
+// Processes
+#include <sys/wait.h>
 // I/O & Files
 #include <fcntl.h>
 #include <dirent.h>
@@ -30,6 +32,7 @@ extern "C" {
 #include <queue>
 #include <stack>
 #include <map>
+#include <set>
 #include <utility>
 
 #include "pal/cpp/nullptr.hpp"

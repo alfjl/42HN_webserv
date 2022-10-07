@@ -21,6 +21,18 @@ namespace webserv {
 
             std::pair<fork_status, pid_t> fork();
 
+            class wait_set {
+                std::set<pid_t> pids;
+            public:
+                wait_set();
+                ~wait_set();
+
+                void add(pid_t pid);
+                
+                bool wait_for(pid_t pid);
+                void wait_for_all();
+            };
+
             class fork_task {
                 std::string _executable;
                 webserv::util::optional<int> _input_to;
@@ -32,7 +44,7 @@ namespace webserv {
                 fork_task(std::string executable);
                 ~fork_task();
 
-                pid_t perform();
+                pid_t perform(wait_set& set);
 
                 void input_to(int input);
                 void output_to(int output);

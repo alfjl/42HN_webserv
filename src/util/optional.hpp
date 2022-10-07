@@ -9,8 +9,8 @@ namespace webserv {
             T    _value;
             bool _enabled;
         public:
-            optional() : _enabled(false);
-            optional(T value) : _enabled(true), _value(value);
+            optional() : _enabled(false) {}
+            optional(T value) : _enabled(true), _value(value) {}
 
             bool enabled() const { return _enabled; }
 

@@ -33,6 +33,37 @@ namespace webserv {
             }
 
 
+
+            wait_set::wait_set() {
+
+            }
+
+            wait_set::~wait_set() {
+                // NOTE: This set should not be empty!
+            }
+
+            void wait_set::add(pid_t pid) {
+                pids.insert(pid);
+            }
+
+            bool wait_set::wait_for(pid_t pid) {
+                if (pids.find(pid) == pids.end())
+                    throw std::runtime_error("PID is not in wait_set!");
+                // TODO: Extract return code
+                if (::waitpid(pid, NULL, 0) >= 0) {
+                    pids.erase(pid);
+                    return true;
+                }
+                return false;
+            }
+
+            void wait_set::wait_for_all() {
+                while (!pids.empty()) {
+                    wait_set::wait_for(*pids.begin());
+                }
+            }
+
+
             fork_task::fork_task(std::string executable) : _executable(executable) {
 
             }
@@ -61,11 +92,12 @@ namespace webserv {
                 exit(127);
             }
 
-            pid_t fork_task::perform() {
+            pid_t fork_task::perform(wait_set& set) {
                 std::pair<fork_status, pid_t> result = fork();
 
                 switch (result.first) {
                     case fork_status_i_am_parent:
+                        set.add(result.second);
                         return result.second;
                     case fork_status_i_am_child:
                         do_child_stuff();
