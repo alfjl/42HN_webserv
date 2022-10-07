@@ -186,9 +186,9 @@ namespace webserv {
         void routing::file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
             std::ostringstream payload;
             while (!stream->eof()) {
-                char c;
-                stream->get(c);
-                payload << c;
+                int i = stream->get();
+                if (i < 0) break;
+                payload << (char) i;
             }
 
             response.set_code(200);
