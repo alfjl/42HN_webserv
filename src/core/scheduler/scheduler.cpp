@@ -16,8 +16,9 @@ namespace webserv {
 
             while (it != handlers.end()) {
                 if ((*it)->is_stopped()) {
+                    webserv::util::state_machine_base* machine = *it;
                     handlers.erase(it);
-                    delete (*it);
+                    delete machine;
                     break;
                 }
                 (*it)->tick();
