@@ -2,22 +2,24 @@
 #define WEBSERV_CORE_ROUTING_RULE_HPP
 
 #include "../../util/path.hpp"
+#include "../../util/optional.hpp"
 
 namespace webserv {
     namespace core {
         
         class basic_rule {
-            webserv::util::path     _prefix;
-            webserv::util::path     _extension;
+            webserv::util::path                   _prefix;
+            webserv::util::optional<std::string>  _extension;
+
+        protected:
+            webserv::util::path                    get_prefix();
+            webserv::util::optional<std::string>&  get_extension();
 
         public:
             basic_rule();
 
-            webserv::util::path get_prefix();
-            webserv::util::path get_extension();
-
-            void set_prefix(webserv::util::path path);
-            void set_extension(webserv::util::path path);
+            void set_prefix(webserv::util::path prefix);
+            void set_extension(std::string extension);
 
             virtual bool matches(webserv::util::path path);
         };
@@ -29,12 +31,12 @@ namespace webserv {
 
         class ext_rule : public basic_rule {
         public:
-            ext_rule(webserv::util::path extension);
+            ext_rule(std::string extension);
         };
 
         class prefix_ext_rule : public basic_rule {
         public:
-            prefix_ext_rule(webserv::util::path prefix, webserv::util::path extension);
+            prefix_ext_rule(webserv::util::path prefix, std::string extension);
         };
 
     }
