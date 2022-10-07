@@ -28,15 +28,15 @@ namespace webserv {
             void mov_up();
             void mov_cd1(std::string dir);
             void mov_cd(std::string new_addr);
-        
+
             path cd(std::string);
 
-            std::string              get_first() const;
-            std::string              get_last() const;
-            path                     get_rest() const;
+            std::string     get_first() const;
+            std::string     get_last() const;
+            path            get_rest() const;
 
-            std::string              to_relative_string() const;
-            std::string              to_absolute_string() const;
+            std::string     to_relative_string() const;
+            std::string     to_absolute_string() const;
 
             bool        begins_with(path prefix);
             path        adapt_prefix(path old_prefix, path new_prefix);
