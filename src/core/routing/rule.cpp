@@ -7,6 +7,10 @@ namespace webserv {
 
         }
 
+        basic_rule::~basic_rule() {
+
+        }
+
         webserv::util::path basic_rule::get_prefix() {
             return _prefix;
         }

@@ -17,6 +17,7 @@ namespace webserv {
 
         public:
             basic_rule();
+            virtual ~basic_rule();
 
             void set_prefix(webserv::util::path prefix);
             void set_extension(std::string extension);
