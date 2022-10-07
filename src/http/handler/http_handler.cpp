@@ -195,9 +195,11 @@ namespace webserv {
             into.get_body() = body;
             body = "";
 
-            std::cout << into.get_line().get_uri() << std::endl;
+            std::cout << "Serving " << into.get_line().get_uri().get_path().to_absolute_string() << "... ";
 
             response* response = routing.look_up(into);
+
+            std::cout << response->get_code() << std::endl;
 
             response->write(*connection);
 

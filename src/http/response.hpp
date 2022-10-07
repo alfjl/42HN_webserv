@@ -34,6 +34,7 @@ namespace webserv {
 
             std::ostream& out(webserv::util::connection& con);
 
+            unsigned int  get_code() const;
             void          set_code(unsigned int code);
             void          set_field(std::string name, std::string value);
             virtual void  write_body(webserv::util::connection& con) = 0;

@@ -18,6 +18,10 @@ namespace webserv {
             return con.get_ostream();
         }
 
+        unsigned int response::get_code() const {
+            return _code;
+        }
+
         /*
          * Sets status code in instance
          */
