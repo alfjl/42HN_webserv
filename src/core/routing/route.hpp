@@ -8,6 +8,7 @@ namespace webserv {
         
         class route {
             webserv::util::path                  _file_target;
+            //optional set
 
         public:
             route(webserv::util::path file_target);
