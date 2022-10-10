@@ -2,6 +2,7 @@
 
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
+#include "../../http/cgi/cgi_msg.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
@@ -135,6 +136,11 @@ namespace webserv {
             ost << "</blockquote>\r\n";
         }
 
+        struct easypipe {
+            int in;
+            int out;
+        };
+
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
 
@@ -143,13 +149,29 @@ namespace webserv {
             if (!the_route.is_method_allowed(request.get_line().get_method())) {
                 method_not_allowed_405(*response);
             } else if (the_route.is_cgi()) {
-                cgi_message.write_on(request, response, the_route) {
-                    // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
-                    // webserv::pal::fork::wait_set ws;
+                // cgi_message
+                webserv::http::cgi_message cgi_msg(request.get_body());
+                webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+                webserv::pal::fork::wait_set ws;
+                struct easypipe cgi_in;
+                struct easypipe cgi_out;
 
-                    // task.perform(ws);
-                    // ws.wait_for_all();
+                // pipe
+                if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
+                    internal_server_error_500(*response);            
                 }
+                if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
+                    internal_server_error_500(*response);            
+                }
+
+                // ostream into pipe (into) / out_of it Eingabe von fork_task
+                webserv::util::ofdflow ofd(cgi_in.in);
+                std::ostream o(ofd);
+
+                // fork_task
+                task.perform(ws);
+                // write
+                cgi_msg.write_on(o);
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
