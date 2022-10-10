@@ -151,7 +151,8 @@ namespace webserv {
             } else if (the_route.is_cgi()) {
                 // cgi_message
                 webserv::http::cgi_message cgi_msg(request.get_body());
-                webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+                //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+                webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
                 webserv::pal::fork::wait_set ws;
                 struct easypipe cgi_in;
                 struct easypipe cgi_out;
@@ -161,17 +162,36 @@ namespace webserv {
                     internal_server_error_500(*response);            
                 }
                 if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
-                    internal_server_error_500(*response);            
+                    ::close(cgi_in.in);
+                    ::close(cgi_in.out);
+                    internal_server_error_500(*response);
                 }
 
-                // ostream into pipe (into) / out_of it Eingabe von fork_task
-                webserv::util::ofdflow ofd(cgi_in.in);
-                std::ostream o(&ofd);
+                task.close_on_fork(cgi_in.in);
+                task.close_on_fork(cgi_out.out);
+
+                // communicate inpput and output to task
+                task.io_to(cgi_in.out, cgi_out.in);
 
                 // fork_task
-                task.perform(ws);
-                // write
+                if (task.perform(ws) < 0) {
+                    internal_server_error_500(*response);
+                }
+
+                // Generate state machine
+
+                // write ostream into pipe (into) / out_of it Eingabe von fork_task
+                webserv::util::ofdflow ofd(cgi_in.in);
+                std::ostream o(&ofd);
                 cgi_msg.write_on(o);
+                /*
+                 * Close all open FDs
+                 */
+                ::close(cgi_in.in);
+                ::close(cgi_in.out);
+                ::close(cgi_out.in);
+                // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
+                //       sent to us by the CGI
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }

@@ -26,13 +26,8 @@ namespace webserv {
                 TODO!
             */
             
-            return false;
+            return true;
         }
-
-        void route::write_on(std::ostream& o) {
-            we
-        }
-        
 
     }
 }

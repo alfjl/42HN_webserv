@@ -14,7 +14,8 @@ namespace webserv {
         }
 
         void cgi_message::write_on(std::ostream& o) {
-            o << _message_body.c_str();
+            o << "CGI_TEST\r\n";
+            o << _message_body << "\r\n";
         }
 
     }

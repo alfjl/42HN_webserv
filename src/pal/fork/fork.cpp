@@ -73,6 +73,12 @@ namespace webserv {
             }
 
             void fork_task::do_child_stuff() {
+                std::vector<int>::const_iterator it = _to_close.begin();
+                while (it != _to_close.end()) {
+                    ::close(*it);
+                    ++it;
+                }
+
                 const char** argv = (const char**) ::malloc(sizeof(char*) * 2);
 
                 if (argv != NULL) {
@@ -83,8 +89,14 @@ namespace webserv {
                     if (envp != NULL) {
                         envp[0] = NULL;
 
-                        if (_input_to.enabled())  safe_dup2(STDIN_FILENO,  _input_to.value());
-                        if (_output_to.enabled()) safe_dup2(STDOUT_FILENO, _output_to.value());
+                        if (_input_to.enabled()) {
+                            safe_dup2(STDIN_FILENO, _input_to.value());
+                            ::close(_input_to.value());
+                        }
+                        if (_output_to.enabled()) {
+                            safe_dup2(STDOUT_FILENO, _output_to.value());
+                            ::close(_output_to.value());
+                        }
 
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
                     }
@@ -120,6 +132,10 @@ namespace webserv {
             void fork_task::io_to(int input, int output) {
                 input_to(input);
                 output_to(output);
+            }
+
+            void fork_task::close_on_fork(int fd) {
+                _to_close.push_back(fd);
             }
 
         }
