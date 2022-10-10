@@ -25,11 +25,7 @@ namespace webserv {
             return true;
         }
 
-        bool route::is_cgi(){
-            /*
-                TODO!
-            */
-            
+        bool route::is_cgi() {
             return false;
         }
 
@@ -42,6 +38,22 @@ namespace webserv {
 
         }
 
+        bool file_route::is_cgi() {
+            return false;
+        }
+
+        cgi_route::cgi_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
+        cgi_route::cgi_route(const cgi_route& other) : route(other) {
+
+        }
+
+        bool cgi_route::is_cgi() {
+            return true;
+        }
+
 
         redirection_route::redirection_route(webserv::util::path file_target) : route(file_target) {
 
@@ -49,6 +61,9 @@ namespace webserv {
 
         redirection_route::redirection_route(const redirection_route& other) : route(other) {
 
+        }
+        bool redirection_route::is_cgi() {
+            return false;
         }
 
 
@@ -59,6 +74,10 @@ namespace webserv {
         error_route::error_route(const error_route& other) : route(other) {
 
         }
-        
+
+        bool error_route::is_cgi() {
+            return false;
+        }
+
     }
 }

@@ -19,9 +19,13 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            //table.add_rule(new ext_rule("bla"), new cgi_route(""));
-            //table.add_rule(new ext_rule("txt"), new file_route(""));
-            //table.add_rule(new ext_rule("com"), new redirection_route(""));
+            new route()
+                ->set_allowed_method(get)
+                ->unset_allowed_method(put)
+                ->set_path("...");
+            table.add_rule(new ext_rule("bla"), new cgi_route(webserv::util::path(""))->unset_allowed_method(head));
+            table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("com"), new redirection_route(webserv::util::path("")));
         }
 
         routing::~routing() {
