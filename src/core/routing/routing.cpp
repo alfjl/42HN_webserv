@@ -166,7 +166,7 @@ namespace webserv {
 
                 // ostream into pipe (into) / out_of it Eingabe von fork_task
                 webserv::util::ofdflow ofd(cgi_in.in);
-                std::ostream o(ofd);
+                std::ostream o(&ofd);
 
                 // fork_task
                 task.perform(ws);
