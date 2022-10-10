@@ -38,7 +38,7 @@ namespace webserv {
          * If yes, returns the correct route
          * according to the specific rule set
          */
-        route routing_table::query(webserv::util::path path) {
+        route* routing_table::query(webserv::util::path path) {
 
             // look_up if prefix substitution rule for path exist
             // and return it, if found
@@ -46,7 +46,7 @@ namespace webserv {
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
                 if (it->first->matches(path)){
-                    return *it->second;
+                    return it->second;
                 }
             }
 
@@ -55,7 +55,7 @@ namespace webserv {
              * We do need to do lookups soon, though.
              *                       - nijakow
              */
-            return route(path);
+            return new route(path);  // FIXME: Leak, add member for default
         }
 
     }

@@ -20,13 +20,11 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            (new route(webserv::util::path("")))
-                ->set_allowed_method(webserv::http::http_method_get)
-                ->unset_allowed_method(webserv::http::http_method_put)
-                ->set_path(webserv::util::path("..."));
-            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->unset_allowed_method(webserv::http::http_method_head));
+            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
+            // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->set_allowed_method(webserv::http::http_method_put)); /*->unset_allowed_method(webserv::http::http_method_head))*/
+            table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
-            table.add_rule(new ext_rule("com"), new redirection_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
         }
 
         routing::~routing() {
@@ -151,11 +149,11 @@ namespace webserv {
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
 
-            route the_route = table.query(request.get_line().get_uri().get_path());
+            route* the_route = table.query(request.get_line().get_uri().get_path());
 
-            if (!the_route.is_method_allowed(request.get_line().get_method())) {
+            if (!the_route->is_method_allowed(request.get_line().get_method())) {
                 method_not_allowed_405(*response);
-            } else if (the_route.is_cgi()) {
+            } else if (the_route->is_cgi()) {
                 // cgi_message
                 webserv::http::cgi_message cgi_msg(request.get_body());
                 //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
@@ -201,13 +199,17 @@ namespace webserv {
                 // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
                 //       sent to us by the CGI
                 service_unavailable_503(*response);
+            } else if (the_route->is_redirection()) {
+                permanent_redirect_301(*response);
+            } else if (the_route->is_error()) {
+                bad_request_400(*response);
             } else {
                 switch (request.get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
-                    case webserv::http::http_method_get: { handle_http_get(*response, request, the_route); break; }
+                    case webserv::http::http_method_head: { handle_http_head(*response, request, *the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(*response, request, *the_route); break; }
                     case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(*response, request, the_route); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, the_route); break; }
+                    case webserv::http::http_method_post: { handle_http_post(*response, request, *the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, *the_route); break; }
                     default: {
                         teapot_418(*response);
                         break;

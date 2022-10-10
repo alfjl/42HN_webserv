@@ -27,14 +27,14 @@ namespace webserv {
             route* unset_allowed_method(webserv::http::http_method method);
 
             virtual bool is_cgi();
+            virtual bool is_redirection();
+            virtual bool is_error();
         };
 
         class file_route : public route {
         public:
             file_route(webserv::util::path file_target);
             file_route(const file_route& other);
-
-            bool is_cgi();
         };
 
         class cgi_route : public route {
@@ -50,7 +50,7 @@ namespace webserv {
             redirection_route(webserv::util::path file_target);
             redirection_route(const redirection_route& other);
 
-            bool is_cgi();
+            bool is_redirection();
         };
 
         class error_route : public route {
@@ -58,7 +58,7 @@ namespace webserv {
             error_route(webserv::util::path file_target);
             error_route(const error_route& other);
 
-            bool is_cgi();
+            bool is_error();
         };
 
     }

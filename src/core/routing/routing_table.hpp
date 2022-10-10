@@ -20,7 +20,7 @@ namespace webserv {
             ~routing_table();
 
             void add_rule(webserv::core::basic_rule* in, webserv::core::route* out);
-            route query(webserv::util::path path);
+            route* query(webserv::util::path path);
         };
 
     }
