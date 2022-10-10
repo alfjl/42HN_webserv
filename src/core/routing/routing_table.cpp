@@ -4,11 +4,12 @@ namespace webserv {
     namespace core {
 
         routing_table::~routing_table(){
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::iterator it = prefix_rules.begin();
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::iterator ite = prefix_rules.end();
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator it = prefix_rules.begin();
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator ite = prefix_rules.end();
 
             for (; it != ite; ++it) {
                 delete it->first;
+                delete it->second;
             }
         }
 
@@ -17,9 +18,9 @@ namespace webserv {
          * If yes, only changes the second rule to 'out'
          * If not, adds the whole pair<in, out> to prefix_rules
          */
-        void routing_table::add_rule(webserv::core::basic_rule* in, webserv::core::route out) {
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::iterator it = prefix_rules.begin();
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::iterator ite = prefix_rules.end();
+        void routing_table::add_rule(webserv::core::basic_rule* in, webserv::core::route* out) {
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator it = prefix_rules.begin();
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator ite = prefix_rules.end();
 
             for (; it != ite; ++it) {
                 if (it->first == in)
@@ -41,11 +42,11 @@ namespace webserv {
 
             // look_up if prefix substitution rule for path exist
             // and return it, if found
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::const_iterator it = prefix_rules.begin();
-            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route> >::const_iterator ite = prefix_rules.end();
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator it = prefix_rules.begin();
+            std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
                 if (it->first->matches(path)){
-                    return it->second;
+                    return *it->second;
                 }
             }
 

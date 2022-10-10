@@ -19,7 +19,9 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-
+            //table.add_rule(new ext_rule("bla"), new cgi_route(""));
+            //table.add_rule(new ext_rule("txt"), new file_route(""));
+            //table.add_rule(new ext_rule("com"), new redirection_route(""));
         }
 
         routing::~routing() {
@@ -170,7 +172,7 @@ namespace webserv {
                 task.close_on_fork(cgi_in.in);
                 task.close_on_fork(cgi_out.out);
 
-                // communicate inpput and output to task
+                // communicate input and output to task
                 task.io_to(cgi_in.out, cgi_out.in);
 
                 // fork_task
@@ -179,6 +181,7 @@ namespace webserv {
                 }
 
                 // Generate state machine
+                // TODO: Implement
 
                 // write ostream into pipe (into) / out_of it Eingabe von fork_task
                 webserv::util::ofdflow ofd(cgi_in.in);
@@ -192,6 +195,7 @@ namespace webserv {
                 ::close(cgi_out.in);
                 // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
                 //       sent to us by the CGI
+                service_unavailable_503(*response);
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
