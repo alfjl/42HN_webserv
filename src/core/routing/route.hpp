@@ -18,6 +18,8 @@ namespace webserv {
 
             bool is_method_allowed(webserv::http::http_method method);
             bool is_cgi();
+
+            void write_on(std::ostream& o);
         };
 
     }

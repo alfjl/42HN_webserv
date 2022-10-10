@@ -29,6 +29,9 @@ namespace webserv {
             return false;
         }
 
+        void route::write_on(std::ostream& o) {
+            we
+        }
         
 
     }

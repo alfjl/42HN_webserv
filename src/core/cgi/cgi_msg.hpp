@@ -13,7 +13,7 @@ namespace webserv {
             cgi_message(const std::string& message);
             ~cgi_message();
 
-            void write_on(std::ostream& o);
+            void write_on(webserv::http::response_fixed& response, webserv::http::request_core& request, route& the_route);
         };
 
     }
