@@ -121,6 +121,7 @@ namespace webserv {
         void parse_http_request_line(request_parser& parser, request_line& line) {
                  if (parser.checks("GET"))    line.set_method(http_method_get);
             else if (parser.checks("POST"))   line.set_method(http_method_post);
+            else if (parser.checks("PUT"))    line.set_method(http_method_put);
             else if (parser.checks("DELETE")) line.set_method(http_method_delete);
             else if (parser.checks("HEAD"))   line.set_method(http_method_head);
             else /* TODO: Error */;

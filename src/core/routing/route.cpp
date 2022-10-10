@@ -19,10 +19,9 @@ namespace webserv {
         webserv::util::path route::get_file_target() { return _file_target; }
 
         bool route::is_method_allowed(webserv::http::http_method method) {
-            /*
-             * TODO!
-             */
-            return true;
+            if (!_allowed_methods.enabled())
+                return true;
+            return _allowed_methods.value().find(method) != _allowed_methods.value().end();
         }
 
         route* route::set_path(webserv::util::path file_target) {

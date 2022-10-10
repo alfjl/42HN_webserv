@@ -20,8 +20,8 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
-            // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->set_allowed_method(webserv::http::http_method_put)); /*->unset_allowed_method(webserv::http::http_method_head))*/
+            // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
+            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->set_allowed_method(webserv::http::http_method_head)->set_allowed_method(webserv::http::http_method_post)); /*->unset_allowed_method(webserv::http::http_method_head))*/
             table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
             table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
