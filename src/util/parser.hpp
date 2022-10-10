@@ -12,6 +12,7 @@ namespace webserv {
             iflow&            flow;
             std::stack<char>  pushbacks;
 
+        protected:
             bool this_char(char& loc);
 
         public:
