@@ -25,6 +25,7 @@ namespace webserv {
             table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
             table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("buzz"), new error_route(webserv::util::path("")));
         }
 
         routing::~routing() {
