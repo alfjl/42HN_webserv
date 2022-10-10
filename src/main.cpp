@@ -1,6 +1,8 @@
 #include "defs.hpp"
 
 #include "core/instance.hpp"
+#include "config/config_parser.hpp"
+#include "util/streamflow.hpp"
 
 void test_sockets();
 void test_uri_parsing();
@@ -25,6 +27,7 @@ void webserv_main() {
 }
 
 int main(int argc, char *argv[]) {
+    webserv::util::fileflow flow("../configs/test1.conf");
     webserv_main();
     return 0;
 }
