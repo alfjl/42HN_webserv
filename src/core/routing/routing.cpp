@@ -2,6 +2,8 @@
 
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
+#include "../../http/request.hpp"
+#include "../../http/cgi/cgi_msg.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
@@ -18,7 +20,12 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-
+            // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
+            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->set_allowed_method(webserv::http::http_method_head)->set_allowed_method(webserv::http::http_method_post)); /*->unset_allowed_method(webserv::http::http_method_head))*/
+            table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
+            table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("buzz"), new error_route(webserv::util::path("")));
         }
 
         routing::~routing() {
@@ -135,26 +142,75 @@ namespace webserv {
             ost << "</blockquote>\r\n";
         }
 
+        struct easypipe {
+            int in;
+            int out;
+        };
+
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
 
-            route the_route = table.query(request.get_line().get_uri().get_path());
+            route* the_route = table.query(request.get_line().get_uri().get_path());
 
-            if (!the_route.is_method_allowed(request.get_line().get_method())) {
+            if (!the_route->is_method_allowed(request.get_line().get_method())) {
                 method_not_allowed_405(*response);
-            } else if (the_route.is_cgi()) {
-                webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+            } else if (the_route->is_cgi()) {
+                // cgi_message
+                webserv::http::cgi_message cgi_msg(request.get_body());
+                //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+                webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
                 webserv::pal::fork::wait_set ws;
+                struct easypipe cgi_in;
+                struct easypipe cgi_out;
 
-                task.perform(ws);
-                ws.wait_for_all();
+                // pipe
+                if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
+                    internal_server_error_500(*response);            
+                }
+                if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
+                    ::close(cgi_in.in);
+                    ::close(cgi_in.out);
+                    internal_server_error_500(*response);
+                }
+
+                task.close_on_fork(cgi_in.in);
+                task.close_on_fork(cgi_out.out);
+
+                // communicate input and output to task
+                task.io_to(cgi_in.out, cgi_out.in);
+
+                // fork_task
+                if (task.perform(ws) < 0) {
+                    internal_server_error_500(*response);
+                }
+
+                // Generate state machine
+                // TODO: Implement
+
+                // write ostream into pipe (into) / out_of it Eingabe von fork_task
+                webserv::util::ofdflow ofd(cgi_in.in);
+                std::ostream o(&ofd);
+                cgi_msg.write_on(o);
+                /*
+                 * Close all open FDs
+                 */
+                ::close(cgi_in.in);
+                ::close(cgi_in.out);
+                ::close(cgi_out.in);
+                // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
+                //       sent to us by the CGI
+                service_unavailable_503(*response);
+            } else if (the_route->is_redirection()) {
+                permanent_redirect_301(*response);
+            } else if (the_route->is_error()) {
+                bad_request_400(*response);
             } else {
                 switch (request.get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(*response, request, the_route); break; }
-                    case webserv::http::http_method_get: { handle_http_get(*response, request, the_route); break; }
+                    case webserv::http::http_method_head: { handle_http_head(*response, request, *the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(*response, request, *the_route); break; }
                     case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(*response, request, the_route); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, the_route); break; }
+                    case webserv::http::http_method_post: { handle_http_post(*response, request, *the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, *the_route); break; }
                     default: {
                         teapot_418(*response);
                         break;

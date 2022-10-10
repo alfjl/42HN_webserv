@@ -8,6 +8,7 @@ namespace webserv {
         class optional {
             T    _value;
             bool _enabled;
+
         public:
             optional() : _enabled(false) {}
             optional(T value) :  _value(value), _enabled(true) {}
@@ -18,6 +19,7 @@ namespace webserv {
             T& value() const { return _value; }
 
             void disable() { _enabled = false; }
+            void enable() { _enabled = true; }
             void enable(T value) { _enabled = true; _value = value; }
         };
 

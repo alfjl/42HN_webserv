@@ -18,6 +18,16 @@ namespace webserv {
             int_type overflow(int_type c = traits_type::eof());
         };
 
+        class ofdflow : public std::streambuf {
+            int _fd;
+
+        public:
+            ofdflow(int fd);
+            
+            std::streamsize xsputn(const char * s, std::streamsize n);
+            int_type overflow(int_type c = traits_type::eof());
+        };
+
     }
 }
 

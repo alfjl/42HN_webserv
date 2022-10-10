@@ -35,6 +35,7 @@ namespace webserv {
 
             class fork_task {
                 std::string _executable;
+                std::vector<int> _to_close;
                 webserv::util::optional<int> _input_to;
                 webserv::util::optional<int> _output_to;
 
@@ -49,6 +50,8 @@ namespace webserv {
                 void input_to(int input);
                 void output_to(int output);
                 void io_to(int input, int output);
+
+                void close_on_fork(int fd);
             };
 
         }
