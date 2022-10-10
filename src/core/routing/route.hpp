@@ -1,13 +1,17 @@
 #ifndef WEBSERV_CORE_ROUTING_ROUTE_HPP
 #define WEBSERV_CORE_ROUTING_ROUTE_HPP
 
+#include "../../defs.hpp"
+
 #include "../../http/request.hpp"
+#include "../../util/optional.hpp"
 
 namespace webserv {
     namespace core {
         
         class route {
-            webserv::util::path     _file_target;
+            webserv::util::path                                             _file_target;
+            webserv::util::optional<std::set<webserv::http::http_method> >  _allowed_methods;
 
         public:
             route(webserv::util::path file_target);
@@ -17,6 +21,11 @@ namespace webserv {
             webserv::util::path get_file_target();
 
             bool is_method_allowed(webserv::http::http_method method);
+
+            route* set_path(webserv::util::path file_target);
+            route* set_allowed_method(webserv::http::http_method method);
+            route* unset_allowed_method(webserv::http::http_method method);
+
             virtual bool is_cgi();
         };
 

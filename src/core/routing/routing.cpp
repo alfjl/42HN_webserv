@@ -2,6 +2,7 @@
 
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
+#include "../../http/request.hpp"
 #include "../../http/cgi/cgi_msg.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
@@ -19,11 +20,11 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            new route()
-                ->set_allowed_method(get)
-                ->unset_allowed_method(put)
-                ->set_path("...");
-            table.add_rule(new ext_rule("bla"), new cgi_route(webserv::util::path(""))->unset_allowed_method(head));
+            (new route(webserv::util::path("")))
+                ->set_allowed_method(webserv::http::http_method_get)
+                ->unset_allowed_method(webserv::http::http_method_put)
+                ->set_path(webserv::util::path("..."));
+            table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))->unset_allowed_method(webserv::http::http_method_head));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
             table.add_rule(new ext_rule("com"), new redirection_route(webserv::util::path("")));
         }

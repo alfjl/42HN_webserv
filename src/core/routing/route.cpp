@@ -25,6 +25,26 @@ namespace webserv {
             return true;
         }
 
+        route* route::set_path(webserv::util::path file_target) {
+            _file_target = file_target;
+
+            return this;
+        }
+
+        route* route::set_allowed_method(webserv::http::http_method method) {
+            _allowed_methods.enable();
+            _allowed_methods.value().insert(method);
+
+            return this;
+        }
+
+        route* route::unset_allowed_method(webserv::http::http_method method) {
+            _allowed_methods.value().erase(method);
+
+            return this;
+        }
+
+
         bool route::is_cgi() {
             return false;
         }
