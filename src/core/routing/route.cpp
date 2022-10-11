@@ -56,7 +56,8 @@ namespace webserv {
             return false;
         }
 
-        bool route::is_error() {
+        bool route::is_error(int& code) {
+            code = 69420;
             return false;
         }
 
@@ -108,17 +109,36 @@ namespace webserv {
             return true;
         }
 
-        error_route::error_route(webserv::util::path file_target) : route(file_target) {
+        error_route::error_route(int code) : route(webserv::util::path()), _code(code) {
 
         }
 
-        error_route::error_route(const error_route& other) : route(other) {
-
+        error_route::error_route(const error_route& other) : route(other), _code(other._code) {
         }
 
-        bool error_route::is_error() {
+        bool error_route::is_error(int& code) {
+            code = _code;
             return true;
         }
 
+        wildcard_route::wildcard_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
+        wildcard_route::wildcard_route(const wildcard_route& other) : route(other) {
+
+        }
+
+        route* wildcard_route::build(route_meta& meta) {
+            file_route* fr = new file_route(get_file_target() + meta.wildcard_path);
+            if (_allowed_methods.enabled()) {
+                std::set<webserv::http::http_method>::const_iterator it = _allowed_methods.value().begin();
+                while (it != _allowed_methods.value().end()) {
+                    fr->set_allowed_method(*it);
+                    ++it;
+                }
+            }
+            return fr;
+        }
     }
 }

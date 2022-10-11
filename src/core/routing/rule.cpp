@@ -27,11 +27,12 @@ namespace webserv {
             _extension.enable(extension);
         }
 
-        bool basic_rule::matches(webserv::util::path path) {
+        bool basic_rule::matches(webserv::util::path path, route_meta& meta) {
             webserv::util::path ext(path.get_extension());
 
             if (!path.begins_with(get_prefix()))
                 return false;
+            // TODO: Set meta.wildcard_path to remainder
             if (get_extension().enabled() && !ext.is_equal(get_extension().value()))
                 return false;
 

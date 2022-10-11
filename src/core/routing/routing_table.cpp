@@ -3,6 +3,10 @@
 namespace webserv {
     namespace core {
 
+        routing_table::routing_table() {
+            default_route = new wildcard_route(webserv::util::path("/"));
+        }
+
         routing_table::~routing_table(){
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator it = prefix_rules.begin();
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::iterator ite = prefix_rules.end();
@@ -11,6 +15,8 @@ namespace webserv {
                 delete it->first;
                 delete it->second;
             }
+
+            delete default_route;
         }
 
         /*
@@ -45,17 +51,20 @@ namespace webserv {
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator it = prefix_rules.begin();
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
-                if (it->first->matches(path)){
-                    return it->second;
+                route_meta meta;
+                if (it->first->matches(path, meta)) {
+                    return it->second->build(meta);
                 }
             }
 
             /*
-             * For now, just return a new route.
-             * We do need to do lookups soon, though.
-             *                       - nijakow
+             * No route found, return the default route.
              */
-            return new route(path);  // FIXME: Leak, add member for default
+            {
+                route_meta meta;
+                meta.wildcard_path = path;
+                return default_route->build(meta);
+            }
         }
 
     }

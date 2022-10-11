@@ -39,6 +39,7 @@ namespace webserv {
             std::string     to_absolute_string() const;
 
             bool        begins_with(path prefix);
+            bool        begins_with_cut(path prefix, path& wildcard_path);
             path        adapt_prefix(path old_prefix, path new_prefix);
             std::string get_extension();
             bool        is_equal(const path& rhs) const;

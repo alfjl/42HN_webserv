@@ -14,9 +14,11 @@ namespace webserv {
             typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::const_iterator const_iterator;
             
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >   prefix_rules;
+
+            route* default_route;
         
         public:
-            routing_table() {}
+            routing_table();
             ~routing_table();
 
             void add_rule(webserv::core::basic_rule* in, webserv::core::route* out);

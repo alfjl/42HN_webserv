@@ -23,7 +23,7 @@ namespace webserv {
             // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt"), new permanent_redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
             table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt2"), new redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
-            table.add_rule(new prefix_rule(webserv::util::path("www/test/")), new error_route(webserv::util::path(""))); // FINDING: gets overruled by the ext_rule()
+            table.add_rule(new prefix_rule(webserv::util::path("www/test/")), new error_route(500)); // FINDING: gets overruled by the ext_rule()
             table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))
                 ->set_allowed_method(webserv::http::http_method_head)
                 ->set_allowed_method(webserv::http::http_method_post)
@@ -32,7 +32,7 @@ namespace webserv {
             table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
             //table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
-            table.add_rule(new ext_rule("buzz"), new error_route(webserv::util::path("")));
+            table.add_rule(new ext_rule("buzz"), new error_route(500));
         }
 
         routing::~routing() {
@@ -240,26 +240,31 @@ namespace webserv {
 
             route* the_route = table.query(request.get_line().get_uri().get_path());
 
-            if (!the_route->is_method_allowed(request.get_line().get_method())) {
-                method_not_allowed_405(*response);
-            } else if (the_route->is_cgi()) {
-                handle_cgi(response, request, the_route);
-            } else if (the_route->is_redirection()) {
-                temporary_redirect_302(*response, the_route->get_file_target());
-            } else if (the_route->is_permanent_redirection()) {
-                permanent_redirect_301(*response, the_route->get_file_target());
-            } else if (the_route->is_error()) {
-                bad_request_400(*response);
-            } else {
-                switch (request.get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(*response, request, *the_route); break; }
-                    case webserv::http::http_method_get: { handle_http_get(*response, request, *the_route); break; }
-                    case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(*response, request, *the_route); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(*response, request, *the_route); break; }
-                    default: {
-                        teapot_418(*response);
-                        break;
+            {
+                int code;
+                
+                if (!the_route->is_method_allowed(request.get_line().get_method())) {
+                    method_not_allowed_405(*response);
+                } else if (the_route->is_cgi()) {
+                    handle_cgi(response, request, the_route);
+                } else if (the_route->is_redirection()) {
+                    temporary_redirect_302(*response, the_route->get_file_target());
+                } else if (the_route->is_permanent_redirection()) {
+                    permanent_redirect_301(*response, the_route->get_file_target());
+                } else if (the_route->is_error(code)) {
+                    // bad_request_400(*response);
+                    error_code(*response, code);
+                } else {
+                    switch (request.get_line().get_method()) {
+                        case webserv::http::http_method_head: { handle_http_head(*response, request, *the_route); break; }
+                        case webserv::http::http_method_get: { handle_http_get(*response, request, *the_route); break; }
+                        case webserv::http::http_method_put:
+                        case webserv::http::http_method_post: { handle_http_post(*response, request, *the_route); break; }
+                        case webserv::http::http_method_delete: { handle_http_delete(*response, request, *the_route); break; }
+                        default: {
+                            teapot_418(*response);
+                            break;
+                        }
                     }
                 }
             }
