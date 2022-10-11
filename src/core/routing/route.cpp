@@ -52,6 +52,10 @@ namespace webserv {
             return false;
         }
 
+        bool route::is_permanent_redirection() {
+            return false;
+        }
+
         bool route::is_error() {
             return false;
         }
@@ -91,6 +95,18 @@ namespace webserv {
             return true;
         }
 
+
+        permanent_redirection_route::permanent_redirection_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
+        permanent_redirection_route::permanent_redirection_route(const permanent_redirection_route& other) : route(other) {
+
+        }
+
+        bool permanent_redirection_route::is_permanent_redirection() {
+            return true;
+        }
 
         error_route::error_route(webserv::util::path file_target) : route(file_target) {
 

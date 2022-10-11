@@ -28,6 +28,7 @@ namespace webserv {
 
             virtual bool is_cgi();
             virtual bool is_redirection();
+            virtual bool is_permanent_redirection();
             virtual bool is_error();
         };
 
@@ -51,6 +52,14 @@ namespace webserv {
             redirection_route(const redirection_route& other);
 
             bool is_redirection();
+        };
+
+        class permanent_redirection_route : public route {
+        public:
+            permanent_redirection_route(webserv::util::path file_target);
+            permanent_redirection_route(const permanent_redirection_route& other);
+
+            bool is_permanent_redirection();
         };
 
         class error_route : public route {
