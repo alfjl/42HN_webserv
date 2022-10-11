@@ -44,8 +44,8 @@ namespace webserv {
             void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream);
  
             void error_code(webserv::http::response_fixed& response, unsigned int code);
-            void permanent_redirect_301(webserv::http::response_fixed& response);
-            void temporary_redirect_302(webserv::http::response_fixed& response);
+            void permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path);
+            void temporary_redirect_302(webserv::http::response_fixed& response, webserv::util::path path);
             void bad_request_400(webserv::http::response_fixed& response);
             void unauthorized_401(webserv::http::response_fixed& response);
             void not_found_404(webserv::http::response_fixed& response);

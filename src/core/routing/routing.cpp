@@ -21,6 +21,8 @@ namespace webserv {
 
         routing::routing(instance& the_inst) : component(the_inst) {
             // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
+            table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt"), new redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
+            table.add_rule(new prefix_rule(webserv::util::path("www/test/")), new error_route(webserv::util::path(""))); // FINDING: gets overruled by the ext_rule()
             table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))
                 ->set_allowed_method(webserv::http::http_method_head)
                 ->set_allowed_method(webserv::http::http_method_post)
@@ -28,10 +30,8 @@ namespace webserv {
                 ->unset_allowed_method(webserv::http::http_method_put));
             table.add_rule(new ext_rule("cgi"), (new cgi_route(webserv::util::path(""))));
             table.add_rule(new ext_rule("txt"), new file_route(webserv::util::path("")));
-            table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
+            //table.add_rule(new ext_rule("html"), new redirection_route(webserv::util::path("")));
             table.add_rule(new ext_rule("buzz"), new error_route(webserv::util::path("")));
-            table.add_rule(new prefix_rule(webserv::util::path("www/test/")), new error_route(webserv::util::path(""))); // FINDING: gets overruled by the ext_rule()
-            table.add_rule(new prefix_ext_rule(webserv::util::path("www/test2/"), "txt"), new redirection_route(webserv::util::path(""))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
         }
 
         routing::~routing() {
@@ -244,7 +244,7 @@ namespace webserv {
             } else if (the_route->is_cgi()) {
                 handle_cgi(response, request, the_route);
             } else if (the_route->is_redirection()) {
-                permanent_redirect_301(*response);
+                permanent_redirect_301(*response, the_route->get_file_target());
             } else if (the_route->is_error()) {
                 bad_request_400(*response);
             } else {
@@ -329,12 +329,14 @@ namespace webserv {
             response.set_html_body(ost.str());
         }
 
-        void routing::permanent_redirect_301(webserv::http::response_fixed& response) {
+        void routing::permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path) {
             error_code(response, 301);
+            response.set_field("Location", path.to_absolute_string());
         }
 
-        void routing::temporary_redirect_302(webserv::http::response_fixed& response) {
+        void routing::temporary_redirect_302(webserv::http::response_fixed& response, webserv::util::path path) {
             error_code(response, 302);
+            response.set_field("Location", path.to_absolute_string());
         }
 
         void routing::bad_request_400(webserv::http::response_fixed& response) {

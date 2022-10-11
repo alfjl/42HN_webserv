@@ -34,6 +34,7 @@ namespace webserv {
                 return false;
             if (get_extension().enabled() && !ext.is_equal(get_extension().value()))
                 return false;
+
             return true;
         }
 
