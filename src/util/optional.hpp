@@ -16,7 +16,7 @@ namespace webserv {
             bool enabled() const { return _enabled; }
 
             T& value() { return _value; }
-            T& value() const { return _value; }
+            const T& value() const { return _value; }
 
             void disable() { _enabled = false; }
             void enable() { _enabled = true; }

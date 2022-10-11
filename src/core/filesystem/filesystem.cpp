@@ -16,8 +16,16 @@ namespace webserv {
 
 		}
 
-        std::string filesystem::add_anchor(webserv::util::path path) const {
-            return (webserv::pal::env::pwd().cd("../www") + path).to_absolute_string();
+        void filesystem::set_anchor(webserv::util::path anchor) {
+            _anchor.enable(anchor);
+        }
+
+        std::string filesystem::add_anchor(webserv::util::path path) {
+            if (_anchor.enabled()) {
+                return (_anchor.value() + path).to_absolute_string();
+            } else {
+                return (webserv::pal::env::pwd().cd("../www") + path).to_absolute_string();
+            }
         }
 
 		bool filesystem::open_absolute(webserv::util::path path, std::ifstream& stream) {
