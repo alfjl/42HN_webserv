@@ -21,7 +21,8 @@ namespace webserv {
 
         routing::routing(instance& the_inst) : component(the_inst) {
             // table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path(""))));
-            table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt"), new redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
+            table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt"), new permanent_redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
+            table.add_rule(new prefix_ext_rule(webserv::util::path("www/test/"), "txt2"), new redirection_route(webserv::util::path("/a/b/c.html"))); // FINDING: gets overruled by the ext_rule() & prefix_rule()
             table.add_rule(new prefix_rule(webserv::util::path("www/test/")), new error_route(webserv::util::path(""))); // FINDING: gets overruled by the ext_rule()
             table.add_rule(new ext_rule("bla"), (new cgi_route(webserv::util::path("")))
                 ->set_allowed_method(webserv::http::http_method_head)
@@ -244,6 +245,8 @@ namespace webserv {
             } else if (the_route->is_cgi()) {
                 handle_cgi(response, request, the_route);
             } else if (the_route->is_redirection()) {
+                temporary_redirect_302(*response, the_route->get_file_target());
+            } else if (the_route->is_permanent_redirection()) {
                 permanent_redirect_301(*response, the_route->get_file_target());
             } else if (the_route->is_error()) {
                 bad_request_400(*response);
