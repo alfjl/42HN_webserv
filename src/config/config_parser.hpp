@@ -13,13 +13,13 @@ namespace webserv {
 			webserv::core::instance& _instance;
 
 		protected:
+			void skip_whitespace();
 			webserv::util::path read_path();
 			std::string read_word();
 			int read_int();
 
 		public:
 			config_parser(webserv::util::iflow& flow, webserv::core::instance& instance);
-
 			void run();
 		};
 

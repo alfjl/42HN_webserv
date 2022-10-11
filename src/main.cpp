@@ -21,13 +21,16 @@ void setup_interrupts() {
 
 void webserv_main() {
     webserv::core::instance  the_webserv;
+    webserv::util::fileflow flow("../configs/test1.conf");
+    webserv::config::config_parser parser(flow, the_webserv);
+
+    parser.run();
 
     the_webserv.on_port(4242);
     the_webserv.run();
 }
 
 int main(int argc, char *argv[]) {
-    webserv::util::fileflow flow("../configs/test1.conf");
     webserv_main();
     return 0;
 }
