@@ -154,17 +154,23 @@ namespace webserv {
             return true;
         }
 
-        static bool prepare_task(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out,
+        static bool prepare_task(webserv::pal::fork::easypipe cgi_in, webserv::pal::fork::easypipe cgi_out,
                                 webserv::pal::fork::fork_task* task, webserv::pal::fork::wait_set* ws) {
-            task->close_on_fork(cgi_in->in);
-            task->close_on_fork(cgi_out->out);
+            task->close_on_fork(cgi_in.in);
+            task->close_on_fork(cgi_out.out);
             // communicate input and output to task
-            task->io_to(cgi_in->out, cgi_out->in);
+            task->io_to(cgi_in.out, cgi_out.in);
             // fork_task
             if (task->perform(*ws) < 0) {
                 return false;
             }
             return true;
+        }
+
+        static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message *cgi_msg) {
+            webserv::util::ofdflow ofd(cgi_in.in);
+            std::ostream o(&ofd);
+            cgi_msg->write_on(o);
         }
 
         void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
@@ -178,16 +184,14 @@ namespace webserv {
             if (!prepare_pipes(&cgi_in, &cgi_out))
                 internal_server_error_500(*response);            
 
-            if (!prepare_task(&cgi_in, &cgi_out, &task, &ws))
+            if (!prepare_task(cgi_in, cgi_out, &task, &ws))
                 internal_server_error_500(*response);
 
             // Generate state machine
             // TODO: Implement
 
             // write ostream into pipe (into) / out_of it Eingabe von fork_task
-            webserv::util::ofdflow ofd(cgi_in.in);
-            std::ostream o(&ofd);
-            cgi_msg.write_on(o);
+            handle_cgi_message_in(cgi_in, &cgi_msg);
 
             /*
              * Close all open FDs
