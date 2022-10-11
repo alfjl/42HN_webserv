@@ -29,6 +29,8 @@ namespace webserv {
             void handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
             void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
 
+            void handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route);
+
             void tick();
 
         protected:
