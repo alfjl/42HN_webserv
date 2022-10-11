@@ -3,17 +3,23 @@
 
 #include "../../defs.hpp"
 #include "../../http/uri.hpp"
+#include "../../util/optional.hpp"
+#include "../../util/path.hpp"
 #include "../component.hpp"
 
 namespace webserv {
 	namespace core {
 
 		class filesystem : public component {
-			std::string add_anchor(webserv::util::path path) const;
+            webserv::util::optional<webserv::util::path> _anchor;
+
+			std::string add_anchor(webserv::util::path path);
 
 		public:
 			filesystem(instance& the_inst);
 			~filesystem();
+
+            void set_anchor(webserv::util::path anchor);
 
 			bool open_absolute(webserv::util::path path, std::ifstream& stream);
 			bool open(webserv::util::path path, std::ifstream& stream);

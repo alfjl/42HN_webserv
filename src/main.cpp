@@ -19,18 +19,26 @@ void setup_interrupts() {
     signal(SIGPIPE, SIG_IGN);
 }
 
-void webserv_main() {
+void webserv_main(const char* config_path) {
     webserv::core::instance  the_webserv;
-    webserv::util::fileflow flow("../configs/test1.conf");
+    webserv::util::fileflow flow(config_path);
     webserv::config::config_parser parser(flow, the_webserv);
 
+    try {
     parser.run();
+    } catch (std::runtime_error& e) {
+        std::cout << "Unable to parse the config file!" << std::endl;
+        return;
+    }
 
-    the_webserv.on_port(4242);
     the_webserv.run();
 }
 
 int main(int argc, char *argv[]) {
-    webserv_main();
+    if (argc < 2) {
+        std::cout << "usage: ./webserv <filename>" << std::endl;
+        return 1;
+    }
+    webserv_main(argv[1]);
     return 0;
 }

@@ -14,9 +14,14 @@ namespace webserv {
 
 		protected:
 			void skip_whitespace();
+            bool skip_comment();
+
 			webserv::util::path read_path();
 			std::string read_word();
 			int read_int();
+
+            bool checks(std::string str);
+            void expects(std::string str);
 
 		public:
 			config_parser(webserv::util::iflow& flow, webserv::core::instance& instance);

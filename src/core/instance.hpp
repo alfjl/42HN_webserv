@@ -33,6 +33,7 @@ namespace webserv {
             scheduler&  get_scheduler() { return _scheduler; }
             routing&    get_routing()   { return _routing; }
             filesystem& get_fs()        { return _fs; }
+
             void        pass_connection(webserv::util::connection* new_connection);
 
             bool is_running() { return true; }
@@ -40,6 +41,7 @@ namespace webserv {
             void run();
 
             void on_port(int port);
+            void set_anchor(webserv::util::path path);
         };
 
     }

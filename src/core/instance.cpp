@@ -38,5 +38,9 @@ namespace webserv {
             get_driver().open_port(port);
         }
 
+        void instance::set_anchor(webserv::util::path path) {
+            get_fs().set_anchor(path);
+        }
+
     }
 }

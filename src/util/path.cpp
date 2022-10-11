@@ -116,27 +116,8 @@ namespace webserv {
             if (prefix.size() > size()) return false;
 
             for (size_t i = 0; i < size_p; ++i) {
-                if (prefix._addr[i] != this->_addr[i])
+                if (prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
                     return false;
-            }
-
-            return true;
-        }
-
-        /*
-         * Checks if prefix is beginning of this->_addr
-         */
-        bool path::begins_with_cut(path prefix, path& wildcard_path) {
-            size_t size_p = prefix._addr.size();
-
-            if (prefix.size() > size()) return false;
-
-            wildcard_path = *this;
-
-            for (size_t i = 0; i < size_p; ++i) {
-                if (prefix._addr[i] != _addr[i])
-                    return false;
-                wildcard_path = wildcard_path.get_rest();
             }
 
             return true;
