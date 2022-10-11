@@ -142,9 +142,19 @@ namespace webserv {
             ost << "</blockquote>\r\n";
         }
 
+        static bool prepare_pipes(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out) {
+            if (!webserv::pal::fork::safe_pipe(&(cgi_in->in), &(cgi_in->out))) { // TODO: Is there a better notation instead of '&(pointer->int)'
+                return false;
+            }
+            if (!webserv::pal::fork::safe_pipe(&(cgi_out->in), &(cgi_out->out))) {
+                ::close(cgi_in->in);
+                ::close(cgi_in->out);
+                return false;
+            }
+            return true;
+        }
 
         void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
-            // cgi_message
             webserv::http::cgi_message cgi_msg(request.get_body());
             //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
             webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
@@ -152,15 +162,8 @@ namespace webserv {
             webserv::pal::fork::easypipe cgi_in;
             webserv::pal::fork::easypipe cgi_out;
 
-            // pipe
-            if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
+            if (!prepare_pipes(&cgi_in, &cgi_out))
                 internal_server_error_500(*response);            
-            }
-            if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
-                ::close(cgi_in.in);
-                ::close(cgi_in.out);
-                internal_server_error_500(*response);
-            }
 
             task.close_on_fork(cgi_in.in);
             task.close_on_fork(cgi_out.out);
@@ -180,27 +183,17 @@ namespace webserv {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
             cgi_msg.write_on(o);
+
             /*
-                * Close all open FDs
-                */
+             * Close all open FDs
+             */
             ::close(cgi_in.in);
             ::close(cgi_in.out);
             ::close(cgi_out.in);
             // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
             //       sent to us by the CGI
             service_unavailable_503(*response);
-        }
 
-        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
-            webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
-
-            route* the_route = table.query(request.get_line().get_uri().get_path());
-
-            if (!the_route->is_method_allowed(request.get_line().get_method())) {
-                method_not_allowed_405(*response);
-            } else if (the_route->is_cgi()) {
-
-                handle_cgi(response, request, the_route);
 
                 // // cgi_message
                 // webserv::http::cgi_message cgi_msg(request.get_body());
@@ -247,6 +240,18 @@ namespace webserv {
                 // // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
                 // //       sent to us by the CGI
                 // service_unavailable_503(*response);
+
+        }
+
+        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
+            webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
+
+            route* the_route = table.query(request.get_line().get_uri().get_path());
+
+            if (!the_route->is_method_allowed(request.get_line().get_method())) {
+                method_not_allowed_405(*response);
+            } else if (the_route->is_cgi()) {
+                handle_cgi(response, request, the_route);
             } else if (the_route->is_redirection()) {
                 permanent_redirect_301(*response);
             } else if (the_route->is_error()) {
