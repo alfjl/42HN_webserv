@@ -19,17 +19,20 @@ namespace webserv {
         }
 
         void scheduler::register_cgi_connection(webserv::util::connection* connection) {
-            handlers.push_back(new webserv::http::cgi_handler(connection));
+            handlers_to_add.push(new webserv::http::cgi_handler(connection));
         }
 
         void scheduler::tick() {
+            while (!handlers_to_add.empty()) {
+                handlers.push_back(handlers_to_add.front());
+                handlers_to_add.pop();
+            }
+            
             std::vector<webserv::util::state_machine_base*>::iterator it = handlers.begin();
 
             while (it != handlers.end()) {
-                if (*it == NULL) // Sometimes working Ghetto-Fix, yo!
-                    break ;
-                    std::cout << (*it)->is_stopped() << std::endl;
                 if ((*it)->is_stopped()) {
+                    // TODO: Add to list of stopped handlers, remove elements later
                     webserv::util::state_machine_base* machine = *it;
                     handlers.erase(it);
                     delete machine;
