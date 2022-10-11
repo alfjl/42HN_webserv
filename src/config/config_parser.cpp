@@ -98,8 +98,10 @@ namespace webserv {
 				skip_whitespace();
 				if (checks("listen")) {
 					while (!checks(";")){
-					skip_whitespace();
-					std::cout << "Listen: " << read_int() << std::endl;
+					    skip_whitespace();
+					    int port = read_int();
+                        _instance.on_port(port);
+                        skip_whitespace();
 					}
 					skip_whitespace();
 					continue ;
