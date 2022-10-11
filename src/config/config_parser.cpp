@@ -91,7 +91,7 @@ namespace webserv {
 			}
 		*/
 		void config_parser::run() {
-            webserv::util::path our_root(webserv::pal::env::pwd());
+            webserv::util::path local_directory(webserv::pal::env::pwd());
 
 			// start
 			expects("server");
@@ -122,10 +122,8 @@ namespace webserv {
 						std::cout << "Server_name: " << read_word() << std::endl;
 					}
 					continue ;
-				} else if (checks("root")) {
-                    // instance.get_routing().set_anchor();
-                    std::cout << "Root: " << (our_root.cd(read_word()).to_absolute_string()) << std::endl;
-                    _instance.set_anchor((our_root.cd(read_word()).to_absolute_string()));
+				} else if (checks("anchor")) {
+                    _instance.set_anchor((local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("index_page")) {
 					std::cout << "Index_page: " << read_word() << std::endl;
 				} else if (checks("location")) {
