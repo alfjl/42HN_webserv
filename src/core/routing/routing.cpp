@@ -154,6 +154,19 @@ namespace webserv {
             return true;
         }
 
+        static bool prepare_task(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out,
+                                webserv::pal::fork::fork_task* task, webserv::pal::fork::wait_set* ws) {
+            task->close_on_fork(cgi_in->in);
+            task->close_on_fork(cgi_out->out);
+            // communicate input and output to task
+            task->io_to(cgi_in->out, cgi_out->in);
+            // fork_task
+            if (task->perform(*ws) < 0) {
+                return false;
+            }
+            return true;
+        }
+
         void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
             webserv::http::cgi_message cgi_msg(request.get_body());
             //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
@@ -165,16 +178,8 @@ namespace webserv {
             if (!prepare_pipes(&cgi_in, &cgi_out))
                 internal_server_error_500(*response);            
 
-            task.close_on_fork(cgi_in.in);
-            task.close_on_fork(cgi_out.out);
-
-            // communicate input and output to task
-            task.io_to(cgi_in.out, cgi_out.in);
-
-            // fork_task
-            if (task.perform(ws) < 0) {
+            if (!prepare_task(&cgi_in, &cgi_out, &task, &ws))
                 internal_server_error_500(*response);
-            }
 
             // Generate state machine
             // TODO: Implement
