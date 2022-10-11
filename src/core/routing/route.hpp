@@ -8,9 +8,15 @@
 
 namespace webserv {
     namespace core {
-        
+
+        struct route_meta {
+            webserv::util::path wildcard_path;
+        };
+
         class route {
             webserv::util::path                                             _file_target;
+        
+        protected:
             webserv::util::optional<std::set<webserv::http::http_method> >  _allowed_methods;
 
         public:
@@ -29,7 +35,9 @@ namespace webserv {
             virtual bool is_cgi();
             virtual bool is_redirection();
             virtual bool is_permanent_redirection();
-            virtual bool is_error();
+            virtual bool is_error(int& code);
+
+            virtual route* build(route_meta& meta) { return this; }
         };
 
         class file_route : public route {
@@ -63,11 +71,21 @@ namespace webserv {
         };
 
         class error_route : public route {
+            int _code;
+
         public:
-            error_route(webserv::util::path file_target);
+            error_route(int code);
             error_route(const error_route& other);
 
-            bool is_error();
+            bool is_error(int& code);
+        };
+
+        class wildcard_route : public route {
+        public:
+            wildcard_route(webserv::util::path file_target);
+            wildcard_route(const wildcard_route& other);
+
+            virtual route* build(route_meta& meta);
         };
 
     }

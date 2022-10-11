@@ -6,6 +6,8 @@
 
 namespace webserv {
     namespace core {
+
+        struct route_meta; // Oof.
         
         class basic_rule {
             webserv::util::path                   _prefix;
@@ -22,7 +24,7 @@ namespace webserv {
             void set_prefix(webserv::util::path prefix);
             void set_extension(std::string extension);
 
-            virtual bool matches(webserv::util::path path);
+            virtual bool matches(webserv::util::path path, route_meta& meta);
         };
 
         class prefix_rule : public basic_rule {
