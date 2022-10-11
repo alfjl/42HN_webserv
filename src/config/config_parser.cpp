@@ -40,8 +40,28 @@ namespace webserv {
 		}
 
 		void config_parser::skip_whitespace() {
-			while (check(' ') || check('\t') || check('\r') || check('\n'));
+			while (check(' ') || check('\t') || check('\r') || check('\n') || skip_comment());
 		}
+
+        bool config_parser::skip_comment() {
+            if (check('#')) {
+                while (true) {
+                    char c;
+                         if (!next_char(c)) break;
+                    else if (c == '\n') break;
+                }
+                return true;
+            }
+            return false;
+        }
+
+        bool config_parser::checks(std::string str) {
+            return parser::checks(str);
+        }
+
+        void config_parser::expects(std::string str) {
+            parser::expects(str);
+        }
 
 		/*
 			#x choose port for each server 
