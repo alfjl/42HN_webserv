@@ -25,7 +25,7 @@ void webserv_main(const char* config_path) {
     webserv::config::config_parser parser(flow, the_webserv);
 
     try {
-    parser.run();
+        parser.run();
     } catch (std::runtime_error& e) {
         std::cout << "Unable to parse the config file!" << std::endl;
         return;

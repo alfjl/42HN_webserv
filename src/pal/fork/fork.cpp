@@ -101,10 +101,20 @@ namespace webserv {
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
                     }
                 }
+                std::cerr << "Execve failed" << std::endl;
+                ::close(STDIN_FILENO);
+                ::close(STDOUT_FILENO);
                 exit(127);
             }
 
             pid_t fork_task::perform(wait_set& set) {
+                struct stat sb;
+
+                if (!(stat(_executable.c_str(), &sb) == 0 && sb.st_mode & S_IXUSR)) {
+                    // not executable
+                    return -1;
+                }
+
                 std::pair<fork_status, pid_t> result = fork();
 
                 switch (result.first) {

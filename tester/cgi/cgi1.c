@@ -3,6 +3,8 @@
 int main(void) {
     char buffer[1024];
     
+    write(1, "This is the CGI\n", 16);
+
     while (1) {
         size_t amount = read(0, buffer, sizeof(buffer));
         if (amount <= 0) break;
