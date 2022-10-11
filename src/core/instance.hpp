@@ -35,6 +35,7 @@ namespace webserv {
             filesystem& get_fs()        { return _fs; }
 
             void        pass_connection(webserv::util::connection* new_connection);
+            void        pass_cgi(int cgi_fd);
 
             bool is_running() { return true; }
 

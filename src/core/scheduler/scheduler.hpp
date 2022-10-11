@@ -19,8 +19,10 @@ namespace webserv {
             scheduler(instance& the_inst);
             ~scheduler();
 
-            void tick();
             void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
+            void register_cgi_connection(webserv::util::connection* connection);
+
+            void tick();
         };
 
     }

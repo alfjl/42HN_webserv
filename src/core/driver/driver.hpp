@@ -18,6 +18,8 @@ namespace webserv {
             driver(instance& the_inst);
             ~driver();
 
+            webserv::util::connection* add_fd(int fd);
+
             void open_port(int port);
             void tick();
         };

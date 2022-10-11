@@ -230,6 +230,9 @@ namespace webserv {
             ::close(cgi_in.in);
             ::close(cgi_in.out);
             ::close(cgi_out.in);
+
+            get_instance().pass_cgi(cgi_out.out);
+
             // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
             //       sent to us by the CGI
             service_unavailable_503(*response);

@@ -36,6 +36,14 @@ namespace webserv {
                 the_driver = driver;
             }
 
+            webserv::util::connection* selector::add_fd(int fd) {
+                webserv::util::connection* connection = new webserv::util::connection();
+
+                register_socket(new data_socket(fd), connection);
+
+                return connection;
+            }
+
             void selector::select() {
 
                 int     highest_fd = -1;

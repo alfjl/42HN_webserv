@@ -28,10 +28,13 @@ namespace webserv {
                 selector();
                 ~selector();
 
+                void set_driver(webserv::core::driver* driver);
+
                 void register_socket(socket* socket, payload_type data_set);
                 void register_socket(socket* socket);
                 void unregister_socket(socket *socket);
-                void set_driver(webserv::core::driver* driver);
+
+                webserv::util::connection* add_fd(int fd);
 
                 void select();
             };

@@ -6,7 +6,7 @@ int main(void) {
     while (1) {
         size_t amount = read(0, buffer, sizeof(buffer));
         if (amount <= 0) break;
-        write(2, buffer, amount);
+        write(1, buffer, amount);
     }
 
     write(2, "Helloe\n", 7);

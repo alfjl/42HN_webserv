@@ -25,6 +25,11 @@ namespace webserv {
             _scheduler.register_connection(new_connection, _routing);
         }
 
+        void instance::pass_cgi(int cgi_fd) {
+            webserv::util::connection* connection = _driver.add_fd(cgi_fd);
+            _scheduler.register_cgi_connection(connection);
+        }
+
         void instance::run() {
             while (is_running()) {
                 _routing.tick();
