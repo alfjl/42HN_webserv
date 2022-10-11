@@ -142,6 +142,10 @@ namespace webserv {
             ost << "</blockquote>\r\n";
         }
 
+        /*
+         * Opens 2 pipes. One for the input into the cgi,
+         * and one for the output of the cgi 
+         */
         static bool prepare_pipes(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out) {
             if (!webserv::pal::fork::safe_pipe(&(cgi_in->in), &(cgi_in->out))) { // TODO: Is there a better notation instead of '&(pointer->int)'
                 return false;
@@ -154,6 +158,10 @@ namespace webserv {
             return true;
         }
 
+        /*
+         * Wraps the fork() and execve() calls,
+         * and takes care of closing the correct file descriptors
+         */
         static bool prepare_task(webserv::pal::fork::easypipe cgi_in, webserv::pal::fork::easypipe cgi_out,
                                 webserv::pal::fork::fork_task* task, webserv::pal::fork::wait_set* ws) {
             task->close_on_fork(cgi_in.in);
@@ -167,12 +175,19 @@ namespace webserv {
             return true;
         }
 
+        /*
+         * Attaches the input of cgi_in to an ostream,
+         * and writes the cgi message_body to this stream 
+         */
         static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message *cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
             cgi_msg->write_on(o);
         }
 
+        /*
+         * Hands the request body over to the cgi and accepts the cgi's output as the response body 
+         */
         void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
             webserv::http::cgi_message cgi_msg(request.get_body());
             //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
@@ -181,16 +196,25 @@ namespace webserv {
             webserv::pal::fork::easypipe cgi_in;
             webserv::pal::fork::easypipe cgi_out;
 
+            /*
+             * Open 2 pipes. One for input to cgi and one for output of cgi
+             */
             if (!prepare_pipes(&cgi_in, &cgi_out))
                 internal_server_error_500(*response);            
 
+            /*
+             *
+             */
             if (!prepare_task(cgi_in, cgi_out, &task, &ws))
                 internal_server_error_500(*response);
 
             // Generate state machine
             // TODO: Implement
+            // ?handle_cgi_message_out(???????);?
 
-            // write ostream into pipe (into) / out_of it Eingabe von fork_task
+            /*
+             * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task
+             */
             handle_cgi_message_in(cgi_in, &cgi_msg);
 
             /*
@@ -202,54 +226,6 @@ namespace webserv {
             // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
             //       sent to us by the CGI
             service_unavailable_503(*response);
-
-
-                // // cgi_message
-                // webserv::http::cgi_message cgi_msg(request.get_body());
-                // //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
-                // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
-                // webserv::pal::fork::wait_set ws;
-                // webserv::pal::fork::easypipe cgi_in;
-                // webserv::pal::fork::easypipe cgi_out;
-
-                // // pipe
-                // if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
-                //     internal_server_error_500(*response);            
-                // }
-                // if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
-                //     ::close(cgi_in.in);
-                //     ::close(cgi_in.out);
-                //     internal_server_error_500(*response);
-                // }
-
-                // task.close_on_fork(cgi_in.in);
-                // task.close_on_fork(cgi_out.out);
-
-                // // communicate input and output to task
-                // task.io_to(cgi_in.out, cgi_out.in);
-
-                // // fork_task
-                // if (task.perform(ws) < 0) {
-                //     internal_server_error_500(*response);
-                // }
-
-                // // Generate state machine
-                // // TODO: Implement
-
-                // // write ostream into pipe (into) / out_of it Eingabe von fork_task
-                // webserv::util::ofdflow ofd(cgi_in.in);
-                // std::ostream o(&ofd);
-                // cgi_msg.write_on(o);
-                // /*
-                //  * Close all open FDs
-                //  */
-                // ::close(cgi_in.in);
-                // ::close(cgi_in.out);
-                // ::close(cgi_out.in);
-                // // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
-                // //       sent to us by the CGI
-                // service_unavailable_503(*response);
-
         }
 
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
