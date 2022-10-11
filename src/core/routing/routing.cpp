@@ -142,11 +142,6 @@ namespace webserv {
             ost << "</blockquote>\r\n";
         }
 
-        struct easypipe {
-            int in;
-            int out;
-        };
-
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
 
@@ -160,8 +155,8 @@ namespace webserv {
                 //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
                 webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
                 webserv::pal::fork::wait_set ws;
-                struct easypipe cgi_in;
-                struct easypipe cgi_out;
+                webserv::pal::fork::easypipe cgi_in;
+                webserv::pal::fork::easypipe cgi_out;
 
                 // pipe
                 if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
