@@ -3,11 +3,14 @@
 
 #include "../../defs.hpp"
 
+#include "../cgi_headers.hpp"
+
 namespace webserv {
     namespace http {
 
         class cgi_message {
-            std::string     _message_body;
+            std::string                _message_body;
+            webserv::http::cgi_headers _headers;
         
         public:
             cgi_message(std::string message);
