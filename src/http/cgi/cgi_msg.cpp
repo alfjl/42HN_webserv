@@ -15,7 +15,7 @@ namespace webserv {
 
         void cgi_message::write_on(std::ostream& o) {
             o << "CGI_TEST\r\n"; // TODO: Remove!
-            o << _headers << "\r\n" << _message_body;
+            o << _fields << "\r\n" << _message_body;
         }
 
     }

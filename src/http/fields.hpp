@@ -26,6 +26,8 @@ namespace webserv {
             const_iterator end() const;
         };
 
+        std::ostream& operator<<(std::ostream& o, fields f);
+
     }
 }
 

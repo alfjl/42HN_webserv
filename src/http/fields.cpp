@@ -30,5 +30,17 @@ namespace webserv {
             return ( this->_fields.end() );
         }
 
+
+        std::ostream& operator<<(std::ostream& o, fields f) {
+            fields::const_iterator it  = f.begin();
+            fields::const_iterator ite = f.end();
+
+            for (; it != ite; ++it) {
+                o << it->first << ": " << it->second << "\r\n";
+            }
+
+            return o;
+        }
+
     }
 }
