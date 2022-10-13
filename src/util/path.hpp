@@ -31,12 +31,12 @@ namespace webserv {
 
             path cd(std::string);
 
-            std::string     get_first() const;
-            std::string     get_last() const;
-            path            get_rest() const;
+            std::string get_first() const;
+            std::string get_last() const;
+            path        get_rest() const;
 
-            std::string     to_relative_string() const;
-            std::string     to_absolute_string() const;
+            std::string to_relative_string() const;
+            std::string to_absolute_string() const;
 
             bool        begins_with(path prefix);
             bool        begins_with_cut(path prefix, path& wildcard_path);

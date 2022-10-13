@@ -34,7 +34,7 @@ namespace webserv {
             _fields.put("CONTENT_LENGTH", (int) _message_body.size());
             _fields.put("CONTENT_TYPE", _request.get_fields().get_or_default("Content-Type", "plain"));
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
-            _fields.put("PATH_INFO", "");  // TODO
+            _fields.put("PATH_INFO", _request.get_line().get_uri().get_path().to_absolute_string());
             _fields.put("PATH_TRANSLATED", ""); // TODO
             _fields.put("QUERY_STRING", "");  // TODO
             _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost
