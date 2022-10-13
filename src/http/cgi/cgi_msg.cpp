@@ -5,9 +5,10 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(std::string message, webserv::http::http_method method) 
-        : _message_body(message), _method() {
-            switch (method) {
+        cgi_message::cgi_message(webserv::http::request_core& request) {
+            _message_body = request.get_body();
+
+            switch (request.get_line().get_method()) {
                 case webserv::http::http_method_head:   { _method = std::string("HEAD");   break; }
                 case webserv::http::http_method_get:    { _method = std::string("GET");    break; }
                 case webserv::http::http_method_put:    { _method = std::string("PUT");    break; }
@@ -22,23 +23,23 @@ namespace webserv {
         }
 
         void cgi_message::setup_fields() {
-            // _fields.put("AUTH_TYPE", "");
-            // _fields.put("CONTENT_LENGTH", (int) _message_body.size());
-            // _fields.put("CONTENT_TYPE", _fields.get_or_default("CONTENT_TYPE", "plain"));
-            // _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
-            // _fields.put("PATH_INFO", "");  // TODO
-            // _fields.put("PATH_TRANSLATED", ""); // TODO
-            // _fields.put("QUERY_STRING", "");  // TODO
-            // _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost
-            // _fields.put("REMOTE_HOST", "");
-            // _fields.put("REMOTE_IDENT", ""); // Not really needed
-            // _fields.put("REMOTE_USER", "");
-            // _fields.put("REQUEST_METHOD", _method);
-            // _fields.put("SCRIPT_NAME", "");
-            // _fields.put("SERVER_NAME", ""); // = HOST cut until :
-            // _fields.put("SERVER_PORT", ""); // = HOST: alles nach :
-            // _fields.put("SERVER_PROTOCOL", "");
-            // _fields.put("SERVER_SOFTWARE", "");
+            _fields.put("AUTH_TYPE", "");
+            _fields.put("CONTENT_LENGTH", (int) _message_body.size());
+            _fields.put("CONTENT_TYPE", _fields.get_or_default("CONTENT_TYPE", "plain"));
+            _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
+            _fields.put("PATH_INFO", "");  // TODO
+            _fields.put("PATH_TRANSLATED", ""); // TODO
+            _fields.put("QUERY_STRING", "");  // TODO
+            _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost
+            _fields.put("REMOTE_HOST", "");
+            _fields.put("REMOTE_IDENT", ""); // Not really needed
+            _fields.put("REMOTE_USER", "");
+            _fields.put("REQUEST_METHOD", _method);
+            _fields.put("SCRIPT_NAME", "");
+            _fields.put("SERVER_NAME", ""); // = HOST cut until :
+            _fields.put("SERVER_PORT", ""); // = HOST: alles nach :
+            _fields.put("SERVER_PROTOCOL", "");
+            _fields.put("SERVER_SOFTWARE", "");
         }
 
         void cgi_message::write_on(std::ostream& o) {

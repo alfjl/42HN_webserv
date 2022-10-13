@@ -20,6 +20,13 @@ namespace webserv {
             _fields[key] = value;
         }
 
+        void fields::put(std::string key, int value) {
+            std::ostringstream  o;
+
+            o << value;
+            put(key, o.str());
+        }
+
         fields::const_iterator fields::begin() const
         {
             return ( this->_fields.begin() );

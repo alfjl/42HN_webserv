@@ -15,7 +15,7 @@ namespace webserv {
             webserv::http::fields   _fields;
 
         public:
-            cgi_message(std::string message, webserv::http::http_method method);
+            cgi_message(webserv::http::request_core& request);
             ~cgi_message();
 
             void setup_fields();

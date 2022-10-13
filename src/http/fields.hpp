@@ -20,7 +20,9 @@ namespace webserv {
             bool has(std::string key) const;
 
             std::string get_or_default(std::string key, std::string deflt) const;
+            
             void        put(std::string key, std::string value);
+            void        put(std::string key, int value);
             
             const_iterator begin() const;
             const_iterator end() const;
