@@ -3,6 +3,8 @@
 
 #include "../../defs.hpp"
 
+#include "../../core/instance.hpp"
+
 #include "../fields.hpp"
 #include "../request.hpp"
 
@@ -14,12 +16,14 @@ namespace webserv {
             std::string                  _message_body;
             webserv::http::fields        _fields;
             webserv::http::request_core& _request;
+            webserv::core::instance&     _current_instance;
 
         public:
-            cgi_message(webserv::http::request_core& request);
+            cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance);
             ~cgi_message();
 
             fields& get_fields();
+            webserv::core::instance& get_current_instance();
 
             void setup_fields();
 

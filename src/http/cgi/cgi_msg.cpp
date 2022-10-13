@@ -5,7 +5,8 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(webserv::http::request_core& request) : _request(request) {
+        cgi_message::cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance)
+         : _request(request), _current_instance(current_instance) {
             _message_body = request.get_body();
 
             switch (request.get_line().get_method()) {
@@ -25,6 +26,8 @@ namespace webserv {
         }
 
         fields& cgi_message::get_fields() { return _fields; }
+
+        webserv::core::instance& cgi_message::get_current_instance() { return _current_instance; }
 
         void cgi_message::setup_fields() {
             _fields.put("AUTH_TYPE", "");

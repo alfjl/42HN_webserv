@@ -188,19 +188,19 @@ namespace webserv {
          * Attaches the input of cgi_in to an ostream,
          * and writes the cgi message_body to this stream 
          */
-        static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message *cgi_msg) {
+        static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
-            cgi_msg->write_on(o);
-            cgi_msg->write_on(std::cerr);
+            cgi_msg.write_on(o);
+            cgi_msg.write_on(std::cerr);
         }
 
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
         void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
-            webserv::http::cgi_message cgi_msg(request);
-            //webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
+            webserv::http::cgi_message cgi_msg(request, get_instance());
+            // webserv::pal::fork::fork_task task(route.get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
             webserv::pal::fork::fork_task task("../tester/cgi/cgi_tester.cgi");
             webserv::pal::fork::wait_set ws;
@@ -229,7 +229,7 @@ namespace webserv {
             /*
              * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task
              */
-            handle_cgi_message_in(cgi_in, &cgi_msg);
+            handle_cgi_message_in(cgi_in, cgi_msg);
 
             /*
              * Close all open FDs
