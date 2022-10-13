@@ -36,6 +36,14 @@ namespace webserv {
                 the_driver = driver;
             }
 
+            webserv::util::connection* selector::add_fd(int fd) {
+                webserv::util::connection* connection = new webserv::util::connection();
+
+                register_socket(new data_socket(fd), connection);
+
+                return connection;
+            }
+
             void selector::select() {
 
                 int     highest_fd = -1;
@@ -85,8 +93,10 @@ namespace webserv {
                             char buffer[128];
                             ssize_t amount = read(((data_socket*) it->first)->get_fd(), buffer, sizeof(buffer));
                             if (amount > 0) {
-                                for (ssize_t index = 0; index < amount; index++)
+                                for (ssize_t index = 0; index < amount; index++) {
                                     it->second->get_input().push_char(buffer[index]);
+                                    std::cerr << "\033[32m" << buffer[index] << "\033[0m";
+                                }
                             } else if (amount <= 0) {
                                 unregister_socket(it->first);
                                 break; // Iterator gets invalidated

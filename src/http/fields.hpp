@@ -12,6 +12,7 @@ namespace webserv {
 
         private:
             std::map<std::string, std::string> _fields;
+            bool                               _case_sensitive;
         
         public:
             fields();
@@ -20,11 +21,17 @@ namespace webserv {
             bool has(std::string key) const;
 
             std::string get_or_default(std::string key, std::string deflt) const;
-            void        put(std::string key, std::string value);
             
+            void        put(std::string key, std::string value);
+            void        put(std::string key, int value);
+
+            void case_insensitive();
+
             const_iterator begin() const;
             const_iterator end() const;
         };
+
+        std::ostream& operator<<(std::ostream& o, fields f);
 
     }
 }

@@ -3,15 +3,30 @@
 
 #include "../../defs.hpp"
 
+#include "../../core/instance.hpp"
+
+#include "../fields.hpp"
+#include "../request.hpp"
+
 namespace webserv {
     namespace http {
 
         class cgi_message {
-            std::string     _message_body;
-        
+            std::string                  _method;
+            std::string                  _message_body;
+            std::string                  _path_translated;
+            webserv::http::fields        _fields;
+            webserv::http::request_core& _request;
+            webserv::core::instance&     _current_instance;
+
         public:
-            cgi_message(std::string message);
+            cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance, std::string path_translated);
             ~cgi_message();
+
+            fields& get_fields();
+            webserv::core::instance& get_current_instance();
+
+            void setup_fields();
 
             void write_on(std::ostream& o);
         };

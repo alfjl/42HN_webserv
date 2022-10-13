@@ -111,7 +111,7 @@ namespace webserv {
              * for 16 elements in our queue (default)
              */
             void server_socket::listen() {
-                listen(16);
+                listen(128);
             }
 
             /*

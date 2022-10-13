@@ -11,6 +11,10 @@ namespace webserv {
 
         }
 
+        webserv::util::connection* driver::add_fd(int fd) {
+            return selector.add_fd(fd);
+        }
+
         void driver::open_port(int port) {
             webserv::pal::net::server_socket* sock = new webserv::pal::net::server_socket();
 
