@@ -196,6 +196,7 @@ namespace webserv {
             body = "";
 
             std::cout << "Serving " << into.get_line().get_uri().get_path().to_absolute_string() << "... ";
+            std::flush(std::cout);
 
             response* response = routing.look_up(into);
 

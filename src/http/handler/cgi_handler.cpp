@@ -42,7 +42,7 @@ namespace webserv {
         }
 
         void cgi_handler::char_arrived() {
-            std::cerr << last_char << last_char;
+            std::cerr << "\033[35m" << last_char << "\033[0m";
             next(&cgi_handler::start);
         }
 
