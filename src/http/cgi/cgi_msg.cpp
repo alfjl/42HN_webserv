@@ -5,7 +5,7 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(webserv::http::request_core& request) {
+        cgi_message::cgi_message(webserv::http::request_core& request) : _request(request) {
             _message_body = request.get_body();
 
             switch (request.get_line().get_method()) {
@@ -25,7 +25,7 @@ namespace webserv {
         void cgi_message::setup_fields() {
             _fields.put("AUTH_TYPE", "");
             _fields.put("CONTENT_LENGTH", (int) _message_body.size());
-            _fields.put("CONTENT_TYPE", _fields.get_or_default("CONTENT_TYPE", "plain"));
+            _fields.put("CONTENT_TYPE", _request.get_fields().get_or_default("Content-Type", "plain"));
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", "");  // TODO
             _fields.put("PATH_TRANSLATED", ""); // TODO
@@ -36,10 +36,10 @@ namespace webserv {
             _fields.put("REMOTE_USER", "");
             _fields.put("REQUEST_METHOD", _method);
             _fields.put("SCRIPT_NAME", "");
-            _fields.put("SERVER_NAME", ""); // = HOST cut until :
-            _fields.put("SERVER_PORT", ""); // = HOST: alles nach :
-            _fields.put("SERVER_PROTOCOL", "");
-            _fields.put("SERVER_SOFTWARE", "");
+            _fields.put("SERVER_NAME", ""); // = get_current_instance().get_server_name()
+            _fields.put("SERVER_PORT", ""); // = get_current_instance().get_server_port()
+            _fields.put("SERVER_PROTOCOL", ""); // 
+            _fields.put("SERVER_SOFTWARE", ""); // name of our webserver
         }
 
         void cgi_message::write_on(std::ostream& o) {

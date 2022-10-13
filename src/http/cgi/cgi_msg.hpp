@@ -10,9 +10,10 @@ namespace webserv {
     namespace http {
 
         class cgi_message {
-            std::string             _method;
-            std::string             _message_body;
-            webserv::http::fields   _fields;
+            std::string                  _method;
+            std::string                  _message_body;
+            webserv::http::fields        _fields;
+            webserv::http::request_core& _request;
 
         public:
             cgi_message(webserv::http::request_core& request);

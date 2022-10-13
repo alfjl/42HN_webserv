@@ -11,13 +11,26 @@ namespace webserv {
         }
 
         std::string fields::get_or_default(std::string key, std::string deflt) const {
-            std::map<std::string, std::string>::const_iterator it = _fields.find(key);
-            if (it == _fields.end()) return deflt;
-            else                     return it->second;
+            std::string key_lower;
+            std::string::iterator it = key.begin();
+            std::string::iterator ite = key.end();
+
+            for (; it != ite; ++it)
+                key_lower += ::tolower(*it);
+
+            std::map<std::string, std::string>::const_iterator it2 = _fields.find(key_lower);
+            if (it2 == _fields.end()) return deflt;
+            else                      return it2->second;
         }
 
         void fields::put(std::string key, std::string value) {
-            _fields[key] = value;
+            std::string key_lower;
+
+            std::string::iterator it = key.begin();
+            std::string::iterator ite = key.end();
+            for (; it != ite; ++it)
+                key_lower += ::tolower(*it);
+            _fields[key_lower] = value;
         }
 
         void fields::put(std::string key, int value) {
