@@ -16,6 +16,8 @@ namespace webserv {
             cgi_message(std::string message);
             ~cgi_message();
 
+            void setup_fields();
+
             void write_on(std::ostream& o);
         };
 
