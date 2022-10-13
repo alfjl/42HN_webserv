@@ -5,8 +5,16 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(std::string message) : _message_body(message) {
-
+        cgi_message::cgi_message(std::string message, webserv::http::http_method method) 
+        : _message_body(message), _method() {
+            switch (method) {
+                case webserv::http::http_method_head:   { _method = std::string("HEAD");   break; }
+                case webserv::http::http_method_get:    { _method = std::string("GET");    break; }
+                case webserv::http::http_method_put:    { _method = std::string("PUT");    break; }
+                case webserv::http::http_method_post:   { _method = std::string("POST");   break; }
+                case webserv::http::http_method_delete: { _method = std::string("DELETE"); break; }
+                default:                                { _method = std::string("");       break; }
+            }
         }
 
         cgi_message::~cgi_message() {
@@ -25,7 +33,7 @@ namespace webserv {
             _fields.put("REMOTE_HOST", "");
             _fields.put("REMOTE_IDENT", ""); // Not really needed
             _fields.put("REMOTE_USER", "");
-            _fields.put("REQUEST_METHOD", "");
+            _fields.put("REQUEST_METHOD", _method);
             _fields.put("SCRIPT_NAME", "");
             _fields.put("SERVER_NAME", "");
             _fields.put("SERVER_PORT", "");

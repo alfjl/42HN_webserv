@@ -4,16 +4,18 @@
 #include "../../defs.hpp"
 
 #include "../fields.hpp"
+#include "../request.hpp"
 
 namespace webserv {
     namespace http {
 
         class cgi_message {
-            std::string            _message_body;
-            webserv::http::fields  _fields;
-        
+            std::string             _method;
+            std::string             _message_body;
+            webserv::http::fields   _fields;
+
         public:
-            cgi_message(std::string message);
+            cgi_message(std::string message, webserv::http::http_method method);
             ~cgi_message();
 
             void setup_fields();
