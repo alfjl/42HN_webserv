@@ -24,7 +24,7 @@ namespace webserv {
         void cgi_message::setup_fields() {
             _fields.put("AUTH_TYPE", "");
             _fields.put("CONTENT_LENGTH", (int) _message_body.size());
-            _fields.put("CONTENT_TYPE", "plain"); // TODO
+            _fields.put("CONTENT_TYPE", _fields.get_or_default("CONTENT_TYPE", "plain"));
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", "");  // TODO
             _fields.put("PATH_TRANSLATED", ""); // TODO
