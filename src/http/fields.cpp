@@ -3,7 +3,7 @@
 namespace webserv {
     namespace http {
 
-        fields::fields() {}
+        fields::fields() : _case_sensitive(true) {}
         fields::~fields() {}
 
         bool fields::has(std::string key) const {
@@ -12,11 +12,11 @@ namespace webserv {
 
         std::string fields::get_or_default(std::string key, std::string deflt) const {
             std::string key_lower;
-            std::string::iterator it = key.begin();
-            std::string::iterator ite = key.end();
+            std::string::const_iterator it = key.begin();
+            std::string::const_iterator ite = key.end();
 
             for (; it != ite; ++it)
-                key_lower += ::tolower(*it);
+                key_lower += (_case_sensitive) ? (*it) : (::tolower(*it));
 
             std::map<std::string, std::string>::const_iterator it2 = _fields.find(key_lower);
             if (it2 == _fields.end()) return deflt;
@@ -26,10 +26,10 @@ namespace webserv {
         void fields::put(std::string key, std::string value) {
             std::string key_lower;
 
-            std::string::iterator it = key.begin();
-            std::string::iterator ite = key.end();
+            std::string::const_iterator it = key.begin();
+            std::string::const_iterator ite = key.end();
             for (; it != ite; ++it)
-                key_lower += ::tolower(*it);
+                key_lower += (_case_sensitive) ? (*it) : (::tolower(*it));
             _fields[key_lower] = value;
         }
 
@@ -38,6 +38,10 @@ namespace webserv {
 
             o << value;
             put(key, o.str());
+        }
+
+        void fields::case_insensitive() {
+            _case_sensitive = false;
         }
 
         fields::const_iterator fields::begin() const

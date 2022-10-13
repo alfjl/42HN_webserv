@@ -61,6 +61,8 @@ namespace webserv {
             std::string   _body;
         
         public:
+            request_core() { _fields.case_insensitive(); }
+
             request_line& get_line()   { return _line;   }
             fields&       get_fields() { return _fields; }
             // http_body&  get_body() { return _body; } // TODO: implement correct function!

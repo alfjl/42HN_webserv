@@ -12,6 +12,7 @@ namespace webserv {
 
         private:
             std::map<std::string, std::string> _fields;
+            bool                               _case_sensitive;
         
         public:
             fields();
@@ -23,7 +24,9 @@ namespace webserv {
             
             void        put(std::string key, std::string value);
             void        put(std::string key, int value);
-            
+
+            void case_insensitive();
+
             const_iterator begin() const;
             const_iterator end() const;
         };

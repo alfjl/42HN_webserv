@@ -85,9 +85,11 @@ namespace webserv {
                     argv[0] = _executable.c_str();
                     argv[1] = NULL;
 
-                    const char** envp = (const char**) ::malloc(sizeof(char*) * 1);
+                    const char** envp = (const char**) ::malloc(sizeof(char*) * (_env.size() + 1));
                     if (envp != NULL) {
-                        envp[0] = NULL;
+                        for (size_t i = 0; i < _env.size(); ++i)
+                            envp[i] = ::strdup(_env[i].c_str());
+                        envp[_env.size()] = NULL;
 
                         if (_input_to.enabled()) {
                             safe_dup2(STDIN_FILENO, _input_to.value());
@@ -137,6 +139,10 @@ namespace webserv {
 
             void fork_task::close_on_fork(int fd) {
                 _to_close.push_back(fd);
+            }
+
+            void fork_task::add_env(std::string line) {
+                _env.push_back(line);
             }
 
         }

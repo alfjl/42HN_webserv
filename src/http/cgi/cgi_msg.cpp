@@ -16,11 +16,15 @@ namespace webserv {
                 case webserv::http::http_method_delete: { _method = std::string("DELETE"); break; }
                 default:                                { _method = std::string("");       break; }
             }
+
+            setup_fields();
         }
 
         cgi_message::~cgi_message() {
 
         }
+
+        fields& cgi_message::get_fields() { return _fields; }
 
         void cgi_message::setup_fields() {
             _fields.put("AUTH_TYPE", "");
@@ -38,13 +42,12 @@ namespace webserv {
             _fields.put("SCRIPT_NAME", "");
             _fields.put("SERVER_NAME", ""); // = get_current_instance().get_server_name()
             _fields.put("SERVER_PORT", ""); // = get_current_instance().get_server_port()
-            _fields.put("SERVER_PROTOCOL", ""); // 
-            _fields.put("SERVER_SOFTWARE", ""); // name of our webserver
+            _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); // 
+            _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // name of our webserver
         }
 
         void cgi_message::write_on(std::ostream& o) {
-            o << "CGI_TEST\r\n"; // TODO: Remove!
-            o << _fields << "\r\n" << _message_body;
+            o << _message_body;
         }
 
     }
