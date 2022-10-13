@@ -5,8 +5,8 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance)
-         : _request(request), _current_instance(current_instance) {
+        cgi_message::cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance, std::string path_translated)
+         : _path_translated(path_translated), _request(request) ,_current_instance(current_instance) {
             _message_body = request.get_body();
 
             switch (request.get_line().get_method()) {
@@ -35,7 +35,7 @@ namespace webserv {
             _fields.put("CONTENT_TYPE", _request.get_fields().get_or_default("Content-Type", "plain"));
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", _request.get_line().get_uri().get_path().to_absolute_string());
-            _fields.put("PATH_TRANSLATED", ""); // TODO
+            _fields.put("PATH_TRANSLATED", _path_translated);
             _fields.put("QUERY_STRING", "");  // TODO
             _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost
             _fields.put("REMOTE_HOST", "");

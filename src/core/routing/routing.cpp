@@ -198,9 +198,9 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route) {
-            webserv::http::cgi_message cgi_msg(request, get_instance());
-            // webserv::pal::fork::fork_task task(route.get_file_target().to_absolute_string());
+        void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* the_route) {
+            webserv::http::cgi_message cgi_msg(request, get_instance(), table.query(request.get_line().get_uri().get_path())->get_file_target().to_absolute_string());
+            // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
             webserv::pal::fork::fork_task task("../tester/cgi/cgi_tester.cgi");
             webserv::pal::fork::wait_set ws;
