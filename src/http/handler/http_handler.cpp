@@ -28,19 +28,19 @@ namespace webserv {
 
         void http_handler::start() {
             next(&basic_handler::wait_for_char);
-            later(&basic_handler::char_arrived);
+            later(&http_handler::char_arrived);
         }
 
         void http_handler::abort() {
-            
+
         }
 
         void http_handler::char_arrived() {
             _buffer += basic_handler::get_last_char();
             if (_buffer.find("\r\n\r\n") != std::string::npos) {
-                next(&basic_handler::process_head);
+                next(&http_handler::process_head);
             } else {
-                next(&basic_handler::start);
+                next(&http_handler::start);
             }
         }
 
@@ -63,18 +63,18 @@ namespace webserv {
             if (correct) {
                 if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
                     next(&basic_handler::parse_chunked_body);
-                    later(&basic_handler::process_request);
+                    later(&http_handler::process_request);
                 } else if (_into.get_fields().has("Content-Length")) {
                     int bytes;
                     if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
                         this->_bytes = bytes;
                         next(&basic_handler::parse_normal_body);
-                        later(&basic_handler::process_request);
+                        later(&http_handler::process_request);
                     } else {
                         next(&basic_handler::total_failure);
                     }
                 } else {
-                    next(&basic_handler::process_request);
+                    next(&http_handler::process_request);
                 }
             } else {
                 std::cout << "Error in request!" << std::endl;
@@ -95,7 +95,7 @@ namespace webserv {
 
             response->write(*basic_handler::get_connection());
 
-            next(&basic_handler::end_request);
+            next(&http_handler::end_request);
         }
 
         void http_handler::end_request() {
