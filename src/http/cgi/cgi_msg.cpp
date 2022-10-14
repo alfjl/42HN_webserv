@@ -30,23 +30,23 @@ namespace webserv {
         webserv::core::instance& cgi_message::get_current_instance() { return _current_instance; }
 
         void cgi_message::setup_fields() {
-            _fields.put("AUTH_TYPE", "");
+            // _fields.put("AUTH_TYPE", "");
             _fields.put("CONTENT_LENGTH", (int) _message_body.size());
             _fields.put("CONTENT_TYPE", _request.get_fields().get_or_default("Content-Type", "plain"));
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", _request.get_line().get_uri().get_path().to_absolute_string());
             _fields.put("PATH_TRANSLATED", _path_translated);
-            _fields.put("QUERY_STRING", "");  // TODO
-            _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost
-            _fields.put("REMOTE_HOST", "");
-            _fields.put("REMOTE_IDENT", ""); // Not really needed
-            _fields.put("REMOTE_USER", "");
+            _fields.put("QUERY_STRING", "");  // TODO: Needs to be parsed as well!
+            _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost ?read out request field X-Forwarded-For?
+            _fields.put("REMOTE_HOST", _request.get_fields().get_or_default("Host", "")); // Not really needed: "only if server performed such lookup"
+            // _fields.put("REMOTE_IDENT", ""); // Not really needed: "only if server performed such lookup"
+            // _fields.put("REMOTE_USER", "");
             _fields.put("REQUEST_METHOD", _method);
-            _fields.put("SCRIPT_NAME", "");
+            _fields.put("SCRIPT_NAME", ""); // relative path to the program, like /cgi-bin/script.cgi. Or just leave empty?
             _fields.put("SERVER_NAME", ""); // = get_current_instance().get_server_name()
             _fields.put("SERVER_PORT", ""); // = get_current_instance().get_server_port()
             _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); // 
-            _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // name of our webserver
+            _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // change to final name of our webserver
         }
 
         void cgi_message::write_on(std::ostream& o) {
