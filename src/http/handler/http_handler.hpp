@@ -26,6 +26,8 @@ namespace webserv {
             void process_head();
             void process_request();
             void end_request();
+
+            webserv::core::routing& get_routing();
         };
 
     }

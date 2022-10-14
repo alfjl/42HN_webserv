@@ -22,6 +22,10 @@ namespace webserv {
             void abort();
 
             void char_arrived();
+
+            void process_head();
+            void process_request();
+            void end_request();
         };
 
     }

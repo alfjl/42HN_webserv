@@ -104,5 +104,8 @@ namespace webserv {
             stop();
         }
 
+        webserv::core::routing& http_handler::get_routing() { return _routing; }
+
+
     }
 }
