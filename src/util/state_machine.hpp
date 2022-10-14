@@ -20,10 +20,9 @@ namespace webserv {
             virtual bool is_stopped() = 0;
         };
 
-        template<typename Impl>
         class state_machine : public state_machine_base {
         protected:
-            typedef void (Impl::*state_function)();
+            typedef void (state_machine::*state_function)();
 
             template<typename T>
             state_function conv(T value) {
@@ -82,7 +81,7 @@ namespace webserv {
             void tick() {
                 unyield();
                 while (is_running()) {
-                    (((Impl*) this)->*current_func)();
+                    (this->*current_func)();
                 }
             }
         };

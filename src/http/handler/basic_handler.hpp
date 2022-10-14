@@ -10,7 +10,7 @@
 namespace webserv {
     namespace http {
 
-        class basic_handler : public webserv::util::state_machine<basic_handler> {
+        class basic_handler : public webserv::util::state_machine {
         protected:
             char                        _last_char;
             webserv::util::connection*  _connection;
