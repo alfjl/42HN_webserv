@@ -5,7 +5,7 @@ namespace webserv {
 
         cgi_handler::cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler)
             : basic_handler(new_connection), _http_handler(http_handler) {
-                _http_handler->fall_asleep();
+                _http_handler->fall_asleep(); // This should happen somewhere else
         }
 
         cgi_handler::~cgi_handler() {
@@ -13,16 +13,17 @@ namespace webserv {
         }
 
         void cgi_handler::start() {
-
+            next(&cgi_handler::wait_for_char);
+            later(&cgi_handler::char_arrived);
         }
 
         void cgi_handler::abort() {
-
+            // TODO
         }
 
         void cgi_handler::char_arrived() {
             std::cerr << "\033[35m" << basic_handler::get_last_char() << "\033[0m";
-            next(reinterpret_cast<state_function>(&cgi_handler::start));
+            next(&cgi_handler::start);
         }
 
     }

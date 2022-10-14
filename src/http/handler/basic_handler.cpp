@@ -145,7 +145,7 @@ namespace webserv {
 
         void basic_handler::total_failure() {
             std::cout << "Total failure!" << std::endl;
-            next(&basic_handler::abort);
+            next(&basic_handler::abort); // WATCH OUT!!! FIXME, ERROR, XXX! Create a virtual getter!
         }
 
     }
