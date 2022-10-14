@@ -11,11 +11,19 @@ namespace webserv {
 
         http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
             : basic_handler(new_connection), _routing(routing) {
-
+                
         }
 
         http_handler::~http_handler() {
 
+        }
+
+        void http_handler::fall_asleep() {
+            // TODO: Implement!
+        }     
+
+        void http_handler::wake_up() {
+            // TODO: Implement!
         }
 
     }

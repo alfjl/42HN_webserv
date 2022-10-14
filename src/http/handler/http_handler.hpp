@@ -14,6 +14,9 @@ namespace webserv {
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
             ~http_handler();
+
+            void fall_asleep();
+            void wake_up();
         };
 
     }
