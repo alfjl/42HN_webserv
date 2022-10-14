@@ -3,27 +3,20 @@
 
 #include "../../defs.hpp"
 
-#include "../../core/routing/routing.hpp"
-#include "../../util/state_machine.hpp"
+#include "basic_handler.hpp"
+#include "http_handler.hpp"
+
 #include "../../util/connection.hpp"
 
 namespace webserv {
     namespace http {
 
-        class cgi_handler : public webserv::util::state_machine<cgi_handler> {
-            char                        last_char;
-            webserv::util::connection*  connection;
+        class cgi_handler : public basic_handler {
+            webserv::http::http_handler* _http_handler;
 
         public:
-            cgi_handler(webserv::util::connection* new_connection);
+            cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler);
             ~cgi_handler();
-
-            webserv::util::wrapped_queue& in();
-            std::ostream& out();
-
-            void wait_for_char();
-
-            void start();
 
             void char_arrived();
         };
