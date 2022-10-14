@@ -11,6 +11,7 @@ namespace webserv {
     namespace http {
 
         class basic_handler : public webserv::util::state_machine<basic_handler> {
+        protected:
             char                        _last_char;
             webserv::util::connection*  _connection;
             std::string                 _buffer;
@@ -31,11 +32,10 @@ namespace webserv {
 
             virtual void wait_for_char();
 
-            void start();
+            virtual void start() = 0;
+            virtual void abort() = 0;
 
             void replace(std::string& str, const std::string& from, const std::string& to);
-
-            void char_arrived();
 
             void read_until_newline();
             void read_until_newline_loop();
@@ -49,10 +49,6 @@ namespace webserv {
             void parse_chunked_body_parse_byte_count();
             void parse_chunked_body_parse_bytes();
             void parse_chunked_body_parse_bytes_loop();
-
-            void process_head();
-            void process_request();
-            void end_request();
 
             void total_failure();
         };
