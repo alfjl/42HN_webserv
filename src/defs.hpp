@@ -40,7 +40,6 @@ extern "C" {
 #include "pal/net/socket.hpp"
 
 namespace webserv {
-
 }
 
 #endif

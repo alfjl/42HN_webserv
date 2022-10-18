@@ -23,6 +23,8 @@ namespace webserv {
             routing     _routing;
             filesystem  _fs;
 
+		    bool is_interupted;
+            
             void banner();
 
         public:
@@ -34,6 +36,8 @@ namespace webserv {
             routing&    get_routing()   { return _routing; }
             filesystem& get_fs()        { return _fs; }
 
+		    void was_interupted();
+            
             void pass_connection(webserv::util::connection* new_connection);
             void pass_cgi(int cgi_fd);
 

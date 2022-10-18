@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), is_interupted(false) {
             banner();
         }
 
@@ -36,6 +36,10 @@ namespace webserv {
                 _driver.tick();
                 _scheduler.tick();
             }
+        }
+
+        void instance::was_interupted() {
+            is_interupted = true;
         }
 
         void instance::on_port(int port) {
