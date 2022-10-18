@@ -17,12 +17,13 @@ void test_all() {
     test_uri_parsing();
 }
 
-void setup_interrupts() {
-    signal(SIGPIPE, SIG_IGN);
+void webserver_signal_handler(int signal) {
+    the_webserv.interrupt();
 }
 
-void webserver_signal_handler(int signal) {
-    the_webserv.was_interupted();
+void setup_interrupts() {
+    signal(SIGPIPE, SIG_IGN);
+    signal(SIGINT, webserver_signal_handler);
 }
 
 void webserv_main(const char* config_path) {
@@ -35,8 +36,10 @@ void webserv_main(const char* config_path) {
         std::cout << "Unable to parse the config file!" << std::endl;
         return;
     }
-    
+
     the_webserv.run();
+
+    std::cout << "Finished!" << std::endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -44,8 +47,8 @@ int main(int argc, char *argv[]) {
         std::cout << "usage: ./webserv <filename>" << std::endl;
         return 1;
     }
+    setup_interrupts();
     webserv_main(argv[1]);
-    signal(SIGINT, webserver_signal_handler);
     system("leaks webserv");
     return 0;
 }
