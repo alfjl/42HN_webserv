@@ -10,213 +10,102 @@ namespace webserv {
     namespace http {
 
         http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
-            : connection(new_connection), routing(routing) {
-            if (connection != NULL)
-                connection->increment_refcount();
+            : basic_handler(new_connection), _routing(routing) {
+                
         }
 
         http_handler::~http_handler() {
-            if (connection != NULL)
-                connection->decrement_refcount();
+
         }
 
-        webserv::util::wrapped_queue& http_handler::in() { return connection->get_input(); }
-        std::ostream& http_handler::out() { return connection->get_ostream(); }
+        void http_handler::fall_asleep() {
+            // TODO: Implement!
+        }     
 
-        void http_handler::wait_for_char() {
-            if (in().has_next()) {
-                if (in().next_char(last_char)) {
-                    ret();
-                    return;
-                }
-            }
-            if (connection->is_closed())
-                stop();
-            else
-                yield();
+        void http_handler::wake_up() {
+            // TODO: Implement!
         }
 
         void http_handler::start() {
-            next(&http_handler::wait_for_char);
+            next(&basic_handler::wait_for_char);
             later(&http_handler::char_arrived);
         }
 
-        void http_handler::replace(std::string& str, const std::string& from, const std::string& to) {
-            while (true) {
-                size_t start_pos = str.find(from);
-                if (start_pos == std::string::npos)
-                    break;
-                str.replace(start_pos, from.length(), to);
-            }
+        void http_handler::abort() {
+
         }
 
         void http_handler::char_arrived() {
-            buffer += last_char;
-            if (buffer.find("\r\n\r\n") != std::string::npos) {
+            _buffer += basic_handler::get_last_char();
+            if (_buffer.find("\r\n\r\n") != std::string::npos) {
                 next(&http_handler::process_head);
             } else {
                 next(&http_handler::start);
             }
         }
 
-        void http_handler::read_until_newline() {
-            buffer = "";
-            next(&http_handler::read_until_newline_loop);
-        }
-
-        void http_handler::read_until_newline_loop() {
-            if (buffer.find("\r\n") != std::string::npos) {
-                ret();
-            } else {
-                next(&http_handler::wait_for_char);
-                later(&http_handler::read_until_newline_continue);
-            }
-        }
-
-        void http_handler::read_until_newline_continue() {
-            buffer += last_char;
-            next(&http_handler::read_until_newline_loop);
-        }
-
-        void http_handler::parse_normal_body() {
-            next(&http_handler::parse_normal_body_loop);
-        }
-
-        void http_handler::parse_normal_body_loop() {
-            if (bytes == 0) ret();
-            else {
-                bytes--;
-                next(&http_handler::wait_for_char);
-                later(&http_handler::parse_normal_body_continue);
-            }
-        }
-
-        void http_handler::parse_normal_body_continue() {
-            body += last_char;
-            next(&http_handler::parse_normal_body_loop);
-        }
-
-        void http_handler::parse_chunked_body() {
-            next(&http_handler::read_until_newline);
-            later(&http_handler::parse_chunked_body_parse_byte_count);
-        }
-
-        static bool hex2int(char c, unsigned int& i) {
-                 if (c >= '0' && c <= '9') { i = c - '0'; return true; }
-            else if (c >= 'a' && c <= 'f') { i = c - 'a' + 10; return true; }
-            else if (c >= 'A' && c <= 'F') { i = c - 'A' + 10; return true; }
-            else return false;
-        }
-
-        void http_handler::parse_chunked_body_parse_byte_count() {
-            hex = 0;
-            unsigned int i = 0;
-
-            while (i < buffer.size()) {
-                unsigned int h;
-                if (hex2int(buffer[i], h)) {
-                    hex = (hex * 16) + h;
-                } else {
-                    if (i > 0 && i == buffer.size() - 2) { // TODO: Properly check for invalid lines!
-                        break;
-                    } else {
-                        next(&http_handler::total_failure);
-                        return;
-                    }
-                }
-                i++;
-            }
-
-            buffer = "";
-            if (hex == 0) {
-                ret();
-            } else {
-                next(&http_handler::parse_chunked_body_parse_bytes);
-            }
-        }
-
-        void http_handler::parse_chunked_body_parse_bytes() {
-            buffer = "";
-            if (hex == 0) {
-                // TODO, FIXME, XXX: Is there always a trailing \r\n?
-                next(&http_handler::read_until_newline);
-                later(&http_handler::parse_chunked_body);
-            } else {
-                hex--;
-                next(&http_handler::wait_for_char);
-                later(&http_handler::parse_chunked_body_parse_bytes_loop);
-            }
-        }
-
-        void http_handler::parse_chunked_body_parse_bytes_loop() {
-            body += last_char;
-            next(&http_handler::parse_chunked_body_parse_bytes);
-        }
-
         void http_handler::process_head() {
-            webserv::util::stringflow   flow(buffer);
+            webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
-            into = request_core();
+            _into = request_core();
 
             bool correct = false;
             
             try {
-                parse_http_request_core(parser, into);
+                parse_http_request_core(parser, _into);
                 correct = true;
             } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
 
             }
 
-            body = "";
+            _body = "";
 
             if (correct) {
-                if (into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
-                    next(&http_handler::parse_chunked_body);
+                if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                    next(&basic_handler::parse_chunked_body);
                     later(&http_handler::process_request);
-                } else if (into.get_fields().has("Content-Length")) {
+                } else if (_into.get_fields().has("Content-Length")) {
                     int bytes;
-                    if (webserv::pal::cpp::string_to_int(into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
-                        this->bytes = bytes;
-                        next(&http_handler::parse_normal_body);
+                    if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                        this->_bytes = bytes;
+                        next(&basic_handler::parse_normal_body);
                         later(&http_handler::process_request);
                     } else {
-                        next(&http_handler::total_failure);
+                        next(&basic_handler::total_failure);
                     }
                 } else {
                     next(&http_handler::process_request);
                 }
             } else {
                 std::cout << "Error in request!" << std::endl;
-                next(&http_handler::total_failure);
+                next(&basic_handler::total_failure);
             }
         }
 
         void http_handler::process_request() {
-            into.get_body() = body;
-            body = "";
+            _into.get_body() = _body;
+            _body = "";
 
-            std::cout << "Serving " << into.get_line().get_uri().get_path().to_absolute_string() << "... ";
+            std::cout << "Serving " << _into.get_line().get_uri().get_path().to_absolute_string() << "... ";
             std::flush(std::cout);
 
-            response* response = routing.look_up(into);
+            response* response = _routing.look_up(_into);
 
             std::cout << response->get_code() << std::endl;
 
-            response->write(*connection);
+            response->write(*basic_handler::get_connection());
 
             next(&http_handler::end_request);
         }
 
         void http_handler::end_request() {
-            connection->close();
+            basic_handler::get_connection()->close();
 
             stop();
         }
 
-        void http_handler::total_failure() {
-            std::cout << "Total failure!" << std::endl;
-            next(&http_handler::end_request);
-        }
+        webserv::core::routing& http_handler::get_routing() { return _routing; }
+
 
     }
 }

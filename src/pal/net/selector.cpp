@@ -73,7 +73,8 @@ namespace webserv {
                 // use ::select() to check all 3 sets
                 int status = ::select(highest_fd + 1, &read_fds, &write_fds, &exception_fds, NULL);
                 if (status < 0) {// if select() throws error
-                    throw std::runtime_error("select(...) returned an error code!");
+                    // throw std::runtime_error("select(...) returned an error code!");
+                    return;
                 }
 
                 // iterate over all sockets check, which fd_set they belong to

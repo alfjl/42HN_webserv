@@ -20,10 +20,16 @@ namespace webserv {
             virtual bool is_stopped() = 0;
         };
 
-        template<typename Impl>
         class state_machine : public state_machine_base {
-            typedef void (Impl::*state_function)();
+        protected:
+            typedef void (state_machine::*state_function)();
 
+            template<typename T>
+            state_function conv(T value) {
+                return reinterpret_cast<state_function>(value);
+            }
+
+        private:
             enum state_machine_status   status;
             std::stack<state_function>  return_stack;
             state_function              current_func;
@@ -47,12 +53,14 @@ namespace webserv {
             void unyield() { set_status(state_machine_status_RUNNING); }
 
 
-            void next(state_function func) {
-                current_func = func;
+            template<typename T>
+            void next(T func) {
+                current_func = conv(func);
             }
 
-            void later(state_function func) {
-                return_stack.push(func);
+            template<typename T>
+            void later(T func) {
+                return_stack.push(conv(func));
             }
 
             void ret() {
@@ -73,7 +81,7 @@ namespace webserv {
             void tick() {
                 unyield();
                 while (is_running()) {
-                    (((Impl*) this)->*current_func)();
+                    (this->*current_func)();
                 }
             }
         };

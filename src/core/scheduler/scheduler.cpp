@@ -19,7 +19,7 @@ namespace webserv {
         }
 
         void scheduler::register_cgi_connection(webserv::util::connection* connection) {
-            handlers_to_add.push(new webserv::http::cgi_handler(connection));
+            handlers_to_add.push(new webserv::http::cgi_handler(connection, NULL));
         }
 
         void scheduler::tick() {
