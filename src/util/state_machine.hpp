@@ -12,7 +12,7 @@ namespace webserv {
             state_machine_status_STOPPED,
         };
 
-        class state_machine_base {
+        class state_machine_base : public webserv::util::refcounted {
         public:
             virtual ~state_machine_base() {}
             
