@@ -18,14 +18,6 @@ namespace webserv {
 
         }
 
-        void http_handler::fall_asleep() {
-            // TODO: Implement!
-        }     
-
-        void http_handler::wake_up() {
-            // TODO: Implement!
-        }
-
         void http_handler::start() {
             next(&basic_handler::wait_for_char);
             later(&http_handler::char_arrived);
@@ -86,18 +78,17 @@ namespace webserv {
             _into.get_body() = _body;
             _body = "";
 
-            std::cout << "Serving " << _into.get_line().get_uri().get_path().to_absolute_string() << "... ";
-            std::flush(std::cout);
-
-            response* response = _routing.look_up(_into, this);
-
-            std::cout << response->get_code() << std::endl;
-
-            response->write(*basic_handler::get_connection());
-
-            response->decrement_refcount();
+            //std::cout << "Serving " << _into.get_line().get_uri().get_path().to_absolute_string() << "... ";
+            //std::flush(std::cout);
 
             next(&http_handler::end_request);
+            _routing.look_up(_into, this);
+
+            //std::cout << response->get_code() << std::endl;
+
+            //response->write(*basic_handler::get_connection());
+
+            //response->decrement_refcount();
         }
 
         void http_handler::end_request() {
