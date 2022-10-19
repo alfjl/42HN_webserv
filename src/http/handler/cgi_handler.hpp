@@ -13,6 +13,7 @@ namespace webserv {
 
         class cgi_handler : public basic_handler {
             webserv::http::http_handler* _http_handler;
+            webserv::http::fields        _fields;
 
         public:
             cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler);

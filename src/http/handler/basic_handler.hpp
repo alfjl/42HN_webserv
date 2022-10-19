@@ -16,7 +16,6 @@ namespace webserv {
             webserv::util::connection*  _connection;
             std::string                 _buffer;
             std::string                 _body;
-            request_core                _into;
             unsigned int                _hex;
             unsigned int                _bytes;
 
