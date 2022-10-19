@@ -9,6 +9,8 @@
 #include "../routing/routing.hpp"
 
 namespace webserv {
+    namespace http { class cgi_handler; }
+    
     namespace core {
 
         class scheduler : public component {
@@ -21,7 +23,7 @@ namespace webserv {
             ~scheduler();
 
             void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
-            void register_cgi_connection(webserv::util::connection* connection);
+            webserv::http::cgi_handler* register_cgi_connection(webserv::util::connection* connection);
 
             void tick();
         };

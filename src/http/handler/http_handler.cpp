@@ -89,7 +89,7 @@ namespace webserv {
             std::cout << "Serving " << _into.get_line().get_uri().get_path().to_absolute_string() << "... ";
             std::flush(std::cout);
 
-            response* response = _routing.look_up(_into);
+            response* response = _routing.look_up(_into, this);
 
             std::cout << response->get_code() << std::endl;
 

@@ -1,6 +1,8 @@
 #include "instance.hpp"
 
 namespace webserv {
+    namespace http { class cgi_handler; }
+
     namespace core {
 
         instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), is_interrupted(false) {
@@ -25,9 +27,9 @@ namespace webserv {
             _scheduler.register_connection(new_connection, _routing);
         }
 
-        void instance::pass_cgi(int cgi_fd) {
+        webserv::http::cgi_handler*  instance::pass_cgi(int cgi_fd) {
             webserv::util::connection* connection = _driver.add_fd(cgi_fd);
-            _scheduler.register_cgi_connection(connection);
+            return _scheduler.register_cgi_connection(connection);
         }
 
         bool instance::is_running() {

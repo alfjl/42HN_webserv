@@ -15,11 +15,16 @@ namespace webserv {
         }
 
         void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing) {
-            handlers.push_back(new webserv::http::http_handler(new_connection, routing));
+            webserv::http::http_handler* handler = new webserv::http::http_handler(new_connection, routing);
+            handlers.push_back(handler);
+            handler->increment_refcount();
         }
 
-        void scheduler::register_cgi_connection(webserv::util::connection* connection) {
-            handlers_to_add.push(new webserv::http::cgi_handler(connection, NULL));
+        webserv::http::cgi_handler* scheduler::register_cgi_connection(webserv::util::connection* connection) {
+            webserv::http::cgi_handler* handler = new webserv::http::cgi_handler(connection);
+            handlers_to_add.push(handler);
+            handler->increment_refcount();
+            return handler;
         }
 
         void scheduler::tick() {
@@ -35,7 +40,7 @@ namespace webserv {
                     // TODO: Add to list of stopped handlers, remove elements later
                     webserv::util::state_machine_base* machine = *it;
                     handlers.erase(it);
-                    delete machine;
+                    machine->decrement_refcount();
                     break;
                 }
                 (*it)->tick();

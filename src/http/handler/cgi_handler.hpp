@@ -16,8 +16,10 @@ namespace webserv {
             webserv::http::fields        _fields;
 
         public:
-            cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler);
+            cgi_handler(webserv::util::connection* new_connection);
             ~cgi_handler();
+
+            void set_http_handler(webserv::http::http_handler* http_handler);
 
                                       void start();
             enum basic_handler::abort_mode abort();

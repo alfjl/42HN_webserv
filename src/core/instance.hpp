@@ -40,7 +40,7 @@ namespace webserv {
 		    bool was_interrupted();
             
             void pass_connection(webserv::util::connection* new_connection);
-            void pass_cgi(int cgi_fd);
+            webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
             bool is_running();
 

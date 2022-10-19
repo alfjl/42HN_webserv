@@ -11,6 +11,8 @@
 #include "routing_table.hpp"
 
 namespace webserv {
+    namespace http { class http_handler; }
+    
     namespace core {
 
         class   selector;
@@ -22,14 +24,14 @@ namespace webserv {
             routing(instance& the_inst);
             ~routing();
 
-            webserv::http::response_fixed* look_up(webserv::http::request_core& request);
+            webserv::http::response_fixed* look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler);
 
             void handle_http_head(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
             void handle_http_get(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
             void handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
             void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route);
 
-            void handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route);
+            void handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* route, webserv::http::http_handler* the_http_handler);
 
             void tick();
 

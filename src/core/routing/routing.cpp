@@ -3,6 +3,8 @@
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
+#include "../../http/handler/http_handler.hpp"
+#include "../../http/handler/cgi_handler.hpp"
 #include "../../http/cgi/cgi_msg.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
@@ -198,7 +200,7 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* the_route) {
+        void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* the_route, webserv::http::http_handler* the_http_handler) {
             webserv::http::cgi_message cgi_msg(request, get_instance(), table.query(request.get_line().get_uri().get_path())->get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
@@ -238,14 +240,18 @@ namespace webserv {
             ::close(cgi_in.out);
             ::close(cgi_out.in);
 
-            get_instance().pass_cgi(cgi_out.out);
+            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
-            // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
-            //       sent to us by the CGI
-            service_unavailable_503(*response);
+            if (handler != NULL) {
+                response->block_all();
+                handler->set_http_handler(the_http_handler);
+                the_http_handler->fall_asleep();
+            } else {
+                service_unavailable_503(*response);
+            }
         }
 
-        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
+        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
             response->increment_refcount();
 
@@ -257,7 +263,7 @@ namespace webserv {
                 if (!the_route->is_method_allowed(request.get_line().get_method())) {
                     method_not_allowed_405(*response);
                 } else if (the_route->is_cgi()) {
-                    handle_cgi(response, request, the_route);
+                    handle_cgi(response, request, the_route, the_http_handler);
                 } else if (the_route->is_redirection()) {
                     temporary_redirect_302(*response, the_route->get_file_target());
                 } else if (the_route->is_permanent_redirection()) {

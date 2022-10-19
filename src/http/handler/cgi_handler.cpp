@@ -7,15 +7,23 @@
 namespace webserv {
     namespace http {
 
-        cgi_handler::cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler)
-            : basic_handler(new_connection), _http_handler(http_handler) {
-                if (_http_handler != NULL)
-                    _http_handler->fall_asleep(); // This should happen somewhere else
+        cgi_handler::cgi_handler(webserv::util::connection* new_connection)
+            : basic_handler(new_connection), _http_handler(NULL) {
+
         }
 
         cgi_handler::~cgi_handler() {
-            if (_http_handler != NULL)
+            if (_http_handler != NULL) {
                 _http_handler->wake_up();
+                _http_handler->decrement_refcount();
+            }
+        }
+
+        void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
+            // TODO: Throw exception if handler is already set
+            _http_handler = http_handler;
+            if (_http_handler != NULL)
+                _http_handler->increment_refcount();
         }
 
         void cgi_handler::start() {
@@ -80,6 +88,15 @@ namespace webserv {
         void cgi_handler::process_request() {
             std::cout << "CGI processing request..." << std::endl;
             std::cout << _fields << std::endl;
+
+            if (_http_handler != NULL) {
+                std::ostream& out = _http_handler->out();
+                out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                out << _fields; // TODO: Is this correct?
+                out << "\r\n";
+                //TODO: out << _body;
+            }
+
             next(&cgi_handler::end_request);
         }
 
