@@ -18,8 +18,8 @@ namespace webserv {
             cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler);
             ~cgi_handler();
 
-            void start();
-            void abort();
+                                      void start();
+            enum basic_handler::abort_mode abort();
 
             void char_arrived();
 

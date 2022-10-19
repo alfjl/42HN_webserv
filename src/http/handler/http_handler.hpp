@@ -18,8 +18,8 @@ namespace webserv {
             void fall_asleep();
             void wake_up();
 
-            void start();
-            void abort();
+                                      void start();
+            enum basic_handler::abort_mode abort();
 
             void char_arrived();
 

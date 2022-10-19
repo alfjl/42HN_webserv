@@ -21,8 +21,8 @@ namespace webserv {
             later(&cgi_handler::char_arrived);
         }
 
-        void cgi_handler::abort() {
-            // TODO
+        enum basic_handler::abort_mode cgi_handler::abort() {
+            return abort_mode_terminate;
         }
 
         void cgi_handler::char_arrived() {

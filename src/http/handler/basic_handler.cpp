@@ -20,6 +20,11 @@ namespace webserv {
                 _connection->decrement_refcount();
         }
 
+        void basic_handler::perform_abort() {
+            if (abort() == abort_mode_terminate)
+                stop();
+        }
+
         webserv::util::wrapped_queue& basic_handler::in() { return _connection->get_input(); }
         std::ostream& basic_handler::out() { return _connection->get_ostream(); }
 
@@ -145,7 +150,7 @@ namespace webserv {
 
         void basic_handler::total_failure() {
             std::cout << "Total failure!" << std::endl;
-            next(&basic_handler::abort); // WATCH OUT!!! FIXME, ERROR, XXX! Create a virtual getter!
+            next(&basic_handler::perform_abort);
         }
 
     }

@@ -31,8 +31,8 @@ namespace webserv {
             later(&http_handler::char_arrived);
         }
 
-        void http_handler::abort() {
-
+        enum basic_handler::abort_mode http_handler::abort() {
+            return abort_mode_terminate;
         }
 
         void http_handler::char_arrived() {
