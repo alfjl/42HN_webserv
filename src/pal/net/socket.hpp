@@ -2,12 +2,13 @@
 #define WEBSERV_PAL_NET_SOCKET_HPP
 
 #include "../../defs.hpp"
+#include "../../util/refcounted.hpp"
 
 namespace webserv {
     namespace pal {
         namespace net {
 
-            class socket {
+            class socket : public webserv::util::refcounted {
                 int fd;
 
             private:
