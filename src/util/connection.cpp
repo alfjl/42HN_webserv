@@ -8,7 +8,7 @@ namespace webserv {
         }
 
         connection::~connection() {
-            
+            close();
         }
 
         wrapped_queue& connection::get_input() {

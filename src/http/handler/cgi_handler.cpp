@@ -7,13 +7,23 @@
 namespace webserv {
     namespace http {
 
-        cgi_handler::cgi_handler(webserv::util::connection* new_connection, webserv::http::http_handler* http_handler)
-            : basic_handler(new_connection), _http_handler(http_handler) {
-                _http_handler->fall_asleep(); // This should happen somewhere else
+        cgi_handler::cgi_handler(webserv::util::connection* new_connection)
+            : basic_handler(new_connection), _http_handler(NULL) {
+
         }
 
         cgi_handler::~cgi_handler() {
-            _http_handler->wake_up();
+            if (_http_handler != NULL) {
+                _http_handler->wake_up();
+                _http_handler->decrement_refcount();
+            }
+        }
+
+        void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
+            // TODO: Throw exception if handler is already set
+            _http_handler = http_handler;
+            if (_http_handler != NULL)
+                _http_handler->increment_refcount();
         }
 
         void cgi_handler::start() {
@@ -21,8 +31,8 @@ namespace webserv {
             later(&cgi_handler::char_arrived);
         }
 
-        void cgi_handler::abort() {
-            // TODO
+        enum basic_handler::abort_mode cgi_handler::abort() {
+            return abort_mode_terminate;
         }
 
         void cgi_handler::char_arrived() {
@@ -30,21 +40,21 @@ namespace webserv {
             // next(&cgi_handler::start);
             _buffer += basic_handler::get_last_char();
             if (_buffer.find("\r\n\r\n") != std::string::npos) {
-                next(&http_handler::process_head);
+                next(&cgi_handler::process_head);
             } else {
-                next(&http_handler::start);
+                next(&cgi_handler::start);
             }
         }
 
         void cgi_handler::process_head() {
             webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
-            _into = request_core();
+            _fields = webserv::http::fields();
 
             bool correct = false;
             
             try {
-                parse_http_request_core(parser, _into);
+                parse_request_fields(parser, _fields);
                 correct = true;
             } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
 
@@ -53,21 +63,22 @@ namespace webserv {
             _body = "";
 
             if (correct) {
-                if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
-                    next(&basic_handler::parse_chunked_body);
-                    later(&cgi_handler::process_request);
-                } else if (_into.get_fields().has("Content-Length")) {
-                    int bytes;
-                    if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
-                        this->_bytes = bytes;
-                        next(&basic_handler::parse_normal_body);
-                        later(&cgi_handler::process_request);
-                    } else {
-                        next(&basic_handler::total_failure);
-                    }
-                } else {
-                    next(&cgi_handler::process_request);
-                }
+                // if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                //     next(&basic_handler::parse_chunked_body);
+                //     later(&cgi_handler::process_request);
+                // } else if (_into.get_fields().has("Content-Length")) {
+                //     int bytes;
+                //     if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                //         this->_bytes = bytes;
+                //         next(&basic_handler::parse_normal_body);
+                //         later(&cgi_handler::process_request);
+                //     } else {
+                //         next(&basic_handler::total_failure);
+                //     }
+                // } else {
+                //     next(&cgi_handler::process_request);
+                // }
+                next(&cgi_handler::process_request);
             } else {
                 std::cout << "Error in request!" << std::endl;
                 next(&basic_handler::total_failure);
@@ -75,17 +86,16 @@ namespace webserv {
         }
 
         void cgi_handler::process_request() {
-            _into.get_body() = _body;
-            _body = "";
+            std::cout << "CGI processing request..." << std::endl;
+            std::cout << _fields << std::endl;
 
-            std::cout << "CGI Serving " << _into.get_line().get_uri().get_path().to_absolute_string() << "... ";
-            std::flush(std::cout);
-
-            response* response = _http_handler->get_routing().look_up(_into);
-
-            std::cout << response->get_code() << std::endl;
-
-            response->write(*basic_handler::get_connection());
+            if (_http_handler != NULL) {
+                std::ostream& out = _http_handler->out();
+                out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                out << _fields; // TODO: Is this correct?
+                out << "\r\n";
+                //TODO: out << _body;
+            }
 
             next(&cgi_handler::end_request);
         }

@@ -10,16 +10,14 @@ namespace webserv {
 
         class http_handler : public basic_handler {
             webserv::core::routing& _routing;
+            request_core            _into;
 
         public:
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
             ~http_handler();
 
-            void fall_asleep();
-            void wake_up();
-
-            void start();
-            void abort();
+                                      void start();
+            enum basic_handler::abort_mode abort();
 
             void char_arrived();
 

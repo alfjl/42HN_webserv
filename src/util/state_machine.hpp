@@ -9,6 +9,7 @@ namespace webserv {
         enum state_machine_status {
             state_machine_status_RUNNING,
             state_machine_status_YIELDING,
+            state_machine_status_SLEEPING,
             state_machine_status_STOPPED,
         };
 
@@ -51,6 +52,9 @@ namespace webserv {
 
             void yield() { set_status(state_machine_status_YIELDING); }
             void unyield() { set_status(state_machine_status_RUNNING); }
+
+            void fall_asleep() { set_status(state_machine_status_SLEEPING); }
+            void wake_up() { set_status(state_machine_status_RUNNING); }
 
 
             template<typename T>

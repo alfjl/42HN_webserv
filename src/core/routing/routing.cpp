@@ -3,6 +3,8 @@
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
+#include "../../http/handler/http_handler.hpp"
+#include "../../http/handler/cgi_handler.hpp"
 #include "../../http/cgi/cgi_msg.hpp"
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
@@ -198,7 +200,7 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed* response, webserv::http::request_core& request, route* the_route) {
+        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request_core& request, route* the_route, webserv::http::http_handler* the_http_handler) {
             webserv::http::cgi_message cgi_msg(request, get_instance(), table.query(request.get_line().get_uri().get_path())->get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
@@ -214,13 +216,13 @@ namespace webserv {
              * Open 2 pipes. One for input to cgi and one for output of cgi
              */
             if (!prepare_pipes(&cgi_in, &cgi_out))
-                internal_server_error_500(*response);            
+                internal_server_error_500(response);            
 
             /*
              *
              */
             if (!prepare_task(cgi_in, cgi_out, &task, &ws))
-                internal_server_error_500(*response);
+                internal_server_error_500(response);
 
             // Generate state machine
             // TODO: Implement
@@ -238,15 +240,20 @@ namespace webserv {
             ::close(cgi_in.out);
             ::close(cgi_out.in);
 
-            get_instance().pass_cgi(cgi_out.out);
+            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
-            // NOTE: cgi_out.out must be open, it is used in the selector to retrieve the data
-            //       sent to us by the CGI
-            service_unavailable_503(*response);
+            if (handler != NULL) {
+                response.block_all();  // TODO: Not needed anymore
+                handler->set_http_handler(the_http_handler);
+                the_http_handler->fall_asleep();
+                std::cout << "fell asleep" << std::endl;
+            } else {
+                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+            }
         }
 
-        webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
-            webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
+        void routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
+            webserv::http::response_fixed response;
 
             route* the_route = table.query(request.get_line().get_uri().get_path());
 
@@ -254,31 +261,33 @@ namespace webserv {
                 int code;
                 
                 if (!the_route->is_method_allowed(request.get_line().get_method())) {
-                    method_not_allowed_405(*response);
+                    method_not_allowed_405(response);
                 } else if (the_route->is_cgi()) {
-                    handle_cgi(response, request, the_route);
+                    handle_cgi(response, request, the_route, the_http_handler);
+                    return; // Invisible yield
                 } else if (the_route->is_redirection()) {
-                    temporary_redirect_302(*response, the_route->get_file_target());
+                    temporary_redirect_302(response, the_route->get_file_target());
                 } else if (the_route->is_permanent_redirection()) {
-                    permanent_redirect_301(*response, the_route->get_file_target());
+                    permanent_redirect_301(response, the_route->get_file_target());
                 } else if (the_route->is_error(code)) {
                     // bad_request_400(*response);
-                    error_code(*response, code);
+                    error_code(response, code);
                 } else {
                     switch (request.get_line().get_method()) {
-                        case webserv::http::http_method_head: { handle_http_head(*response, request, *the_route); break; }
-                        case webserv::http::http_method_get: { handle_http_get(*response, request, *the_route); break; }
+                        case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
+                        case webserv::http::http_method_get: { handle_http_get(response, request, *the_route); break; }
                         case webserv::http::http_method_put:
-                        case webserv::http::http_method_post: { handle_http_post(*response, request, *the_route); break; }
-                        case webserv::http::http_method_delete: { handle_http_delete(*response, request, *the_route); break; }
+                        case webserv::http::http_method_post: { handle_http_post(response, request, *the_route); break; }
+                        case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route); break; }
                         default: {
-                            teapot_418(*response);
+                            teapot_418(response);
                             break;
                         }
                     }
                 }
             }
-            return (response);
+
+            response.write(*the_http_handler->get_connection());
         }
 
         void routing::tick() {

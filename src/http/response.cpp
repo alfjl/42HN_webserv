@@ -6,7 +6,7 @@ namespace webserv {
         /*
          * Default constructor default-initializes the members
          */
-        response::response() : _fields(), _code(418), _blocked(false) {
+        response::response() : _fields(), _code(418), _block_mode(block_mode_none) {
 
         }
 
@@ -157,6 +157,8 @@ namespace webserv {
          * to the connections ostream
          */
         void    response::write(webserv::util::connection& con) {
+            if (_block_mode == block_mode_all) return;
+
             out(con) << "HTTP/1.1 ";
             // write code + corresponding message (e.g. 200 OK)
             write_status(con);
@@ -165,12 +167,16 @@ namespace webserv {
             // write CRLF before begin of body
             out(con) << "\r\n";
             // write response body
-            if (!_blocked)
+            if (_block_mode == block_mode_none)
                 write_body(con);
         }
 
         void response::block_body() {
-            _blocked = true;
+            _block_mode = block_mode_body;
+        }
+
+        void response::block_all() {
+            _block_mode = block_mode_all;
         }
 
 
@@ -214,7 +220,7 @@ namespace webserv {
          * Sets string body as the base class' _body & field Content-type in accordance with MIME-type 'content_type'
          */
         void response_fixed::set_body(std::string body, std::string content_type) {
-            if (_blocked == false) {
+            if (_block_mode != block_mode_all) {
                 _body = body;
                 set_field("Content-type", content_type);
             }

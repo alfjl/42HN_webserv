@@ -4,6 +4,7 @@
 #include "../defs.hpp"
 
 #include "../util/connection.hpp"
+#include "../util/refcounted.hpp"
 
 #include "request.hpp" 
 
@@ -18,12 +19,18 @@ namespace webserv {
          *                                       - alanghan
          */
 
-        class response {
+        class response : public webserv::util::refcounted {
             fields           _fields;
             unsigned int     _code;
         
         protected:
-            bool             _blocked;
+            enum block_mode {
+                block_mode_none,
+                block_mode_body,
+                block_mode_all
+            };
+
+            enum block_mode  _block_mode;
 
         private:
             void          write_status(webserv::util::connection& con);
@@ -39,7 +46,9 @@ namespace webserv {
             void          set_field(std::string name, std::string value);
             virtual void  write_body(webserv::util::connection& con) = 0;
             void          write(webserv::util::connection& con);
+            
             void          block_body();
+            void          block_all();
         };
 
 

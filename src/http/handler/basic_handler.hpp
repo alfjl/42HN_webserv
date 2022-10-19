@@ -16,9 +16,13 @@ namespace webserv {
             webserv::util::connection*  _connection;
             std::string                 _buffer;
             std::string                 _body;
-            request_core                _into;
             unsigned int                _hex;
             unsigned int                _bytes;
+
+            enum abort_mode {
+                abort_mode_continue,
+                abort_mode_terminate
+            };
 
         public:
             basic_handler(webserv::util::connection* new_connection);
@@ -33,7 +37,8 @@ namespace webserv {
             virtual void wait_for_char();
 
             virtual void start() = 0;
-            virtual void abort() = 0;
+            virtual enum abort_mode abort() = 0;
+            void perform_abort();
 
             void replace(std::string& str, const std::string& from, const std::string& to);
 
