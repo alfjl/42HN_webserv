@@ -11,12 +11,14 @@ namespace webserv {
             selector::~selector() {}
 
             void selector::register_socket(socket* socket, payload_type data_set) {
+                socket->increment_refcount();
                 if (data_set != NULL)
                     data_set->increment_refcount();
                 elements[socket] = data_set;
             }
 
             void selector::register_socket(socket* socket) {
+                socket->increment_refcount();
                 elements[socket] = payload_type();
             }
 
@@ -24,6 +26,7 @@ namespace webserv {
                 std::map<socket*, payload_type>::iterator it = elements.find(sock);
                 if (it != elements.end()) {
                     it->first->close();
+                    it->first->decrement_refcount();
                     if (it->second != NULL) {
                         it->second->react_close();
                         it->second->decrement_refcount();
