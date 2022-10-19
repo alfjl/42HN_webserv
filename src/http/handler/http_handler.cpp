@@ -95,6 +95,8 @@ namespace webserv {
 
             response->write(*basic_handler::get_connection());
 
+            response->decrement_refcount();
+
             next(&http_handler::end_request);
         }
 

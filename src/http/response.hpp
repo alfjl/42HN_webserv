@@ -4,6 +4,7 @@
 #include "../defs.hpp"
 
 #include "../util/connection.hpp"
+#include "../util/refcounted.hpp"
 
 #include "request.hpp" 
 
@@ -18,7 +19,7 @@ namespace webserv {
          *                                       - alanghan
          */
 
-        class response {
+        class response : public webserv::util::refcounted {
             fields           _fields;
             unsigned int     _code;
         

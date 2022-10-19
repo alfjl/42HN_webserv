@@ -247,6 +247,7 @@ namespace webserv {
 
         webserv::http::response_fixed* routing::look_up(webserv::http::request_core& request) {
             webserv::http::response_fixed *response = new webserv::http::response_fixed(); // TODO, FIXME, XXX: We might be leaking this!
+            response->increment_refcount();
 
             route* the_route = table.query(request.get_line().get_uri().get_path());
 
