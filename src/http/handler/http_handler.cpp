@@ -36,6 +36,24 @@ namespace webserv {
             }
         }
 
+        void parse_body_util() {
+            if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                next(&basic_handler::parse_chunked_body);
+                later(&http_handler::process_request);
+            } else if (_into.get_fields().has("Content-Length")) {
+                int bytes;
+                if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                    this->_bytes = bytes;
+                    next(&basic_handler::parse_normal_body);
+                    later(&http_handler::process_request);
+                } else {
+                    next(&basic_handler::total_failure);
+                }
+            } else {
+                next(&http_handler::process_request);
+            }
+        }
+
         void http_handler::process_head() {
             webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
@@ -51,24 +69,9 @@ namespace webserv {
             }
 
             _body = "";
-
-            if (correct) {
-                if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
-                    next(&basic_handler::parse_chunked_body);
-                    later(&http_handler::process_request);
-                } else if (_into.get_fields().has("Content-Length")) {
-                    int bytes;
-                    if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
-                        this->_bytes = bytes;
-                        next(&basic_handler::parse_normal_body);
-                        later(&http_handler::process_request);
-                    } else {
-                        next(&basic_handler::total_failure);
-                    }
-                } else {
-                    next(&http_handler::process_request);
-                }
-            } else {
+            
+            if (correct) parse_body_util();
+            else {
                 std::cout << "Error in request!" << std::endl;
                 next(&basic_handler::total_failure);
             }
