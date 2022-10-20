@@ -41,7 +41,7 @@ HTTP:
  - response: For later, move code2str (see above: PAL)
  - request: Methoden-"{ ... }" in request.cpp verschieben (keine in HPP erlaubt)
  - fields: Perfekt, vielleicht Integer-Parsing einbauen (bool get(std::string key, int& value, int default_value))
- - request_parser: Refactoring, handle errors (e.g. unknown method names), handle URI encoding (e.g. %20 and other special chars)
+ - request_parser: Refactoring, handle errors (e.g. unknown method names), handle URI encoding (e.g. %20 and other special chars) DO AS LAST POINT!!!
  - http_handler and cgi_handler: For later
  - EVERYTHING: move cgi_msg, request and response into one directory ("http/proto/"), rename request_core to request, rename cgi_msg to cgi_message
 
@@ -59,3 +59,4 @@ CONFIG_PARSER:
 
 MAIN:
  - Entschlacken
+
