@@ -36,6 +36,10 @@ namespace webserv {
             void tick();
 
         protected:
+            void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response); //refactored by nlenoch
+            void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request_core& request); //refactored by nlenoch
+            void check_http_handler_asleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, int cgi_out_out); 
+
             void head_start(std::ostringstream& ost, std::string s);
             void header_one(std::ostringstream& ost, std::string s);
             void header_three(std::ostringstream& ost, std::string s);

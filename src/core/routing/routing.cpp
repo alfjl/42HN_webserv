@@ -59,33 +59,61 @@ namespace webserv {
             }
         }
 
-        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
-            webserv::util::path file_path = route.get_file_target();
-
+        // refactored by nlenoch
+        void routing::set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response) {
             int status = get_instance().get_fs().accessible(file_path);
 
             if (status == 0)
                 response.set_code(200);
             else
                 response.set_code(201);
+        }
+
+        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request_core& request) {
+             std::ofstream outfile;
+
+            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
+                outfile << request.get_body().c_str();
+
+                if (!outfile.good())
+                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                outfile.close();
+
+                response.set_html_body(request.get_body());
+            } else {
+                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+            }
+        }
+
+        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+            webserv::util::path file_path = route.get_file_target();
+
+            // int status = get_instance().get_fs().accessible(file_path);
+
+            // if (status == 0)
+            //     response.set_code(200);
+            // else
+            //     response.set_code(201);
+            set_response_code(file_path, response); // refactored by nlenoch
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
                 method_not_allowed_405(response);
             } else {
-                std::ofstream outfile;
+                get_request_body(file_path, response, request); // refactored by nlenoch
+                // std::ofstream outfile;
 
-                if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
-                    outfile << request.get_body().c_str();
+                // if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
+                //     outfile << request.get_body().c_str();
 
-                    if (!outfile.good())
-                        internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                    outfile.close();
+                //     if (!outfile.good())
+                //         internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                //     outfile.close();
 
-                    response.set_html_body(request.get_body());
-                } else {
-                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                }
+                //     response.set_html_body(request.get_body());
+                // } else {
+                //     internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                // }
             }
         }
 
@@ -197,6 +225,19 @@ namespace webserv {
             cgi_msg.write_on(std::cerr);
         }
 
+        void routing::check_http_handler_asleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, int cgi_out_out) {
+            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out_out);
+
+            if (handler != NULL) {
+                response.block_all();  // TODO: Not needed anymore
+                handler->set_http_handler(the_http_handler);
+                the_http_handler->fall_asleep();
+                std::cout << "fell asleep" << std::endl;
+            } else {
+                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+            }
+        }
+
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
@@ -239,17 +280,17 @@ namespace webserv {
             ::close(cgi_in.in);
             ::close(cgi_in.out);
             ::close(cgi_out.in);
+            check_http_handler_asleep(response, the_http_handler, cgi_out.out);
+            // webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
-            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
-
-            if (handler != NULL) {
-                response.block_all();  // TODO: Not needed anymore
-                handler->set_http_handler(the_http_handler);
-                the_http_handler->fall_asleep();
-                std::cout << "fell asleep" << std::endl;
-            } else {
-                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-            }
+            // if (handler != NULL) {
+            //     response.block_all();  // TODO: Not needed anymore
+            //     handler->set_http_handler(the_http_handler);
+            //     the_http_handler->fall_asleep();
+            //     std::cout << "fell asleep" << std::endl;
+            // } else {
+            //     service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+            // }
         }
 
         void routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
