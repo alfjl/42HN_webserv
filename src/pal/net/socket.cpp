@@ -100,9 +100,16 @@ namespace webserv {
              * Throws an exception if ::accept() encounters an error
              */
             data_socket* server_socket::accept() {
-                int status = ::accept(this->get_fd(), NULL, NULL);
+                struct sockaddr_in client_addr;
+                socklen_t          addr_size;
+
+                addr_size = sizeof(struct sockaddr_in);
+                int status = ::accept(this->get_fd(), (struct sockaddr*) &client_addr, &addr_size);
                 if (status == -1)
                     throw std::runtime_error("accept(...) returned an error code!");
+                int client_ip = ntohl(client_addr.sin_addr.s_addr);
+                int port = ntohs(client_addr.sin_port);
+
                 return (new data_socket(status));
             }
 
