@@ -1,5 +1,7 @@
 #include "routing.hpp"
 
+#include "pages/pages.hpp"
+#include "cgi/cgi.hpp"
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
@@ -12,13 +14,6 @@
 #include "routing_table.hpp"
 
 namespace webserv {
-
-    namespace http {
-
-        const char* code2str(unsigned int code); // TODO: Move to utility directory
-
-    }
-
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
@@ -110,54 +105,6 @@ namespace webserv {
             } else {
                 not_found_404(response);
             }
-        }
-
-        void routing::set_delete_response(webserv::http::response_fixed& response){
-            std::ostringstream ost;
-            std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
-            
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, "File deleted.");
-            ost << "<body>\r\n";
-            header_one(ost, "File deleted.");
-            blockquote(ost, quote);
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(200);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::head_start(std::ostringstream& ost, std::string s){
-            ost << "<head>\r\n";
-            ost << "<meta charset=\"UTF-8\" />\r\n";
-            ost << "<title>";
-            ost << s;
-            ost << "</title>\r\n";
-            ost << "</head>\r\n";
-        }
-
-        void routing::header_one(std::ostringstream& ost, std::string s){
-            ost << "<h1>";
-            ost << s;
-            ost << "</h1>\r\n";
-            ost << "<hr/>\r\n";
-        }
-
-        void routing::header_three(std::ostringstream& ost, std::string s){
-            ost << "<h3>";
-            ost << s;
-            ost << "</h3>";
-        }
-
-        void routing::blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote){
-            ost << "<blockquote>\r\n";
-            ost << "<p>";
-            ost << quote.first;
-            ost << "</p>\r\n";
-            ost << quote.second;
-            ost << "</blockquote>\r\n";
         }
 
         /*
@@ -314,145 +261,6 @@ namespace webserv {
 
         void routing::tick() {
             // Do nothing!
-        }
-
-        static void print_path(std::ostringstream& ost, std::vector<webserv::util::path> paths) {
-            std::vector<webserv::util::path>::const_iterator it = paths.begin();
-            while (it != paths.end()) {
-                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
-                ost << "<br/>\r\n";
-                ++it;
-            }
-        }
-
-        void routing::directory_listing(webserv::http::response_fixed& response, std::vector<webserv::util::path> paths) {
-            std::ostringstream ost;
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, "Listing");
-
-            ost << "<body>\r\n";
-            print_path(ost, paths); // refactored
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(200);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
-            std::ostringstream payload;
-            while (!stream->eof()) {
-                int i = stream->get();
-                if (i < 0) break;
-                payload << (char) i;
-            }
-
-            response.set_code(200);
-            response.set_body(payload.str(), find_mime(file_path.get_extension()));
-        }
-
-        std::string routing::itos(unsigned int code){
-            std::ostringstream ost;
-            ost << code;
-            return ost.str();
-        }
-
-        void routing::error_code(webserv::http::response_fixed& response, unsigned int code) {
-            std::ostringstream ost;
-                
-            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
-
-            std::string buf(itos(code));
-            buf.append(" ");
-            buf.append(webserv::http::code2str(code));
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, buf);
-            ost << "<body>\r\n";
-            header_one(ost, "Error at WebServ!");
-            blockquote(ost, quote);
-            header_three(ost, buf);
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(code);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path) {
-            error_code(response, 301); 
-            response.set_field("Location", path.to_absolute_string());
-        }
-
-        void routing::temporary_redirect_302(webserv::http::response_fixed& response, webserv::util::path path) {
-            error_code(response, 302);
-            response.set_field("Location", path.to_absolute_string());
-        }
-
-        void routing::bad_request_400(webserv::http::response_fixed& response) {
-            error_code(response, 400);
-        }
-
-        void routing::unauthorized_401(webserv::http::response_fixed& response) {
-            error_code(response, 401);
-        }
-
-        void routing::not_found_404(webserv::http::response_fixed& response) {
-            error_code(response, 404);
-        }
-
-        void routing::method_not_allowed_405(webserv::http::response_fixed& response) {
-            error_code(response, 405);
-        }
-
-        void routing::gone_410(webserv::http::response_fixed& response) {
-            error_code(response, 410);
-        }
-
-        void routing::teapot_418(webserv::http::response_fixed& response) {
-            error_code(response, 418);
-        }
-
-        void routing::internal_server_error_500(webserv::http::response_fixed& response) {
-            error_code(response, 500);
-        }
-
-        void routing::service_unavailable_503(webserv::http::response_fixed& response) {
-            error_code(response, 503);
-        }
-
-        std::string routing::find_mime(std::string extension) {
-            if (extension == "bmp")
-                return "image/bmp";
-            else if (extension == "css")
-                return "text/css";
-            else if (extension == "csv")
-                return "text/csv";
-            else if (extension == "doc")
-                return "application/msword";
-            else if (extension == "docx")
-                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            else if (extension == "gif")
-                return "image/gif";
-            else if ((extension == "html") || (extension == "htm"))
-                return "text/html";
-            else if ((extension == "jpeg") || (extension == "jpg"))
-                return "image/jpeg";
-            else if (extension == "js")
-                return "text/javascript";
-            else if (extension == "json")
-                return "application/json";
-            else if (extension == "png")
-                return "image/png";
-            else if (extension == "pdf")
-                return "application/pdf";
-            else if (extension == "php")
-                return "application/x-httpd-php";
-            else if (extension == "txt")
-                return "text/plain";
-            else
-                return "*/*";
         }
 
     }
