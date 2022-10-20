@@ -63,21 +63,7 @@ namespace webserv {
             _body = "";
 
             if (correct) {
-                // if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
-                //     next(&basic_handler::parse_chunked_body);
-                //     later(&cgi_handler::process_request);
-                // } else if (_into.get_fields().has("Content-Length")) {
-                //     int bytes;
-                //     if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
-                //         this->_bytes = bytes;
-                //         next(&basic_handler::parse_normal_body);
-                //         later(&cgi_handler::process_request);
-                //     } else {
-                //         next(&basic_handler::total_failure);
-                //     }
-                // } else {
-                //     next(&cgi_handler::process_request);
-                // }
+                // TODO: refactor this a bit
                 next(&cgi_handler::process_request);
             } else {
                 std::cout << "Error in request!" << std::endl;
