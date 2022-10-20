@@ -1,5 +1,7 @@
 #include "routing.hpp"
 
+#include "pages/pages.hpp"
+#include "cgi/cgi.hpp"
 #include "../../pal/fork/fork.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
@@ -12,13 +14,6 @@
 #include "routing_table.hpp"
 
 namespace webserv {
-
-    namespace http {
-
-        const char* code2str(unsigned int code); // TODO: Move to utility directory
-
-    }
-
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
@@ -59,33 +54,42 @@ namespace webserv {
             }
         }
 
-        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
-            webserv::util::path file_path = route.get_file_target();
-
+        // refactored by nlenoch
+        void routing::set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response) {
             int status = get_instance().get_fs().accessible(file_path);
 
             if (status == 0)
                 response.set_code(200);
             else
                 response.set_code(201);
+        }
+
+        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request_core& request) {
+             std::ofstream outfile;
+
+            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
+                outfile << request.get_body().c_str();
+
+                if (!outfile.good())
+                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                outfile.close();
+
+                response.set_html_body(request.get_body());
+            } else {
+                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
+            }
+        }
+
+        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+            webserv::util::path file_path = route.get_file_target();
+
+            set_response_code(file_path, response); // refactored by nlenoch
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
                 method_not_allowed_405(response);
             } else {
-                std::ofstream outfile;
-
-                if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
-                    outfile << request.get_body().c_str();
-
-                    if (!outfile.good())
-                        internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                    outfile.close();
-
-                    response.set_html_body(request.get_body());
-                } else {
-                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                }
+                get_request_body(file_path, response, request); // refactored by nlenoch
             }
         }
 
@@ -101,54 +105,6 @@ namespace webserv {
             } else {
                 not_found_404(response);
             }
-        }
-
-        void routing::set_delete_response(webserv::http::response_fixed& response){
-            std::ostringstream ost;
-            std::pair<std::string, std::string> quote("But- at- what- cost?", "- Guybrush Threepwood, imitating Captain Kirk");
-            
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, "File deleted.");
-            ost << "<body>\r\n";
-            header_one(ost, "File deleted.");
-            blockquote(ost, quote);
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(200);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::head_start(std::ostringstream& ost, std::string s){
-            ost << "<head>\r\n";
-            ost << "<meta charset=\"UTF-8\" />\r\n";
-            ost << "<title>";
-            ost << s;
-            ost << "</title>\r\n";
-            ost << "</head>\r\n";
-        }
-
-        void routing::header_one(std::ostringstream& ost, std::string s){
-            ost << "<h1>";
-            ost << s;
-            ost << "</h1>\r\n";
-            ost << "<hr/>\r\n";
-        }
-
-        void routing::header_three(std::ostringstream& ost, std::string s){
-            ost << "<h3>";
-            ost << s;
-            ost << "</h3>";
-        }
-
-        void routing::blockquote(std::ostringstream& ost, std::pair<std::string, std::string> quote){
-            ost << "<blockquote>\r\n";
-            ost << "<p>";
-            ost << quote.first;
-            ost << "</p>\r\n";
-            ost << quote.second;
-            ost << "</blockquote>\r\n";
         }
 
         /*
@@ -197,6 +153,21 @@ namespace webserv {
             cgi_msg.write_on(std::cerr);
         }
 
+        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fork::easypipe& cgi_out) {
+            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
+
+            if (handler != NULL) {
+                response.block_all();  // TODO: Not needed anymore
+                handler->set_http_handler(the_http_handler);
+                the_http_handler->fall_asleep();
+                std::cout << "fell asleep" << std::endl;
+            } else {
+                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+                // ghettofix
+                response.write(*the_http_handler->get_connection());
+            }
+        }
+
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
@@ -221,8 +192,14 @@ namespace webserv {
             /*
              *
              */
-            if (!prepare_task(cgi_in, cgi_out, &task, &ws))
+            if (!prepare_task(cgi_in, cgi_out, &task, &ws)) {
                 internal_server_error_500(response);
+                response.write(*the_http_handler->get_connection());
+                std::cout << "Prepare task" << std::endl;
+                return;
+            }
+
+            std::cout << "Passed" << std::endl;
 
             // Generate state machine
             // TODO: Implement
@@ -235,21 +212,13 @@ namespace webserv {
 
             /*
              * Close all open FDs
+
+             TODO: Close to pal
              */
             ::close(cgi_in.in);
             ::close(cgi_in.out);
             ::close(cgi_out.in);
-
-            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
-
-            if (handler != NULL) {
-                response.block_all();  // TODO: Not needed anymore
-                handler->set_http_handler(the_http_handler);
-                the_http_handler->fall_asleep();
-                std::cout << "fell asleep" << std::endl;
-            } else {
-                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-            }
+            put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 
         void routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
@@ -292,143 +261,6 @@ namespace webserv {
 
         void routing::tick() {
             // Do nothing!
-        }
-
-        void routing::directory_listing(webserv::http::response_fixed& response, std::vector<webserv::util::path> paths) {
-            std::ostringstream ost;
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, "Listing");
-
-            ost << "<body>\r\n";
-
-            std::vector<webserv::util::path>::const_iterator it = paths.begin();
-            while (it != paths.end()) {
-                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
-                ost << "<br/>\r\n";
-                ++it;
-            }
-
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(200);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
-            std::ostringstream payload;
-            while (!stream->eof()) {
-                int i = stream->get();
-                if (i < 0) break;
-                payload << (char) i;
-            }
-
-            response.set_code(200);
-            response.set_body(payload.str(), find_mime(file_path.get_extension()));
-        }
-
-        std::string routing::itos(unsigned int code){
-            std::ostringstream ost;
-            ost << code;
-            return ost.str();
-        }
-
-        void routing::error_code(webserv::http::response_fixed& response, unsigned int code) {
-            std::ostringstream ost;
-                
-            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
-
-            std::string buf(itos(code));
-            buf.append(" ");
-            buf.append(webserv::http::code2str(code));
-            ost << "<!DOCTYPE html>\r\n";
-            ost << "<html>\r\n";
-            head_start(ost, buf);
-            ost << "<body>\r\n";
-            header_one(ost, "Error at WebServ!");
-            blockquote(ost, quote);
-            header_three(ost, buf);
-            ost << "</body>\r\n";
-            ost << "</html>\r\n";
-
-            response.set_code(code);
-            response.set_html_body(ost.str());
-        }
-
-        void routing::permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path) {
-            error_code(response, 301);
-            response.set_field("Location", path.to_absolute_string());
-        }
-
-        void routing::temporary_redirect_302(webserv::http::response_fixed& response, webserv::util::path path) {
-            error_code(response, 302);
-            response.set_field("Location", path.to_absolute_string());
-        }
-
-        void routing::bad_request_400(webserv::http::response_fixed& response) {
-            error_code(response, 400);
-        }
-
-        void routing::unauthorized_401(webserv::http::response_fixed& response) {
-            error_code(response, 401);
-        }
-
-        void routing::not_found_404(webserv::http::response_fixed& response) {
-            error_code(response, 404);
-        }
-
-        void routing::method_not_allowed_405(webserv::http::response_fixed& response) {
-            error_code(response, 405);
-        }
-
-        void routing::gone_410(webserv::http::response_fixed& response) {
-            error_code(response, 410);
-        }
-
-        void routing::teapot_418(webserv::http::response_fixed& response) {
-            error_code(response, 418);
-        }
-
-        void routing::internal_server_error_500(webserv::http::response_fixed& response) {
-            error_code(response, 500);
-        }
-
-        void routing::service_unavailable_503(webserv::http::response_fixed& response) {
-            error_code(response, 503);
-        }
-
-        std::string routing::find_mime(std::string extension) {
-            if (extension == "bmp")
-                return "image/bmp";
-            else if (extension == "css")
-                return "text/css";
-            else if (extension == "csv")
-                return "text/csv";
-            else if (extension == "doc")
-                return "application/msword";
-            else if (extension == "docx")
-                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            else if (extension == "gif")
-                return "image/gif";
-            else if ((extension == "html") || (extension == "htm"))
-                return "text/html";
-            else if ((extension == "jpeg") || (extension == "jpg"))
-                return "image/jpeg";
-            else if (extension == "js")
-                return "text/javascript";
-            else if (extension == "json")
-                return "application/json";
-            else if (extension == "png")
-                return "image/png";
-            else if (extension == "pdf")
-                return "application/pdf";
-            else if (extension == "php")
-                return "application/x-httpd-php";
-            else if (extension == "txt")
-                return "text/plain";
-            else
-                return "*/*";
         }
 
     }
