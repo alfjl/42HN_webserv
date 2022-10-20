@@ -36,7 +36,7 @@ namespace webserv {
             }
         }
 
-        void parse_body_util() {
+        void http_handler::parse_body_util() {
             if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
                 next(&basic_handler::parse_chunked_body);
                 later(&http_handler::process_request);
