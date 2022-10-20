@@ -88,12 +88,6 @@ namespace webserv {
         void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
             webserv::util::path file_path = route.get_file_target();
 
-            // int status = get_instance().get_fs().accessible(file_path);
-
-            // if (status == 0)
-            //     response.set_code(200);
-            // else
-            //     response.set_code(201);
             set_response_code(file_path, response); // refactored by nlenoch
             
             if (get_instance().get_fs().is_directory(file_path)) {
@@ -101,19 +95,6 @@ namespace webserv {
                 method_not_allowed_405(response);
             } else {
                 get_request_body(file_path, response, request); // refactored by nlenoch
-                // std::ofstream outfile;
-
-                // if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
-                //     outfile << request.get_body().c_str();
-
-                //     if (!outfile.good())
-                //         internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                //     outfile.close();
-
-                //     response.set_html_body(request.get_body());
-                // } else {
-                //     internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                // }
             }
         }
 
@@ -225,8 +206,8 @@ namespace webserv {
             cgi_msg.write_on(std::cerr);
         }
 
-        void routing::check_http_handler_asleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, int cgi_out_out) {
-            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out_out);
+        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fork::easypipe& cgi_out) {
+            webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
             if (handler != NULL) {
                 response.block_all();  // TODO: Not needed anymore
@@ -235,6 +216,8 @@ namespace webserv {
                 std::cout << "fell asleep" << std::endl;
             } else {
                 service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+                // ghettofix
+                response.write(*the_http_handler->get_connection());
             }
         }
 
@@ -262,8 +245,14 @@ namespace webserv {
             /*
              *
              */
-            if (!prepare_task(cgi_in, cgi_out, &task, &ws))
+            if (!prepare_task(cgi_in, cgi_out, &task, &ws)) {
                 internal_server_error_500(response);
+                response.write(*the_http_handler->get_connection());
+                std::cout << "Prepare task" << std::endl;
+                return;
+            }
+
+            std::cout << "Passed" << std::endl;
 
             // Generate state machine
             // TODO: Implement
@@ -276,21 +265,13 @@ namespace webserv {
 
             /*
              * Close all open FDs
+
+             TODO: Close to pal
              */
             ::close(cgi_in.in);
             ::close(cgi_in.out);
             ::close(cgi_out.in);
-            check_http_handler_asleep(response, the_http_handler, cgi_out.out);
-            // webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
-
-            // if (handler != NULL) {
-            //     response.block_all();  // TODO: Not needed anymore
-            //     handler->set_http_handler(the_http_handler);
-            //     the_http_handler->fall_asleep();
-            //     std::cout << "fell asleep" << std::endl;
-            // } else {
-            //     service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-            // }
+            put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 
         void routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
@@ -335,6 +316,15 @@ namespace webserv {
             // Do nothing!
         }
 
+        static void print_path(std::ostringstream& ost, std::vector<webserv::util::path> paths) {
+            std::vector<webserv::util::path>::const_iterator it = paths.begin();
+            while (it != paths.end()) {
+                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
+                ost << "<br/>\r\n";
+                ++it;
+            }
+        }
+
         void routing::directory_listing(webserv::http::response_fixed& response, std::vector<webserv::util::path> paths) {
             std::ostringstream ost;
             ost << "<!DOCTYPE html>\r\n";
@@ -342,14 +332,7 @@ namespace webserv {
             head_start(ost, "Listing");
 
             ost << "<body>\r\n";
-
-            std::vector<webserv::util::path>::const_iterator it = paths.begin();
-            while (it != paths.end()) {
-                ost << "<a href=\"/" << (*it) << "\">" << (*it).get_last() << "</a>";
-                ost << "<br/>\r\n";
-                ++it;
-            }
-
+            print_path(ost, paths); // refactored
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
@@ -398,7 +381,7 @@ namespace webserv {
         }
 
         void routing::permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path) {
-            error_code(response, 301);
+            error_code(response, 301); 
             response.set_field("Location", path.to_absolute_string());
         }
 

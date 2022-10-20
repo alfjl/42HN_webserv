@@ -108,6 +108,7 @@ namespace webserv {
             }
 
             pid_t fork_task::perform(wait_set& set) {
+                // TODO: Fail if executable does NOT exist
                 std::pair<fork_status, pid_t> result = fork();
 
                 switch (result.first) {
