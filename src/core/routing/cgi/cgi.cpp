@@ -70,7 +70,7 @@ namespace webserv {
             head_start(ost, "Listing");
 
             ost << "<body>\r\n";
-            print_path(ost, paths); // refactored
+            print_path(ost, paths);
             ost << "</body>\r\n";
             ost << "</html>\r\n";
 
@@ -87,7 +87,7 @@ namespace webserv {
             }
 
             response.set_code(200);
-            response.set_body(payload.str(), find_mime(file_path.get_extension()));
+            response.set_body(payload.str(), webserv::http::find_mime(file_path.get_extension()));
         }
 
 	}

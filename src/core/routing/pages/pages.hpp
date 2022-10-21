@@ -7,7 +7,6 @@ namespace webserv {
     namespace core {
 
 		std::string itos(unsigned int code);
-		std::string find_mime(std::string extension);
 
 		void error_code(webserv::http::response_fixed& response, unsigned int code);
 		void permanent_redirect_301(webserv::http::response_fixed& response, webserv::util::path path);

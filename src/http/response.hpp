@@ -68,6 +68,8 @@ namespace webserv {
             void write(webserv::util::connection& con);
         };
 
+		std::string find_mime(std::string extension);
+        
     }
 }
 
