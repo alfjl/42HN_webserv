@@ -1,4 +1,6 @@
 #include "socket.hpp"
+#include "ip_connection.hpp"
+#include "ip_address.hpp"
 
 namespace webserv {
     namespace pal {
@@ -107,8 +109,10 @@ namespace webserv {
                 int status = ::accept(this->get_fd(), (struct sockaddr*) &client_addr, &addr_size);
                 if (status == -1)
                     throw std::runtime_error("accept(...) returned an error code!");
-                int client_ip = ntohl(client_addr.sin_addr.s_addr);
-                int port = ntohs(client_addr.sin_port);
+                // uint32_t client_ip = ntohl(client_addr.sin_addr.s_addr);
+                ip_address client_ip(ntohl(client_addr.sin_addr.s_addr));
+                // uint16_t port = ntohs(client_addr.sin_port);
+                ip_connection client_connection(client_ip, ntohs(client_addr.sin_port));
 
                 return (new data_socket(status));
             }
