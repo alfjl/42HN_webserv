@@ -24,12 +24,12 @@ UTIL:
 DONE - connection: Ist perfekt
 DONE - iflow: Perfekt
 DONE - notification: Kann raus?
- - oflow: Error handling
+DONE - oflow: Error handling
 DONE - optional: zu PAL/cpp/
 DONE - parser: eigene parse_exception werfen statt runtime_error
 DONE - path: Perfekt
 DONE - refcounted: Auch gut
- - state_machine: Methoden in state_machine.cpp auslagern (das Template ist weggefallen)
+DONE - state_machine: Methoden in state_machine.cpp auslagern (das Template ist weggefallen)
 DONE - streamflow: Is da!
 DONE - wrapped_queue: Perfekto!
 
