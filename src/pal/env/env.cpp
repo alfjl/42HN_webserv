@@ -25,8 +25,12 @@ namespace webserv {
 				return (std::string(ptr));
 		   }
 
-		   webserv::util::path pwd() {
-				return (webserv::util::path(getenv("PWD")));
+		//    webserv::util::path pwd() {
+		// 		return (webserv::util::path(getenv("PWD")));
+		//    }
+
+           std::string pwd() {
+				return (getenv("PWD"));
 		   }
 
         }
