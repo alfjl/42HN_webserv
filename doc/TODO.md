@@ -37,7 +37,7 @@ HTTP_HEADERS:
 DONE - In old/ oder doc/, Umwandlung von .cpp in .md oder .txt
 
 HTTP:
- - uri: Methoden-"{ ... }" in uri.cpp verschieben (keine in HPP erlaubt)
+DONE - uri: Methoden-"{ ... }" in uri.cpp verschieben (keine in HPP erlaubt)
  - response: For later, move code2str (see above: PAL)
  - request: Methoden-"{ ... }" in request.cpp verschieben (keine in HPP erlaubt)
  - fields: Perfekt, vielleicht Integer-Parsing einbauen (bool get(std::string key, int& value, int default_value))
