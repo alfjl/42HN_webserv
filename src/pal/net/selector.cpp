@@ -28,7 +28,7 @@ namespace webserv {
                     it->first->close();
                     it->first->decrement_refcount();
                     if (it->second != NULL) {
-                        it->second->react_close();
+                        it->second->notify_about_close();
                         it->second->decrement_refcount();
                     }
                     elements.erase(it); // TODO: call function on payload?

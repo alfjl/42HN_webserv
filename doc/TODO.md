@@ -9,7 +9,7 @@ DONE - shared_ptr: superseded by refcounted, maybe adapt to that?
 DONE - Ordner "dir" umbenennen, alle Dateioperationen in einen HPP+CPP packen (vielleicht "fs.hpp/.cpp"), Wrapper fuer ::close(int fd)
 DONE - env: pwd() sollte keinen Path zurueckgeben, sondern einen std::string (der wird zwar spaeter in einen Path konvertiert, aber das hier ist erstmal nur das PAL und sollte nicht auf webserv::util zugreifen)
 DONE - fork: Easypipe raus (und zu den Dateioperationen), fork()-Funktion verstecken (= aus dem Header rausnehmen), besseren Rueckgabewert und Error-Handling fuer fork_task.perform(), vor allem wenn das Programm nicht gefunden wurde (= execve failed sollte schon vor dem Fork gecheckt werden, mithilfe von pal::dir::access())
- - reactor: react_close() vielleicht umbenennen?
+DONE - reactor: react_close() vielleicht umbenennen?
  - selector: beautify selector.select()
  - socket: Kommentare raus, fertig
  - pthread: Kann geloescht werden
