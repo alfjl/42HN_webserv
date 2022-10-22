@@ -20,17 +20,17 @@ namespace webserv {
             uri();
             ~uri();
 
-            std::string& get_proto() { return _proto; }
-            std::string& get_server() { return _server; }
-            unsigned int& get_port() { return _port; }
-            webserv::util::path& get_path() { return _path; }
-            fields& get_params() { return _params; }
+            std::string& get_proto();
+            std::string& get_server();
+            unsigned int& get_port();
+            webserv::util::path& get_path();
+            fields& get_params();
 
-            const std::string& get_proto() const { return _proto; }
-            const std::string& get_server() const { return _server; }
-            unsigned int get_port() const { return _port; }
-            const webserv::util::path& get_path() const { return _path; }
-            const fields& get_params() const { return _params; }
+            const std::string& get_proto() const;
+            const std::string& get_server() const;
+            unsigned int get_port() const;
+            const webserv::util::path& get_path() const;
+            const fields& get_params() const;
         };
         
         std::ostream& operator<<(std::ostream& stream, const uri& the_uri);
