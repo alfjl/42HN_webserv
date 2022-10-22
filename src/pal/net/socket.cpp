@@ -1,5 +1,7 @@
 #include "socket.hpp"
 
+#include "../fs/fs.hpp"
+
 namespace webserv {
     namespace pal {
         namespace net {
@@ -57,7 +59,7 @@ namespace webserv {
              */
             void socket::close() {
                 if (fd >= 0)
-                    ::close(fd);
+                    webserv::pal::fs::close(fd);
                 fd = -1;
             }
 

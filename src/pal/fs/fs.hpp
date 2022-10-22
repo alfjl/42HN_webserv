@@ -22,6 +22,8 @@ namespace webserv {
 
 			bool access(std::string path);
 
+            bool close(int fd);
+
         }
     }
 }

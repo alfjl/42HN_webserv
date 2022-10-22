@@ -1,5 +1,7 @@
 #include "fork.hpp"
 
+#include "../fs/fs.hpp"
+
 namespace webserv {
     namespace pal {
         namespace fork {
@@ -75,7 +77,7 @@ namespace webserv {
             void fork_task::do_child_stuff() {
                 std::vector<int>::const_iterator it = _to_close.begin();
                 while (it != _to_close.end()) {
-                    ::close(*it);
+                    webserv::pal::fs::close(*it);
                     ++it;
                 }
 
@@ -93,11 +95,11 @@ namespace webserv {
 
                         if (_input_to.enabled()) {
                             safe_dup2(STDIN_FILENO, _input_to.value());
-                            ::close(_input_to.value());
+                            webserv::pal::fs::close(_input_to.value());
                         }
                         if (_output_to.enabled()) {
                             safe_dup2(STDOUT_FILENO, _output_to.value());
-                            ::close(_output_to.value());
+                            webserv::pal::fs::close(_output_to.value());
                         }
 
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
