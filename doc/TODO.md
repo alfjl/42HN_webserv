@@ -26,12 +26,12 @@ DONE - iflow: Perfekt
 DONE - notification: Kann raus?
  - oflow: Error handling
 DONE - optional: zu PAL/cpp/
- - parser: eigene parse_exception werfen statt runtime_error
- - path: Perfekt
- - refcounted: Auch gut
+DONE - parser: eigene parse_exception werfen statt runtime_error
+DONE - path: Perfekt
+DONE - refcounted: Auch gut
  - state_machine: Methoden in state_machine.cpp auslagern (das Template ist weggefallen)
- - streamflow: Is da!
- - wrapped_queue: Perfekto!
+DONE - streamflow: Is da!
+DONE - wrapped_queue: Perfekto!
 
 HTTP_HEADERS:
 DONE - In old/ oder doc/, Umwandlung von .cpp in .md oder .txt

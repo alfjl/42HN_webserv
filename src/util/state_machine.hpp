@@ -15,7 +15,7 @@ namespace webserv {
 
         class state_machine_base : public webserv::util::refcounted {
         public:
-            virtual ~state_machine_base() {}
+            virtual ~state_machine_base();
             
             virtual void tick() = 0;
             virtual bool is_stopped() = 0;
@@ -38,23 +38,20 @@ namespace webserv {
         public:
             virtual void start() = 0;
 
-            state_machine() {
-                set_status(state_machine_status_RUNNING);
-                next(&state_machine::start);
-            }
+            state_machine();
 
-            enum state_machine_status get_status() { return status; }
-            void set_status(enum state_machine_status s) { status = s; }
+            enum state_machine_status get_status();
+            void set_status(enum state_machine_status s);
 
-            bool is_running() { return get_status() == state_machine_status_RUNNING; }
-            bool is_yielding() { return get_status() == state_machine_status_YIELDING; }
-            bool is_stopped() { return get_status() == state_machine_status_STOPPED; }
+            bool is_running();
+            bool is_yielding();
+            bool is_stopped();
 
-            void yield() { set_status(state_machine_status_YIELDING); }
-            void unyield() { set_status(state_machine_status_RUNNING); }
+            void yield();
+            void unyield();
 
-            void fall_asleep() { set_status(state_machine_status_SLEEPING); }
-            void wake_up() { set_status(state_machine_status_RUNNING); }
+            void fall_asleep();
+            void wake_up();
 
 
             template<typename T>
@@ -67,27 +64,10 @@ namespace webserv {
                 return_stack.push(conv(func));
             }
 
-            void ret() {
-                if (return_stack.empty()) {
-                    set_status(state_machine_status_STOPPED);
-                } else {
-                    next(return_stack.top());
-                    return_stack.pop();
-                }
-            }
+            void ret();
 
-            void stop() {
-                while (!return_stack.empty())
-                    return_stack.pop();
-                set_status(state_machine_status_STOPPED);
-            }
-
-            void tick() {
-                unyield();
-                while (is_running()) {
-                    (this->*current_func)();
-                }
-            }
+            void stop();
+            void tick();
         };
 
     }
