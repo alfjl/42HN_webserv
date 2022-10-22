@@ -1,6 +1,7 @@
 #include "pages.hpp"
 
 #include "../cgi/cgi.hpp"
+#include "../../../pal/cpp/conv.hpp"
 
 namespace webserv {
     namespace http {
@@ -11,18 +12,18 @@ namespace webserv {
 
     namespace core {
 
-        std::string itos(unsigned int code){
-            std::ostringstream ost;
-            ost << code;
-            return ost.str();
-        }
+        // std::string itos(unsigned int code){
+        //     std::ostringstream ost;
+        //     ost << code;
+        //     return ost.str();
+        // }
 
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
             std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
-            std::string buf(itos(code));
+            std::string buf(webserv::pal::cpp::int_to_string(code));
             buf.append(" ");
             buf.append(webserv::http::code2str(code));
             ost << "<!DOCTYPE html>\r\n";

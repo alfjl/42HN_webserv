@@ -15,10 +15,10 @@ PAL:
  - pthread: Kann geloescht werden
 
 TESTS:
- - Koennen raus
+DONE - Koennen raus
 
 THREADING:
- - Kann raus
+DONE - Kann raus
 
 UTIL:
  - connection: Ist perfekt
@@ -34,7 +34,7 @@ UTIL:
  - wrapped_queue: Perfekto!
 
 HTTP_HEADERS:
- - In old/ oder doc/, Umwandlung von .cpp in .md oder .txt
+DONE - In old/ oder doc/, Umwandlung von .cpp in .md oder .txt
 
 HTTP:
  - uri: Methoden-"{ ... }" in uri.cpp verschieben (keine in HPP erlaubt)
