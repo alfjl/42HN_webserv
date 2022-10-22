@@ -1,8 +1,6 @@
 #include "filesystem.hpp"
 
-#include "../../pal/fs/access.hpp"
-#include "../../pal/fs/del.hpp"
-#include "../../pal/fs/readdir.hpp"
+#include "../../pal/fs/fs.hpp"
 #include "../../pal/env/env.hpp"
 
 namespace webserv {
