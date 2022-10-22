@@ -112,7 +112,7 @@ namespace webserv {
          * Opens 2 pipes. One for the input into the cgi,
          * and one for the output of the cgi 
          */
-        static bool prepare_pipes(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out) {
+        static bool prepare_pipes(webserv::pal::fs::easypipe* cgi_in, webserv::pal::fs::easypipe* cgi_out) {
             if (!webserv::pal::fork::safe_pipe(&(cgi_in->in), &(cgi_in->out))) { // TODO: Is there a better notation instead of '&(pointer->int)'
                 return false;
             }
@@ -128,8 +128,8 @@ namespace webserv {
          * Wraps the fork() and execve() calls,
          * and takes care of closing the correct file descriptors
          */
-        static bool prepare_task(webserv::pal::fork::easypipe  cgi_in,
-                                webserv::pal::fork::easypipe   cgi_out,
+        static bool prepare_task(webserv::pal::fs::easypipe  cgi_in,
+                                webserv::pal::fs::easypipe   cgi_out,
                                 webserv::pal::fork::fork_task* task,
                                 webserv::pal::fork::wait_set*  ws) {
             task->close_on_fork(cgi_in.in);
@@ -147,14 +147,14 @@ namespace webserv {
          * Attaches the input of cgi_in to an ostream,
          * and writes the cgi message_body to this stream 
          */
-        static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
+        static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
             cgi_msg.write_on(o);
             cgi_msg.write_on(std::cerr);
         }
 
-        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fork::easypipe& cgi_out) {
+        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {
             webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
             if (handler != NULL) {
@@ -178,8 +178,8 @@ namespace webserv {
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
             webserv::pal::fork::fork_task task("../tester/cgi/cgi_tester.cgi");
             webserv::pal::fork::wait_set ws;
-            webserv::pal::fork::easypipe cgi_in;
-            webserv::pal::fork::easypipe cgi_out;
+            webserv::pal::fs::easypipe cgi_in;
+            webserv::pal::fs::easypipe cgi_out;
 
             for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                 task.add_env(it->first + "=" + it->second);

@@ -10,10 +10,10 @@ namespace webserv {
     namespace pal {
         namespace fork {
 
-            struct easypipe {
-                int in;
-                int out;
-            };
+            // struct easypipe {
+            //     int in;
+            //     int out;
+            // };
 
             bool safe_pipe(int* pipe_in, int* pipe_out);
             bool safe_dup2(int overridden_fd, int original_fd);

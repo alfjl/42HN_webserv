@@ -13,6 +13,11 @@ namespace webserv {
     namespace pal {
         namespace fs {
 
+             struct easypipe {
+                int in;
+                int out;
+            };
+
             std::vector<std::string> read_directory(std::string path);
 
             bool is_directory(std::string entry);
