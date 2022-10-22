@@ -124,7 +124,7 @@ namespace webserv {
             else if (parser.checks("PUT"))    line.set_method(http_method_put);
             else if (parser.checks("DELETE")) line.set_method(http_method_delete);
             else if (parser.checks("HEAD"))   line.set_method(http_method_head);
-            else /* TODO: Error */;
+            else                              line.set_method(http_method__invalid);
 
             parser.expect_space();
 
@@ -156,7 +156,7 @@ namespace webserv {
             }
         }
 
-        void parse_http_request_core(request_parser& parser, request_core& into) {
+        void parse_http_request_core(request_parser& parser, request& into) {
             parse_http_request_line(parser, into.get_line());
             parse_request_fields(parser, into.get_fields());
         }

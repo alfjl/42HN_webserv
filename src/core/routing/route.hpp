@@ -3,7 +3,7 @@
 
 #include "../../defs.hpp"
 
-#include "../../http/request.hpp"
+#include "../../http/proto/request.hpp"
 #include "../../pal/cpp/optional.hpp"
 
 namespace webserv {

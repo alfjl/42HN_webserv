@@ -1,7 +1,7 @@
 #ifndef WEBSERV_CORE_ROUTING_CGI_CGI_HPP
 #define WEBSERV_CORE_ROUTING_CGI_CGI_HPP
 
-#include "../../../http/response.hpp"
+#include "../../../http/proto/response.hpp"
 
 namespace webserv {
     namespace core {

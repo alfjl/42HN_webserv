@@ -5,7 +5,7 @@
 namespace webserv {
     namespace http {
 
-        cgi_message::cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance, std::string path_translated)
+        cgi_message::cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated)
          : _path_translated(path_translated), _request(request) ,_current_instance(current_instance) {
             _message_body = request.get_body();
 

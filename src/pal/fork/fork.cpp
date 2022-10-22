@@ -110,7 +110,6 @@ namespace webserv {
             }
 
             bool fork_task::perform(wait_set& set, pid_t& pid) {
-                // TODO: Fail if executable does NOT exist
                 if (!webserv::pal::fs::access(_executable))
                     return false;
 

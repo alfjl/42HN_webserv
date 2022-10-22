@@ -1,15 +1,10 @@
 #include "pages.hpp"
 
 #include "../cgi/cgi.hpp"
+#include "../../../http/http.hpp"
 #include "../../../pal/cpp/conv.hpp"
 
 namespace webserv {
-    namespace http {
-
-        const char* code2str(unsigned int code); // TODO: Move to utility directory
-
-    }
-
     namespace core {
 
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
