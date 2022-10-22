@@ -16,11 +16,11 @@ namespace webserv {
             std::string                  _message_body;
             std::string                  _path_translated;
             webserv::http::fields        _fields;
-            webserv::http::request_core& _request;
+            webserv::http::request&      _request;
             webserv::core::instance&     _current_instance;
 
         public:
-            cgi_message(webserv::http::request_core& request, webserv::core::instance& current_instance, std::string path_translated);
+            cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated);
             ~cgi_message();
 
             fields& get_fields();

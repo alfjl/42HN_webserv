@@ -156,7 +156,7 @@ namespace webserv {
             }
         }
 
-        void parse_http_request_core(request_parser& parser, request_core& into) {
+        void parse_http_request_core(request_parser& parser, request& into) {
             parse_http_request_line(parser, into.get_line());
             parse_request_fields(parser, into.get_fields());
         }

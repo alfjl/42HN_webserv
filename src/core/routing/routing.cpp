@@ -37,12 +37,12 @@ namespace webserv {
 
         }
 
-        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             handle_http_get(response, request, route);
             response.block_body();
         }
 
-        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
@@ -55,7 +55,6 @@ namespace webserv {
             }
         }
 
-        // refactored by nlenoch
         void routing::set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response) {
             int status = get_instance().get_fs().accessible(file_path);
 
@@ -65,7 +64,7 @@ namespace webserv {
                 response.set_code(201);
         }
 
-        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request_core& request) {
+        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request) {
              std::ofstream outfile;
 
             if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
@@ -81,20 +80,20 @@ namespace webserv {
             }
         }
 
-        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             webserv::util::path file_path = route.get_file_target();
 
-            set_response_code(file_path, response); // refactored by nlenoch
+            set_response_code(file_path, response);
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
                 method_not_allowed_405(response);
             } else {
-                get_request_body(file_path, response, request); // refactored by nlenoch
+                get_request_body(file_path, response, request);
             }
         }
 
-        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request_core& request, route& route) {
+        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
@@ -169,7 +168,7 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request_core& request, route* the_route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
             webserv::http::cgi_message cgi_msg(request, get_instance(), table.query(request.get_line().get_uri().get_path())->get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
             // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
@@ -219,7 +218,7 @@ namespace webserv {
             put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 
-        void routing::look_up(webserv::http::request_core& request, webserv::http::http_handler* the_http_handler) {
+        void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {
             webserv::http::response_fixed response;
 
             route* the_route = table.query(request.get_line().get_uri().get_path());

@@ -9,11 +9,11 @@ namespace webserv {
 		http_method&  request_line::get_method() { return _method; }
 
 
-		request_core::request_core() { _fields.case_insensitive(); }
+		request::request() { _fields.case_insensitive(); }
 
-        request_line& request_core::get_line()   { return _line;   }
-        fields&       request_core::get_fields() { return _fields; }
-        std::string&   request_core::get_body() { return _body; }
+        request_line& request::get_line()   { return _line;   }
+        fields&       request::get_fields() { return _fields; }
+        std::string&   request::get_body() { return _body; }
 		
     }
 }

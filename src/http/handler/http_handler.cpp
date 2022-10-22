@@ -57,7 +57,7 @@ namespace webserv {
         void http_handler::process_head() {
             webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
-            _into = request_core();
+            _into = request();
 
             bool correct = false;
             

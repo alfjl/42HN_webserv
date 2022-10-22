@@ -54,13 +54,13 @@ namespace webserv {
          * may be delivered in a chunked format.
          *                                       - nijakow
          */
-        class request_core {
+        class request {
             request_line  _line;
             fields        _fields;
             std::string   _body;
         
         public:
-            request_core();
+            request();
 
             request_line& get_line();
             fields&       get_fields();
