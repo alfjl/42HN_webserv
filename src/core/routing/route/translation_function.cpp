@@ -12,7 +12,7 @@ namespace webserv {
         }
 
         basic_translation_function::~basic_translation_function() {
-            
+
         }
 
 
@@ -22,7 +22,7 @@ namespace webserv {
 
 
         bool relative_translation_function::convert(match_info& meta) {
-            meta.wildcard_path = webserv::util::path("");
+            meta.wildcard_path = webserv::util::path();
             return true;
         }
 
