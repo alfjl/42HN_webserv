@@ -21,10 +21,10 @@ THREADING:
 DONE - Kann raus
 
 UTIL:
- - connection: Ist perfekt
- - iflow: Perfekt
- - notification: Kann raus?
- - oflow: Error handling, und Benutzung von ::close vermeiden (siehe PAL)
+DONE - connection: Ist perfekt
+DONE - iflow: Perfekt
+DONE - notification: Kann raus?
+ - oflow: Error handling
  - optional: zu PAL/cpp/
  - parser: eigene parse_exception werfen statt runtime_error
  - path: Perfekt
