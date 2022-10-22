@@ -6,17 +6,6 @@
 
 webserv::core::instance  the_webserv;
 
-void test_sockets();
-void test_uri_parsing();
-
-void test_all() {
-    std::cout << "\nHello, 42 world!" << std::endl;
-    std::cout << "\n --------- SOCKETS --------- \n" << std::endl;
-    test_sockets();
-    std::cout << "\n --------- URI PARSING --------- \n" << std::endl;
-    test_uri_parsing();
-}
-
 void webserver_signal_handler(int signal) {
     the_webserv.interrupt();
 }
