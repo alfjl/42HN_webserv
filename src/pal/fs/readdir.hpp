@@ -1,5 +1,5 @@
-#ifndef WEBSERV_PAL_DIR_READDIR_HPP
-#define WEBSERV_PAL_DIR_READDIR_HPP
+#ifndef WEBSERV_PAL_FS_READDIR_HPP
+#define WEBSERV_PAL_FS_READDIR_HPP
 
 #include "../../defs.hpp"
 
@@ -11,7 +11,7 @@
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
             std::vector<std::string> read_directory(std::string path);
 

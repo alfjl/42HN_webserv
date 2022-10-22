@@ -4,7 +4,7 @@
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
             bool access(std::string path) {
                 if (::access(path.c_str(), F_OK) == 0)

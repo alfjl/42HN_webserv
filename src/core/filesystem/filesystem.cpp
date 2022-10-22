@@ -1,8 +1,8 @@
 #include "filesystem.hpp"
 
-#include "../../pal/dir/access.hpp"
-#include "../../pal/dir/del.hpp"
-#include "../../pal/dir/readdir.hpp"
+#include "../../pal/fs/access.hpp"
+#include "../../pal/fs/del.hpp"
+#include "../../pal/fs/readdir.hpp"
 #include "../../pal/env/env.hpp"
 
 namespace webserv {
@@ -47,7 +47,7 @@ namespace webserv {
 		}
 
         bool filesystem::del_absolute(webserv::util::path path) {
-            return webserv::pal::dir::remove(add_anchor(path).c_str());
+            return webserv::pal::fs::remove(add_anchor(path).c_str());
         }
 
         bool filesystem::del(webserv::util::path path) {
@@ -60,7 +60,7 @@ namespace webserv {
          */
         std::vector<webserv::util::path> filesystem::read_relative_path(webserv::util::path path) {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
+            std::vector<std::string> files = webserv::pal::fs::read_directory(add_anchor(path));
 
             for (std::vector<std::string>::iterator it = files.begin(); it != files.end(); ++it) {
                 v_path.push_back(webserv::util::path(*it));
@@ -75,7 +75,7 @@ namespace webserv {
          */
         std::vector<webserv::util::path> filesystem::read_absolute_path(webserv::util::path path) {
             std::vector<webserv::util::path> v_path;
-            std::vector<std::string> files = webserv::pal::dir::read_directory(add_anchor(path));
+            std::vector<std::string> files = webserv::pal::fs::read_directory(add_anchor(path));
 
             for (std::vector<std::string>::const_iterator it = files.begin(); it < files.end(); ++it) {
                 v_path.push_back(webserv::util::path(path.to_relative_string()).cd(*it));
@@ -88,14 +88,14 @@ namespace webserv {
          * Checks if path is a directory
          */
         bool filesystem::is_directory(webserv::util::path path) {
-            return webserv::pal::dir::is_directory(add_anchor(path));
+            return webserv::pal::fs::is_directory(add_anchor(path));
         }
 
         /*
          * Checks if path is accessible
          */
         bool filesystem::accessible(webserv::util::path path) {
-            return (webserv::pal::dir::access(add_anchor(path)));
+            return (webserv::pal::fs::access(add_anchor(path)));
         }
 
 	}

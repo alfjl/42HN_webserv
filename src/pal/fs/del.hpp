@@ -1,5 +1,5 @@
-#ifndef WEBSERV_PAL_DIR_DEL_HPP
-#define WEBSERV_PAL_DIR_DEL_HPP
+#ifndef WEBSERV_PAL_FS_DEL_HPP
+#define WEBSERV_PAL_FS_DEL_HPP
 
 #include "../../defs.hpp"
 
@@ -10,7 +10,7 @@
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
             bool rmdir(std::string path);
             bool remove(std::string path);

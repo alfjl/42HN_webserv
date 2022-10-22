@@ -12,12 +12,6 @@ namespace webserv {
 
     namespace core {
 
-        // std::string itos(unsigned int code){
-        //     std::ostringstream ost;
-        //     ost << code;
-        //     return ost.str();
-        // }
-
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
