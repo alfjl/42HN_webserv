@@ -110,11 +110,8 @@ namespace webserv {
             }
 
             bool fork_task::perform(wait_set& set, pid_t& pid) {
-                // TODO: Fail if executable does NOT exist
-                std::cout << "_executable: " << _executable << std::endl;
                 if (!webserv::pal::fs::access(_executable) || (webserv::pal::fs::is_directory(_executable)))
                     return false;
-                std::cout << "2 _executable: " << _executable << std::endl;
 
                 std::pair<fork_status, pid_t> result = fork();
 

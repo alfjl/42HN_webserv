@@ -1,8 +1,8 @@
 #ifndef WEBSERV_HTTP_REQUEST_HPP
 #define WEBSERV_HTTP_REQUEST_HPP
 
-#include "uri.hpp"
-#include "fields.hpp"
+#include "../uri.hpp"
+#include "../fields.hpp"
 
 namespace webserv {
     namespace http {
@@ -18,6 +18,7 @@ namespace webserv {
          */
 
         enum http_method {
+            http_method__invalid,
             // http_method_options,
             http_method_get,
             http_method_head,
@@ -28,9 +29,7 @@ namespace webserv {
             // http_method_connect
         };
 
-        class http_version {
-            /* TODO */
-        };
+        class http_version {};
 
         class request_line {
         private:
@@ -39,10 +38,10 @@ namespace webserv {
                  http_version  _http_version;
         
         public:
-            void set_method(enum http_method m) { _method = m; }
-            uri& get_uri() { return _uri; }
-            http_version& get_version() { return _http_version; }
-            http_method&  get_method() { return _method; }
+            void set_method(enum http_method m);
+            uri& get_uri();
+            http_version& get_version();
+            http_method&  get_method();
         };
 
 
@@ -55,18 +54,17 @@ namespace webserv {
          * may be delivered in a chunked format.
          *                                       - nijakow
          */
-        class request_core {
+        class request {
             request_line  _line;
             fields        _fields;
             std::string   _body;
         
         public:
-            request_core() { _fields.case_insensitive(); }
+            request();
 
-            request_line& get_line()   { return _line;   }
-            fields&       get_fields() { return _fields; }
-            // http_body&  get_body() { return _body; } // TODO: implement correct function!
-            std::string&   get_body() { return _body; }
+            request_line& get_line();
+            fields&       get_fields();
+            std::string&   get_body();
         };
 
     }

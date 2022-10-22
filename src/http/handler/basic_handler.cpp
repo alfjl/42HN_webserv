@@ -4,7 +4,7 @@
 #include "../../pal/cpp/conv.hpp"
 #include "../../util/streamflow.hpp"
 #include "../parsing/request_parser.hpp"
-#include "../response.hpp"
+#include "../proto/response.hpp"
 
 namespace webserv {
     namespace http {
