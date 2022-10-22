@@ -1,8 +1,8 @@
 #ifndef WEBSERV_HTTP_REQUEST_HPP
 #define WEBSERV_HTTP_REQUEST_HPP
 
-#include "uri.hpp"
-#include "fields.hpp"
+#include "../uri.hpp"
+#include "../fields.hpp"
 
 namespace webserv {
     namespace http {

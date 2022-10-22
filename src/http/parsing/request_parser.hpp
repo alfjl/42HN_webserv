@@ -2,7 +2,7 @@
 #define WEBSERV_HTTP_PARSING_REQUEST_PARSER_HPP
 
 #include "../../util/parser.hpp"
-#include "../request.hpp"
+#include "../proto/request.hpp"
 #include "../uri.hpp"
 #include "../fields.hpp"
 

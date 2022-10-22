@@ -3,8 +3,8 @@
 
 #include "../component.hpp"
 
-#include "../../http/response.hpp"
-#include "../../http/request.hpp"
+#include "../../http//proto/response.hpp"
+#include "../../http/proto/request.hpp"
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
 #include "../../pal/fs/fs.hpp"

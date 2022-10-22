@@ -1,10 +1,10 @@
 #ifndef WEBSERV_HTTP_RESPONSE_HPP
 #define WEBSERV_HTTP_RESPONSE_HPP
 
-#include "../defs.hpp"
+#include "../../defs.hpp"
 
-#include "../util/connection.hpp"
-#include "../util/refcounted.hpp"
+#include "../../util/connection.hpp"
+#include "../../util/refcounted.hpp"
 
 #include "request.hpp" 
 

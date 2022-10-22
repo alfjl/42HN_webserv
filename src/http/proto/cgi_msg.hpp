@@ -6,7 +6,7 @@
 #include "../../core/instance.hpp"
 
 #include "../fields.hpp"
-#include "../request.hpp"
+#include "request.hpp"
 
 namespace webserv {
     namespace http {
