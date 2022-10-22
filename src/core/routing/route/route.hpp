@@ -1,26 +1,29 @@
-#ifndef WEBSERV_CORE_ROUTING_ROUTE_HPP
-#define WEBSERV_CORE_ROUTING_ROUTE_HPP
+#ifndef WEBSERV_CORE_ROUTING_ROUTE_ROUTE_HPP
+#define WEBSERV_CORE_ROUTING_ROUTE_ROUTE_HPP
 
-#include "../../defs.hpp"
+#include "../../../defs.hpp"
 
-#include "../../http/proto/request.hpp"
-#include "../../pal/cpp/optional.hpp"
+#include "route_meta.hpp"
+
+#include "../../../http/proto/request.hpp"
+#include "../../../pal/cpp/optional.hpp"
 
 namespace webserv {
     namespace core {
 
-        struct route_meta {
+        struct match_info {
             webserv::util::path wildcard_path;
         };
 
         class route {
-            webserv::util::path                                             _file_target;
+            webserv::util::path  _file_target;
         
         protected:
-            webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
+            route_meta*          _meta;
 
         public:
             route(webserv::util::path file_target);
+            route(webserv::util::path file_target, route_meta* meta);
             route(const route& other);
             virtual ~route();
 
@@ -37,37 +40,45 @@ namespace webserv {
             virtual bool is_permanent_redirection();
             virtual bool is_error(int& code);
 
-            virtual route* build(route_meta& meta) { return this; }
+            virtual route* build(match_info& meta) = 0;
         };
 
         class file_route : public route {
         public:
             file_route(webserv::util::path file_target);
+            file_route(webserv::util::path file_target, route_meta* meta);
             file_route(const file_route& other);
+            route* build(match_info& meta);
         };
 
         class cgi_route : public route {
         public:
             cgi_route(webserv::util::path file_target);
+            cgi_route(webserv::util::path file_target, route_meta* meta);
             cgi_route(const cgi_route& other);
 
             bool is_cgi();
+            route* build(match_info& meta);
         };
 
         class redirection_route : public route {
         public:
             redirection_route(webserv::util::path file_target);
+            redirection_route(webserv::util::path file_target, route_meta* meta);
             redirection_route(const redirection_route& other);
 
             bool is_redirection();
+            route* build(match_info& meta);
         };
 
         class permanent_redirection_route : public route {
         public:
             permanent_redirection_route(webserv::util::path file_target);
+            permanent_redirection_route(webserv::util::path file_target, route_meta* meta);
             permanent_redirection_route(const permanent_redirection_route& other);
 
             bool is_permanent_redirection();
+            route* build(match_info& meta);
         };
 
         class error_route : public route {
@@ -75,18 +86,20 @@ namespace webserv {
 
         public:
             error_route(int code);
+            error_route(int code, route_meta* meta);
             error_route(const error_route& other);
 
             bool is_error(int& code);
+            route* build(match_info& meta);
         };
 
-        class wildcard_route : public route {
-        public:
-            wildcard_route(webserv::util::path file_target);
-            wildcard_route(const wildcard_route& other);
+        // class wildcard_route : public route {
+        // public:
+        //     wildcard_route(webserv::util::path file_target);
+        //     wildcard_route(const wildcard_route& other);
 
-            virtual route* build(route_meta& meta);
-        };
+        //     virtual route* build(match_info& meta);
+        // };
 
     }
 }

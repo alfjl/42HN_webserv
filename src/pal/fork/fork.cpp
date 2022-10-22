@@ -110,7 +110,7 @@ namespace webserv {
             }
 
             bool fork_task::perform(wait_set& set, pid_t& pid) {
-                if (!webserv::pal::fs::access(_executable))
+                if (!webserv::pal::fs::access(_executable) || (webserv::pal::fs::is_directory(_executable)))
                     return false;
 
                 std::pair<fork_status, pid_t> result = fork();
