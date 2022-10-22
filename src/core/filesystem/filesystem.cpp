@@ -22,7 +22,7 @@ namespace webserv {
             if (_anchor.enabled()) {
                 return (_anchor.value() + path).to_absolute_string();
             } else {
-                return (webserv::pal::env::pwd().cd("../www") + path).to_absolute_string();
+                return (webserv::util::path(webserv::pal::env::pwd()).cd("../www") + path).to_absolute_string();
             }
         }
 

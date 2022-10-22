@@ -10,7 +10,8 @@ namespace webserv {
         namespace env {
 
            std::string getenv(std::string var);
-		   webserv::util::path pwd();
+		//    webserv::util::path pwd();
+		   std::string pwd();
 
         }
     }
