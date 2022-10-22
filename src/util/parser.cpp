@@ -5,6 +5,19 @@
 namespace webserv {
     namespace util {
 
+        parse_exception::parse_exception(std::string message) : _message(message) {
+
+        }
+
+        parse_exception::~parse_exception() _NOEXCEPT {
+            
+        }
+
+        const char* parse_exception::what() const _NOEXCEPT {
+            return _message.c_str();
+        }
+
+
         parser::parser(iflow& _flow) : flow(_flow) {
 
         }
@@ -14,7 +27,7 @@ namespace webserv {
         }
 
         void parser::parse_error(std::string message) {
-            throw std::runtime_error(message);
+            throw parse_exception(message);
         }
 
         bool parser::has_next() {
