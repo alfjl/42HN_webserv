@@ -7,7 +7,7 @@
 #include "../../http/request.hpp"
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
-#include "../../pal/fork/fork.hpp"
+#include "../../pal/fs/fs.hpp"
 
 #include "routing_table.hpp"
 
@@ -40,7 +40,7 @@ namespace webserv {
 
             void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response); //refactored by nlenoch
             void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request_core& request); //refactored by nlenoch
-            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fork::easypipe& cgi_out); 
+            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out); 
 
             // void head_start(std::ostringstream& ost, std::string s);
             // void header_one(std::ostringstream& ost, std::string s);

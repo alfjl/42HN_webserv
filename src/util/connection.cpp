@@ -32,7 +32,7 @@ namespace webserv {
         }
 
 
-        void connection::react_close() {
+        void connection::notify_about_close() {
             close();
         }
 

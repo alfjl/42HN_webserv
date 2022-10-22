@@ -31,7 +31,7 @@ namespace webserv {
             void close();
             bool is_closed();
 
-            void react_close();
+            void notify_about_close();
         };
 
     }
