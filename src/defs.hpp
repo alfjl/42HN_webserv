@@ -35,8 +35,6 @@ extern "C" {
 #include <set>
 #include <utility>
 
-// #include "pal/cpp/nullptr.hpp"
-#include "pal/cpp/shared_ptr.hpp"
 #include "pal/net/socket.hpp"
 
 namespace webserv {

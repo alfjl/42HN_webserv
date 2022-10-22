@@ -1,5 +1,5 @@
-#ifndef WEBSERV_PAL_DIR_ACCESS_HPP
-#define WEBSERV_PAL_DIR_ACCESS_HPP
+#ifndef WEBSERV_PAL_FS_ACCESS_HPP
+#define WEBSERV_PAL_FS_ACCESS_HPP
 
 #include "../../defs.hpp"
 
@@ -10,7 +10,7 @@
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
             bool access(std::string path);
 

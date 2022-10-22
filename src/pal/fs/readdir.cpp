@@ -2,7 +2,7 @@
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
             std::vector<std::string> read_directory(std::string path) {
                 std::vector<std::string> files;
