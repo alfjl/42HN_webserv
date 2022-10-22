@@ -34,7 +34,7 @@ namespace webserv {
                 return std::make_pair<fork_status, pid_t>(fork_status_for(pid), pid);
             }
 
-
+            
 
             wait_set::wait_set() {
 

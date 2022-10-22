@@ -24,8 +24,6 @@ namespace webserv {
                 fork_status_i_am_child
             };
 
-            std::pair<fork_status, pid_t> fork();
-
             class wait_set {
                 std::set<pid_t> pids;
             public:
