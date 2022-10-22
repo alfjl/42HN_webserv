@@ -10,11 +10,6 @@ namespace webserv {
     namespace pal {
         namespace fork {
 
-            // struct easypipe {
-            //     int in;
-            //     int out;
-            // };
-
             bool safe_pipe(int* pipe_in, int* pipe_out);
             bool safe_dup2(int overridden_fd, int original_fd);
 
@@ -49,7 +44,8 @@ namespace webserv {
                 fork_task(std::string executable);
                 ~fork_task();
 
-                pid_t perform(wait_set& set);
+                bool perform(wait_set& set, pid_t& pid);
+                bool perform(wait_set& set);
 
                 void input_to(int input);
                 void output_to(int output);

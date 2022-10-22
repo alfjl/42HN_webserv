@@ -137,10 +137,7 @@ namespace webserv {
             // communicate input and output to task
             task->io_to(cgi_in.out, cgi_out.in);
             // fork_task
-            if (task->perform(*ws) < 0) {
-                return false;
-            }
-            return true;
+            return task->perform(*ws);
         }
 
         /*
