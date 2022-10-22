@@ -46,6 +46,10 @@ namespace webserv {
                 return false;
             }
 
+            bool close(int fd) {
+                return ::close(fd) == 0;
+            }
+
         }
     }
 }

@@ -3,6 +3,7 @@
 #include "pages/pages.hpp"
 #include "cgi/cgi.hpp"
 #include "../../pal/fork/fork.hpp"
+#include "../../pal/fs/fs.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
 #include "../../http/handler/http_handler.hpp"
@@ -116,8 +117,8 @@ namespace webserv {
                 return false;
             }
             if (!webserv::pal::fork::safe_pipe(&(cgi_out->in), &(cgi_out->out))) {
-                ::close(cgi_in->in);
-                ::close(cgi_in->out);
+                webserv::pal::fs::close(cgi_in->in);
+                webserv::pal::fs::close(cgi_in->out);
                 return false;
             }
             return true;
@@ -215,9 +216,9 @@ namespace webserv {
 
              TODO: Close to pal
              */
-            ::close(cgi_in.in);
-            ::close(cgi_in.out);
-            ::close(cgi_out.in);
+            webserv::pal::fs::close(cgi_in.in);
+            webserv::pal::fs::close(cgi_in.out);
+            webserv::pal::fs::close(cgi_out.in);
             put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 

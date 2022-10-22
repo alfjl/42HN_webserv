@@ -60,3 +60,5 @@ CONFIG_PARSER:
 MAIN:
  - Entschlacken
 
+EXTRA:
+ - Bugfix hängt bei fehlendem CGI programm/script (e.g. cgi5.cgi)
