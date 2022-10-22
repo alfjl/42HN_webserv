@@ -11,8 +11,8 @@ DONE - env: pwd() sollte keinen Path zurueckgeben, sondern einen std::string (de
 DONE - fork: Easypipe raus (und zu den Dateioperationen), fork()-Funktion verstecken (= aus dem Header rausnehmen), besseren Rueckgabewert und Error-Handling fuer fork_task.perform(), vor allem wenn das Programm nicht gefunden wurde (= execve failed sollte schon vor dem Fork gecheckt werden, mithilfe von pal::dir::access())
 DONE - reactor: react_close() vielleicht umbenennen?
  - selector: beautify selector.select()
- - socket: Kommentare raus, fertig
- - pthread: Kann geloescht werden
+DONE - socket: Kommentare raus, fertig
+DONE - pthread: Kann geloescht werden
 
 TESTS:
 DONE - Koennen raus
