@@ -4,7 +4,8 @@ namespace webserv {
     namespace core {
 
         routing_table::routing_table() {
-            default_route = new wildcard_route(webserv::util::path("/"));
+            // default_route = new error_route(418);
+            default_route = new error_route(200); // TODO: delete! test only!
         }
 
         routing_table::~routing_table(){

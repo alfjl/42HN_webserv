@@ -3,6 +3,14 @@
 namespace webserv {
     namespace core {
 
+        route_meta::route_meta() {
+
+        }
+
+        route_meta::~route_meta() {
+
+        }
+
         bool route_meta::is_method_allowed(webserv::http::http_method method) {
             if (!_allowed_methods.enabled())
                 return true;

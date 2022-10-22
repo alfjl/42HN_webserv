@@ -8,6 +8,10 @@ namespace webserv {
         }
 
 
+        route::route(webserv::util::path file_target) : _file_target(file_target), _meta(new route_meta()) {
+            _meta->increment_refcount();
+        }
+
         route::route(webserv::util::path file_target, route_meta* meta) : _file_target(file_target), _meta(meta) {
             _meta->increment_refcount();
         }
@@ -64,6 +68,10 @@ namespace webserv {
         }
 
 
+        file_route::file_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
         file_route::file_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
@@ -76,6 +84,10 @@ namespace webserv {
             return (new file_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
         }
 
+
+        cgi_route::cgi_route(webserv::util::path file_target) : route(file_target) {
+
+        }
 
         cgi_route::cgi_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
@@ -94,6 +106,10 @@ namespace webserv {
         }
 
 
+        redirection_route::redirection_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
         redirection_route::redirection_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
@@ -111,6 +127,10 @@ namespace webserv {
         }
 
 
+        permanent_redirection_route::permanent_redirection_route(webserv::util::path file_target) : route(file_target) {
+
+        }
+
         permanent_redirection_route::permanent_redirection_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
@@ -127,6 +147,9 @@ namespace webserv {
             return (new permanent_redirection_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
         }
 
+        error_route::error_route(int code) : route(webserv::util::path()), _code(code) {
+
+        }
 
         error_route::error_route(int code, route_meta* meta) : route(webserv::util::path(), meta), _code(code) {
 

@@ -16,7 +16,7 @@ namespace webserv {
 
         public:
             route_meta();
-            virtual ~route_meta();
+            ~route_meta();
 
             bool is_method_allowed(webserv::http::http_method method);
 

@@ -22,6 +22,7 @@ namespace webserv {
             route_meta*          _meta;
 
         public:
+            route(webserv::util::path file_target);
             route(webserv::util::path file_target, route_meta* meta);
             route(const route& other);
             virtual ~route();
@@ -44,6 +45,7 @@ namespace webserv {
 
         class file_route : public route {
         public:
+            file_route(webserv::util::path file_target);
             file_route(webserv::util::path file_target, route_meta* meta);
             file_route(const file_route& other);
             route* build(match_info& meta);
@@ -51,6 +53,7 @@ namespace webserv {
 
         class cgi_route : public route {
         public:
+            cgi_route(webserv::util::path file_target);
             cgi_route(webserv::util::path file_target, route_meta* meta);
             cgi_route(const cgi_route& other);
 
@@ -60,6 +63,7 @@ namespace webserv {
 
         class redirection_route : public route {
         public:
+            redirection_route(webserv::util::path file_target);
             redirection_route(webserv::util::path file_target, route_meta* meta);
             redirection_route(const redirection_route& other);
 
@@ -69,6 +73,7 @@ namespace webserv {
 
         class permanent_redirection_route : public route {
         public:
+            permanent_redirection_route(webserv::util::path file_target);
             permanent_redirection_route(webserv::util::path file_target, route_meta* meta);
             permanent_redirection_route(const permanent_redirection_route& other);
 
@@ -80,6 +85,7 @@ namespace webserv {
             int _code;
 
         public:
+            error_route(int code);
             error_route(int code, route_meta* meta);
             error_route(const error_route& other);
 
