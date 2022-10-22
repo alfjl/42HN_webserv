@@ -3,7 +3,7 @@
 
 #include "../../defs.hpp"
 
-#include "../../util/optional.hpp"
+#include "../../pal/cpp/optional.hpp"
 
 
 namespace webserv {
@@ -35,8 +35,8 @@ namespace webserv {
                 std::string _executable;
                 std::vector<std::string> _env;
                 std::vector<int> _to_close;
-                webserv::util::optional<int> _input_to;
-                webserv::util::optional<int> _output_to;
+                webserv::pal::cpp::optional<int> _input_to;
+                webserv::pal::cpp::optional<int> _output_to;
 
                 void do_child_stuff();
 

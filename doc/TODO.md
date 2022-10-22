@@ -25,7 +25,7 @@ DONE - connection: Ist perfekt
 DONE - iflow: Perfekt
 DONE - notification: Kann raus?
  - oflow: Error handling
- - optional: zu PAL/cpp/
+DONE - optional: zu PAL/cpp/
  - parser: eigene parse_exception werfen statt runtime_error
  - path: Perfekt
  - refcounted: Auch gut

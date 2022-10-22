@@ -3,7 +3,7 @@
 
 #include "../../defs.hpp"
 #include "../../http/uri.hpp"
-#include "../../util/optional.hpp"
+#include "../../pal/cpp/optional.hpp"
 #include "../../util/path.hpp"
 #include "../component.hpp"
 
@@ -11,7 +11,7 @@ namespace webserv {
 	namespace core {
 
 		class filesystem : public component {
-            webserv::util::optional<webserv::util::path> _anchor;
+            webserv::pal::cpp::optional<webserv::util::path> _anchor;
 
 			std::string add_anchor(webserv::util::path path);
 
