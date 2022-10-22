@@ -8,6 +8,16 @@
 namespace webserv {
     namespace util {
 
+        class parse_exception : public std::exception {
+            std::string _message;
+
+        public:
+            parse_exception(std::string message);
+            ~parse_exception() _NOEXCEPT;
+
+            const char* what() const _NOEXCEPT;
+        };
+
         class parser : public iflow {
             iflow&            flow;
             std::stack<char>  pushbacks;

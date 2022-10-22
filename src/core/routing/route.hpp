@@ -4,7 +4,7 @@
 #include "../../defs.hpp"
 
 #include "../../http/request.hpp"
-#include "../../util/optional.hpp"
+#include "../../pal/cpp/optional.hpp"
 
 namespace webserv {
     namespace core {
@@ -17,7 +17,7 @@ namespace webserv {
             webserv::util::path                                             _file_target;
         
         protected:
-            webserv::util::optional<std::set<webserv::http::http_method> >  _allowed_methods;
+            webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
 
         public:
             route(webserv::util::path file_target);

@@ -35,7 +35,6 @@ namespace webserv {
 
         std::streamsize ofdflow::xsputn(const char * s, std::streamsize n)
         {
-            // TODO: ERROR HANDLING
             write(_fd, s, n);
             return n;
         }
