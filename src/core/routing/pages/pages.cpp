@@ -18,39 +18,6 @@ namespace webserv {
         //     return ost.str();
         // }
 
-        std::string find_mime(std::string extension) {
-            if (extension == "bmp")
-                return "image/bmp";
-            else if (extension == "css")
-                return "text/css";
-            else if (extension == "csv")
-                return "text/csv";
-            else if (extension == "doc")
-                return "application/msword";
-            else if (extension == "docx")
-                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            else if (extension == "gif")
-                return "image/gif";
-            else if ((extension == "html") || (extension == "htm"))
-                return "text/html";
-            else if ((extension == "jpeg") || (extension == "jpg"))
-                return "image/jpeg";
-            else if (extension == "js")
-                return "text/javascript";
-            else if (extension == "json")
-                return "application/json";
-            else if (extension == "png")
-                return "image/png";
-            else if (extension == "pdf")
-                return "application/pdf";
-            else if (extension == "php")
-                return "application/x-httpd-php";
-            else if (extension == "txt")
-                return "text/plain";
-            else
-                return "*/*";
-        }
-
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
