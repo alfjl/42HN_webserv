@@ -6,7 +6,7 @@
 namespace webserv {
     namespace core {
 
-		std::string itos(unsigned int code);
+		// std::string itos(unsigned int code);
 		std::string find_mime(std::string extension);
 
 		void error_code(webserv::http::response_fixed& response, unsigned int code);
