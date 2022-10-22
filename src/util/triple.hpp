@@ -20,7 +20,6 @@ namespace webserv {
             triple(const triple& other) : _first(other._first), _second(other._second), _third(other._third) {
             
             }
-
 		};
 
 	}

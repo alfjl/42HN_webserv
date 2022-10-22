@@ -44,6 +44,8 @@ namespace webserv {
             for (; it != ite; ++it) {
                 match_info meta;
                 if (it->_first->matches(path, meta)) {
+                    if (!it->_second->convert(meta))
+                        continue ;
                     return it->_third->build(meta);
                 }
             }
