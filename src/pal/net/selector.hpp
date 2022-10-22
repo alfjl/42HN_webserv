@@ -23,6 +23,30 @@ namespace webserv {
             private:
                 std::map<socket*, payload_type> elements; // socket = registered/active socket
                 webserv::core::driver*          the_driver;
+            
+            protected:
+                struct fd_sets {
+                    int     highest;
+                    fd_set  read_fds;
+                    fd_set  write_fds;
+                    fd_set  exception_fds;
+
+                    fd_sets() : highest(-1) {
+                        FD_ZERO(&read_fds);
+                        FD_ZERO(&write_fds);
+                        FD_ZERO(&exception_fds);
+                    }
+                };
+
+                void add_fds(fd_sets& sets);
+                void process_fds(fd_sets& sets);
+                void unregister_closed_fds(fd_sets& sets);
+
+                void error_on_socket(webserv::pal::net::socket* sock);
+
+                bool process_readable(std::pair<webserv::pal::net::socket*, payload_type> it);
+                bool process_writable(std::pair<webserv::pal::net::socket*, payload_type> it);
+                bool process_except(std::pair<webserv::pal::net::socket*, payload_type> it);
 
             public:
                 selector();
