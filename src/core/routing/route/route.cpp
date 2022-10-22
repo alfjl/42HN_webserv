@@ -3,8 +3,13 @@
 namespace webserv {
     namespace core {
 
-        route::route(webserv::util::path file_target) : _file_target(file_target) {
+        static webserv::util::path concat_path_with_info(webserv::util::path file_target, match_info& info) {
+            return (file_target + info.wildcard_path);
+        }
 
+
+        route::route(webserv::util::path file_target, route_meta* meta) : _file_target(file_target), _meta(meta) {
+            _meta->increment_refcount();
         }
 
         route::route(const route& other) {
@@ -13,15 +18,13 @@ namespace webserv {
         }
 
         route::~route() {
-
+            _meta->decrement_refcount();
         }
 
         webserv::util::path route::get_file_target() { return _file_target; }
 
         bool route::is_method_allowed(webserv::http::http_method method) {
-            if (!_allowed_methods.enabled())
-                return true;
-            return _allowed_methods.value().find(method) != _allowed_methods.value().end();
+            return _meta->is_method_allowed(method);
         }
 
         route* route::set_path(webserv::util::path file_target) {
@@ -31,14 +34,13 @@ namespace webserv {
         }
 
         route* route::set_allowed_method(webserv::http::http_method method) {
-            _allowed_methods.enable();
-            _allowed_methods.value().insert(method);
+            _meta->set_allowed_method(method);
 
             return this;
         }
 
         route* route::unset_allowed_method(webserv::http::http_method method) {
-            _allowed_methods.value().erase(method);
+            _meta->unset_allowed_method(method);
 
             return this;
         }
@@ -62,16 +64,20 @@ namespace webserv {
         }
 
 
-        file_route::file_route(webserv::util::path file_target) : route(file_target) {
+        file_route::file_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
 
         file_route::file_route(const file_route& other) : route(other) {
 
         }
+        
+        route* file_route::build(match_info& info) {
+            return (new file_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
+        }
 
 
-        cgi_route::cgi_route(webserv::util::path file_target) : route(file_target) {
+        cgi_route::cgi_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
 
@@ -82,9 +88,13 @@ namespace webserv {
         bool cgi_route::is_cgi() {
             return true;
         }
+        
+        route* cgi_route::build(match_info& info) {
+            return (new cgi_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));            
+        }
 
 
-        redirection_route::redirection_route(webserv::util::path file_target) : route(file_target) {
+        redirection_route::redirection_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
 
@@ -95,9 +105,13 @@ namespace webserv {
         bool redirection_route::is_redirection() {
             return true;
         }
+        
+        route* redirection_route::build(match_info& info) {
+            return (new redirection_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
+        }
 
 
-        permanent_redirection_route::permanent_redirection_route(webserv::util::path file_target) : route(file_target) {
+        permanent_redirection_route::permanent_redirection_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
 
         }
 
@@ -108,8 +122,13 @@ namespace webserv {
         bool permanent_redirection_route::is_permanent_redirection() {
             return true;
         }
+        
+        route* permanent_redirection_route::build(match_info& info) {
+            return (new permanent_redirection_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
+        }
 
-        error_route::error_route(int code) : route(webserv::util::path()), _code(code) {
+
+        error_route::error_route(int code, route_meta* meta) : route(webserv::util::path(), meta), _code(code) {
 
         }
 
@@ -120,25 +139,30 @@ namespace webserv {
             code = _code;
             return true;
         }
-
-        wildcard_route::wildcard_route(webserv::util::path file_target) : route(file_target) {
-
+        
+        route* error_route::build(match_info& info) {
+            return (new error_route(_code, route::_meta));
         }
 
-        wildcard_route::wildcard_route(const wildcard_route& other) : route(other) {
+        // wildcard_route::wildcard_route(webserv::util::path file_target) : route(file_target) {
 
-        }
+        // }
 
-        route* wildcard_route::build(match_info& meta) {
-            file_route* fr = new file_route(get_file_target() + meta.wildcard_path);
-            if (_allowed_methods.enabled()) {
-                std::set<webserv::http::http_method>::const_iterator it = _allowed_methods.value().begin();
-                while (it != _allowed_methods.value().end()) {
-                    fr->set_allowed_method(*it);
-                    ++it;
-                }
-            }
-            return fr;
-        }
+        // wildcard_route::wildcard_route(const wildcard_route& other) : route(other) {
+
+        // }
+
+        // route* wildcard_route::build(match_info& meta) {
+        //     file_route* fr = new file_route(get_file_target() + meta.wildcard_path);
+        //     // if (_allowed_methods.enabled()) {
+        //     if (_allowed_methods.enabled()) {
+        //         std::set<webserv::http::http_method>::const_iterator it = _allowed_methods.value().begin();
+        //         while (it != _allowed_methods.value().end()) {
+        //             fr->set_allowed_method(*it);
+        //             ++it;
+        //         }
+        //     }
+        //     return fr;
+        // }
     }
 }
