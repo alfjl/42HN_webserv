@@ -6,20 +6,20 @@ namespace webserv {
 
         struct match_info;
 
-        class basic_translation_function {
+        class translation_function {
         public:
-            basic_translation_function();
-            virtual ~basic_translation_function();
+            translation_function();
+            virtual ~translation_function();
 
             virtual bool convert(match_info& meta) = 0;
         };
 
-        class zero_translation_function : public basic_translation_function {
+        class zero_translation_function : public translation_function {
         public:
             bool convert(match_info& meta);
         };
 
-        class relative_translation_function : public basic_translation_function {
+        class relative_translation_function : public translation_function {
         public:
             bool convert(match_info& meta);
         };

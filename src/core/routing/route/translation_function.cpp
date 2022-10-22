@@ -7,11 +7,11 @@
 namespace webserv {
     namespace core {
 
-        basic_translation_function::basic_translation_function() {
+        translation_function::translation_function() {
 
         }
 
-        basic_translation_function::~basic_translation_function() {
+        translation_function::~translation_function() {
 
         }
 
