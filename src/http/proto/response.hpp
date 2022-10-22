@@ -5,6 +5,7 @@
 
 #include "../../util/connection.hpp"
 #include "../../util/refcounted.hpp"
+#include "../http.hpp"
 
 #include "request.hpp" 
 
@@ -67,8 +68,6 @@ namespace webserv {
             void write_body(webserv::util::connection& con);
             void write(webserv::util::connection& con);
         };
-
-		std::string find_mime(std::string extension);
         
     }
 }

@@ -1,6 +1,7 @@
 #include "cgi.hpp"
 
 #include "../pages/pages.hpp"
+#include "../../../http/http.hpp"
 #include "../../../http/proto/response.hpp"
 
 namespace webserv {
