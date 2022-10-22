@@ -16,7 +16,7 @@ namespace webserv {
                 virtual webserv::util::wrapped_queue& get_input() = 0;
                 virtual webserv::util::wrapped_queue& get_output() = 0;
 
-                virtual void react_close() = 0;
+                virtual void notify_about_close() = 0;
                 virtual bool is_closed() = 0;
             };
 

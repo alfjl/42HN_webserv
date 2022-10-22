@@ -116,7 +116,7 @@ namespace webserv {
             if (prefix.size() > size()) return false;
 
             for (size_t i = 0; i < size_p; ++i) {
-                if (prefix._addr[i] != this->_addr[i]) // do we need to pull these apart in 2 ifs?
+                if (prefix._addr[i] != this->_addr[i])
                     return false;
             }
 

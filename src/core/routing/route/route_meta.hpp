@@ -4,7 +4,7 @@
 #include "../../../defs.hpp"
 
 #include "../../../http/request.hpp"
-#include "../../../util/optional.hpp"
+#include "../../../pal/cpp/optional.hpp"
 #include "../../../util/refcounted.hpp"
 
 namespace webserv {
@@ -12,7 +12,7 @@ namespace webserv {
 
         class route_meta : public webserv::util::refcounted {
         protected:
-            webserv::util::optional<std::set<webserv::http::http_method> >  _allowed_methods;
+            webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
 
         public:
             route_meta();

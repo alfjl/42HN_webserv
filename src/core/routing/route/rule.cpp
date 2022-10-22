@@ -15,7 +15,7 @@ namespace webserv {
             return _prefix;
         }
 
-        webserv::util::optional<std::string>& basic_rule::get_extension() {
+        webserv::pal::cpp::optional<std::string>& basic_rule::get_extension() {
             return _extension;
         }
 

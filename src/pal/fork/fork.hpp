@@ -3,17 +3,12 @@
 
 #include "../../defs.hpp"
 
-#include "../../util/optional.hpp"
+#include "../../pal/cpp/optional.hpp"
 
 
 namespace webserv {
     namespace pal {
         namespace fork {
-
-            struct easypipe {
-                int in;
-                int out;
-            };
 
             bool safe_pipe(int* pipe_in, int* pipe_out);
             bool safe_dup2(int overridden_fd, int original_fd);
@@ -23,8 +18,6 @@ namespace webserv {
                 fork_status_i_am_parent,
                 fork_status_i_am_child
             };
-
-            std::pair<fork_status, pid_t> fork();
 
             class wait_set {
                 std::set<pid_t> pids;
@@ -42,8 +35,8 @@ namespace webserv {
                 std::string _executable;
                 std::vector<std::string> _env;
                 std::vector<int> _to_close;
-                webserv::util::optional<int> _input_to;
-                webserv::util::optional<int> _output_to;
+                webserv::pal::cpp::optional<int> _input_to;
+                webserv::pal::cpp::optional<int> _output_to;
 
                 void do_child_stuff();
 
@@ -51,7 +44,8 @@ namespace webserv {
                 fork_task(std::string executable);
                 ~fork_task();
 
-                pid_t perform(wait_set& set);
+                bool perform(wait_set& set, pid_t& pid);
+                bool perform(wait_set& set);
 
                 void input_to(int input);
                 void output_to(int output);

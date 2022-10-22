@@ -1,6 +1,7 @@
 #include "pages.hpp"
 
 #include "../cgi/cgi.hpp"
+#include "../../../pal/cpp/conv.hpp"
 
 namespace webserv {
     namespace http {
@@ -11,51 +12,12 @@ namespace webserv {
 
     namespace core {
 
-        std::string itos(unsigned int code){
-            std::ostringstream ost;
-            ost << code;
-            return ost.str();
-        }
-
-        std::string find_mime(std::string extension) {
-            if (extension == "bmp")
-                return "image/bmp";
-            else if (extension == "css")
-                return "text/css";
-            else if (extension == "csv")
-                return "text/csv";
-            else if (extension == "doc")
-                return "application/msword";
-            else if (extension == "docx")
-                return "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            else if (extension == "gif")
-                return "image/gif";
-            else if ((extension == "html") || (extension == "htm"))
-                return "text/html";
-            else if ((extension == "jpeg") || (extension == "jpg"))
-                return "image/jpeg";
-            else if (extension == "js")
-                return "text/javascript";
-            else if (extension == "json")
-                return "application/json";
-            else if (extension == "png")
-                return "image/png";
-            else if (extension == "pdf")
-                return "application/pdf";
-            else if (extension == "php")
-                return "application/x-httpd-php";
-            else if (extension == "txt")
-                return "text/plain";
-            else
-                return "*/*";
-        }
-
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
             std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
 
-            std::string buf(itos(code));
+            std::string buf(webserv::pal::cpp::int_to_string(code));
             buf.append(" ");
             buf.append(webserv::http::code2str(code));
             ost << "<!DOCTYPE html>\r\n";

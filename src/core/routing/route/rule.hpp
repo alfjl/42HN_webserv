@@ -2,7 +2,7 @@
 #define WEBSERV_CORE_ROUTING_ROUTE_RULE_HPP
 
 #include "../../../util/path.hpp"
-#include "../../../util/optional.hpp"
+#include "../../../pal/cpp/optional.hpp"
 
 namespace webserv {
     namespace core {
@@ -10,12 +10,12 @@ namespace webserv {
         struct match_info;
         
         class basic_rule {
-            webserv::util::path                   _prefix;
-            webserv::util::optional<std::string>  _extension;
+            webserv::util::path                       _prefix;
+            webserv::pal::cpp::optional<std::string>  _extension;
 
         protected:
-            webserv::util::path                    get_prefix();
-            webserv::util::optional<std::string>&  get_extension();
+            webserv::util::path                        get_prefix();
+            webserv::pal::cpp::optional<std::string>&  get_extension();
 
         public:
             basic_rule();

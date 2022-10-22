@@ -3,6 +3,7 @@
 #include "pages/pages.hpp"
 #include "cgi/cgi.hpp"
 #include "../../pal/fork/fork.hpp"
+#include "../../pal/fs/fs.hpp"
 #include "../../http/response.hpp"
 #include "../../http/request.hpp"
 #include "../../http/handler/http_handler.hpp"
@@ -111,13 +112,13 @@ namespace webserv {
          * Opens 2 pipes. One for the input into the cgi,
          * and one for the output of the cgi 
          */
-        static bool prepare_pipes(webserv::pal::fork::easypipe* cgi_in, webserv::pal::fork::easypipe* cgi_out) {
+        static bool prepare_pipes(webserv::pal::fs::easypipe* cgi_in, webserv::pal::fs::easypipe* cgi_out) {
             if (!webserv::pal::fork::safe_pipe(&(cgi_in->in), &(cgi_in->out))) { // TODO: Is there a better notation instead of '&(pointer->int)'
                 return false;
             }
             if (!webserv::pal::fork::safe_pipe(&(cgi_out->in), &(cgi_out->out))) {
-                ::close(cgi_in->in);
-                ::close(cgi_in->out);
+                webserv::pal::fs::close(cgi_in->in);
+                webserv::pal::fs::close(cgi_in->out);
                 return false;
             }
             return true;
@@ -127,8 +128,8 @@ namespace webserv {
          * Wraps the fork() and execve() calls,
          * and takes care of closing the correct file descriptors
          */
-        static bool prepare_task(webserv::pal::fork::easypipe  cgi_in,
-                                webserv::pal::fork::easypipe   cgi_out,
+        static bool prepare_task(webserv::pal::fs::easypipe  cgi_in,
+                                webserv::pal::fs::easypipe   cgi_out,
                                 webserv::pal::fork::fork_task* task,
                                 webserv::pal::fork::wait_set*  ws) {
             task->close_on_fork(cgi_in.in);
@@ -136,24 +137,21 @@ namespace webserv {
             // communicate input and output to task
             task->io_to(cgi_in.out, cgi_out.in);
             // fork_task
-            if (task->perform(*ws) < 0) {
-                return false;
-            }
-            return true;
+            return task->perform(*ws);
         }
 
         /*
          * Attaches the input of cgi_in to an ostream,
          * and writes the cgi message_body to this stream 
          */
-        static void handle_cgi_message_in(webserv::pal::fork::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
+        static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
             cgi_msg.write_on(o);
             cgi_msg.write_on(std::cerr);
         }
 
-        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fork::easypipe& cgi_out) {
+        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {
             webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
             if (handler != NULL) {
@@ -172,13 +170,14 @@ namespace webserv {
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
         void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request_core& request, route* the_route, webserv::http::http_handler* the_http_handler) {
-            webserv::http::cgi_message cgi_msg(request, get_instance(), table.query(request.get_line().get_uri().get_path())->get_file_target().to_absolute_string());
-            // webserv::pal::fork::fork_task task(the_route.get_file_target().to_absolute_string());
-            // webserv::pal::fork::fork_task task("../tester/cgi/cgi1.cgi");
-            webserv::pal::fork::fork_task task("../tester/cgi/cgi_tester.cgi");
+            std::string cgi_path(the_route->get_file_target().to_absolute_string());
+
+            webserv::http::cgi_message cgi_msg(request, get_instance(), cgi_path);
+            webserv::pal::fork::fork_task task(cgi_path);
+            
             webserv::pal::fork::wait_set ws;
-            webserv::pal::fork::easypipe cgi_in;
-            webserv::pal::fork::easypipe cgi_out;
+            webserv::pal::fs::easypipe cgi_in;
+            webserv::pal::fs::easypipe cgi_out;
 
             for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                 task.add_env(it->first + "=" + it->second);
@@ -215,9 +214,9 @@ namespace webserv {
 
              TODO: Close to pal
              */
-            ::close(cgi_in.in);
-            ::close(cgi_in.out);
-            ::close(cgi_out.in);
+            webserv::pal::fs::close(cgi_in.in);
+            webserv::pal::fs::close(cgi_in.out);
+            webserv::pal::fs::close(cgi_out.in);
             put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 
@@ -233,6 +232,7 @@ namespace webserv {
                     method_not_allowed_405(response);
                 } else if (the_route->is_cgi()) {
                     handle_cgi(response, request, the_route, the_http_handler);
+                    delete the_route;
                     return; // Invisible yield
                 } else if (the_route->is_redirection()) {
                     temporary_redirect_302(response, the_route->get_file_target());
@@ -256,6 +256,7 @@ namespace webserv {
                 }
             }
 
+            delete the_route;
             response.write(*the_http_handler->get_connection());
         }
 

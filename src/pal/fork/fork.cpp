@@ -1,5 +1,7 @@
 #include "fork.hpp"
 
+#include "../fs/fs.hpp"
+
 namespace webserv {
     namespace pal {
         namespace fork {
@@ -75,7 +77,7 @@ namespace webserv {
             void fork_task::do_child_stuff() {
                 std::vector<int>::const_iterator it = _to_close.begin();
                 while (it != _to_close.end()) {
-                    ::close(*it);
+                    webserv::pal::fs::close(*it);
                     ++it;
                 }
 
@@ -93,11 +95,11 @@ namespace webserv {
 
                         if (_input_to.enabled()) {
                             safe_dup2(STDIN_FILENO, _input_to.value());
-                            ::close(_input_to.value());
+                            webserv::pal::fs::close(_input_to.value());
                         }
                         if (_output_to.enabled()) {
                             safe_dup2(STDOUT_FILENO, _output_to.value());
-                            ::close(_output_to.value());
+                            webserv::pal::fs::close(_output_to.value());
                         }
 
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
@@ -107,22 +109,32 @@ namespace webserv {
                 exit(127);
             }
 
-            pid_t fork_task::perform(wait_set& set) {
+            bool fork_task::perform(wait_set& set, pid_t& pid) {
                 // TODO: Fail if executable does NOT exist
+                std::cout << "_executable: " << _executable << std::endl;
+                if (!webserv::pal::fs::access(_executable) || (webserv::pal::fs::is_directory(_executable)))
+                    return false;
+                std::cout << "2 _executable: " << _executable << std::endl;
+
                 std::pair<fork_status, pid_t> result = fork();
 
                 switch (result.first) {
                     case fork_status_i_am_parent:
                         set.add(result.second);
-                        return result.second;
+                        pid = result.second;
+                        return true;
                     case fork_status_i_am_child:
                         do_child_stuff();
                         break;
-                    default:
-                        throw std::runtime_error("Something went wrong with fork()!");
+                    default: ;
                 }
 
-                return 0;
+                return false;
+            }
+
+            bool fork_task::perform(wait_set& set) {
+                pid_t pid;
+                return perform(set, pid);
             }
 
             void fork_task::input_to(int input) {

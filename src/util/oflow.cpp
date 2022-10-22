@@ -1,5 +1,6 @@
 #include "oflow.hpp"
 
+#include "../pal/fs/fs.hpp"
 #include "connection.hpp"
 
 namespace webserv {
@@ -34,14 +35,13 @@ namespace webserv {
 
         std::streamsize ofdflow::xsputn(const char * s, std::streamsize n)
         {
-            // TODO: ERROR HANDLING
             write(_fd, s, n);
             return n;
         }
 
         oflow::int_type ofdflow::overflow(int_type c) {
             if (c == traits_type::eof())
-                ::close(_fd);
+                webserv::pal::fs::close(_fd);
             else {
                 char_type ch = traits_type::to_char_type(c);
                 return xsputn(&ch, 1) == 1 ? c : traits_type::eof();

@@ -1,10 +1,26 @@
-#include "readdir.hpp"
+#include "fs.hpp"
+
+#include "../../util/path.hpp"
 
 namespace webserv {
     namespace pal {
-        namespace dir {
+        namespace fs {
 
-            std::vector<std::string> read_directory(std::string path) {
+            bool access(std::string path) {
+                if (::access(path.c_str(), F_OK) == 0)
+                    return true;
+                return false;
+            }
+
+			bool rmdir(std::string path) {
+                return ::rmdir(path.c_str()) == 0;
+            }
+
+            bool remove(std::string path) {
+                return ::remove(path.c_str()) == 0;
+            }
+
+			std::vector<std::string> read_directory(std::string path) {
                 std::vector<std::string> files;
                 DIR*                     dir_ptr;
                 struct dirent*           entry;
@@ -28,6 +44,10 @@ namespace webserv {
                 }
 
                 return false;
+            }
+
+            bool close(int fd) {
+                return ::close(fd) == 0;
             }
 
         }
