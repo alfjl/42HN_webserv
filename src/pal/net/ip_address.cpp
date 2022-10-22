@@ -15,6 +15,7 @@ namespace webserv {
 
             std::string ip_address::get_ip_s() {
                 // TODO: Convert _ip_32 to string
+                return "";
             }
 
             uint32_t    ip_address::get_ip_uint32() {

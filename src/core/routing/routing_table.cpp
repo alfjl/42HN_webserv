@@ -51,7 +51,7 @@ namespace webserv {
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator it = prefix_rules.begin();
             std::vector<std::pair<webserv::core::basic_rule*, webserv::core::route*> >::const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {
-                route_meta meta;
+                match_info meta;
                 if (it->first->matches(path, meta)) {
                     return it->second->build(meta);
                 }
@@ -61,7 +61,7 @@ namespace webserv {
              * No route found, return the default route.
              */
             {
-                route_meta meta;
+                match_info meta;
                 meta.wildcard_path = path;
                 return default_route->build(meta);
             }

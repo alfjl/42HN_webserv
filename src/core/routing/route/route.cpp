@@ -129,7 +129,7 @@ namespace webserv {
 
         }
 
-        route* wildcard_route::build(route_meta& meta) {
+        route* wildcard_route::build(match_info& meta) {
             file_route* fr = new file_route(get_file_target() + meta.wildcard_path);
             if (_allowed_methods.enabled()) {
                 std::set<webserv::http::http_method>::const_iterator it = _allowed_methods.value().begin();

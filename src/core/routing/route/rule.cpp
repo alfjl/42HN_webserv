@@ -27,7 +27,7 @@ namespace webserv {
             _extension.enable(extension);
         }
 
-        bool basic_rule::matches(webserv::util::path path, route_meta& meta) {
+        bool basic_rule::matches(webserv::util::path path, match_info& meta) {
             webserv::util::path ext(path.get_extension());
 
             if (!path.begins_with(get_prefix()))

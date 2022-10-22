@@ -1,15 +1,15 @@
-#ifndef WEBSERV_CORE_ROUTING_ROUTE_HPP
-#define WEBSERV_CORE_ROUTING_ROUTE_HPP
+#ifndef WEBSERV_CORE_ROUTING_ROUTE_ROUTE_HPP
+#define WEBSERV_CORE_ROUTING_ROUTE_ROUTE_HPP
 
-#include "../../defs.hpp"
+#include "../../../defs.hpp"
 
-#include "../../http/request.hpp"
-#include "../../util/optional.hpp"
+#include "../../../http/request.hpp"
+#include "../../../util/optional.hpp"
 
 namespace webserv {
     namespace core {
 
-        struct route_meta {
+        struct match_info {
             webserv::util::path wildcard_path;
         };
 
@@ -37,7 +37,7 @@ namespace webserv {
             virtual bool is_permanent_redirection();
             virtual bool is_error(int& code);
 
-            virtual route* build(route_meta& meta) { return this; }
+            virtual route* build(match_info& meta) { return this; }
         };
 
         class file_route : public route {
@@ -85,7 +85,7 @@ namespace webserv {
             wildcard_route(webserv::util::path file_target);
             wildcard_route(const wildcard_route& other);
 
-            virtual route* build(route_meta& meta);
+            virtual route* build(match_info& meta);
         };
 
     }

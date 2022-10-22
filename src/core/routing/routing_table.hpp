@@ -3,8 +3,8 @@
 
 #include "../../util/path.hpp"
 
-#include "route.hpp"
-#include "rule.hpp"
+#include "route/route.hpp"
+#include "route/rule.hpp"
 
 namespace webserv {
     namespace core {
