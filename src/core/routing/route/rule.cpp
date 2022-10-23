@@ -21,6 +21,10 @@ namespace webserv {
             return _extension;
         }
 
+        enum basic_rule::match_mode basic_rule::get_match_mode() {
+            return _match_mode;
+        }
+
         void basic_rule::set_identity(webserv::util::path identity) {
             _match_mode = rule_match_mode_identity;
             _path       = identity;
@@ -33,6 +37,10 @@ namespace webserv {
 
         void basic_rule::set_extension(std::string extension) {
             _extension.enable(extension);
+        }
+
+        void basic_rule::set_match_mode(enum basic_rule::match_mode mode) {
+            _match_mode = mode;
         }
 
         bool basic_rule::matches(webserv::util::path path, match_info& meta) {
@@ -57,6 +65,11 @@ namespace webserv {
             }
 
             return true;
+        }
+
+
+        fallback_rule::fallback_rule() {
+            set_match_mode(rule_match_mode_always);
         }
 
 
