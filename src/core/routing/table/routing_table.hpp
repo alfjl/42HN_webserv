@@ -1,12 +1,12 @@
 #ifndef WEBSERV_CORE_ROUTING_ROUTING_TABLE_HPP
 #define WEBSERV_CORE_ROUTING_ROUTING_TABLE_HPP
 
-#include "../../util/path.hpp"
-#include "../../util/triple.hpp"
+#include "../../../util/path.hpp"
+#include "../../../util/triple.hpp"
 
-#include "route/route.hpp"
-#include "route/rule.hpp"
-#include "route/translation_function.hpp"
+#include "route.hpp"
+#include "rule.hpp"
+#include "translation_function.hpp"
 
 namespace webserv {
     namespace core {

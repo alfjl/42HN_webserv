@@ -12,7 +12,7 @@
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
-#include "routing_table.hpp"
+#include "table/routing_table.hpp"
 
 namespace webserv {
     namespace core {

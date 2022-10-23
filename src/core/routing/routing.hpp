@@ -9,7 +9,7 @@
 #include "../../pal/net/selector.hpp"
 #include "../../pal/fs/fs.hpp"
 
-#include "routing_table.hpp"
+#include "table/routing_table.hpp"
 
 namespace webserv {
     namespace http { class http_handler; }
