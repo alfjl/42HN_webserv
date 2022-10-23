@@ -18,8 +18,10 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            table.add_rule(new identity_rule(webserv::util::path("/index.html")), new file_route(webserv::util::path("/index.html")));
-            table.add_rule(new fallback_rule(), new error_route(404));
+            //table.add_rule(new identity_rule(webserv::util::path("/index.html")), new file_route(webserv::util::path("/index.html")));
+            table.add_rule(new identity_rule(webserv::util::path("/")), new file_route(webserv::util::path("/")));
+            table.add_rule(new prefix_ext_rule(webserv::util::path("/"), "html"), new relative_translation_function(), new file_route(webserv::util::path("/")));
+            table.add_rule(new fallback_rule(), new error_route(403));
         }
 
         routing::~routing() {
