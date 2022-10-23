@@ -12,8 +12,6 @@ namespace webserv {
     namespace core {
 
         class routing_table {
-            // typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::iterator       iterator;
-            // typedef std::vector<std::pair<webserv::util::path, webserv::util::path> >::const_iterator const_iterator;
             typedef std::vector<webserv::util::triple<webserv::core::basic_rule*, webserv::core::translation_function*, webserv::core::route*> >::iterator       iterator;
             typedef std::vector<webserv::util::triple<webserv::core::basic_rule*, webserv::core::translation_function*, webserv::core::route*> >::const_iterator const_iterator;
 
@@ -25,7 +23,9 @@ namespace webserv {
             routing_table();
             ~routing_table();
 
-            void add_rule(webserv::core::basic_rule* in, webserv::core::translation_function* rule, webserv::core::route* out);
+            void add_rule(basic_rule* in, translation_function* rule, route* out);
+            void add_rule(basic_rule* in, route* out);
+
             route* query(webserv::util::path path);
         };
 

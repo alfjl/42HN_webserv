@@ -5,7 +5,7 @@
 namespace webserv {
     namespace core {
 
-        basic_rule::basic_rule() {
+        basic_rule::basic_rule() : _match_mode(rule_match_mode_always) {
 
         }
 
@@ -14,15 +14,21 @@ namespace webserv {
         }
 
         webserv::util::path basic_rule::get_prefix() {
-            return _prefix;
+            return _path;
         }
 
         webserv::pal::cpp::optional<std::string>& basic_rule::get_extension() {
             return _extension;
         }
 
+        void basic_rule::set_identity(webserv::util::path identity) {
+            _match_mode = rule_match_mode_identity;
+            _path       = identity;
+        }
+
         void basic_rule::set_prefix(webserv::util::path prefix) {
-            _prefix = prefix;
+            _match_mode = rule_match_mode_prefix;
+            _path       = prefix;
         }
 
         void basic_rule::set_extension(std::string extension) {
@@ -32,15 +38,31 @@ namespace webserv {
         bool basic_rule::matches(webserv::util::path path, match_info& meta) {
             webserv::util::path ext(path.get_extension());
 
-            if (!path.begins_with_cut(get_prefix(), meta.wildcard_path))
-                return false;
-            // TODO: Set meta.wildcard_path to remainder
             if (get_extension().enabled() && !ext.is_equal(get_extension().value()))
                 return false;
+
+            switch (_match_mode) {
+                case rule_match_mode_always: break;
+                case rule_match_mode_never: return false;
+                case rule_match_mode_identity:
+                    if (path != get_prefix())
+                        return false;
+                    meta.wildcard_path = webserv::util::path();
+                    break;
+                case rule_match_mode_prefix:
+                    if (!path.begins_with_cut(get_prefix(), meta.wildcard_path))
+                        return false;
+                    break;
+                default: return false;
+            }
 
             return true;
         }
 
+
+        identity_rule::identity_rule(webserv::util::path id_path) {
+            basic_rule::set_identity(id_path);
+        }
 
         prefix_rule::prefix_rule(webserv::util::path prefix) {
             basic_rule::set_prefix(prefix);

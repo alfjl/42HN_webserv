@@ -10,7 +10,15 @@ namespace webserv {
         struct match_info;
         
         class basic_rule {
-            webserv::util::path                       _prefix;
+            enum match_mode {
+                rule_match_mode_never,
+                rule_match_mode_always,
+                rule_match_mode_identity,
+                rule_match_mode_prefix
+            };
+
+            enum match_mode                           _match_mode;
+            webserv::util::path                       _path;
             webserv::pal::cpp::optional<std::string>  _extension;
 
         protected:
@@ -21,10 +29,16 @@ namespace webserv {
             basic_rule();
             virtual ~basic_rule();
 
+            void set_identity(webserv::util::path identity);
             void set_prefix(webserv::util::path prefix);
             void set_extension(std::string extension);
 
             virtual bool matches(webserv::util::path path, match_info& meta);
+        };
+
+        class identity_rule : public basic_rule {
+        public:
+            identity_rule(webserv::util::path id_path);
         };
 
         class prefix_rule : public basic_rule {

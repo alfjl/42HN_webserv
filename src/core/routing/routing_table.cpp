@@ -30,6 +30,10 @@ namespace webserv {
             prefix_rules.push_back(webserv::util::triple<webserv::core::basic_rule*, webserv::core::translation_function*, webserv::core::route*>(in, translate, out));
         }
 
+        void routing_table::add_rule(basic_rule* in, route* out) {
+            add_rule(in, new zero_translation_function(), out);
+        }
+
         /*
          * Checks if prefix of path is included in prefix_rules
          * If yes, returns the correct route
