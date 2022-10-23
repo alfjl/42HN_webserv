@@ -124,6 +124,30 @@ namespace webserv {
         }
 
         /*
+         * Checks if prefix is beginning of this->_addr
+         */
+        bool path::begins_with_cut(path prefix, path& wildcard_path) {
+            size_t size_p = prefix._addr.size();
+
+            if (prefix.size() > size()) return false;
+
+            size_t i;
+
+            for (i = 0; i < size_p; ++i) {
+                if (prefix._addr[i] != this->_addr[i])
+                    return false;
+            }
+
+            wildcard_path = path();
+            while (i < _addr.size()) {
+                wildcard_path.mov_cd1(_addr[i]);
+                ++i;
+            }
+
+            return true;
+        }
+
+        /*
          * Substitute old_prefix with new_prefix in this->_addr
          */
         path path::adapt_prefix(path old_prefix, path new_prefix) {
