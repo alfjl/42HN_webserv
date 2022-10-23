@@ -26,11 +26,11 @@ namespace webserv {
          * If yes, only changes the second rule to 'out'
          * If not, adds the whole pair<in, out> to prefix_rules
          */
-        void routing_table::add_rule(webserv::core::basic_rule* in, webserv::core::translation_function* translate, webserv::core::route* out) {
-            prefix_rules.push_back(webserv::util::triple<webserv::core::basic_rule*, webserv::core::translation_function*, webserv::core::route*>(in, translate, out));
+        void routing_table::add_rule(webserv::core::rule* in, webserv::core::translation_function* translate, webserv::core::route* out) {
+            prefix_rules.push_back(webserv::util::triple<webserv::core::rule*, webserv::core::translation_function*, webserv::core::route*>(in, translate, out));
         }
 
-        void routing_table::add_rule(basic_rule* in, route* out) {
+        void routing_table::add_rule(rule* in, route* out) {
             add_rule(in, new zero_translation_function(), out);
         }
 

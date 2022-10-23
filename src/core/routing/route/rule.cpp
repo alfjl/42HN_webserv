@@ -5,45 +5,45 @@
 namespace webserv {
     namespace core {
 
-        basic_rule::basic_rule() : _match_mode(rule_match_mode_always) {
+        rule::rule() : _match_mode(rule_match_mode_always) {
 
         }
 
-        basic_rule::~basic_rule() {
+        rule::~rule() {
 
         }
 
-        webserv::util::path basic_rule::get_prefix() {
+        webserv::util::path rule::get_prefix() {
             return _path;
         }
 
-        webserv::pal::cpp::optional<std::string>& basic_rule::get_extension() {
+        webserv::pal::cpp::optional<std::string>& rule::get_extension() {
             return _extension;
         }
 
-        enum basic_rule::match_mode basic_rule::get_match_mode() {
+        enum rule::match_mode rule::get_match_mode() {
             return _match_mode;
         }
 
-        void basic_rule::set_identity(webserv::util::path identity) {
+        void rule::set_identity(webserv::util::path identity) {
             _match_mode = rule_match_mode_identity;
             _path       = identity;
         }
 
-        void basic_rule::set_prefix(webserv::util::path prefix) {
+        void rule::set_prefix(webserv::util::path prefix) {
             _match_mode = rule_match_mode_prefix;
             _path       = prefix;
         }
 
-        void basic_rule::set_extension(std::string extension) {
+        void rule::set_extension(std::string extension) {
             _extension.enable(extension);
         }
 
-        void basic_rule::set_match_mode(enum basic_rule::match_mode mode) {
+        void rule::set_match_mode(enum rule::match_mode mode) {
             _match_mode = mode;
         }
 
-        bool basic_rule::matches(webserv::util::path path, match_info& meta) {
+        bool rule::matches(webserv::util::path path, match_info& meta) {
             webserv::util::path ext(path.get_extension());
 
             if (get_extension().enabled() && !ext.is_equal(get_extension().value()))
@@ -74,22 +74,22 @@ namespace webserv {
 
 
         identity_rule::identity_rule(webserv::util::path id_path) {
-            basic_rule::set_identity(id_path);
+            rule::set_identity(id_path);
         }
 
         prefix_rule::prefix_rule(webserv::util::path prefix) {
-            basic_rule::set_prefix(prefix);
+            rule::set_prefix(prefix);
         }
 
 
         ext_rule::ext_rule(std::string extension) {
-            basic_rule::set_extension(extension);
+            rule::set_extension(extension);
         }
 
 
         prefix_ext_rule::prefix_ext_rule(webserv::util::path prefix, std::string extension) {
-            basic_rule::set_prefix(prefix);
-            basic_rule::set_extension(extension);
+            rule::set_prefix(prefix);
+            rule::set_extension(extension);
         }
 
     }

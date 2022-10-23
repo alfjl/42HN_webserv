@@ -9,7 +9,7 @@ namespace webserv {
 
         struct match_info;
         
-        class basic_rule {
+        class rule {
         public:
             enum match_mode {
                 rule_match_mode_never,
@@ -24,8 +24,8 @@ namespace webserv {
             webserv::pal::cpp::optional<std::string>  _extension;
 
         public:
-            basic_rule();
-            virtual ~basic_rule();
+            rule();
+            virtual ~rule();
 
             enum match_mode                            get_match_mode();
             webserv::util::path                        get_prefix();
@@ -39,27 +39,27 @@ namespace webserv {
             virtual bool matches(webserv::util::path path, match_info& meta);
         };
 
-        class fallback_rule : public basic_rule {
+        class fallback_rule : public rule {
         public:
             fallback_rule();
         };
 
-        class identity_rule : public basic_rule {
+        class identity_rule : public rule {
         public:
             identity_rule(webserv::util::path id_path);
         };
 
-        class prefix_rule : public basic_rule {
+        class prefix_rule : public rule {
         public:
             prefix_rule(webserv::util::path prefix);
         };
 
-        class ext_rule : public basic_rule {
+        class ext_rule : public rule {
         public:
             ext_rule(std::string extension);
         };
 
-        class prefix_ext_rule : public basic_rule {
+        class prefix_ext_rule : public rule {
         public:
             prefix_ext_rule(webserv::util::path prefix, std::string extension);
         };
