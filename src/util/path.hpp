@@ -46,6 +46,7 @@ namespace webserv {
         };
 
         bool operator==(const path& lhs, const path& rhs);
+        bool operator!=(const path& lhs, const path& rhs);
 
         path operator+(const path& a, const path& b);
 

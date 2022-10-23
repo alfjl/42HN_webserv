@@ -212,6 +212,10 @@ namespace webserv {
             return (lhs.is_equal(rhs));
         }
 
+        bool operator!=(const path& lhs, const path& rhs) {
+            return !(lhs == rhs);
+        }
+
 
         std::ostream& operator<<(std::ostream& stream, const path& the_path) {
             stream << the_path.to_relative_string();
