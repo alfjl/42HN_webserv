@@ -17,12 +17,12 @@ namespace webserv {
 
 
         bool zero_translation_function::convert(match_info& meta) {
+            meta.wildcard_path = webserv::util::path();
             return true;
         }
 
 
         bool relative_translation_function::convert(match_info& meta) {
-            meta.wildcard_path = webserv::util::path();
             return true;
         }
 

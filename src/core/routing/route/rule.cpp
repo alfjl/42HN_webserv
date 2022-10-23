@@ -1,3 +1,5 @@
+#include "route.hpp"  // for match_info. TODO: move to own file
+
 #include "rule.hpp"
 
 namespace webserv {
@@ -30,7 +32,7 @@ namespace webserv {
         bool basic_rule::matches(webserv::util::path path, match_info& meta) {
             webserv::util::path ext(path.get_extension());
 
-            if (!path.begins_with(get_prefix()))
+            if (!path.begins_with_cut(get_prefix(), meta.wildcard_path))
                 return false;
             // TODO: Set meta.wildcard_path to remainder
             if (get_extension().enabled() && !ext.is_equal(get_extension().value()))
