@@ -5,7 +5,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), is_interrupted(false) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len(), is_interrupted(false) {
             banner();
         }
 
@@ -59,6 +59,10 @@ namespace webserv {
 
         void instance::set_anchor(webserv::util::path path) {
             get_fs().set_anchor(path);
+        }
+
+        void instance::set_max_len(unsigned int len) {
+            _max_len.enable(len);
         }
 
     }
