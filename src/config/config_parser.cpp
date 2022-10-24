@@ -89,6 +89,11 @@ namespace webserv {
 			return p;
 		}
 
+		webserv::util::path config_parser::expect_relative_path(webserv::util::path anchor) {
+			if (checks("absolute")) return expect_path();
+			else return anchor + expect_path();
+		}
+
 		void config_parser::parse_listen() {
 			while (!check_terminator()){
 				_instance.on_port(read_int());
@@ -98,9 +103,12 @@ namespace webserv {
 		void config_parser::parse_location(webserv::util::path anchor) {
 			webserv::util::path name = expect_path();
 			webserv::util::path full_path = anchor + name;
+			webserv::util::path resource_path = full_path;
+			webserv::util::path resolved_path = full_path;
 
-			bool identity = true;
-			bool relative = false;
+			bool wildcard = false;
+			bool translate = false;
+			bool is_redir = false;
 			webserv::pal::cpp::optional<unsigned int> error_code;
 
 			expects("{");
@@ -108,14 +116,24 @@ namespace webserv {
 				if (checks("location")) {
 					parse_location(full_path);
 					continue;
-				} else if (checks("translation")) {
-					expects("relative");
-					identity = false;
-					relative = true;
-				// TODO: "only .html;"
-				} else if (checks("error_page")) {
-					skip_whitespace();
-					error_code.enable(expect_uint());
+				} else if (checks("reacts")) {
+					expects("to");
+					expects("all");
+					wildcard = true;
+				} else if (checks("displays")) {
+					if (checks("translated"))
+						translate = true;
+
+					if (checks("error_page")) {
+						skip_whitespace();
+						error_code.enable(expect_uint());
+					} else if (checks("redirection")) {
+						expects("to");
+						resolved_path = expect_path();
+					} else {
+						if (checks("files"));
+						else expects("file");
+					}
 				}
 				expect_terminator();
 			}
@@ -124,14 +142,15 @@ namespace webserv {
 			webserv::core::translation_function* translation;
 			webserv::core::route*                route;
 			
-			if (identity) rule = new webserv::core::identity_rule(full_path);
-			else          rule = new webserv::core::prefix_rule(full_path);
+			if (wildcard) rule = new webserv::core::prefix_rule(resource_path);
+			else          rule = new webserv::core::identity_rule(resource_path);
 
-			if (relative) translation = new webserv::core::relative_translation_function();
-			else          translation = new webserv::core::zero_translation_function();
+			if (translate) translation = new webserv::core::relative_translation_function();
+			else           translation = new webserv::core::zero_translation_function();
 
 			if (error_code.enabled()) route = new webserv::core::error_route(error_code.value());
-			else                      route = new webserv::core::file_route(full_path);
+			else if (is_redir)        route = new webserv::core::redirection_route(resolved_path);
+			else                      route = new webserv::core::file_route(resolved_path);
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
 		}

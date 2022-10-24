@@ -37,6 +37,7 @@ namespace webserv {
             route* the_route = table.query_error_page(code);
             if (the_route == NULL) {
                 error_code(response, code);
+                response.write(*the_http_handler->get_connection());
             } else {
                 follow_route(response, request, the_route, the_http_handler);
             }

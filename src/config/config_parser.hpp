@@ -29,6 +29,7 @@ namespace webserv {
 
 			bool check_path(webserv::util::path& loc);
 			webserv::util::path expect_path();
+			webserv::util::path expect_relative_path(webserv::util::path anchor);
 
 			void parse_listen();
 			void parse_location(webserv::util::path anchor);
