@@ -89,7 +89,10 @@ namespace webserv {
 
         void basic_handler::parse_normal_body_continue() {
             _body += basic_handler::get_last_char();
-            next(&basic_handler::parse_normal_body_loop);
+            if (_body.size() > basic_handler::_connection_configs._max_len.value())
+                next(&basic_handler::total_failure);
+            else
+                next(&basic_handler::parse_normal_body_loop);
         }
 
         void basic_handler::parse_chunked_body() {

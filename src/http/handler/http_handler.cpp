@@ -43,9 +43,13 @@ namespace webserv {
             } else if (_into.get_fields().has("Content-Length")) {
                 int bytes;
                 if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
-                    this->_bytes = bytes;
-                    next(&basic_handler::parse_normal_body);
-                    later(&http_handler::process_request);
+                    if (bytes > basic_handler::_connection_configs._max_len.value())
+                        next(&basic_handler::total_failure);
+                    else {
+                        this->_bytes = bytes;
+                        next(&basic_handler::parse_normal_body);
+                        later(&http_handler::process_request);
+                    }
                 } else {
                     next(&basic_handler::total_failure);
                 }
