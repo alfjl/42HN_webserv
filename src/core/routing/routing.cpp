@@ -18,7 +18,7 @@ namespace webserv {
     namespace core {
 
         routing::routing(instance& the_inst) : component(the_inst) {
-            // table.add_rule(new identity_rule(webserv::util::path("/")), new file_route(webserv::util::path("/")));
+            table.add_rule(new prefix_rule(webserv::util::path("/share")), new relative_translation_function(), new file_route(webserv::util::path("/share")));
             table.add_rule(new identity_rule(webserv::util::path("/")), new file_route(webserv::util::path("/index.html")));
             table.add_rule(new identity_rule(webserv::util::path("/virt/listing")), new file_route(webserv::util::path("/")));
             table.add_rule(new identity_rule(webserv::util::path("/virt/teapot")), new error_route(418));
