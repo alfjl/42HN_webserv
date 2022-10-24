@@ -13,7 +13,7 @@ namespace webserv {
             }
 
             std::string ip_address::get_ip_s() {
-                uint8_t octet[4] = {0, 0, 0, 0}; // = unsigned char (assumption)
+                uint8_t octet[4] = {0, 0, 0, 0};
                 std::stringstream ipAddressFinal;
 
                 if (_ip_32) {

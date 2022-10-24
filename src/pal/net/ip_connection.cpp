@@ -18,8 +18,11 @@ namespace webserv {
             }
 
             std::string ip_connection::get_address_s() {
-                // TODO: Convert _address into string (e.g "169.544.19")
-                return "";
+                return _address.get_ip_s();
+            }
+
+            uint32_t ip_connection::get_address_uint32() {
+                return _address.get_ip_uint32();
             }
 
         }
