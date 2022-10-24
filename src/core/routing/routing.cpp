@@ -32,6 +32,40 @@ namespace webserv {
 
         routing_table& routing::get_table() { return table; }
 
+        void routing::follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
+            int code;
+                
+            if (!the_route->is_method_allowed(request.get_line().get_method())) {
+                method_not_allowed_405(response);
+            } else if (the_route->is_cgi()) {
+                handle_cgi(response, request, the_route, the_http_handler);
+                delete the_route;
+                return; // Invisible yield
+            } else if (the_route->is_redirection()) {
+                temporary_redirect_302(response, the_route->get_file_target());
+            } else if (the_route->is_permanent_redirection()) {
+                permanent_redirect_301(response, the_route->get_file_target());
+            } else if (the_route->is_error(code)) {
+                // bad_request_400(*response);
+                error_code(response, code);
+            } else {
+                switch (request.get_line().get_method()) {
+                    case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(response, request, *the_route); break; }
+                    case webserv::http::http_method_put:
+                    case webserv::http::http_method_post: { handle_http_post(response, request, *the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route); break; }
+                    default: {
+                        teapot_418(response);
+                        break;
+                    }
+                }
+            }
+
+            delete the_route;
+            response.write(*the_http_handler->get_connection());
+        }
+
         void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             handle_http_get(response, request, route);
             response.block_body();
@@ -219,39 +253,7 @@ namespace webserv {
 
             route* the_route = table.query(request.get_line().get_uri().get_path());
 
-            {
-                int code;
-                
-                if (!the_route->is_method_allowed(request.get_line().get_method())) {
-                    method_not_allowed_405(response);
-                } else if (the_route->is_cgi()) {
-                    handle_cgi(response, request, the_route, the_http_handler);
-                    delete the_route;
-                    return; // Invisible yield
-                } else if (the_route->is_redirection()) {
-                    temporary_redirect_302(response, the_route->get_file_target());
-                } else if (the_route->is_permanent_redirection()) {
-                    permanent_redirect_301(response, the_route->get_file_target());
-                } else if (the_route->is_error(code)) {
-                    // bad_request_400(*response);
-                    error_code(response, code);
-                } else {
-                    switch (request.get_line().get_method()) {
-                        case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
-                        case webserv::http::http_method_get: { handle_http_get(response, request, *the_route); break; }
-                        case webserv::http::http_method_put:
-                        case webserv::http::http_method_post: { handle_http_post(response, request, *the_route); break; }
-                        case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route); break; }
-                        default: {
-                            teapot_418(response);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            delete the_route;
-            response.write(*the_http_handler->get_connection());
+            follow_route(response, request, the_route, the_http_handler);
         }
 
         void routing::tick() {

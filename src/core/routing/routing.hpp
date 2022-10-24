@@ -32,6 +32,8 @@ namespace webserv {
             void tick();
 
         protected:
+            void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
+
             void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
             void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
             void handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
@@ -39,11 +41,9 @@ namespace webserv {
 
             void handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
 
-
             void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response);
             void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request);
             void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out); 
-
         };
 
     }
