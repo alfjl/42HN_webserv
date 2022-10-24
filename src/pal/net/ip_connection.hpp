@@ -18,6 +18,7 @@ namespace webserv {
 
                 uint16_t get_port();
                 std::string get_address_s();
+                uint32_t get_address_uint32();
             };
 
         }
