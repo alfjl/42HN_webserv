@@ -10,6 +10,11 @@
 namespace webserv {
     namespace http {
 
+
+        struct connection_config {
+            webserv::pal::cpp::optional<unsigned int>    _max_len;
+        };
+
         class basic_handler : public webserv::util::state_machine {
         protected:
             char                        _last_char;
@@ -18,6 +23,8 @@ namespace webserv {
             std::string                 _body;
             unsigned int                _hex;
             unsigned int                _bytes;
+
+            struct connection_config    _connection_configs;
 
             enum abort_mode {
                 abort_mode_continue,
@@ -32,6 +39,7 @@ namespace webserv {
             std::ostream& out();
 
             webserv::util::connection* get_connection();
+            struct connection_config*  get_connection_configs();
             char                       get_last_char();
 
             virtual void wait_for_char();
