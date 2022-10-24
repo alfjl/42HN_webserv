@@ -24,7 +24,7 @@ namespace webserv {
             unsigned int                _hex;
             unsigned int                _bytes;
 
-            struct connection_config c;
+            struct connection_config    _connection_configs;
 
             enum abort_mode {
                 abort_mode_continue,
