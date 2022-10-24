@@ -42,7 +42,7 @@ namespace webserv {
 
             void expect(char c);
             void expects(std::string text);
-            void expect_uint(unsigned int& value);
+            unsigned int expect_uint();
 
             void skip_spaces();
         };

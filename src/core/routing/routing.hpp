@@ -3,7 +3,7 @@
 
 #include "../component.hpp"
 
-#include "../../http//proto/response.hpp"
+#include "../../http/proto/response.hpp"
 #include "../../http/proto/request.hpp"
 #include "../../pal/net/socket.hpp"
 #include "../../pal/net/selector.hpp"
@@ -24,6 +24,8 @@ namespace webserv {
         public:
             routing(instance& the_inst);
             ~routing();
+
+            routing_table& get_table();
 
             void look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler);
 
