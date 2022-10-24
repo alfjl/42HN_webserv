@@ -39,6 +39,7 @@ namespace webserv {
             std::ostream& out();
 
             webserv::util::connection* get_connection();
+            struct connection_config*  get_connection_configs();
             char                       get_last_char();
 
             virtual void wait_for_char();

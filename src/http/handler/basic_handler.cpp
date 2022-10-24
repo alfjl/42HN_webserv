@@ -29,6 +29,7 @@ namespace webserv {
         std::ostream& basic_handler::out() { return _connection->get_ostream(); }
 
         webserv::util::connection* basic_handler::get_connection() { return _connection; }
+        struct connection_config*  basic_handler::get_connection_configs() { return &_connection_configs; }
         char                       basic_handler::get_last_char()  { return _last_char;  }
 
 
