@@ -17,6 +17,8 @@ namespace webserv {
         class scheduler;
         class routing;
 
+        class routing_table;
+
         class instance {
             driver      _driver;
             scheduler   _scheduler;
@@ -40,6 +42,8 @@ namespace webserv {
             
             bool get_max_len_enabled();
             webserv::pal::cpp::optional<unsigned int>& get_max_len();
+
+            routing_table& get_routing_table() { return get_routing().get_table(); }
 
 		    void interrupt();
 		    bool was_interrupted();

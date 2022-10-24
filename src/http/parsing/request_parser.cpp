@@ -83,7 +83,7 @@ namespace webserv {
                     if (parser.check_noadvance('/')) {
                         break;
                     } else if (parser.check(':')) {
-                        parser.expect_uint(into.get_port());
+                        into.get_port() = parser.expect_uint();
                         break;
                     } else if (parser.check_noadvance('?')) {
                         break;
