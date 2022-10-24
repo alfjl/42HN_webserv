@@ -5,6 +5,7 @@
 
 #include "../core/instance.hpp"
 #include "../util/parser.hpp"
+#include "../util/path.hpp"
 
 namespace webserv {
     namespace config {
@@ -22,6 +23,15 @@ namespace webserv {
 
             bool checks(std::string str);
             void expects(std::string str);
+
+			bool check_terminator();
+			void expect_terminator();
+
+			bool check_path(webserv::util::path& loc);
+			webserv::util::path expect_path();
+
+			void parse_listen();
+			void parse_location(webserv::util::path anchor);
 
 		public:
 			config_parser(webserv::util::iflow& flow, webserv::core::instance& instance);

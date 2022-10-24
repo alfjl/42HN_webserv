@@ -1,5 +1,8 @@
 #include "../pal/cpp/conv.hpp"
 #include "../pal/env/env.hpp"
+#include "../pal/cpp/optional.hpp"
+
+#include "../core/routing/all.hpp"
 
 #include "config_parser.hpp"
 
@@ -66,6 +69,73 @@ namespace webserv {
             parser::expects(str);
         }
 
+		bool config_parser::check_terminator() {
+			return checks(";");
+		}
+
+		void config_parser::expect_terminator() {
+			expects(";");
+		}
+
+		bool config_parser::check_path(webserv::util::path& loc) {
+			// TODO!
+			loc = read_path();
+			return true;
+		}
+
+		webserv::util::path config_parser::expect_path() {
+			webserv::util::path p;
+			if (!check_path(p)) parse_error("Expected a path!");
+			return p;
+		}
+
+		void config_parser::parse_listen() {
+			while (!check_terminator()){
+				_instance.on_port(read_int());
+			}
+		}
+
+		void config_parser::parse_location(webserv::util::path anchor) {
+			webserv::util::path name = expect_path();
+			webserv::util::path full_path = anchor + name;
+
+			bool identity = true;
+			bool relative = false;
+			webserv::pal::cpp::optional<unsigned int> error_code;
+
+			expects("{");
+			while (!checks("}")) {
+				if (checks("location")) {
+					parse_location(full_path);
+					continue;
+				} else if (checks("translation")) {
+					expects("relative");
+					identity = false;
+					relative = true;
+				// TODO: "only .html;"
+				} else if (checks("error_page")) {
+					skip_whitespace();
+					error_code.enable(expect_uint());
+				}
+				expect_terminator();
+			}
+
+			webserv::core::rule*                 rule;
+			webserv::core::translation_function* translation;
+			webserv::core::route*                route;
+			
+			if (identity) rule = new webserv::core::identity_rule(full_path);
+			else          rule = new webserv::core::prefix_rule(full_path);
+
+			if (relative) translation = new webserv::core::relative_translation_function();
+			else          translation = new webserv::core::zero_translation_function();
+
+			if (error_code.enabled()) route = new webserv::core::error_route(error_code.value());
+			else                      route = new webserv::core::file_route(full_path);
+
+			_instance.get_routing_table().add_rule(rule, translation, route);
+		}
+
 		/*
 			#x choose port for each server 
 			#x choose host for each server
@@ -98,9 +168,7 @@ namespace webserv {
 			expects("{");
 			while(!checks("}")){
 				if (checks("listen")) {
-					while (!checks(";")){
-                        _instance.on_port(read_int());
-					}
+					parse_listen();
 					continue ;
 				} else if (checks("client_max_body_size")) {
 					std::cout << "Client_max_body_size: " << read_int() << std::endl;
@@ -127,26 +195,7 @@ namespace webserv {
 				} else if (checks("index_page")) {
 					std::cout << "Index_page: " << read_word() << std::endl;
 				} else if (checks("location")) {
-					// if (checks("*.")){
-
-					// } else /* if (checks("/")) */ {
-
-					// }
-					std::cout << "location: " << read_path() << std::endl;
-					expects("{");
-					while (!checks("}")){
-						if (checks("root")){
-							std::cout << "Location-Root: " << read_word() << std::endl;
-						} else if (checks("method")){
-							while (!checks(";")){
-								std::cout << "Method: " << read_word() << std::endl;
-							}
-							continue ;
-						} else if (checks("index_page")){
-							std::cout << "Location-Index_page: " << read_word() << std::endl;
-						}
-						expects(";");
-					}
+					parse_location(webserv::util::path());
 					continue ;
 				} 
 				expects(";");
