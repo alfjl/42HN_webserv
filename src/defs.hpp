@@ -38,6 +38,14 @@ extern "C" {
 
 #include "pal/net/socket.hpp"
 
+#ifndef WEBSERV_NOEXCEPT
+#ifdef _NOEXCEPT
+# define WEBSERV_NOEXCEPT _NOEXCEPT
+#else
+# define WEBSERV_NOEXCEPT throw()
+#endif
+#endif
+
 namespace webserv {
 }
 
