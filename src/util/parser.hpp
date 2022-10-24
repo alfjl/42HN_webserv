@@ -13,9 +13,9 @@ namespace webserv {
 
         public:
             parse_exception(std::string message);
-            ~parse_exception() _NOEXCEPT;
+            virtual ~parse_exception() WEBSERV_NOEXCEPT;
 
-            const char* what() const _NOEXCEPT;
+            const char* what() const WEBSERV_NOEXCEPT;
         };
 
         class parser : public iflow {

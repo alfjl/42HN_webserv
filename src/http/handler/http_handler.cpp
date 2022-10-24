@@ -45,7 +45,7 @@ namespace webserv {
                 int bytes;
                 if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
                     std::cout << "bytes: " << bytes << "  /  max_len" << basic_handler::_connection_configs._max_len.value() << std::endl;
-                    if (bytes > basic_handler::_connection_configs._max_len.value())
+                    if ((unsigned int) bytes > basic_handler::_connection_configs._max_len.value())
                         next(&basic_handler::total_failure);
                     else {
                         this->_bytes = bytes;

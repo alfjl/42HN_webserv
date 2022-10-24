@@ -9,11 +9,11 @@ namespace webserv {
 
         }
 
-        parse_exception::~parse_exception() _NOEXCEPT {
+        parse_exception::~parse_exception() WEBSERV_NOEXCEPT {
             
         }
 
-        const char* parse_exception::what() const _NOEXCEPT {
+        const char* parse_exception::what() const WEBSERV_NOEXCEPT {
             return _message.c_str();
         }
 
