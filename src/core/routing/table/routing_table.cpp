@@ -18,6 +18,10 @@ namespace webserv {
                 delete it->_third;
             }
 
+            for (std::map<unsigned int, route*>::const_iterator it = default_error_pages.begin(); it != default_error_pages.end(); ++it) {
+                delete it->second;
+            }
+
             delete default_route;
         }
 
@@ -32,6 +36,11 @@ namespace webserv {
 
         void routing_table::add_rule(rule* in, route* out) {
             add_rule(in, new zero_translation_function(), out);
+        }
+
+        void routing_table::add_default_error_page(unsigned int code, route* out) {
+            // TODO, FIXME, XXX: This can lead to leaks
+            default_error_pages[code] = out;
         }
 
         /*
@@ -62,6 +71,14 @@ namespace webserv {
                 meta.wildcard_path = path;
                 return default_route->build(meta);
             }
+        }
+
+        route* routing_table::query_error_page(unsigned int code) {
+            match_info info;
+
+            std::map<unsigned int, route*>::const_iterator it = default_error_pages.find(code);
+            if (it != default_error_pages.end()) return it->second->build(info);
+            else return NULL;
         }
 
     }
