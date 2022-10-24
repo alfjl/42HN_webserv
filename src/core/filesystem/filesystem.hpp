@@ -34,6 +34,8 @@ namespace webserv {
             std::vector<webserv::util::path> read_absolute_path(webserv::util::path path);
             bool                             is_directory(webserv::util::path path);
             bool                             accessible(webserv::util::path path);
+
+			webserv::util::path translate_cgi(webserv::util::path path);
         };
 
 	}
