@@ -21,7 +21,7 @@ namespace webserv {
 
         void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
             if (_http_handler != NULL)
-                _http_hanlder->decrement_refcount();
+                _http_handler->decrement_refcount();
             _http_handler = http_handler;
             if (_http_handler != NULL)
                 _http_handler->increment_refcount();
