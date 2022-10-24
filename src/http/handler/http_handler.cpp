@@ -37,12 +37,14 @@ namespace webserv {
         }
 
         void http_handler::parse_body_util() {
+                // std::cout << "bytes: " << _into.get_fields().get_or_default("Content-Length", "").c_str() << "  /  max_len: " << basic_handler::_connection_configs._max_len.value() << std::endl;
             if (_into.get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
                 next(&basic_handler::parse_chunked_body);
                 later(&http_handler::process_request);
             } else if (_into.get_fields().has("Content-Length")) {
                 int bytes;
                 if (webserv::pal::cpp::string_to_int(_into.get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                    std::cout << "bytes: " << bytes << "  /  max_len" << basic_handler::_connection_configs._max_len.value() << std::endl;
                     if (bytes > basic_handler::_connection_configs._max_len.value())
                         next(&basic_handler::total_failure);
                     else {
