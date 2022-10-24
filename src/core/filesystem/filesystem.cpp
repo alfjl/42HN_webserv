@@ -96,5 +96,10 @@ namespace webserv {
             return (webserv::pal::fs::access(add_anchor(path)));
         }
 
+
+        webserv::util::path filesystem::translate_cgi(webserv::util::path path) {
+            return add_anchor(path);
+        }
+
 	}
 }

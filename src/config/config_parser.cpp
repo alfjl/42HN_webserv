@@ -109,6 +109,7 @@ namespace webserv {
 			bool wildcard = false;
 			bool translate = false;
 			bool is_redir = false;
+			bool is_cgi   = false;
 			webserv::pal::cpp::optional<unsigned int> error_code;
 
 			expects("{");
@@ -130,6 +131,9 @@ namespace webserv {
 					} else if (checks("redirection")) {
 						expects("to");
 						resolved_path = expect_path();
+					} else if (checks("cgi")) {
+						resolved_path = expect_relative_path(full_path);
+						is_cgi        = true;
 					} else {
 						if (checks("files"));
 						else expects("file");
@@ -150,6 +154,7 @@ namespace webserv {
 
 			if (error_code.enabled()) route = new webserv::core::error_route(error_code.value());
 			else if (is_redir)        route = new webserv::core::redirection_route(resolved_path);
+			else if (is_cgi)          route = new webserv::core::cgi_route(resolved_path);
 			else                      route = new webserv::core::file_route(resolved_path);
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
