@@ -32,6 +32,7 @@ namespace webserv {
             void tick();
 
         protected:
+            void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
             void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
 
             void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);

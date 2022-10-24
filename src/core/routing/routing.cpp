@@ -32,11 +32,23 @@ namespace webserv {
 
         routing_table& routing::get_table() { return table; }
 
+        void routing::error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code) {
+            // TODO, FIXME, XXX: Watch out for recursion!
+            route* the_route = table.query_error_page(code);
+            if (the_route == NULL) {
+                error_code(response, code);
+            } else {
+                follow_route(response, request, the_route, the_http_handler);
+            }
+        }
+
         void routing::follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
             int code;
                 
             if (!the_route->is_method_allowed(request.get_line().get_method())) {
-                method_not_allowed_405(response);
+                delete the_route;
+                error_page(response, request, the_http_handler, 405);
+                return;
             } else if (the_route->is_cgi()) {
                 handle_cgi(response, request, the_route, the_http_handler);
                 delete the_route;
@@ -46,8 +58,9 @@ namespace webserv {
             } else if (the_route->is_permanent_redirection()) {
                 permanent_redirect_301(response, the_route->get_file_target());
             } else if (the_route->is_error(code)) {
-                // bad_request_400(*response);
-                error_code(response, code);
+                delete the_route;
+                error_page(response, request, the_http_handler, code);
+                return;
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
