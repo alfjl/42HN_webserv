@@ -23,6 +23,14 @@ namespace webserv {
             std::cout << std::endl;
         }
 
+        bool instance::get_max_len_enabled() {
+            return _max_len.enabled();
+        }
+
+        webserv::pal::cpp::optional<unsigned int>& instance::get_max_len() {
+            return _max_len;
+        }
+
         void instance::pass_connection(webserv::util::connection* new_connection) {
             _scheduler.register_connection(new_connection, _routing);
         }

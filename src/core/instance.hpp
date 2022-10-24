@@ -37,6 +37,9 @@ namespace webserv {
             scheduler&  get_scheduler() { return _scheduler; }
             routing&    get_routing()   { return _routing; }
             filesystem& get_fs()        { return _fs; }
+            
+            bool get_max_len_enabled();
+            webserv::pal::cpp::optional<unsigned int>& get_max_len();
 
 		    void interrupt();
 		    bool was_interrupted();
