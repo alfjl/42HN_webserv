@@ -4,7 +4,10 @@
 int main(int argc, char **argv, char **envp) {
     char buffer[1024];
     
-    write(1, "This is the CGI\n", 16);
+    // write(1, "This is the CGI\n", 16);
+    printf("Status: 200 OK\r\n");
+    printf("Content-Length: 5\r\n");
+    printf("\r\nHello");
 
 	for (char** ptr = envp; *ptr != NULL; ptr++) {
 		printf("%s\n", *ptr);

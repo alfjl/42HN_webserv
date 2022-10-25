@@ -48,13 +48,13 @@ namespace webserv {
         }
 
         void cgi_handler::parse_body_util() {
-                std::cout << "into.Content-Length: " << _http_handler->get_into().get_fields().get_or_default("Content-Length", "").c_str() << "  /  max_len: " << basic_handler::_connection_configs._max_len.value() << std::endl;
-            if (_http_handler->get_into().get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                std::cout << "into.Content-Length: " << _fields.get_or_default("Content-Length", "").c_str() << "  /  max_len: " << basic_handler::_connection_configs._max_len.value() << std::endl;
+            if (_fields.get_or_default("Transfer-Encoding", "") == "chunked") {
                 next(&basic_handler::parse_chunked_body);
                 later(&cgi_handler::process_request);
-            } else if (_http_handler->get_into().get_fields().has("Content-Length")) {
+            } else if (_fields.has("Content-Length")) {
                 int bytes;
-                if (webserv::pal::cpp::string_to_int(_http_handler->get_into().get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                if (webserv::pal::cpp::string_to_int(_fields.get_or_default("Content-Length", "").c_str(), bytes)) {
                     std::cout << "bytes: " << bytes << "  /  max_len" << basic_handler::_connection_configs._max_len.value() << std::endl;
                     if ((unsigned int) bytes > basic_handler::_connection_configs._max_len.value())
                         next(&basic_handler::total_failure);
@@ -72,6 +72,7 @@ namespace webserv {
         }
 
         void cgi_handler::process_head() {
+            std::cout << "\033[35m" << _buffer << "\033[0m";
             webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
             _fields = webserv::http::fields();
@@ -88,7 +89,7 @@ namespace webserv {
             _body = "";
 
             if (correct) {
-                next(&cgi_handler::process_request);
+                later(&cgi_handler::process_request);
                 parse_body_util();
             } else {
                 std::cout << "Error in request!" << std::endl;
@@ -105,6 +106,7 @@ namespace webserv {
                 out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
                 out << _fields; // TODO: Is this correct?
                 out << "\r\n";
+            std::cout << _body << std::endl;
                 out << _body;
             }
 
