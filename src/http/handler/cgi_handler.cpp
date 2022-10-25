@@ -20,7 +20,8 @@ namespace webserv {
         }
 
         void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
-            // TODO: Throw exception if handler is already set
+            if (_http_handler != NULL)
+                _http_handler->decrement_refcount();
             _http_handler = http_handler;
             if (_http_handler != NULL)
                 _http_handler->increment_refcount();
@@ -56,15 +57,15 @@ namespace webserv {
             try {
                 parse_request_fields(parser, _fields);
                 correct = true;
-            } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
+            } catch (webserv::util::parse_exception& e) {
 
             }
 
             _body = "";
 
             if (correct) {
-                // TODO: refactor this a bit
                 next(&cgi_handler::process_request);
+
             } else {
                 std::cout << "Error in request!" << std::endl;
                 next(&basic_handler::total_failure);
@@ -80,7 +81,7 @@ namespace webserv {
                 out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
                 out << _fields; // TODO: Is this correct?
                 out << "\r\n";
-                //TODO: out << _body;
+                // out << _body;
             }
 
             next(&cgi_handler::end_request);
