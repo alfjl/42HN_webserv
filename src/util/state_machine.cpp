@@ -42,6 +42,7 @@ namespace webserv {
 			unyield();
 			while (is_running()) {
 				(this->*current_func)();
+                ret();
 			}
 		}
 

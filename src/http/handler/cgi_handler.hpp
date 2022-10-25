@@ -19,18 +19,18 @@ namespace webserv {
             cgi_handler(webserv::util::connection* new_connection);
             ~cgi_handler();
 
-            void set_http_handler(webserv::http::http_handler* http_handler);
+            // void set_http_handler(webserv::http::http_handler* http_handler);
 
-                                      void start();
-            enum basic_handler::abort_mode abort();
+            //                           void start();
+            // enum basic_handler::abort_mode abort();
 
-            void parse_body_util();
+            // void parse_body_util();
 
-            void char_arrived();
+            // void char_arrived();
 
-            void process_head();
-            void process_request();
-            void end_request();
+            // void process_head();
+            // void process_request();
+            // void end_request();
         };
 
     }

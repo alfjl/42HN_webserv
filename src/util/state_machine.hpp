@@ -35,6 +35,8 @@ namespace webserv {
             std::stack<state_function>  return_stack;
             state_function              current_func;
 
+            void ret();
+
         public:
             virtual void start() = 0;
 
@@ -53,18 +55,10 @@ namespace webserv {
             void fall_asleep();
             void wake_up();
 
-
-            template<typename T>
-            void next(T func) {
-                current_func = conv(func);
-            }
-
             template<typename T>
             void later(T func) {
                 return_stack.push(conv(func));
             }
-
-            void ret();
 
             void stop();
             void tick();
