@@ -33,9 +33,6 @@ namespace webserv {
         private:
             enum state_machine_status   status;
             std::stack<state_function>  return_stack;
-            state_function              current_func;
-
-            void ret();
 
         public:
             virtual void start() = 0;

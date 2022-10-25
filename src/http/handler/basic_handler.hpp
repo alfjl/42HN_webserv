@@ -42,6 +42,9 @@ namespace webserv {
 
             webserv::util::connection* get_connection();
             struct connection_config*  get_connection_configs();
+
+            void read_next_char();
+
             // webserv::pal::cpp::optional<char> get_last_char();
 
             // virtual void wait_for_char();

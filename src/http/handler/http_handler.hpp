@@ -30,8 +30,13 @@ namespace webserv {
              *
              */
 
-            http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
-            ~http_handler();
+            http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing) : basic_handler(new_connection), _routing(routing) {
+
+            }
+
+            ~http_handler() {
+                
+            }
 
             webserv::core::routing& get_routing() { return _routing; }
 
@@ -93,7 +98,7 @@ namespace webserv {
                     }
 
                         void read_until_rnrn__restart() {
-                            later(&http_handler::read_until_rn__continue);
+                            later(&http_handler::read_until_rnrn__continue);
                             later(&http_handler::read_until_rn);
                         }
 
@@ -103,14 +108,15 @@ namespace webserv {
                                 _read_until_rnrn__buffer += "\r\n";
                                 later(&http_handler::read_until_rnrn__restart);
                             } else {
+                                _read_until_rnrn__buffer += "\r\n";
                                 // This "function" returns here: Do nothing!
                                 return;
                             }
                         }
                 
                     void parse_fields() {
-                        webserv::util::stringflow   flow(_buffer);
-                        request_parser  parser(flow);
+                        webserv::util::stringflow  flow(_read_until_rnrn__buffer);
+                        request_parser             parser(flow);
 
                         bool correct = false;
                         
@@ -126,17 +132,27 @@ namespace webserv {
                     }
 
                 void read_body() {  // TODO: Move to basic handler
-                    _body = "";
-
                     if (_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
+                        later(&http_handler::read_body__from_normal_body);
                         later(&http_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
+                        later(&http_handler::read_body__from_chunked_body);
                         later(&http_handler::read_chunked_body);
                     } else {
                         // No body, do nothing
+                        _the_request.get_body() = "";
+                        return;
                     }
                 }
+
+                    void read_body__from_normal_body() {
+                        _the_request.get_body() = _read_normal_body__result;
+                    }
+
+                    void read_body__from_chunked_body() {
+                        _the_request.get_body() = _read_chunked_body__result;
+                    }
 
                     void read_normal_body() {
                         _read_normal_body__result = "";
@@ -196,7 +212,7 @@ namespace webserv {
                         }
 
                     void parse_body() {
-                        _the_request.get_body() = _body;
+                        // Do nothing (for now)
                     }
 
             void process_request() {
@@ -209,11 +225,13 @@ namespace webserv {
             }
 
             void done() {
+                basic_handler::get_connection()->close();
                 stop();
             }
 
             void parse_error() {
-                stop();
+                // TODO: Issue an error
+                later(&http_handler::done);
             }
 
 
