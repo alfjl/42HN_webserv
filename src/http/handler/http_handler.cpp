@@ -70,7 +70,7 @@ namespace webserv {
             try {
                 parse_http_request_core(parser, _into);
                 correct = true;
-            } catch (std::runtime_error& e) {   // TODO: webserv::util::parse_exception
+            } catch (webserv::util::parse_exception& e) {
 
             }
 
@@ -99,6 +99,7 @@ namespace webserv {
 
         webserv::core::routing& http_handler::get_routing() { return _routing; }
 
+        request& http_handler::get_into() { return _into; }
 
     }
 }

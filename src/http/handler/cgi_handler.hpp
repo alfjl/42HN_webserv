@@ -24,6 +24,8 @@ namespace webserv {
                                       void start();
             enum basic_handler::abort_mode abort();
 
+            void parse_body_util();
+
             void char_arrived();
 
             void process_head();
