@@ -11,10 +11,26 @@ namespace webserv {
         class http_handler : public basic_handler {
             webserv::core::routing& _routing;
             request                 _the_request;
+            unsigned int            _p_read_normal_body__expected_size;
 
         public:
+            /*
+             *
+             *     C o n s t r u c t o r s ,   G e t t e r s   a n d   S e t t e r s
+             *
+             */
+
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
             ~http_handler();
+
+            webserv::core::routing& http_handler::get_routing() { return _routing; }
+
+
+            /*
+             *
+             *     S t a t e   M a c h i n e   F u n c t i o n s
+             *
+             */
 
             void start() {
                 // Written in inverse order due to stack
@@ -35,9 +51,50 @@ namespace webserv {
                     later(&http_handler::read_until_rnrn);
                 }
 
-                    void read_until_rnrn() {
-                        // TODO
+                    void read_until_rn() {
+                        _rn_buffer = "";
+                        later(&http_handler::read_until_rn__restart);
                     }
+
+                        void read_until_rn__restart() {
+                            later(&http_handler::read_until_rn__continue);
+                            later(&http_handler::read_next_char);
+                        }
+
+                        void read_until_rn__continue() {
+                            if (_last_char.enabled()) {
+                                _rn_buffer += _last_char.value();
+                                if (_rn_buffer.find("\r\n") != std::string::npos) {
+                                    // We return: Do nothing!
+                                    return;
+                                } else {
+                                    later(&http_handler::read_until_rn__restart);
+                                }
+                            } else {
+                                // We return: Do nothing!
+                                return;
+                            }
+                        }
+
+                    void read_until_rnrn() {
+                        _rnrn_buffer = "";
+                        later(&http_handler::read_until_rnrn__restart);
+                    }
+
+                        void read_until_rnrn__restart() {
+                            later(&http_handler::read_until_rn__continue);
+                            later(&http_handler::read_until_rn);
+                        }
+
+                        void read_until_rnrn__continue() {
+                            if (_rn_buffer != "") {
+                                _rnrn_buffer += _rn_buffer;
+                                later(&http_handler::read_until_rnrn__restart);
+                            } else {
+                                // This "function" returns here: Do nothing!
+                                return;
+                            }
+                        }
                 
                     void parse_fields() {
                         webserv::util::stringflow   flow(_buffer);
@@ -52,13 +109,15 @@ namespace webserv {
 
                         }
 
-                        // TODO: If not correct, break out to error
+                        if (!correct)
+                            later(&http_handler::parse_error);
                     }
 
                 void read_body() {  // TODO: Move to basic handler
                     _body = "";
 
                     if (_is_normal_body()) {
+                        _p_read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
                         later(&http_handler::read_chunked_body);
@@ -68,8 +127,30 @@ namespace webserv {
                 }
 
                     void read_normal_body() {
-                        // TODO
+                        _read_normal_body__result = "";
+                        later(&http_handler::read_normal_body__restart);
                     }
+
+                        void read_normal_body__restart() {
+                            if (_p_read_normal_body__expected_size > 0) {
+                                later(&http_handler::read_normal_body__continue);
+                                later(&http_handler::read_next_char);
+                            } else {
+                                // This "function" returns here: Do nothing!
+                                return;
+                            }
+                        }
+
+                        void read_normal_body__continue() {
+                            if (_last_char.enabled()) {
+                                _p_read_normal_body__expected_size--;
+                                _read_normal_body__result += _last_char.value();
+                                later(&http_handler::read_normal_body__restart);
+                            } else {
+                                // This "function" returns here: Do nothing!
+                                return;
+                            }
+                        }
 
                     void read_chunked_body() {
                         // TODO
@@ -92,18 +173,24 @@ namespace webserv {
                 stop();
             }
 
-            //                           void start();
-            // enum basic_handler::abort_mode abort();
+            void parse_error() {
+                stop();
+            }
 
-            // void char_arrived();
 
-            // void process_head();
-            // void process_request();
-            // void end_request();
-            // void parse_body_util();
 
-            // webserv::core::routing& get_routing();
-            // request& get_into();
+            /*
+             *
+             *     U t i l i t i e s
+             *
+             */
+
+            bool _is_normal_body() { return false; } // TODO
+            bool _is_chunked_body() { return false; } // TODO
+
+            unsigned int get_normal_body_size() {
+                return (unsigned int) _the_request.get_fields().get_int_or_default("Content-Length", 0);
+            }
         };
 
     }
