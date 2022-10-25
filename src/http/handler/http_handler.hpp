@@ -11,7 +11,14 @@ namespace webserv {
         class http_handler : public basic_handler {
             webserv::core::routing& _routing;
             request                 _the_request;
-            unsigned int            _p_read_normal_body__expected_size;
+
+            unsigned int            _read_normal_body__expected_size;            
+            std::string             _read_normal_body__result;
+
+            std::string             _read_chunked_body__result;
+
+            std::string             _read_until_rn__buffer;
+            std::string             _read_until_rnrn__buffer;
 
         public:
             /*
@@ -52,7 +59,7 @@ namespace webserv {
                 }
 
                     void read_until_rn() {
-                        _rn_buffer = "";
+                        _read_until_rn__buffer = "";
                         later(&http_handler::read_until_rn__restart);
                     }
 
@@ -63,9 +70,10 @@ namespace webserv {
 
                         void read_until_rn__continue() {
                             if (_last_char.enabled()) {
-                                _rn_buffer += _last_char.value();
+                                _read_until_rn__buffer += _last_char.value();
                                 if (_rn_buffer.find("\r\n") != std::string::npos) {
                                     // We return: Do nothing!
+                                    _rn_buffer = _rn_buffer.substring(0, _rn_buffer.size() - 2);
                                     return;
                                 } else {
                                     later(&http_handler::read_until_rn__restart);
@@ -77,7 +85,7 @@ namespace webserv {
                         }
 
                     void read_until_rnrn() {
-                        _rnrn_buffer = "";
+                        _read_until_rnrn__buffer = "";
                         later(&http_handler::read_until_rnrn__restart);
                     }
 
@@ -87,8 +95,9 @@ namespace webserv {
                         }
 
                         void read_until_rnrn__continue() {
-                            if (_rn_buffer != "") {
-                                _rnrn_buffer += _rn_buffer;
+                            if (_read_until_rn__buffer != "") {
+                                _read_until_rnrn__buffer += _rn_buffer;
+                                _read_until_rnrn__buffer += "\r\n";
                                 later(&http_handler::read_until_rnrn__restart);
                             } else {
                                 // This "function" returns here: Do nothing!
@@ -117,7 +126,7 @@ namespace webserv {
                     _body = "";
 
                     if (_is_normal_body()) {
-                        _p_read_normal_body__expected_size = get_normal_body_size();
+                        _read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
                         later(&http_handler::read_chunked_body);
@@ -132,7 +141,7 @@ namespace webserv {
                     }
 
                         void read_normal_body__restart() {
-                            if (_p_read_normal_body__expected_size > 0) {
+                            if (_read_normal_body__expected_size > 0) {
                                 later(&http_handler::read_normal_body__continue);
                                 later(&http_handler::read_next_char);
                             } else {
@@ -143,7 +152,7 @@ namespace webserv {
 
                         void read_normal_body__continue() {
                             if (_last_char.enabled()) {
-                                _p_read_normal_body__expected_size--;
+                                _read_normal_body__expected_size--;
                                 _read_normal_body__result += _last_char.value();
                                 later(&http_handler::read_normal_body__restart);
                             } else {
@@ -153,9 +162,36 @@ namespace webserv {
                         }
 
                     void read_chunked_body() {
-                        // TODO
+                        _read_chunked_body__result = "";
+                        later(&read_chunked_body_restart);
                     }
-                
+
+                        void read_chunked_body__restart() {
+                            later(&read_chunked_body__parse_hex);
+                            later(&read_until_rn);
+                        }
+
+                        void read_chunked_body__parse_hex() {
+                            unsigned int hex;
+
+                            if (hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                                if (hex == 0) {
+                                    return;
+                                } else {
+                                    _read_normal_body__expected_size = hex;
+                                    later(&read_chunked_body__continue);
+                                    later(&read_normal_body);
+                                }
+                            } else
+                                later(&parse_error);
+                        }
+
+                        void read_chunked_body__continue() {
+                            // TODO: Check how many bytes we have actually read
+                            _read_chunked_body__result += _read_normal_body__buffer;
+                            later(&read_chunked_body__restart);
+                        }
+
                     void parse_body() {
                         _the_request.get_body() = _body;
                     }
