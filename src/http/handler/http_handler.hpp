@@ -199,6 +199,7 @@ namespace webserv {
                                 } else {
                                     _read_normal_body__expected_size = hex;
                                     later(&http_handler::read_chunked_body__continue);
+                                    later(&http_handler::read_until_rn);
                                     later(&http_handler::read_normal_body);
                                 }
                             } else

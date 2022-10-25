@@ -37,6 +37,8 @@ namespace webserv {
                 unsigned int _hex = 0;
                 unsigned int i    = 0;
 
+                if (_buffer.size() == 0) return false;
+
                 while (i < _buffer.size()) {
                     unsigned int h;
                     if (hexchar2int(_buffer[i], h)) {
