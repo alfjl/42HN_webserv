@@ -3,6 +3,9 @@
 
 #include "../../defs.hpp"
 
+#include "../../util/streamflow.hpp"
+#include "../../pal/cpp/conv.hpp"
+#include "../parsing/request_parser.hpp"
 #include "basic_handler.hpp"
 
 namespace webserv {
@@ -30,7 +33,7 @@ namespace webserv {
             http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
             ~http_handler();
 
-            webserv::core::routing& http_handler::get_routing() { return _routing; }
+            webserv::core::routing& get_routing() { return _routing; }
 
 
             /*
@@ -65,15 +68,15 @@ namespace webserv {
 
                         void read_until_rn__restart() {
                             later(&http_handler::read_until_rn__continue);
-                            later(&http_handler::read_next_char);
+                            later(&basic_handler::read_next_char);
                         }
 
                         void read_until_rn__continue() {
                             if (_last_char.enabled()) {
                                 _read_until_rn__buffer += _last_char.value();
-                                if (_rn_buffer.find("\r\n") != std::string::npos) {
+                                if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
                                     // We return: Do nothing!
-                                    _rn_buffer = _rn_buffer.substring(0, _rn_buffer.size() - 2);
+                                    _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
                                     return;
                                 } else {
                                     later(&http_handler::read_until_rn__restart);
@@ -96,7 +99,7 @@ namespace webserv {
 
                         void read_until_rnrn__continue() {
                             if (_read_until_rn__buffer != "") {
-                                _read_until_rnrn__buffer += _rn_buffer;
+                                _read_until_rnrn__buffer += _read_until_rn__buffer;
                                 _read_until_rnrn__buffer += "\r\n";
                                 later(&http_handler::read_until_rnrn__restart);
                             } else {
@@ -143,7 +146,7 @@ namespace webserv {
                         void read_normal_body__restart() {
                             if (_read_normal_body__expected_size > 0) {
                                 later(&http_handler::read_normal_body__continue);
-                                later(&http_handler::read_next_char);
+                                later(&basic_handler::read_next_char);
                             } else {
                                 // This "function" returns here: Do nothing!
                                 return;
@@ -163,33 +166,33 @@ namespace webserv {
 
                     void read_chunked_body() {
                         _read_chunked_body__result = "";
-                        later(&read_chunked_body_restart);
+                        later(&http_handler::read_chunked_body__restart);
                     }
 
                         void read_chunked_body__restart() {
-                            later(&read_chunked_body__parse_hex);
-                            later(&read_until_rn);
+                            later(&http_handler::read_chunked_body__parse_hex);
+                            later(&http_handler::read_until_rn);
                         }
 
                         void read_chunked_body__parse_hex() {
                             unsigned int hex;
 
-                            if (hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
                                 if (hex == 0) {
                                     return;
                                 } else {
                                     _read_normal_body__expected_size = hex;
-                                    later(&read_chunked_body__continue);
-                                    later(&read_normal_body);
+                                    later(&http_handler::read_chunked_body__continue);
+                                    later(&http_handler::read_normal_body);
                                 }
                             } else
-                                later(&parse_error);
+                                later(&http_handler::parse_error);
                         }
 
                         void read_chunked_body__continue() {
                             // TODO: Check how many bytes we have actually read
-                            _read_chunked_body__result += _read_normal_body__buffer;
-                            later(&read_chunked_body__restart);
+                            _read_chunked_body__result += _read_normal_body__result;
+                            later(&http_handler::read_chunked_body__restart);
                         }
 
                     void parse_body() {
