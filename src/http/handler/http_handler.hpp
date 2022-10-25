@@ -242,8 +242,8 @@ namespace webserv {
              *
              */
 
-            bool _is_normal_body() { return false; } // TODO
-            bool _is_chunked_body() { return false; } // TODO
+            bool _is_normal_body() { return get_normal_body_size() > 0; }
+            bool _is_chunked_body() { return _the_request.get_fields().get_or_default("Transfer-Encoding", "") == "chunked"; }
 
             unsigned int get_normal_body_size() {
                 return (unsigned int) _the_request.get_fields().get_int_or_default("Content-Length", 0);
