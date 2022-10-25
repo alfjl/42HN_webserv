@@ -47,6 +47,30 @@ namespace webserv {
             }
         }
 
+        void cgi_handler::parse_body_util() {
+                std::cout << "into.Content-Length: " << _http_handler->get_into().get_fields().get_or_default("Content-Length", "").c_str() << "  /  max_len: " << basic_handler::_connection_configs._max_len.value() << std::endl;
+            if (_http_handler->get_into().get_fields().get_or_default("Transfer-Encoding", "") == "chunked") {
+                next(&basic_handler::parse_chunked_body);
+                later(&cgi_handler::process_request);
+            } else if (_http_handler->get_into().get_fields().has("Content-Length")) {
+                int bytes;
+                if (webserv::pal::cpp::string_to_int(_http_handler->get_into().get_fields().get_or_default("Content-Length", "").c_str(), bytes)) {
+                    std::cout << "bytes: " << bytes << "  /  max_len" << basic_handler::_connection_configs._max_len.value() << std::endl;
+                    if ((unsigned int) bytes > basic_handler::_connection_configs._max_len.value())
+                        next(&basic_handler::total_failure);
+                    else {
+                        this->_bytes = bytes;
+                        next(&basic_handler::parse_normal_body);
+                        later(&cgi_handler::process_request);
+                    }
+                } else {
+                    next(&basic_handler::total_failure);
+                }
+            } else {
+                next(&cgi_handler::process_request);
+            }
+        }
+
         void cgi_handler::process_head() {
             webserv::util::stringflow   flow(_buffer);
             request_parser  parser(flow);
@@ -65,7 +89,7 @@ namespace webserv {
 
             if (correct) {
                 next(&cgi_handler::process_request);
-
+                parse_body_util();
             } else {
                 std::cout << "Error in request!" << std::endl;
                 next(&basic_handler::total_failure);
@@ -81,7 +105,7 @@ namespace webserv {
                 out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
                 out << _fields; // TODO: Is this correct?
                 out << "\r\n";
-                // out << _body;
+                out << _body;
             }
 
             next(&cgi_handler::end_request);

@@ -27,6 +27,7 @@ namespace webserv {
             void parse_body_util();
 
             webserv::core::routing& get_routing();
+            request& get_into();
         };
 
     }

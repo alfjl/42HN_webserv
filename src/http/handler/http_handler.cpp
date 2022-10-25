@@ -99,6 +99,7 @@ namespace webserv {
 
         webserv::core::routing& http_handler::get_routing() { return _routing; }
 
+        request& http_handler::get_into() { return _into; }
 
     }
 }
