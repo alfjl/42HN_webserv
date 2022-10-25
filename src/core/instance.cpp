@@ -5,7 +5,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), is_interrupted(false) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len(), is_interrupted(false) {
             banner();
         }
 
@@ -21,6 +21,14 @@ namespace webserv {
             std::cout << "       enijakow@student.42heilbronn.de" << std::endl;
             std::cout << "        nlenoch@student.42heilbronn.de" << std::endl;
             std::cout << std::endl;
+        }
+
+        bool instance::get_max_len_enabled() {
+            return _max_len.enabled();
+        }
+
+        webserv::pal::cpp::optional<unsigned int>& instance::get_max_len() {
+            return _max_len;
         }
 
         void instance::pass_connection(webserv::util::connection* new_connection) {
@@ -59,6 +67,10 @@ namespace webserv {
 
         void instance::set_anchor(webserv::util::path path) {
             get_fs().set_anchor(path);
+        }
+
+        void instance::set_max_len(unsigned int len) {
+            _max_len.enable(len);
         }
 
     }

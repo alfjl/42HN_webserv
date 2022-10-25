@@ -45,7 +45,7 @@ namespace webserv {
 
         void routing::follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
             int code;
-                
+
             if (!the_route->is_method_allowed(request.get_line().get_method())) {
                 delete the_route;
                 error_page(response, request, the_http_handler, 405);
@@ -200,7 +200,6 @@ namespace webserv {
                 response.block_all();  // TODO: Not needed anymore
                 handler->set_http_handler(the_http_handler);
                 the_http_handler->fall_asleep();
-                std::cout << "fell asleep" << std::endl;
             } else {
                 service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
                 // ghettofix
@@ -212,7 +211,7 @@ namespace webserv {
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
         void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
-            std::string cgi_path(the_route->get_file_target().to_absolute_string());
+            std::string cgi_path = get_instance().get_fs().translate_cgi(the_route->get_file_target()).to_absolute_string();
 
             webserv::http::cgi_message cgi_msg(request, get_instance(), cgi_path);
             webserv::pal::fork::fork_task task(cgi_path);
@@ -236,15 +235,8 @@ namespace webserv {
             if (!prepare_task(cgi_in, cgi_out, &task, &ws)) {
                 internal_server_error_500(response);
                 response.write(*the_http_handler->get_connection());
-                std::cout << "Prepare task" << std::endl;
                 return;
             }
-
-            std::cout << "Passed" << std::endl;
-
-            // Generate state machine
-            // TODO: Implement
-            // ?handle_cgi_message_out(???????);?
 
             /*
              * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task
@@ -253,8 +245,6 @@ namespace webserv {
 
             /*
              * Close all open FDs
-
-             TODO: Close to pal
              */
             webserv::pal::fs::close(cgi_in.in);
             webserv::pal::fs::close(cgi_in.out);

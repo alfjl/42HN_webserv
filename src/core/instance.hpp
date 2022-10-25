@@ -25,6 +25,8 @@ namespace webserv {
             routing     _routing;
             filesystem  _fs;
 
+            webserv::pal::cpp::optional<unsigned int>    _max_len;
+
 		    bool is_interrupted;
             
             void banner();
@@ -37,6 +39,9 @@ namespace webserv {
             scheduler&  get_scheduler() { return _scheduler; }
             routing&    get_routing()   { return _routing; }
             filesystem& get_fs()        { return _fs; }
+            
+            bool get_max_len_enabled();
+            webserv::pal::cpp::optional<unsigned int>& get_max_len();
 
             routing_table& get_routing_table() { return get_routing().get_table(); }
 
@@ -52,6 +57,7 @@ namespace webserv {
 
             void on_port(int port);
             void set_anchor(webserv::util::path path);
+            void set_max_len(unsigned int len);
         };
 
     }
