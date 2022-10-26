@@ -67,7 +67,7 @@ namespace webserv {
 
 
             fork_task::fork_task(std::string executable) : _executable(executable) {
-
+                _args.push_back(executable);
             }
 
             fork_task::~fork_task() {
@@ -81,11 +81,12 @@ namespace webserv {
                     ++it;
                 }
 
-                const char** argv = (const char**) ::malloc(sizeof(char*) * 2);
+                const char** argv = (const char**) ::malloc(sizeof(char*) * (_args.size() + 1));
 
                 if (argv != NULL) {
-                    argv[0] = _executable.c_str();
-                    argv[1] = NULL;
+                    for (size_t i = 0; i < _args.size(); ++i)
+                        argv[i] = ::strdup(_args[i].c_str());
+                    argv[_args.size()] = NULL;
 
                     const char** envp = (const char**) ::malloc(sizeof(char*) * (_env.size() + 1));
                     if (envp != NULL) {
@@ -149,6 +150,10 @@ namespace webserv {
 
             void fork_task::close_on_fork(int fd) {
                 _to_close.push_back(fd);
+            }
+
+            void fork_task::add_arg(std::string line) {
+                _args.push_back(line);
             }
 
             void fork_task::add_env(std::string line) {
