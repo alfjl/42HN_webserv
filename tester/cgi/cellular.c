@@ -47,7 +47,7 @@ void gen(int n, unsigned char rule) {
     bool changes = true;
     while (i < HEIGHT && changes) {
         changes = false;
-        printf("%x\r\n", WIDTH+2);
+        printf("%X\r\n", n+2);
         for (int i = 0; i < n; i++) {
             putchar(p1[i] ? '#' : '.');
             build(p2, p1, n, i, rule);
@@ -80,11 +80,13 @@ bool rule_3_4(int count) {
 
 int main(int argc, char** argv) {
     printf("Status: 200 OK\r\n");
+    printf("Connection: close\r\n");
+    printf("Content-Type: text/plain\r\n");
     printf("Transfer-Encoding: chunked\r\n");
     printf("\r\n");
     srand(time(NULL));
     unsigned char rule = (unsigned char) (rand() % 255);
-    printf("5\r\n%03u\r\n", (unsigned int) rule);
+    printf("5\r\n%03u\r\n\r\n", (unsigned int) rule);
     gen(WIDTH, rule);
     printf("0\r\n\r\n");
     fflush(stdout);
