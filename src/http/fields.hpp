@@ -29,6 +29,8 @@ namespace webserv {
             void        put(std::string key, std::string value);
             void        put(std::string key, int value);
 
+            void        remove(std::string key);
+
             void case_insensitive();
 
             const_iterator begin() const;

@@ -66,6 +66,18 @@ namespace webserv {
             put(key, o.str());
         }
 
+        void fields::remove(std::string key) {
+            std::string key_lower;
+            std::string::const_iterator it = key.begin();
+            std::string::const_iterator ite = key.end();
+
+            for (; it != ite; ++it)
+                key_lower += (_case_sensitive) ? (*it) : (::tolower(*it));
+
+            std::map<std::string, std::string>::const_iterator it2 = _fields.find(key_lower);
+            if (it2 != _fields.end()) { _fields.erase(it2); }
+        }
+
         void fields::case_insensitive() {
             _case_sensitive = false;
         }
