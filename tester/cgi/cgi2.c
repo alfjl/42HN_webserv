@@ -24,11 +24,14 @@ int count(bool* a, int n, int i) {
     return c;
 }
 
-void build(bool* a, bool* b, int n, int i, rule_t rule) {
-    b[i] = rule(count(a, n, i));
+void build(bool* a, bool* b, int n, int i, unsigned char rule) {
+    unsigned int conf = 0;
+    for (int d = -1; d <= 1; d++)
+        conf = (conf << 1) | a[adjust(i + d, 0, n)];
+    b[i] = (rule & (1 << conf)) != 0;
 }
 
-void gen(int n, rule_t rule) {
+void gen(int n, unsigned char rule) {
     bool a0[n];
     bool a1[n];
 
@@ -67,13 +70,22 @@ bool rule_2_4(int count) {
     return (count == 2) || (count == 4);
 }
 
+bool rule_1_5(int count) {
+    return (count == 1) || (count == 5);
+}
+
+bool rule_3_4(int count) {
+    return (count == 3) || (count == 4);
+}
+
 int main(int argc, char** argv) {
     printf("Status: 200 OK\r\n");
-    //printf("Content-Length: %u\r\n", HEIGHT * (WIDTH + 2));
     printf("Transfer-Encoding: chunked\r\n");
     printf("\r\n");
     srand(time(NULL));
-    gen(WIDTH, rule_2_4);
+    unsigned char rule = (unsigned char) (rand() % 255);
+    printf("5\r\n%03u\r\n", (unsigned int) rule);
+    gen(WIDTH, rule);
     printf("0\r\n\r\n");
     fflush(stdout);
     return 1;
