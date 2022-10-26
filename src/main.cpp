@@ -26,7 +26,12 @@ void webserv_main(const char* config_path) {
         return;
     }
 
-    the_webserv.run();
+    try {
+        the_webserv.run();
+    }
+    catch (std::exception& e) {
+
+    }
 
     std::cout << "Finished!" << std::endl;
 }

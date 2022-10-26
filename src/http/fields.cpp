@@ -42,6 +42,13 @@ namespace webserv {
             }
         }
 
+        int fields::get_int_or_default(std::string key, int default_value) const {
+            int v;
+
+            get_int_or_default(key, v, default_value);
+            return v;
+        }
+
         void fields::put(std::string key, std::string value) {
             std::string key_lower;
 

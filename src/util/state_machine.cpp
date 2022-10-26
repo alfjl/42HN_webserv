@@ -7,7 +7,7 @@ namespace webserv {
 
 		state_machine::state_machine() {
             set_status(state_machine_status_RUNNING);
-            next(&state_machine::start);
+            later(&state_machine::start);
         }
 
 		enum state_machine_status state_machine::get_status() { return status; }
@@ -23,15 +23,6 @@ namespace webserv {
 		void state_machine::fall_asleep() { set_status(state_machine_status_SLEEPING); }
 		void state_machine::wake_up() { set_status(state_machine_status_RUNNING); }
 
-		void state_machine::ret() {
-			if (return_stack.empty()) {
-				set_status(state_machine_status_STOPPED);
-			} else {
-				next(return_stack.top());
-				return_stack.pop();
-			}
-		}
-
 		void state_machine::stop() {
 			while (!return_stack.empty())
 				return_stack.pop();
@@ -41,6 +32,12 @@ namespace webserv {
 		void state_machine::tick() {
 			unyield();
 			while (is_running()) {
+                if (return_stack.empty()) {
+                    set_status(state_machine_status_STOPPED);
+                    break;
+                }
+                state_function current_func = return_stack.top();
+                return_stack.pop();
 				(this->*current_func)();
 			}
 		}

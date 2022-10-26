@@ -50,7 +50,7 @@ namespace webserv {
                 delete the_route;
                 error_page(response, request, the_http_handler, 405);
                 return;
-            } else if (the_route->is_cgi()) {
+            } else if (the_route->is_cgi()) { // TODO: Does this always return false?
                 handle_cgi(response, request, the_route, the_http_handler);
                 delete the_route;
                 return; // Invisible yield

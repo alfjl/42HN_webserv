@@ -26,6 +26,37 @@ namespace webserv {
                 return ost.str();
             }
 
+            static bool hexchar2int(char c, unsigned int& i) {
+                     if (c >= '0' && c <= '9') { i = c - '0'; return true; }
+                else if (c >= 'a' && c <= 'f') { i = c - 'a' + 10; return true; }
+                else if (c >= 'A' && c <= 'F') { i = c - 'A' + 10; return true; }
+                else return false;
+            }
+
+            bool hex_string_to_uint(std::string _buffer, unsigned int& value) {
+                unsigned int _hex = 0;
+                unsigned int i    = 0;
+
+                if (_buffer.size() == 0) return false;
+
+                while (i < _buffer.size()) {
+                    unsigned int h;
+                    if (hexchar2int(_buffer[i], h)) {
+                        _hex = (_hex * 16) + h;
+                    } else {
+                        if (i > 0 && i == _buffer.size() - 2) { // TODO: Properly check for invalid lines!
+                            break;
+                        } else {
+                            return false;
+                        }
+                    }
+                    i++;
+                }
+
+                value = _hex;
+                return true;
+            }
+
         }
     }
 }

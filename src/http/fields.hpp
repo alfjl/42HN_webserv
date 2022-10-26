@@ -24,6 +24,7 @@ namespace webserv {
 
             std::string get_or_default(std::string key, std::string deflt) const;
             bool        get_int_or_default(std::string key, int& value, int default_value) const;
+            int         get_int_or_default(std::string key, int default_value) const;
             
             void        put(std::string key, std::string value);
             void        put(std::string key, int value);
