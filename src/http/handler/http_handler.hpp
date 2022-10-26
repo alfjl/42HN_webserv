@@ -132,13 +132,11 @@ namespace webserv {
                     }
 
                 void read_body() {  // TODO: Move to basic handler
-                std::cout << _the_request.get_fields() << std::endl; // TODO: DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     if (_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_body__from_normal_body);
                         later(&http_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
-                        std::cout << "IN CHUNKED!!!!!!!" << std::endl; // TODO: DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         later(&http_handler::read_body__from_chunked_body);
                         later(&http_handler::read_chunked_body);
                     } else {

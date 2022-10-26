@@ -5,7 +5,7 @@
 #include <time.h>
 
 #define WIDTH 220
-#define HEIGHT 80
+#define HEIGHT 800
 
 typedef bool (*rule_t)(int c);
 
@@ -41,16 +41,20 @@ void gen(int n, rule_t rule) {
     bool* p2 = a1;
 
     int i = 0;
-    while (i < HEIGHT) {
+    bool changes = true;
+    while (i < HEIGHT && changes) {
+        changes = false;
         printf("%x\r\n", WIDTH+2);
         for (int i = 0; i < n; i++) {
             putchar(p1[i] ? '#' : '.');
             build(p2, p1, n, i, rule);
+            changes |= p1[i] != p2[i];
         }
         putchar('\r');
         putchar('\n');
         printf("\r\n");
-        //usleep(10000);
+        fflush(stdout);
+        usleep(10000);
 
         bool* tmp = p1;
         p1 = p2;
@@ -70,6 +74,7 @@ int main(int argc, char** argv) {
     printf("\r\n");
     srand(time(NULL));
     gen(WIDTH, rule_2_4);
-    printf("0\r\n");
+    printf("0\r\n\r\n");
+    fflush(stdout);
     return 1;
 }
