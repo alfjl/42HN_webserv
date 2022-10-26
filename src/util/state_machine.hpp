@@ -44,6 +44,7 @@ namespace webserv {
 
             bool is_running();
             bool is_yielding();
+            bool is_sleeping();
             bool is_stopped();
 
             void yield();

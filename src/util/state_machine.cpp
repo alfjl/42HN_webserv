@@ -15,6 +15,7 @@ namespace webserv {
 
 		bool state_machine::is_running() { return get_status() == state_machine_status_RUNNING; }
 		bool state_machine::is_yielding() { return get_status() == state_machine_status_YIELDING; }
+        bool state_machine::is_sleeping() { return get_status() == state_machine_status_SLEEPING; }
 		bool state_machine::is_stopped() { return get_status() == state_machine_status_STOPPED; }
 
 		void state_machine::yield() { set_status(state_machine_status_YIELDING); }
@@ -30,6 +31,7 @@ namespace webserv {
 		}
 
 		void state_machine::tick() {
+            if (is_sleeping()) return;
 			unyield();
 			while (is_running()) {
                 if (return_stack.empty()) {
