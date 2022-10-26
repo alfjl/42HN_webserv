@@ -219,9 +219,6 @@ namespace webserv {
             webserv::pal::cpp::optional<std::string> executor = the_route->get_executor();
             webserv::pal::fork::fork_task task(executor.enabled() ? executor.value() : cgi_path);
             if (executor.enabled()) task.add_arg(cgi_path);
-
-            // 
-            // task.add_arg(cgi_path);
             
             webserv::pal::fork::wait_set ws;
             webserv::pal::fs::easypipe cgi_in;

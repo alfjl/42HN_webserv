@@ -109,6 +109,11 @@ namespace webserv {
             return _meta->get_executor();
         }
 
+        cgi_route* cgi_route::set_executor(std::string executor) {
+            _meta->set_executor(executor);
+            return this;
+        }
+
 
         redirection_route::redirection_route(webserv::util::path file_target) : route(file_target) {
 
