@@ -13,16 +13,19 @@ namespace webserv {
         class route_meta : public webserv::util::refcounted {
         protected:
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
+            webserv::pal::cpp::optional<std::string>                            _executor;
 
         public:
             route_meta();
             ~route_meta();
 
             bool is_method_allowed(webserv::http::http_method method);
+            webserv::pal::cpp::optional<std::string> get_executor();
 
             route_meta* set_allowed_method(webserv::http::http_method method);
             route_meta* unset_allowed_method(webserv::http::http_method method);
 
+            void set_executor(std::string executor);
         };
 
     }

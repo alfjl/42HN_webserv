@@ -105,6 +105,15 @@ namespace webserv {
             return (new cgi_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));            
         }
 
+        webserv::pal::cpp::optional<std::string> cgi_route::get_executor() {
+            return _meta->get_executor();
+        }
+
+        cgi_route* cgi_route::set_executor(std::string executor) {
+            _meta->set_executor(executor);
+            return this;
+        }
+
 
         redirection_route::redirection_route(webserv::util::path file_target) : route(file_target) {
 

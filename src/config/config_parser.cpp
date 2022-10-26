@@ -111,6 +111,7 @@ namespace webserv {
 			bool is_redir = false;
 			bool is_cgi   = false;
 			webserv::pal::cpp::optional<unsigned int> error_code;
+            webserv::pal::cpp::optional<std::string> executor;
 
 			expects("{");
 			while (!checks("}")) {
@@ -124,7 +125,6 @@ namespace webserv {
 				} else if (checks("displays")) {
 					if (checks("translated"))
 						translate = true;
-
 					if (checks("error_page")) {
 						skip_whitespace();
 						error_code.enable(expect_uint());
@@ -132,8 +132,11 @@ namespace webserv {
 						expects("to");
 						resolved_path = expect_path();
 					} else if (checks("cgi")) {
-						resolved_path = expect_relative_path(full_path);
+						resolved_path = full_path;
 						is_cgi        = true;
+                        if (checks("using")) {
+                            executor.enable(expect_path().to_absolute_string());
+                        }
 					} else {
 						if (checks("files"));
 						else expects("file");
@@ -154,7 +157,12 @@ namespace webserv {
 
 			if (error_code.enabled()) route = new webserv::core::error_route(error_code.value());
 			else if (is_redir)        route = new webserv::core::redirection_route(resolved_path);
-			else if (is_cgi)          route = new webserv::core::cgi_route(resolved_path);
+			else if (is_cgi) {
+                webserv::core::cgi_route* cgir = new webserv::core::cgi_route(resolved_path);
+                if (executor.enabled())
+                    cgir->set_executor(executor.value());
+                route = cgir;
+            }
 			else                      route = new webserv::core::file_route(resolved_path);
 
 			_instance.get_routing_table().add_rule(rule, translation, route);

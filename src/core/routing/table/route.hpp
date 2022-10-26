@@ -59,6 +59,9 @@ namespace webserv {
 
             bool is_cgi();
             route* build(match_info& meta);
+
+            webserv::pal::cpp::optional<std::string> get_executor();
+            cgi_route* set_executor(std::string executor);
         };
 
         class redirection_route : public route {

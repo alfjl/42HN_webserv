@@ -51,7 +51,7 @@ namespace webserv {
                 error_page(response, request, the_http_handler, 405);
                 return;
             } else if (the_route->is_cgi()) { // TODO: Does this always return false?
-                handle_cgi(response, request, the_route, the_http_handler);
+                handle_cgi(response, request, (cgi_route*) the_route, the_http_handler);
                 delete the_route;
                 return; // Invisible yield
             } else if (the_route->is_redirection()) {
@@ -210,11 +210,15 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* the_route, webserv::http::http_handler* the_http_handler) {
             std::string cgi_path = get_instance().get_fs().translate_cgi(the_route->get_file_target()).to_absolute_string();
 
             webserv::http::cgi_message cgi_msg(request, get_instance(), cgi_path);
-            webserv::pal::fork::fork_task task(cgi_path);
+
+            // TODO: Clean up this code!
+            webserv::pal::cpp::optional<std::string> executor = the_route->get_executor();
+            webserv::pal::fork::fork_task task(executor.enabled() ? executor.value() : cgi_path);
+            if (executor.enabled()) task.add_arg(cgi_path);
             
             webserv::pal::fork::wait_set ws;
             webserv::pal::fs::easypipe cgi_in;

@@ -33,6 +33,7 @@ namespace webserv {
 
             class fork_task {
                 std::string _executable;
+                std::vector<std::string> _args;
                 std::vector<std::string> _env;
                 std::vector<int> _to_close;
                 webserv::pal::cpp::optional<int> _input_to;
@@ -53,6 +54,7 @@ namespace webserv {
 
                 void close_on_fork(int fd);
 
+                void add_arg(std::string line);
                 void add_env(std::string line);
             };
 
