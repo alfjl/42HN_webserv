@@ -50,8 +50,8 @@ namespace webserv {
             // virtual void wait_for_char();
 
             // virtual void start() = 0;
-            // virtual enum abort_mode abort() = 0;
-            // void perform_abort();
+            virtual enum abort_mode abort() = 0;
+            void perform_abort();
 
             // void replace(std::string& str, const std::string& from, const std::string& to);
 
@@ -68,7 +68,7 @@ namespace webserv {
             // void parse_chunked_body_parse_bytes();
             // void parse_chunked_body_parse_bytes_loop();
 
-            // void total_failure();
+            void total_failure();
         };
 
     }

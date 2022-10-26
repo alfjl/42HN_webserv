@@ -7,33 +7,33 @@
 namespace webserv {
     namespace http {
 
-        cgi_handler::cgi_handler(webserv::util::connection* new_connection)
-            : basic_handler(new_connection), _http_handler(NULL) {
+        // cgi_handler::cgi_handler(webserv::util::connection* new_connection)
+        //     : basic_handler(new_connection), _http_handler(NULL) {
 
-        }
+        // }
 
-        cgi_handler::~cgi_handler() {
-            if (_http_handler != NULL) {
-                _http_handler->wake_up();
-                _http_handler->decrement_refcount();
-            }
-        }
+        // cgi_handler::~cgi_handler() {
+        //     if (_http_handler != NULL) {
+        //         _http_handler->wake_up();
+        //         _http_handler->decrement_refcount();
+        //     }
+        // }
 
-        void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
-            if (_http_handler != NULL)
-                _http_handler->decrement_refcount();
-            _http_handler = http_handler;
-            if (_http_handler != NULL)
-                _http_handler->increment_refcount();
-        }
+        // void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
+        //     if (_http_handler != NULL)
+        //         _http_handler->decrement_refcount();
+        //     _http_handler = http_handler;
+        //     if (_http_handler != NULL)
+        //         _http_handler->increment_refcount();
+        // }
 
-        void cgi_handler::start() {
-            // TODO
-        }
+        // void cgi_handler::start() {
+        //     // TODO
+        // }
 
-        enum basic_handler::abort_mode cgi_handler::abort() {
-            return abort_mode_terminate;
-        }
+        // enum basic_handler::abort_mode cgi_handler::abort() {
+        //     return abort_mode_terminate;
+        // }
 
         // void cgi_handler::char_arrived() {
         //     // std::cerr << "\033[35m" << basic_handler::get_last_char() << "\033[0m";
@@ -79,7 +79,7 @@ namespace webserv {
         //     bool correct = false;
             
         //     try {
-        //         parse_request_fields(parser, _fields);
+                // parse_request_fields(parser, _fields);
         //         correct = true;
         //     } catch (webserv::util::parse_exception& e) {
 

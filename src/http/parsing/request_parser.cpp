@@ -2,6 +2,8 @@
 
 #include "../../pal/cpp/conv.hpp"
 
+#define EVIL 1 // TODO: Implement in comfig
+
 namespace webserv {
     namespace http {
 
@@ -137,7 +139,46 @@ namespace webserv {
             parser.expect_http_newline();
         }
 
+        std::string trim(std::string str) {
+            // std::string::iterator ite = str.end();
+            // std::string::iterator it = str.begin();
+            // std::string           new_string;      
+
+            // // von hinten durch string gehen,
+            // for (; ite != it; --ite) {
+            //     if (!isspace(ite))
+            //         break ;
+            // }
+
+            // new_string.assign(it, ite);
+
+            // return new_string;
+
+        //--------------------------
+
+            // const std::string WHITESPACE = " \n\r\t\f\v";
+
+            // size_t start = str.find_first_not_of(WHITESPACE);
+            // size_t end = str.find_last_not_of(WHITESPACE);
+        
+            // size_t len = end - start;
+            // return (str.substr(start, len + 1));
+        
+        //--------------------------
+        
+            const std::string WHITESPACE = " \n\r\t\f\v";
+
+            size_t start = str.find_first_not_of(WHITESPACE);
+            str.substr(start);
+            size_t end = str.find_last_not_of(WHITESPACE);
+            str.substr(0, end + 1);
+
+            return (str); 
+        }
+
+
         void parse_request_fields(request_parser& parser, fields& into) {
+
             while (!parser.check_http_newline()) {
                 std::string key;
                 std::string value;
@@ -153,6 +194,7 @@ namespace webserv {
                 }
 
                 into.put(key, value);
+                // into.put((EVIL ? trim(key) : key), value);
             }
         }
 

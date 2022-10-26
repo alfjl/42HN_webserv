@@ -44,10 +44,10 @@ namespace webserv {
         }
 
 
-    //     void basic_handler::perform_abort() {
-    //         if (abort() == abort_mode_terminate)
-    //             stop();
-    //     }
+        void basic_handler::perform_abort() {
+            if (abort() == abort_mode_terminate)
+                stop();
+        }
 
     //     webserv::pal::cpp::optional<char>  basic_handler::get_last_char()  { return _last_char;  }
 
@@ -181,10 +181,10 @@ namespace webserv {
     //         next(&basic_handler::parse_chunked_body_parse_bytes);
     //     }
 
-    //     void basic_handler::total_failure() {
-    //         std::cout << "Total failure!" << std::endl;
-    //         next(&basic_handler::perform_abort);
-    //     }
+        void basic_handler::total_failure() {
+            std::cout << "Total failure!" << std::endl;
+            later(&basic_handler::perform_abort);
+        }
 
     }
 }
