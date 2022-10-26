@@ -147,8 +147,9 @@ namespace webserv {
                         later(&cgi_handler::read_body__from_normal_body);
                         later(&cgi_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
-                        later(&cgi_handler::read_body__from_chunked_body);
-                        later(&cgi_handler::read_chunked_body);
+                        // later(&cgi_handler::read_body__from_chunked_body);
+                        // later(&cgi_handler::read_chunked_body);
+                        later(&cgi_handler::pipe_body);
                     } else {
                         // No body, do nothing
                         _body = "";
@@ -223,6 +224,33 @@ namespace webserv {
                             _read_chunked_body__result += _read_normal_body__result;
                             later(&cgi_handler::read_chunked_body__restart);
                         }
+                
+                void pipe_body() {
+                    if (_http_handler != NULL) {
+                        std::ostream& out = _http_handler->out();
+                        out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                        out << _fields;
+                        out << "\r\n";
+                        later(&cgi_handler::pipe_body__restart);
+                    }   
+                }
+
+                    void pipe_body__restart() {
+                        later(&cgi_handler::pipe_body__continue);
+                        later(&basic_handler::read_next_char);
+                    }
+
+                    void pipe_body__continue() {
+                        if (_last_char.enabled()) {
+                            if (_http_handler != NULL) {
+                                std::ostream& out = _http_handler->out();
+                                out << _last_char.value();
+                            }
+                            later(&cgi_handler::pipe_body__restart);
+                        } else {
+                            later(&cgi_handler::end_request);
+                        }
+                    }
 
             void process_request() {
                 if (_http_handler != NULL) {
