@@ -8,7 +8,7 @@ HEADERS = $(shell find . -name "*.hpp")
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 DEPENDS = $(patsubst %.cpp, %.d, $(SOURCES))
 
-CCFLAGS = --std=c++98 -g -Wall
+CCFLAGS = --std=c++98 -g -Wall -Wextra -Werror
 LDFLAGS = 
 
 %.o: %.cpp
