@@ -32,6 +32,8 @@ namespace webserv {
             bool is_method_allowed(webserv::http::http_method method);
 
             route* set_path(webserv::util::path file_target);
+
+            route* disable_all_methods();
             route* set_allowed_method(webserv::http::http_method method);
             route* unset_allowed_method(webserv::http::http_method method);
 

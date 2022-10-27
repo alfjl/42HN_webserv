@@ -21,6 +21,11 @@ namespace webserv {
             return _executor;
         }
 
+        route_meta* route_meta::disable_all_methods() {
+            _allowed_methods.enable();
+            return this;
+        }
+
         route_meta* route_meta::set_allowed_method(webserv::http::http_method method) {
             _allowed_methods.enable();
             _allowed_methods.value().insert(method);

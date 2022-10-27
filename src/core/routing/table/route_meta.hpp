@@ -22,6 +22,7 @@ namespace webserv {
             bool is_method_allowed(webserv::http::http_method method);
             webserv::pal::cpp::optional<std::string> get_executor();
 
+            route_meta* disable_all_methods();
             route_meta* set_allowed_method(webserv::http::http_method method);
             route_meta* unset_allowed_method(webserv::http::http_method method);
 

@@ -112,6 +112,7 @@ namespace webserv {
 			bool is_cgi   = false;
 			webserv::pal::cpp::optional<unsigned int> error_code;
             webserv::pal::cpp::optional<std::string> executor;
+            webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
 
 			expects("{");
 			while (!checks("}")) {
@@ -122,6 +123,17 @@ namespace webserv {
 					expects("to");
 					expects("all");
 					wildcard = true;
+                } else if (checks("methods")) {
+                    allowed_methods.enable();
+                    while (!check_terminator()) {
+                             if (checks("GET") || checks("get")) allowed_methods.value().insert(webserv::http::http_method_get);
+                        else if (checks("POST") || checks("post")) allowed_methods.value().insert(webserv::http::http_method_post);
+                        else if (checks("PUT") || checks("put")) allowed_methods.value().insert(webserv::http::http_method_put);
+                        else if (checks("DELETE") || checks("delete")) allowed_methods.value().insert(webserv::http::http_method_delete);
+                        else if (checks("HEAD") || checks("head")) allowed_methods.value().insert(webserv::http::http_method_head);
+                        else parse_error("Expected a method!");
+                    }
+                    continue;
 				} else if (checks("displays")) {
 					if (checks("translated"))
 						translate = true;
@@ -164,6 +176,17 @@ namespace webserv {
                 route = cgir;
             }
 			else                      route = new webserv::core::file_route(resolved_path);
+
+            if (allowed_methods.enabled()) {
+                route->disable_all_methods();
+
+                std::set<webserv::http::http_method>::const_iterator it = allowed_methods.value().begin();
+
+                while (it != allowed_methods.value().end()) {
+                    route->set_allowed_method(*it);
+                    ++it;
+                }
+            }
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
 		}
