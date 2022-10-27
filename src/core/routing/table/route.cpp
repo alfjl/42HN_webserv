@@ -37,6 +37,11 @@ namespace webserv {
             return this;
         }
 
+        route* route::disable_all_methods() {
+            _meta->disable_all_methods();
+            return this;
+        }
+
         route* route::set_allowed_method(webserv::http::http_method method) {
             _meta->set_allowed_method(method);
 
