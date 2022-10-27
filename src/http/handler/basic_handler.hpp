@@ -71,55 +71,55 @@ namespace webserv {
                     later(&basic_handler::read_until_rnrn);
                 }
 
-                virtual void parse_fields() = 0;
-
-                    void read_until_rn() {
-                        _read_until_rn__buffer = "";
-                        later(&basic_handler::read_until_rn__restart);
+                    void read_until_rnrn() {
+                        _read_until_rnrn__buffer = "";
+                        later(&basic_handler::read_until_rnrn__restart);
                     }
 
-                        void read_until_rn__restart() {
-                            later(&basic_handler::read_until_rn__continue);
-                            later(&basic_handler::read_next_char);
+                        void read_until_rnrn__restart() {
+                            later(&basic_handler::read_until_rnrn__continue);
+                            later(&basic_handler::read_until_rn);
                         }
 
-                        void read_until_rn__continue() {
-                            if (_last_char.enabled()) {
-                                _read_until_rn__buffer += _last_char.value();
-                                if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
-                                    // We return: Do nothing!
-                                    _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
-                                    return;
-                                } else {
-                                    later(&basic_handler::read_until_rn__restart);
-                                }
+                        void read_until_rnrn__continue() {
+                            if (_read_until_rn__buffer != "") {
+                                _read_until_rnrn__buffer += _read_until_rn__buffer;
+                                _read_until_rnrn__buffer += "\r\n";
+                                later(&basic_handler::read_until_rnrn__restart);
                             } else {
-                                // We return: Do nothing!
+                                _read_until_rnrn__buffer += "\r\n";
+                                // This "function" returns here: Do nothing!
                                 return;
                             }
                         }
 
-                            void read_until_rnrn() {
-                                _read_until_rnrn__buffer = "";
-                                later(&basic_handler::read_until_rnrn__restart);
+                    virtual void parse_fields() = 0;
+
+                        void read_until_rn() {
+                            _read_until_rn__buffer = "";
+                            later(&basic_handler::read_until_rn__restart);
+                        }
+
+                            void read_until_rn__restart() {
+                                later(&basic_handler::read_until_rn__continue);
+                                later(&basic_handler::read_next_char);
                             }
 
-                                void read_until_rnrn__restart() {
-                                    later(&basic_handler::read_until_rnrn__continue);
-                                    later(&basic_handler::read_until_rn);
-                                }
-
-                                void read_until_rnrn__continue() {
-                                    if (_read_until_rn__buffer != "") {
-                                        _read_until_rnrn__buffer += _read_until_rn__buffer;
-                                        _read_until_rnrn__buffer += "\r\n";
-                                        later(&basic_handler::read_until_rnrn__restart);
-                                    } else {
-                                        _read_until_rnrn__buffer += "\r\n";
-                                        // This "function" returns here: Do nothing!
+                            void read_until_rn__continue() {
+                                if (_last_char.enabled()) {
+                                    _read_until_rn__buffer += _last_char.value();
+                                    if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
+                                        // We return: Do nothing!
+                                        _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
                                         return;
+                                    } else {
+                                        later(&basic_handler::read_until_rn__restart);
                                     }
+                                } else {
+                                    // We return: Do nothing!
+                                    return;
                                 }
+                            }
 
                     void read_normal_body() {
                         _read_normal_body__result = "";
@@ -164,9 +164,6 @@ namespace webserv {
                             _read_chunked_body__result += _read_normal_body__result;
                             later(&basic_handler::read_chunked_body__restart);
                         }
-
-
-
 
             virtual enum abort_mode abort() = 0;
             void perform_abort();

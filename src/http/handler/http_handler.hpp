@@ -51,7 +51,7 @@ namespace webserv {
                 _the_request = request();
 
                 later(&http_handler::read_body);
-                later(&http_handler::read_fields);
+                later(&basic_handler::read_fields);
             }
                 
                     void parse_fields() {
@@ -75,10 +75,10 @@ namespace webserv {
                     if (basic_handler::_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_body__from_normal_body);
-                        later(&http_handler::read_normal_body);
+                        later(&basic_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
                         later(&http_handler::read_body__from_chunked_body);
-                        later(&http_handler::read_chunked_body);
+                        later(&basic_handler::read_chunked_body);
                     } else {
                         // No body, do nothing
                         _the_request.get_body() = "";
@@ -102,9 +102,9 @@ namespace webserv {
                                     return;
                                 } else {
                                     _read_normal_body__expected_size = hex;
-                                    later(&http_handler::read_chunked_body__continue);
+                                    later(&basic_handler::read_chunked_body__continue);
                                     later(&basic_handler::read_until_rn);
-                                    later(&http_handler::read_normal_body);
+                                    later(&basic_handler::read_normal_body);
                                 }
                             } else
                                 later(&basic_handler::parse_error);
