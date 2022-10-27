@@ -106,7 +106,7 @@ namespace webserv {
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
                     }
                 }
-                std::cerr << "Execve failed" << std::endl;
+                on_failure();
                 exit(127);
             }
 
@@ -160,7 +160,7 @@ namespace webserv {
                 _env.push_back(line);
             }
 
-            virtual void fork_task::on_failure() {
+            void fork_task::on_failure() {
 
             }
 
