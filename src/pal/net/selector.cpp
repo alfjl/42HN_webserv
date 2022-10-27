@@ -3,6 +3,8 @@
 #include "../../core/instance.hpp"
 #include "../../core/driver/driver.hpp"
 
+#define WEBSERV_BUFFER_SIZE 32768
+
 namespace webserv {
     namespace pal {
         namespace net {
@@ -73,7 +75,7 @@ namespace webserv {
                     register_socket(ds, new_connection);
                     the_driver->get_instance().pass_connection(new_connection);
                 } else if (it.first->is_data_socket()) {
-                    char buffer[128];
+                    char buffer[WEBSERV_BUFFER_SIZE];
 
                     ssize_t amount = read(((data_socket*) it.first)->get_fd(), buffer, sizeof(buffer));
 
@@ -93,9 +95,9 @@ namespace webserv {
             bool selector::process_writable(std::pair<webserv::pal::net::socket*, payload_type> it) {
                 if (it.first->is_data_socket()) {
                     ssize_t amount = 0;
-                    char buffer[128];
+                    char buffer[WEBSERV_BUFFER_SIZE];
 
-                    while (amount < 128 && it.second->get_output().next_char(buffer[amount])) {
+                    while (amount < sizeof(buffer) && it.second->get_output().next_char(buffer[amount])) {
                         amount++;
                     }
 
