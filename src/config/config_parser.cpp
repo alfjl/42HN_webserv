@@ -112,7 +112,11 @@ namespace webserv {
 			bool is_cgi   = false;
 			webserv::pal::cpp::optional<unsigned int> error_code;
             webserv::pal::cpp::optional<std::string> executor;
+            webserv::pal::cpp::optional<std::string> extension;
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
+
+            if (checks("extension"))
+                extension.enable(read_word());
 
 			expects("{");
 			while (!checks("}")) {
@@ -144,7 +148,10 @@ namespace webserv {
 						expects("to");
 						resolved_path = expect_path();
 					} else if (checks("cgi")) {
-						resolved_path = full_path;
+                        if (checks("at"))
+                            resolved_path = expect_path();
+                        else
+						    resolved_path = full_path;
 						is_cgi        = true;
                         if (checks("using")) {
                             executor.enable(expect_path().to_absolute_string());
@@ -163,6 +170,9 @@ namespace webserv {
 			
 			if (wildcard) rule = new webserv::core::prefix_rule(resource_path);
 			else          rule = new webserv::core::identity_rule(resource_path);
+
+            if (extension.enabled())
+                rule->set_extension(extension.value());
 
 			if (translate) translation = new webserv::core::relative_translation_function();
 			else           translation = new webserv::core::zero_translation_function();
