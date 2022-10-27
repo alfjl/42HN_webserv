@@ -28,12 +28,26 @@ namespace webserv {
 
             struct connection_config    _connection_configs;
 
+            unsigned int            _read_normal_body__expected_size; // auslagern basic_handler?    
+            std::string             _read_normal_body__result;
+
+            std::string             _read_chunked_body__result;
+
+            std::string             _read_until_rn__buffer;
+            std::string             _read_until_rnrn__buffer;
+
             enum abort_mode {
                 abort_mode_continue,
                 abort_mode_terminate
             };
 
         public:
+            /*
+             *
+             *     C o n s t r u c t o r s ,   G e t t e r s   a n d   S e t t e r s
+             *
+             */
+
             basic_handler(webserv::util::connection* new_connection);
             virtual ~basic_handler();
 
@@ -44,6 +58,55 @@ namespace webserv {
             struct connection_config*  get_connection_configs();
 
             void read_next_char();
+
+
+                    void read_until_rn() {
+                        _read_until_rn__buffer = "";
+                        later(&basic_handler::read_until_rn__restart);
+                    }
+
+                        void read_until_rn__restart() {
+                            later(&basic_handler::read_until_rn__continue);
+                            later(&basic_handler::read_next_char);
+                        }
+
+                        void read_until_rn__continue() {
+                            if (_last_char.enabled()) {
+                                _read_until_rn__buffer += _last_char.value();
+                                if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
+                                    // We return: Do nothing!
+                                    _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
+                                    return;
+                                } else {
+                                    later(&basic_handler::read_until_rn__restart);
+                                }
+                            } else {
+                                // We return: Do nothing!
+                                return;
+                            }
+                        }
+
+                            void read_until_rnrn() {
+                                _read_until_rnrn__buffer = "";
+                                later(&basic_handler::read_until_rnrn__restart);
+                            }
+
+                                void read_until_rnrn__restart() {
+                                    later(&basic_handler::read_until_rnrn__continue);
+                                    later(&basic_handler::read_until_rn);
+                                }
+
+                                void read_until_rnrn__continue() {
+                                    if (_read_until_rn__buffer != "") {
+                                        _read_until_rnrn__buffer += _read_until_rn__buffer;
+                                        _read_until_rnrn__buffer += "\r\n";
+                                        later(&basic_handler::read_until_rnrn__restart);
+                                    } else {
+                                        _read_until_rnrn__buffer += "\r\n";
+                                        // This "function" returns here: Do nothing!
+                                        return;
+                                    }
+                                }
 
             // webserv::pal::cpp::optional<char> get_last_char();
 

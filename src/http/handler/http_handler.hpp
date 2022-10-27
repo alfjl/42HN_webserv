@@ -15,13 +15,13 @@ namespace webserv {
             webserv::core::routing& _routing;
             request                 _the_request;
 
-            unsigned int            _read_normal_body__expected_size;            
-            std::string             _read_normal_body__result;
+            // unsigned int            _read_normal_body__expected_size;            
+            // std::string             _read_normal_body__result;
 
-            std::string             _read_chunked_body__result;
+            // std::string             _read_chunked_body__result;
 
-            std::string             _read_until_rn__buffer;
-            std::string             _read_until_rnrn__buffer;
+            // std::string             _read_until_rn__buffer;
+            // std::string             _read_until_rnrn__buffer;
 
         public:
             /*
@@ -30,7 +30,8 @@ namespace webserv {
              *
              */
 
-            http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing) : basic_handler(new_connection), _routing(routing) {
+            http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
+                : basic_handler(new_connection), _routing(routing) {
 
             }
 
@@ -66,53 +67,53 @@ namespace webserv {
                     later(&http_handler::read_until_rnrn);
                 }
 
-                    void read_until_rn() {
-                        _read_until_rn__buffer = "";
-                        later(&http_handler::read_until_rn__restart);
-                    }
+                    // void read_until_rn() {
+                    //     _read_until_rn__buffer = "";
+                    //     later(&http_handler::read_until_rn__restart);
+                    // }
 
-                        void read_until_rn__restart() {
-                            later(&http_handler::read_until_rn__continue);
-                            later(&basic_handler::read_next_char);
-                        }
+                    //     void read_until_rn__restart() {
+                    //         later(&http_handler::read_until_rn__continue);
+                    //         later(&basic_handler::read_next_char);
+                    //     }
 
-                        void read_until_rn__continue() {
-                            if (_last_char.enabled()) {
-                                _read_until_rn__buffer += _last_char.value();
-                                if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
-                                    // We return: Do nothing!
-                                    _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
-                                    return;
-                                } else {
-                                    later(&http_handler::read_until_rn__restart);
-                                }
-                            } else {
-                                // We return: Do nothing!
-                                return;
-                            }
-                        }
+                    //     void read_until_rn__continue() {
+                    //         if (_last_char.enabled()) {
+                    //             _read_until_rn__buffer += _last_char.value();
+                    //             if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
+                    //                 // We return: Do nothing!
+                    //                 _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
+                    //                 return;
+                    //             } else {
+                    //                 later(&http_handler::read_until_rn__restart);
+                    //             }
+                    //         } else {
+                    //             // We return: Do nothing!
+                    //             return;
+                    //         }
+                    //     }
 
-                    void read_until_rnrn() {
-                        _read_until_rnrn__buffer = "";
-                        later(&http_handler::read_until_rnrn__restart);
-                    }
+                    // void read_until_rnrn() {
+                    //     _read_until_rnrn__buffer = "";
+                    //     later(&http_handler::read_until_rnrn__restart);
+                    // }
 
-                        void read_until_rnrn__restart() {
-                            later(&http_handler::read_until_rnrn__continue);
-                            later(&http_handler::read_until_rn);
-                        }
+                    //     void read_until_rnrn__restart() {
+                    //         later(&http_handler::read_until_rnrn__continue);
+                    //         later(&http_handler::read_until_rn);
+                    //     }
 
-                        void read_until_rnrn__continue() {
-                            if (_read_until_rn__buffer != "") {
-                                _read_until_rnrn__buffer += _read_until_rn__buffer;
-                                _read_until_rnrn__buffer += "\r\n";
-                                later(&http_handler::read_until_rnrn__restart);
-                            } else {
-                                _read_until_rnrn__buffer += "\r\n";
-                                // This "function" returns here: Do nothing!
-                                return;
-                            }
-                        }
+                    //     void read_until_rnrn__continue() {
+                    //         if (_read_until_rn__buffer != "") {
+                    //             _read_until_rnrn__buffer += _read_until_rn__buffer;
+                    //             _read_until_rnrn__buffer += "\r\n";
+                    //             later(&http_handler::read_until_rnrn__restart);
+                    //         } else {
+                    //             _read_until_rnrn__buffer += "\r\n";
+                    //             // This "function" returns here: Do nothing!
+                    //             return;
+                    //         }
+                    //     }
                 
                     void parse_fields() {
                         webserv::util::stringflow  flow(_read_until_rnrn__buffer);
@@ -199,7 +200,7 @@ namespace webserv {
                                 } else {
                                     _read_normal_body__expected_size = hex;
                                     later(&http_handler::read_chunked_body__continue);
-                                    later(&http_handler::read_until_rn);
+                                    later(&basic_handler::read_until_rn);
                                     later(&http_handler::read_normal_body);
                                 }
                             } else
