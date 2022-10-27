@@ -106,7 +106,7 @@ namespace webserv {
 
             void done();
 
-            void has_more();
+            virtual void has_more();
 
 
 
