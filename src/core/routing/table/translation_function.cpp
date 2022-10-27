@@ -23,6 +23,7 @@ namespace webserv {
 
 
         bool relative_translation_function::convert(match_info& meta) {
+            (void) meta;
             return true;
         }
 

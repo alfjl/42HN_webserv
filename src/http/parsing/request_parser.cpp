@@ -117,6 +117,7 @@ namespace webserv {
         }
 
         void parse_http_version(request_parser& parser, http_version& into) {
+            (void) into;
             parser.expects("HTTP/1.1");
         }
 

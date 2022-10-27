@@ -178,6 +178,7 @@ namespace webserv {
         }
         
         route* error_route::build(match_info& info) {
+            (void) info;
             return (new error_route(_code, route::_meta));
         }
 

@@ -97,7 +97,7 @@ namespace webserv {
                     ssize_t amount = 0;
                     char buffer[WEBSERV_BUFFER_SIZE];
 
-                    while (amount < sizeof(buffer) && it.second->get_output().next_char(buffer[amount])) {
+                    while (amount < (ssize_t) sizeof(buffer) && it.second->get_output().next_char(buffer[amount])) {
                         amount++;
                     }
 
@@ -141,6 +141,7 @@ namespace webserv {
             }
 
             void selector::unregister_closed_fds(fd_sets& sets) {
+                (void) sets;
                 std::map<socket*, payload_type>::iterator it = elements.begin();
                 while (it != elements.end()) {
                     if (it->second != NULL) {

@@ -97,6 +97,8 @@ namespace webserv {
         }
 
         void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
+            (void) request;
+
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
@@ -148,6 +150,8 @@ namespace webserv {
         }
 
         void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
+            (void) request;
+            
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
