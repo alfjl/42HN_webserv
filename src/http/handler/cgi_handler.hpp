@@ -15,14 +15,6 @@ namespace webserv {
             webserv::http::http_handler* _http_handler;
             webserv::http::fields        _fields;
 
-            unsigned int            _read_normal_body__expected_size; // auslagern basic_handler?    
-            std::string             _read_normal_body__result;
-
-            std::string             _read_chunked_body__result;
-
-            std::string             _read_until_rn__buffer;
-            std::string             _read_until_rnrn__buffer;
-
         public:
             /*
              *
@@ -30,25 +22,11 @@ namespace webserv {
              *
              */
 
-            cgi_handler(webserv::util::connection* new_connection)
-                : basic_handler(new_connection), _http_handler(NULL) {
+            cgi_handler(webserv::util::connection* new_connection);
 
-            }
+            ~cgi_handler();
 
-            ~cgi_handler() {
-                if (_http_handler != NULL) {
-                    _http_handler->wake_up();
-                    _http_handler->decrement_refcount();
-                }
-            }
-
-            void set_http_handler(webserv::http::http_handler* http_handler) {
-                if (_http_handler != NULL)
-                    _http_handler->decrement_refcount();
-                _http_handler = http_handler;
-                if (_http_handler != NULL)
-                    _http_handler->increment_refcount();
-            }
+            void set_http_handler(webserv::http::http_handler* http_handler);
 
 
 
@@ -58,221 +36,31 @@ namespace webserv {
              *
              */
 
-            void start() {
-                // later(&cgi_handler::has_more); // not needed, since the execve only sends 1 out?
-                later(&cgi_handler::process_request);
-                later(&cgi_handler::read_child_output);
-            }
+            void start();
 
-            void read_child_output() {
-                later(&cgi_handler::read_body);
-                later(&cgi_handler::read_fields);
-                // later(&cgi_handler::parse_fields);
-            }
+            void read_child_output();
 
+                void parse_fields();
 
-                void read_fields() {  // TODO: Move to basic handler
-                    later(&cgi_handler::parse_fields);
-                    later(&cgi_handler::read_until_rnrn);
-                }
+                void read_body();
 
-                    void read_until_rn() {
-                        _read_until_rn__buffer = "";
-                        later(&cgi_handler::read_until_rn__restart);
-                    }
+                    void read_body__from_normal_body();
 
-                        void read_until_rn__restart() {
-                            later(&cgi_handler::read_until_rn__continue);
-                            later(&basic_handler::read_next_char);
-                        }
+                    void read_body__from_chunked_body();
 
-                        void read_until_rn__continue() {
-                            if (_last_char.enabled()) {
-                                _read_until_rn__buffer += _last_char.value();
-                                if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
-                                    // We return: Do nothing!
-                                    _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
-                                    return;
-                                } else {
-                                    later(&cgi_handler::read_until_rn__restart);
-                                }
-                            } else {
-                                // We return: Do nothing!
-                                return;
-                            }
-                        }
-
-                            void read_until_rnrn() {
-                                _read_until_rnrn__buffer = "";
-                                later(&cgi_handler::read_until_rnrn__restart);
-                            }
-
-                                void read_until_rnrn__restart() {
-                                    later(&cgi_handler::read_until_rnrn__continue);
-                                    later(&cgi_handler::read_until_rn);
-                                }
-
-                                void read_until_rnrn__continue() {
-                                    if (_read_until_rn__buffer != "") {
-                                        _read_until_rnrn__buffer += _read_until_rn__buffer;
-                                        _read_until_rnrn__buffer += "\r\n";
-                                        later(&cgi_handler::read_until_rnrn__restart);
-                                    } else {
-                                        _read_until_rnrn__buffer += "\r\n";
-                                        // This "function" returns here: Do nothing!
-                                        return;
-                                    }
-                                }
-
-                void parse_fields() {
-                    webserv::util::stringflow   flow(_read_until_rnrn__buffer);
-                    request_parser              parser(flow);
-                    _fields = webserv::http::fields();
-
-                    bool correct = false;
-                    try {
-                        parse_request_fields(parser, _fields);
-                        correct = true;
-                    } catch (webserv::util::parse_exception& e) {
-
-                    }
-
-                    if (!correct)
-                        later(&basic_handler::total_failure);
-                }
-
-                void read_body() {  // TODO: Move to basic handler
-                    if (_is_normal_body()) {
-                        _read_normal_body__expected_size = get_normal_body_size();
-                        later(&cgi_handler::read_body__from_normal_body);
-                        later(&cgi_handler::read_normal_body);
-                    } else if (_is_chunked_body()) {
-                        // later(&cgi_handler::read_body__from_chunked_body);
-                        // later(&cgi_handler::read_chunked_body);
-                        later(&cgi_handler::pipe_body);
-                    } else {
-                        // No body, do nothing
-                        _body = "";
-                        return;
-                    }
-                }
-
-                    void read_body__from_normal_body() {
-                        _body = _read_normal_body__result;
-                    }
-
-                    void read_body__from_chunked_body() {
-                        _body = _read_chunked_body__result;
-                        _fields.put("Content-Length", _body.size());
-                        _fields.remove("Transfer-Encoding");
-                    }
-
-                    void read_normal_body() {
-                        _read_normal_body__result = "";
-                        later(&cgi_handler::read_normal_body__restart);
-                    }
-
-                        void read_normal_body__restart() {
-                            if (_read_normal_body__expected_size > 0) {
-                                later(&cgi_handler::read_normal_body__continue);
-                                later(&basic_handler::read_next_char);
-                            } else {
-                                // This "function" returns here: Do nothing!
-                                return;
-                            }
-                        }
-
-                        void read_normal_body__continue() {
-                            if (_last_char.enabled()) {
-                                _read_normal_body__expected_size--;
-                                _read_normal_body__result += _last_char.value();
-                                later(&cgi_handler::read_normal_body__restart);
-                            } else {
-                                // This "function" returns here: Do nothing!
-                                return;
-                            }
-                        }
-
-                    void read_chunked_body() {
-                        _read_chunked_body__result = "";
-                        later(&cgi_handler::read_chunked_body__restart);
-                    }
-
-                        void read_chunked_body__restart() {
-                            later(&cgi_handler::read_chunked_body__parse_hex);
-                            later(&cgi_handler::read_until_rn);
-                        }
-
-                        void read_chunked_body__parse_hex() {
-                            unsigned int hex;
-
-                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
-                                if (hex == 0) {
-                                    return;
-                                } else {
-                                    _read_normal_body__expected_size = hex;
-                                    later(&cgi_handler::read_chunked_body__continue);
-                                    later(&cgi_handler::read_until_rn);
-                                    later(&cgi_handler::read_normal_body);
-                                }
-                            } else
-                                later(&basic_handler::total_failure);
-                        }
-
-                        void read_chunked_body__continue() {
-                            // TODO: Check how many bytes we have actually read
-                            _read_chunked_body__result += _read_normal_body__result;
-                            later(&cgi_handler::read_chunked_body__restart);
-                        }
+                        void read_chunked_body__parse_hex();
                 
-                void pipe_body() {
-                    if (_http_handler != NULL) {
-                        std::ostream& out = _http_handler->out();
-                        out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
-                        out << _fields;
-                        out << "\r\n";
-                        later(&cgi_handler::pipe_body__restart);
-                    }   
-                }
+                void pipe_body();
 
-                    void pipe_body__restart() {
-                        later(&cgi_handler::pipe_body__continue);
-                        later(&basic_handler::read_next_char);
-                    }
+                    void pipe_body__restart();
 
-                    void pipe_body__continue() {
-                        if (_last_char.enabled()) {
-                            if (_http_handler != NULL) {
-                                std::ostream& out = _http_handler->out();
-                                out << _last_char.value();
-                            }
-                            later(&cgi_handler::pipe_body__restart);
-                        } else {
-                            later(&cgi_handler::end_request);
-                        }
-                    }
+                    void pipe_body__continue();
 
-            void process_request() {
-                if (_http_handler != NULL) {
-                    std::ostream& out = _http_handler->out();
-                    out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
-                    out << _fields;
-                    out << "\r\n";
-                    out << _body;
-                }
+            void process_request();
 
-                later(&cgi_handler::end_request);
-            }
+                void end_request();
 
-                void end_request() {
-                   basic_handler::get_connection()->close();
-
-                   stop();
-                }
-
-            enum basic_handler::abort_mode abort() {
-                return abort_mode_terminate;
-            }
+            enum basic_handler::abort_mode abort();
 
 
 
@@ -282,21 +70,9 @@ namespace webserv {
              *
              */
 
-            bool _is_normal_body() { return get_normal_body_size() > 0; }
-            bool _is_chunked_body() { return _fields.get_or_default("Transfer-Encoding", "") == "chunked"; }
+            bool _is_chunked_body();
 
-            unsigned int get_normal_body_size() {
-                return (unsigned int) _fields.get_int_or_default("Content-Length", 0);
-            }
-
-
-            // void parse_body_util();
-
-            // void char_arrived();
-
-            // void process_head();
-            // void process_request();
-            // void end_request();
+            unsigned int get_normal_body_size();
         };
 
     }

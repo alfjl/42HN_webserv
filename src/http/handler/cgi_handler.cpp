@@ -7,116 +7,170 @@
 namespace webserv {
     namespace http {
 
-        // cgi_handler::cgi_handler(webserv::util::connection* new_connection)
-        //     : basic_handler(new_connection), _http_handler(NULL) {
+            /*
+             *
+             *     C o n s t r u c t o r s ,   G e t t e r s   a n d   S e t t e r s
+             *
+             */
 
-        // }
+            cgi_handler::cgi_handler(webserv::util::connection* new_connection)
+                : basic_handler(new_connection), _http_handler(NULL) {
 
-        // cgi_handler::~cgi_handler() {
-        //     if (_http_handler != NULL) {
-        //         _http_handler->wake_up();
-        //         _http_handler->decrement_refcount();
-        //     }
-        // }
+            }
 
-        // void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
-        //     if (_http_handler != NULL)
-        //         _http_handler->decrement_refcount();
-        //     _http_handler = http_handler;
-        //     if (_http_handler != NULL)
-        //         _http_handler->increment_refcount();
-        // }
+            cgi_handler::~cgi_handler() {
+                if (_http_handler != NULL) {
+                    _http_handler->wake_up();
+                    _http_handler->decrement_refcount();
+                }
+            }
 
-        // void cgi_handler::start() {
-        //     // TODO
-        // }
+            void cgi_handler::set_http_handler(webserv::http::http_handler* http_handler) {
+                if (_http_handler != NULL)
+                    _http_handler->decrement_refcount();
+                _http_handler = http_handler;
+                if (_http_handler != NULL)
+                    _http_handler->increment_refcount();
+            }
 
-        // enum basic_handler::abort_mode cgi_handler::abort() {
-        //     return abort_mode_terminate;
-        // }
 
-        // void cgi_handler::char_arrived() {
-        //     // std::cerr << "\033[35m" << basic_handler::get_last_char() << "\033[0m";
-        //     // next(&cgi_handler::start);
-        //     _buffer += basic_handler::get_last_char();
-        //     if (_buffer.find("\r\n\r\n") != std::string::npos) {
-        //         next(&cgi_handler::process_head);
-        //     } else {
-        //         next(&cgi_handler::start);
-        //     }
-        // }
 
-        // void cgi_handler::parse_body_util() {
-        //         std::cout << "into.Content-Length: " << _fields.get_or_default("Content-Length", "").c_str() << "  /  max_len: " << basic_handler::_connection_configs._max_len.value() << std::endl;
-        //     if (_fields.get_or_default("Transfer-Encoding", "") == "chunked") {
-        //         next(&basic_handler::parse_chunked_body);
-        //         later(&cgi_handler::process_request);
-        //     } else if (_fields.has("Content-Length")) {
-        //         int bytes;
-        //         if (webserv::pal::cpp::string_to_int(_fields.get_or_default("Content-Length", "").c_str(), bytes)) {
-        //             std::cout << "bytes: " << bytes << "  /  max_len" << basic_handler::_connection_configs._max_len.value() << std::endl;
-        //             if ((unsigned int) bytes > basic_handler::_connection_configs._max_len.value())
-        //                 next(&basic_handler::total_failure);
-        //             else {
-        //                 this->_bytes = bytes;
-        //                 next(&basic_handler::parse_normal_body);
-        //                 later(&cgi_handler::process_request);
-        //             }
-        //         } else {
-        //             next(&basic_handler::total_failure);
-        //         }
-        //     } else {
-        //         next(&cgi_handler::process_request);
-        //     }
-        // }
+           /*
+             *
+             *     S t a t e   M a c h i n e   F u n c t i o n s
+             *
+             */
 
-        // void cgi_handler::process_head() {
-        //     std::cout << "\033[35m" << _buffer << "\033[0m";
-        //     webserv::util::stringflow   flow(_buffer);
-        //     request_parser  parser(flow);
-        //     _fields = webserv::http::fields();
+            void cgi_handler::start() {
+                later(&cgi_handler::process_request);
+                later(&cgi_handler::read_child_output);
+            }
 
-        //     bool correct = false;
-            
-        //     try {
-                // parse_request_fields(parser, _fields);
-        //         correct = true;
-        //     } catch (webserv::util::parse_exception& e) {
+            void cgi_handler::read_child_output() {
+                later(&cgi_handler::read_body);
+                later(&basic_handler::read_fields);
+            }
 
-        //     }
+                void cgi_handler::parse_fields() {
+                    webserv::util::stringflow   flow(_read_until_rnrn__buffer);
+                    request_parser              parser(flow);
+                    _fields = webserv::http::fields();
 
-        //     _body = "";
+                    bool correct = false;
 
-        //     if (correct) {
-        //         later(&cgi_handler::process_request);
-        //         parse_body_util();
-        //     } else {
-        //         std::cout << "Error in request!" << std::endl;
-        //         next(&basic_handler::total_failure);
-        //     }
-        // }
+                    try {
+                        parse_request_fields(parser, _fields);
+                        correct = true;
+                    } catch (webserv::util::parse_exception& e) {
 
-        // void cgi_handler::process_request() {
-        //     std::cout << "CGI processing request..." << std::endl;
-        //     std::cout << _fields << std::endl;
+                    }
 
-        //     if (_http_handler != NULL) {
-        //         std::ostream& out = _http_handler->out();
-        //         out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
-        //         out << _fields; // TODO: Is this correct?
-        //         out << "\r\n";
-        //     std::cout << _body << std::endl;
-        //         out << _body;
-        //     }
+                    if (!correct)
+                        later(&basic_handler::total_failure);
+                }
 
-        //     next(&cgi_handler::end_request);
-        // }
+                void cgi_handler::read_body() {  // TODO: Move to basic handler
+                    if (basic_handler::_is_normal_body()) {
+                        _read_normal_body__expected_size = get_normal_body_size();
+                        later(&cgi_handler::read_body__from_normal_body);
+                        later(&basic_handler::read_normal_body);
+                    } else if (_is_chunked_body()) {
+                        later(&cgi_handler::pipe_body);
+                    } else {
+                        // No body, do nothing
+                        _body = "";
+                        return;
+                    }
+                }
 
-        // void cgi_handler::end_request() {
-        //     basic_handler::get_connection()->close();
+                    void cgi_handler::read_body__from_normal_body() {
+                        _body = _read_normal_body__result;
+                    }
 
-        //     stop();
-        // }
+                    void cgi_handler::read_body__from_chunked_body() {
+                        _body = _read_chunked_body__result;
+                        _fields.put("Content-Length", _body.size());
+                        _fields.remove("Transfer-Encoding");
+                    }
+
+                        void cgi_handler::read_chunked_body__parse_hex() {
+                            unsigned int hex;
+
+                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                                if (hex == 0) {
+                                    return;
+                                } else {
+                                    _read_normal_body__expected_size = hex;
+                                    later(&basic_handler::read_chunked_body__continue);
+                                    later(&basic_handler::read_until_rn);
+                                    later(&basic_handler::read_normal_body);
+                                }
+                            } else
+                                later(&basic_handler::total_failure);
+                        }
+                
+                void cgi_handler::pipe_body() {
+                    if (_http_handler != NULL) {
+                        std::ostream& out = _http_handler->out();
+                        out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                        out << _fields;
+                        out << "\r\n";
+                        later(&cgi_handler::pipe_body__restart);
+                    }   
+                }
+
+                    void cgi_handler::pipe_body__restart() {
+                        later(&cgi_handler::pipe_body__continue);
+                        later(&basic_handler::read_next_char);
+                    }
+
+                    void cgi_handler::pipe_body__continue() {
+                        if (_last_char.enabled()) {
+                            if (_http_handler != NULL) {
+                                std::ostream& out = _http_handler->out();
+                                out << _last_char.value();
+                            }
+                            later(&cgi_handler::pipe_body__restart);
+                        } else {
+                            later(&cgi_handler::end_request);
+                        }
+                    }
+
+            void cgi_handler::process_request() {
+                if (_http_handler != NULL) {
+                    std::ostream& out = _http_handler->out();
+                    out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                    out << _fields;
+                    out << "\r\n";
+                    out << _body;
+                }
+
+                later(&cgi_handler::end_request);
+            }
+
+                void cgi_handler::end_request() {
+                   basic_handler::get_connection()->close();
+
+                   stop();
+                }
+
+            enum basic_handler::abort_mode cgi_handler::abort() {
+                return abort_mode_terminate;
+            }
+
+
+
+            /*
+             *
+             *     U t i l i t i e s
+             *
+             */
+
+            bool cgi_handler::_is_chunked_body() { return _fields.get_or_default("Transfer-Encoding", "") == "chunked"; }
+
+            unsigned int cgi_handler::get_normal_body_size() {
+                return (unsigned int) _fields.get_int_or_default("Content-Length", 0);
+            }
 
     }
 }
