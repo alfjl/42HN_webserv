@@ -114,6 +114,50 @@ namespace webserv {
                                     }
                                 }
 
+                    void read_normal_body() {
+                        _read_normal_body__result = "";
+                        later(&basic_handler::read_normal_body__restart);
+                    }
+
+                        void read_normal_body__restart() {
+                            if (_read_normal_body__expected_size > 0) {
+                                later(&basic_handler::read_normal_body__continue);
+                                later(&basic_handler::read_next_char);
+                            } else {
+                                // This "function" returns here: Do nothing!
+                                return;
+                            }
+                        }
+
+                        void read_normal_body__continue() {
+                            if (_last_char.enabled()) {
+                                _read_normal_body__expected_size--;
+                                _read_normal_body__result += _last_char.value();
+                                later(&basic_handler::read_normal_body__restart);
+                            } else {
+                                // This "function" returns here: Do nothing!
+                                return;
+                            }
+                        }
+
+                    void read_chunked_body() {
+                        _read_chunked_body__result = "";
+                        later(&basic_handler::read_chunked_body__restart);
+                    }
+
+                        void read_chunked_body__restart() {
+                            later(&basic_handler::read_chunked_body__parse_hex);
+                            later(&basic_handler::read_until_rn);
+                        }
+
+                        virtual void read_chunked_body__parse_hex() = 0;
+
+                        void read_chunked_body__continue() {
+                            // TODO: Check how many bytes we have actually read
+                            _read_chunked_body__result += _read_normal_body__result;
+                            later(&basic_handler::read_chunked_body__restart);
+                        }
+
             // webserv::pal::cpp::optional<char> get_last_char();
 
             // virtual void wait_for_char();

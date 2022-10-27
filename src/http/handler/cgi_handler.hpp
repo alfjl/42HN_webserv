@@ -116,42 +116,6 @@ namespace webserv {
                         _fields.remove("Transfer-Encoding");
                     }
 
-                    void read_normal_body() {
-                        _read_normal_body__result = "";
-                        later(&cgi_handler::read_normal_body__restart);
-                    }
-
-                        void read_normal_body__restart() {
-                            if (_read_normal_body__expected_size > 0) {
-                                later(&cgi_handler::read_normal_body__continue);
-                                later(&basic_handler::read_next_char);
-                            } else {
-                                // This "function" returns here: Do nothing!
-                                return;
-                            }
-                        }
-
-                        void read_normal_body__continue() {
-                            if (_last_char.enabled()) {
-                                _read_normal_body__expected_size--;
-                                _read_normal_body__result += _last_char.value();
-                                later(&cgi_handler::read_normal_body__restart);
-                            } else {
-                                // This "function" returns here: Do nothing!
-                                return;
-                            }
-                        }
-
-                    void read_chunked_body() {
-                        _read_chunked_body__result = "";
-                        later(&cgi_handler::read_chunked_body__restart);
-                    }
-
-                        void read_chunked_body__restart() {
-                            later(&cgi_handler::read_chunked_body__parse_hex);
-                            later(&basic_handler::read_until_rn);
-                        }
-
                         void read_chunked_body__parse_hex() {
                             unsigned int hex;
 
@@ -166,12 +130,6 @@ namespace webserv {
                                 }
                             } else
                                 later(&basic_handler::total_failure);
-                        }
-
-                        void read_chunked_body__continue() {
-                            // TODO: Check how many bytes we have actually read
-                            _read_chunked_body__result += _read_normal_body__result;
-                            later(&cgi_handler::read_chunked_body__restart);
                         }
                 
                 void pipe_body() {
