@@ -157,7 +157,12 @@ namespace webserv {
 
                 add_fds(sets);
 
-                int status = ::select(sets.highest + 1, &sets.read_fds, &sets.write_fds, &sets.exception_fds, NULL);
+                timeval tv;
+
+                tv.tv_sec = 0;
+                tv.tv_usec = 50000;
+
+                int status = ::select(sets.highest + 1, &sets.read_fds, &sets.write_fds, &sets.exception_fds, &tv);
                 if (status < 0) {
                     // throw std::runtime_error("select(...) returned an error code!");
                     return;
