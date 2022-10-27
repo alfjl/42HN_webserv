@@ -171,7 +171,6 @@ namespace webserv {
             }
 
             void basic_handler::has_more() {
-                // TODO: Check for keep-alive
                 later(&basic_handler::done);
             }
 

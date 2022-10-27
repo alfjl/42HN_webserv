@@ -34,6 +34,13 @@ namespace webserv {
                 later(&http_handler::read_request);
             }
 
+            void http_handler::restart() {
+                // Written in inverse order due to stack
+                later(&basic_handler::has_more);
+                later(&http_handler::process_request);
+                later(&http_handler::read_request);
+            }
+
             void http_handler::read_request() {
                 _the_request = request();
 
@@ -109,11 +116,24 @@ namespace webserv {
                 return abort_mode_continue;
             }
 
+
+            void http_handler::has_more() {
+                if (_is_keep_alive()) {
+                    restart();
+                } else {
+                    later(&basic_handler::done);
+                }
+            }
+
+
+
             /*
              *
              *     U t i l i t i e s
              *
              */
+
+            bool http_handler::_is_keep_alive() { return _the_request.get_fields().get_or_default("Connection", "") == "keep-alive"; }
 
             bool http_handler::_is_chunked_body() { return _the_request.get_fields().get_or_default("Transfer-Encoding", "") == "chunked"; }
 

@@ -37,6 +37,8 @@ namespace webserv {
 
             void start();
 
+            void restart();
+
             void read_request();
                 
                     void parse_fields();
@@ -55,11 +57,15 @@ namespace webserv {
 
             enum basic_handler::abort_mode abort();
 
+            void has_more();
+
             /*
              *
              *     U t i l i t i e s
              *
              */
+
+            bool _is_keep_alive();
 
             bool _is_chunked_body();
 
