@@ -25,15 +25,15 @@ namespace webserv {
             unsigned int                      _hex;
             unsigned int                      _bytes;
 
-            struct connection_config    _connection_configs;
+            struct connection_config          _connection_configs;
 
-            unsigned int            _read_normal_body__expected_size; // auslagern basic_handler?    
-            std::string             _read_normal_body__result;
+            unsigned int                      _read_normal_body__expected_size; 
+            std::string                       _read_normal_body__result;
 
-            std::string             _read_chunked_body__result;
+            std::string                       _read_chunked_body__result;
 
-            std::string             _read_until_rn__buffer;
-            std::string             _read_until_rnrn__buffer;
+            std::string                       _read_until_rn__buffer;
+            std::string                       _read_until_rnrn__buffer;
 
             enum abort_mode {
                 abort_mode_continue,
@@ -102,20 +102,11 @@ namespace webserv {
 
             void total_failure();
 
-            void parse_error() {
-                // TODO: Issue an error
-                later(&basic_handler::done);
-            }
+            void parse_error();
 
-            void done() {
-                basic_handler::get_connection()->close();
-                stop();
-            }
+            void done();
 
-            void has_more() {
-                // TODO: Check for keep-alive
-                later(&basic_handler::done);
-            }
+            void has_more();
 
 
 
@@ -125,10 +116,9 @@ namespace webserv {
              *
              */
 
-            bool _is_normal_body() { return get_normal_body_size() > 0; }
+            bool _is_normal_body();
 
             virtual unsigned int get_normal_body_size() = 0;
-
         };
 
     }
