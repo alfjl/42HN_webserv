@@ -106,13 +106,13 @@ namespace webserv {
                         ::execve(argv[0], (char *const*) argv, (char *const*) envp);
                     }
                 }
-                std::cerr << "Execve failed" << std::endl;
+                on_failure();
                 exit(127);
             }
 
             bool fork_task::perform(wait_set& set, pid_t& pid) {
-                if (!webserv::pal::fs::access(_executable) || (webserv::pal::fs::is_directory(_executable)))
-                    return false;
+                //if (!webserv::pal::fs::access(_executable) || (webserv::pal::fs::is_directory(_executable)))
+                //    return false;
 
                 std::pair<fork_status, pid_t> result = fork();
 
@@ -158,6 +158,10 @@ namespace webserv {
 
             void fork_task::add_env(std::string line) {
                 _env.push_back(line);
+            }
+
+            void fork_task::on_failure() {
+
             }
 
         }

@@ -17,13 +17,24 @@
 namespace webserv {
     namespace core {
 
+        class cgi_fork_task : public webserv::pal::fork::fork_task {
+        public:
+            cgi_fork_task(std::string executable) : fork_task(executable) {
+
+            }
+
+        protected:
+            void on_failure() {
+                webserv::http::response_fixed  response;
+                response.enable_cgi_mode();
+                internal_server_error_500(response);
+                response.write(std::cout);
+                std::flush(std::cout);
+            }
+        };
+
         routing::routing(instance& the_inst) : component(the_inst) {
-            // table.add_rule(new prefix_rule(webserv::util::path("/share")), new relative_translation_function(), new file_route(webserv::util::path("/share")));
-            // table.add_rule(new identity_rule(webserv::util::path("/virt/listing")), new file_route(webserv::util::path("/")));
-            // table.add_rule(new identity_rule(webserv::util::path("/virt/teapot")), new error_route(418));
-            // table.add_rule(new prefix_ext_rule(webserv::util::path("/"), "html"), new relative_translation_function(), new file_route(webserv::util::path("/")));
-            // table.add_rule(new identity_rule(webserv::util::path("/")), new file_route(webserv::util::path("/index.html")));
-            // table.add_rule(new fallback_rule(), new error_route(403));
+
         }
 
         routing::~routing() {
@@ -217,7 +228,7 @@ namespace webserv {
 
             // TODO: Clean up this code!
             webserv::pal::cpp::optional<std::string> executor = the_route->get_executor();
-            webserv::pal::fork::fork_task task(executor.enabled() ? executor.value() : cgi_path);
+            cgi_fork_task task(executor.enabled() ? executor.value() : cgi_path);
             if (executor.enabled()) task.add_arg(cgi_path);
             
             webserv::pal::fork::wait_set ws;
