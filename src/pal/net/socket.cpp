@@ -120,7 +120,7 @@ namespace webserv {
 
             /*
              * Sets the server_socket into listening mode
-             * for 16 elements in our queue (default)
+             * for 128 elements in our queue (default)
              */
             void server_socket::listen() {
                 listen(128);
