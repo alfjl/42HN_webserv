@@ -74,7 +74,7 @@ namespace webserv {
             for (; it != ite; ++it)
                 key_lower += (_case_sensitive) ? (*it) : (::tolower(*it));
 
-            std::map<std::string, std::string>::const_iterator it2 = _fields.find(key_lower);
+            std::map<std::string, std::string>::iterator it2 = _fields.find(key_lower);
             if (it2 != _fields.end()) { _fields.erase(it2); }
         }
 
