@@ -6,8 +6,12 @@ namespace webserv {
         /*
          * Default constructor default-initializes the members
          */
-        response::response() : _fields(), _code(418), _block_mode(block_mode_none) {
+        response::response() : _fields(), _code(418), _block_mode(block_mode_none), _is_cgi(false) {
 
+        }
+
+        void response::enable_cgi_mode() {
+            _is_cgi = true;
         }
 
         unsigned int response::get_code() const {
@@ -28,11 +32,19 @@ namespace webserv {
             _fields.put(name, value);
         }
 
+        void response::set_field(std::string name, int value) {
+            _fields.put(name, value);
+        }
+
         /*
          * Writes the status_code and corresponding message (e.g. 200 OK)
          * of the response to the connection
          */
         void    response::write_status(std::ostream& stream) {
+            if (_is_cgi)
+                stream << "Status: ";
+            else
+                stream << "HTTP/1.1 ";
             stream << _code << " " << webserv::http::code2str(_code) << "\r\n";
         }
 
@@ -62,7 +74,6 @@ namespace webserv {
         void    response::write(std::ostream& stream) {
             if (_block_mode == block_mode_all) return;
 
-            stream << "HTTP/1.1 ";
             // write code + corresponding message (e.g. 200 OK)
             write_status(stream);
             // iterate over fields, and write all fields
@@ -104,6 +115,10 @@ namespace webserv {
             response::set_field(name, value);
         }
 
+        void response_fixed::set_field(std::string name, int value) {
+            response::set_field(name, value);
+        }
+
         /*
          * Sets _body and field 'Content-type' for html responses 
          */
@@ -118,6 +133,7 @@ namespace webserv {
             if (_block_mode != block_mode_all) {
                 _body = body;
                 set_field("Content-type", content_type);
+                set_field("Content-Length", body.size());
             }
         }
 

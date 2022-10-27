@@ -41,9 +41,11 @@ namespace webserv {
         public:
             response();
 
+            void          enable_cgi_mode();
             unsigned int  get_code() const;
             void          set_code(unsigned int code);
             void          set_field(std::string name, std::string value);
+            void          set_field(std::string name, int value);
             virtual void  write_body(std::ostream& stream) = 0;
             void          write(std::ostream& stream);
             
@@ -60,6 +62,7 @@ namespace webserv {
 
             void set_code(unsigned int code);
             void set_field(std::string name, std::string value);
+            void set_field(std::string name, int value);
             void set_body(std::string body, std::string content_type);
             void set_html_body(std::string body);
             void write_body(std::ostream& stream);

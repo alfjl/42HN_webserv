@@ -25,11 +25,11 @@ namespace webserv {
 
         protected:
             void on_failure() {
-                std::cerr << "ERROR: execve failed!" << std::endl;
                 webserv::http::response_fixed  response;
-                not_found_404(response);
-                response.write(std::cerr);
-                std::flush(std::cerr);
+                response.enable_cgi_mode();
+                internal_server_error_500(response);
+                response.write(std::cout);
+                std::flush(std::cout);
             }
         };
 
