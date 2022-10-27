@@ -56,6 +56,8 @@ namespace webserv {
 
                 void add_arg(std::string line);
                 void add_env(std::string line);
+
+                virtual void on_failure();
             };
 
         }

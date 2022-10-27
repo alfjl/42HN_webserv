@@ -160,6 +160,10 @@ namespace webserv {
                 _env.push_back(line);
             }
 
+            virtual void fork_task::on_failure() {
+
+            }
+
         }
     }
 }
