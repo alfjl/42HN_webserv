@@ -15,14 +15,6 @@ namespace webserv {
             webserv::http::http_handler* _http_handler;
             webserv::http::fields        _fields;
 
-            // unsigned int            _read_normal_body__expected_size; // auslagern basic_handler?    
-            // std::string             _read_normal_body__result;
-
-            // std::string             _read_chunked_body__result;
-
-            // std::string             _read_until_rn__buffer;
-            // std::string             _read_until_rnrn__buffer;
-
         public:
             /*
              *
@@ -68,17 +60,13 @@ namespace webserv {
                 later(&cgi_handler::read_fields);
             }
 
-                // void read_fields() {  // TODO: Move to basic handler
-                //     later(&cgi_handler::parse_fields);
-                //     later(&basic_handler::read_until_rnrn);
-                // }
-
                 void parse_fields() {
                     webserv::util::stringflow   flow(_read_until_rnrn__buffer);
                     request_parser              parser(flow);
                     _fields = webserv::http::fields();
 
                     bool correct = false;
+
                     try {
                         parse_request_fields(parser, _fields);
                         correct = true;
@@ -91,13 +79,11 @@ namespace webserv {
                 }
 
                 void read_body() {  // TODO: Move to basic handler
-                    if (_is_normal_body()) {
+                    if (basic_handler::_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&cgi_handler::read_body__from_normal_body);
                         later(&cgi_handler::read_normal_body);
                     } else if (_is_chunked_body()) {
-                        // later(&cgi_handler::read_body__from_chunked_body);
-                        // later(&cgi_handler::read_chunked_body);
                         later(&cgi_handler::pipe_body);
                     } else {
                         // No body, do nothing
@@ -189,21 +175,11 @@ namespace webserv {
              *
              */
 
-            bool _is_normal_body() { return get_normal_body_size() > 0; }
             bool _is_chunked_body() { return _fields.get_or_default("Transfer-Encoding", "") == "chunked"; }
 
             unsigned int get_normal_body_size() {
                 return (unsigned int) _fields.get_int_or_default("Content-Length", 0);
             }
-
-
-            // void parse_body_util();
-
-            // void char_arrived();
-
-            // void process_head();
-            // void process_request();
-            // void end_request();
         };
 
     }

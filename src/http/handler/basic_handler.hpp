@@ -7,7 +7,6 @@
 #include "../../pal/cpp/optional.hpp"
 #include "../../util/state_machine.hpp"
 #include "../../util/connection.hpp"
-// #include "../proto/request.hpp"
 
 namespace webserv {
     namespace http {
@@ -56,6 +55,14 @@ namespace webserv {
 
             webserv::util::connection* get_connection();
             struct connection_config*  get_connection_configs();
+
+
+
+           /*
+             *
+             *     S t a t e   M a c h i n e   F u n c t i o n s
+             *
+             */
 
             void read_next_char();
 
@@ -158,30 +165,41 @@ namespace webserv {
                             later(&basic_handler::read_chunked_body__restart);
                         }
 
-            // webserv::pal::cpp::optional<char> get_last_char();
 
-            // virtual void wait_for_char();
 
-            // virtual void start() = 0;
+
             virtual enum abort_mode abort() = 0;
             void perform_abort();
 
-            // void replace(std::string& str, const std::string& from, const std::string& to);
-
-            // void read_until_newline();
-            // void read_until_newline_loop();
-            // void read_until_newline_continue();
-
-            // void parse_normal_body();
-            // void parse_normal_body_loop();
-            // void parse_normal_body_continue();
-
-            // void parse_chunked_body();
-            // void parse_chunked_body_parse_byte_count();
-            // void parse_chunked_body_parse_bytes();
-            // void parse_chunked_body_parse_bytes_loop();
-
             void total_failure();
+
+            void parse_error() {
+                // TODO: Issue an error
+                later(&basic_handler::done);
+            }
+
+            void done() {
+                basic_handler::get_connection()->close();
+                stop();
+            }
+
+            void has_more() {
+                // TODO: Check for keep-alive
+                later(&basic_handler::done);
+            }
+
+
+
+            /*
+             *
+             *     U t i l i t i e s
+             *
+             */
+
+            bool _is_normal_body() { return get_normal_body_size() > 0; }
+
+            virtual unsigned int get_normal_body_size() = 0;
+
         };
 
     }
