@@ -59,6 +59,12 @@ namespace webserv {
 
             void read_next_char();
 
+                void read_fields() {
+                    later(&basic_handler::parse_fields);
+                    later(&basic_handler::read_until_rnrn);
+                }
+
+                virtual void parse_fields() = 0;
 
                     void read_until_rn() {
                         _read_until_rn__buffer = "";

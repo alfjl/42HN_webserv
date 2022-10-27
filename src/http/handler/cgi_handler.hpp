@@ -68,10 +68,10 @@ namespace webserv {
                 later(&cgi_handler::read_fields);
             }
 
-                void read_fields() {  // TODO: Move to basic handler
-                    later(&cgi_handler::parse_fields);
-                    later(&basic_handler::read_until_rnrn);
-                }
+                // void read_fields() {  // TODO: Move to basic handler
+                //     later(&cgi_handler::parse_fields);
+                //     later(&basic_handler::read_until_rnrn);
+                // }
 
                 void parse_fields() {
                     webserv::util::stringflow   flow(_read_until_rnrn__buffer);

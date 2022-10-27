@@ -62,10 +62,10 @@ namespace webserv {
                 later(&http_handler::read_fields);
             }
 
-                void read_fields() {  // TODO: Move to basic handler
-                    later(&http_handler::parse_fields);
-                    later(&http_handler::read_until_rnrn);
-                }
+                // void read_fields() {  // TODO: Move to basic handler
+                //     later(&http_handler::parse_fields);
+                //     later(&http_handler::read_until_rnrn);
+                // }
 
                     // void read_until_rn() {
                     //     _read_until_rn__buffer = "";
@@ -188,7 +188,7 @@ namespace webserv {
 
                         void read_chunked_body__restart() {
                             later(&http_handler::read_chunked_body__parse_hex);
-                            later(&http_handler::read_until_rn);
+                            later(&basic_handler::read_until_rn);
                         }
 
                         void read_chunked_body__parse_hex() {
