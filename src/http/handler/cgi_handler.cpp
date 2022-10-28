@@ -70,12 +70,12 @@ namespace webserv {
                 }
 
                 void cgi_handler::read_body() {  // TODO: Move to basic handler
-                    if (basic_handler::_is_normal_body()) {
+                    if (_is_chunked_body()) {
+                        later(&cgi_handler::pipe_body);
+                    } else if (basic_handler::_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&cgi_handler::read_body__from_normal_body);
                         later(&basic_handler::read_normal_body);
-                    } else if (_is_chunked_body()) {
-                        later(&cgi_handler::pipe_body);
                     } else {
                         // No body, do nothing
                         _body = "";
