@@ -31,6 +31,10 @@ namespace webserv {
             return _meta->is_method_allowed(method);
         }
 
+        webserv::pal::cpp::optional<unsigned int> route::get_max_body() {
+            return _meta->get_max_body();
+        }
+
         route* route::set_path(webserv::util::path file_target) {
             _file_target = file_target;
 
@@ -50,6 +54,12 @@ namespace webserv {
 
         route* route::unset_allowed_method(webserv::http::http_method method) {
             _meta->unset_allowed_method(method);
+
+            return this;
+        }
+
+        route* route::set_max_body(unsigned int max) {
+            _meta->set_max_body(max);
 
             return this;
         }

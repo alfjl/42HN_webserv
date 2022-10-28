@@ -73,6 +73,8 @@ namespace webserv {
                 delete the_route;
                 error_page(response, request, the_http_handler, code);
                 return;
+            } else if (the_route->get_max_body().enabled() && request.get_body().size() > the_route->get_max_body().value()) {
+                error_page(response, request, the_http_handler, 413);
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
@@ -188,11 +190,13 @@ namespace webserv {
         static bool prepare_task(webserv::pal::fs::easypipe  cgi_in,
                                 webserv::pal::fs::easypipe   cgi_out,
                                 webserv::pal::fork::fork_task* task,
-                                webserv::pal::fork::wait_set*  ws) {
+                                webserv::pal::fork::wait_set*  ws,
+                                webserv::http::cgi_message& cgi) {
             task->close_on_fork(cgi_in.in);
             task->close_on_fork(cgi_out.out);
             // communicate input and output to task
             task->io_to(cgi_in.out, cgi_out.in);
+            cgi.put_fields_into_task(*task);
             // fork_task
             return task->perform(*ws);
         }
@@ -201,11 +205,10 @@ namespace webserv {
          * Attaches the input of cgi_in to an ostream,
          * and writes the cgi message_body to this stream 
          */
-        static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::http::cgi_message& cgi_msg) {
+        static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::pal::fs::easypipe cgi_out, webserv::http::cgi_message& cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
-            cgi_msg.write_on(o);
-            cgi_msg.write_on(std::cerr);
+            cgi_msg.write_on(o, cgi_out.out);
         }
 
         void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {
@@ -251,16 +254,18 @@ namespace webserv {
             /*
              *
              */
-            if (!prepare_task(cgi_in, cgi_out, &task, &ws)) {
+            if (!prepare_task(cgi_in, cgi_out, &task, &ws, cgi_msg)) {
                 internal_server_error_500(response);
                 response.write(*the_http_handler->get_connection());
                 return;
             }
 
+            put_http_handler_to_sleep(response, the_http_handler, cgi_out);
+
             /*
              * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task
              */
-            handle_cgi_message_in(cgi_in, cgi_msg);
+            handle_cgi_message_in(cgi_in, cgi_out, cgi_msg);
 
             /*
              * Close all open FDs
@@ -268,7 +273,6 @@ namespace webserv {
             webserv::pal::fs::close(cgi_in.in);
             webserv::pal::fs::close(cgi_in.out);
             webserv::pal::fs::close(cgi_out.in);
-            put_http_handler_to_sleep(response, the_http_handler, cgi_out);
         }
 
         void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {

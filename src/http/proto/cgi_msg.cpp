@@ -18,6 +18,10 @@ namespace webserv {
                 default:                                { _method = std::string("");       break; }
             }
 
+            for (fields::const_iterator it = request.get_fields().begin(); it != request.get_fields().end(); ++it) {
+                get_fields().put("HTTP_" + it->first, it->second);
+            }
+
             setup_fields();
         }
 
@@ -49,8 +53,20 @@ namespace webserv {
             _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // change to final name of our webserver
         }
 
-        void cgi_message::write_on(std::ostream& o) {
-            o << _message_body;
+        void cgi_message::write_on(std::ostream& o, int infd) {
+            (void) infd;
+            for (unsigned int i = 0; i < _message_body.size(); i++) {
+                if (i % 10000 == 0) {
+                    get_current_instance().get_driver().tick();
+                }
+                o << _message_body[i];
+            }
+        }
+
+        void cgi_message::put_fields_into_task(webserv::pal::fork::fork_task& task) {
+            for (fields::const_iterator it = _fields.begin(); it != _fields.end(); ++it) {
+                task.add_env(it->first + "=" + it->second);
+            }
         }
 
     }

@@ -32,7 +32,9 @@ namespace webserv {
 
         private:
             enum state_machine_status   status;
-            std::stack<state_function>  return_stack;
+            //std::stack<state_function>  return_stack;
+            unsigned int                    sp;
+            state_function                  returns[1024];
 
         public:
             virtual void start() = 0;
@@ -55,7 +57,14 @@ namespace webserv {
 
             template<typename T>
             void later(T func) {
-                return_stack.push(conv(func));
+                // return_stack.push(conv(func));
+                returns[sp++] = conv(func);
+            }
+
+            state_function pop() {
+                state_function f = returns[--sp];
+                // return_stack.pop();
+                return f;
             }
 
             void stop();

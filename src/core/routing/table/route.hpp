@@ -30,12 +30,14 @@ namespace webserv {
             webserv::util::path get_file_target();
 
             bool is_method_allowed(webserv::http::http_method method);
+            webserv::pal::cpp::optional<unsigned int> get_max_body();
 
             route* set_path(webserv::util::path file_target);
 
             route* disable_all_methods();
             route* set_allowed_method(webserv::http::http_method method);
             route* unset_allowed_method(webserv::http::http_method method);
+            route* set_max_body(unsigned int max);
 
             virtual bool is_cgi();
             virtual bool is_redirection();
