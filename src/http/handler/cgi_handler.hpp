@@ -62,6 +62,10 @@ namespace webserv {
 
             enum basic_handler::abort_mode abort();
 
+            void cat();
+            void cat__restart();
+            void cat__continue();
+
 
 
             /*

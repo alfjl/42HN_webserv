@@ -73,13 +73,15 @@ namespace webserv {
                     if (_is_chunked_body()) {
                         later(&cgi_handler::pipe_body);
                     } else if (basic_handler::_is_normal_body()) {
+                        std::cout << "Is normal body!" << std::endl;
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&cgi_handler::read_body__from_normal_body);
                         later(&basic_handler::read_normal_body);
                     } else {
                         // No body, do nothing
                         _body = "";
-                        return;
+                        std::cout << "No body!" << std::endl;
+                        later(&cgi_handler::cat);  // Just write everything from the CGI to standard output
                     }
                 }
 
@@ -116,7 +118,7 @@ namespace webserv {
                         out << _fields;
                         out << "\r\n";
                         later(&cgi_handler::pipe_body__restart);
-                    }   
+                    }
                 }
 
                     void cgi_handler::pipe_body__restart() {
@@ -140,6 +142,8 @@ namespace webserv {
                 if (_http_handler != NULL) {
                     std::ostream& out = _http_handler->out();
                     out << "HTTP/1.1 " << _fields.get_or_default("Status", "500 Internal Server Error") << "\r\n";
+                    if (!_fields.has("Content-Length"))
+                        _fields.put("Content-Length", _body.size());
                     out << _fields;
                     out << "\r\n";
                     out << _body;
@@ -156,6 +160,25 @@ namespace webserv {
 
             enum basic_handler::abort_mode cgi_handler::abort() {
                 return abort_mode_terminate;
+            }
+
+            void cgi_handler::cat() {
+                later(&cgi_handler::cat__restart);
+            }
+
+            void cgi_handler::cat__restart() {
+                later(&cgi_handler::cat__continue);
+                later(&basic_handler::read_next_char);
+            }
+
+            void cgi_handler::cat__continue() {
+                if (_last_char.enabled()) {
+                    // TODO: This just puts memory pressure on the system - maybe write it out directly?
+                    _body += _last_char.value();
+                    later(&cgi_handler::cat__restart);
+                } else {
+                    return;
+                }
             }
 
 
