@@ -18,8 +18,6 @@ namespace webserv {
                 default:                                { _method = std::string("");       break; }
             }
 
-            std::cout << request.get_fields() << std::endl;
-
             for (fields::const_iterator it = request.get_fields().begin(); it != request.get_fields().end(); ++it) {
                 get_fields().put("HTTP_" + it->first, it->second);
             }
