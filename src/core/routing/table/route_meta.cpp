@@ -21,6 +21,10 @@ namespace webserv {
             return _executor;
         }
 
+        webserv::pal::cpp::optional<unsigned int> route_meta::get_max_body() {
+            return _max_body;
+        }
+
         route_meta* route_meta::disable_all_methods() {
             _allowed_methods.enable();
             return this;
@@ -41,6 +45,10 @@ namespace webserv {
 
         void route_meta::set_executor(std::string executor) {
             _executor.enable(executor);
+        }
+
+        void route_meta::set_max_body(unsigned int max) {
+            _max_body.enable(max);
         }
 
     }

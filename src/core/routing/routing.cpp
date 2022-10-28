@@ -73,6 +73,8 @@ namespace webserv {
                 delete the_route;
                 error_page(response, request, the_http_handler, code);
                 return;
+            } else if (the_route->get_max_body().enabled() && request.get_body().size() > the_route->get_max_body().value()) {
+                error_page(response, request, the_http_handler, 413);
             } else {
                 switch (request.get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }

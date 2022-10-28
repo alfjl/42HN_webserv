@@ -114,6 +114,7 @@ namespace webserv {
             webserv::pal::cpp::optional<std::string> executor;
             webserv::pal::cpp::optional<std::string> extension;
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
+            webserv::pal::cpp::optional<unsigned int> max_body;
 
             if (checks("extension"))
                 extension.enable(read_word());
@@ -138,6 +139,9 @@ namespace webserv {
                         else parse_error("Expected a method!");
                     }
                     continue;
+                } else if (checks("maxBody")) {
+                    skip_whitespace();
+                    max_body.enable(expect_uint());
 				} else if (checks("displays")) {
 					if (checks("translated"))
 						translate = true;
@@ -200,6 +204,9 @@ namespace webserv {
                     ++it;
                 }
             }
+
+            if (max_body.enabled())
+                route->set_max_body(max_body.value());
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
 		}
