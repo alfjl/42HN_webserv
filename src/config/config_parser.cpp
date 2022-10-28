@@ -159,7 +159,10 @@ namespace webserv {
 					} else {
 						if (checks("files"));
 						else expects("file");
-					}
+
+                        if (checks("at"))
+                            resolved_path = expect_path();
+                    }
 				}
 				expect_terminator();
 			}

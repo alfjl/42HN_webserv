@@ -4,6 +4,7 @@
 #include "../../defs.hpp"
 
 #include "../../core/instance.hpp"
+#include "../../pal/fork/fork.hpp"
 
 #include "../fields.hpp"
 #include "request.hpp"
@@ -28,7 +29,8 @@ namespace webserv {
 
             void setup_fields();
 
-            void write_on(std::ostream& o);
+            void write_on(std::ostream& o, int infd);
+            void put_fields_into_task(webserv::pal::fork::fork_task& task);
         };
 
     }

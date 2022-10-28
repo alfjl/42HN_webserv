@@ -163,7 +163,8 @@ namespace webserv {
                 timeval tv;
 
                 tv.tv_sec = 0;
-                tv.tv_usec = 50000;
+                tv.tv_usec = 0;
+                // tv.tv_usec = 50000;
 
                 int status = ::select(sets.highest + 1, &sets.read_fds, &sets.write_fds, &sets.exception_fds, &tv);
                 if (status < 0) {
