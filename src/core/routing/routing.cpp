@@ -206,9 +206,7 @@ namespace webserv {
         static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::pal::fs::easypipe cgi_out, webserv::http::cgi_message& cgi_msg) {
             webserv::util::ofdflow ofd(cgi_in.in);
             std::ostream o(&ofd);
-            std::cout << "Before" << std::endl;
             cgi_msg.write_on(o, cgi_out.out);
-            std::cout << "After" << std::endl;
         }
 
         void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {

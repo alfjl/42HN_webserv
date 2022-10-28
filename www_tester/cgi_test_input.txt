@@ -1,3 +1,6 @@
+content-type: test/file
+x-secret-header-for-test: 1
+
 CONTENT_TYPE: plain
 GATEWAY_INTERFACE: CGI/1.1
 PATH_INFO: /directory/youpi.bla

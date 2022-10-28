@@ -18,6 +18,12 @@ namespace webserv {
                 default:                                { _method = std::string("");       break; }
             }
 
+            std::cout << request.get_fields() << std::endl;
+
+            for (fields::const_iterator it = request.get_fields().begin(); it != request.get_fields().end(); ++it) {
+                get_fields().put("HTTP_" + it->first, it->second);
+            }
+
             setup_fields();
         }
 
@@ -52,14 +58,8 @@ namespace webserv {
         void cgi_message::write_on(std::ostream& o, int infd) {
             (void) infd;
             for (unsigned int i = 0; i < _message_body.size(); i++) {
-
                 if (i % 10000 == 0) {
                     get_current_instance().get_driver().tick();
-                }
-
-                if ((i % 10000 == 0) || (i < 10000)) {
-                    std::cout << "(" << i << ") ";
-                    std::flush(std::cout);
                 }
                 o << _message_body[i];
             }

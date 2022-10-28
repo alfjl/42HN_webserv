@@ -73,14 +73,12 @@ namespace webserv {
                     if (_is_chunked_body()) {
                         later(&cgi_handler::pipe_body);
                     } else if (basic_handler::_is_normal_body()) {
-                        std::cout << "Is normal body!" << std::endl;
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&cgi_handler::read_body__from_normal_body);
                         later(&basic_handler::read_normal_body);
                     } else {
-                        // No body, do nothing
+                        // No content size was given
                         _body = "";
-                        std::cout << "No body!" << std::endl;
                         later(&cgi_handler::cat);  // Just write everything from the CGI to standard output
                     }
                 }
