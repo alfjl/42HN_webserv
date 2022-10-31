@@ -25,6 +25,8 @@ namespace webserv {
             routing     _routing;
             filesystem  _fs;
 
+            std::vector<std::string>  _names;
+
             webserv::pal::cpp::optional<unsigned int>    _max_len;
 
 		    bool is_interrupted;
@@ -57,7 +59,10 @@ namespace webserv {
 
             void on_port(int port);
             void set_anchor(webserv::util::path path);
+            void set_names(std::string name);
             void set_max_len(unsigned int len);
+
+            void print_server_names();
         };
 
     }
