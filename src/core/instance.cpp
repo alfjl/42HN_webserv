@@ -69,8 +69,19 @@ namespace webserv {
             get_fs().set_anchor(path);
         }
 
+        void instance::set_names(std::string name) {
+            _names.push_back(name);
+        }
+
         void instance::set_max_len(unsigned int len) {
             _max_len.enable(len);
+        }
+
+        void instance::print_server_names(){
+            std::cout << "Server names: ";
+            for (std::vector<std::string>::const_iterator it = _names.begin(); it != _names.end(); ++it)
+                std::cout << *it << " ";
+            std::cout << std::endl;
         }
 
     }

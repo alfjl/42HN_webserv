@@ -262,7 +262,7 @@ namespace webserv {
 					std::cout << " " << read_word() << std::endl;
 				} else if (checks("server_name")) {
 					while (!checks(";")){
-						std::cout << "Server_name: " << read_word() << std::endl;
+                        _instance.set_names(read_word());
 					}
 					continue ;
 				} else if (checks("anchor")) {
