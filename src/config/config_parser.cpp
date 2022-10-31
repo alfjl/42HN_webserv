@@ -262,7 +262,6 @@ namespace webserv {
 					std::cout << " " << read_word() << std::endl;
 				} else if (checks("server_name")) {
 					while (!checks(";")){
-						// std::cout << "Server_name: " << read_word() << std::endl;
                         _instance.set_names(read_word());
 					}
 					continue ;
@@ -275,7 +274,6 @@ namespace webserv {
 					continue ;
 				} 
 				expects(";");
-                _instance.print_server_names(); // TODOD: just for Testing Purposes
 			}
 			// end
 		}
