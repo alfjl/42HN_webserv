@@ -64,6 +64,11 @@ namespace webserv {
             return this;
         }
 
+        route* route::set_directory_listing(bool state) {
+            _meta->set_directory_listing(state);
+
+            return this;
+        }
 
         bool route::is_cgi() {
             return false;

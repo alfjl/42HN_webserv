@@ -38,6 +38,7 @@ namespace webserv {
             route* set_allowed_method(webserv::http::http_method method);
             route* unset_allowed_method(webserv::http::http_method method);
             route* set_max_body(unsigned int max);
+            route* set_directory_listing(bool state);
 
             virtual bool is_cgi();
             virtual bool is_redirection();
