@@ -3,7 +3,6 @@
 
 #include "../component.hpp"
 
-#include "../../http/proto/cgi_msg.hpp"
 #include "../../http/proto/response.hpp"
 #include "../../http/proto/request.hpp"
 #include "../../pal/net/socket.hpp"
@@ -32,6 +31,8 @@ namespace webserv {
 
             void tick();
 
+            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
+            
         protected:
             void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
             void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
@@ -45,7 +46,6 @@ namespace webserv {
 
             void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response);
             void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request);
-            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out); 
         };
 
     }
