@@ -79,10 +79,8 @@ core/routing/table/route.hpp:
 line 103-109 // comments
 
 core/routing/table/routing_table.cpp: 
-line 7, 42, 53, // comments
-
-core/routing/table/rule.cpp: 
-line 1 // #include route.hpp for match_info. TODO: move to own file
+line 7-8 // TODO: delete! test only!
+line 42  // TODO, FIXME, XXX: This can lead to leaks
 
 core/routing/routing.cpp: 
 line 47 	// TODO, FIXME, XXX: Watch out for recursion! 
@@ -110,11 +108,11 @@ line 148 // TODO: Check how many bytes we have actually read
 line 164 // TODO: Issue an error
 
 http/handler/cgi_handler.cpp: 
-line 72, 80, 82 // comments
+line 80, 82 // comments
 line 174 // TODO: This just puts memory pressure on the system - maybe write it out directly?
 
-http/handler/http_handler.cpp: 
-line 31, 38, 68, 77, 108, // comments
+http/handler/http_handler.cpp:
+line 31, 38, 77, 108, // comments
 
 http/parsing/request_parser.cpp: 
 line 5 	// #define EVIL 1 // TODO: Implement in comfig

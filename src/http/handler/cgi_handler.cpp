@@ -69,7 +69,7 @@ namespace webserv {
                         later(&basic_handler::total_failure);
                 }
 
-                void cgi_handler::read_body() {  // TODO: Move to basic handler
+                void cgi_handler::read_body() {
                     if (_is_chunked_body()) {
                         later(&cgi_handler::pipe_body);
                     } else if (basic_handler::_is_normal_body()) {

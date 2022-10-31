@@ -49,9 +49,6 @@ namespace webserv {
          * according to the specific rule set
          */
         route* routing_table::query(webserv::util::path path) {
-
-            // look_up if prefix substitution rule for path exist
-            // and return it, if found
             const_iterator it = prefix_rules.begin();
             const_iterator ite = prefix_rules.end();
             for (; it != ite; ++it) {

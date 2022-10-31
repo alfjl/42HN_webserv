@@ -3,6 +3,7 @@
 
 #include "../component.hpp"
 
+#include "../../http/proto/cgi_msg.hpp"
 #include "../../http/proto/response.hpp"
 #include "../../http/proto/request.hpp"
 #include "../../pal/net/socket.hpp"
