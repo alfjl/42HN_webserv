@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        route_meta::route_meta() {
+        route_meta::route_meta() : _directory_listing(false) {
 
         }
 
@@ -49,6 +49,10 @@ namespace webserv {
 
         void route_meta::set_max_body(unsigned int max) {
             _max_body.enable(max);
+        }
+
+        void route_meta::set_directory_listing(bool state) {
+            _directory_listing = state;
         }
 
     }
