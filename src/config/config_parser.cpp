@@ -100,7 +100,7 @@ namespace webserv {
 			}
 		}
 
-		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool>& server_autoindex) {
+		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool>& server_autoindex, webserv::pal::cpp::optional<webserv::util::path> server_index_page) {
 			webserv::util::path name = expect_path();
 			webserv::util::path full_path = anchor + name;
 			webserv::util::path resource_path = full_path;
@@ -110,12 +110,14 @@ namespace webserv {
 			bool translate = false;
 			bool is_redir = false;
 			bool is_cgi   = false;
-			webserv::pal::cpp::optional<unsigned int> error_code;
-            webserv::pal::cpp::optional<std::string> executor;
-            webserv::pal::cpp::optional<std::string> extension;
+			webserv::pal::cpp::optional<unsigned int>                          error_code;
+            webserv::pal::cpp::optional<std::string>                           executor;
+            webserv::pal::cpp::optional<std::string>                           extension;
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
-            webserv::pal::cpp::optional<unsigned int> max_body;
-            webserv::pal::cpp::optional<bool>         autoindex;
+            webserv::pal::cpp::optional<unsigned int>                          max_body;
+            webserv::pal::cpp::optional<webserv::util::path>                   server_index;
+            webserv::pal::cpp::optional<webserv::util::path>                   index;
+            webserv::pal::cpp::optional<bool>                                  autoindex;
 
             if (checks("extension"))
                 extension.enable(read_word());
@@ -128,10 +130,13 @@ namespace webserv {
                     autoindex.enable(server_autoindex.value());
             }
 
+            if (server_index_page.enabled())
+                server_index.enable(server_index_page.value());
+
 			expects("{");
 			while (!checks("}")) {
 				if (checks("location")) {
-					parse_location(full_path, autoindex);
+					parse_location(full_path, autoindex, server_index);
 					continue;
 				} else if (checks("reacts")) {
 					expects("to");
@@ -151,6 +156,9 @@ namespace webserv {
                 } else if (checks("maxBody")) {
                     skip_whitespace();
                     max_body.enable(expect_uint());
+                } else if (checks("index")) {
+					index.enable(read_path());
+                    std::cout << "location index = " << index.value() << std::endl;
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { autoindex.enable(true); }
 					else if (checks("off")) { autoindex.enable(false); }
@@ -220,6 +228,13 @@ namespace webserv {
             if (max_body.enabled())
                 route->set_max_body(max_body.value());
 
+            if (index.enabled()) {
+                route->set_index_page(index.value());
+            } else {
+                if (server_index.enabled())
+                    route->set_index_page(server_index.value());
+            }
+
             if (autoindex.enabled()) {
                 route->set_directory_listing(autoindex.value());
             } else {
@@ -288,7 +303,7 @@ namespace webserv {
 				} else if (checks("anchor")) {
                     _instance.set_anchor((_local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("location")) {
-					parse_location(webserv::util::path(), _server_autoindex);
+					parse_location(webserv::util::path(), _server_autoindex, _server_index_page);
 					continue ;
 				} 
 				expect_terminator();
