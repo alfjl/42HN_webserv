@@ -255,8 +255,9 @@ namespace webserv {
 			}
 		*/
 		void config_parser::run() {
-            webserv::util::path local_directory(webserv::pal::env::pwd());
-            webserv::pal::cpp::optional<bool>            _server_autoindex;
+            webserv::util::path                               _local_directory(webserv::pal::env::pwd());
+            webserv::pal::cpp::optional<bool>                 _server_autoindex;
+            webserv::pal::cpp::optional<webserv::util::path>  _server_index_page;
 
 			// start
 			expects("server");
@@ -277,18 +278,15 @@ namespace webserv {
 						 if (checks("on")) { _server_autoindex.enable(true); }
 					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("index")) {
-					std::cout << "Index: " << read_path();
-					std::cout << " " << read_word() << std::endl;
-
+					_server_index_page.enable(read_path());
+                    std::cout << "index = " << _server_index_page.value() << std::endl; 
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
 					}
 					continue ;
 				} else if (checks("anchor")) {
-                    _instance.set_anchor((local_directory.cd(read_word()).to_absolute_string()));
-				} else if (checks("index_page")) {
-					std::cout << "Index_page: " << read_word() << std::endl;
+                    _instance.set_anchor((_local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("location")) {
 					parse_location(webserv::util::path(), _server_autoindex);
 					continue ;
