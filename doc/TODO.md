@@ -96,7 +96,6 @@ line 197 	// communicate input and output to task
 line 200	// fork_task 
 line 218	// TODO: Not needed anymore 
 line 222	// TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself 
-line 236  	// TODO: Clean up this code! 
 line 287 	// comments
 
 core/scheduler/scheduler.cpp: 
