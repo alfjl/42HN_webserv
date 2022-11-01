@@ -158,7 +158,6 @@ namespace webserv {
                     max_body.enable(expect_uint());
                 } else if (checks("index")) {
 					index.enable(read_path());
-                    std::cout << "location index = " << index.value() << std::endl;
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { autoindex.enable(true); }
 					else if (checks("off")) { autoindex.enable(false); }
@@ -294,7 +293,6 @@ namespace webserv {
 					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("index")) {
 					_server_index_page.enable(read_path());
-                    std::cout << "index = " << _server_index_page.value() << std::endl; 
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
