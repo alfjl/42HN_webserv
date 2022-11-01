@@ -15,6 +15,7 @@ namespace webserv {
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
             webserv::pal::cpp::optional<std::string>                            _executor;
             webserv::pal::cpp::optional<unsigned int>                           _max_body;
+            bool                                                                _directory_listing;
 
         public:
             route_meta();
@@ -30,6 +31,7 @@ namespace webserv {
 
             void set_executor(std::string executor);
             void set_max_body(unsigned int max);
+            void set_directory_listing(bool state);
         };
 
     }
