@@ -51,6 +51,10 @@ namespace webserv {
             _max_body.enable(max);
         }
 
+        void route_meta::set_index_page(webserv::util::path index) {
+            _index_page.enable(index);
+        }
+
         void route_meta::set_directory_listing(bool state) {
             _directory_listing = state;
         }
