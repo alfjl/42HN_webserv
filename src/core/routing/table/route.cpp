@@ -64,6 +64,12 @@ namespace webserv {
             return this;
         }
 
+        route* route::set_index_page(webserv::util::path index) {
+            _meta->set_index_page(index);
+
+            return this;
+        }
+
         route* route::set_directory_listing(bool state) {
             _meta->set_directory_listing(state);
 

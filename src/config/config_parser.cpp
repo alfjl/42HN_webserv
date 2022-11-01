@@ -279,6 +279,7 @@ namespace webserv {
 				} else if (checks("index")) {
 					std::cout << "Index: " << read_path();
 					std::cout << " " << read_word() << std::endl;
+
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
