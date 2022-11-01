@@ -53,7 +53,6 @@ namespace webserv {
 
         void route_meta::set_directory_listing(bool state) {
             _directory_listing = state;
-            std::cout << "STATE: " << _directory_listing << std::endl;
         }
 
     }

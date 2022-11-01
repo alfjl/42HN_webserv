@@ -117,8 +117,6 @@ namespace webserv {
             webserv::pal::cpp::optional<unsigned int> max_body;
             webserv::pal::cpp::optional<bool>         autoindex;
 
-            std::cout << "INSIDE SERVER.INDEX enabled = " << server_autoindex.enabled() << std::endl;
-
             if (checks("extension"))
                 extension.enable(read_word());
 
@@ -154,7 +152,6 @@ namespace webserv {
                     skip_whitespace();
                     max_body.enable(expect_uint());
 				} else if (checks("autoindex")) {
-					// std::cout << "Autoindex: " << read_word() << std::endl;
 						 if (checks("on")) { autoindex.enable(true); }
 					else if (checks("off")) { autoindex.enable(false); }
 				} else if (checks("displays")) {
@@ -225,14 +222,9 @@ namespace webserv {
 
             if (autoindex.enabled()) {
                 route->set_directory_listing(autoindex.value());
-                std::cout << "in autoindex.enabled()" << std::endl;
             } else {
-                    std::cout << "in autoindex. NOT enabled()" << std::endl;
-                if (server_autoindex.enabled()) {
+                if (server_autoindex.enabled())
                     route->set_directory_listing(server_autoindex.value());
-                    std::cout << "in server_autoindex. enabled()" << std::endl;
-                } else
-                    std::cout << "in server_autoindex. NOT enabled()" << std::endl;
             }
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
@@ -282,7 +274,6 @@ namespace webserv {
 					std::cout << "CGI_ext: " << read_word();
 					std::cout << " " << read_path() << std::endl;
 				} else if (checks("autoindex")) {
-					// std::cout << "Server Autoindex: " << read_word() << std::endl;
 						 if (checks("on")) { _server_autoindex.enable(true); }
 					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("index")) {
@@ -298,7 +289,6 @@ namespace webserv {
 				} else if (checks("index_page")) {
 					std::cout << "Index_page: " << read_word() << std::endl;
 				} else if (checks("location")) {
-                    // std::cout << "SERVER.INDEX enabled = " << _server_autoindex.enabled() << std::endl;
 					parse_location(webserv::util::path(), _server_autoindex);
 					continue ;
 				} 
