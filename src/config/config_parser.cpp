@@ -288,11 +288,11 @@ namespace webserv {
 				} else if (checks("cgi_ext")) {
 					std::cout << "CGI_ext: " << read_word();
 					std::cout << " " << read_path() << std::endl;
+				} else if (checks("index")) {
+					_server_index_page.enable(read_path());
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { _server_autoindex.enable(true); }
 					else if (checks("off")) { _server_autoindex.enable(false); }
-				} else if (checks("index")) {
-					_server_index_page.enable(read_path());
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
