@@ -100,7 +100,7 @@ namespace webserv {
 			}
 		}
 
-		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool> server_autoindex) {
+		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool>& server_autoindex) {
 			webserv::util::path name = expect_path();
 			webserv::util::path full_path = anchor + name;
 			webserv::util::path resource_path = full_path;
@@ -117,13 +117,17 @@ namespace webserv {
             webserv::pal::cpp::optional<unsigned int> max_body;
             webserv::pal::cpp::optional<bool>         autoindex;
 
+            std::cout << "INSIDE SERVER.INDEX enabled = " << server_autoindex.enabled() << std::endl;
+
             if (checks("extension"))
                 extension.enable(read_word());
 
-            else if (checks("autoindex")) {
-                // std::cout << "Autoindex: " << read_word() << std::endl;
+            if (checks("autoindex")) {
                      if (checks("on")) { autoindex.enable(true); }
                 else if (checks("off")) { autoindex.enable(false); }
+            } else {
+                if (server_autoindex.enabled())
+                    autoindex.enable(server_autoindex.value());
             }
 
 			expects("{");
@@ -260,7 +264,7 @@ namespace webserv {
 		*/
 		void config_parser::run() {
             webserv::util::path local_directory(webserv::pal::env::pwd());
-            webserv::pal::cpp::optional<bool>            server_autoindex;
+            webserv::pal::cpp::optional<bool>            _server_autoindex;
 
 			// start
 			expects("server");
@@ -279,8 +283,8 @@ namespace webserv {
 					std::cout << " " << read_path() << std::endl;
 				} else if (checks("autoindex")) {
 					// std::cout << "Server Autoindex: " << read_word() << std::endl;
-						 if (checks("on")) { server_autoindex.enable(true); }
-					else if (checks("off")) { server_autoindex.enable(false); }
+						 if (checks("on")) { _server_autoindex.enable(true); }
+					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("index")) {
 					std::cout << "Index: " << read_path();
 					std::cout << " " << read_word() << std::endl;
@@ -294,7 +298,8 @@ namespace webserv {
 				} else if (checks("index_page")) {
 					std::cout << "Index_page: " << read_word() << std::endl;
 				} else if (checks("location")) {
-					parse_location(webserv::util::path(), server_autoindex);
+                    // std::cout << "SERVER.INDEX enabled = " << _server_autoindex.enabled() << std::endl;
+					parse_location(webserv::util::path(), _server_autoindex);
 					continue ;
 				} 
 				expect_terminator();
