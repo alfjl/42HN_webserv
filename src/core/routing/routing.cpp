@@ -187,18 +187,27 @@ namespace webserv {
          * Wraps the fork() and execve() calls,
          * and takes care of closing the correct file descriptors
          */
-        static bool prepare_task(webserv::pal::fs::easypipe  cgi_in,
-                                webserv::pal::fs::easypipe   cgi_out,
-                                webserv::pal::fork::fork_task* task,
-                                webserv::pal::fork::wait_set*  ws,
-                                webserv::http::cgi_message& cgi) {
-            task->close_on_fork(cgi_in.in);
-            task->close_on_fork(cgi_out.out);
-            // communicate input and output to task
-            task->io_to(cgi_in.out, cgi_out.in);
-            cgi.put_fields_into_task(*task);
-            // fork_task
-            return task->perform(*ws);
+        static bool run_task(webserv::pal::fs::easypipe      cgi_in,
+                             webserv::pal::fs::easypipe      cgi_out,
+                             webserv::pal::fork::fork_task&  task,
+                             webserv::pal::fork::wait_set&   ws,
+                             webserv::http::cgi_message&     cgi) {
+            /*
+             * Add the file descriptors to be closed on fork()
+             */
+            task.close_on_fork(cgi_in.in);
+            task.close_on_fork(cgi_out.out);
+
+            /*
+             * Communicate input and output to task
+             */
+            task.io_to(cgi_in.out, cgi_out.in);
+            cgi.put_fields_into_task(task);
+
+            /*
+             * Fork off!
+             */
+            return task.perform(ws);
         }
 
         /*
@@ -215,14 +224,46 @@ namespace webserv {
             webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
             if (handler != NULL) {
-                response.block_all();  // TODO: Not needed anymore
                 handler->set_http_handler(the_http_handler);
                 the_http_handler->fall_asleep();
             } else {
                 service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-                // ghettofix
                 response.write(*the_http_handler->get_connection());
             }
+        }
+
+        void handle_cgi_pipes(webserv::core::routing& it, webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::core::cgi_fork_task& task, webserv::http::cgi_message& cgi_msg) {
+            webserv::pal::fork::wait_set  ws;
+            webserv::pal::fs::easypipe    cgi_in;
+            webserv::pal::fs::easypipe    cgi_out;
+
+            /*
+             * Open 2 pipes. One for input to cgi and one for output of cgi.
+             * Then run the task.
+             */
+            if (!(prepare_pipes(&cgi_in, &cgi_out) && run_task(cgi_in, cgi_out, task, ws, cgi_msg))) {
+                internal_server_error_500(response);
+                response.write(*the_http_handler->get_connection());
+                return;
+            }
+
+            /*
+             * Since the CGI must run, we put the HTTP handler to sleep. 
+             * It will be woken up by the terminating CGI handler.
+             */
+            it.put_http_handler_to_sleep(response, the_http_handler, cgi_out);
+
+            /*
+             * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task.
+             */
+            handle_cgi_message_in(cgi_in, cgi_out, cgi_msg);
+
+            /*
+             * Close all open FDs.
+             */
+            webserv::pal::fs::close(cgi_in.in);
+            webserv::pal::fs::close(cgi_in.out);
+            webserv::pal::fs::close(cgi_out.in);
         }
 
         /*
@@ -233,46 +274,14 @@ namespace webserv {
 
             webserv::http::cgi_message cgi_msg(request, get_instance(), cgi_path);
 
-            // TODO: Clean up this code!
             webserv::pal::cpp::optional<std::string> executor = the_route->get_executor();
             cgi_fork_task task(executor.enabled() ? executor.value() : cgi_path);
             if (executor.enabled()) task.add_arg(cgi_path);
-            
-            webserv::pal::fork::wait_set ws;
-            webserv::pal::fs::easypipe cgi_in;
-            webserv::pal::fs::easypipe cgi_out;
 
             for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                 task.add_env(it->first + "=" + it->second);
 
-            /*
-             * Open 2 pipes. One for input to cgi and one for output of cgi
-             */
-            if (!prepare_pipes(&cgi_in, &cgi_out))
-                internal_server_error_500(response);            
-
-            /*
-             *
-             */
-            if (!prepare_task(cgi_in, cgi_out, &task, &ws, cgi_msg)) {
-                internal_server_error_500(response);
-                response.write(*the_http_handler->get_connection());
-                return;
-            }
-
-            put_http_handler_to_sleep(response, the_http_handler, cgi_out);
-
-            /*
-             * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task
-             */
-            handle_cgi_message_in(cgi_in, cgi_out, cgi_msg);
-
-            /*
-             * Close all open FDs
-             */
-            webserv::pal::fs::close(cgi_in.in);
-            webserv::pal::fs::close(cgi_in.out);
-            webserv::pal::fs::close(cgi_out.in);
+            handle_cgi_pipes(*this, response, the_http_handler, task, cgi_msg);
         }
 
         void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {

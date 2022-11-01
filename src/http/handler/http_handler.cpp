@@ -65,7 +65,7 @@ namespace webserv {
                             later(&basic_handler::parse_error);
                     }
 
-                void http_handler::read_body() {  // TODO: Move to basic handler
+                void http_handler::read_body() {
                     if (basic_handler::_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_body__from_normal_body);

@@ -1,5 +1,3 @@
-#include "route.hpp"  // for match_info. TODO: move to own file
-
 #include "rule.hpp"
 
 namespace webserv {
