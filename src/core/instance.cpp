@@ -5,22 +5,12 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len(), is_interrupted(false) {
-            banner();
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len() {
+            
         }
 
         instance::~instance() {
             
-        }
-
-        void instance::banner() {
-            std::cout << std::endl;
-            std::cout << "          T h e   W e b s e r v" << std::endl;
-            std::cout << std::endl;
-            std::cout << "    by alanghan@student.42heilbronn.de" << std::endl;
-            std::cout << "       enijakow@student.42heilbronn.de" << std::endl;
-            std::cout << "        nlenoch@student.42heilbronn.de" << std::endl;
-            std::cout << std::endl;
         }
 
         bool instance::get_max_len_enabled() {
@@ -40,24 +30,10 @@ namespace webserv {
             return _scheduler.register_cgi_connection(connection);
         }
 
-        bool instance::is_running() {
-            return !was_interrupted();
-        }
-
-        void instance::run() {
-            while (is_running()) {
-                _routing.tick();
-                _driver.tick();
-                _scheduler.tick();
-            }
-        }
-
-        void instance::interrupt() {
-            is_interrupted = true;
-        }
-
-        bool instance::was_interrupted(){
-            return is_interrupted;
+        void instance::tick() {
+            _routing.tick();
+            _driver.tick();
+            _scheduler.tick();
         }
 
         void instance::on_port(int port) {

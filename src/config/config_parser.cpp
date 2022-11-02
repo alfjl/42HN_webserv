@@ -9,7 +9,7 @@
 namespace webserv {
     namespace config {
 	
-		config_parser::config_parser(webserv::util::iflow& flow, webserv::core::instance& instance) : parser(flow), _instance(instance) {
+		config_parser::config_parser(webserv::util::iflow& flow, webserv::core::webservs& webservs) : parser(flow), _webservs(webservs), _instance(NULL) {
 		}
 
 		static bool is_word_char(char c) {
@@ -96,7 +96,7 @@ namespace webserv {
 
 		void config_parser::parse_listen() {
 			while (!check_terminator()){
-				_instance.on_port(read_int());
+				_instance->on_port(read_int());
 			}
 		}
 
@@ -220,38 +220,10 @@ namespace webserv {
                 route->set_directory_listing(autoindex.value());
             }
 
-			_instance.get_routing_table().add_rule(rule, translation, route);
+			_instance->get_routing_table().add_rule(rule, translation, route);
 		}
 
-		/*
-			#x choose port for each server 
-			#x choose host for each server
-			#x setup server_name or NOT
-			# first server for host:port will be default -> answers all requests that don't belong to other servers
-			# setup default error pages
-			# limit client body size
-			# routes with 1 or multiple rules/confguration (routes won't use ragexp)
-			# 	define list of accepted http methodes for route
-			# 	define http redirection
-			# 	define directory or file from where the file should be searched
-			# 	turn on or off directory listing
-			# 	set default file to answer if request is a directory
-			# 	execute cgi for certain file extensions (e.g. .php)
-			# 	route able to accept uploaded files & configure where they should be saved
-			# make multiple config files to show that everything works
-		
-
-			enum http_method translate_http_method(std::string name) {
-				     if (name == "GET") return http_method_get;
-				else if  ...
-				else parse_error("Unknown method: " + name);
-			}
-		*/
-		void config_parser::run() {
-            webserv::util::path                               _local_directory(webserv::pal::env::pwd());
-
-			// start
-			expects("server");
+		void config_parser::run_instance(webserv::util::path local_directory) {
 			expects("{");
 			while(!checks("}")){
 				if (checks("listen")) {
@@ -259,18 +231,26 @@ namespace webserv {
 					continue ;
 				} else if (checks("server_name")) {
 					while (!checks(";")){
-                        _instance.set_names(read_word());
+                        _instance->set_names(read_word());
 					}
 					continue ;
 				} else if (checks("anchor")) {
-                    _instance.set_anchor((_local_directory.cd(read_word()).to_absolute_string()));
+                    _instance->set_anchor((local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("location")) {
 					parse_location(webserv::util::path());
 					continue ;
 				} 
 				expect_terminator();
 			}
-			// end
+		}
+		
+		void config_parser::run() {
+            webserv::util::path  _local_directory(webserv::pal::env::pwd());
+
+			while (checks("server")) {
+				_instance = _webservs.new_instance();
+				run_instance(_local_directory);
+			}
 		}
     }
 }

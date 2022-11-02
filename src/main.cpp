@@ -1,10 +1,12 @@
 #include "defs.hpp"
 
+#include "core/webservs.hpp"
 #include "core/instance.hpp"
 #include "config/config_parser.hpp"
 #include "util/streamflow.hpp"
 
-webserv::core::instance  the_webserv;
+webserv::core::webservs  the_webserv;
+
 
 void webserver_signal_handler(int signal) {
     (void) signal;
@@ -37,11 +39,22 @@ void webserv_main(const char* config_path) {
     std::cout << "Finished!" << std::endl;
 }
 
+void banner() {
+    std::cout << std::endl;
+    std::cout << "          T h e   W e b s e r v" << std::endl;
+    std::cout << std::endl;
+    std::cout << "    by alanghan@student.42heilbronn.de" << std::endl;
+    std::cout << "       enijakow@student.42heilbronn.de" << std::endl;
+    std::cout << "        nlenoch@student.42heilbronn.de" << std::endl;
+    std::cout << std::endl;
+}
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         std::cout << "usage: ./webserv <filename>" << std::endl;
         return 1;
     }
+    banner();
     setup_interrupts();
     webserv_main(argv[1]);
     system("leaks webserv");
