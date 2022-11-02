@@ -99,19 +99,6 @@ namespace webserv {
         }
 
         void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
-            // (void) request;
-
-            // webserv::util::path file_path = route.get_file_target();
-            // std::ifstream stream;
-
-            // if (get_instance().get_fs().is_directory(file_path)) {
-            //     directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
-            // } else if (get_instance().get_fs().open(file_path, stream)) {
-            //     file_listing(response, file_path, &stream);
-            // } else {
-            //     not_found_404(response);
-            // }
-
             (void) request;
 
             webserv::util::path file_path = route.get_file_target();
