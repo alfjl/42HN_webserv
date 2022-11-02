@@ -20,7 +20,7 @@ void setup_interrupts() {
 
 void webserv_main(const char* config_path) {
     webserv::util::fileflow flow(config_path);
-    webserv::config::config_parser parser(flow, *the_webserv.new_instance());
+    webserv::config::config_parser parser(flow, the_webserv);
 
     try {
         parser.run();

@@ -3,6 +3,7 @@
 
 #include "../defs.hpp"
 
+#include "../core/webservs.hpp"
 #include "../core/instance.hpp"
 #include "../util/parser.hpp"
 #include "../util/path.hpp"
@@ -11,7 +12,8 @@ namespace webserv {
     namespace config {
 
 		class config_parser : public webserv::util::parser {
-			webserv::core::instance& _instance;
+			webserv::core::webservs& _webservs;
+			webserv::core::instance* _instance;
 
 		protected:
 			void skip_whitespace();
@@ -34,8 +36,10 @@ namespace webserv {
 			void parse_listen();
 			void parse_location(webserv::util::path anchor);
 
+			void run_instance(webserv::util::path local_directory);
+
 		public:
-			config_parser(webserv::util::iflow& flow, webserv::core::instance& instance);
+			config_parser(webserv::util::iflow& flow, webserv::core::webservs& webservs);
 			void run();
 		};
 
