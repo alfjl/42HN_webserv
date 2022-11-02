@@ -31,8 +31,20 @@ namespace webserv {
             return _meta->is_method_allowed(method);
         }
 
+        bool route::is_directory_listing_on() {
+            return _meta->is_directory_listing_on();
+        }
+
+        bool route::is_index_enabled() {
+            return _meta->is_index_enabled();
+        }
+
         webserv::pal::cpp::optional<unsigned int> route::get_max_body() {
             return _meta->get_max_body();
+        }
+
+        webserv::pal::cpp::optional<webserv::util::path> route::get_index_page() {
+            return _meta->get_index_page();
         }
 
         route* route::set_path(webserv::util::path file_target) {

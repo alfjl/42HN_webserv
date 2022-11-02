@@ -17,12 +17,26 @@ namespace webserv {
             return _allowed_methods.value().find(method) != _allowed_methods.value().end();
         }
 
+        bool route_meta::is_directory_listing_on() {
+            return _directory_listing;
+        }
+
+        bool route_meta::is_index_enabled() {
+            if (_index_page.enabled())
+                return true;
+            return false;
+        }
+
         webserv::pal::cpp::optional<std::string> route_meta::get_executor() {
             return _executor;
         }
 
         webserv::pal::cpp::optional<unsigned int> route_meta::get_max_body() {
             return _max_body;
+        }
+
+        webserv::pal::cpp::optional<webserv::util::path> route_meta::get_index_page() {
+            return _index_page;
         }
 
         route_meta* route_meta::disable_all_methods() {

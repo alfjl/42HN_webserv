@@ -23,8 +23,12 @@ namespace webserv {
             ~route_meta();
 
             bool is_method_allowed(webserv::http::http_method method);
-            webserv::pal::cpp::optional<std::string> get_executor();
-            webserv::pal::cpp::optional<unsigned int> get_max_body();
+            bool is_directory_listing_on();
+            bool is_index_enabled();
+
+            webserv::pal::cpp::optional<std::string>         get_executor();
+            webserv::pal::cpp::optional<unsigned int>        get_max_body();
+            webserv::pal::cpp::optional<webserv::util::path> get_index_page();
 
             route_meta* disable_all_methods();
             route_meta* set_allowed_method(webserv::http::http_method method);
