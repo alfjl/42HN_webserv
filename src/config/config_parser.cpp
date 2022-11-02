@@ -100,7 +100,7 @@ namespace webserv {
 			}
 		}
 
-		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool>& server_autoindex, webserv::pal::cpp::optional<webserv::util::path> server_index_page) {
+		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<webserv::util::path> server_index_page) {
 			webserv::util::path name = expect_path();
 			webserv::util::path full_path = anchor + name;
 			webserv::util::path resource_path = full_path;
@@ -123,21 +123,13 @@ namespace webserv {
             if (checks("extension"))
                 extension.enable(read_word());
 
-            if (checks("autoindex")) {
-                     if (checks("on")) { autoindex.enable(true); }
-                else if (checks("off")) { autoindex.enable(false); }
-            } else {
-                if (server_autoindex.enabled())
-                    autoindex.enable(server_autoindex.value());
-            }
-
             if (server_index_page.enabled())
                 server_index.enable(server_index_page.value());
 
 			expects("{");
 			while (!checks("}")) {
 				if (checks("location")) {
-					parse_location(full_path, autoindex, server_index);
+					parse_location(full_path, server_index);
 					continue;
 				} else if (checks("reacts")) {
 					expects("to");
@@ -237,9 +229,6 @@ namespace webserv {
 
             if (autoindex.enabled()) {
                 route->set_directory_listing(autoindex.value());
-            } else {
-                if (server_autoindex.enabled())
-                    route->set_directory_listing(server_autoindex.value());
             }
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
@@ -271,7 +260,6 @@ namespace webserv {
 		*/
 		void config_parser::run() {
             webserv::util::path                               _local_directory(webserv::pal::env::pwd());
-            webserv::pal::cpp::optional<bool>                 _server_autoindex;
             webserv::pal::cpp::optional<webserv::util::path>  _server_index_page;
 
 			// start
@@ -282,11 +270,7 @@ namespace webserv {
 					parse_listen();
 					continue ;
 				} else if (checks("index")) {
-					// _server_index_page.enable(webserv::util::path(_instance.get_fs().add_anchor(read_path())));
 					_server_index_page.enable(read_path());
-				} else if (checks("autoindex")) {
-						 if (checks("on")) { _server_autoindex.enable(true); }
-					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
@@ -295,7 +279,7 @@ namespace webserv {
 				} else if (checks("anchor")) {
                     _instance.set_anchor((_local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("location")) {
-					parse_location(webserv::util::path(), _server_autoindex, _server_index_page);
+					parse_location(webserv::util::path(), _server_index_page);
 					continue ;
 				} 
 				expect_terminator();
