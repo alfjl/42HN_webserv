@@ -28,8 +28,6 @@ namespace webserv {
             std::vector<std::string>  _names;
 
             webserv::pal::cpp::optional<unsigned int>    _max_len;
-
-		    bool is_interrupted;
             
             void banner();
 
@@ -46,16 +44,11 @@ namespace webserv {
             webserv::pal::cpp::optional<unsigned int>& get_max_len();
 
             routing_table& get_routing_table() { return get_routing().get_table(); }
-
-		    void interrupt();
-		    bool was_interrupted();
             
             void pass_connection(webserv::util::connection* new_connection);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
-            bool is_running();
-
-            void run();
+            void tick();
 
             void on_port(int port);
             void set_anchor(webserv::util::path path);

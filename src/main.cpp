@@ -1,10 +1,11 @@
 #include "defs.hpp"
 
+#include "core/webservs.hpp"
 #include "core/instance.hpp"
 #include "config/config_parser.hpp"
 #include "util/streamflow.hpp"
 
-webserv::core::instance  the_webserv;
+webserv::core::webservs  the_webserv;
 
 void webserver_signal_handler(int signal) {
     (void) signal;
@@ -18,7 +19,7 @@ void setup_interrupts() {
 
 void webserv_main(const char* config_path) {
     webserv::util::fileflow flow(config_path);
-    webserv::config::config_parser parser(flow, the_webserv);
+    webserv::config::config_parser parser(flow, *the_webserv.new_instance());
 
     try {
         parser.run();

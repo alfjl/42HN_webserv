@@ -5,7 +5,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len(), is_interrupted(false) {
+        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len() {
             banner();
         }
 
@@ -40,24 +40,10 @@ namespace webserv {
             return _scheduler.register_cgi_connection(connection);
         }
 
-        bool instance::is_running() {
-            return !was_interrupted();
-        }
-
-        void instance::run() {
-            while (is_running()) {
-                _routing.tick();
-                _driver.tick();
-                _scheduler.tick();
-            }
-        }
-
-        void instance::interrupt() {
-            is_interrupted = true;
-        }
-
-        bool instance::was_interrupted(){
-            return is_interrupted;
+        void instance::tick() {
+            _routing.tick();
+            _driver.tick();
+            _scheduler.tick();
         }
 
         void instance::on_port(int port) {
