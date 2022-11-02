@@ -282,6 +282,7 @@ namespace webserv {
 					parse_listen();
 					continue ;
 				} else if (checks("index")) {
+					// _server_index_page.enable(webserv::util::path(_instance.get_fs().add_anchor(read_path())));
 					_server_index_page.enable(read_path());
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { _server_autoindex.enable(true); }
