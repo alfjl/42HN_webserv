@@ -6,21 +6,11 @@ namespace webserv {
     namespace core {
 
         instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len() {
-            banner();
+            
         }
 
         instance::~instance() {
             
-        }
-
-        void instance::banner() {
-            std::cout << std::endl;
-            std::cout << "          T h e   W e b s e r v" << std::endl;
-            std::cout << std::endl;
-            std::cout << "    by alanghan@student.42heilbronn.de" << std::endl;
-            std::cout << "       enijakow@student.42heilbronn.de" << std::endl;
-            std::cout << "        nlenoch@student.42heilbronn.de" << std::endl;
-            std::cout << std::endl;
         }
 
         bool instance::get_max_len_enabled() {

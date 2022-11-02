@@ -28,8 +28,6 @@ namespace webserv {
             std::vector<std::string>  _names;
 
             webserv::pal::cpp::optional<unsigned int>    _max_len;
-            
-            void banner();
 
         public:
             instance();
