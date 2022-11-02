@@ -15,7 +15,7 @@ namespace webserv {
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> >  _allowed_methods;
             webserv::pal::cpp::optional<std::string>                            _executor;
             webserv::pal::cpp::optional<unsigned int>                           _max_body;
-            webserv::pal::cpp::optional<webserv::util::path>                    _index_page;
+            webserv::pal::cpp::optional<webserv::util::path>                    _added_path;
             bool                                                                _directory_listing;
 
         public:
@@ -24,11 +24,11 @@ namespace webserv {
 
             bool is_method_allowed(webserv::http::http_method method);
             bool is_directory_listing_on();
-            bool is_index_enabled();
+            bool is_added_path_on();
 
             webserv::pal::cpp::optional<std::string>         get_executor();
             webserv::pal::cpp::optional<unsigned int>        get_max_body();
-            webserv::pal::cpp::optional<webserv::util::path> get_index_page();
+            webserv::pal::cpp::optional<webserv::util::path> get_added_path();
 
             route_meta* disable_all_methods();
             route_meta* set_allowed_method(webserv::http::http_method method);
@@ -36,8 +36,8 @@ namespace webserv {
 
             void set_executor(std::string executor);
             void set_max_body(unsigned int max);
-            void set_index_page(webserv::util::path index);
             void set_directory_listing(bool state);
+            void set_added_path(webserv::pal::cpp::optional<webserv::util::path> added_path);
         };
 
     }

@@ -100,7 +100,7 @@ namespace webserv {
 			}
 		}
 
-		void config_parser::parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<bool>& server_autoindex, webserv::pal::cpp::optional<webserv::util::path> server_index_page) {
+		void config_parser::parse_location(webserv::util::path anchor) {
 			webserv::util::path name = expect_path();
 			webserv::util::path full_path = anchor + name;
 			webserv::util::path resource_path = full_path;
@@ -116,28 +116,16 @@ namespace webserv {
             webserv::pal::cpp::optional<std::string>                           extension;
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
             webserv::pal::cpp::optional<unsigned int>                          max_body;
-            webserv::pal::cpp::optional<webserv::util::path>                   server_index;
-            webserv::pal::cpp::optional<webserv::util::path>                   index;
+			webserv::pal::cpp::optional<webserv::util::path>                   added_path;
             webserv::pal::cpp::optional<bool>                                  autoindex;
 
             if (checks("extension"))
                 extension.enable(read_word());
 
-            if (checks("autoindex")) {
-                     if (checks("on")) { autoindex.enable(true); }
-                else if (checks("off")) { autoindex.enable(false); }
-            } else {
-                if (server_autoindex.enabled())
-                    autoindex.enable(server_autoindex.value());
-            }
-
-            if (server_index_page.enabled())
-                server_index.enable(server_index_page.value());
-
 			expects("{");
 			while (!checks("}")) {
 				if (checks("location")) {
-					parse_location(full_path, autoindex, server_index);
+					parse_location(full_path);
 					continue;
 				} else if (checks("reacts")) {
 					expects("to");
@@ -157,8 +145,6 @@ namespace webserv {
                 } else if (checks("maxBody")) {
                     skip_whitespace();
                     max_body.enable(expect_uint());
-                } else if (checks("index")) {
-					index.enable(read_path());
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { autoindex.enable(true); }
 					else if (checks("off")) { autoindex.enable(false); }
@@ -186,6 +172,8 @@ namespace webserv {
 
                         if (checks("at"))
                             resolved_path = expect_path();
+                        if (checks("plus"))
+                            added_path.enable(expect_path());
                     }
 				}
 				expect_terminator();
@@ -212,7 +200,7 @@ namespace webserv {
                     cgir->set_executor(executor.value());
                 route = cgir;
             }
-			else                      route = new webserv::core::file_route(resolved_path);
+			else                      route = new webserv::core::file_route(resolved_path, added_path);
 
             if (allowed_methods.enabled()) {
                 route->disable_all_methods();
@@ -228,18 +216,8 @@ namespace webserv {
             if (max_body.enabled())
                 route->set_max_body(max_body.value());
 
-            if (index.enabled()) {
-                route->set_index_page(index.value());
-            } else {
-                if (server_index.enabled())
-                    route->set_index_page(server_index.value());
-            }
-
             if (autoindex.enabled()) {
                 route->set_directory_listing(autoindex.value());
-            } else {
-                if (server_autoindex.enabled())
-                    route->set_directory_listing(server_autoindex.value());
             }
 
 			_instance.get_routing_table().add_rule(rule, translation, route);
@@ -271,8 +249,6 @@ namespace webserv {
 		*/
 		void config_parser::run() {
             webserv::util::path                               _local_directory(webserv::pal::env::pwd());
-            webserv::pal::cpp::optional<bool>                 _server_autoindex;
-            webserv::pal::cpp::optional<webserv::util::path>  _server_index_page;
 
 			// start
 			expects("server");
@@ -281,12 +257,6 @@ namespace webserv {
 				if (checks("listen")) {
 					parse_listen();
 					continue ;
-				} else if (checks("index")) {
-					// _server_index_page.enable(webserv::util::path(_instance.get_fs().add_anchor(read_path())));
-					_server_index_page.enable(read_path());
-				} else if (checks("autoindex")) {
-						 if (checks("on")) { _server_autoindex.enable(true); }
-					else if (checks("off")) { _server_autoindex.enable(false); }
 				} else if (checks("server_name")) {
 					while (!checks(";")){
                         _instance.set_names(read_word());
@@ -295,7 +265,7 @@ namespace webserv {
 				} else if (checks("anchor")) {
                     _instance.set_anchor((_local_directory.cd(read_word()).to_absolute_string()));
 				} else if (checks("location")) {
-					parse_location(webserv::util::path(), _server_autoindex, _server_index_page);
+					parse_location(webserv::util::path());
 					continue ;
 				} 
 				expect_terminator();
