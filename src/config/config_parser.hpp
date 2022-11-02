@@ -32,7 +32,7 @@ namespace webserv {
 			webserv::util::path expect_relative_path(webserv::util::path anchor);
 
 			void parse_listen();
-			void parse_location(webserv::util::path anchor, webserv::pal::cpp::optional<webserv::util::path> server_index_page);
+			void parse_location(webserv::util::path anchor);
 
 		public:
 			config_parser(webserv::util::iflow& flow, webserv::core::instance& instance);
