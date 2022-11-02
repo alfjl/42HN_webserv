@@ -12,6 +12,7 @@ namespace webserv {
             _meta->increment_refcount();
         }
 
+
         route::route(webserv::util::path file_target, route_meta* meta) : _file_target(file_target), _meta(meta) {
             _meta->increment_refcount();
         }
@@ -27,6 +28,10 @@ namespace webserv {
 
         webserv::util::path route::get_file_target() { return _file_target; }
 
+        webserv::pal::cpp::optional<webserv::util::path> route::get_added_path() {
+            return _meta->get_added_path();
+        }
+
         bool route::is_method_allowed(webserv::http::http_method method) {
             return _meta->is_method_allowed(method);
         }
@@ -35,16 +40,12 @@ namespace webserv {
             return _meta->is_directory_listing_on();
         }
 
-        bool route::is_index_enabled() {
-            return _meta->is_index_enabled();
+        bool route::is_added_path_on() {
+            return _meta->is_added_path_on();
         }
 
         webserv::pal::cpp::optional<unsigned int> route::get_max_body() {
             return _meta->get_max_body();
-        }
-
-        webserv::pal::cpp::optional<webserv::util::path> route::get_index_page() {
-            return _meta->get_index_page();
         }
 
         route* route::set_path(webserv::util::path file_target) {
@@ -76,12 +77,6 @@ namespace webserv {
             return this;
         }
 
-        route* route::set_index_page(webserv::util::path index) {
-            _meta->set_index_page(index);
-
-            return this;
-        }
-
         route* route::set_directory_listing(bool state) {
             _meta->set_directory_listing(state);
 
@@ -108,6 +103,11 @@ namespace webserv {
 
         file_route::file_route(webserv::util::path file_target) : route(file_target) {
 
+        }
+
+        file_route::file_route(webserv::util::path file_target, webserv::pal::cpp::optional<webserv::util::path> added_path) : route(file_target) {
+            _meta->set_added_path(added_path);
+            _meta->increment_refcount();
         }
 
         file_route::file_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {

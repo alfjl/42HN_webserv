@@ -23,6 +23,7 @@ namespace webserv {
 
         public:
             route(webserv::util::path file_target);
+            // route(webserv::util::path file_target, webserv::util::path added_path);
             route(webserv::util::path file_target, route_meta* meta);
             route(const route& other);
             virtual ~route();
@@ -31,10 +32,10 @@ namespace webserv {
 
             bool is_method_allowed(webserv::http::http_method method);
             bool is_directory_listing_on();
-            bool is_index_enabled();
+            bool is_added_path_on();
 
-            webserv::pal::cpp::optional<unsigned int> get_max_body();
-            webserv::pal::cpp::optional<webserv::util::path> get_index_page();
+            webserv::pal::cpp::optional<unsigned int>        get_max_body();
+            webserv::pal::cpp::optional<webserv::util::path> get_added_path();
 
             route* set_path(webserv::util::path file_target);
 
@@ -42,7 +43,6 @@ namespace webserv {
             route* set_allowed_method(webserv::http::http_method method);
             route* unset_allowed_method(webserv::http::http_method method);
             route* set_max_body(unsigned int max);
-            route* set_index_page(webserv::util::path index);
             route* set_directory_listing(bool state);
 
             virtual bool is_cgi();
@@ -56,6 +56,7 @@ namespace webserv {
         class file_route : public route {
         public:
             file_route(webserv::util::path file_target);
+            file_route(webserv::util::path file_target, webserv::pal::cpp::optional<webserv::util::path> added_path);
             file_route(webserv::util::path file_target, route_meta* meta);
             file_route(const file_route& other);
             route* build(match_info& meta);

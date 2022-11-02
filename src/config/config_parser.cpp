@@ -116,7 +116,7 @@ namespace webserv {
             webserv::pal::cpp::optional<std::string>                           extension;
             webserv::pal::cpp::optional<std::set<webserv::http::http_method> > allowed_methods;
             webserv::pal::cpp::optional<unsigned int>                          max_body;
-            webserv::pal::cpp::optional<webserv::util::path>                   server_index;
+			webserv::pal::cpp::optional<webserv::util::path>                   added_path;
             webserv::pal::cpp::optional<bool>                                  autoindex;
 
             if (checks("extension"))
@@ -172,6 +172,8 @@ namespace webserv {
 
                         if (checks("at"))
                             resolved_path = expect_path();
+                        if (checks("plus"))
+                            added_path.enable(expect_path());
                     }
 				}
 				expect_terminator();
@@ -198,7 +200,7 @@ namespace webserv {
                     cgir->set_executor(executor.value());
                 route = cgir;
             }
-			else                      route = new webserv::core::file_route(resolved_path);
+			else                      route = new webserv::core::file_route(resolved_path, added_path);
 
             if (allowed_methods.enabled()) {
                 route->disable_all_methods();

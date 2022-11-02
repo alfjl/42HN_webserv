@@ -21,8 +21,8 @@ namespace webserv {
             return _directory_listing;
         }
 
-        bool route_meta::is_index_enabled() {
-            if (_index_page.enabled())
+        bool route_meta::is_added_path_on() {
+            if (_added_path.enabled())
                 return true;
             return false;
         }
@@ -35,8 +35,8 @@ namespace webserv {
             return _max_body;
         }
 
-        webserv::pal::cpp::optional<webserv::util::path> route_meta::get_index_page() {
-            return _index_page;
+        webserv::pal::cpp::optional<webserv::util::path> route_meta::get_added_path() {
+            return _added_path;
         }
 
         route_meta* route_meta::disable_all_methods() {
@@ -65,8 +65,9 @@ namespace webserv {
             _max_body.enable(max);
         }
 
-        void route_meta::set_index_page(webserv::util::path index) {
-            _index_page.enable(index);
+        void route_meta::set_added_path(webserv::pal::cpp::optional<webserv::util::path> added_path) {
+            if (added_path.enabled())
+                _added_path.enable(added_path.value());
         }
 
         void route_meta::set_directory_listing(bool state) {
