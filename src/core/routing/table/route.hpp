@@ -30,7 +30,11 @@ namespace webserv {
             webserv::util::path get_file_target();
 
             bool is_method_allowed(webserv::http::http_method method);
+            bool is_directory_listing_on();
+            bool is_index_enabled();
+
             webserv::pal::cpp::optional<unsigned int> get_max_body();
+            webserv::pal::cpp::optional<webserv::util::path> get_index_page();
 
             route* set_path(webserv::util::path file_target);
 

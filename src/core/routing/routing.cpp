@@ -103,9 +103,18 @@ namespace webserv {
 
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
-
+                    
             if (get_instance().get_fs().is_directory(file_path)) {
-                directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+                if (route.is_index_enabled() && get_instance().get_fs().open(route.get_index_page().value(), stream)) {
+                    file_listing(response, route.get_index_page().value(), &stream);
+                } else if (route.is_directory_listing_on()) {
+                    std::cout << "in directory_listing" << std::endl;
+                    directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+                } else {
+                    std::cout << "in not_found_404" << std::endl;
+                    not_found_404(response);
+                }
+
             } else if (get_instance().get_fs().open(file_path, stream)) {
                 file_listing(response, file_path, &stream);
             } else {

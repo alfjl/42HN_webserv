@@ -110,6 +110,7 @@ namespace webserv {
 			bool translate = false;
 			bool is_redir = false;
 			bool is_cgi   = false;
+
 			webserv::pal::cpp::optional<unsigned int>                          error_code;
             webserv::pal::cpp::optional<std::string>                           executor;
             webserv::pal::cpp::optional<std::string>                           extension;
@@ -280,15 +281,8 @@ namespace webserv {
 				if (checks("listen")) {
 					parse_listen();
 					continue ;
-				} else if (checks("client_max_body_size")) {
-					std::cout << "Client_max_body_size: " << read_int() << std::endl;
-				} else if (checks("error_page")) {
-					std::cout << "Error_page: " << read_int();
-					std::cout << " " << read_path() << std::endl;
-				} else if (checks("cgi_ext")) {
-					std::cout << "CGI_ext: " << read_word();
-					std::cout << " " << read_path() << std::endl;
 				} else if (checks("index")) {
+					// _server_index_page.enable(webserv::util::path(_instance.get_fs().add_anchor(read_path())));
 					_server_index_page.enable(read_path());
 				} else if (checks("autoindex")) {
 						 if (checks("on")) { _server_autoindex.enable(true); }
