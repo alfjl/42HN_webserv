@@ -108,11 +108,9 @@ namespace webserv {
                 if (route.is_directory_listing_on())
                     directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
                 else if (route.is_added_path_on()) {
-                    std::cout << "added path is on" << std::endl;
-                    if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream)) {
-                        std::cout << "added path is on" << std::endl;
+                    if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream))
                         file_listing(response, file_path + route.get_added_path().value(), &stream);
-                    } else
+                    else
                         internal_server_error_500(response);
                 } else
                     not_found_404(response);
