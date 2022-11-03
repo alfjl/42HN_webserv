@@ -46,7 +46,7 @@ namespace webserv {
             void handle_http_post(route& route);
             void handle_http_delete(route& route);
 
-            void handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* route, webserv::http::http_handler* the_http_handler);
+            void handle_cgi(cgi_route* route);
 
             void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response);
             void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request);

@@ -62,7 +62,7 @@ namespace webserv {
                 error_page(405);
                 return;
             } else if (the_route->is_cgi()) { // TODO: Does this always return false?
-                handle_cgi(get_response(), get_request(), (cgi_route*) the_route, &get_http_handler());
+                handle_cgi((cgi_route*) the_route);
                 delete the_route;
                 return; // Invisible yield
             } else if (the_route->is_redirection()) {
@@ -273,10 +273,10 @@ namespace webserv {
         /*
          * Hands the request body over to the cgi and accepts the cgi's output as the response body 
          */
-        void routing::handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* the_route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_cgi(cgi_route* the_route) {
             std::string cgi_path = get_instance().get_fs().translate_cgi(the_route->get_file_target()).to_absolute_string();
 
-            webserv::http::cgi_message cgi_msg(request, get_instance(), cgi_path);
+            webserv::http::cgi_message cgi_msg(get_request(), get_instance(), cgi_path);
 
             webserv::pal::cpp::optional<std::string> executor = the_route->get_executor();
             cgi_fork_task task(executor.enabled() ? executor.value() : cgi_path);
@@ -285,7 +285,7 @@ namespace webserv {
             for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                 task.add_env(it->first + "=" + it->second);
 
-            handle_cgi_pipes(*this, response, the_http_handler, task, cgi_msg);
+            handle_cgi_pipes(*this, get_response(), &get_http_handler(), task, cgi_msg);
         }
 
         void routing::look_up() {
