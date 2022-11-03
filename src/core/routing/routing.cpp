@@ -77,11 +77,11 @@ namespace webserv {
                 error_page(413);
             } else {
                 switch (get_request().get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(get_response(), get_request(), *the_route); break; }
-                    case webserv::http::http_method_get: { handle_http_get(get_response(), get_request(), *the_route); break; }
+                    case webserv::http::http_method_head: { handle_http_head(*the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(*the_route); break; }
                     case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(get_response(), get_request(), *the_route); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(get_response(), get_request(), *the_route); break; }
+                    case webserv::http::http_method_post: { handle_http_post(*the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(*the_route); break; }
                     default: {
                         teapot_418(get_response());
                         break;
@@ -93,31 +93,29 @@ namespace webserv {
             get_response().write(*get_http_handler().get_connection());
         }
 
-        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
-            handle_http_get(response, request, route);
-            response.block_body();
+        void routing::handle_http_head(route& route) {
+            handle_http_get(route);
+            get_response().block_body();
         }
 
-        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
-            (void) request;
-
+        void routing::handle_http_get(route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
                     
             if (get_instance().get_fs().is_directory(file_path)) {
                 if (route.is_directory_listing_on())
-                    directory_listing(response, get_instance().get_fs().read_absolute_path(file_path));
+                    directory_listing(get_response(), get_instance().get_fs().read_absolute_path(file_path));
                 else if (route.is_added_path_on()) {
                     if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream))
-                        file_listing(response, file_path + route.get_added_path().value(), &stream);
+                        file_listing(get_response(), file_path + route.get_added_path().value(), &stream);
                     else
-                        internal_server_error_500(response);
+                        internal_server_error_500(get_response());
                 } else
-                    not_found_404(response);
+                    not_found_404(get_response());
             } else if (get_instance().get_fs().open(file_path, stream)) {
-                file_listing(response, file_path, &stream);
+                file_listing(get_response(), file_path, &stream);
             } else {
-                not_found_404(response);
+                not_found_404(get_response());
             }
         }
 
@@ -146,32 +144,30 @@ namespace webserv {
             }
         }
 
-        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
+        void routing::handle_http_post(route& route) {
             webserv::util::path file_path = route.get_file_target();
 
-            set_response_code(file_path, response);
+            set_response_code(file_path, get_response());
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
-                method_not_allowed_405(response);
+                method_not_allowed_405(get_response());
             } else {
-                get_request_body(file_path, response, request);
+                get_request_body(file_path, get_response(), get_request());
             }
         }
 
-        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
-            (void) request;
-            
+        void routing::handle_http_delete(route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
             if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
                 if (!get_instance().get_fs().del(file_path))
-                    unauthorized_401(response);
+                    unauthorized_401(get_response());
             } else if ((get_instance().get_fs().del(file_path))) {
-                set_delete_response(response);
+                set_delete_response(get_response());
             } else {
-                not_found_404(response);
+                not_found_404(get_response());
             }
         }
 

@@ -41,10 +41,10 @@ namespace webserv {
             void error_page(unsigned int code);
             void follow_route(route* route);
 
-            void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
+            void handle_http_head(route& route);
+            void handle_http_get(route& route);
+            void handle_http_post(route& route);
+            void handle_http_delete(route& route);
 
             void handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* route, webserv::http::http_handler* the_http_handler);
 
