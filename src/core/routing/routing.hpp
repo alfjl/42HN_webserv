@@ -30,6 +30,11 @@ namespace webserv {
             routing_component_cgi           _component_cgi;
         
         public:
+            routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
+            ~routing();
+
+            routing_table& get_table();
+            
             webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
             webserv::http::request&         get_request() { return _the_request; }
             webserv::http::response_fixed&  get_response() { return _the_response; }
@@ -50,11 +55,6 @@ namespace webserv {
             void follow_route(route* route);
 
         public:
-            routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
-            ~routing();
-
-            routing_table& get_table();
-
             void look_up();
         };
 
