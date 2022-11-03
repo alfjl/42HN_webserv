@@ -11,7 +11,7 @@
 
 #include "table/routing_table.hpp"
 
-#include "components/component_get.hpp"
+#include "components/component_http.hpp"
 #include "components/component_cgi.hpp"
 
 namespace webserv {

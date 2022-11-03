@@ -3,7 +3,7 @@
 #include "../cgi/cgi.hpp"
 #include "../pages/pages.hpp"
 
-#include "component_get.hpp"
+#include "component_http.hpp"
 
 
 namespace webserv {
