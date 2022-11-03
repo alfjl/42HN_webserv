@@ -9,8 +9,8 @@ namespace webserv {
              *
              */
 
-            http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing)
-                : basic_handler(new_connection), _routing(routing) {
+            http_handler::http_handler(webserv::util::connection* new_connection, webserv::core::instance& instance)
+                : basic_handler(new_connection), _instance(instance) {
 
             }
 
@@ -18,7 +18,7 @@ namespace webserv {
                 
             }
 
-            webserv::core::routing& http_handler::get_routing() { return _routing; }
+            webserv::core::instance& http_handler::get_instance() { return _instance; }
 
 
             /*
@@ -109,7 +109,8 @@ namespace webserv {
                     }
 
             void http_handler::process_request() {
-                _routing.look_up(_the_request, this);
+                webserv::core::routing routing(get_instance());
+                routing.look_up(_the_request, this);
             }
 
             enum basic_handler::abort_mode http_handler::abort() {

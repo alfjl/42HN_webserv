@@ -14,8 +14,8 @@ namespace webserv {
 
         }
 
-        void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing) {
-            webserv::http::http_handler* handler = new webserv::http::http_handler(new_connection, routing);
+        void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::instance& instance) {
+            webserv::http::http_handler* handler = new webserv::http::http_handler(new_connection, instance);
             handlers.push_back(handler);
             handler->increment_refcount();
         }

@@ -22,7 +22,7 @@ namespace webserv {
             scheduler(instance& the_inst);
             ~scheduler();
 
-            void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
+            void register_connection(webserv::util::connection* new_connection, webserv::core::instance& instance);
             webserv::http::cgi_handler* register_cgi_connection(webserv::util::connection* connection);
 
             void tick();

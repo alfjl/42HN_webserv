@@ -22,7 +22,6 @@ namespace webserv {
         class instance {
             driver         _driver;
             scheduler      _scheduler;
-            routing        _routing;
             filesystem     _fs;
             routing_table  _routing_table;
 
@@ -36,7 +35,6 @@ namespace webserv {
 
             driver&     get_driver()    { return _driver; }
             scheduler&  get_scheduler() { return _scheduler; }
-            routing&    get_routing()   { return _routing; }
             filesystem& get_fs()        { return _fs; }
             
             bool get_max_len_enabled();
