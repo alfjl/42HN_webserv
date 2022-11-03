@@ -16,7 +16,7 @@
 namespace webserv {
     namespace core {
 
-        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request), _component_pages(*this), _component_http(*this), _component_cgi(*this) {
+        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _recursion_count(0), _the_http_handler(the_http_handler), _the_request(the_request), _component_pages(*this), _component_http(*this), _component_cgi(*this) {
 
         }
 
@@ -25,6 +25,8 @@ namespace webserv {
         }
 
         routing_table& routing::get_table() { return get_instance().get_routing_table(); }
+
+        unsigned int   routing::get_recursion_count() { return _recursion_count; }
 
 
         void routing::handle_http_head(route& route) {
@@ -57,7 +59,7 @@ namespace webserv {
             follow_route(the_route);
         }
 
-        void routing::follow_route(route* the_route) {
+        void routing::_follow_route(route* the_route) {
             int code;
 
             if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
@@ -94,6 +96,17 @@ namespace webserv {
 
             delete the_route;
             get_response().write(*get_http_handler().get_connection());
+        }
+
+        void routing::follow_route(route* the_route) {
+            try {
+                _recursion_count++;
+                _follow_route(the_route);
+                _recursion_count--;
+            } catch (std::exception& e) {
+                _recursion_count--;
+                throw;
+            }
         }
 
     }
