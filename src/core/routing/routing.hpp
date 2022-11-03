@@ -12,6 +12,7 @@
 #include "table/routing_table.hpp"
 
 #include "components/component_get.hpp"
+#include "components/component_cgi.hpp"
 
 namespace webserv {
     namespace http { class http_handler; }
@@ -26,6 +27,7 @@ namespace webserv {
             webserv::http::response_fixed   _the_response;
 
             routing_component_get           _component_get;
+            routing_component_cgi           _component_cgi;
         
         public:
             webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
@@ -33,6 +35,7 @@ namespace webserv {
             webserv::http::response_fixed&  get_response() { return _the_response; }
 
             routing_component_get&          get_component_get() { return _component_get; }
+            routing_component_cgi&          get_component_cgi() { return _component_cgi; }
 
         public:
             routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
