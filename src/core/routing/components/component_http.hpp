@@ -20,6 +20,7 @@ namespace webserv {
             void handle_head(route& route);
             void handle_get(route& route);
             void handle_post(route& route);
+            void handle_delete(route& route);
         };
 
     }

@@ -69,5 +69,20 @@ namespace webserv {
             }
         }
 
+
+        void routing_component_http::handle_delete(route& route) {
+            webserv::util::path file_path = route.get_file_target();
+            std::ifstream stream;
+
+            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
+                if (!get_instance().get_fs().del(file_path))
+                    unauthorized_401(get_response());
+            } else if ((get_instance().get_fs().del(file_path))) {
+                set_delete_response(get_response());
+            } else {
+                not_found_404(get_response());
+            }
+        }
+
     }
 }
