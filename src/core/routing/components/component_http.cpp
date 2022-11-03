@@ -29,13 +29,13 @@ namespace webserv {
                     if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream))
                         file_listing(get_response(), file_path + route.get_added_path().value(), &stream);
                     else
-                        internal_server_error_500(get_response());
+                        get_parent().get_component_pages().error_page(500);
                 } else
-                    not_found_404(get_response());
+                    get_parent().get_component_pages().error_page(404);
             } else if (get_instance().get_fs().open(file_path, stream)) {
                 file_listing(get_response(), file_path, &stream);
             } else {
-                not_found_404(get_response());
+                get_parent().get_component_pages().error_page(404);
             }
         }
 
@@ -46,12 +46,12 @@ namespace webserv {
                 outfile << get_request().get_body().c_str();
 
                 if (!outfile.good())
-                    internal_server_error_500(get_response()); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                    get_parent().get_component_pages().error_page(500); // if file couldn't be opened/constructed TODO: check against nginx/tester
                 outfile.close();
 
                 get_response().set_html_body(get_request().get_body());
             } else {
-                internal_server_error_500(get_response()); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                get_parent().get_component_pages().error_page(500); // if file couldn't be opened/constructed TODO: check against nginx/tester
             }
         }
 
@@ -62,7 +62,7 @@ namespace webserv {
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
-                method_not_allowed_405(get_response());
+                get_parent().get_component_pages().error_page(405);
             } else {
                 process_post_body(file_path);
             }
@@ -75,11 +75,11 @@ namespace webserv {
 
             if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
                 if (!get_instance().get_fs().del(file_path))
-                    unauthorized_401(get_response());
+                    get_parent().get_component_pages().error_page(401);
             } else if ((get_instance().get_fs().del(file_path))) {
                 set_delete_response(get_response());
             } else {
-                not_found_404(get_response());
+                get_parent().get_component_pages().error_page(404);
             }
         }
 

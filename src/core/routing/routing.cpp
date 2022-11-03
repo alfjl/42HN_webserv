@@ -86,7 +86,7 @@ namespace webserv {
                     case webserv::http::http_method_post: { handle_http_post(*the_route); break; }
                     case webserv::http::http_method_delete: { handle_http_delete(*the_route); break; }
                     default: {
-                        teapot_418(get_response());
+                        error_page(418);
                         break;
                     }
                 }
