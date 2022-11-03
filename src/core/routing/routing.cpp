@@ -44,53 +44,54 @@ namespace webserv {
         routing_table& routing::get_table() { return get_instance().get_routing_table(); }
 
         void routing::error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code) {
+            (void) request;
             // TODO, FIXME, XXX: Watch out for recursion!
             route* the_route = get_table().query_error_page(code);
             if (the_route == NULL) {
                 error_code(response, code);
                 response.write(*the_http_handler->get_connection());
             } else {
-                follow_route(response, request, the_route, the_http_handler);
+                follow_route(the_route);
             }
         }
 
-        void routing::follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* the_route, webserv::http::http_handler* the_http_handler) {
+        void routing::follow_route(route* the_route) {
             int code;
 
-            if (!the_route->is_method_allowed(request.get_line().get_method())) {
+            if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
                 delete the_route;
-                error_page(response, request, the_http_handler, 405);
+                error_page(get_response(), get_request(), &get_http_handler(), 405);
                 return;
             } else if (the_route->is_cgi()) { // TODO: Does this always return false?
-                handle_cgi(response, request, (cgi_route*) the_route, the_http_handler);
+                handle_cgi(get_response(), get_request(), (cgi_route*) the_route, &get_http_handler());
                 delete the_route;
                 return; // Invisible yield
             } else if (the_route->is_redirection()) {
-                temporary_redirect_302(response, the_route->get_file_target());
+                temporary_redirect_302(get_response(), the_route->get_file_target());
             } else if (the_route->is_permanent_redirection()) {
-                permanent_redirect_301(response, the_route->get_file_target());
+                permanent_redirect_301(get_response(), the_route->get_file_target());
             } else if (the_route->is_error(code)) {
                 delete the_route;
-                error_page(response, request, the_http_handler, code);
+                error_page(get_response(), get_request(), &get_http_handler(), code);
                 return;
-            } else if (the_route->get_max_body().enabled() && request.get_body().size() > the_route->get_max_body().value()) {
-                error_page(response, request, the_http_handler, 413);
+            } else if (the_route->get_max_body().enabled() && get_request().get_body().size() > the_route->get_max_body().value()) {
+                error_page(get_response(), get_request(), &get_http_handler(), 413);
             } else {
-                switch (request.get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
-                    case webserv::http::http_method_get: { handle_http_get(response, request, *the_route); break; }
+                switch (get_request().get_line().get_method()) {
+                    case webserv::http::http_method_head: { handle_http_head(get_response(), get_request(), *the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(get_response(), get_request(), *the_route); break; }
                     case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(response, request, *the_route); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route); break; }
+                    case webserv::http::http_method_post: { handle_http_post(get_response(), get_request(), *the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(get_response(), get_request(), *the_route); break; }
                     default: {
-                        teapot_418(response);
+                        teapot_418(get_response());
                         break;
                     }
                 }
             }
 
             delete the_route;
-            response.write(*the_http_handler->get_connection());
+            get_response().write(*get_http_handler().get_connection());
         }
 
         void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
@@ -292,16 +293,10 @@ namespace webserv {
             handle_cgi_pipes(*this, response, the_http_handler, task, cgi_msg);
         }
 
-        void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {
-            webserv::http::response_fixed response;
+        void routing::look_up() {
+            route* the_route = get_table().query(get_request().get_line().get_uri().get_path());
 
-            route* the_route = get_table().query(request.get_line().get_uri().get_path());
-
-            follow_route(response, request, the_route, the_http_handler);
-        }
-
-        void routing::tick() {
-            // Do nothing!
+            follow_route(the_route);
         }
 
     }

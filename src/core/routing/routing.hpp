@@ -23,9 +23,9 @@ namespace webserv {
             webserv::http::request&         _the_request;
             webserv::http::response_fixed   _the_response;
 
-            webserv::http::http_handler&    get_http_handler();
-            webserv::http::request&         get_request();
-            webserv::http::response_fixed&  get_response();
+            webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
+            webserv::http::request&         get_request() { return _the_request; }
+            webserv::http::response_fixed&  get_response() { return _the_response; }
 
         public:
             routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
@@ -33,15 +33,13 @@ namespace webserv {
 
             routing_table& get_table();
 
-            void look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler);
-
-            void tick();
+            void look_up();
 
             void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
             
         protected:
             void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
-            void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
+            void follow_route(route* route);
 
             void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
             void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
