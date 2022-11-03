@@ -34,18 +34,18 @@ namespace webserv {
         };
 
         routing::routing(instance& the_inst) : component(the_inst) {
-
+            
         }
 
         routing::~routing() {
 
         }
 
-        routing_table& routing::get_table() { return table; }
+        routing_table& routing::get_table() { return get_instance().get_routing_table(); }
 
         void routing::error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code) {
             // TODO, FIXME, XXX: Watch out for recursion!
-            route* the_route = table.query_error_page(code);
+            route* the_route = get_table().query_error_page(code);
             if (the_route == NULL) {
                 error_code(response, code);
                 response.write(*the_http_handler->get_connection());
@@ -295,7 +295,7 @@ namespace webserv {
         void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {
             webserv::http::response_fixed response;
 
-            route* the_route = table.query(request.get_line().get_uri().get_path());
+            route* the_route = get_table().query(request.get_line().get_uri().get_path());
 
             follow_route(response, request, the_route, the_http_handler);
         }

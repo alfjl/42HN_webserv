@@ -19,7 +19,6 @@ namespace webserv {
         class   selector;
 
         class routing : public component {
-            webserv::core::routing_table table;
 
         public:
             routing(instance& the_inst);
