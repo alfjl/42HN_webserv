@@ -78,8 +78,7 @@ namespace webserv {
         }
 
         void routing::handle_http_head(route& route) {
-            handle_http_get(route);
-            get_response().block_body();
+            get_component_http().handle_head(route);
         }
 
         void routing::handle_http_get(route& route) {

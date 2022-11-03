@@ -14,6 +14,7 @@ namespace webserv {
         public:
             routing_component_http(routing& routing);
 
+            void handle_head(route& route);
             void handle_get(route& route);
         };
 

@@ -13,6 +13,12 @@ namespace webserv {
             
         }
 
+
+        void routing_component_http::handle_head(route& route) {
+            handle_get(route);
+            get_response().block_body();
+        }
+
         void routing_component_http::handle_get(route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
