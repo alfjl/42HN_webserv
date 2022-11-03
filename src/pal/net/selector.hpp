@@ -56,10 +56,11 @@ namespace webserv {
 
                 void register_socket(socket* socket, payload_type data_set);
                 void register_socket(socket* socket);
-                void unregister_socket(socket *socket);
+                void unregister_socket(socket* socket);
 
                 webserv::util::connection* add_fd(int fd);
 
+                void select(bool fast_mode);
                 void select();
             };
 

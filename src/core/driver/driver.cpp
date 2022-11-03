@@ -1,4 +1,7 @@
+#include "../instance.hpp"
+
 #include "driver.hpp"
+
 
 namespace webserv {
     namespace core {
@@ -26,7 +29,7 @@ namespace webserv {
         }
 
         void driver::tick() {
-            selector.select();
+            selector.select(get_instance().get_scheduler().are_tasks_pending());
             selector.set_driver(this);
         }
 
