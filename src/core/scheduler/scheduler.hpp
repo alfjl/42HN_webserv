@@ -22,6 +22,8 @@ namespace webserv {
             scheduler(instance& the_inst);
             ~scheduler();
 
+            bool are_tasks_pending();
+
             void register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing);
             webserv::http::cgi_handler* register_cgi_connection(webserv::util::connection* connection);
 
