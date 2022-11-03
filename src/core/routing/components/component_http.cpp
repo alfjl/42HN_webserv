@@ -1,6 +1,5 @@
 #include "../../instance.hpp"
 
-#include "../cgi/cgi.hpp"
 #include "../pages/pages.hpp"
 
 #include "component_http.hpp"

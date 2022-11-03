@@ -1,7 +1,5 @@
 #include "routing.hpp"
 
-#include "pages/pages.hpp"
-#include "cgi/cgi.hpp"
 #include "../../pal/fork/fork.hpp"
 #include "../../pal/fs/fs.hpp"
 #include "../../http/handler/http_handler.hpp"
@@ -12,6 +10,7 @@
 #include "../filesystem/filesystem.hpp"
 #include "../instance.hpp"
 
+#include "pages/pages.hpp"
 #include "table/routing_table.hpp"
 
 namespace webserv {

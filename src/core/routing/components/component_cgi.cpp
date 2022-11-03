@@ -2,7 +2,6 @@
 #include "../../../http/proto/cgi_msg.hpp"
 #include "../../../http/handler/cgi_handler.hpp"
 
-#include "../cgi/cgi.hpp"
 #include "../pages/pages.hpp"
 
 #include "component_cgi.hpp"
