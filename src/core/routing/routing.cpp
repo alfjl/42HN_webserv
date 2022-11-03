@@ -17,7 +17,7 @@
 namespace webserv {
     namespace core {
 
-        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request), _component_http(*this), _component_cgi(*this) {
+        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request), _component_pages(*this), _component_http(*this), _component_cgi(*this) {
 
         }
 
@@ -49,14 +49,7 @@ namespace webserv {
         }
 
         void routing::error_page(unsigned int code) {
-            // TODO, FIXME, XXX: Watch out for recursion!
-            route* the_route = get_table().query_error_page(code);
-            if (the_route == NULL) {
-                error_code(get_response(), code);
-                get_response().write(*get_http_handler().get_connection());
-            } else {
-                follow_route(the_route);
-            }
+            get_component_pages().error_page(code);
         }
 
         void routing::look_up() {

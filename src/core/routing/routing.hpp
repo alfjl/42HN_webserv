@@ -11,6 +11,7 @@
 
 #include "table/routing_table.hpp"
 
+#include "components/component_pages.hpp"
 #include "components/component_http.hpp"
 #include "components/component_cgi.hpp"
 
@@ -26,6 +27,7 @@ namespace webserv {
             webserv::http::request&         _the_request;
             webserv::http::response_fixed   _the_response;
 
+            routing_component_pages         _component_pages;
             routing_component_http          _component_http;
             routing_component_cgi           _component_cgi;
         
@@ -39,6 +41,7 @@ namespace webserv {
             webserv::http::request&         get_request() { return _the_request; }
             webserv::http::response_fixed&  get_response() { return _the_response; }
 
+            routing_component_pages&        get_component_pages() { return _component_pages; }
             routing_component_http&         get_component_http() { return _component_http; }
             routing_component_cgi&          get_component_cgi()  { return _component_cgi;  }
 
@@ -52,9 +55,8 @@ namespace webserv {
 
             void error_page(unsigned int code);
 
-            void follow_route(route* route);
-
         public:
+            void follow_route(route* route);
             void look_up();
         };
 
