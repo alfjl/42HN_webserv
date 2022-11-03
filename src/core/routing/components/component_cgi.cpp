@@ -47,6 +47,11 @@ namespace webserv {
 
             }
 
+            void fail_with_error(unsigned int code) {
+                cgi.get_parent().get_component_pages().error_page(code);
+                cgi.get_response().write(*(cgi.get_http_handler().get_connection()));
+            }
+
             void setup_task_env() {
                 for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                     task.add_env(it->first + "=" + it->second);
@@ -83,16 +88,15 @@ namespace webserv {
                 return task.perform(ws);
             }
 
-            void pause_http_handler() { // TODO: Return a bool, let the error handling be done by the driver
+            bool pause_http_handler() {
                 webserv::http::cgi_handler* handler = cgi.get_instance().pass_cgi(cgi_out.out);
 
                 if (handler != NULL) {
                     handler->set_http_handler(&cgi.get_http_handler());
                     cgi.get_http_handler().fall_asleep();
-                } else {
-                    service_unavailable_503(cgi.get_response());  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-                    cgi.get_response().write(*(cgi.get_http_handler().get_connection()));
+                    return true;
                 }
+                return false;
             }
 
             void write_message() {
@@ -111,12 +115,15 @@ namespace webserv {
                 setup_task_env();
 
                 if (!(open_pipes() && fork_task())) {
-                    internal_server_error_500(cgi.get_response());
-                    cgi.get_response().write(*cgi.get_http_handler().get_connection());
+                    fail_with_error(500);
                     return;
                 }
 
-                pause_http_handler();
+                if (!pause_http_handler()) {
+                    fail_with_error(503);
+                    return;
+                }
+
                 write_message();
                 close_pipes();
             }
@@ -137,7 +144,7 @@ namespace webserv {
             if (executor.enabled()) task.add_arg(cgi_path);
 
             cgi_call call(*this, cgi_msg, task);
-            
+
             call.run();
         }
 
