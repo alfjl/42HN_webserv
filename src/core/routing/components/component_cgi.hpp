@@ -14,7 +14,7 @@ namespace webserv {
         public:
             routing_component_cgi(routing& routing);
 
-            void handle_cgi(route& route);
+            void handle_cgi(cgi_route& route);
         };
 
     }
