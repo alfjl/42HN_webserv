@@ -25,6 +25,26 @@ namespace webserv {
             }
         };
 
+
+        class cgi_call {
+            routing_component_cgi&       cgi;
+            webserv::http::cgi_message&  cgi_msg;
+            cgi_fork_task&               task;
+
+
+        public:
+            cgi_call(routing_component_cgi& _cgi, webserv::http::cgi_message& _cgi_msg, cgi_fork_task& _task) : cgi(_cgi), cgi_msg(_cgi_msg), task(_task) {
+
+            }
+
+            void setup_env() {
+                for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
+                    task.add_env(it->first + "=" + it->second);
+            }
+            
+        };
+
+
         /*
          * Wraps the fork() and execve() calls,
          * and takes care of closing the correct file descriptors
@@ -138,8 +158,7 @@ namespace webserv {
             cgi_fork_task task(executor.enabled() ? executor.value() : cgi_path);
             if (executor.enabled()) task.add_arg(cgi_path);
 
-            for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
-                task.add_env(it->first + "=" + it->second);
+            cgi_call call(*this, cgi_msg, task);
 
             handle_cgi_pipes(*this, task, cgi_msg);
         }
