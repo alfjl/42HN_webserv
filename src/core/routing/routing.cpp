@@ -33,8 +33,8 @@ namespace webserv {
             }
         };
 
-        routing::routing(instance& the_inst) : component(the_inst) {
-            
+        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request) {
+
         }
 
         routing::~routing() {

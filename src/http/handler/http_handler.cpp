@@ -109,7 +109,7 @@ namespace webserv {
                     }
 
             void http_handler::process_request() {
-                webserv::core::routing routing(get_instance());
+                webserv::core::routing routing(get_instance(), *this, _the_request);
                 routing.look_up(_the_request, this);
             }
 

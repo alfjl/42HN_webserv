@@ -19,9 +19,16 @@ namespace webserv {
         class   selector;
 
         class routing : public component {
+            webserv::http::http_handler&    _the_http_handler;
+            webserv::http::request&         _the_request;
+            webserv::http::response_fixed   _the_response;
+
+            webserv::http::http_handler&    get_http_handler();
+            webserv::http::request&         get_request();
+            webserv::http::response_fixed&  get_response();
 
         public:
-            routing(instance& the_inst);
+            routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
             ~routing();
 
             routing_table& get_table();
