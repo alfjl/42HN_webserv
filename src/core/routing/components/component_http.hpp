@@ -10,9 +10,9 @@ namespace webserv {
 
         class routing;
 
-        class routing_component_get : public routing_component {
+        class routing_component_http : public routing_component {
         public:
-            routing_component_get(routing& routing);
+            routing_component_http(routing& routing);
 
             void handle_get(route& route);
         };

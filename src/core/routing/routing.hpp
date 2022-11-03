@@ -26,7 +26,7 @@ namespace webserv {
             webserv::http::request&         _the_request;
             webserv::http::response_fixed   _the_response;
 
-            routing_component_get           _component_get;
+            routing_component_http          _component_http;
             routing_component_cgi           _component_cgi;
         
         public:
@@ -34,8 +34,8 @@ namespace webserv {
             webserv::http::request&         get_request() { return _the_request; }
             webserv::http::response_fixed&  get_response() { return _the_response; }
 
-            routing_component_get&          get_component_get() { return _component_get; }
-            routing_component_cgi&          get_component_cgi() { return _component_cgi; }
+            routing_component_http&         get_component_http() { return _component_http; }
+            routing_component_cgi&          get_component_cgi()  { return _component_cgi;  }
 
         public:
             routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);

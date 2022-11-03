@@ -9,11 +9,11 @@
 namespace webserv {
     namespace core {
 
-        routing_component_get::routing_component_get(routing& routing) : routing_component(routing) {
+        routing_component_http::routing_component_http(routing& routing) : routing_component(routing) {
             
         }
 
-        void routing_component_get::handle_get(route& route) {
+        void routing_component_http::handle_get(route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
                     

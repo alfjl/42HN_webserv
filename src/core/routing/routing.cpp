@@ -17,7 +17,7 @@
 namespace webserv {
     namespace core {
 
-        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request), _component_get(*this), _component_cgi(*this) {
+        routing::routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request) : instance_component(the_inst), _the_http_handler(the_http_handler), _the_request(the_request), _component_http(*this), _component_cgi(*this) {
 
         }
 
@@ -83,7 +83,7 @@ namespace webserv {
         }
 
         void routing::handle_http_get(route& route) {
-            get_component_get().handle_get(route);
+            get_component_http().handle_get(route);
         }
 
         void routing::set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response) {
