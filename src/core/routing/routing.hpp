@@ -11,6 +11,8 @@
 
 #include "table/routing_table.hpp"
 
+#include "components/component_get.hpp"
+
 namespace webserv {
     namespace http { class http_handler; }
 
@@ -18,14 +20,19 @@ namespace webserv {
 
         class   selector;
 
-        class routing : public component {
+        class routing : public instance_component {
             webserv::http::http_handler&    _the_http_handler;
             webserv::http::request&         _the_request;
             webserv::http::response_fixed   _the_response;
 
+            routing_component_get           _component_get;
+        
+        public:
             webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
             webserv::http::request&         get_request() { return _the_request; }
             webserv::http::response_fixed&  get_response() { return _the_response; }
+
+            routing_component_get&          get_component_get() { return _component_get; }
 
         public:
             routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);

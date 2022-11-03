@@ -3,7 +3,7 @@
 namespace webserv {
     namespace core {
 
-        driver::driver(instance& the_inst) : component(the_inst) {
+        driver::driver(instance& the_inst) : instance_component(the_inst) {
             selector.set_driver(this);
         }
 

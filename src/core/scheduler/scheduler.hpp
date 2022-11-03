@@ -13,7 +13,7 @@ namespace webserv {
     
     namespace core {
 
-        class scheduler : public component {
+        class scheduler : public instance_component {
         private:
             std::vector<webserv::util::state_machine_base*> handlers;
             std::queue<webserv::util::state_machine_base*> handlers_to_add;

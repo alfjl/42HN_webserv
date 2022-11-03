@@ -12,7 +12,7 @@ namespace webserv {
             component(T& _the_inst) : the_inst(_the_inst) {}
             ~component() {}
 
-            T& get_instance() { return the_inst; }
+            T& get_parent() { return the_inst; }
         };
 
     }

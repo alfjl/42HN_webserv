@@ -3,6 +3,8 @@
 
 #include "component.hpp"
 
+#include "../table/route.hpp"
+
 namespace webserv {
     namespace core {
 
@@ -11,6 +13,8 @@ namespace webserv {
         class routing_component_get : public routing_component {
         public:
             routing_component_get(routing& routing);
+
+            void handle_get(route& route);
         };
 
     }
