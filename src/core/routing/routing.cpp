@@ -66,9 +66,9 @@ namespace webserv {
                 delete the_route;
                 return; // Invisible yield
             } else if (the_route->is_redirection()) {
-                error_page(response, request, the_http_handler, 302);
+                temporary_redirect_302(response, the_route->get_file_target());
             } else if (the_route->is_permanent_redirection()) {
-                error_page(response, request, the_http_handler, 301);
+                permanent_redirect_301(response, the_route->get_file_target());
             } else if (the_route->is_error(code)) {
                 delete the_route;
                 error_page(response, request, the_http_handler, code);
@@ -77,13 +77,13 @@ namespace webserv {
                 error_page(response, request, the_http_handler, 413);
             } else {
                 switch (request.get_line().get_method()) {
-                    case webserv::http::http_method_head: { handle_http_head(response, request, *the_route, the_http_handler); break; }
-                    case webserv::http::http_method_get: { handle_http_get(response, request, *the_route, the_http_handler); break; }
+                    case webserv::http::http_method_head: { handle_http_head(response, request, *the_route); break; }
+                    case webserv::http::http_method_get: { handle_http_get(response, request, *the_route); break; }
                     case webserv::http::http_method_put:
-                    case webserv::http::http_method_post: { handle_http_post(response, request, *the_route, the_http_handler); break; }
-                    case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route, the_http_handler); break; }
+                    case webserv::http::http_method_post: { handle_http_post(response, request, *the_route); break; }
+                    case webserv::http::http_method_delete: { handle_http_delete(response, request, *the_route); break; }
                     default: {
-                        error_page(response, request, the_http_handler, 418);
+                        teapot_418(response);
                         break;
                     }
                 }
@@ -93,12 +93,12 @@ namespace webserv {
             response.write(*the_http_handler->get_connection());
         }
 
-        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler) {
-            handle_http_get(response, request, route, the_http_handler);
+        void routing::handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
+            handle_http_get(response, request, route);
             response.block_body();
         }
 
-        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             (void) request;
 
             webserv::util::path file_path = route.get_file_target();
@@ -111,13 +111,13 @@ namespace webserv {
                     if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream))
                         file_listing(response, file_path + route.get_added_path().value(), &stream);
                     else
-                        error_page(response, request, the_http_handler, 500);
+                        internal_server_error_500(response);
                 } else
-                    error_page(response, request, the_http_handler, 404);
+                    not_found_404(response);
             } else if (get_instance().get_fs().open(file_path, stream)) {
                 file_listing(response, file_path, &stream);
             } else {
-                error_page(response, request, the_http_handler, 404);
+                not_found_404(response);
             }
         }
 
@@ -130,36 +130,36 @@ namespace webserv {
                 response.set_code(201);
         }
 
-        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler) {
+        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request) {
              std::ofstream outfile;
 
             if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
                 outfile << request.get_body().c_str();
 
                 if (!outfile.good())
-                    error_page(response, request, the_http_handler, 500); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
                 outfile.close();
 
                 response.set_html_body(request.get_body());
             } else {
-                error_page(response, request, the_http_handler, 500); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
             }
         }
 
-        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             webserv::util::path file_path = route.get_file_target();
 
             set_response_code(file_path, response);
             
             if (get_instance().get_fs().is_directory(file_path)) {
                 // TODO: This code exists merely to satisfy the second test case in the tester.
-                error_page(response, request, the_http_handler, 405);
+                method_not_allowed_405(response);
             } else {
-                get_request_body(file_path, response, request, the_http_handler);
+                get_request_body(file_path, response, request);
             }
         }
 
-        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler) {
+        void routing::handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route) {
             (void) request;
             
             webserv::util::path file_path = route.get_file_target();
@@ -171,7 +171,7 @@ namespace webserv {
             } else if ((get_instance().get_fs().del(file_path))) {
                 set_delete_response(response);
             } else {
-                error_page(response, request, the_http_handler, 404);
+                not_found_404(response);
             }
         }
 
@@ -228,19 +228,19 @@ namespace webserv {
             cgi_msg.write_on(o, cgi_out.out);
         }
 
-        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {
+        void routing::put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out) {
             webserv::http::cgi_handler* handler = get_instance().pass_cgi(cgi_out.out);
 
             if (handler != NULL) {
                 handler->set_http_handler(the_http_handler);
                 the_http_handler->fall_asleep();
             } else {
-                error_page(response, request, the_http_handler, 503);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
+                service_unavailable_503(response);  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
                 response.write(*the_http_handler->get_connection());
             }
         }
 
-        void routing::handle_cgi_pipes(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, webserv::core::cgi_fork_task& task, webserv::http::cgi_message& cgi_msg) {
+        void handle_cgi_pipes(webserv::core::routing& it, webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::core::cgi_fork_task& task, webserv::http::cgi_message& cgi_msg) {
             webserv::pal::fork::wait_set  ws;
             webserv::pal::fs::easypipe    cgi_in;
             webserv::pal::fs::easypipe    cgi_out;
@@ -250,7 +250,7 @@ namespace webserv {
              * Then run the task.
              */
             if (!(prepare_pipes(&cgi_in, &cgi_out) && run_task(cgi_in, cgi_out, task, ws, cgi_msg))) {
-                error_page(response, request, the_http_handler, 500);
+                internal_server_error_500(response);
                 response.write(*the_http_handler->get_connection());
                 return;
             }
@@ -259,7 +259,7 @@ namespace webserv {
              * Since the CGI must run, we put the HTTP handler to sleep. 
              * It will be woken up by the terminating CGI handler.
              */
-            put_http_handler_to_sleep(response, request, the_http_handler, cgi_out);
+            it.put_http_handler_to_sleep(response, the_http_handler, cgi_out);
 
             /*
              * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task.
@@ -289,7 +289,7 @@ namespace webserv {
             for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
                 task.add_env(it->first + "=" + it->second);
 
-            handle_cgi_pipes(response, request, the_http_handler, task, cgi_msg);
+            handle_cgi_pipes(*this, response, the_http_handler, task, cgi_msg);
         }
 
         void routing::look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler) {

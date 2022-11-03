@@ -12,13 +12,11 @@
 #include "table/routing_table.hpp"
 
 namespace webserv {
-    namespace http { class http_handler; class cgi_message; }
+    namespace http { class http_handler; }
 
     namespace core {
 
         class   selector;
-
-        class   cgi_fork_task;
 
         class routing : public component {
             webserv::core::routing_table table;
@@ -33,22 +31,21 @@ namespace webserv {
 
             void tick();
 
-            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
+            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
             
         protected:
             void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
             void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
 
-            void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler);
-            void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler);
-            void handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler);
-            void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route, webserv::http::http_handler* the_http_handler);
+            void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
+            void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
+            void handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
+            void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
 
             void handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* route, webserv::http::http_handler* the_http_handler);
-            void handle_cgi_pipes(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, webserv::core::cgi_fork_task& task, webserv::http::cgi_message& cgi_msg);
 
             void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response);
-            void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler);
+            void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request);
         };
 
     }
