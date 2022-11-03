@@ -85,42 +85,8 @@ namespace webserv {
             get_component_http().handle_get(route);
         }
 
-        void routing::set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response) {
-            int status = get_instance().get_fs().accessible(file_path);
-
-            if (status == 0)
-                response.set_code(200);
-            else
-                response.set_code(201);
-        }
-
-        void routing::get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request) {
-             std::ofstream outfile;
-
-            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
-                outfile << request.get_body().c_str();
-
-                if (!outfile.good())
-                    internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-                outfile.close();
-
-                response.set_html_body(request.get_body());
-            } else {
-                internal_server_error_500(response); // if file couldn't be opened/constructed TODO: check against nginx/tester
-            }
-        }
-
         void routing::handle_http_post(route& route) {
-            webserv::util::path file_path = route.get_file_target();
-
-            set_response_code(file_path, get_response());
-            
-            if (get_instance().get_fs().is_directory(file_path)) {
-                // TODO: This code exists merely to satisfy the second test case in the tester.
-                method_not_allowed_405(get_response());
-            } else {
-                get_request_body(file_path, get_response(), get_request());
-            }
+            get_component_http().handle_post(route);
         }
 
         void routing::handle_http_delete(route& route) {
