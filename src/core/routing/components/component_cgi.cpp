@@ -25,104 +25,109 @@ namespace webserv {
             }
         };
 
-        /*
-         * Wraps the fork() and execve() calls,
-         * and takes care of closing the correct file descriptors
-         */
-        static bool run_task(webserv::pal::fs::easypipe      cgi_in,
-                             webserv::pal::fs::easypipe      cgi_out,
-                             webserv::pal::fork::fork_task&  task,
-                             webserv::pal::fork::wait_set&   ws,
-                             webserv::http::cgi_message&     cgi) {
+
+        class cgi_call {
             /*
-             * Add the file descriptors to be closed on fork()
+             * Arguments given to us
              */
-            task.close_on_fork(cgi_in.in);
-            task.close_on_fork(cgi_out.out);
+            routing_component_cgi&        cgi;
+            webserv::http::cgi_message&   cgi_msg;
+            cgi_fork_task&                task;
 
             /*
-             * Communicate input and output to task
+             * Our own locals
              */
-            task.io_to(cgi_in.out, cgi_out.in);
-            cgi.put_fields_into_task(task);
-
-            /*
-             * Fork off!
-             */
-            return task.perform(ws);
-        }
-
-        /*
-         * Opens 2 pipes. One for the input into the cgi,
-         * and one for the output of the cgi 
-         */
-        static bool prepare_pipes(webserv::pal::fs::easypipe* cgi_in, webserv::pal::fs::easypipe* cgi_out) {
-            if (!webserv::pal::fork::safe_pipe(&(cgi_in->in), &(cgi_in->out))) { // TODO: Is there a better notation instead of '&(pointer->int)'
-                return false;
-            }
-            if (!webserv::pal::fork::safe_pipe(&(cgi_out->in), &(cgi_out->out))) {
-                webserv::pal::fs::close(cgi_in->in);
-                webserv::pal::fs::close(cgi_in->out);
-                return false;
-            }
-            return true;
-        }
-
-        static void put_http_handler_to_sleep(routing_component_cgi& cgi, webserv::pal::fs::easypipe& cgi_out) {
-            webserv::http::cgi_handler* handler = cgi.get_instance().pass_cgi(cgi_out.out);
-
-            if (handler != NULL) {
-                handler->set_http_handler(&cgi.get_http_handler());
-                cgi.get_http_handler().fall_asleep();
-            } else {
-                service_unavailable_503(cgi.get_response());  // TODO: Avoid the "return" in look_up: Call response->write() and give it a chance to write it out by itself
-                cgi.get_response().write(*(cgi.get_http_handler().get_connection()));
-            }
-        }
-
-        /*
-         * Attaches the input of cgi_in to an ostream,
-         * and writes the cgi message_body to this stream 
-         */
-        static void handle_cgi_message_in(webserv::pal::fs::easypipe cgi_in, webserv::pal::fs::easypipe cgi_out, webserv::http::cgi_message& cgi_msg) {
-            webserv::util::ofdflow ofd(cgi_in.in);
-            std::ostream o(&ofd);
-            cgi_msg.write_on(o, cgi_out.out);
-        }
-
-        static void handle_cgi_pipes(webserv::core::routing_component_cgi& cgi, webserv::core::cgi_fork_task& task, webserv::http::cgi_message& cgi_msg) {
             webserv::pal::fork::wait_set  ws;
             webserv::pal::fs::easypipe    cgi_in;
             webserv::pal::fs::easypipe    cgi_out;
 
-            /*
-             * Open 2 pipes. One for input to cgi and one for output of cgi.
-             * Then run the task.
-             */
-            if (!(prepare_pipes(&cgi_in, &cgi_out) && run_task(cgi_in, cgi_out, task, ws, cgi_msg))) {
-                internal_server_error_500(cgi.get_response());
-                cgi.get_response().write(*cgi.get_http_handler().get_connection());
-                return;
+
+        public:
+            cgi_call(routing_component_cgi& _cgi, webserv::http::cgi_message& _cgi_msg, cgi_fork_task& _task) : cgi(_cgi), cgi_msg(_cgi_msg), task(_task) {
+
             }
 
-            /*
-             * Since the CGI must run, we put the HTTP handler to sleep. 
-             * It will be woken up by the terminating CGI handler.
-             */
-            put_http_handler_to_sleep(cgi, cgi_out);
+            void fail_with_error(unsigned int code) {
+                cgi.get_parent().get_component_pages().error_page(code);
+                cgi.get_response().write(*(cgi.get_http_handler().get_connection()));
+            }
 
-            /*
-             * Attach ostream to pipe (cgi_in.in) / cgi_in.out stays input of fork_task.
-             */
-            handle_cgi_message_in(cgi_in, cgi_out, cgi_msg);
+            void setup_task_env() {
+                for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
+                    task.add_env(it->first + "=" + it->second);
+            }
 
-            /*
-             * Close all open FDs.
-             */
-            webserv::pal::fs::close(cgi_in.in);
-            webserv::pal::fs::close(cgi_in.out);
-            webserv::pal::fs::close(cgi_out.in);
-        }
+            bool open_pipes() {
+                if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) { // TODO: Is there a better notation instead of '&(pointer->int)' -> Yes, convert to references
+                    return false;
+                }
+                if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
+                    webserv::pal::fs::close(cgi_in.in);
+                    webserv::pal::fs::close(cgi_in.out);
+                    return false;
+                }
+                return true;
+            }
+
+            bool fork_task() {
+                /*
+                 * Add the file descriptors to be closed on fork()
+                 */
+                task.close_on_fork(cgi_in.in);
+                task.close_on_fork(cgi_out.out);
+
+                /*
+                 * Communicate input and output to task
+                 */
+                task.io_to(cgi_in.out, cgi_out.in);
+                cgi_msg.put_fields_into_task(task);
+
+                /*
+                 * Fork off!
+                 */
+                return task.perform(ws);
+            }
+
+            bool pause_http_handler() {
+                webserv::http::cgi_handler* handler = cgi.get_instance().pass_cgi(cgi_out.out);
+
+                if (handler != NULL) {
+                    handler->set_http_handler(&cgi.get_http_handler());
+                    cgi.get_http_handler().fall_asleep();
+                    return true;
+                }
+                return false;
+            }
+
+            void write_message() {
+                webserv::util::ofdflow ofd(cgi_in.in);
+                std::ostream o(&ofd);
+                cgi_msg.write_on(o, cgi_out.out);
+            }
+
+            void close_pipes() {
+                webserv::pal::fs::close(cgi_in.in);
+                webserv::pal::fs::close(cgi_in.out);
+                webserv::pal::fs::close(cgi_out.in);
+            }
+            
+            void run() {
+                setup_task_env();
+
+                if (!(open_pipes() && fork_task())) {
+                    fail_with_error(500);
+                    return;
+                }
+
+                if (!pause_http_handler()) {
+                    fail_with_error(503);
+                    return;
+                }
+
+                write_message();
+                close_pipes();
+            }
+        };
 
 
         routing_component_cgi::routing_component_cgi(routing& routing) : routing_component(routing) {
@@ -138,10 +143,9 @@ namespace webserv {
             cgi_fork_task task(executor.enabled() ? executor.value() : cgi_path);
             if (executor.enabled()) task.add_arg(cgi_path);
 
-            for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
-                task.add_env(it->first + "=" + it->second);
+            cgi_call call(*this, cgi_msg, task);
 
-            handle_cgi_pipes(*this, task, cgi_msg);
+            call.run();
         }
 
     }

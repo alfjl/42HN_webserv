@@ -155,6 +155,7 @@ namespace webserv {
 						skip_whitespace();
 						error_code.enable(expect_uint());
 					} else if (checks("redirection")) {
+						is_redir = true;
 						expects("to");
 						resolved_path = expect_path();
 					} else if (checks("cgi")) {
@@ -239,7 +240,12 @@ namespace webserv {
 				} else if (checks("location")) {
 					parse_location(webserv::util::path());
 					continue ;
-				} 
+				} else if (checks("error_page")) {
+					skip_whitespace();
+					unsigned int code = expect_uint();
+					webserv::util::path path = expect_path();
+					_instance->get_routing_table().add_default_error_page(code, new webserv::core::file_route(path));
+				}
 				expect_terminator();
 			}
 		}

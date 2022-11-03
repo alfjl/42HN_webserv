@@ -23,6 +23,8 @@ namespace webserv {
         class   selector;
 
         class routing : public instance_component {
+            unsigned int                    _recursion_count;
+
             webserv::http::http_handler&    _the_http_handler;
             webserv::http::request&         _the_request;
             webserv::http::response_fixed   _the_response;
@@ -36,6 +38,8 @@ namespace webserv {
             ~routing();
 
             routing_table& get_table();
+
+            unsigned int   get_recursion_count();
             
             webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
             webserv::http::request&         get_request() { return _the_request; }
@@ -54,6 +58,8 @@ namespace webserv {
             void handle_cgi(cgi_route* route);
 
             void error_page(unsigned int code);
+
+            void _follow_route(route* route);
 
         public:
             void follow_route(route* route);
