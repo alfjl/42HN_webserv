@@ -21,6 +21,10 @@ all: $(EXECUTABLE)
 
 .phony: run
 run: all
+	$(EXECUTABLE) ../configs/basic.conf
+
+.phony: eval
+eval: all
 	$(EXECUTABLE) ../configs/eval.conf
 
 .phony: debug
