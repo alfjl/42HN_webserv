@@ -27,6 +27,27 @@ namespace webserv {
 
         routing_table& routing::get_table() { return get_instance().get_routing_table(); }
 
+
+        void routing::handle_http_head(route& route) {
+            get_component_http().handle_head(route);
+        }
+
+        void routing::handle_http_get(route& route) {
+            get_component_http().handle_get(route);
+        }
+
+        void routing::handle_http_post(route& route) {
+            get_component_http().handle_post(route);
+        }
+
+        void routing::handle_http_delete(route& route) {
+            get_component_http().handle_delete(route);
+        }
+        
+        void routing::handle_cgi(cgi_route* the_route) {
+            get_component_cgi().handle_cgi(*the_route);
+        }
+
         void routing::error_page(unsigned int code) {
             // TODO, FIXME, XXX: Watch out for recursion!
             route* the_route = get_table().query_error_page(code);
@@ -36,6 +57,12 @@ namespace webserv {
             } else {
                 follow_route(the_route);
             }
+        }
+
+        void routing::look_up() {
+            route* the_route = get_table().query(get_request().get_line().get_uri().get_path());
+
+            follow_route(the_route);
         }
 
         void routing::follow_route(route* the_route) {
@@ -75,35 +102,6 @@ namespace webserv {
 
             delete the_route;
             get_response().write(*get_http_handler().get_connection());
-        }
-
-        void routing::handle_http_head(route& route) {
-            get_component_http().handle_head(route);
-        }
-
-        void routing::handle_http_get(route& route) {
-            get_component_http().handle_get(route);
-        }
-
-        void routing::handle_http_post(route& route) {
-            get_component_http().handle_post(route);
-        }
-
-        void routing::handle_http_delete(route& route) {
-            get_component_http().handle_delete(route);
-        }
-
-        /*
-         * Hands the request body over to the cgi and accepts the cgi's output as the response body 
-         */
-        void routing::handle_cgi(cgi_route* the_route) {
-            get_component_cgi().handle_cgi(*the_route);
-        }
-
-        void routing::look_up() {
-            route* the_route = get_table().query(get_request().get_line().get_uri().get_path());
-
-            follow_route(the_route);
         }
 
     }
