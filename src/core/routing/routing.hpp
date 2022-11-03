@@ -44,8 +44,6 @@ namespace webserv {
             routing_table& get_table();
 
             void look_up();
-
-            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
             
         protected:
             void error_page(unsigned int code);
