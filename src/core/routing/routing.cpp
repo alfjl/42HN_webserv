@@ -43,13 +43,12 @@ namespace webserv {
 
         routing_table& routing::get_table() { return get_instance().get_routing_table(); }
 
-        void routing::error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code) {
-            (void) request;
+        void routing::error_page(unsigned int code) {
             // TODO, FIXME, XXX: Watch out for recursion!
             route* the_route = get_table().query_error_page(code);
             if (the_route == NULL) {
-                error_code(response, code);
-                response.write(*the_http_handler->get_connection());
+                error_code(get_response(), code);
+                get_response().write(*get_http_handler().get_connection());
             } else {
                 follow_route(the_route);
             }
@@ -60,7 +59,7 @@ namespace webserv {
 
             if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
                 delete the_route;
-                error_page(get_response(), get_request(), &get_http_handler(), 405);
+                error_page(405);
                 return;
             } else if (the_route->is_cgi()) { // TODO: Does this always return false?
                 handle_cgi(get_response(), get_request(), (cgi_route*) the_route, &get_http_handler());
@@ -72,10 +71,10 @@ namespace webserv {
                 permanent_redirect_301(get_response(), the_route->get_file_target());
             } else if (the_route->is_error(code)) {
                 delete the_route;
-                error_page(get_response(), get_request(), &get_http_handler(), code);
+                error_page(code);
                 return;
             } else if (the_route->get_max_body().enabled() && get_request().get_body().size() > the_route->get_max_body().value()) {
-                error_page(get_response(), get_request(), &get_http_handler(), 413);
+                error_page(413);
             } else {
                 switch (get_request().get_line().get_method()) {
                     case webserv::http::http_method_head: { handle_http_head(get_response(), get_request(), *the_route); break; }

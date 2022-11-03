@@ -38,7 +38,7 @@ namespace webserv {
             void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
             
         protected:
-            void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
+            void error_page(unsigned int code);
             void follow_route(route* route);
 
             void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
