@@ -6,7 +6,7 @@
 namespace webserv {
 	namespace core {
 
-		filesystem::filesystem(instance& the_inst) : component(the_inst){
+		filesystem::filesystem(instance& the_inst) : instance_component(the_inst) {
 
 		}
 

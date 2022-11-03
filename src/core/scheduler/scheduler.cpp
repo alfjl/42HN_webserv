@@ -6,7 +6,7 @@
 namespace webserv {
     namespace core {
 
-        scheduler::scheduler(instance& the_inst) : component(the_inst) {
+        scheduler::scheduler(instance& the_inst) : instance_component(the_inst) {
 
         }
 
@@ -18,8 +18,8 @@ namespace webserv {
             return !(handlers.empty() && handlers_to_add.empty());
         }
 
-        void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::routing& routing) {
-            webserv::http::http_handler* handler = new webserv::http::http_handler(new_connection, routing);
+        void scheduler::register_connection(webserv::util::connection* new_connection, webserv::core::instance& instance) {
+            webserv::http::http_handler* handler = new webserv::http::http_handler(new_connection, instance);
             handlers.push_back(handler);
             handler->increment_refcount();
         }

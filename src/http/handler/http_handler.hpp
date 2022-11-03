@@ -12,8 +12,8 @@ namespace webserv {
     namespace http {
 
         class http_handler : public basic_handler {
-            webserv::core::routing& _routing;
-            request                 _the_request;
+            webserv::core::instance& _instance;
+            request                  _the_request;
 
         public:
             /*
@@ -22,11 +22,11 @@ namespace webserv {
              *
              */
 
-            http_handler(webserv::util::connection* new_connection, webserv::core::routing& routing);
+            http_handler(webserv::util::connection* new_connection, webserv::core::instance& instance);
 
             ~http_handler();
 
-            webserv::core::routing& get_routing();
+            webserv::core::instance& get_instance();
 
 
             /*

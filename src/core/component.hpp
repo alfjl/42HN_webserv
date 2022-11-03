@@ -2,22 +2,19 @@
 #define WEBSERV_CORE_COMPONENT_HPP
 
 #include "../defs.hpp"
+#include "../util/component.hpp"
 
 namespace webserv {
     namespace core {
 
         class instance;
 
-        class component {
-            instance& the_inst;
-
+        class instance_component : public webserv::util::component<instance> {
         public:
-            component(instance& _the_inst);
-            ~component();
+            instance_component(instance& the_instance) : component(the_instance) {}
 
-            instance& get_instance() { return the_inst; }
+            instance& get_instance() { return get_parent(); }
         };
-
     }
 }
 

@@ -10,7 +10,7 @@
 namespace webserv {
 	namespace core {
 
-		class filesystem : public component {
+		class filesystem : public instance_component {
             webserv::pal::cpp::optional<webserv::util::path> _anchor;
 
 			std::string add_anchor(webserv::util::path path);

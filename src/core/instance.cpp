@@ -5,7 +5,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _routing(*this), _fs(*this), _max_len() {
+        instance::instance() : _driver(*this), _scheduler(*this), _fs(*this), _max_len() {
             
         }
 
@@ -22,7 +22,7 @@ namespace webserv {
         }
 
         void instance::pass_connection(webserv::util::connection* new_connection) {
-            _scheduler.register_connection(new_connection, _routing);
+            _scheduler.register_connection(new_connection, *this);
         }
 
         webserv::http::cgi_handler*  instance::pass_cgi(int cgi_fd) {
@@ -31,7 +31,6 @@ namespace webserv {
         }
 
         void instance::tick() {
-            _routing.tick();
             _driver.tick();
             _scheduler.tick();
         }

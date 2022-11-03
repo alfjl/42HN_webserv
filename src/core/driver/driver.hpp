@@ -11,7 +11,7 @@ namespace webserv {
 
         class   selector;
 
-        class driver : public component {
+        class driver : public instance_component {
             webserv::pal::net::selector selector;
         
         public:

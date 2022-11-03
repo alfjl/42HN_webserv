@@ -11,6 +11,10 @@
 
 #include "table/routing_table.hpp"
 
+#include "components/component_pages.hpp"
+#include "components/component_http.hpp"
+#include "components/component_cgi.hpp"
+
 namespace webserv {
     namespace http { class http_handler; }
 
@@ -18,34 +22,42 @@ namespace webserv {
 
         class   selector;
 
-        class routing : public component {
-            webserv::core::routing_table table;
+        class routing : public instance_component {
+            webserv::http::http_handler&    _the_http_handler;
+            webserv::http::request&         _the_request;
+            webserv::http::response_fixed   _the_response;
 
+            routing_component_pages         _component_pages;
+            routing_component_http          _component_http;
+            routing_component_cgi           _component_cgi;
+        
         public:
-            routing(instance& the_inst);
+            routing(instance& the_inst, webserv::http::http_handler& the_http_handler, webserv::http::request& the_request);
             ~routing();
 
             routing_table& get_table();
-
-            void look_up(webserv::http::request& request, webserv::http::http_handler* the_http_handler);
-
-            void tick();
-
-            void put_http_handler_to_sleep(webserv::http::response_fixed& response, webserv::http::http_handler* the_http_handler, webserv::pal::fs::easypipe& cgi_out);
             
+            webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
+            webserv::http::request&         get_request() { return _the_request; }
+            webserv::http::response_fixed&  get_response() { return _the_response; }
+
+            routing_component_pages&        get_component_pages() { return _component_pages; }
+            routing_component_http&         get_component_http() { return _component_http; }
+            routing_component_cgi&          get_component_cgi()  { return _component_cgi;  }
+
         protected:
-            void error_page(webserv::http::response_fixed& response, webserv::http::request& request, webserv::http::http_handler* the_http_handler, unsigned int code);
-            void follow_route(webserv::http::response_fixed& response, webserv::http::request& request, route* route, webserv::http::http_handler* the_http_handler);
+            void handle_http_head(route& route);
+            void handle_http_get(route& route);
+            void handle_http_post(route& route);
+            void handle_http_delete(route& route);
 
-            void handle_http_head(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_get(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_post(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
-            void handle_http_delete(webserv::http::response_fixed& response, webserv::http::request& request, route& route);
+            void handle_cgi(cgi_route* route);
 
-            void handle_cgi(webserv::http::response_fixed& response, webserv::http::request& request, cgi_route* route, webserv::http::http_handler* the_http_handler);
+            void error_page(unsigned int code);
 
-            void set_response_code(webserv::util::path file_path, webserv::http::response_fixed& response);
-            void get_request_body(webserv::util::path file_path, webserv::http::response_fixed& response, webserv::http::request& request);
+        public:
+            void follow_route(route* route);
+            void look_up();
         };
 
     }
