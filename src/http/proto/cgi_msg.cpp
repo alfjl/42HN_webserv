@@ -1,6 +1,7 @@
-#include "cgi_msg.hpp"
-
+#include "../../core/webservs.hpp"
 #include "../../pal/fork/fork.hpp"
+
+#include "cgi_msg.hpp"
 
 namespace webserv {
     namespace http {
@@ -56,6 +57,10 @@ namespace webserv {
         void cgi_message::write_on(std::ostream& o, int infd) {
             (void) infd;
             for (unsigned int i = 0; i < _message_body.size(); i++) {
+                if (!get_current_instance().get_webservs().is_running()) {
+                    std::cout << "Oompah!" << std::endl;
+                }
+
                 if (i % 10000 == 0) {
                     get_current_instance().get_driver().tick();
                 }

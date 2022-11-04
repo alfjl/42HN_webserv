@@ -12,7 +12,6 @@ namespace webserv {
             bool                    _is_running;
         
             void tick();
-            bool is_running();
 
         public:
             webservs();
@@ -20,6 +19,7 @@ namespace webserv {
 
             instance* new_instance();
 
+            bool is_running();
             bool is_busy();
 
             void run();
