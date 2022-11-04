@@ -156,7 +156,7 @@ namespace webserv {
         }
 
         void basic_handler::total_failure() {
-            std::cout << "Total failure!" << std::endl;
+            std::cout << "Total failure!" << std::endl; // TODO: Still needed?
             later(&basic_handler::perform_abort);
         }
 

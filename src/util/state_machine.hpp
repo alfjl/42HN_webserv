@@ -33,8 +33,8 @@ namespace webserv {
         private:
             enum state_machine_status   status;
             //std::stack<state_function>  return_stack;
-            unsigned int                    sp;
-            state_function                  returns[1024];
+            unsigned int                sp;
+            state_function              returns[1024];
 
         public:
             virtual void start() = 0;

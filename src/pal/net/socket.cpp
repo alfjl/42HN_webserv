@@ -35,12 +35,9 @@ namespace webserv {
              * Throws an exception if fcntl() encounters an error
              */
             void socket::set_non_blocking() {
-                int flags = fcntl(fd, F_GETFL, 0);
-                if (flags == -1)
-                    throw std::runtime_error("fcntl(fd, F_GETFL, 0) returned an error code!");
-                int status = fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+                int status = fcntl(fd, F_SETFL, O_NONBLOCK);
                 if (status == -1)
-                    throw std::runtime_error("fcntl(fd, F_SETFL, flags | O_NONBLOCK) returned an error code!");
+                    throw std::runtime_error("fcntl(fd, F_SETFL, O_NONBLOCK) returned an error code!");
                 // TODO: add setsockopt() for portability
             }
 
