@@ -22,7 +22,14 @@ namespace webserv {
         }
 
         bool fields::has(std::string key) const {
-            return _fields.find(key) != _fields.end();
+            std::string key_lower;
+            std::string::const_iterator it = key.begin();
+            std::string::const_iterator ite = key.end();
+
+            for (; it != ite; ++it)
+                key_lower += (_case_sensitive) ? (*it) : (::tolower(*it));
+            
+            return _fields.find(key_lower) != _fields.end();
         }
 
         std::string fields::get_or_default(std::string key, std::string deflt) const {

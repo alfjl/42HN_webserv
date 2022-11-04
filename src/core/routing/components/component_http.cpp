@@ -8,6 +8,17 @@
 namespace webserv {
     namespace core {
 
+        static std::string generate_cookie_string() {
+            std::string s;
+
+            for (int x = 0; x < 32; x++) {
+                s += "0123456789abcdef"[rand() % 16];
+            }
+
+            return s;
+        }
+
+
         routing_component_http::routing_component_http(routing& routing) : routing_component(routing) {
             
         }
@@ -21,6 +32,9 @@ namespace webserv {
         void routing_component_http::handle_get(route& route) {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
+
+            if (!get_parent().get_request().get_fields().has("Cookie"))
+                get_parent().get_response().set_field("Set-Cookie", generate_cookie_string());
                     
             if (get_instance().get_fs().is_directory(file_path)) {
                 if (route.is_directory_listing_on())
