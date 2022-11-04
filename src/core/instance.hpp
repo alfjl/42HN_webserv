@@ -8,6 +8,7 @@
 #include "scheduler/scheduler.hpp"
 #include "routing/routing.hpp"
 #include "filesystem/filesystem.hpp"
+#include "../http/handler/writing_handler.hpp"
 
 
 namespace webserv {
@@ -48,6 +49,7 @@ namespace webserv {
             routing_table& get_routing_table() { return _routing_table; }
             
             void pass_connection(webserv::util::connection* new_connection);
+            webserv::http::writing_handler*  pass_writing(std::string message_body, int cgi_fd);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
             bool is_busy();

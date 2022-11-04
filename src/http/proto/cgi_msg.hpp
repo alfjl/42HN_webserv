@@ -24,8 +24,9 @@ namespace webserv {
             cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated);
             ~cgi_message();
 
-            fields& get_fields();
+            fields&                  get_fields();
             webserv::core::instance& get_current_instance();
+            std::string              get_message_body();
 
             void setup_fields();
 

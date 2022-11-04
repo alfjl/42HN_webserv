@@ -34,6 +34,9 @@ namespace webserv {
 
         webserv::core::instance& cgi_message::get_current_instance() { return _current_instance; }
 
+        std::string cgi_message::get_message_body() { return _message_body; }
+
+
         void cgi_message::setup_fields() {
             // _fields.put("AUTH_TYPE", "");
             _fields.put("CONTENT_LENGTH", (int) _message_body.size());
@@ -54,19 +57,19 @@ namespace webserv {
             _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // change to final name of our webserver
         }
 
-        void cgi_message::write_on(std::ostream& o, int infd) {
-            (void) infd;
-            for (unsigned int i = 0; i < _message_body.size(); i++) {
-                if (!get_current_instance().get_webservs().is_running()) {
-                    std::cout << "Oompah!" << std::endl;
-                }
+        // void cgi_message::write_on(std::ostream& o, int infd) {
+        //     (void) infd;
+        //     for (unsigned int i = 0; i < _message_body.size(); i++) {
+        //         if (!get_current_instance().get_webservs().is_running()) {
+        //             std::cout << "Oompah!" << std::endl;
+        //         }
 
-                if (i % 10000 == 0) {
-                    get_current_instance().get_driver().tick();
-                }
-                o << _message_body[i];
-            }
-        }
+        //         if (i % 10000 == 0) {
+        //             get_current_instance().get_driver().tick();
+        //         }
+        //         o << _message_body[i];
+        //     }
+        // }
 
         void cgi_message::put_fields_into_task(webserv::pal::fork::fork_task& task) {
             for (fields::const_iterator it = _fields.begin(); it != _fields.end(); ++it) {
