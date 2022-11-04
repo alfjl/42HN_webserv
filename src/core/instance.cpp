@@ -5,7 +5,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance() : _driver(*this), _scheduler(*this), _fs(*this), _max_len() {
+        instance::instance(webservs& webservs) : _webservs(webservs), _driver(*this), _scheduler(*this), _fs(*this), _max_len() {
             
         }
 
@@ -30,9 +30,13 @@ namespace webserv {
             return _scheduler.register_cgi_connection(connection);
         }
 
+        bool instance::is_busy() {
+            return get_scheduler().are_tasks_pending();
+        }
+
         void instance::tick() {
-            _driver.tick();
-            _scheduler.tick();
+            get_driver().tick();
+            get_scheduler().tick();
         }
 
         void instance::on_port(int port) {

@@ -16,9 +16,17 @@ namespace webserv {
         bool webservs::is_running() { return _is_running; }
 
         instance* webservs::new_instance() {
-            instance* i = new instance();
+            instance* i = new instance(*this);
             _instances.push_back(i);
             return i;
+        }
+
+        bool webservs::is_busy() {
+            for (std::vector<instance*>::const_iterator it = _instances.begin(); it != _instances.end(); ++it) {
+                if ((*it)->is_busy())
+                    return true;
+            }
+            return false;
         }
 
         void webservs::tick() {
