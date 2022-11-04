@@ -13,7 +13,6 @@ namespace webserv {
         }
 
         void routing_component_pages::error_page(unsigned int code) {
-            // TODO, FIXME, XXX: Watch out for recursion!
             route* the_route = get_parent().get_table().query_error_page(code);
             if (the_route == NULL || get_parent().get_recursion_count() >= 5) {
                 error_code(get_response(), code);
