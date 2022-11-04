@@ -1,4 +1,0 @@
-100 Continue
-101 Switching Protocol
-102 Processing
-103 Early Hints
