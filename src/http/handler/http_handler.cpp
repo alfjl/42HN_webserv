@@ -61,8 +61,10 @@ namespace webserv {
 
                         }
 
-                        if (!correct)
-                            later(&basic_handler::parse_error);
+                        if (!correct) {
+                            _the_request.get_line().get_method() = webserv::http::http_method__invalid;
+                            // later(&basic_handler::parse_error);
+                        }
                     }
 
                 void http_handler::read_body() {
