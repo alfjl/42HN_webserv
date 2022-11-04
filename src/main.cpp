@@ -7,7 +7,6 @@
 
 webserv::core::webservs  the_webserv;
 
-
 void webserver_signal_handler(int signal) {
     (void) signal;
     the_webserv.interrupt();
