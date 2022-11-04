@@ -1,3 +1,4 @@
+#include "../webservs.hpp"
 #include "../instance.hpp"
 
 #include "driver.hpp"
@@ -29,7 +30,7 @@ namespace webserv {
         }
 
         void driver::tick() {
-            selector.select(get_instance().get_scheduler().are_tasks_pending());
+            selector.select(get_instance().get_webservs().is_busy());
             selector.set_driver(this);
         }
 

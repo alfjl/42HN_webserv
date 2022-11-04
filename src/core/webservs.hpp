@@ -20,6 +20,8 @@ namespace webserv {
 
             instance* new_instance();
 
+            bool is_busy();
+
             void run();
 
             void interrupt();
