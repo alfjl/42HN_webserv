@@ -62,7 +62,11 @@ namespace webserv {
         void routing::_follow_route(route* the_route) {
             int code;
 
-            if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
+            if (get_request().get_line().get_method() == webserv::http::http_method__invalid) {
+                delete the_route;
+                error_page(400);
+                return;
+            } else if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
                 delete the_route;
                 error_page(405);
                 return;

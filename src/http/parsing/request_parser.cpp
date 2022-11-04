@@ -127,7 +127,7 @@ namespace webserv {
             else if (parser.checks("PUT"))    line.set_method(http_method_put);
             else if (parser.checks("DELETE")) line.set_method(http_method_delete);
             else if (parser.checks("HEAD"))   line.set_method(http_method_head);
-            else                              line.set_method(http_method__invalid);
+            else                              parser.parse_error("Expected a valid method!");
 
             parser.expect_space();
 
