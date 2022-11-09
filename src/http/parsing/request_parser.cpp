@@ -7,6 +7,37 @@
 namespace webserv {
     namespace http {
 
+        static bool is_hex(char c) {
+            return ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
+        }
+
+        static std::string replace_escapes(std::string text) {
+            std::string result;
+            for (unsigned int i = 0; i < text.size();) {
+                if (text[i] == '%') {
+                    int c = 0;
+                    i++;
+                    std::string num;
+                    while (i < text.size() && is_hex(text[i]) && c < 2) {
+                        num += text[i];
+                        i++;
+                        c++;
+                    }
+                    unsigned int v;
+                    if (webserv::pal::cpp::hex_string_to_uint(num, v) && v != 0) {
+                        result += (char) v;
+                    } else {
+                        result += '%';
+                        result += num;
+                    }
+                } else {
+                    result += text[i];
+                    i++;
+                }
+            }
+            return result;
+        }
+
         request_parser::request_parser(iflow& flow) : parser(flow) {
 
         }
@@ -52,7 +83,7 @@ namespace webserv {
                 else if (parser.check_noadvance('&')) break;
                 else word += parser.force_next_char();
             }
-            return word;
+            return replace_escapes(word);
         }
 
         static void parse_uri_field(request_parser& parser, fields& into) {
@@ -112,7 +143,7 @@ namespace webserv {
                     path += parser.force_next_char();
                 }
 
-                into.get_path() = webserv::util::path(path);
+                into.get_path() = webserv::util::path(replace_escapes(path));
             }
         }
 
