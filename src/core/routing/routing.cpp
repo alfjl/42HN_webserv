@@ -70,7 +70,7 @@ namespace webserv {
                 delete the_route;
                 error_page(405);
                 return;
-            } else if (the_route->is_cgi()) { // TODO: Does this always return false?
+            } else if (the_route->is_cgi()) {
                 handle_cgi((cgi_route*) the_route);
                 delete the_route;
                 return; // Invisible yield
