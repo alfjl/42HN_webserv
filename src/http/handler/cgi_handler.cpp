@@ -98,21 +98,6 @@ namespace webserv {
                                 // Do nothing!
                             } else
                                 later(&basic_handler::total_failure);
-
-
-                            // unsigned int hex;
-
-                            // if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
-                            //     if (hex == 0) {
-                            //         return;
-                            //     } else {
-                            //         _read_normal_body__expected_size = hex;
-                            //         later(&basic_handler::read_chunked_body__continue);
-                            //         later(&basic_handler::read_until_rn);
-                            //         later(&basic_handler::read_normal_body);
-                            //     }
-                            // } else
-                            //     later(&basic_handler::total_failure);
                         }
                 
                 void cgi_handler::pipe_body() {

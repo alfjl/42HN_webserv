@@ -39,19 +39,15 @@ namespace webserv {
          *
          */
         void basic_handler::read_next_char() {
-            if (in().has_next()) {
-                char c;
-                if (in().next_char(c)) {
-                    _last_char.enable(c);
-                    return;
-                }
-            }
-            if (_connection->is_closed()) {
+            char c;
+
+            if (in().has_next() && in().next_char(c))
+                _last_char.enable(c);
+            else if (_connection->is_closed())
                 _last_char.disable();
-            } else {
+            else {
                 later(&basic_handler::read_next_char);
                 yield();
-                return;
             }
         }
 
