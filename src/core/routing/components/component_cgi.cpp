@@ -52,11 +52,6 @@ namespace webserv {
                 cgi.get_response().write(*(cgi.get_http_handler().get_connection()));
             }
 
-            void setup_task_env() {
-                for (webserv::http::fields::const_iterator it = cgi_msg.get_fields().begin(); it != cgi_msg.get_fields().end(); ++it)
-                    task.add_env(it->first + "=" + it->second);
-            }
-
             bool open_pipes() {
                 if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
                     return false;
@@ -112,8 +107,6 @@ namespace webserv {
             }
             
             void run() {
-                setup_task_env();
-
                 if (!(open_pipes() && fork_task())) {
                     fail_with_error(500);
                     return;
