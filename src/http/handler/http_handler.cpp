@@ -91,19 +91,24 @@ namespace webserv {
                     }
 
                         void http_handler::read_chunked_body__parse_hex() {
-                            unsigned int hex;
-
-                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
-                                if (hex == 0) {
-                                    return;
-                                } else {
-                                    _read_normal_body__expected_size = hex;
-                                    later(&basic_handler::read_chunked_body__continue);
-                                    later(&basic_handler::read_until_rn);
-                                    later(&basic_handler::read_normal_body);
-                                }
+                            if (basic_handler::parse_hex()) {
+                                // Do nothing!
                             } else
                                 later(&basic_handler::parse_error);
+
+                            // unsigned int hex;
+
+                            // if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                            //     if (hex == 0) {
+                            //         return;
+                            //     } else {
+                            //         _read_normal_body__expected_size = hex;
+                            //         later(&basic_handler::read_chunked_body__continue);
+                            //         later(&basic_handler::read_until_rn);
+                            //         later(&basic_handler::read_normal_body);
+                            //     }
+                            // } else
+                            //     later(&basic_handler::parse_error);
                         }
 
                     void http_handler::parse_body() {
