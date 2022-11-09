@@ -60,7 +60,7 @@ namespace webserv {
         }
 
         void routing::_follow_route(route* the_route) {
-            int code;
+            unsigned int code;
 
             if (get_request().get_line().get_method() == webserv::http::http_method__invalid) {
                 delete the_route;
