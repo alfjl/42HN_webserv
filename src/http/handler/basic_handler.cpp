@@ -39,19 +39,15 @@ namespace webserv {
          *
          */
         void basic_handler::read_next_char() {
-            if (in().has_next()) {
-                char c;
-                if (in().next_char(c)) {
-                    _last_char.enable(c);
-                    return;
-                }
-            }
-            if (_connection->is_closed()) {
+            char c;
+
+            if (in().has_next() && in().next_char(c))
+                _last_char.enable(c);
+            else if (_connection->is_closed())
                 _last_char.disable();
-            } else {
+            else {
                 later(&basic_handler::read_next_char);
                 yield();
-                return;
             }
         }
 
@@ -138,6 +134,23 @@ namespace webserv {
                         _read_chunked_body__result = "";
                         later(&basic_handler::read_chunked_body__restart);
                     }
+
+                        bool basic_handler::parse_hex() {
+                            unsigned int hex;
+
+                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                                if (hex == 0) {
+                                    return true;
+                                } else {
+                                    _read_normal_body__expected_size = hex;
+                                    later(&basic_handler::read_chunked_body__continue);
+                                    later(&basic_handler::read_until_rn);
+                                    later(&basic_handler::read_normal_body);
+                                    return true;
+                                }
+                            }
+                            return false;
+                        }
 
                         void basic_handler::read_chunked_body__restart() {
                             later(&basic_handler::read_chunked_body__parse_hex);

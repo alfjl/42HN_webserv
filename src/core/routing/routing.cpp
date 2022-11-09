@@ -45,8 +45,8 @@ namespace webserv {
             get_component_http().handle_delete(route);
         }
         
-        void routing::handle_cgi(cgi_route* the_route) {
-            get_component_cgi().handle_cgi(*the_route);
+        void routing::handle_cgi(cgi_route& the_route) {
+            get_component_cgi().handle_cgi(the_route);
         }
 
         void routing::error_page(unsigned int code) {
@@ -60,7 +60,7 @@ namespace webserv {
         }
 
         void routing::_follow_route(route* the_route) {
-            int code;
+            unsigned int code;
 
             if (get_request().get_line().get_method() == webserv::http::http_method__invalid) {
                 delete the_route;
@@ -70,8 +70,8 @@ namespace webserv {
                 delete the_route;
                 error_page(405);
                 return;
-            } else if (the_route->is_cgi()) { // TODO: Does this always return false?
-                handle_cgi((cgi_route*) the_route);
+            } else if (the_route->is_cgi()) {
+                handle_cgi((cgi_route&) *the_route);
                 delete the_route;
                 return; // Invisible yield
             } else if (the_route->is_redirection()) {

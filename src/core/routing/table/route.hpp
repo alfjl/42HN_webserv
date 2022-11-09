@@ -48,7 +48,7 @@ namespace webserv {
             virtual bool is_cgi();
             virtual bool is_redirection();
             virtual bool is_permanent_redirection();
-            virtual bool is_error(int& code);
+            virtual bool is_error(unsigned int& code);
 
             virtual route* build(match_info& meta) = 0;
         };
@@ -96,14 +96,14 @@ namespace webserv {
         };
 
         class error_route : public route {
-            int _code;
+            unsigned int _code;
 
         public:
-            error_route(int code);
-            error_route(int code, route_meta* meta);
+            error_route(unsigned int code);
+            error_route(unsigned int code, route_meta* meta);
             error_route(const error_route& other);
 
-            bool is_error(int& code);
+            bool is_error(unsigned int& code);
             route* build(match_info& meta);
         };
 
