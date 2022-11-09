@@ -65,15 +65,15 @@ namespace webserv {
             if (get_request().get_line().get_method() == webserv::http::http_method__invalid) {
                 delete the_route;
                 error_page(400);
-                return;
+                // return; // comment out == OK!
             } else if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
                 delete the_route;
                 error_page(405);
-                return;
+                return; // comment out == Test POST http://localhost:4242/ with a size of 0 --> FATAL ERROR ON LAST TEST: Post http://localhost:4242/: EOF
             } else if (the_route->is_cgi()) {
                 handle_cgi((cgi_route*) the_route);
                 delete the_route;
-                return; // Invisible yield
+                return; // Invisible yield // comment out == Test GET http://localhost:4242/directory/youpi.bla --> FATAL ERROR ON LAST TEST: Get http://localhost:4242/directory/youpi.bla: EOF
             } else if (the_route->is_redirection()) {
                 temporary_redirect_302(get_response(), the_route->get_file_target());
             } else if (the_route->is_permanent_redirection()) {
@@ -81,7 +81,7 @@ namespace webserv {
             } else if (the_route->is_error(code)) {
                 delete the_route;
                 error_page(code);
-                return;
+                return; // comment out == Test GET Expected 404 on http://localhost:4242/directory/Yeah --> FATAL ERROR ON LAST TEST: Get http://localhost:4242/directory/Yeah: EOF
             } else if (the_route->get_max_body().enabled() && get_request().get_body().size() > the_route->get_max_body().value()) {
                 error_page(413);
             } else {
