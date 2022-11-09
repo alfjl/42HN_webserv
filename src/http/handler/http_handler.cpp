@@ -52,29 +52,21 @@ namespace webserv {
                         webserv::util::stringflow  flow(_read_until_rnrn__buffer);
                         request_parser             parser(flow);
 
-                        bool correct = false;
-                        
                         try {
                             parse_http_request_core(parser, _the_request);
-                            correct = true;
                         } catch (webserv::util::parse_exception& e) {
-
-                        }
-
-                        if (!correct) {
                             _the_request.get_line().get_method() = webserv::http::http_method__invalid;
-                            // later(&basic_handler::parse_error);
                         }
                     }
 
                 void http_handler::read_body() {
-                    if (basic_handler::_is_normal_body()) {
+                    if (_is_chunked_body()) {
+                        later(&http_handler::read_body__from_chunked_body);
+                        later(&basic_handler::read_chunked_body);
+                    } else if (basic_handler::_is_normal_body()) {
                         _read_normal_body__expected_size = get_normal_body_size();
                         later(&http_handler::read_body__from_normal_body);
                         later(&basic_handler::read_normal_body);
-                    } else if (_is_chunked_body()) {
-                        later(&http_handler::read_body__from_chunked_body);
-                        later(&basic_handler::read_chunked_body);
                     } else {
                         // No body, do nothing
                         _the_request.get_body() = "";
@@ -91,17 +83,8 @@ namespace webserv {
                     }
 
                         void http_handler::read_chunked_body__parse_hex() {
-                            unsigned int hex;
-
-                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
-                                if (hex == 0) {
-                                    return;
-                                } else {
-                                    _read_normal_body__expected_size = hex;
-                                    later(&basic_handler::read_chunked_body__continue);
-                                    later(&basic_handler::read_until_rn);
-                                    later(&basic_handler::read_normal_body);
-                                }
+                            if (basic_handler::parse_hex()) {
+                                // Do nothing!
                             } else
                                 later(&basic_handler::parse_error);
                         }

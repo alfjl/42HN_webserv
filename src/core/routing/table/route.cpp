@@ -95,7 +95,7 @@ namespace webserv {
             return false;
         }
 
-        bool route::is_error(int& code) {
+        bool route::is_error(unsigned int& code) {
             code = 69420;
             return false;
         }
@@ -194,18 +194,18 @@ namespace webserv {
             return (new permanent_redirection_route(webserv::util::path(concat_path_with_info(route::get_file_target(), info)), route::_meta));
         }
 
-        error_route::error_route(int code) : route(webserv::util::path()), _code(code) {
+        error_route::error_route(unsigned int code) : route(webserv::util::path()), _code(code) {
 
         }
 
-        error_route::error_route(int code, route_meta* meta) : route(webserv::util::path(), meta), _code(code) {
+        error_route::error_route(unsigned int code, route_meta* meta) : route(webserv::util::path(), meta), _code(code) {
 
         }
 
         error_route::error_route(const error_route& other) : route(other), _code(other._code) {
         }
 
-        bool error_route::is_error(int& code) {
+        bool error_route::is_error(unsigned int& code) {
             code = _code;
             return true;
         }

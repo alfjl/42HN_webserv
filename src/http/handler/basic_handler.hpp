@@ -92,6 +92,8 @@ namespace webserv {
 
                         void read_chunked_body__restart();
 
+                        bool parse_hex();
+
                         virtual void read_chunked_body__parse_hex() = 0;
 
                         void read_chunked_body__continue();
