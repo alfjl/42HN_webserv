@@ -25,7 +25,6 @@ namespace webserv {
 		void state_machine::wake_up() { set_status(state_machine_status_RUNNING); }
 
 		void state_machine::stop() {
-			//while (!return_stack.empty())
             sp = 0;
 			set_status(state_machine_status_STOPPED);
 		}
@@ -34,13 +33,20 @@ namespace webserv {
             if (is_sleeping()) return;
 			unyield();
 			while (is_running()) {
-                //if (return_stack.empty()) {
                 if (sp == 0) {
                     set_status(state_machine_status_STOPPED);
                     break;
                 }
                 state_function current_func = pop();
-				(this->*current_func)();
+				try
+                {
+                    (this->*current_func)();
+                }
+                catch(const std::exception& e)
+                {
+                    std::cerr << e.what() << '\n';
+                    set_status(state_machine_status_STOPPED);
+                }
 			}
 		}
 
