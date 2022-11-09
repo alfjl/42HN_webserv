@@ -58,7 +58,7 @@ namespace webserv {
             }
 
             bool open_pipes() {
-                if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) { // TODO: Is there a better notation instead of '&(pointer->int)' -> Yes, convert to references
+                if (!webserv::pal::fork::safe_pipe(&cgi_in.in, &cgi_in.out)) {
                     return false;
                 }
                 if (!webserv::pal::fork::safe_pipe(&cgi_out.in, &cgi_out.out)) {
