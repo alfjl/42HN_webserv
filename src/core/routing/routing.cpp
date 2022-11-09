@@ -45,8 +45,8 @@ namespace webserv {
             get_component_http().handle_delete(route);
         }
         
-        void routing::handle_cgi(cgi_route* the_route) {
-            get_component_cgi().handle_cgi(*the_route);
+        void routing::handle_cgi(cgi_route& the_route) {
+            get_component_cgi().handle_cgi(the_route);
         }
 
         void routing::error_page(unsigned int code) {
@@ -71,7 +71,7 @@ namespace webserv {
                 error_page(405);
                 return; // comment out == Test POST http://localhost:4242/ with a size of 0 --> FATAL ERROR ON LAST TEST: Post http://localhost:4242/: EOF
             } else if (the_route->is_cgi()) {
-                handle_cgi((cgi_route*) the_route);
+                handle_cgi((cgi_route&) *the_route);
                 delete the_route;
                 return; // Invisible yield // comment out == Test GET http://localhost:4242/directory/youpi.bla --> FATAL ERROR ON LAST TEST: Get http://localhost:4242/directory/youpi.bla: EOF
             } else if (the_route->is_redirection()) {

@@ -55,7 +55,7 @@ namespace webserv {
             void handle_http_post(route& route);
             void handle_http_delete(route& route);
 
-            void handle_cgi(cgi_route* route);
+            void handle_cgi(cgi_route& route);
 
             void error_page(unsigned int code);
 
