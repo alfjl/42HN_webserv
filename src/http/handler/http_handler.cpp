@@ -124,7 +124,9 @@ namespace webserv {
             bool http_handler::_is_chunked_body() { return _the_request.get_fields().get_or_default("Transfer-Encoding", "") == "chunked"; }
 
             unsigned int http_handler::get_normal_body_size() {
-                return (unsigned int) _the_request.get_fields().get_int_or_default("Content-Length", 0);
+                int v = _the_request.get_fields().get_int_or_default("Content-Length", 0);
+                if (v < 0) return 0;
+                return (unsigned int) v;
             }
 
     }
