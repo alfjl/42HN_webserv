@@ -16,7 +16,7 @@ namespace webserv {
             route* the_route = get_parent().get_table().query_error_page(code);
             if (the_route == NULL || get_parent().get_recursion_count() >= 5) {
                 error_code(get_response(), code);
-                get_response().write(*get_http_handler().get_connection());
+                // get_response().write(*get_http_handler().get_connection());
             } else {
                 get_parent().follow_route(the_route);
             }

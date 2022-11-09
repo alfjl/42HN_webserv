@@ -63,25 +63,19 @@ namespace webserv {
             unsigned int code;
 
             if (get_request().get_line().get_method() == webserv::http::http_method__invalid) {
-                delete the_route;
                 error_page(400);
-                return;
             } else if (!the_route->is_method_allowed(get_request().get_line().get_method())) {
-                delete the_route;
                 error_page(405);
-                return;
             } else if (the_route->is_cgi()) {
                 handle_cgi((cgi_route&) *the_route);
                 delete the_route;
-                return; // Invisible yield
+                return;
             } else if (the_route->is_redirection()) {
                 temporary_redirect_302(get_response(), the_route->get_file_target());
             } else if (the_route->is_permanent_redirection()) {
                 permanent_redirect_301(get_response(), the_route->get_file_target());
             } else if (the_route->is_error(code)) {
-                delete the_route;
                 error_page(code);
-                return;
             } else if (the_route->get_max_body().enabled() && get_request().get_body().size() > the_route->get_max_body().value()) {
                 error_page(413);
             } else {
