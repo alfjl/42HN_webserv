@@ -30,9 +30,10 @@ namespace webserv {
 		}
 
 		void state_machine::tick() {
+            unsigned int i = 0;
             if (is_sleeping()) return;
 			unyield();
-			while (is_running()) {
+			while (is_running() && i < 16*1024) {
                 if (sp == 0) {
                     set_status(state_machine_status_STOPPED);
                     break;
@@ -47,6 +48,7 @@ namespace webserv {
                     std::cerr << e.what() << '\n';
                     set_status(state_machine_status_STOPPED);
                 }
+                i++;
 			}
 		}
 
