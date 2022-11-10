@@ -85,8 +85,9 @@ namespace webserv {
                         void http_handler::read_chunked_body__parse_hex() {
                             if (basic_handler::parse_hex()) {
                                 // Do nothing!
-                            } else
-                                later(&basic_handler::parse_error);
+                            } else {
+                                later(&http_handler::display_error_page_and_done);
+                            }
                         }
 
                     void http_handler::parse_body() {
@@ -111,6 +112,12 @@ namespace webserv {
                 }
             }
 
+            void http_handler::display_error_page_and_done() {
+                webserv::core::routing routing(get_instance(), *this, _the_request);
+                routing.error_and_flush(400);
+                later(&basic_handler::done);
+            }
+
 
 
             /*
@@ -124,7 +131,9 @@ namespace webserv {
             bool http_handler::_is_chunked_body() { return _the_request.get_fields().get_or_default("Transfer-Encoding", "") == "chunked"; }
 
             unsigned int http_handler::get_normal_body_size() {
-                return (unsigned int) _the_request.get_fields().get_int_or_default("Content-Length", 0);
+                int v = _the_request.get_fields().get_int_or_default("Content-Length", 0);
+                if (v < 0) return 0;
+                return (unsigned int) v;
             }
 
     }

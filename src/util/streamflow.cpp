@@ -27,6 +27,10 @@ namespace webserv {
 			return last != -1;
 		}
 
+		bool streamflow::good() {
+			return the_stream.good();
+		}
+
 		stringflow::stringflow(const std::string& s) : streamflow(stream), stream(s) {
 		}
 

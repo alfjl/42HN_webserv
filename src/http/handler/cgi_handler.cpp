@@ -181,7 +181,9 @@ namespace webserv {
             bool cgi_handler::_is_chunked_body() { return _fields.get_or_default("Transfer-Encoding", "") == "chunked"; }
 
             unsigned int cgi_handler::get_normal_body_size() {
-                return (unsigned int) _fields.get_int_or_default("Content-Length", 0);
+                int v = _fields.get_int_or_default("Content-Length", 0);
+                if (v < 0) return 0;
+                return (unsigned int) v;
             }
 
     }

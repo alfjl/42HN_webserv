@@ -95,9 +95,18 @@ namespace webserv {
 		}
 
 		void config_parser::parse_listen() {
+			unsigned int count = 0;
+
 			while (!check_terminator()){
-				_instance->on_port(read_int());
+				int port = read_int();
+				if (port < 0)
+					parse_error("Can not open a negative port!");
+				_instance->on_port(port);
+				count++;
 			}
+
+			if (count == 0)
+				parse_error("Empty listen statements are invalid!");
 		}
 
 		void config_parser::parse_location(webserv::util::path anchor) {
@@ -225,10 +234,13 @@ namespace webserv {
 		}
 
 		void config_parser::run_instance(webserv::util::path local_directory) {
+			bool has_listen = false;
+
 			expects("{");
 			while(!checks("}")){
 				if (checks("listen")) {
 					parse_listen();
+					has_listen = true;
 					continue ;
 				} else if (checks("server_name")) {
 					while (!checks(";")){
@@ -248,6 +260,9 @@ namespace webserv {
 				}
 				expect_terminator();
 			}
+
+			if (!has_listen)
+				_instance->on_port(4242);
 		}
 		
 		void config_parser::run() {

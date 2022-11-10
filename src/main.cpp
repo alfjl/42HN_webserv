@@ -19,23 +19,31 @@ void setup_interrupts() {
 
 void webserv_main(const char* config_path) {
     webserv::util::fileflow flow(config_path);
+    
+    if (!flow.good()) {
+        std::cout << "Config file " << config_path << " was not found!" << std::endl;
+        return;
+    }
+
     webserv::config::config_parser parser(flow, the_webserv);
 
     try {
         parser.run();
     } catch (webserv::util::parse_exception& e) {
-        std::cout << "Unable to parse the config file!" << std::endl;
+        std::cout << "Unable to parse the config file: " << e.what() << std::endl;
+        return;
+    } catch (std::exception& e) {
+        std::cout << "Initialization failed: " << e.what() << std::endl;
         return;
     }
 
     try {
         the_webserv.run();
+    } catch (std::exception& e) {
+        std::cout << "NOTE: " << e.what() << std::endl;
     }
-    catch (std::exception& e) {
 
-    }
-
-    std::cout << "Finished!" << std::endl;
+    std::cout << "Goodbye!" << std::endl;
 }
 
 void banner() {
