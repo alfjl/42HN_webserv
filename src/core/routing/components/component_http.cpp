@@ -74,12 +74,10 @@ namespace webserv {
 
             get_response().set_code(get_instance().get_fs().accessible(file_path) ? 200 : 201);
             
-            if (get_instance().get_fs().is_directory(file_path)) {
-                // TODO: This code exists merely to satisfy the second test case in the tester.
+            if (get_instance().get_fs().is_directory(file_path))
                 get_parent().get_component_pages().error_page(405);
-            } else {
+            else
                 process_post_body(file_path);
-            }
         }
 
 
@@ -87,14 +85,12 @@ namespace webserv {
             webserv::util::path file_path = route.get_file_target();
             std::ifstream stream;
 
-            if (get_instance().get_fs().is_directory(file_path)) {  // TODO: Check against nginx if this is correct behaviour!! Nginx: Allow to delete directories? Allow to recursively delete directories?
-                if (!get_instance().get_fs().del(file_path))
-                    get_parent().get_component_pages().error_page(401);
-            } else if ((get_instance().get_fs().del(file_path))) {
+            if (get_instance().get_fs().is_directory(file_path))
+                get_parent().get_component_pages().error_page(401);
+            else if ((get_instance().get_fs().del(file_path)))
                 set_delete_response(get_response());
-            } else {
+            else
                 get_parent().get_component_pages().error_page(404);
-            }
         }
 
     }

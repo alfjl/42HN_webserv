@@ -57,6 +57,8 @@ namespace webserv {
 
             enum basic_handler::abort_mode abort();
 
+            void display_error_page_and_done();
+
             void has_more();
 
             /*

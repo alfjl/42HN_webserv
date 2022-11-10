@@ -36,6 +36,9 @@ namespace webserv {
         }
 
         void webservs::run() {
+            if (_instances.empty())
+                throw std::runtime_error("No server instances specified!");
+            
             while (is_running())
                 tick();
         }

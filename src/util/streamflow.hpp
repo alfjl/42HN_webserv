@@ -20,6 +20,8 @@ namespace webserv {
 
 			bool has_next();
             bool next_char(char& loc);
+
+			bool good();
 		};
 
 		class stringflow : public streamflow {
