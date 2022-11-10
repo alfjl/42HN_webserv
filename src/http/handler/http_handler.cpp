@@ -85,8 +85,9 @@ namespace webserv {
                         void http_handler::read_chunked_body__parse_hex() {
                             if (basic_handler::parse_hex()) {
                                 // Do nothing!
-                            } else
-                                later(&basic_handler::parse_error);
+                            } else {
+                                later(&http_handler::display_error_page_and_done);
+                            }
                         }
 
                     void http_handler::parse_body() {
@@ -109,6 +110,12 @@ namespace webserv {
                 } else {
                     later(&basic_handler::done);
                 }
+            }
+
+            void http_handler::display_error_page_and_done() {
+                webserv::core::routing routing(get_instance(), *this, _the_request);
+                routing.error_and_flush(400);
+                later(&basic_handler::done);
             }
 
 

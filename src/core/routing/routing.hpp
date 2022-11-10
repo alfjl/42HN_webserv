@@ -64,6 +64,7 @@ namespace webserv {
         public:
             void follow_route(route* route);
             void look_up();
+            void error_and_flush(unsigned int code);
         };
 
     }

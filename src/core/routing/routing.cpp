@@ -107,5 +107,10 @@ namespace webserv {
             }
         }
 
+        void routing::error_and_flush(unsigned int code) {
+            error_page(code);
+            get_response().write(*get_http_handler().get_connection());
+        }
+
     }
 }
