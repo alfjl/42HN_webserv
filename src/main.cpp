@@ -24,7 +24,10 @@ void webserv_main(const char* config_path) {
     try {
         parser.run();
     } catch (webserv::util::parse_exception& e) {
-        std::cout << "Unable to parse the config file!" << std::endl;
+        std::cout << "Unable to parse the config file: " << e.what() << std::endl;
+        return;
+    } catch (std::exception& e) {
+        std::cout << "Initialization failed: " << e.what() << std::endl;
         return;
     }
 
