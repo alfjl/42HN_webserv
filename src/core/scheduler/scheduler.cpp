@@ -12,7 +12,14 @@ namespace webserv {
         }
 
         scheduler::~scheduler() {
-
+            while (!handlers.empty()) {
+                handlers.back()->decrement_refcount();
+                handlers.pop_back();
+            }
+            while (!handlers_to_add.empty()) {
+                handlers_to_add.back()->decrement_refcount();
+                handlers_to_add.pop();
+            }
         }
 
         bool scheduler::are_tasks_pending() {
