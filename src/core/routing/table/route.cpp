@@ -107,7 +107,6 @@ namespace webserv {
 
         file_route::file_route(webserv::util::path file_target, webserv::pal::cpp::optional<webserv::util::path> added_path) : route(file_target) {
             _meta->set_added_path(added_path);
-            _meta->increment_refcount();
         }
 
         file_route::file_route(webserv::util::path file_target, route_meta* meta) : route(file_target, meta) {
