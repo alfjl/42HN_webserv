@@ -114,10 +114,10 @@ namespace webserv {
             response.set_html_body(ost.str());
         }
 
-        void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
+        void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream& stream) {
             std::ostringstream payload;
-            while (!stream->eof()) {
-                int i = stream->get();
+            while (!stream.eof()) {
+                int i = stream.get();
                 if (i < 0) break;
                 payload << (char) i;
             }
