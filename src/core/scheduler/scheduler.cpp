@@ -1,4 +1,5 @@
 #include "../../http/handler/cgi_handler.hpp"
+#include "../../http/handler/writing_handler.hpp"
 
 #include "scheduler.hpp"
 
@@ -26,6 +27,13 @@ namespace webserv {
 
         webserv::http::cgi_handler* scheduler::register_cgi_connection(webserv::util::connection* connection) {
             webserv::http::cgi_handler* handler = new webserv::http::cgi_handler(connection);
+            handlers_to_add.push(handler);
+            handler->increment_refcount();
+            return handler;
+        }
+
+        webserv::http::writing_handler* scheduler::register_writing_connection(std::string message_body, webserv::util::connection* connection) {
+            webserv::http::writing_handler* handler = new webserv::http::writing_handler(message_body, connection);
             handlers_to_add.push(handler);
             handler->increment_refcount();
             return handler;

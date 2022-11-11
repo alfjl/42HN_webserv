@@ -1,6 +1,7 @@
 #include "../../instance.hpp"
 #include "../../../http/proto/cgi_msg.hpp"
 #include "../../../http/handler/cgi_handler.hpp"
+#include "../../../http/handler/writing_handler.hpp"
 
 #include "../pages/pages.hpp"
 
@@ -95,13 +96,11 @@ namespace webserv {
             }
 
             void write_message() {
-                webserv::util::ofdflow ofd(cgi_in.in);
-                std::ostream o(&ofd);
-                cgi_msg.write_on(o, cgi_out.out);
+                cgi.get_instance().pass_writing(cgi_msg.get_message_body(), cgi_in.in);
             }
 
             void close_pipes() {
-                webserv::pal::fs::close(cgi_in.in);
+                // webserv::pal::fs::close(cgi_in.in);
                 webserv::pal::fs::close(cgi_in.out);
                 webserv::pal::fs::close(cgi_out.in);
             }
