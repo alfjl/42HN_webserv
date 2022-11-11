@@ -10,7 +10,12 @@ namespace webserv {
         namespace net {
 
             selector::selector() {}
-            selector::~selector() {}
+            selector::~selector() {
+                while (elements.size() > 0) {
+                    std::map<socket*, payload_type>::const_iterator it = elements.begin();
+                    unregister_socket(it->first);
+                }
+            }
 
             void selector::set_driver(webserv::core::driver* driver) {
                 the_driver = driver;
