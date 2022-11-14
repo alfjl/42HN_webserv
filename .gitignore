@@ -39,3 +39,6 @@ webserv
 
 # aenglert tester
 make-42-webserv-great-again/
+
+# .DS_Store
+.DS_Store
