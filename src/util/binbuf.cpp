@@ -19,12 +19,16 @@ namespace webserv {
 
         }
 
-        void binary_buffer::clear() {
-            chars.clear();
+        binary_buffer::size_type binary_buffer::size() const {
+            return chars.size();
         }
 
         bool binary_buffer::empty() const {
             return chars.empty();
+        }
+
+        void binary_buffer::clear() {
+            chars.clear();
         }
 
         void binary_buffer::push_char(char c) {
@@ -53,6 +57,11 @@ namespace webserv {
         void binary_buffer::push(const std::string& str) { push_string(str); }
         void binary_buffer::push(const char* str) { push_cstring(str); }
         void binary_buffer::push(const char* buffer, size_t size) { push_buffer(buffer, size); }
+
+        void binary_buffer::assign(char c) { clear(); push_char(c); }
+        void binary_buffer::assign(const std::string& str) { clear(); push_string(str); }
+        void binary_buffer::assign(const char* str) { clear(); push_cstring(str); }
+        void binary_buffer::assign(const char* buffer, size_t size) { clear(); push_buffer(buffer, size); }
 
         char binary_buffer::pop() {
             if (empty())

@@ -1,6 +1,8 @@
 #ifndef WEBSERV_HTTP_REQUEST_HPP
 #define WEBSERV_HTTP_REQUEST_HPP
 
+#include "../../util/binbuf.hpp"
+
 #include "../uri.hpp"
 #include "../fields.hpp"
 
@@ -55,16 +57,16 @@ namespace webserv {
          *                                       - nijakow
          */
         class request {
-            request_line  _line;
-            fields        _fields;
-            std::string   _body;
+            request_line                  _line;
+            fields                        _fields;
+            webserv::util::binary_buffer  _body;
         
         public:
             request();
 
-            request_line& get_line();
-            fields&       get_fields();
-            std::string&   get_body();
+            request_line&                  get_line();
+            fields&                        get_fields();
+            webserv::util::binary_buffer&  get_body();
         };
 
     }

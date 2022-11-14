@@ -8,7 +8,7 @@ namespace webserv {
 
         cgi_message::cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated)
          : _path_translated(path_translated), _request(request) ,_current_instance(current_instance) {
-            _message_body = request.get_body();
+            _message_body = request.get_body().to_string(); // XXX!
 
             switch (request.get_line().get_method()) {
                 case webserv::http::http_method_head:   { _method = std::string("HEAD");   break; }

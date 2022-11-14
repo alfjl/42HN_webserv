@@ -19,8 +19,10 @@ namespace webserv {
             binary_buffer& operator=(const binary_buffer& other);
             ~binary_buffer();
 
-            void clear();
+            size_type size() const;
             bool empty() const;
+
+            void clear();
 
             void push_char(char c);
             void push_string(const std::string& str);
@@ -33,6 +35,11 @@ namespace webserv {
             void push(const char* buffer, size_t size);
 
             char pop();
+
+            void assign(char c);
+            void assign(const std::string& str);
+            void assign(const char* str);
+            void assign(const char* buffer, size_t size);
 
             void transfer(binary_buffer& into, size_type amount);
             void transfer_all(binary_buffer& into);
