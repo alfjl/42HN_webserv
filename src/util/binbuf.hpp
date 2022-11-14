@@ -27,6 +27,9 @@ namespace webserv {
             void push_cstring(const char* str);
             void push_buffer(const char* buffer, size_t size);
 
+            void transfer(binary_buffer& into, size_type amount);
+            void transfer_all(binary_buffer& into);
+
             const_iterator begin() const;
             const_iterator end() const;
         };

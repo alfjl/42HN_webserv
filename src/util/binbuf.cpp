@@ -49,6 +49,22 @@ namespace webserv {
             }
         }
 
+        void binary_buffer::transfer(binary_buffer& into, size_type amount) {
+            if (amount > chars.size()) {
+                amount = chars.size();
+            }
+
+            for (size_type i = 0; i < amount; i++) {
+                into.push_char(chars[i]);
+            }
+
+            chars.erase(chars.begin(), chars.begin() + amount);
+        }
+
+        void binary_buffer::transfer_all(binary_buffer& into) {
+            transfer(into, chars.size());
+        }
+
         binary_buffer::const_iterator binary_buffer::begin() const {
             return chars.begin();
         }
