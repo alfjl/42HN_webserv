@@ -27,6 +27,13 @@ namespace webserv {
             void push_cstring(const char* str);
             void push_buffer(const char* buffer, size_t size);
 
+            void push(char c);
+            void push(const std::string& str);
+            void push(const char* str);
+            void push(const char* buffer, size_t size);
+
+            char pop();
+
             void transfer(binary_buffer& into, size_type amount);
             void transfer_all(binary_buffer& into);
 

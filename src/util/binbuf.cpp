@@ -49,6 +49,19 @@ namespace webserv {
             }
         }
 
+        void binary_buffer::push(char c) { push_char(c); }
+        void binary_buffer::push(const std::string& str) { push_string(str); }
+        void binary_buffer::push(const char* str) { push_cstring(str); }
+        void binary_buffer::push(const char* buffer, size_t size) { push_buffer(buffer, size); }
+
+        char binary_buffer::pop() {
+            if (empty())
+                throw std::runtime_error("Cannot pop from empty buffer!");
+            char c = chars.front();
+            chars.erase(chars.begin());
+            return c;
+        }
+
         void binary_buffer::transfer(binary_buffer& into, size_type amount) {
             if (amount > chars.size()) {
                 amount = chars.size();

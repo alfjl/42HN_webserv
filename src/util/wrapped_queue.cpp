@@ -22,8 +22,7 @@ namespace webserv {
                 unreads.pop();
                 return true;
             } else if (!buffer.empty()) {
-                loc = buffer.front();
-                buffer.pop();
+                loc = buffer.pop();
                 return true;
             }
             return false;

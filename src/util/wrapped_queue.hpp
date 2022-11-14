@@ -3,13 +3,14 @@
 
 #include "../defs.hpp"
 
+#include "binbuf.hpp"
 #include "iflow.hpp"
 
 namespace webserv {
     namespace util {
 
         class wrapped_queue {
-            std::queue<char> buffer;
+            binary_buffer buffer;
             std::stack<char> unreads;
 
         public:
