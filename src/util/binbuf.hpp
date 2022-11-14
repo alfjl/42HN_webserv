@@ -30,6 +30,9 @@ namespace webserv {
             void transfer(binary_buffer& into, size_type amount);
             void transfer_all(binary_buffer& into);
 
+            void write_to_stream(std::ostream& stream) const;
+            std::string to_string() const;
+
             const_iterator begin() const;
             const_iterator end() const;
         };

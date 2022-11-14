@@ -65,6 +65,21 @@ namespace webserv {
             transfer(into, chars.size());
         }
 
+        void binary_buffer::write_to_stream(std::ostream& stream) const {
+            for (const_iterator it = begin(); it != end(); ++it) {
+                stream << *it;
+            }
+        }
+
+        /*
+         * WATCH OUT: '\0' characters will *NOT* be copied!
+         */
+        std::string binary_buffer::to_string() const {
+            std::ostringstream stream;
+            write_to_stream(stream);
+            return stream.str();
+        }
+
         binary_buffer::const_iterator binary_buffer::begin() const {
             return chars.begin();
         }
