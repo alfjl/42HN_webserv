@@ -57,7 +57,6 @@ namespace webserv {
              std::ofstream outfile;
 
             if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
-                // XXX: outfile << get_request().get_body().c_str();
                 get_request().get_body().write_to_stream(outfile);
 
                 if (!outfile.good())
