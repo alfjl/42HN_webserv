@@ -57,7 +57,7 @@ namespace webserv {
                 }
 
                     void basic_handler::read_until_rnrn() {
-                        _read_until_rnrn__buffer = "";
+                        _read_until_rnrn__buffer.clear();
                         later(&basic_handler::read_until_rnrn__restart);
                     }
 
@@ -67,19 +67,19 @@ namespace webserv {
                         }
 
                         void basic_handler::read_until_rnrn__continue() {
-                            if (_read_until_rn__buffer != "") {
-                                _read_until_rnrn__buffer += _read_until_rn__buffer;
-                                _read_until_rnrn__buffer += "\r\n";
+                            if (!_read_until_rn__buffer.empty()) {
+                                _read_until_rnrn__buffer.push(_read_until_rn__buffer);
+                                _read_until_rnrn__buffer.push("\r\n");
                                 later(&basic_handler::read_until_rnrn__restart);
                             } else {
-                                _read_until_rnrn__buffer += "\r\n";
+                                _read_until_rnrn__buffer.push("\r\n");
                                 // This "function" returns here: Do nothing!
                                 return;
                             }
                         }
 
                         void basic_handler::read_until_rn() {
-                            _read_until_rn__buffer = "";
+                            _read_until_rn__buffer.clear();
                             later(&basic_handler::read_until_rn__restart);
                         }
 
@@ -90,10 +90,9 @@ namespace webserv {
 
                             void basic_handler::read_until_rn__continue() {
                                 if (_last_char.enabled()) {
-                                    _read_until_rn__buffer += _last_char.value();
-                                    if (_read_until_rn__buffer.find("\r\n") != std::string::npos) {
+                                    _read_until_rn__buffer.push(_last_char.value());
+                                    if (_read_until_rn__buffer.detect_and_cut_crlf()) {
                                         // We return: Do nothing!
-                                        _read_until_rn__buffer = _read_until_rn__buffer.substr(0, _read_until_rn__buffer.size() - 2);
                                         return;
                                     } else {
                                         later(&basic_handler::read_until_rn__restart);
@@ -105,7 +104,7 @@ namespace webserv {
                             }
 
                     void basic_handler::read_normal_body() {
-                        _read_normal_body__result = "";
+                        _read_normal_body__result.clear();
                         later(&basic_handler::read_normal_body__restart);
                     }
 
@@ -122,7 +121,7 @@ namespace webserv {
                         void basic_handler::read_normal_body__continue() {
                             if (_last_char.enabled()) {
                                 _read_normal_body__expected_size--;
-                                _read_normal_body__result += _last_char.value();
+                                _read_normal_body__result.push(_last_char.value());
                                 later(&basic_handler::read_normal_body__restart);
                             } else {
                                 // This "function" returns here: Do nothing!
@@ -131,14 +130,14 @@ namespace webserv {
                         }
 
                     void basic_handler::read_chunked_body() {
-                        _read_chunked_body__result = "";
+                        _read_chunked_body__result.clear();
                         later(&basic_handler::read_chunked_body__restart);
                     }
 
                         bool basic_handler::parse_hex() {
                             unsigned int hex;
 
-                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer, hex)) {
+                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer.to_string(), hex)) {   // XXX
                                 if (hex == 0) {
                                     return true;
                                 } else {
@@ -159,7 +158,7 @@ namespace webserv {
 
                         void basic_handler::read_chunked_body__continue() {
                             // TODO: Check how many bytes we have actually read
-                            _read_chunked_body__result += _read_normal_body__result;
+                            _read_chunked_body__result.push(_read_normal_body__result);
                             later(&basic_handler::read_chunked_body__restart);
                         }
 

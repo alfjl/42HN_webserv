@@ -51,6 +51,8 @@ namespace webserv {
 
             const_iterator begin() const;
             const_iterator end() const;
+
+            bool detect_and_cut_crlf();
         };
 
     }

@@ -49,7 +49,7 @@ namespace webserv {
             }
                 
                     void http_handler::parse_fields() {
-                        webserv::util::stringflow  flow(_read_until_rnrn__buffer);
+                        webserv::util::stringflow  flow(_read_until_rnrn__buffer.to_string());  // XXX
                         request_parser             parser(flow);
 
                         try {

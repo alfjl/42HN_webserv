@@ -35,6 +35,7 @@ extern "C" {
 #include <map>
 #include <set>
 #include <utility>
+#include <algorithm>
 
 #include "pal/net/socket.hpp"
 

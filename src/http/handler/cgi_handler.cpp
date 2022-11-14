@@ -52,7 +52,7 @@ namespace webserv {
             }
 
                 void cgi_handler::parse_fields() {
-                    webserv::util::stringflow   flow(_read_until_rnrn__buffer);
+                    webserv::util::stringflow   flow(_read_until_rnrn__buffer.to_string());  // XXX
                     request_parser              parser(flow);
                     _fields = webserv::http::fields();
 
@@ -78,7 +78,7 @@ namespace webserv {
                         later(&basic_handler::read_normal_body);
                     } else {
                         // No content size was given
-                        _body = "";
+                        _body.clear();
                         later(&cgi_handler::cat);  // Just write everything from the CGI to standard output
                     }
                 }
@@ -135,7 +135,7 @@ namespace webserv {
                         _fields.put("Content-Length", _body.size());
                     out << _fields;
                     out << "\r\n";
-                    out << _body;
+                    _body.write_to_stream(out);
                 }
 
                 later(&cgi_handler::end_request);
@@ -163,7 +163,7 @@ namespace webserv {
             void cgi_handler::cat__continue() {
                 if (_last_char.enabled()) {
                     // TODO: This just puts memory pressure on the system - maybe write it out directly?
-                    _body += _last_char.value();
+                    _body.push(_last_char.value());
                     later(&cgi_handler::cat__restart);
                 } else {
                     return;

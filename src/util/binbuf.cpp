@@ -115,5 +115,18 @@ namespace webserv {
         binary_buffer::const_iterator binary_buffer::end() const {
             return chars.end();
         }
+
+        bool binary_buffer::detect_and_cut_crlf() {
+            if (chars.size() < 2) {
+                return false;
+            }
+
+            if (chars[chars.size() - 2] == '\r' && chars[chars.size() - 1] == '\n') {
+                chars.erase(chars.end() - 2, chars.end());
+                return true;
+            }
+
+            return false;
+        }
     }
 }
