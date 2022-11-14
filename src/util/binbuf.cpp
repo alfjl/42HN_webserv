@@ -57,11 +57,17 @@ namespace webserv {
         void binary_buffer::push(const std::string& str) { push_string(str); }
         void binary_buffer::push(const char* str) { push_cstring(str); }
         void binary_buffer::push(const char* buffer, size_t size) { push_buffer(buffer, size); }
+        void binary_buffer::push(const binary_buffer& other) {
+            for (binary_buffer::const_iterator it = other.begin(); it != other.end(); ++it) {
+                push_char(*it);
+            }
+        }
 
         void binary_buffer::assign(char c) { clear(); push_char(c); }
         void binary_buffer::assign(const std::string& str) { clear(); push_string(str); }
         void binary_buffer::assign(const char* str) { clear(); push_cstring(str); }
         void binary_buffer::assign(const char* buffer, size_t size) { clear(); push_buffer(buffer, size); }
+        void binary_buffer::assign(const binary_buffer& other) { clear(); push(other); }
 
         char binary_buffer::pop() {
             if (empty())

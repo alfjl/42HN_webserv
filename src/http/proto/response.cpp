@@ -131,9 +131,17 @@ namespace webserv {
          */
         void response_fixed::set_body(std::string body, std::string content_type) {
             if (_block_mode != block_mode_all) {
-                _body = body;
+                _body.assign(body);
                 set_field("Content-type", content_type);
-                set_field("Content-Length", body.size());
+                set_field("Content-Length", _body.size());
+            }
+        }
+
+        void response_fixed::set_body(webserv::util::binary_buffer& buf, std::string content_type) {
+            if (_block_mode != block_mode_all) {
+                _body.assign(buf);
+                set_field("Content-type", content_type);
+                set_field("Content-Length", _body.size());
             }
         }
 
@@ -141,7 +149,7 @@ namespace webserv {
          * Writes the body of the response to the connections ostream
          */
         void response_fixed::write_body(std::ostream& stream) {
-            stream << _body;
+            _body.write_to_stream(stream);
         }
 
         /*
