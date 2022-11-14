@@ -99,8 +99,8 @@ namespace webserv {
 
 			while (!check_terminator()){
 				int port = read_int();
-				if (port < 0)
-					parse_error("Can not open a negative port!");
+				if (port <= 0)
+					parse_error("Can not open a wrong port!");
 				_instance->on_port(port);
 				count++;
 			}
