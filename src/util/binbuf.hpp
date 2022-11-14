@@ -7,12 +7,12 @@ namespace webserv {
     namespace util {
 
         class binary_buffer {
-            std::vector<char> chars;
+            std::deque<char> chars;
 
         public:
-            typedef std::vector<char>::size_type size_type;
-            typedef std::vector<char>::iterator iterator;
-            typedef std::vector<char>::const_iterator const_iterator;
+            typedef std::deque<char>::size_type size_type;
+            typedef std::deque<char>::iterator iterator;
+            typedef std::deque<char>::const_iterator const_iterator;
 
             binary_buffer();
             binary_buffer(const binary_buffer& other);
