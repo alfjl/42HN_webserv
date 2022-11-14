@@ -41,13 +41,13 @@ namespace webserv {
                     directory_listing(get_response(), get_instance().get_fs().read_absolute_path(file_path));
                 else if (route.is_added_path_on()) {
                     if (get_instance().get_fs().open(file_path + route.get_added_path().value(), stream))
-                        file_listing(get_response(), file_path + route.get_added_path().value(), &stream);
+                        file_listing(get_response(), file_path + route.get_added_path().value(), stream);
                     else
                         get_parent().get_component_pages().error_page(500);
                 } else
                     get_parent().get_component_pages().error_page(404);
             } else if (get_instance().get_fs().open(file_path, stream)) {
-                file_listing(get_response(), file_path, &stream);
+                file_listing(get_response(), file_path, stream);
             } else {
                 get_parent().get_component_pages().error_page(404);
             }

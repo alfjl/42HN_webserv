@@ -38,36 +38,8 @@ namespace webserv {
             response.set_field("Location", path.to_absolute_string());
         }
 
-        void bad_request_400(webserv::http::response_fixed& response) {
-            error_code(response, 400);
-        }
-
-        void unauthorized_401(webserv::http::response_fixed& response) {
-            error_code(response, 401);
-        }
-
-        void not_found_404(webserv::http::response_fixed& response) {
-            error_code(response, 404);
-        }
-
-        void method_not_allowed_405(webserv::http::response_fixed& response) {
-            error_code(response, 405);
-        }
-
-        void gone_410(webserv::http::response_fixed& response) {
-            error_code(response, 410);
-        }
-
-        void teapot_418(webserv::http::response_fixed& response) {
-            error_code(response, 418);
-        }
-
         void internal_server_error_500(webserv::http::response_fixed& response) {
             error_code(response, 500);
-        }
-
-        void service_unavailable_503(webserv::http::response_fixed& response) {
-            error_code(response, 503);
         }
 
         void head_start(std::ostringstream& ost, std::string s){
@@ -142,10 +114,10 @@ namespace webserv {
             response.set_html_body(ost.str());
         }
 
-        void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream* stream) {
+        void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream& stream) {
             std::ostringstream payload;
-            while (!stream->eof()) {
-                int i = stream->get();
+            while (!stream.eof()) {
+                int i = stream.get();
                 if (i < 0) break;
                 payload << (char) i;
             }
