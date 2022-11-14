@@ -31,10 +31,12 @@ extern "C" {
 #include <string>
 #include <vector>
 #include <queue>
+#include <deque>
 #include <stack>
 #include <map>
 #include <set>
 #include <utility>
+#include <algorithm>
 
 #include "pal/net/socket.hpp"
 

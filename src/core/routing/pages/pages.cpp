@@ -1,5 +1,6 @@
 #include "pages.hpp"
 
+#include "../../../util/binbuf.hpp"
 #include "../../../http/http.hpp"
 #include "../../../pal/cpp/conv.hpp"
 
@@ -115,15 +116,16 @@ namespace webserv {
         }
 
         void file_listing(webserv::http::response_fixed& response, webserv::util::path file_path, std::ifstream& stream) {
-            std::ostringstream payload;
+            webserv::util::binary_buffer buf;
+
             while (!stream.eof()) {
                 int i = stream.get();
                 if (i < 0) break;
-                payload << (char) i;
+                buf.push((char) i);
             }
 
             response.set_code(200);
-            response.set_body(payload.str(), webserv::http::find_mime(file_path.get_extension()));
+            response.set_body(buf, webserv::http::find_mime(file_path.get_extension()));
         }
 
 	}

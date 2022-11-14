@@ -49,7 +49,7 @@ namespace webserv {
             }
                 
                     void http_handler::parse_fields() {
-                        webserv::util::stringflow  flow(_read_until_rnrn__buffer);
+                        webserv::util::stringflow  flow(_read_until_rnrn__buffer.to_string());  // XXX
                         request_parser             parser(flow);
 
                         try {
@@ -69,17 +69,17 @@ namespace webserv {
                         later(&basic_handler::read_normal_body);
                     } else {
                         // No body, do nothing
-                        _the_request.get_body() = "";
+                        _the_request.get_body().clear();
                         return;
                     }
                 }
 
                     void http_handler::read_body__from_normal_body() {
-                        _the_request.get_body() = _read_normal_body__result;
+                        _the_request.get_body().assign(_read_normal_body__result);
                     }
 
                     void http_handler::read_body__from_chunked_body() {
-                        _the_request.get_body() = _read_chunked_body__result;
+                        _the_request.get_body().assign(_read_chunked_body__result);
                     }
 
                         void http_handler::read_chunked_body__parse_hex() {

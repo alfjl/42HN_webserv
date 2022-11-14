@@ -3,6 +3,7 @@
 
 #include "../../defs.hpp"
 
+#include "../../util/binbuf.hpp"
 #include "../../util/connection.hpp"
 #include "../../util/refcounted.hpp"
 #include "../http.hpp"
@@ -55,7 +56,7 @@ namespace webserv {
 
 
         class response_fixed : public response {
-            std::string      _body;
+            webserv::util::binary_buffer  _body;
 
         public:
             response_fixed();
@@ -64,6 +65,7 @@ namespace webserv {
             void set_field(std::string name, std::string value);
             void set_field(std::string name, int value);
             void set_body(std::string body, std::string content_type);
+            void set_body(webserv::util::binary_buffer& buf, std::string content_type);
             void set_html_body(std::string body);
             void write_body(std::ostream& stream);
             void write(std::ostream& stream);

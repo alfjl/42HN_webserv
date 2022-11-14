@@ -5,6 +5,7 @@
 
 #include "../../core/instance.hpp"
 #include "../../pal/fork/fork.hpp"
+#include "../../util/binbuf.hpp"
 
 #include "../fields.hpp"
 #include "request.hpp"
@@ -13,12 +14,12 @@ namespace webserv {
     namespace http {
 
         class cgi_message {
-            std::string                  _method;
-            std::string                  _message_body;
-            std::string                  _path_translated;
-            webserv::http::fields        _fields;
-            webserv::http::request&      _request;
-            webserv::core::instance&     _current_instance;
+            std::string                   _method;
+            std::string                   _path_translated;
+            webserv::util::binary_buffer  _message_body;
+            webserv::http::fields         _fields;
+            webserv::http::request&       _request;
+            webserv::core::instance&      _current_instance;
 
         public:
             cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated);
@@ -26,7 +27,7 @@ namespace webserv {
 
             fields&                  get_fields();
             webserv::core::instance& get_current_instance();
-            std::string              get_message_body();
+            const webserv::util::binary_buffer& get_message_body();
 
             void setup_fields();
 

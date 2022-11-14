@@ -39,8 +39,8 @@ namespace webserv {
             return handler;
         }
 
-        webserv::http::writing_handler* scheduler::register_writing_connection(std::string message_body, webserv::util::connection* connection) {
-            webserv::http::writing_handler* handler = new webserv::http::writing_handler(message_body, connection);
+        webserv::http::writing_handler* scheduler::register_writing_connection(const webserv::util::binary_buffer& message, webserv::util::connection* connection) {
+            webserv::http::writing_handler* handler = new webserv::http::writing_handler(message, connection);
             handlers_to_add.push(handler);
             handler->increment_refcount();
             return handler;

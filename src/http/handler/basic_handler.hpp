@@ -5,6 +5,7 @@
 
 #include "../../core/routing/routing.hpp"
 #include "../../pal/cpp/optional.hpp"
+#include "../../util/binbuf.hpp"
 #include "../../util/state_machine.hpp"
 #include "../../util/connection.hpp"
 
@@ -20,20 +21,20 @@ namespace webserv {
         protected:
             webserv::pal::cpp::optional<char> _last_char;
             webserv::util::connection*        _connection;
-            std::string                       _buffer;
-            std::string                       _body;
+            webserv::util::binary_buffer      _buffer;
+            webserv::util::binary_buffer      _body;
             unsigned int                      _hex;
             unsigned int                      _bytes;
 
             struct connection_config          _connection_configs;
 
             unsigned int                      _read_normal_body__expected_size; 
-            std::string                       _read_normal_body__result;
+            webserv::util::binary_buffer      _read_normal_body__result;
 
-            std::string                       _read_chunked_body__result;
+            webserv::util::binary_buffer      _read_chunked_body__result;
 
-            std::string                       _read_until_rn__buffer;
-            std::string                       _read_until_rnrn__buffer;
+            webserv::util::binary_buffer      _read_until_rn__buffer;
+            webserv::util::binary_buffer      _read_until_rnrn__buffer;
 
             enum abort_mode {
                 abort_mode_continue,

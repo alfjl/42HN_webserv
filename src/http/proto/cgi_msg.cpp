@@ -8,7 +8,7 @@ namespace webserv {
 
         cgi_message::cgi_message(webserv::http::request& request, webserv::core::instance& current_instance, std::string path_translated)
          : _path_translated(path_translated), _request(request) ,_current_instance(current_instance) {
-            _message_body = request.get_body();
+            _message_body.assign(request.get_body());
 
             switch (request.get_line().get_method()) {
                 case webserv::http::http_method_head:   { _method = std::string("HEAD");   break; }
@@ -34,7 +34,7 @@ namespace webserv {
 
         webserv::core::instance& cgi_message::get_current_instance() { return _current_instance; }
 
-        std::string cgi_message::get_message_body() { return _message_body; }
+        const webserv::util::binary_buffer& cgi_message::get_message_body() { return _message_body; }
 
 
         void cgi_message::setup_fields() {
