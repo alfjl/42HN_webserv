@@ -11,7 +11,7 @@ namespace webserv {
                 bool _enabled;
 
             public:
-                optional() : _enabled(false) {}
+                optional() : _value(), _enabled(false) {}
                 optional(T value) :  _value(value), _enabled(true) {}
 
                 bool enabled() const { return _enabled; }
