@@ -3,6 +3,7 @@
 
 #include "../../defs.hpp"
 
+#include "../../util/binbuf.hpp"
 #include "../../util/connection.hpp"
 #include "basic_handler.hpp"
 
@@ -10,11 +11,11 @@ namespace webserv {
     namespace http {
 
         class writing_handler : public basic_handler {
-            std::string  _text;
-            unsigned int _index;
+            webserv::util::binary_buffer  _text;
+            unsigned int                  _index;
 
         public:
-            writing_handler(std::string text, webserv::util::connection* connection);
+            writing_handler(const webserv::util::binary_buffer& message, webserv::util::connection* connection);
             ~writing_handler();
 
             void start();

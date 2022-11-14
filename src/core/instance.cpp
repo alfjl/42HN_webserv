@@ -30,9 +30,9 @@ namespace webserv {
             return _scheduler.register_cgi_connection(connection);
         }
 
-        webserv::http::writing_handler*  instance::pass_writing(std::string message_body, int cgi_fd) {
+        webserv::http::writing_handler*  instance::pass_writing(const webserv::util::binary_buffer& message, int cgi_fd) {
             webserv::util::connection* connection = _driver.add_fd(cgi_fd);
-            return _scheduler.register_writing_connection(message_body, connection);
+            return _scheduler.register_writing_connection(message, connection);
         }
 
         bool instance::is_busy() {

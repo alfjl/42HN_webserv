@@ -2,7 +2,9 @@
 #define WEBSERV_CORE_INSTANCE_HPP
 
 #include "../defs.hpp"
+
 #include "../util/connection.hpp"
+#include "../util/binbuf.hpp"
 
 #include "driver/driver.hpp"
 #include "scheduler/scheduler.hpp"
@@ -49,7 +51,7 @@ namespace webserv {
             routing_table& get_routing_table() { return _routing_table; }
             
             void pass_connection(webserv::util::connection* new_connection);
-            webserv::http::writing_handler*  pass_writing(std::string message_body, int cgi_fd);
+            webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
             bool is_busy();

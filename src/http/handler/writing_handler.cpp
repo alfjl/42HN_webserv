@@ -4,8 +4,8 @@
 namespace webserv {
     namespace http {
 
-        writing_handler::writing_handler(std::string text, webserv::util::connection* connection) : basic_handler(connection), _text(text), _index(0) {
-
+        writing_handler::writing_handler(const webserv::util::binary_buffer& message, webserv::util::connection* connection) : basic_handler(connection), _text(), _index(0) {
+            _text.assign(message);
         }
 
         writing_handler::~writing_handler() {
@@ -22,10 +22,10 @@ namespace webserv {
             }
 
                 void writing_handler::restart() {
-                    if (!get_connection()->is_closed() && _index < _text.size()) {
-                        get_connection()->get_ostream() << _text[_index++];
+                    if (!get_connection()->is_closed() && !_text.empty()) {
+                        get_connection()->get_ostream() << _text.pop();
                         later(&writing_handler::restart);
-                        if (_index % 1000 == 0) yield();
+                        if (_index++ % 1000 == 0) yield();
                     }
                 }
 
