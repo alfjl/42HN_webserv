@@ -54,10 +54,12 @@ namespace webserv {
 
             void tick();
 
-            void on_port(int port);
+            void on_port(int port, bool should_open);
             void set_anchor(webserv::util::path path);
-            void set_names(std::string name);
+            void add_name(std::string name);
             void set_max_len(unsigned int len);
+
+            bool reacts_to_name(std::string name);
 
             void print_server_names();
         };

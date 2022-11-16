@@ -101,12 +101,22 @@ namespace webserv {
 				int port = read_int();
 				if (port <= 0)
 					parse_error("Can not open a wrong port!");
-				_instance->on_port(port);
+				instance_on_port(_instance, port);
 				count++;
 			}
 
 			if (count == 0)
 				parse_error("Empty listen statements are invalid!");
+		}
+
+		void config_parser::instance_on_port(webserv::core::instance* inst, int port) {
+			bool create = true;
+			for (std::vector<int>::const_iterator it = _ports.begin(); it != _ports.end(); ++it) {
+				if (*it == port)
+					create = false;
+			}
+			inst->on_port(port, create);
+			if (create) _ports.push_back(port);
 		}
 
 		void config_parser::parse_location(webserv::util::path anchor) {
@@ -243,8 +253,8 @@ namespace webserv {
 					has_listen = true;
 					continue ;
 				} else if (checks("server_name")) {
-					while (!checks(";")){
-                        _instance->set_names(read_word());
+					while (!checks(";")) {
+                        _instance->add_name(read_word());
 					}
 					continue ;
 				} else if (checks("anchor")) {
@@ -262,7 +272,7 @@ namespace webserv {
 			}
 
 			if (!has_listen)
-				_instance->on_port(4242);
+				instance_on_port(_instance, 4242);
 		}
 		
 		void config_parser::run() {

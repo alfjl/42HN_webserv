@@ -25,6 +25,16 @@ namespace webserv {
             return i;
         }
 
+        instance* webservs::get_instance_by_name(std::string name) {
+            std::vector<instance*>::const_iterator it = _instances.begin();
+            while (it != _instances.end()) {
+                if ((*it)->reacts_to_name(name))
+                    return *it;
+                ++it;
+            }
+            return nullptr;
+        }
+
         bool webservs::is_busy() {
             return get_scheduler().are_tasks_pending();
         }

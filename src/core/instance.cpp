@@ -47,17 +47,27 @@ namespace webserv {
             get_scheduler().tick();
         }
 
-        void instance::on_port(int port) {
+        void instance::on_port(int port, bool should_open) {
             std::cout << "Now serving on http://localhost:" << port << "/ ..." << std::endl;
-            get_driver().open_port(port, *this);
+            if (should_open) {
+                get_driver().open_port(port, *this);
+            }
         }
 
         void instance::set_anchor(webserv::util::path path) {
             get_fs().set_anchor(path);
         }
 
-        void instance::set_names(std::string name) {
+        void instance::add_name(std::string name) {
             _names.push_back(name);
+        }
+
+        bool instance::reacts_to_name(std::string name) {
+            for (std::vector<std::string>::const_iterator it = _names.begin(); it != _names.end(); ++it) {
+                if (*it == name)
+                    return true;
+            }
+            return false;
         }
 
         void instance::set_max_len(unsigned int len) {

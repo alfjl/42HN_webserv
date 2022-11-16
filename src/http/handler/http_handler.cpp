@@ -1,3 +1,6 @@
+#include "../../core/webservs.hpp"
+#include "../../core/instance.hpp"
+
 #include "http_handler.hpp"
 
 namespace webserv {
@@ -95,7 +98,13 @@ namespace webserv {
                     }
 
             void http_handler::process_request() {
-                webserv::core::routing routing(get_instance(), *this, _the_request);
+                webserv::core::instance* i = &get_instance();
+                if (_the_request.get_fields().has("Host")) {
+                    webserv::core::instance* ii = get_instance().get_webservs().get_instance_by_name(_the_request.get_fields().get_or_default("Host", ""));
+                    if (ii != nullptr)
+                        i = ii;
+                }
+                webserv::core::routing routing(*i, *this, _the_request);
                 routing.look_up();
             }
 
