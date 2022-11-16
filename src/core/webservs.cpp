@@ -2,7 +2,8 @@
 
 namespace webserv {
     namespace core {
-        webservs::webservs() : _driver(*this), _is_running(true) {
+
+        webservs::webservs() : _driver(*this), _scheduler(*this), _is_running(true) {
 
         }
 
@@ -46,6 +47,19 @@ namespace webserv {
         void webservs::interrupt() {
             _is_running = false;
         }
+
+        void webservs::pass_connection(webserv::util::connection* new_connection, instance& inst) {
+            get_scheduler().register_connection(new_connection, inst);
+        }
+
+        webserv::http::cgi_handler*  webservs::pass_cgi(int cgi_fd) {
+            webserv::util::connection* connection = get_driver().add_fd(cgi_fd);
+            return get_scheduler().register_cgi_connection(connection);
+        }
+
+        webserv::http::writing_handler*  webservs::pass_writing(const webserv::util::binary_buffer& message, int cgi_fd) {
+            webserv::util::connection* connection = get_driver().add_fd(cgi_fd);
+            return get_scheduler().register_writing_connection(message, connection);
+        }
     }
 }
-

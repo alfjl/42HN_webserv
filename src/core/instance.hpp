@@ -27,7 +27,6 @@ namespace webserv {
         class instance {
             webservs&      _webservs;
 
-            scheduler      _scheduler;
             filesystem     _fs;
             routing_table  _routing_table;
 
