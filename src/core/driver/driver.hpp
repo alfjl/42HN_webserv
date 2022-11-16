@@ -9,18 +9,19 @@
 namespace webserv {
     namespace core {
 
+        class   webservs;
         class   selector;
 
-        class driver : public instance_component {
+        class driver : public webserv::util::component<webservs> {
             webserv::pal::net::selector selector;
         
         public:
-            driver(instance& the_inst);
+            driver(webservs& the_inst);
             ~driver();
 
             webserv::util::connection* add_fd(int fd);
 
-            void open_port(int port);
+            void open_port(int port, instance& the_inst); // TODO: also takes a reference to the instance/routing table the port will be connected to
             void tick();
         };
 

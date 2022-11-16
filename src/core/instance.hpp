@@ -27,8 +27,6 @@ namespace webserv {
         class instance {
             webservs&      _webservs;
 
-            driver         _driver;
-            scheduler      _scheduler;
             filesystem     _fs;
             routing_table  _routing_table;
 
@@ -40,10 +38,10 @@ namespace webserv {
             instance(webservs& webservs);
             ~instance();
 
-            webservs&   get_webservs()  { return _webservs; }
-            driver&     get_driver()    { return _driver; }
-            scheduler&  get_scheduler() { return _scheduler; }
-            filesystem& get_fs()        { return _fs; }
+            webservs&   get_webservs();
+            driver&     get_driver();
+            scheduler&  get_scheduler();
+            filesystem& get_fs();
             
             bool get_max_len_enabled();
             webserv::pal::cpp::optional<unsigned int>& get_max_len();
@@ -53,8 +51,6 @@ namespace webserv {
             void pass_connection(webserv::util::connection* new_connection);
             webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
-
-            bool is_busy();
 
             void tick();
 

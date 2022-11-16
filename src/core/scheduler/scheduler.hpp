@@ -10,17 +10,19 @@
 #include "../routing/routing.hpp"
 
 namespace webserv {
+    class webservs;
+
     namespace http { class cgi_handler; class writing_handler; }
     
     namespace core {
 
-        class scheduler : public instance_component {
+        class scheduler : public webserv::util::component<webservs> {
         private:
             std::vector<webserv::util::state_machine_base*> handlers;
             std::queue<webserv::util::state_machine_base*> handlers_to_add;
         
         public:
-            scheduler(instance& the_inst);
+            scheduler(webservs& the_inst);
             ~scheduler();
 
             bool are_tasks_pending();
