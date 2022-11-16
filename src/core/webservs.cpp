@@ -26,10 +26,13 @@ namespace webserv {
         }
 
         instance* webservs::get_instance_by_name(std::string name) {
-            std::map<std::string, instance*>::const_iterator it = _instances_by_name.find(name);
-            if (it == _instances_by_name.end())
-                return nullptr;
-            return it->second;
+            std::vector<instance*>::const_iterator it = _instances.begin();
+            while (it != _instances.end()) {
+                if ((*it)->reacts_to_name(name))
+                    return *it;
+                ++it;
+            }
+            return nullptr;
         }
 
         bool webservs::is_busy() {

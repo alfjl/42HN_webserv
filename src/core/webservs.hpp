@@ -13,8 +13,7 @@ namespace webserv {
             driver                  _driver;
             scheduler               _scheduler;
 
-            std::vector<instance*>           _instances;
-            std::map<std::string, instance*> _instances_by_name;
+            std::vector<instance*>  _instances;
 
             bool                    _is_running;
         

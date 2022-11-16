@@ -14,6 +14,7 @@ namespace webserv {
 		class config_parser : public webserv::util::parser {
 			webserv::core::webservs& _webservs;
 			webserv::core::instance* _instance;
+			std::vector<int>         _ports;
 
 		protected:
 			void skip_whitespace();
@@ -37,6 +38,8 @@ namespace webserv {
 			void parse_location(webserv::util::path anchor);
 
 			void run_instance(webserv::util::path local_directory);
+
+			void instance_on_port(webserv::core::instance* inst, int port);
 
 		public:
 			config_parser(webserv::util::iflow& flow, webserv::core::webservs& webservs);
