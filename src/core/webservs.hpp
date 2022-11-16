@@ -3,11 +3,13 @@
 
 #include "../defs.hpp"
 #include "instance.hpp"
+#include "driver/driver.hpp"
 
 namespace webserv {
     namespace core {
 
         class webservs {
+            driver                  _driver;
             std::vector<instance*>  _instances;
             bool                    _is_running;
         
@@ -16,6 +18,8 @@ namespace webserv {
         public:
             webservs();
             ~webservs();
+
+            driver& get_driver();
 
             instance* new_instance();
 

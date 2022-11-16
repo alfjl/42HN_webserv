@@ -2,7 +2,7 @@
 
 namespace webserv {
     namespace core {
-        webservs::webservs() : _is_running(true) {
+        webservs::webservs() : _driver(*this), _is_running(true) {
 
         }
 

@@ -7,7 +7,7 @@
 namespace webserv {
     namespace core {
 
-        driver::driver(instance& the_inst) : instance_component(the_inst) {
+        driver::driver(webservs& the_inst) : component(the_inst) {
             selector.set_driver(this);
         }
 
@@ -30,7 +30,7 @@ namespace webserv {
         }
 
         void driver::tick() {
-            selector.select(get_instance().get_webservs().is_busy());
+            selector.select(get_parent().is_busy());
             selector.set_driver(this);
         }
 

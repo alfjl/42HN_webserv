@@ -1,3 +1,5 @@
+#include "webservs.hpp"
+
 #include "instance.hpp"
 
 namespace webserv {
@@ -5,13 +7,18 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance(webservs& webservs) : _webservs(webservs), _driver(*this), _scheduler(*this), _fs(*this), _max_len() {
+        instance::instance(webservs& webservs) : _webservs(webservs), _scheduler(*this), _fs(*this), _max_len() {
             
         }
 
         instance::~instance() {
             
         }
+
+        webservs&   instance::get_webservs()  { return _webservs; }
+        driver&     instance::get_driver()    { return get_webservs().get_driver(); }
+        scheduler&  instance::get_scheduler() { return _scheduler; }
+        filesystem& instance::get_fs()        { return _fs; }
 
         bool instance::get_max_len_enabled() {
             return _max_len.enabled();
@@ -26,12 +33,12 @@ namespace webserv {
         }
 
         webserv::http::cgi_handler*  instance::pass_cgi(int cgi_fd) {
-            webserv::util::connection* connection = _driver.add_fd(cgi_fd);
+            webserv::util::connection* connection = get_driver().add_fd(cgi_fd);
             return _scheduler.register_cgi_connection(connection);
         }
 
         webserv::http::writing_handler*  instance::pass_writing(const webserv::util::binary_buffer& message, int cgi_fd) {
-            webserv::util::connection* connection = _driver.add_fd(cgi_fd);
+            webserv::util::connection* connection = get_driver().add_fd(cgi_fd);
             return _scheduler.register_writing_connection(message, connection);
         }
 
