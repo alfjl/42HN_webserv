@@ -12,7 +12,10 @@ namespace webserv {
         class webservs {
             driver                  _driver;
             scheduler               _scheduler;
-            std::vector<instance*>  _instances;
+
+            std::vector<instance*>           _instances;
+            std::map<std::string, instance*> _instances_by_name;
+
             bool                    _is_running;
         
             void tick();
@@ -29,6 +32,7 @@ namespace webserv {
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
             instance* new_instance();
+            instance* get_instance_by_name(std::string name);
 
             bool is_running();
             bool is_busy();
