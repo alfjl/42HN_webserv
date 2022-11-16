@@ -3,11 +3,15 @@
 
 #include "../defs.hpp"
 #include "instance.hpp"
+#include "driver/driver.hpp"
+#include "scheduler/scheduler.hpp"
 
 namespace webserv {
     namespace core {
 
         class webservs {
+            driver                  _driver;
+            scheduler               _scheduler;
             std::vector<instance*>  _instances;
             bool                    _is_running;
         
@@ -16,6 +20,13 @@ namespace webserv {
         public:
             webservs();
             ~webservs();
+
+            driver& get_driver();
+            scheduler& get_scheduler();
+
+            void pass_connection(webserv::util::connection* new_connection, instance& inst);
+            webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);
+            webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
             instance* new_instance();
 

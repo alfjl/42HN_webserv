@@ -1,3 +1,4 @@
+#include "../webservs.hpp"
 #include "../../http/handler/cgi_handler.hpp"
 #include "../../http/handler/writing_handler.hpp"
 
@@ -7,7 +8,7 @@
 namespace webserv {
     namespace core {
 
-        scheduler::scheduler(instance& the_inst) : instance_component(the_inst) {
+        scheduler::scheduler(webservs& the_inst) : component(the_inst) {
 
         }
 

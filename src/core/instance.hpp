@@ -27,8 +27,6 @@ namespace webserv {
         class instance {
             webservs&      _webservs;
 
-            driver         _driver;
-            scheduler      _scheduler;
             filesystem     _fs;
             routing_table  _routing_table;
 
@@ -53,8 +51,6 @@ namespace webserv {
             void pass_connection(webserv::util::connection* new_connection);
             webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
-
-            bool is_busy();
 
             void tick();
 

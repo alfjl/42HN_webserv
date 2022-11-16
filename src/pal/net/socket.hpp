@@ -5,6 +5,8 @@
 #include "../../util/refcounted.hpp"
 
 namespace webserv {
+    namespace core { class instance; }
+
     namespace pal {
         namespace net {
 
@@ -42,14 +44,18 @@ namespace webserv {
             };
 
             class server_socket : public socket {
-                server_socket( const server_socket& other);
+                webserv::core::instance& _associated_instance;
+
+                server_socket(const server_socket& other);
             
             public:
-                server_socket();
-                server_socket(int _fd);
+                server_socket(webserv::core::instance& associated_instance);
+                server_socket(int _fd, webserv::core::instance& associated_instance);
                 ~server_socket();
 
                 bool is_server_socket() const;
+
+                webserv::core::instance& get_associated_instance();
 
                 data_socket*    accept();
                 void            listen();

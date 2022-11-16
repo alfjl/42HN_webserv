@@ -1,3 +1,5 @@
+#include "webservs.hpp"
+
 #include "instance.hpp"
 
 namespace webserv {
@@ -5,7 +7,7 @@ namespace webserv {
 
     namespace core {
 
-        instance::instance(webservs& webservs) : _webservs(webservs), _driver(*this), _scheduler(*this), _fs(*this), _max_len() {
+        instance::instance(webservs& webservs) : _webservs(webservs), _fs(*this), _max_len() {
             
         }
 
@@ -14,8 +16,8 @@ namespace webserv {
         }
 
         webservs&   instance::get_webservs()  { return _webservs; }
-        driver&     instance::get_driver()    { return _driver; }
-        scheduler&  instance::get_scheduler() { return _scheduler; }
+        driver&     instance::get_driver()    { return get_webservs().get_driver(); }
+        scheduler&  instance::get_scheduler() { return get_webservs().get_scheduler(); }
         filesystem& instance::get_fs()        { return _fs; }
 
         bool instance::get_max_len_enabled() {
@@ -29,21 +31,15 @@ namespace webserv {
         routing_table& instance::get_routing_table() { return _routing_table; }
 
         void instance::pass_connection(webserv::util::connection* new_connection) {
-            _scheduler.register_connection(new_connection, *this);
+            get_webservs().pass_connection(new_connection, *this);
         }
 
         webserv::http::cgi_handler*  instance::pass_cgi(int cgi_fd) {
-            webserv::util::connection* connection = _driver.add_fd(cgi_fd);
-            return _scheduler.register_cgi_connection(connection);
+            return get_webservs().pass_cgi(cgi_fd);
         }
 
         webserv::http::writing_handler*  instance::pass_writing(const webserv::util::binary_buffer& message, int cgi_fd) {
-            webserv::util::connection* connection = _driver.add_fd(cgi_fd);
-            return _scheduler.register_writing_connection(message, connection);
-        }
-
-        bool instance::is_busy() {
-            return get_scheduler().are_tasks_pending();
+            return get_webservs().pass_writing(message, cgi_fd);
         }
 
         void instance::tick() {
@@ -53,7 +49,7 @@ namespace webserv {
 
         void instance::on_port(int port) {
             std::cout << "Now serving on http://localhost:" << port << "/ ..." << std::endl;
-            get_driver().open_port(port);
+            get_driver().open_port(port, *this);
         }
 
         void instance::set_anchor(webserv::util::path path) {

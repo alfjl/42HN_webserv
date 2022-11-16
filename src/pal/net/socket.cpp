@@ -103,18 +103,20 @@ namespace webserv {
             /*
              * Constructs a new server_socket
              */
-            server_socket::server_socket() {}
+            server_socket::server_socket(webserv::core::instance& associated_instance) : _associated_instance(associated_instance) {}
             
             /*
              * Constructs a server_socket around an existing file descriptor
              */
-            server_socket::server_socket(int _fd) : socket(_fd) {}
+            server_socket::server_socket(int _fd, webserv::core::instance& associated_instance) : socket(_fd), _associated_instance(associated_instance) {}
 
             /*
              * Destructs a server_socket
              * Not much to be done, since 'fd' will be closed in parent instance 'socket'
              */
             server_socket::~server_socket() {}
+
+            webserv::core::instance& server_socket::get_associated_instance() { return _associated_instance; }
 
             /*
              * Returns true, since it is a server socket
