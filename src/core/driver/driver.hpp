@@ -21,7 +21,7 @@ namespace webserv {
 
             webserv::util::connection* add_fd(int fd);
 
-            void open_port(int port); // TODO: also takes a reference to the instance/routing table the port will be connected to
+            void open_port(int port, instance& the_inst); // TODO: also takes a reference to the instance/routing table the port will be connected to
             void tick();
         };
 

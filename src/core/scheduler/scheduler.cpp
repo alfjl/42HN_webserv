@@ -1,3 +1,4 @@
+#include "../webservs.hpp"
 #include "../../http/handler/cgi_handler.hpp"
 #include "../../http/handler/writing_handler.hpp"
 

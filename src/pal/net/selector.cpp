@@ -79,7 +79,7 @@ namespace webserv {
                     data_socket* ds = ((server_socket*) it.first)->accept();
                     webserv::util::connection* new_connection = new webserv::util::connection();
                     register_socket(ds, new_connection);
-                    the_driver->get_parent().pass_connection(new_connection, socket->get_associated_instance());
+                    the_driver->get_parent().pass_connection(new_connection, ((server_socket*) it.first)->get_associated_instance());
                 } else if (it.first->is_data_socket()) {
                     char buffer[WEBSERV_BUFFER_SIZE];
 

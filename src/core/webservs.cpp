@@ -14,6 +14,9 @@ namespace webserv {
             }
         }
 
+        driver& webservs::get_driver() { return _driver; }
+        scheduler& webservs::get_scheduler() { return _scheduler; }
+
         bool webservs::is_running() { return _is_running; }
 
         instance* webservs::new_instance() {

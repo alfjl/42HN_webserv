@@ -19,8 +19,8 @@ namespace webserv {
             return selector.add_fd(fd);
         }
 
-        void driver::open_port(int port) {
-            webserv::pal::net::server_socket* sock = new webserv::pal::net::server_socket();
+        void driver::open_port(int port, instance& inst) {
+            webserv::pal::net::server_socket* sock = new webserv::pal::net::server_socket(inst);
 
             sock->set_reuseaddr();
             sock->bind(port);
