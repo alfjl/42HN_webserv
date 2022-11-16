@@ -52,6 +52,21 @@ namespace webserv {
             }
 
             /*
+             * Returns fd
+             */
+            int socket::get_fd() const { return fd; }
+
+            /*
+             * Returns false, since it's no server socket
+             */
+            bool socket::is_server_socket() const { return false; }
+
+            /*
+             * Returns false, since it's no data socket
+             */
+            bool socket::is_data_socket()   const { return false; }
+
+            /*
              * Closes the socket, if it is still active
              * Prevents potential problems, if program tries to close
              * a previously closed socket
@@ -79,6 +94,11 @@ namespace webserv {
              */
             data_socket::~data_socket() {}
 
+            /*
+             * Returns true, since it is a data_socket
+             */
+            bool data_socket::is_data_socket() const { return true; }
+
 
             /*
              * Constructs a new server_socket
@@ -95,6 +115,11 @@ namespace webserv {
              * Not much to be done, since 'fd' will be closed in parent instance 'socket'
              */
             server_socket::~server_socket() {}
+
+            /*
+             * Returns true, since it is a server socket
+             */
+            bool server_socket::is_server_socket() const { return true; }
 
             /*
              * Accepts an incoming request

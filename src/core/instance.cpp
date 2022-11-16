@@ -13,6 +13,11 @@ namespace webserv {
             
         }
 
+        webservs&   instance::get_webservs()  { return _webservs; }
+        driver&     instance::get_driver()    { return _driver; }
+        scheduler&  instance::get_scheduler() { return _scheduler; }
+        filesystem& instance::get_fs()        { return _fs; }
+
         bool instance::get_max_len_enabled() {
             return _max_len.enabled();
         }
@@ -20,6 +25,8 @@ namespace webserv {
         webserv::pal::cpp::optional<unsigned int>& instance::get_max_len() {
             return _max_len;
         }
+
+        routing_table& instance::get_routing_table() { return _routing_table; }
 
         void instance::pass_connection(webserv::util::connection* new_connection) {
             _scheduler.register_connection(new_connection, *this);

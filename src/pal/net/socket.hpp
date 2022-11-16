@@ -22,10 +22,10 @@ namespace webserv {
                 void set_non_blocking();
                 void set_reuseaddr();
 
-                int get_fd() const { return fd; }
+                int get_fd() const;
 
-                virtual bool is_server_socket() const { return false; }
-                virtual bool is_data_socket()   const { return false; }
+                virtual bool is_server_socket() const;
+                virtual bool is_data_socket() const;
 
                 void close();
             };
@@ -38,7 +38,7 @@ namespace webserv {
                 data_socket(int _fd);
                 ~data_socket();
 
-                bool is_data_socket()   const { return true; }
+                bool is_data_socket() const;
             };
 
             class server_socket : public socket {
@@ -49,7 +49,7 @@ namespace webserv {
                 server_socket(int _fd);
                 ~server_socket();
 
-                bool is_server_socket() const { return true; }
+                bool is_server_socket() const;
 
                 data_socket*    accept();
                 void            listen();
