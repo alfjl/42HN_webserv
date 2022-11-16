@@ -40,10 +40,6 @@ namespace webserv {
             return get_webservs().pass_writing(message, cgi_fd);
         }
 
-        bool instance::is_busy() {
-            return get_scheduler().are_tasks_pending();
-        }
-
         void instance::tick() {
             get_driver().tick();
             get_scheduler().tick();

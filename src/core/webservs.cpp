@@ -26,11 +26,7 @@ namespace webserv {
         }
 
         bool webservs::is_busy() {
-            for (std::vector<instance*>::const_iterator it = _instances.begin(); it != _instances.end(); ++it) {
-                if ((*it)->is_busy())
-                    return true;
-            }
-            return false;
+            return get_scheduler().are_tasks_pending();
         }
 
         void webservs::tick() {

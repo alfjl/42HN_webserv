@@ -52,8 +52,6 @@ namespace webserv {
             webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);
             webserv::http::cgi_handler* pass_cgi(int cgi_fd);
 
-            bool is_busy();
-
             void tick();
 
             void on_port(int port);
