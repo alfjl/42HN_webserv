@@ -6,7 +6,7 @@ namespace webserv {
         /*
          * Default constructor default-initializes the members
          */
-        response::response() : _fields(), _code(418), _block_mode(block_mode_none), _is_cgi(false) {
+        response::response() : _fields(), _code(418), _code_locked(false), _block_mode(block_mode_none), _is_cgi(false) {
 
         }
 
@@ -22,7 +22,14 @@ namespace webserv {
          * Sets status code in instance
          */
         void response::set_code(unsigned int code) {
-            _code = code;
+            if (!_code_locked) {
+                _code = code;
+            }
+        }
+
+        void response::lock_code(unsigned int code) {
+            set_code(code);
+            _code_locked = true;
         }
 
         /*
@@ -99,13 +106,6 @@ namespace webserv {
          */
         response_fixed::response_fixed() : response() {
 
-        }
-
-        /*
-         * Sets status code in base class
-         */
-        void response_fixed::set_code(unsigned int code) {
-            response::set_code(code);
         }
 
         /*

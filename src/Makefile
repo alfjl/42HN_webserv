@@ -1,7 +1,5 @@
 EXECUTABLE = ./webserv
 
-# TODO: Add an actual list of sources and headers here
-
 SOURCES = $(shell find . -name "*.cpp")
 HEADERS = $(shell find . -name "*.hpp")
 
