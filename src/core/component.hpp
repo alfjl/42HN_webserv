@@ -11,9 +11,9 @@ namespace webserv {
 
         class instance_component : public webserv::util::component<instance> {
         public:
-            instance_component(instance& the_instance) : component(the_instance) {}
+            instance_component(instance& the_instance);
 
-            instance& get_instance() { return get_parent(); }
+            instance& get_instance();
         };
     }
 }

@@ -31,11 +31,7 @@ namespace webserv {
                     fd_set  write_fds;
                     fd_set  exception_fds;
 
-                    fd_sets() : highest(-1) {
-                        FD_ZERO(&read_fds);
-                        FD_ZERO(&write_fds);
-                        FD_ZERO(&exception_fds);
-                    }
+                    fd_sets();
                 };
 
                 void add_fds(fd_sets& sets);

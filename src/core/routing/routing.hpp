@@ -41,13 +41,13 @@ namespace webserv {
 
             unsigned int   get_recursion_count();
             
-            webserv::http::http_handler&    get_http_handler() { return _the_http_handler; }
-            webserv::http::request&         get_request() { return _the_request; }
-            webserv::http::response_fixed&  get_response() { return _the_response; }
+            webserv::http::http_handler&    get_http_handler();
+            webserv::http::request&         get_request();
+            webserv::http::response_fixed&  get_response();
 
-            routing_component_pages&        get_component_pages() { return _component_pages; }
-            routing_component_http&         get_component_http() { return _component_http; }
-            routing_component_cgi&          get_component_cgi()  { return _component_cgi;  }
+            routing_component_pages&        get_component_pages();
+            routing_component_http&         get_component_http();
+            routing_component_cgi&          get_component_cgi();
 
         protected:
             void handle_http_head(route& route);

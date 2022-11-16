@@ -28,6 +28,8 @@ namespace webserv {
             return _max_len;
         }
 
+        routing_table& instance::get_routing_table() { return _routing_table; }
+
         void instance::pass_connection(webserv::util::connection* new_connection) {
             get_webservs().pass_connection(new_connection, *this);
         }

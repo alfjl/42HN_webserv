@@ -10,6 +10,12 @@ namespace webserv {
     namespace pal {
         namespace net {
 
+            selector::fd_sets::fd_sets() : highest(-1) {
+                FD_ZERO(&read_fds);
+                FD_ZERO(&write_fds);
+                FD_ZERO(&exception_fds);
+            }
+
             selector::selector() {}
             selector::~selector() {
                 while (elements.size() > 0) {

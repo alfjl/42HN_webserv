@@ -24,6 +24,11 @@ namespace webserv {
 		void state_machine::fall_asleep() { set_status(state_machine_status_SLEEPING); }
 		void state_machine::wake_up() { set_status(state_machine_status_RUNNING); }
 
+        state_machine::state_function state_machine::pop() {
+            state_function f = returns[--sp];
+            return f;
+        }
+
 		void state_machine::stop() {
             sp = 0;
 			set_status(state_machine_status_STOPPED);

@@ -46,7 +46,7 @@ namespace webserv {
             bool get_max_len_enabled();
             webserv::pal::cpp::optional<unsigned int>& get_max_len();
 
-            routing_table& get_routing_table() { return _routing_table; }
+            routing_table& get_routing_table();
             
             void pass_connection(webserv::util::connection* new_connection);
             webserv::http::writing_handler*  pass_writing(const webserv::util::binary_buffer& message, int cgi_fd);

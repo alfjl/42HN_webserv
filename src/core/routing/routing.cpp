@@ -28,6 +28,13 @@ namespace webserv {
 
         unsigned int   routing::get_recursion_count() { return _recursion_count; }
 
+        webserv::http::http_handler&    routing::get_http_handler() { return _the_http_handler; }
+        webserv::http::request&         routing::get_request() { return _the_request; }
+        webserv::http::response_fixed&  routing::get_response() { return _the_response; }
+
+        routing_component_pages&        routing::get_component_pages() { return _component_pages; }
+        routing_component_http&         routing::get_component_http() { return _component_http; }
+        routing_component_cgi&          routing::get_component_cgi()  { return _component_cgi;  }
 
         void routing::handle_http_head(route& route) {
             get_component_http().handle_head(route);

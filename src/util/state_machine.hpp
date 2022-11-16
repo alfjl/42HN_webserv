@@ -59,10 +59,7 @@ namespace webserv {
                 returns[sp++] = conv(func);
             }
 
-            state_function pop() {
-                state_function f = returns[--sp];
-                return f;
-            }
+            state_function pop();
 
             void stop();
             void tick();
