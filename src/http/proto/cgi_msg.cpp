@@ -44,32 +44,14 @@ namespace webserv {
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", _request.get_line().get_uri().get_path().to_absolute_string());
             _fields.put("PATH_TRANSLATED", _path_translated);
-            _fields.put("QUERY_STRING", "");  // TODO: Needs to be parsed as well!
-            _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost ?read out request field X-Forwarded-For?
-            _fields.put("REMOTE_HOST", _request.get_fields().get_or_default("Host", "")); // Not really needed: "only if server performed such lookup"
-            // _fields.put("REMOTE_IDENT", ""); // Not really needed: "only if server performed such lookup"
-            // _fields.put("REMOTE_USER", "");
+            _fields.put("REMOTE_ADDR", _request.get_conn().get_address_s());
+            _fields.put("REMOTE_PORT", _request.get_conn().get_port());
             _fields.put("REQUEST_METHOD", _method);
-            _fields.put("SCRIPT_NAME", ""); // relative path to the program, like /cgi-bin/script.cgi. Or just leave empty?
-            _fields.put("SERVER_NAME", ""); // = get_current_instance().get_server_name()
-            _fields.put("SERVER_PORT", ""); // = get_current_instance().get_server_port()
-            _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); // 
-            _fields.put("SERVER_SOFTWARE", "Webserv/0.1"); // change to final name of our webserver
+            _fields.put("SERVER_NAME", get_current_instance().get_server_name());
+            _fields.put("SERVER_PORT", get_current_instance().get_server_port()); 
+            _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); 
+            _fields.put("SERVER_SOFTWARE", "Webserv/0.1");
         }
-
-        // void cgi_message::write_on(std::ostream& o, int infd) {
-        //     (void) infd;
-        //     for (unsigned int i = 0; i < _message_body.size(); i++) {
-        //         if (!get_current_instance().get_webservs().is_running()) {
-        //             std::cout << "Oompah!" << std::endl;
-        //         }
-
-        //         if (i % 10000 == 0) {
-        //             get_current_instance().get_driver().tick();
-        //         }
-        //         o << _message_body[i];
-        //     }
-        // }
 
         void cgi_message::put_fields_into_task(webserv::pal::fork::fork_task& task) {
             for (fields::const_iterator it = _fields.begin(); it != _fields.end(); ++it) {

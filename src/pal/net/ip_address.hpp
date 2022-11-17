@@ -10,6 +10,7 @@ namespace webserv {
                 uint32_t     _ip_32;
 
             public:
+                ip_address();
                 ip_address(uint32_t address);
                 ~ip_address();
 

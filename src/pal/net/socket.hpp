@@ -3,6 +3,7 @@
 
 #include "../../defs.hpp"
 #include "../../util/refcounted.hpp"
+#include "ip_connection.hpp"
 
 namespace webserv {
     namespace core { class instance; }
@@ -33,11 +34,13 @@ namespace webserv {
             };
 
             class data_socket : public socket {
+                webserv::pal::net::ip_connection    _ip_connection;
+
                 data_socket( const data_socket& other);
 
             public:
-                data_socket();
                 data_socket(int _fd);
+                data_socket(int _fd, webserv::pal::net::ip_connection connection);
                 ~data_socket();
 
                 bool is_data_socket() const;

@@ -38,7 +38,10 @@ namespace webserv {
         }
 
         void routing_table::add_default_error_page(unsigned int code, route* out) {
-            // TODO, FIXME, XXX: This can lead to leaks
+            if (default_error_pages[code] != nullptr) {
+                delete out;
+                return;
+            }
             default_error_pages[code] = out;
         }
 

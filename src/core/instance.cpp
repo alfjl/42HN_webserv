@@ -20,6 +20,19 @@ namespace webserv {
         scheduler&  instance::get_scheduler() { return get_webservs().get_scheduler(); }
         filesystem& instance::get_fs()        { return _fs; }
 
+        std::string instance::get_server_name() {
+            if (_names.empty())
+                return "";
+            return _names[0];
+        }
+
+        int instance::get_server_port() {
+            if (_ports.empty())
+                return 80;
+            return _ports[0];
+        }
+
+
         bool instance::get_max_len_enabled() {
             return _max_len.enabled();
         }

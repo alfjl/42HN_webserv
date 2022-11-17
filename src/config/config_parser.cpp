@@ -78,7 +78,6 @@ namespace webserv {
 		}
 
 		bool config_parser::check_path(webserv::util::path& loc) {
-			// TODO!
 			loc = read_path();
 			return true;
 		}

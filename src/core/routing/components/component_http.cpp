@@ -56,16 +56,16 @@ namespace webserv {
         void routing_component_http::process_post_body(webserv::util::path file_path) {
              std::ofstream outfile;
 
-            if (get_instance().get_fs().write(file_path/*, std::ios_base::out | std::ios_base::trunc)*/, outfile)) { // TODO: Add flags to write()
+            if (get_instance().get_fs().write(file_path, outfile)) {
                 get_request().get_body().write_to_stream(outfile);
 
                 if (!outfile.good())
-                    get_parent().get_component_pages().error_page(500); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                    get_parent().get_component_pages().error_page(500);
                 outfile.close();
 
-                get_response().set_html_body(get_request().get_body().to_string());  // XXX
+                get_response().set_body(get_request().get_body(), "text/html");
             } else {
-                get_parent().get_component_pages().error_page(500); // if file couldn't be opened/constructed TODO: check against nginx/tester
+                get_parent().get_component_pages().error_page(500);
             }
         }
 

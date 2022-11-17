@@ -2,7 +2,7 @@
 
 #include "../../pal/cpp/conv.hpp"
 
-#define EVIL 1 // TODO: Implement in comfig
+#define EVIL 1
 
 namespace webserv {
     namespace http {
@@ -87,9 +87,6 @@ namespace webserv {
         }
 
         static void parse_uri_field(request_parser& parser, fields& into) {
-            /*
-             * TODO: Check for length
-             */
             std::string key = parse_uri_field_word(parser);
             parser.expect('=');
             std::string value = parse_uri_field_word(parser);
@@ -133,7 +130,6 @@ namespace webserv {
                 std::string path;
 
                 while (parser.has_next()) {
-                    // TODO: "?p1=v1&p2=v2"
                     if (parser.check_space()) {
                         break;
                     } else if (parser.check('?')) {
@@ -164,40 +160,12 @@ namespace webserv {
 
             parse_uri(parser, line.get_uri());
 
-            // TODO: Extract until space, then: parse_uri(the_text, line.get_uri());
-
             parse_http_version(parser, line.get_version());
 
             parser.expect_http_newline();
         }
 
         std::string trim(std::string str) {
-            // std::string::iterator ite = str.end();
-            // std::string::iterator it = str.begin();
-            // std::string           new_string;      
-
-            // // von hinten durch string gehen,
-            // for (; ite != it; --ite) {
-            //     if (!isspace(ite))
-            //         break ;
-            // }
-
-            // new_string.assign(it, ite);
-
-            // return new_string;
-
-        //--------------------------
-
-            // const std::string WHITESPACE = " \n\r\t\f\v";
-
-            // size_t start = str.find_first_not_of(WHITESPACE);
-            // size_t end = str.find_last_not_of(WHITESPACE);
-        
-            // size_t len = end - start;
-            // return (str.substr(start, len + 1));
-        
-        //--------------------------
-        
             const std::string WHITESPACE = " \n\r\t\f\v";
 
             size_t start = str.find_first_not_of(WHITESPACE);

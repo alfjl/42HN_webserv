@@ -4,6 +4,10 @@ namespace webserv {
     namespace pal {
         namespace net {
 
+            ip_connection::ip_connection() : _port(), _address() {
+
+            }
+
             ip_connection::ip_connection(ip_address address, int port) : _port(port), _address(address) {
 
             }

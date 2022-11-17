@@ -51,7 +51,6 @@ namespace webserv {
             bool wait_set::wait_for(pid_t pid) {
                 if (pids.find(pid) == pids.end())
                     throw std::runtime_error("PID is not in wait_set!");
-                // TODO: Extract return code
                 if (::waitpid(pid, NULL, 0) >= 0) {
                     pids.erase(pid);
                     return true;

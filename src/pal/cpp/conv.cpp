@@ -44,7 +44,7 @@ namespace webserv {
                     if (hexchar2int(_buffer[i], h)) {
                         _hex = (_hex * 16) + h;
                     } else {
-                        if (i > 0 && i == _buffer.size() - 2) { // TODO: Properly check for invalid lines!
+                        if (i > 0 && i == _buffer.size() - 2) {
                             break;
                         } else {
                             return false;

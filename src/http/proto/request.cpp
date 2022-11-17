@@ -11,9 +11,10 @@ namespace webserv {
 
 		request::request() { _fields.case_insensitive(); }
 
-        request_line&                  request::get_line()   { return _line;   }
-        fields&                        request::get_fields() { return _fields; }
-        webserv::util::binary_buffer&  request::get_body()   { return _body; }
+        request_line&                      request::get_line()   { return _line;   }
+        fields&                            request::get_fields() { return _fields; }
+        webserv::util::binary_buffer&      request::get_body()   { return _body;   }
+        webserv::pal::net::ip_connection&  request::get_conn()   { return _conn;   }
 		
     }
 }

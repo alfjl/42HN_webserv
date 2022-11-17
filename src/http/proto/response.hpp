@@ -24,6 +24,7 @@ namespace webserv {
         class response : public webserv::util::refcounted {
             fields           _fields;
             unsigned int     _code;
+            bool             _code_locked;
         
         protected:
             enum block_mode {
@@ -45,6 +46,7 @@ namespace webserv {
             void          enable_cgi_mode();
             unsigned int  get_code() const;
             void          set_code(unsigned int code);
+            void          lock_code(unsigned int code);
             void          set_field(std::string name, std::string value);
             void          set_field(std::string name, int value);
             virtual void  write_body(std::ostream& stream) = 0;
@@ -61,7 +63,6 @@ namespace webserv {
         public:
             response_fixed();
 
-            void set_code(unsigned int code);
             void set_field(std::string name, std::string value);
             void set_field(std::string name, int value);
             void set_body(std::string body, std::string content_type);

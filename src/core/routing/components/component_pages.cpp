@@ -14,6 +14,7 @@ namespace webserv {
 
         void routing_component_pages::error_page(unsigned int code) {
             get_parent().get_request().get_line().get_method() = webserv::http::http_method_get;
+            get_response().lock_code(code);
 
             if (get_parent().get_recursion_count() >= 5)
                 error_code(get_response(), code);
