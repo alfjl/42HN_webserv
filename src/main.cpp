@@ -64,5 +64,8 @@ int main(int argc, char *argv[]) {
     banner();
     setup_interrupts();
     webserv_main(argv[1]);
+
+    system("leaks webserv");
+
     return 0;
 }

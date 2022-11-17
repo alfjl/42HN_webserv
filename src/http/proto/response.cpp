@@ -70,7 +70,6 @@ namespace webserv {
                 stream << "\r\n";
             }
 
-            // TODO: Remove these later = Should this be the name, that we get from config "server_name"?
             stream << "Server: Webserv/0.1\r\n";
         }
 

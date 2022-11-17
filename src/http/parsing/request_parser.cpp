@@ -2,7 +2,7 @@
 
 #include "../../pal/cpp/conv.hpp"
 
-#define EVIL 1 // TODO: Implement in config
+#define EVIL 1
 
 namespace webserv {
     namespace http {
@@ -87,9 +87,6 @@ namespace webserv {
         }
 
         static void parse_uri_field(request_parser& parser, fields& into) {
-            /*
-             * TODO: Check for length
-             */
             std::string key = parse_uri_field_word(parser);
             parser.expect('=');
             std::string value = parse_uri_field_word(parser);

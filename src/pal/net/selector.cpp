@@ -49,7 +49,7 @@ namespace webserv {
                         it->second->notify_about_close();
                         it->second->decrement_refcount();
                     }
-                    elements.erase(it); // TODO: call function on payload?
+                    elements.erase(it);
                 }
             }
 

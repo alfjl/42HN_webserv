@@ -137,7 +137,7 @@ namespace webserv {
                         bool basic_handler::parse_hex() {
                             unsigned int hex;
 
-                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer.to_string(), hex)) {   // XXX
+                            if (webserv::pal::cpp::hex_string_to_uint(_read_until_rn__buffer.to_string(), hex)) {
                                 if (hex == 0) {
                                     return true;
                                 } else {
@@ -157,7 +157,6 @@ namespace webserv {
                         }
 
                         void basic_handler::read_chunked_body__continue() {
-                            // TODO: Check how many bytes we have actually read
                             _read_chunked_body__result.push(_read_normal_body__result);
                             later(&basic_handler::read_chunked_body__restart);
                         }
@@ -168,12 +167,10 @@ namespace webserv {
         }
 
         void basic_handler::total_failure() {
-            std::cout << "Total failure!" << std::endl; // TODO: Still needed?
             later(&basic_handler::perform_abort);
         }
 
             void basic_handler::parse_error() {
-                // TODO: Issue an error
                 later(&basic_handler::done);
             }
 

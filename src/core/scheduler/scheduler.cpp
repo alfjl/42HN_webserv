@@ -57,7 +57,6 @@ namespace webserv {
 
             while (it != handlers.end()) {
                 if ((*it)->is_stopped()) {
-                    // TODO: Add to list of stopped handlers, remove elements later
                     webserv::util::state_machine_base* machine = *it;
                     handlers.erase(it);
                     machine->decrement_refcount();
@@ -66,6 +65,7 @@ namespace webserv {
                 (*it)->tick();
                 ++it;
             }
+        
         }
 
     }

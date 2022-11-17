@@ -52,7 +52,7 @@ namespace webserv {
             }
 
                 void cgi_handler::parse_fields() {
-                    webserv::util::stringflow   flow(_read_until_rnrn__buffer.to_string());  // XXX
+                    webserv::util::stringflow   flow(_read_until_rnrn__buffer.to_string());
                     request_parser              parser(flow);
                     _fields = webserv::http::fields();
 
@@ -162,7 +162,6 @@ namespace webserv {
 
             void cgi_handler::cat__continue() {
                 if (_last_char.enabled()) {
-                    // TODO: This just puts memory pressure on the system - maybe write it out directly?
                     _body.push(_last_char.value());
                     later(&cgi_handler::cat__restart);
                 } else {

@@ -52,7 +52,7 @@ namespace webserv {
             }
                 
                     void http_handler::parse_fields() {
-                        webserv::util::stringflow  flow(_read_until_rnrn__buffer.to_string());  // XXX
+                        webserv::util::stringflow  flow(_read_until_rnrn__buffer.to_string());
                         request_parser             parser(flow);
 
                         try {

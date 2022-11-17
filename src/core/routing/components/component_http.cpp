@@ -63,7 +63,6 @@ namespace webserv {
                     get_parent().get_component_pages().error_page(500);
                 outfile.close();
 
-                // get_response().set_html_body(get_request().get_body().to_string());  // XXX
                 get_response().set_body(get_request().get_body(), "text/html");
             } else {
                 get_parent().get_component_pages().error_page(500);

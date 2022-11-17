@@ -44,7 +44,6 @@ namespace webserv {
             _fields.put("GATEWAY_INTERFACE", "CGI/1.1");
             _fields.put("PATH_INFO", _request.get_line().get_uri().get_path().to_absolute_string());
             _fields.put("PATH_TRANSLATED", _path_translated);
-            _fields.put("QUERY_STRING", "");
             _fields.put("REMOTE_ADDR", "127.0.0.1");  // TODO: localhost ?read out request field X-Forwarded-For?
             _fields.put("REMOTE_HOST", _request.get_fields().get_or_default("Host", ""));
             // _fields.put("REMOTE_IDENT", ""); // Not really needed: "only if server performed such lookup"
@@ -53,7 +52,7 @@ namespace webserv {
             _fields.put("SCRIPT_NAME", "");
             _fields.put("SERVER_NAME", ""); // = get_current_instance().get_server_name()
             _fields.put("SERVER_PORT", ""); // = get_current_instance().get_server_port()
-            _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); // 
+            _fields.put("SERVER_PROTOCOL", "HTTP/1.1"); 
             _fields.put("SERVER_SOFTWARE", "Webserv/0.1");
         }
 
