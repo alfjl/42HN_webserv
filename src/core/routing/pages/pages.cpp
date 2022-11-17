@@ -10,7 +10,7 @@ namespace webserv {
         void error_code(webserv::http::response_fixed& response, unsigned int code) {
             std::ostringstream ost;
                 
-            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck"); // Todo: code2str for monkey island quotes!
+            std::pair<std::string, std::string> quote("Ah, there's nothing like the hot winds of Hell blowing in your face.", "- Le Chuck");
 
             std::string buf(webserv::pal::cpp::int_to_string(code));
             buf.append(" ");

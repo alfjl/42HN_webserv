@@ -38,7 +38,6 @@ namespace webserv {
                 int status = fcntl(fd, F_SETFL, O_NONBLOCK);
                 if (status == -1)
                     throw std::runtime_error("fcntl(fd, F_SETFL, O_NONBLOCK) returned an error code!");
-                // TODO: add setsockopt() for portability
             }
 
             /*

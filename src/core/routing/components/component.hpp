@@ -6,7 +6,6 @@
 
 #include "../../../http/proto/request.hpp"
 #include "../../../http/proto/response.hpp"
-// #include "../../../http/handler/http_handler.hpp"  // TODO: Circular include!
 
 namespace webserv {
     namespace http { class http_handler; }
