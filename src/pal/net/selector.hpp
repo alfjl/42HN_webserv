@@ -4,6 +4,7 @@
 #include "../../defs.hpp"
 #include "../../util/connection.hpp"
 
+#include "socket.hpp"
 #include "reactor.hpp"
 
 namespace webserv {

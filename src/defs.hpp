@@ -38,7 +38,6 @@ extern "C" {
 #include <utility>
 #include <algorithm>
 
-#include "pal/net/socket.hpp"
 
 #ifndef WEBSERV_NOEXCEPT
 #ifdef _NOEXCEPT

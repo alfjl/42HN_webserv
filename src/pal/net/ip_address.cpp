@@ -4,6 +4,10 @@ namespace webserv {
     namespace pal {
         namespace net {
 
+            ip_address::ip_address() : _ip_32() {
+
+            }
+
             ip_address::ip_address(uint32_t address) : _ip_32(address) {
 
             }

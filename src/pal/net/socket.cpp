@@ -78,14 +78,14 @@ namespace webserv {
 
 
             /*
-             * Constructs a new data_socket
-             */
-            data_socket::data_socket() {}
-
-            /*
              * Constructs a data_socket around an existing file descriptor
              */
-            data_socket::data_socket(int _fd) : socket(_fd) {}
+            data_socket::data_socket(int _fd) : socket(_fd), _ip_connection() {}
+
+            /*
+             * Constructs a data_socket around an existing file descriptor and ip_connection
+             */
+            data_socket::data_socket(int _fd, webserv::pal::net::ip_connection connection) : socket(_fd), _ip_connection(connection) {}
 
             /*
              * Destructs a data_socket
@@ -136,9 +136,8 @@ namespace webserv {
                     throw std::runtime_error("accept(...) returned an error code!");
                 ip_address client_ip(ntohl(client_addr.sin_addr.s_addr));
                 ip_connection client_connection(client_ip, ntohs(client_addr.sin_port));
-                // std::cout << "IP_address: " << client_connection.get_address_s() << " / uint32: " << client_connection.get_address_uint32() << " / PORT: " << client_connection.get_port() << std::endl;
 
-                return (new data_socket(status));
+                return (new data_socket(status, client_connection));
             }
 
             /*

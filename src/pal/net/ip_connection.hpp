@@ -13,6 +13,7 @@ namespace webserv {
                 ip_address  _address;
 
             public:
+                ip_connection();
                 ip_connection(ip_address address, int port);
                 ~ip_connection();
 

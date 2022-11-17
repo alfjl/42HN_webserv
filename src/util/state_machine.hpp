@@ -3,6 +3,8 @@
 
 #include "../defs.hpp"
 
+#include "refcounted.hpp"
+
 namespace webserv {
     namespace util {
 
