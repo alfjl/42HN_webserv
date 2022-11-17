@@ -1,6 +1,7 @@
 #ifndef WEBSERV_HTTP_REQUEST_HPP
 #define WEBSERV_HTTP_REQUEST_HPP
 
+#include "../../pal/net/ip_connection.hpp"
 #include "../../util/binbuf.hpp"
 
 #include "../uri.hpp"
@@ -57,16 +58,18 @@ namespace webserv {
          *                                       - nijakow
          */
         class request {
-            request_line                  _line;
-            fields                        _fields;
-            webserv::util::binary_buffer  _body;
+            request_line                     _line;
+            fields                           _fields;
+            webserv::util::binary_buffer     _body;
+            webserv::pal::net::ip_connection _conn;
         
         public:
             request();
 
-            request_line&                  get_line();
-            fields&                        get_fields();
-            webserv::util::binary_buffer&  get_body();
+            request_line&                      get_line();
+            fields&                            get_fields();
+            webserv::util::binary_buffer&      get_body();
+            webserv::pal::net::ip_connection&  get_conn();
         };
 
     }

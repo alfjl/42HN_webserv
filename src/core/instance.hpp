@@ -31,6 +31,7 @@ namespace webserv {
             routing_table  _routing_table;
 
             std::vector<std::string>  _names;
+            std::vector<int>  _ports;
 
             webserv::pal::cpp::optional<unsigned int>    _max_len;
 
@@ -42,6 +43,9 @@ namespace webserv {
             driver&     get_driver();
             scheduler&  get_scheduler();
             filesystem& get_fs();
+
+            std::string get_server_name();
+            int get_server_port();
             
             bool get_max_len_enabled();
             webserv::pal::cpp::optional<unsigned int>& get_max_len();
