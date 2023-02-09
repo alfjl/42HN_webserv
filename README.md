@@ -1,7 +1,7 @@
 # 42HN_webserv
 Just a friendly little WebServer
 
-The goal of the **webserv** project is to write a HTTP server in C++ 98.
+The goal of the **webserv** project is to write a HTTP server in C++98.
 
 ## Description
 
